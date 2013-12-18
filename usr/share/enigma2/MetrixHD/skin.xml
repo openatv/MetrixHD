@@ -124,9 +124,146 @@
 		<color name="ListboxMarkedAndSelectedForeground" color="metrixForeground" />
 		<color name="WindowTitleForeground" color="metrixForeground" />
 	</windowstyle>
-	<screen name="InfoBar" position="0,0" size="1283,723" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
+	<!--/* TEMPLATES -->
+	<screen name="INFOBARSTYLECLASSIC">
+		<!--/* STYLE CLASSIC -->
+		<eLabel backgroundColor="metrixBackground" name="InfoBar" position="-1,560" size="1283,160" zPosition="-10"/>
+		<widget alphatest="blend" position="39,570" render="XPicon" size="220,132" source="session.CurrentService" transparent="1" zPosition="4">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+		<widget backgroundColor="metrixBackground" font="Regular; 19" halign="right" position="1091,563" render="Label" size="75,30" source="session.Event_Now" transparent="1">
+			<convert type="EventTime">StartTime</convert>
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<eLabel backgroundColor="metrixBackground" font="Regular; 19" halign="center" position="1169,563" size="15,30" text="-" transparent="1"/>
+		<widget backgroundColor="metrixBackground" font="Regular; 19" halign="right" position="1177,563" render="Label" size="60,30" source="session.Event_Now" transparent="1">
+			<convert type="EventTime">EndTime</convert>
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget backgroundColor="metrixBackground" font="SetrixHD; 37" halign="left" noWrap="1" position="286,563" render="Label" size="805,56" source="session.Event_Now" transparent="1">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget backgroundColor="metrixBackground" font="Regular; 19" halign="right" position="1125,586" render="Label" size="113,30" source="session.Event_Now" transparent="1">
+			<convert type="EventTime">Remaining</convert>
+			<convert type="RemainingToText">InMinutes</convert>
+		</widget>
+		<widget pixmap="MetrixHD/colors/00ffffff.png" position="288,619" render="Progress" size="950,3" source="session.Event_Now" transparent="1" zPosition="7">
+			<convert type="EventTime">Progress</convert>
+		</widget>
+		<widget backgroundColor="metrixBackground" font="Regular; 24" foregroundColor="metrixAccent1" halign="right" noWrap="1" position="271,624" render="Label" size="75,43" source="session.Event_Next" transparent="1" valign="top">
+			<convert type="EventTime">StartTime</convert>
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<eLabel backgroundColor="metrixBackground" font="Regular; 24" foregroundColor="metrixAccent1" halign="center" noWrap="1" position="351,624" size="15,42" text="-" transparent="1" valign="top"/>
+		<widget backgroundColor="metrixBackground" font="Regular; 24" foregroundColor="metrixAccent1" halign="left" noWrap="1" position="371,624" render="Label" size="75,40" source="session.Event_Next" transparent="1" valign="top">
+			<convert type="EventTime">EndTime</convert>
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget backgroundColor="metrixBackground" font="Regular; 24" foregroundColor="metrixAccent1" halign="left" position="441,624" render="Label" size="670,40" source="session.Event_Next" transparent="1" valign="top">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget backgroundColor="metrixBackground" font="Regular; 18" foregroundColor="metrixAccent1" halign="right" position="1124,624" render="Label" size="113,30" source="session.Event_Next" transparent="1">
+			<convert type="EventTime">Duration</convert>
+			<convert type="ClockToText">InMinutes</convert>
+		</widget>
+		<eLabel backgroundColor="metrixAccent1" foregroundColor="metrixAccent1" name="new eLabel" position="288,620" size="950,1"/>
+		<eLabel backgroundColor="metrixAccent1" position="288,620" size="950,1"/>
+		<!-- STYLE CLASSIC */ -->
 	</screen>
-	<screen name="SecondInfoBar" position="0,0" size="1281,723" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="INFOBARCLOCKWIDGET">
+		<!--/* ClockWidget -->
+		<eLabel backgroundColor="metrixBackground2" position="962,43" size="114,66" transparent="0" zPosition="-2"/>
+		<widget backgroundColor="metrixBackground" font="SetrixHD; 60" halign="left" position="1086,31" render="Label" size="169,80" source="global.CurrentTime" transparent="1" valign="top">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget backgroundColor="metrixBackground2" font="Regular; 18" foregroundColor="metrixAccent1" halign="right" position="967,77" render="Label" size="102,29" source="global.CurrentTime" transparent="1">
+			<convert type="ClockToText">Format:%e. %b</convert>
+		</widget>
+		<widget backgroundColor="metrixBackground2" font="Regular; 18" foregroundColor="metrixAccent1" halign="right" noWrap="1" position="964,47" render="Label" size="104,30" source="global.CurrentTime" transparent="1">
+			<convert type="ClockToText">Format:%A</convert>
+		</widget>
+		<eLabel backgroundColor="metrixBackground" position="1076,40" size="158,72" transparent="0" zPosition="-1"/>
+		<!-- ClockWidget */-->
+	</screen>
+	<screen name="INFOBARCHANNELNAME">
+		<!--/* CHANNEL NAME -->
+		<widget font="SetrixHD; 140" foregroundColor="metrixPreTrans2" noWrap="1" position="35,405" render="Label" size="1252,306" source="session.CurrentService" transparent="1" valign="top" zPosition="-30">
+			<convert type="ServiceName">Name</convert>
+		</widget>
+		<!-- CHANNEL NAME */-->
+	</screen>
+	<screen name="INFOBARSERVICEINFO">
+		<!--/* SERVICE INFO -->
+		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_dolby_off.png" position="1020,670" size="64,23" zPosition="1"/>
+		<widget alphatest="blend" pixmap="MetrixHD//icons/ico_dolby_on.png" position="1020,670" render="Pixmap" size="64,23" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">IsMultichannel</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_format_off.png" position="1156,668" size="41,26" zPosition="1"/>
+		<widget alphatest="blend" pixmap="MetrixHD/icons/ico_format_on.png" position="1156,668" render="Pixmap" size="41,26" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">IsWidescreen</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_txt_off.png" position="981,669" size="28,24" zPosition="1"/>
+		<widget alphatest="blend" pixmap="MetrixHD/icons/ico_txt_on.png" position="981,669" render="Pixmap" size="28,24" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">HasTelext</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hd_off.png" position="1095,670" size="49,24" zPosition="1"/>
+		<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_on.png" position="1095,670" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">VideoWidth</convert>
+			<convert type="ValueRange">721,1980</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_crypt_off.png" position="1209,668" size="27,25" zPosition="1"/>
+		<widget alphatest="blend" pixmap="MetrixHD/icons/ico_crypt_on.png" position="1209,668" render="Pixmap" size="27,25" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">IsCrypted</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hbbtv_off.png" position="907,669" size="64,24" zPosition="1"/>
+		<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hbbtv_on.png" position="907,669" render="Pixmap" size="64,24" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">HasHBBTV</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/subtitle_off.png" position="867,671" size="30,22" zPosition="1"/>
+		<widget alphatest="blend" pixmap="MetrixHD/icons/subtitle_on.png" position="867,671" render="Pixmap" size="30,22" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">SubservicesAvailable</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<!-- SERVICE INFO */-->
+	</screen>
+	<screen name="INFOBAREPGWIDGET">
+		<!--/* EPGWidget -->
+		<widget backgroundColor="metrixBackground" font="Regular; 24" halign="right" noWrap="1" position="83,471" render="Label" size="535,33" source="session.Event_Now" transparent="1" valign="bottom" zPosition="2">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget backgroundColor="metrixBackground2" font="Regular; 21" foregroundColor="metrixAccent1" halign="left" position="640,450" render="Label" size="560,33" source="session.Event_Next" transparent="1" valign="bottom" zPosition="2">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget backgroundColor="metrixBackground" font="Regular; 21" foregroundColor="metrixForeground" halign="right" position="82,139" render="Label" size="537,317" source="session.Event_Now" transparent="1" zPosition="1">
+			<convert type="EventName">ExtendedDescription</convert>
+		</widget>
+		<widget backgroundColor="metrixBackground2" font="Regular; 20" position="640,167" render="Label" size="560,266" source="session.Event_Next" transparent="1" zPosition="1">
+			<convert type="EventName">ExtendedDescription</convert>
+		</widget>
+		<eLabel backgroundColor="metrixBackground" name="NowBG" position="65,128" size="565,376" zPosition="-1"/>
+		<eLabel backgroundColor="metrixBackground2" name="NextBG" position="630,154" size="585,329"/>
+		<!-- EPGWidget */-->
+	</screen>
+	<!-- TEMPLATES */-->
+	
+	<screen backgroundColor="transparent" flags="wfNoBorder" name="InfoBar" position="0,0" size="1283,723" title="InfoBar">
+		<panel name="INFOBARSTYLECLASSIC" />
+		<panel name="INFOBARCLOCKWIDGET" />
+		<panel name="INFOBARCHANNELNAME" />
+		<panel name="INFOBARSERVICEINFO" />
+	</screen>
+	<screen backgroundColor="transparent" flags="wfNoBorder" name="SecondInfoBar" position="0,0" size="1281,723" title="InfoBar">
+		<panel name="INFOBARSTYLECLASSIC" />
+		<panel name="INFOBARCLOCKWIDGET" />
+		<panel name="INFOBARCHANNELNAME" />
+		<panel name="INFOBARSERVICEINFO" />
+		<panel name="INFOBAREPGWIDGET" />
 	</screen>
 	<!-- EMC 1280 EMCMediaCenter -->
 	<screen name="EMCMediaCenter" position="0,0" size="1280,720" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
