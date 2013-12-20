@@ -1,5 +1,5 @@
 <skin>
-	<!-- MetrixHD v2.5 by iMaxxx | optimized for VTI 6.x -->
+	<!-- MetrixHD v2.5 by iMaxxx | optimized for openATV 4.0 -->
 	<!-- recommended to use with XPicons -->
 	<!-- You can modify and redistribute it as long as you keep this license and the original author for the skin and all of your modifications -->
 	<output id="0">
@@ -628,12 +628,12 @@
 {"template": [ MultiContentEntryText(pos = (30, 5), size = (420, 50), flags = RT_HALIGN_LEFT, text = 0) ], "fonts": [gFont("Raleway-Regular", 30)], "itemHeight": 60 }
 </convert>
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/pvmc.png" position="310,85" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">pvmc_mainmenu</convert>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/infopanel.png" position="310,85" size="256,256" alphatest="blend">
+			<convert type="MenuEntryCompare">Infopanel</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/vtimenu.png" position="310,85" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">vti_menu</convert>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/pvmc.png" position="310,85" size="256,256" alphatest="blend">
+			<convert type="MenuEntryCompare">pvmc_mainmenu</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/shutdown.png" position="310,85" size="256,256" alphatest="blend">
@@ -661,7 +661,7 @@
 			<convert type="ConditionalShowHide" />
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/timer.png" position="310,85" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">timer_edit</convert>
+			<convert type="MenuEntryCompare">timer_menu</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/media.png" position="310,85" size="256,256" alphatest="blend">
@@ -5576,207 +5576,6 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 			<convert type="ConditionalShowHide">Blink</convert>
 		</widget>
 	</screen>
-	<!-- VTI Panel Addons -->
-	<screen name="VTIMainMenu" position="0,0" size="1401,721" title="VTI Panel" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel name="" position="0,0" zPosition="-11" size="1281,50" backgroundColor="metrixBackground" foregroundColor="metrixBackground" />
-		<ePixmap position="227,139" size="330,204" pixmap="MetrixHD/menu/vti.png" alphatest="blend" />
-		<!-- /*ClockWidget-->
-		<eLabel position="208,91" zPosition="-1" size="366,300" backgroundColor="metrixBackground" transparent="0" />
-		<!-- /*ClockWidget-->
-		<widget source="global.CurrentTime" render="Label" position="415,401" size="169,80" font="Raleway-Regular; 60" halign="left" backgroundColor="metrixBackground" transparent="1" valign="top">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="265,444" size="148,29" font="Raleway-Regular; 20" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="287,415" size="125,30" font="Raleway-Regular; 20" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<eLabel position="208,410" zPosition="-1" size="368,70" backgroundColor="metrixBackground" transparent="0" />
-		<!--ClockWidget */-->
-		<widget source="title" render="Label" position="20,552" size="1273,296" font="Raleway-Regular; 150" backgroundColor="metrixPreTrans" transparent="1" foregroundColor="metrixPreTrans" valign="top" zPosition="-50" />
-		<widget source="list" render="Listbox" position="595,109" size="547,513" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
-			<convert type="TemplatedMultiContent">
-{"template": [
-							MultiContentEntryText(pos = (135, 2), size = (570, 33), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0), # index 2 is the description
-							MultiContentEntryText(pos = (135, 28), size = (570, 26), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2), # index 2 is the description
-							MultiContentEntryPixmapAlphaTest(pos = (20, 5), size = (100, 50), png = 3), # index 4 is the status pixmap
-							MultiContentEntryPixmapAlphaTest(pos = (0, 54), size = (690, 0), png = 4), # index 4 is the div pixmap
-					],
-				"fonts": [gFont("Raleway-Regular", 24),gFont("Regular", 16)],
-				"itemHeight": 60
-				}
-			</convert>
-		</widget>
-		<eLabel name="" position="606,92" zPosition="-11" size="525,547" backgroundColor="metrixBackground" foregroundColor="metrixBackground" />
-		<!-- /*Buttons-->
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="217,0" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="434,0" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="657,0" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="883,0" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="258,10" size="160,30" zPosition="1" font="Raleway-Regular; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<widget source="key_green" render="Label" position="472,10" size="160,30" zPosition="1" font="Raleway-Regular; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<widget source="key_yellow" render="Label" position="699,10" size="160,30" zPosition="1" font="Raleway-Regular; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<widget source="key_blue" render="Label" position="926,10" size="160,30" zPosition="1" font="Raleway-Regular; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<!--Button */-->
-	</screen>
-	<screen name="VTIStatusListMenu" position="0,0" size="1280,720" title="VTIStatusListMenu" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel name="" position="0,0" zPosition="-11" size="1281,50" backgroundColor="metrixBackground" foregroundColor="metrixBackground" />
-		<ePixmap position="227,139" size="330,204" pixmap="MetrixHD/menu/vti.png" alphatest="blend" />
-		<!-- /*ClockWidget-->
-		<eLabel position="208,91" zPosition="-1" size="366,300" backgroundColor="metrixBackground" transparent="0" />
-		<!-- /*ClockWidget-->
-		<widget source="global.CurrentTime" render="Label" position="415,401" size="169,80" font="Raleway-Regular; 60" halign="left" backgroundColor="metrixBackground" transparent="1" valign="top">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="265,444" size="148,29" font="Raleway-Regular; 20" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="287,415" size="125,30" font="Raleway-Regular; 20" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<eLabel position="208,410" zPosition="-1" size="368,70" backgroundColor="metrixBackground" transparent="0" />
-		<!--ClockWidget */-->
-		<widget source="title" render="Label" position="20,552" size="1273,296" font="Raleway-Regular; 150" backgroundColor="metrixPreTrans" transparent="1" foregroundColor="metrixPreTrans" valign="top" zPosition="-50" />
-		<widget source="list" render="Listbox" position="596,107" size="547,513" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
-			<convert type="TemplatedMultiContent">
-				{"template": [
-							MultiContentEntryText(pos = (55, 5), size = (480, 28), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0),
-							MultiContentEntryPixmapAlphaTest(pos = (25, 5), size = (24, 24), png = 3) # index 4 is the status pixmap
-					],
-				"fonts": [gFont("Raleway-Regular", 24),gFont("Regular", 16)],
-				"itemHeight": 40
-				}
-			</convert>
-		</widget>
-		<eLabel name="" position="606,92" zPosition="-11" size="525,547" backgroundColor="metrixBackground" foregroundColor="metrixBackground" />
-		<!-- /*Buttons-->
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="217,0" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="434,0" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="657,0" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="883,0" size="30,40" alphatest="blend" />
-		<widget name="key_red" position="258,10" size="160,30" zPosition="1" font="Raleway-Regular; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<widget name="key_green" position="472,10" size="160,30" zPosition="1" font="Raleway-Regular; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<widget name="key_yellow" position="699,10" size="160,30" zPosition="1" font="Raleway-Regular; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<widget name="key_blue" position="926,10" size="160,30" zPosition="1" font="Raleway-Regular; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<!--Button */-->
-	</screen>
-	<screen name="CamSelectMenu" position="0,0" size="1280,720" title="Select Cam and press OK to activate" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel name="" position="0,0" zPosition="-11" size="1281,50" backgroundColor="metrixBackground" foregroundColor="metrixBackground" />
-		<ePixmap position="227,139" size="330,204" pixmap="MetrixHD/menu/vti.png" alphatest="blend" />
-		<!-- /*ClockWidget-->
-		<eLabel position="208,91" zPosition="-1" size="366,300" backgroundColor="metrixBackground" transparent="0" />
-		<!-- /*ClockWidget-->
-		<widget source="global.CurrentTime" render="Label" position="415,401" size="169,80" font="Raleway-Regular; 60" halign="left" backgroundColor="metrixBackground" transparent="1" valign="top">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="265,444" size="148,29" font="Raleway-Regular; 20" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="287,415" size="125,30" font="Raleway-Regular; 20" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<eLabel position="208,410" zPosition="-1" size="368,70" backgroundColor="metrixBackground" transparent="0" />
-		<!--ClockWidget */-->
-		<widget source="title" render="Label" position="20,552" size="1273,296" font="Raleway-Regular; 150" backgroundColor="metrixPreTrans" transparent="1" foregroundColor="metrixPreTrans" valign="top" zPosition="-50" />
-		<widget source="list" render="Listbox" position="596,107" size="547,513" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
-			<convert type="TemplatedMultiContent">
-				{"template": [
-								MultiContentEntryText(pos = (55, 7), size = (500, 35), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0),
-								MultiContentEntryPixmapAlphaTest(pos = (25, 15), size = (24, 24), png = 2) # index 4 is the status pixmap
-					],
-				"fonts": [gFont("Raleway-Regular", 26),gFont("Regular", 16)],
-				"itemHeight": 60
-				}
-			</convert>
-		</widget>
-		<eLabel name="" position="606,92" zPosition="-11" size="525,547" backgroundColor="metrixBackground" foregroundColor="metrixBackground" />
-		<!-- /*Buttons-->
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="217,0" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="434,0" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="657,0" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="883,0" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="258,10" size="160,30" zPosition="1" font="Raleway-Regular; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<widget source="key_green" render="Label" position="472,10" size="160,30" zPosition="1" font="Raleway-Regular; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<widget source="key_yellow" render="Label" position="699,10" size="160,30" zPosition="1" font="Raleway-Regular; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<widget source="key_blue" render="Label" position="926,10" size="160,30" zPosition="1" font="Raleway-Regular; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<!--Button */-->
-	</screen>
-	<screen name="myPacketManager" position="0,0" size="1280,720" title="Download or delete Cam" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel name="" position="0,0" zPosition="-11" size="1281,50" backgroundColor="metrixBackground" foregroundColor="metrixBackground" />
-		<ePixmap position="227,139" size="330,204" pixmap="MetrixHD/menu/vti.png" alphatest="blend" />
-		<!-- /*ClockWidget-->
-		<eLabel position="208,91" zPosition="-1" size="366,300" backgroundColor="metrixBackground" transparent="0" />
-		<!-- /*ClockWidget-->
-		<widget source="global.CurrentTime" render="Label" position="415,401" size="169,80" font="Raleway-Regular; 60" halign="left" backgroundColor="metrixBackground" transparent="1" valign="top">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="265,444" size="148,29" font="Raleway-Regular; 20" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="287,415" size="125,30" font="Raleway-Regular; 20" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<eLabel position="208,410" zPosition="-1" size="368,70" backgroundColor="metrixBackground" transparent="0" />
-		<!--ClockWidget */-->
-		<widget source="title" render="Label" position="20,552" size="1273,296" font="Raleway-Regular; 150" backgroundColor="metrixPreTrans" transparent="1" foregroundColor="metrixPreTrans" valign="top" zPosition="-50" />
-		<widget source="list" render="Listbox" position="596,107" size="530,520" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
-			<convert type="TemplatedMultiContent">
-				{"template": [
-						MultiContentEntryPixmapAlphaTest(pos = (25, 5), size = (48, 48), png = 4), # index 4 is the status pixmap
-						MultiContentEntryText(pos = (100, 5), size = (590, 28), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2), # index 0 is the name
-						MultiContentEntryText(pos = (110, 35), size = (590, 20), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0), # index 2 is the description
-						MultiContentEntryPixmapAlphaTest(pos = (5, 58), size = (0, 0), png = 5), # index 4 is the div pixmap
-					],
-				"fonts": [gFont("Raleway-Regular", 22),gFont("Regular", 16)],
-				"itemHeight": 60
-				}
-			</convert>
-		</widget>
-		<eLabel name="" position="606,92" zPosition="-11" size="525,547" backgroundColor="metrixBackground" foregroundColor="metrixBackground" />
-		<!-- /*Buttons-->
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="217,0" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="434,0" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="258,10" size="160,30" zPosition="1" font="Raleway-Regular; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<widget source="key_green" render="Label" position="472,10" size="160,30" zPosition="1" font="Raleway-Regular; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<!--Button */-->
-	</screen>
-	<screen name="VTISubMenu" position="0,0" size="1280,720" title="VTI Sub Menu" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel name="" position="0,0" zPosition="-11" size="1281,50" backgroundColor="metrixBackground" foregroundColor="metrixBackground" />
-		<ePixmap position="227,139" size="330,204" pixmap="MetrixHD/menu/vti.png" alphatest="blend" />
-		<!-- /*ClockWidget-->
-		<eLabel position="208,91" zPosition="-1" size="366,300" backgroundColor="metrixBackground" transparent="0" />
-		<!-- /*ClockWidget-->
-		<widget source="global.CurrentTime" render="Label" position="415,401" size="169,80" font="Raleway-Regular; 60" halign="left" backgroundColor="metrixBackground" transparent="1" valign="top">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="265,444" size="148,29" font="Raleway-Regular; 20" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="287,415" size="125,30" font="Raleway-Regular; 20" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<eLabel position="208,410" zPosition="-1" size="368,70" backgroundColor="metrixBackground" transparent="0" />
-		<!--ClockWidget */-->
-		<widget source="title" render="Label" position="20,552" size="1273,296" font="Raleway-Regular; 150" backgroundColor="metrixPreTrans" transparent="1" foregroundColor="metrixPreTrans" valign="top" zPosition="-50" />
-		<widget source="list" render="Listbox" position="596,107" size="547,520" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
-			<convert type="TemplatedMultiContent">
-				{"template": [
-							MultiContentEntryPixmapAlphaTest(pos = (20, 2), size = (44, 44), png = 3), # index 4 is the status pixmap
-							MultiContentEntryText(pos = (72, 2), size = (460, 24), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 0 is the MenuText,
-							MultiContentEntryText(pos = (72, 26), size = (460, 20), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2), # index 0 is the MenuText,
-					],
-				"fonts": [gFont("Raleway-Regular", 22),gFont("Regular", 16)],
-				"itemHeight": 48
-				}
-			</convert>
-		</widget>
-		<eLabel name="" position="606,92" zPosition="-11" size="525,547" backgroundColor="metrixBackground" foregroundColor="metrixBackground" />
-		<!-- /*Buttons-->
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="217,0" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="258,10" size="160,30" zPosition="1" font="Raleway-Regular; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<!--Button */-->
-	</screen>
 	<screen name="BitrateViewer" position="0,0" size="1280,720" title="VTI Bitrate Viewer" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="metrixBackground" />
 		<ePixmap position="869,265" size="330,204" pixmap="MetrixHD/menu/vti.png" alphatest="blend" transparent="1" />
@@ -5810,52 +5609,6 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget name="acur" position="335,240" size="80,20" font="Raleway-Regular;20" backgroundColor="metrixBackground" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<widget name="cancel" position="105,637" size="240,24" zPosition="1" font="Raleway-Regular;20" backgroundColor="metrixBackground" transparent="1" />
-	</screen>
-	<screen name="VTIPasswdScreen" position="0,0" size="1280,720" title="Change root password" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="metrixBackground" />
-		<ePixmap position="840,390" size="330,204" pixmap="MetrixHD/menu/vti.png" alphatest="blend" transparent="1" />
-		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="Raleway-Regular; 50" halign="left" backgroundColor="metrixBackground" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="metrixBackground" transparent="1" foregroundColor="metrixAccent1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget source="title" render="Label" position="70,47" size="800,43" font="Raleway-Regular;32" backgroundColor="metrixBackground" transparent="1" />
-		<widget name="passwd" position="70,150" size="690,30" scrollbarMode="showOnDemand" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="650,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="940,635" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="105,637" size="240,24" zPosition="1" font="Raleway-Regular;20" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<widget source="key_green" render="Label" position="395,637" size="240,24" zPosition="1" font="Raleway-Regular;20" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<widget source="key_yellow" render="Label" position="685,637" size="240,24" zPosition="1" font="Raleway-Regular;20" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<widget source="key_blue" render="Label" position="975,637" size="240,24" zPosition="1" font="Raleway-Regular;20" halign="left" backgroundColor="metrixBackground" transparent="1" />
-	</screen>
-	<screen name="VtiNews" position="0,0" size="1280,720" title="VTI News" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="metrixBackground" />
-		<ePixmap position="835,390" size="330,204" pixmap="MetrixHD/menu/vti.png" alphatest="blend" transparent="1" />
-		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="Raleway-Regular; 50" halign="left" backgroundColor="metrixBackground" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="metrixBackground" transparent="1" foregroundColor="metrixAccent1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget source="title" render="Label" position="70,47" size="800,43" font="Raleway-Regular;32" backgroundColor="metrixBackground" transparent="1" />
-		<widget name="newsVTI" position="70,120" size="690,480" font="Raleway-Regular;20" halign="center" backgroundColor="metrixBackground" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="650,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="940,635" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="105,637" size="240,24" zPosition="1" font="Raleway-Regular;20" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<widget source="key_green" render="Label" position="395,637" size="240,24" zPosition="1" font="Raleway-Regular;20" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<widget source="key_yellow" render="Label" position="685,637" size="240,24" zPosition="1" font="Raleway-Regular;20" halign="left" backgroundColor="metrixBackground" transparent="1" />
-		<widget source="key_blue" render="Label" position="975,637" size="240,24" zPosition="1" font="Raleway-Regular;20" halign="left" backgroundColor="metrixBackground" transparent="1" />
 	</screen>
 	<screen name="BackupSuite" position="0,0" size="1280,720" title="VTI Sub Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="metrixBackground" />
