@@ -678,6 +678,21 @@
 		<widget name="Mlist" position="280,118" size="435,415" zPosition="1" scrollbarMode="showOnDemand" transparent="1" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" />
 		<widget name="label1" position="265,608" size="700,50" font="Regular;40" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1" />
 	</screen>
+	<screen name="CCcamInfoMain" position="0,0" size="1280,720" title="CCcam Info" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="250,25" zPosition="-10" size="731,650" backgroundColor="metrixBackground" />
+		<widget source="global.CurrentTime" render="Label" position="813,28" size="140,60" font="Raleway-Regular; 50" halign="left" backgroundColor="metrixBackground" transparent="1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="641,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="metrixBackground" transparent="1" foregroundColor="metrixAccent1">
+			<convert type="ClockToText">Format:%A</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="641,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
+			<convert type="ClockToText">Format:%e. %b</convert>
+		</widget>
+		<eLabel text="CCcam Info" position="280,47" size="338,43" font="Raleway-Regular;35" backgroundColor="metrixBackground" transparent="1" />
+		<eLabel position="280,100" size="670,2" backgroundColor="metrixAccent1" />
+		<widget name="menu" position="280,118" size="503,450" font="Regular;17" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="0"/>
+	</screen>
 	<!-- EMC 1280 EMCMediaCenter -->
 	<screen name="EMCMediaCenter" position="0,0" size="1280,720" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
 	<eLabel position="0,570" zPosition="-2" size="1281,150" backgroundColor="metrixBackground" />
