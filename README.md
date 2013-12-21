@@ -17,7 +17,7 @@ Infobar
 =========
 
 SecondInfobar
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/secondinfobar.png)
+![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/secondinfobar1.png)
 
 =========
 
