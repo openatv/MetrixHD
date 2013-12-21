@@ -600,6 +600,68 @@
 		</widget>
 		<widget name="lab1" zPosition="2" position="170,160" size="600,40" font="Raleway-Regular;22" halign="center" backgroundColor="metrixBackground" transparent="1" />
 	</screen>
+	<screen name="SoftcamPanel" position="0,0" size="1280,720" title="Softcam Panel" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="200,25" zPosition="-10" size="831,650" backgroundColor="metrixBackground" />
+		<widget source="global.CurrentTime" render="Label" position="863,28" size="140,60" font="Raleway-Regular; 50" halign="left" backgroundColor="metrixBackground" transparent="1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="691,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="metrixBackground" transparent="1" foregroundColor="metrixAccent1">
+			<convert type="ClockToText">Format:%A</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="691,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
+			<convert type="ClockToText">Format:%e. %b</convert>
+		</widget>
+		<eLabel text="Softcam Panel" position="230,47" size="338,43" font="Raleway-Regular;35" backgroundColor="metrixBackground" transparent="1" />
+		<eLabel position="230,100" size="770,2" backgroundColor="metrixAccent1" />
+		<widget name="config" position="230,109" size="500,100" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="metrixBackground" zPosition="1" transparent="1" />
+		<widget font="Regular;22" name="enigma2" position="239,120" size="185,25" />
+		<eLabel backgroundColor="grey" position="230,220" size="770,2" zPosition="0" />
+		<widget font="Regular; 20" name="actifcam" position="230,241" size="380,32" />
+		<widget font="Regular; 20" name="actifcam2" position="620,241" size="380,32" />
+		<eLabel backgroundColor="grey" position="230,294" size="770,2" zPosition="0" />
+		<widget font="Regular;20" name="ecminfo" position="230,310" size="764,307" />
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="212,633" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="416,633" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="620,633" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="824,633" size="30,40" alphatest="blend" />
+		<widget name="key_red" position="252,633" size="160,26" zPosition="1" font="Raleway-Regular; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="key_green" position="456,633" size="160,26" zPosition="1" font="Raleway-Regular;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="key_yellow" position="660,633" size="160,26" zPosition="1" font="Raleway-Regular;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="key_blue" position="864,633" size="160,26" zPosition="1" font="Raleway-Regular;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
+	</screen>
+  <screen name="ShowSoftcamPackages" position="0,0" size="1280,720" title="Install Softcams" flags="wfNoBorder" backgroundColor="transparent">
+  <eLabel position="200,25" zPosition="-10" size="831,650" backgroundColor="metrixBackground" />
+  <widget source="global.CurrentTime" render="Label" position="863,28" size="140,60" font="Raleway-Regular; 50" halign="left" backgroundColor="metrixBackground" transparent="1">
+    <convert type="ClockToText">Default</convert>
+  </widget>
+  <widget source="global.CurrentTime" render="Label" position="691,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="metrixBackground" transparent="1" foregroundColor="metrixAccent1">
+    <convert type="ClockToText">Format:%A</convert>
+  </widget>
+  <widget source="global.CurrentTime" render="Label" position="691,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
+    <convert type="ClockToText">Format:%e. %b</convert>
+  </widget>
+  <eLabel text="Install Softcams" position="230,47" size="338,43" font="Raleway-Regular;35" backgroundColor="metrixBackground" transparent="1" />
+  <eLabel position="230,100" size="770,2" backgroundColor="metrixAccent1" />
+  <widget source="list" render="Listbox" position="230,126" size="780,480" scrollbarMode="showOnDemand" selectionPixmap="DMConcinnity-HD/menu/sel780x60.png" transparent="1" backgroundColorSelected="grey" foregroundColorSelected="black">
+      <convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryPixmapAlphaTest(pos = (18, 5), size = (48, 48), png = 4), # index 4 is the status pixmap
+						MultiContentEntryText(pos = (90, 5), size = (650, 28), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
+						MultiContentEntryText(pos = (100, 35), size = (650, 20), font=1, flags = RT_HALIGN_LEFT, text = 2, color=0x8A8787, color_sel=0x8A8787), # index 2 is the description
+						MultiContentEntryPixmapAlphaTest(pos = (5, 58), size = (0, 0), png = 5), # index 4 is the div pixmap
+					],
+				"fonts": [gFont("Regular", 22),gFont("Regular", 16)],
+				"itemHeight": 60
+				}
+			</convert>
+    </widget>
+    <ePixmap pixmap="MetrixHD/buttons/key_red.png" position="212,633" size="30,40" alphatest="blend" />
+    <ePixmap pixmap="MetrixHD/buttons/key_green.png" position="416,633" size="30,40" alphatest="blend" />
+    <ePixmap pixmap="MetrixHD/buttons/key_ok.png" position="800,633" size="30,40" alphatest="blend" />
+    <widget source="key_red" render="Label" position="252,633" size="160,26" zPosition="1" font="Raleway-Regular; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
+    <widget source="key_green" render="Label" position="456,633" size="200,26" zPosition="1" font="Raleway-Regular;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
+    <widget source="key_ok" render="Label" position="837,633" size="180,26" zPosition="1" font="Raleway-Regular;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
+  </screen>
 	<!-- EMC 1280 EMCMediaCenter -->
 	<screen name="EMCMediaCenter" position="0,0" size="1280,720" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
 	<eLabel position="0,570" zPosition="-2" size="1281,150" backgroundColor="metrixBackground" />
