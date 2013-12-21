@@ -7,7 +7,7 @@ MyMetrixHD is created by iMaxxx http://open-store.net
 
 
 Mainmenu
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO//mainmenu.png)
+![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/mainmenu.png)
 
 =========
 
@@ -17,9 +17,9 @@ Infobar
 =========
 
 SecondInfobar
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/secondinfobar1.png)
+![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/secondinfobar.png)
 
 =========
 
 Channellist
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO//channellist.png)
+![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/channellist.png)
