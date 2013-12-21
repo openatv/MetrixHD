@@ -6461,4 +6461,59 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<widget name="current_entry" position="70,585" size="710,40" font="Raleway-Regular;18" halign="center" valign="center" />
 		<ePixmap position="891,239" size="256,256" zPosition="2" pixmap="MetrixHD/icons/led.png" transparent="1" alphatest="blend" />
 	</screen>
+	  <screen name="QuickMenu" position="0,0" size="1280,720" title="Quick Launch Menu" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="40,5" zPosition="-10" size="1205,700" backgroundColor="metrixBackground" />
+		<widget source="global.CurrentTime" render="Label" position="1103,8" size="140,60" font="Raleway-Regular; 50" halign="left" backgroundColor="metrixBackground" transparent="1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="931,17" size="161,27" font="Regular; 15" halign="right" backgroundColor="metrixBackground" transparent="1" foregroundColor="metrixAccent1">
+			<convert type="ClockToText">Format:%A</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="931,44" size="161,29" font="Regular; 16" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
+			<convert type="ClockToText">Format:%e. %b</convert>
+		</widget>
+		<eLabel text="Quick Launch Menu" position="70,27" size="800,43" font="Raleway-Regular;35" backgroundColor="metrixBackground" transparent="1" /> 
+		<eLabel position="70,80" size="1170,2" backgroundColor="metrixAccent1" />
+		<widget name="list" position="70,90" size="370,460" itemHeight="50" transparent="1" />
+		<eLabel position="438,90" size="2,460" backgroundColor="metrixAccent1" />
+		<widget name="sublist" position="442,90" size="300,400" backgroundColor="black" selectionPixmap="DMConcinnity-HD/menu/sel800x50.png" itemHeight="50" />
+		<widget source="session.VideoPicture" render="Pig" position="780,90" size="450,250" backgroundColor="transparent" zPosition="1" />
+		<widget name="description" position="42,560" size="1200,90" zPosition="1" font="Regular;22" halign="center" backgroundColor="metrixAccent1" transparent="1" />
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,655" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,655" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="650,655" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="940,655" size="30,40" alphatest="blend" />
+		<widget name="key_red" position="105,657" size="240,24" zPosition="1" font="Raleway-Regular;20" halign="left" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="key_green" position="395,657" size="240,24" zPosition="1" font="Raleway-Regular;20" halign="left" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="key_yellow" position="685,657" size="240,24" zPosition="1" font="Raleway-Regular;20" halign="left" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="key_blue" position="975,657" size="240,24" zPosition="1" font="Raleway-Regular;20" halign="left" backgroundColor="metrixBackground" transparent="1" />
+	</screen>
+	<screen name="QuickMenuDevices" position="0,0" size="1280,720" title="Devices" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="140,25" zPosition="-10" size="1005,650" backgroundColor="metrixBackground" />
+		<widget source="global.CurrentTime" render="Label" position="1003,28" size="140,60" font="Raleway-Regular; 50" halign="left" backgroundColor="metrixBackground" transparent="1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="831,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="metrixBackground" transparent="1" foregroundColor="metrixAccent1">
+			<convert type="ClockToText">Format:%A</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="831,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
+			<convert type="ClockToText">Format:%e. %b</convert>
+		</widget>
+		<eLabel text="Devices" position="170,47" size="600,43" font="Raleway-Regular;35" backgroundColor="metrixBackground" transparent="1" /> 
+		<eLabel position="170,100" size="970,2" backgroundColor="metrixAccent1" />
+		<eLabel text="Available Devices" position="170,112" size="540,43" font="Raleway-Regular;35" halign="left" foregroundColor="metrixAccent1" backgroundColor="metrixBackground" transparent="1" />
+		<widget source="devicelist" render="Listbox" position="170,207" size="780,450" font="Raleway-Regular;16" scrollbarMode="showOnDemand" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+				MultiContentEntryText(pos = (90, 0), size = (600, 30), font=0, text = 0),
+				MultiContentEntryText(pos = (110, 30), size = (600, 50), font=1, flags = RT_VALIGN_TOP, text = 1),
+				MultiContentEntryPixmapAlphaBlend(pos = (0, 0), size = (80, 80), png = 2),
+				],
+				"fonts": [gFont("Regular", 24),gFont("Regular", 20)],
+				"itemHeight": 85
+				}
+			</convert>
+		</widget>
+		<widget name="lab1" zPosition="2" position="170,160" size="600,40" font="Raleway-Regular;22" halign="center" backgroundColor="metrixBackground" transparent="1" />
+	</screen>
 </skin>
