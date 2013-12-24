@@ -11,6 +11,11 @@ Mainmenu
 
 =========
 
+Quickmenu
+![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/quickmenu.png)
+
+=========
+
 Infobar
 ![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/infobar.png)
 
