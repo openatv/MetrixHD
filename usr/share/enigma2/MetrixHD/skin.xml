@@ -305,6 +305,9 @@
 		</screen>
 		<screen name="INFOBARWEATHERWIDGET">
 			<!-- /* WEATHER WIDGET  -->
+			<!-- /* NEEDED WITHOUT OPENSTORE INSTALLED  -->
+			<widget render="MetrixHDWeatherUpdaterStandalone" source="global.CurrentTime" position="0,0" size="0,0" transparent="1" />
+			<!--  NEEDED WITHOUT OPENSTORE INSTALLED */ -->
 			<eLabel backgroundColor="metrixBackground" position="46,40" size="213,70"/>
 			<widget backgroundColor="metrixBackground" font="SetrixHD; 55" foregroundColor="metrixForeground" halign="right" noWrap="1" position="45,40" render="Label" size="78,70" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
 				<convert type="MetrixWeather">currentWeatherTemp</convert>
