@@ -3,7 +3,7 @@ MetrixHD
 
 ##**openATV 4.0 default skin**
 
-MyMetrixHD is created by iMaxxx http://open-store.net
+MetrixHD is created by iMaxxx http://open-store.net
 
 ##![alt text](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/openstore.png "Logo openStore http://www.open-store.net")
 
