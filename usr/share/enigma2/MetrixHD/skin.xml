@@ -303,6 +303,36 @@
 			</widget>
 			<!-- ClockWidget */-->
 		</screen>
+		<screen name="INFOBARWEATHERWIDGET">
+			<!-- /* WEATHER WIDGET  -->
+			<eLabel backgroundColor="metrixBackground" position="46,40" size="213,70"/>
+			<widget backgroundColor="metrixBackground" font="SetrixHD; 55" foregroundColor="metrixForeground" halign="right" noWrap="1" position="45,40" render="Label" size="78,70" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
+				<convert type="MetrixWeather">currentWeatherTemp</convert>
+			</widget>
+			<widget backgroundColor="metrixBackground" font="Regular; 17" foregroundColor="metrixForeground" halign="left" noWrap="1" position="123,49" render="Label" size="30,26" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
+				<convert type="MetrixWeather">CF</convert>
+			</widget>
+			<widget backgroundColor="metrixBackground" font="Regular; 16" foregroundColor="metrixAccent1" halign="right" noWrap="1" position="210,50" render="Label" size="39,26" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
+				<convert type="MetrixWeather">forecastTodayTempMax</convert>
+			</widget>
+			<widget backgroundColor="metrixBackground" font="Regular; 16" foregroundColor="metrixAccent2" halign="right" noWrap="1" position="210,76" render="Label" size="39,26" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
+				<convert type="MetrixWeather">forecastTodayTempMin</convert>
+			</widget>
+			<widget backgroundColor="metrixBackground2" font="Meteo; 45" foregroundColor="metrixAccent1" halign="left" noWrap="1" position="265,50" render="Label" size="50,50" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
+				<convert type="MetrixWeather">forecastTomorrowCode</convert>
+			</widget>
+			<widget backgroundColor="metrixBackground2" font="Regular; 16" foregroundColor="metrixAccent1" halign="right" noWrap="1" position="317,50" render="Label" size="39,26" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
+				<convert type="MetrixWeather">forecastTomorrowTempMax</convert>
+			</widget>
+			<widget backgroundColor="metrixBackground2" font="Regular; 16" foregroundColor="metrixAccent2" halign="right" noWrap="1" position="317,76" render="Label" size="39,26" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
+				<convert type="MetrixWeather">forecastTomorrowTempMin</convert>
+			</widget>
+			<eLabel backgroundColor="metrixBackground2" position="259,43" size="105,65"/>
+			<widget backgroundColor="metrixBackground" font="Meteo; 45" halign="left" noWrap="1" position="156,50" render="Label" size="50,50" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
+				<convert type="MetrixWeather">forecastTodayCode</convert>
+			</widget>
+			<!--  WEATHER WIDGET */ -->
+		</screen>
 		<screen name="INFOBARCHANNELNAME">
 			<!--/* CHANNEL NAME -->
 			<widget font="SetrixHD;80" foregroundColor="metrixPreTrans" noWrap="1" position="35,470" render="Label" size="1252,90" source="session.CurrentService" transparent="1" valign="center" zPosition="-30">
@@ -360,9 +390,9 @@
 			</widget>
 			<!-- TUNERTYPE */-->
 			<!-- /* SERVICEINFO -->
-    <widget source="session.CurrentService" render="Label" position="475,65" zPosition="1" size="300, 15" font="Regular; 15" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1" halign="left">
-      <convert type="MetrixHDSmartInfo">ExpertInfo</convert>
-    </widget>
+			<widget source="session.CurrentService" render="Label" position="475,65" zPosition="1" size="300, 15" font="Regular; 15" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1" halign="left">
+				<convert type="MetrixHDSmartInfo">ExpertInfo</convert>
+			</widget>
 			<!-- SERVICEINFO */-->
 			<!-- /* AGC -->
 			<eLabel text="AGC:" position="386,85" size="35,15" font="Regular; 15" halign="left" valign="center" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1" />
@@ -573,6 +603,23 @@
 			<eLabel backgroundColor="metrixBackground2" name="NextBG" position="630,154" size="585,329"/>
 			<!-- EPGWidget */-->
 		</screen>
+		<screen name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720">
+			<eLabel position="51,51" zPosition="-10" size="340,525" backgroundColor="metrixBackground2" />
+			<eLabel position="416,51" zPosition="-1" size="810,619" backgroundColor="metrixBackground" />
+			<widget source="Title" render="Label" position="425,55" size="790,45" font="SetrixHD; 29" backgroundColor="metrixBackground" transparent="1" />
+			<!-- /*ClockWidget-->
+			<widget source="global.CurrentTime" render="Label" position="239,590" size="169,80" font="SetrixHD; 60" halign="left" backgroundColor="metrixBackground" transparent="1" valign="top">
+				<convert type="ClockToText">Default</convert>
+			</widget>
+			<widget source="global.CurrentTime" render="Label" position="83,633" size="148,29" font="SetrixHD; 20" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
+				<convert type="ClockToText">Format:%e. %b</convert>
+			</widget>
+			<widget source="global.CurrentTime" render="Label" position="107,602" size="125,30" font="SetrixHD; 20" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
+				<convert type="ClockToText">Format:%A</convert>
+			</widget>
+			<eLabel position="51,599" zPosition="-1" size="340,70" backgroundColor="metrixBackground" transparent="0" />
+		<!--ClockWidget */-->
+		</screen>
 		<screen name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70">
 			<!-- /*ClockWidget-->
 			<eLabel position="265,410" zPosition="-1" size="340,70" backgroundColor="metrixBackground" transparent="0" />
@@ -592,6 +639,7 @@
 	<screen backgroundColor="transparent" flags="wfNoBorder" name="InfoBar" position="0,0" size="1280,723" title="InfoBar">
 		<panel name="INFOBARSTYLEMODERN" />
 		<panel name="INFOBARCLOCKWIDGET" />
+		<panel name="INFOBARWEATHERWIDGET" />
 		<panel name="INFOBARCHANNELNAME" />
 		<panel name="INFOBARSERVICEINFO" />
 		<panel name="INFOBARRECORDSTATE" />
@@ -604,6 +652,7 @@
 	<screen backgroundColor="transparent" flags="wfNoBorder" name="SecondInfoBar" position="0,0" size="1280,723" title="InfoBar">
 		<panel name="INFOBARSTYLEMODERN" />
 		<panel name="INFOBARCLOCKWIDGET" />
+		<panel name="INFOBARWEATHERWIDGET" />
 		<panel name="INFOBARSERVICEINFO" />
 		<panel name="INFOBARRECORDSTATE" />
 		<panel name="INFOBARRESOLUTION" />
@@ -613,51 +662,68 @@
 		<panel name="INFOBAREXTENDEDINFO" />
 		<panel name="INFOBAREPGWIDGET" />
 	</screen>
-	<screen name="ChannelSelection" position="1,1" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="rgyb-buttons_screen_pos416_51_size_810_619" />
-		<panel name="rgyb-keys_screen_pos416_51_size_810_619" />
-		<ePixmap name="new ePixmap" position="1125,630" size="81,40" pixmap="MetrixHD/buttons/key_menu.png" />
-		<eLabel position="51,51" zPosition="-10" size="340,525" backgroundColor="metrixBackground" />
-		<eLabel position="416,51" zPosition="-1" size="810,619" backgroundColor="metrixBackground" />
+	<!-- CHANNELSELECTION VARIANT 1 BIG PICON 1 NEXT EVENT
+	<screen name="ChannelSelection" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Channel Selection" position="10,552" size="1273,296" font="SetrixHD; 150" backgroundColor="metrixPreTrans2" transparent="1" foregroundColor="metrixPreTrans2" valign="top" zPosition="-20" />
-		<widget source="Title" render="Label" position="425,55" size="790,45" font="SetrixHD; 29" backgroundColor="metrixBackground" transparent="1" />
-		<eLabel position="117,260" size="206,1" backgroundColor="metrixAccent1" foregroundColor="metrixAccent1" />
-		<widget name="list" position="423,107" size="787,510" scrollbarMode="showNever" foregroundColor="metrixAccent2" colorServiceDescription="metrixAccent1" colorServiceDescriptionSelected="metrixForeground" colorEventProgressbarBorder="metrixSelection" colorEventProgressbarBorderSelected="metrixForeground" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="SetrixHD;26" serviceNameFont="SetrixHD;26" serviceInfoFont="Regular;22" transparent="1" backgroundColor="metrixBackground" itemHeight="50" />
+		<widget name="list" position="423,107" size="787,510" scrollbarMode="showNever" foregroundColor="metrixForeground" colorServiceDescription="metrixAccent1" colorServiceDescriptionSelected="metrixForeground" colorEventProgressbarBorder="metrixSelection" colorEventProgressbarBorderSelected="metrixForeground" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="SetrixHD;26" serviceNameFont="SetrixHD;26" serviceInfoFont="Regular;22" transparent="1" backgroundColor="metrixBackground" itemHeight="50" />
 		<widget alphatest="blend" position="112,61" render="XPicon" size="220,132" source="ServiceEvent" transparent="1" zPosition="1">
 			<convert type="MetrixRefString">ServicelistRef</convert>
 		</widget>
-		<widget source="ServiceEvent" render="Label" position="62,197" size="320,50" font="SetrixHD; 30" backgroundColor="metrixBackground" transparent="1" valign="bottom" noWrap="1">
+		<widget source="ServiceEvent" render="Label" position="60,197" size="320,50" font="SetrixHD; 24" backgroundColor="metrixBackground2" transparent="1" halign="center" valign="bottom" noWrap="1">
 			<convert type="EventName">Name</convert>
 		</widget>
-		<widget source="ServiceEvent" render="Label" position="45,246" size="64,24" font="SetrixHD; 21" backgroundColor="metrixBackground" transparent="1" halign="right">
+		<widget source="ServiceEvent" render="Label" position="45,246" size="64,24" font="SetrixHD; 21" backgroundColor="metrixBackground2" transparent="1" halign="right">
 			<convert type="EventTime">StartTime</convert>
 			<convert type="ClockToText"></convert>
 		</widget>
-		<widget source="ServiceEvent" render="Label" position="330,246" size="77,24" font="SetrixHD; 21" backgroundColor="metrixBackground" transparent="1">
+		<widget source="ServiceEvent" render="Label" position="330,246" size="77,24" font="SetrixHD; 21" backgroundColor="metrixBackground2" transparent="1">
 			<convert type="EventTime">EndTime</convert>
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
-		<widget source="ServiceEvent" render="Progress" position="117,258" size="206,5" borderWidth="0" backgroundColor="metrixSelection" pixmap="MetrixHD/colors/000F6EB2.png" transparent="1" zPosition="1">
+		<eLabel position="117,260" size="206,1" backgroundColor="metrixAccent1" foregroundColor="metrixAccent1" />  
+		<widget source="ServiceEvent" render="Progress" position="117,258" size="206,5" borderWidth="0" backgroundColor="metrixBackground2" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget source="ServiceEvent" render="Label" position="63,283" size="320,210" font="Regular; 20" foregroundColor="metrixAccent1" backgroundColor="metrixBackground" transparent="1" valign="top">
+		<widget source="ServiceEvent" render="Label" position="63,283" size="320,205" font="Regular; 19" foregroundColor="metrixAccent1" backgroundColor="metrixBackground2" transparent="1" halign="right" valign="top">
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
-		<widget source="ServiceEvent" render="NextEvent" position="63,517" size="320,53" font="Regular;19" backgroundColor="metrixBackground" foregroundColor="metrixAccent2" transparent="1">
+		<widget source="ServiceEvent" render="NextEvent" position="63,517" size="320,53" font="Regular;19" foregroundColor="metrixAccent1" backgroundColor="metrixBackground2" transparent="1">
 		</widget>
-		<!-- /*ClockWidget-->
-		<widget source="global.CurrentTime" render="Label" position="239,590" size="169,80" font="SetrixHD; 60" halign="left" backgroundColor="metrixBackground" transparent="1" valign="top">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="83,633" size="148,29" font="SetrixHD; 20" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="107,602" size="125,30" font="SetrixHD; 20" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<eLabel position="51,599" zPosition="-1" size="340,70" backgroundColor="metrixBackground" transparent="0" />
-		<!--ClockWidget */-->
+		<panel name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720" /> 
+		<panel name="rgyb-buttons_screen_pos416_51_size_810_619" />
+		<panel name="rgyb-keys_screen_pos416_51_size_810_619" />
+		<ePixmap name="new ePixmap" position="1125,630" size="81,40" pixmap="MetrixHD/buttons/key_menu.png" />
 	</screen>
+	CHANNELSELECTION VARIANT 1 BIG PICON 1 NEXT EVENT */ -->
+	<!-- CHANNELSELECTION VARIANT 2 NO PICON 5 NEXT EVENT */ -->
+	<screen name="ChannelSelection" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Channel Selection" position="10,552" size="1273,296" font="SetrixHD; 150" backgroundColor="metrixPreTrans2" transparent="1" foregroundColor="metrixPreTrans2" valign="top" zPosition="-20" />
+		<widget name="list" position="423,107" size="787,510" scrollbarMode="showNever" foregroundColor="metrixForeground" colorServiceDescription="metrixAccent1" colorServiceDescriptionSelected="metrixForeground" colorEventProgressbarBorder="metrixSelection" colorEventProgressbarBorderSelected="metrixForeground" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="SetrixHD;26" serviceNameFont="SetrixHD;26" serviceInfoFont="Regular;22" transparent="1" backgroundColor="metrixBackground" itemHeight="50" />
+		<widget source="ServiceEvent" render="Label" position="62,66" size="320,65" font="SetrixHD; 24" backgroundColor="metrixBackground2" transparent="1" valign="center" halign="center">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="45,131" size="64,24" font="SetrixHD; 21" backgroundColor="metrixBackground2" transparent="1" halign="right">
+			<convert type="EventTime">StartTime</convert>
+			<convert type="ClockToText"></convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="330,131" size="77,24" font="SetrixHD; 21" backgroundColor="metrixBackground2" transparent="1">
+			<convert type="EventTime">EndTime</convert>
+			<convert type="ClockToText">Format:%H:%M</convert>
+		</widget>
+		<eLabel position="117,145" size="206,1" backgroundColor="metrixAccent1" foregroundColor="metrixAccent1" />
+		<widget source="ServiceEvent" render="Progress" position="117,143" size="206,5" borderWidth="0" backgroundColor="metrixBackground2" transparent="1" zPosition="1">
+			<convert type="EventTime">Progress</convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="63,173" size="314,249" font="RegularLight; 19" foregroundColor="metrixAccent1" backgroundColor="metrixBackground2" transparent="1" halign="right" valign="top">
+			<convert type="EventName">ExtendedDescription</convert>
+		</widget>
+		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="63,440" size="314,125" font="RegularLight; 19" foregroundColor="metrixAccent1" backgroundColor="metrixBackground2" noWrap="1" transparent="1" />
+		<panel name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720" /> 
+		<panel name="rgyb-buttons_screen_pos416_51_size_810_619" />
+		<panel name="rgyb-keys_screen_pos416_51_size_810_619" />
+		<ePixmap name="new ePixmap" position="1125,630" size="81,40" pixmap="MetrixHD/buttons/key_menu.png" />
+	</screen>
+	<!-- CHANNELSELECTION VARIANT 2 NO PICON 5 NEXT EVENT */ -->
 	<screen name="ChannelContextMenu" position="center,center" size="1280,720" title="Channellist menu" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
 		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="metrixBackground" transparent="0" />
 		<ePixmap position="310,85" size="256,256" pixmap="MetrixHD/icons/service_info.png" alphatest="blend" />
