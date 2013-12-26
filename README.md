@@ -73,3 +73,43 @@ MetrixHD is created by iMaxxx http://open-store.net
 
 ###Channellist - Variant 2 - OSD&VIDEO
 ![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/channelselection_variant_2.png)
+
+=========
+
+###Channellist - Variant 3 - OSD only
+![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/channelselection_variant_3_osd_only.png)
+
+=========
+
+###Channellist - Variant 3 - OSD&VIDEO
+![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/channelselection_variant_3.png)
+
+=========
+
+###Channellist - Variant 4 - OSD only
+![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/channelselection_variant_4_osd_only.png)
+
+=========
+
+###Channellist - Variant 4 - OSD&VIDEO
+![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/channelselection_variant_4.png)
+
+=========
+
+###EPGSelection - OSD only
+![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/epgselection_osd_only.png)
+
+=========
+
+###EPGSelection - OSD&VIDEO
+![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/epgselection.png)
+
+=========
+
+###Eventview - OSD only
+![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/eventview_osd_only.png)
+
+=========
+
+###Eventview  - OSD&VIDEO
+![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/eventview.png)
