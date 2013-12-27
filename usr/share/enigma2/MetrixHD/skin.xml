@@ -958,7 +958,10 @@
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
 	</screen>
-
+	<screen name="VideoFinetune" position="0,0" size="1280,720" backgroundColor="metrixBackground" flags="wfNoBorder">
+		<widget source="Canvas" render="Canvas" position="140,70" size="1000,576" />
+	</screen>
+	
 	<!-- CHECK/OPTIMIZE FURTHER -->
 
 	<screen name="RestorePlugins" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
@@ -3116,23 +3119,18 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="TimeshiftState" position="187,200" zPosition="2" size="889,360" backgroundColor="transparent" flags="wfNoBorder">
-	<widget name="state" position="257,20" size="381,95" font="Arial; 100" halign="center" backgroundColor="metrixBackground" transparent="1" valign="top" />
-
-	<widget source="session.CurrentService" render="Label" position="5,175" size="80,27" font="Regular; 20" halign="right" backgroundColor="metrixBackground">
-		<convert type="ServicePosition">Position</convert>
-	</widget>
-
-	<widget source="session.CurrentService" render="Label" position="805,175" size="80,27" font="Regular; 20" halign="left" backgroundColor="metrixBackground">
-		<convert type="ServicePosition">Length</convert>
-	</widget>
-	<widget source="session.CurrentService" render="Progress" position="95,187" size="700,5" zPosition="5" transparent="1">
-		<convert type="ServicePosition">Position</convert>
-	</widget>
-	<eLabel name="new eLabel" position="95,189" size="700,1" backgroundColor="metrixAccent1" foregroundColor="metrixAccent1" zPosition="1" />
-<eLabel name="new eLabel" position="0,160" size="890,60" zPosition="-1" /></screen>
-
-	<screen name="VideoFinetune" position="0,0" size="1280,720" backgroundColor="metrixBackground" flags="wfNoBorder">
-		<widget source="Canvas" render="Canvas" position="280,70" size="720,576" />
+		<widget name="state" position="257,20" size="381,95" font="Arial; 100" halign="center" backgroundColor="metrixBackground" transparent="1" valign="top" />
+		<widget source="session.CurrentService" render="Label" position="5,175" size="80,27" font="Regular; 20" halign="right" backgroundColor="metrixBackground">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="805,175" size="80,27" font="Regular; 20" halign="left" backgroundColor="metrixBackground">
+			<convert type="ServicePosition">Length</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Progress" position="95,187" size="700,5" zPosition="5" transparent="1">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
+		<eLabel name="new eLabel" position="95,189" size="700,1" backgroundColor="metrixAccent1" foregroundColor="metrixAccent1" zPosition="1" />
+		<eLabel name="new eLabel" position="0,160" size="890,60" zPosition="-1" />
 	</screen>
 	<!-- AutoTimeshift -->
 	<screen name="AutoTimeshift" position="0,0" size="1280,720" title="Auto Timeshift Configuration" flags="wfNoBorder" backgroundColor="transparent">
