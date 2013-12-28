@@ -16,7 +16,6 @@ MetrixHD is created by iMaxxx http://open-store.net
 **_metrixBackground_** *- Primary background color Layer 1*  
 **_metrixBackground2_** *- Secondary background color Layer 2*  
 **_metrixPreTrans_** *- Primary foreground color for texts in background*  
-**_metrixPreTrans2_** *- Secondary foreground color for texts in background*  
 
 **The skin will be used in openATV without any additional pre-installed plugin using the default configuration - not customizable using the GUI.**
 
