@@ -1258,6 +1258,28 @@
 		<widget source="key_red" render="Label" position="290,660" size="160,26" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
 		<widget source="key_green" render="Label" position="508,660" size="160,26" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
 	</screen>
+	<screen name="AutoDiseqc" position="64,62" size="1280,720" title="AutoDiseqc" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="250,27" zPosition="-10" size="631,540" backgroundColor="metrixBackground" />
+		<widget source="global.CurrentTime" render="Label" position="713,26" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="metrixBackground" transparent="1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="598,37" size="104,27" font="Regular; 15" halign="right" backgroundColor="metrixBackground" transparent="1" foregroundColor="metrixAccent1">
+			<convert type="ClockToText">Format:%A</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="598,64" size="104,29" font="Regular; 16" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
+			<convert type="ClockToText">Format:%e. %b</convert>
+		</widget>
+		<eLabel position="280,100" size="575,2" backgroundColor="metrixAccent1" />
+		<widget source="Title" render="Label" position="280,43" size="290,43" font="SetrixHD;25" backgroundColor="metrixBackground" transparent="1" />
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="252,520" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="468,520" size="30,40" alphatest="blend" />
+		<widget source="key_red" render="Label" position="290,520" size="160,26" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="metrixBackground" transparent="1" />
+		<widget source="key_green" render="Label" position="508,520" size="160,26" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="config" position="280,center" size="575,249" zPosition="10" scrollbarMode="showOnDemand" transparent="1" backgroundColorSelected="metrixBackground2" />
+		<eLabel position="280,225" size="575,2" backgroundColor="metrixAccent1" />
+		<widget source="statusbar" render="Label" position="280,115" zPosition="10" size="575,60" halign="center" valign="center" font="Regular;22" transparent="1" shadowColor="metrixBackground" shadowOffset="-1,-1" />
+		<widget source="tunerstatusbar" render="Label" position="280,182" zPosition="10" size="575,30" halign="center" valign="center" font="Regular;22" transparent="1" shadowColor="metrixBackground" shadowOffset="-1,-1" />
+	</screen>
 	<!-- EMC 1280 EMCMediaCenter -->
 	<screen name="EMCMediaCenter" position="0,0" size="1280,720" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
 	<eLabel position="0,570" zPosition="-2" size="1281,150" backgroundColor="metrixBackground" />
