@@ -1153,6 +1153,46 @@
 		<eLabel position="280,100" size="670,2" backgroundColor="metrixAccent1" />
 		<widget name="menu" position="280,118" size="503,450" font="Regular;17" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="0"/>
 	</screen>
+	<screen name="JobView" position="0,0" size="1280,720" title="JobView" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="JobView" position="235,146" size="338,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
+		<eLabel position="200,125" zPosition="-10" size="831,420" backgroundColor="metrixBackground" />
+		<widget source="global.CurrentTime" render="Label" position="863,126" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="metrixBackground" transparent="1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="692,137" size="161,27" font="Regular; 15" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
+			<convert type="ClockToText">Format:%A</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="692,164" size="161,29" font="Regular; 16" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
+			<convert type="ClockToText">Format:%e. %b</convert>
+		</widget>
+		<eLabel position="230,200" size="770,2" backgroundColor="metrixAccent1" />
+		<widget source="job_name" render="Label" position="230,254" size="780,40" font="Regular;28" />
+		<widget source="job_task" render="Label" position="230,309" size="780,30" font="Regular;23" />
+		<widget source="job_progress" render="Progress" position="230,348" size="780,36" borderWidth="2" backgroundColor="metrixBackground2" />
+		<widget source="job_progress" render="Label" position="480,351" size="280,32" font="Regular;28" foregroundColor="black" zPosition="2" halign="center" transparent="1">
+			<convert type="ProgressToText" />
+		</widget>
+		<widget source="job_status" render="Label" position="230,391" size="480,26" font="Regular;23" />
+		<widget name="config" position="230,425" size="480,20" />
+		<widget source="cancelable" render="Pixmap" pixmap="MetrixHD/buttons/key_red.png" position="212,500" size="30,40" alphatest="blend">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="finished" render="Pixmap" pixmap="MetrixHD/buttons/key_green.png" position="416,500" size="30,40" alphatest="blend">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="backgroundable" render="Pixmap" pixmap="MetrixHD/buttons/key_blue.png" position="724,500" size="30,40" alphatest="blend">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="cancelable" render="FixedLabel" text="Cancel" position="252,500" size="160,26" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="metrixBackground" transparent="1">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="finished" render="FixedLabel" text="OK" position="456,500" size="160,26" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="metrixBackground" transparent="1">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="backgroundable" render="FixedLabel" text="Continue in background" position="764,500" size="260,26" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="metrixBackground" transparent="1">
+			<convert type="ConditionalShowHide" />
+		</widget>
+	</screen>
 	<!-- EMC 1280 EMCMediaCenter -->
 	<screen name="EMCMediaCenter" position="0,0" size="1280,720" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
 	<eLabel position="0,570" zPosition="-2" size="1281,150" backgroundColor="metrixBackground" />
