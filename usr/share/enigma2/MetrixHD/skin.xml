@@ -964,6 +964,121 @@
 
 	<!-- CHECK/OPTIMIZE FURTHER -->
 
+	<screen name="AudioSelection" title="Audio" position="center,center" size="1280,720" backgroundColor="transparent">
+		<eLabel position="40,24" zPosition="-10" size="1205,650" backgroundColor="metrixBackground" />
+		<widget source="Title" render="Label" position="85,47" size="700,43" zPosition="1" halign="left" font="SetrixHD; 32" backgroundColor="metrixBackground" transparent="1" />
+		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="metrixBackground" transparent="1" foregroundColor="metrixAccent1">
+			<convert type="ClockToText">Format:%A</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
+			<convert type="ClockToText">Format:%e. %b</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="metrixBackground" transparent="1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget name="config" zPosition="2" position="120,125" size="710,220" scrollbarMode="showOnDemand" transparent="1" />
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,130" size="30,19" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="70,157" size="30,18" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="70,182" size="30,17" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="70,207" size="30,18" alphatest="blend" />
+		<widget source="streams" render="Listbox" scrollbarMode="showOnDemand" position="54,319" size="550,199" zPosition="3" backgroundColor="metrixBackground" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"templates":
+					{"default": (25, [
+						MultiContentEntryText(pos = (0, 0),   size = (40, 25),  font = 0, flags = RT_HALIGN_LEFT,  text = 1), # key,
+						MultiContentEntryText(pos = (45, 0),  size = (65, 25),  font = 0, flags = RT_HALIGN_LEFT,  text = 2), # number,
+						MultiContentEntryText(pos = (115, 0), size = (130, 25), font = 0, flags = RT_HALIGN_LEFT,  text = 3), # description,
+						MultiContentEntryText(pos = (250, 0), size = (220, 25), font = 0, flags = RT_HALIGN_LEFT,  text = 4), # language,
+						MultiContentEntryText(pos = (485, 4), size = (20, 25),  font = 1, flags = RT_HALIGN_RIGHT, text = 5), # selection,
+					], True, "showNever"),
+					"notselected": (25, [
+						MultiContentEntryText(pos = (0, 0),   size = (40, 25),  font = 0, flags = RT_HALIGN_LEFT,  text = 1), # key,
+						MultiContentEntryText(pos = (45, 0),  size = (65, 25),  font = 0, flags = RT_HALIGN_LEFT,  text = 2), # number,
+						MultiContentEntryText(pos = (115, 0), size = (130, 25), font = 0, flags = RT_HALIGN_LEFT,  text = 3), # description,
+						MultiContentEntryText(pos = (250, 0), size = (220, 25), font = 0, flags = RT_HALIGN_LEFT,  text = 4), # language,
+						MultiContentEntryText(pos = (485, 4), size = (20, 25),  font = 1, flags = RT_HALIGN_RIGHT, text = 5), # selection,
+					], False, "showNever")
+					},
+				"fonts": [gFont("Regular", 20), gFont("Regular", 16)],
+				"itemHeight": 30
+				}
+				</convert>
+		</widget>
+		<ePixmap pixmap="MetrixHD/buttons/key_exit.png" alphatest="blend" position="337,595" size="82,35" zPosition="3" transparent="1" />
+		<eLabel text="Cancel" backgroundColor="metrixBackground" font="Regular;22" halign="left" position="426,599" size="220,26" transparent="1" zPosition="1" />
+		<ePixmap pixmap="MetrixHD/buttons/ok.png" alphatest="blend" position="103,595" size="80,37" zPosition="3" />
+		<eLabel text="OK" backgroundColor="metrixBackground" font="Regular;22" halign="left" position="193,600" size="102,30" transparent="1" zPosition="3" />
+		<ePixmap position="663,595" size="83,41" pixmap="MetrixHD/buttons/key_menu.png" alphatest="blend" />
+		<ePixmap name="AudioPixmap" position="915,235" size="256,256" pixmap="MetrixHD/icons/audio.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="AboutOE" position="center,center" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="40,24" zPosition="-10" size="1205,650" backgroundColor="metrixBackground" />
+		<widget source="Title" render="Label" position="85,47" size="700,43" zPosition="1" halign="left" font="SetrixHD; 32" backgroundColor="metrixBackground" transparent="1" />
+		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="metrixBackground" transparent="1" foregroundColor="metrixAccent1">
+			<convert type="ClockToText">Format:%A</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
+			<convert type="ClockToText">Format:%e. %b</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="metrixBackground" transparent="1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="lab1" render="Label" position="129,106" size="369,35" font="Regular;30" transparent="0" zPosition="2" />
+		<widget source="lab2" render="Label" position="129,162" size="370,25" font="Regular;19" transparent="0" zPosition="2" />
+		<widget source="lab3" render="Label" position="130,207" size="369,25" font="Regular;19" transparent="0" zPosition="1" />
+		<eLabel text="OPEN SOURCE" position="722,433" size="353,28" font="Regular;22" transparent="0" zPosition="1" />
+		<eLabel text="https://github.com/openatv" position="722,477" size="352,28" font="Regular;19" transparent="0" zPosition="1" />
+		<eLabel text="https://github.com/oe-alliance" position="722,523" size="354,28" font="Regular;19" transparent="0" zPosition="1" />
+		<widget name="AboutScrollLabel" position="127,268" size="369,310" font="Regular;20" transparent="0" zPosition="1" scrollbarMode="showNever" />
+		<ePixmap position="712,321" size="420,98" pixmap="MetrixHD/menu/openATV_info.png" transparent="1" />
+		<ePixmap position="130,613" size="85,42" pixmap="MetrixHD/buttons/key_info.png" alphatest="blend" />
+	</screen>
+	<screen name="SystemMemoryInfo" position="center,center" size=" 1280,720" title="SystemInfo" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="42,24" zPosition="-10" size="1205,650" backgroundColor="metrixBackground" />
+		<widget source="Title" render="Label" position="85,47" size="700,43" zPosition="1" halign="left" font="SetrixHD; 32" backgroundColor="metrixBackground" transparent="1" />
+		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="metrixBackground" transparent="1" foregroundColor="metrixAccent1">
+			<convert type="ClockToText">Format:%A</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
+			<convert type="ClockToText">Format:%e. %b</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="metrixBackground" transparent="1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="lab1" render="Label" position="87,143" size="458,35" font="Regular; 32" transparent="0" zPosition="2" />
+		<widget source="lab2" render="Label" position="87,203" size="458,25" font="Regular;19" transparent="0" zPosition="2" />
+		<widget name="AboutScrollLabel" position="87,256" size="458,376" font="Regular;20" transparent="0" zPosition="1" scrollbarMode="showOnDemand" />
+	</screen>
+	<screen name="SystemNetworkInfo" position="center,center" size=" 1280,720" title="SystemInfo" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="42,24" zPosition="-10" size="1205,650" backgroundColor="metrixBackground" />
+		<widget source="Title" render="Label" position="85,47" size="700,43" zPosition="1" halign="left" font="SetrixHD; 32" backgroundColor="metrixBackground" transparent="1" />
+		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="metrixBackground" transparent="1" foregroundColor="metrixAccent1">
+			<convert type="ClockToText">Format:%A</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
+			<convert type="ClockToText">Format:%e. %b</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="metrixBackground" transparent="1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget name="AboutScrollLabel" position="79,107" size="458,213" font="Regular;20" transparent="0" zPosition="1" scrollbarMode="showOnDemand" />
+		<widget source="LabelBSSID" render="Label" position="51,332" size="200,25" valign="left" font="Regular;20" transparent="0" />
+		<widget source="LabelESSID" render="Label" position="54,369" size="200,25" valign="center" font="Regular;20" transparent="0" />
+		<widget source="LabelQuality" render="Label" position="54,407" size="200,25" valign="center" font="Regular;20" transparent="0" />
+		<widget source="LabelSignal" render="Label" position="54,445" size="200,25" valign="center" font="Regular;20" transparent="0" />
+		<widget source="LabelBitrate" render="Label" position="55,480" size="200,25" valign="center" font="Regular;20" transparent="0" />
+		<widget source="LabelEnc" render="Label" position="54,515" size="200,25" valign="center" font="Regular;20" transparent="0" />
+		<widget source="BSSID" render="Label" position="229,332" size="310,25" valign="center" font="Regular;20" transparent="0" />
+		<widget source="ESSID" render="Label" position="229,370" size="310,25" valign="center" font="Regular;20" transparent="0" />
+		<widget source="quality" render="Label" position="229,407" size="310,25" valign="center" font="Regular;20" transparent="0" />
+		<widget source="signal" render="Label" position="214,445" size="310,25" valign="center" font="Regular;20" transparent="0" />
+		<widget source="bitrate" render="Label" position="214,480" size="310,25" valign="center" font="Regular;20" transparent="0" />
+		<widget source="enc" render="Label" position="214,514" size="310,25" valign="center" font="Regular;20" transparent="0" />
+		<widget source="IFtext" render="Label" position="81,549" size="120,28" zPosition="10" font="Regular;20" halign="left" transparent="0" />
+		<widget source="IF" render="Label" position="214,548" size="375,28" zPosition="10" font="Regular;20" halign="left" transparent="0" />
+		<widget source="Statustext" render="Label" position="160,626" size="115,25" zPosition="10" font="Regular;20" halign="left" transparent="0" />
+		<widget name="statuspic" pixmaps="skin_default/buttons/button_green.png,skin_default/buttons/button_green_off.png" position="296,634" zPosition="10" size="15,16" transparent="0" alphatest="on" />
+	</screen>
 	<screen name="TranscodingSetup" position="center,center" size="1280,720" backgroundColor="transparent">
 		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="metrixBackground" />
 		<widget source="Title" render="Label" position="70,47" size="700,43" zPosition="1" halign="left" font="SetrixHD; 32" backgroundColor="metrixBackground" transparent="1" />
