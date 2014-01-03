@@ -961,56 +961,45 @@
 	<screen name="VideoFinetune" position="0,0" size="1280,720" backgroundColor="metrixBackground" flags="wfNoBorder">
 		<widget source="Canvas" render="Canvas" position="140,70" size="1000,576" />
 	</screen>
+	<screen name="AudioSelection" title="Audio" position="center,center" size="1280,720" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="700,43" zPosition="1" halign="left" font="SetrixHD; 32" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="config" zPosition="2" position="100,200" size="660,220" scrollbarMode="showOnDemand" transparent="1" />
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="55,200" size="30,24" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="55,225" size="30,24" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="55,250" size="30,24" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="55,275" size="30,24" alphatest="blend" />
+		<widget source="streams" render="Listbox" scrollbarMode="showOnDemand" position="100,475" size="660,200" zPosition="3" backgroundColor="metrixBackground" transparent="1">
+			<convert type="TemplatedMultiContent">
+									{"templates":
+											{"default": (25, [
+													MultiContentEntryText(pos = (0, 0),   size = (40, 25),  font = 0, flags = RT_HALIGN_LEFT,  text = 1), # key,
+													MultiContentEntryText(pos = (45, 0),  size = (65, 25),  font = 0, flags = RT_HALIGN_LEFT,  text = 2), # number,
+													MultiContentEntryText(pos = (115, 0), size = (130, 25), font = 0, flags = RT_HALIGN_LEFT,  text = 3), # description,
+													MultiContentEntryText(pos = (250, 0), size = (300, 25), font = 0, flags = RT_HALIGN_LEFT,  text = 4), # language,
+													MultiContentEntryText(pos = (630, 4), size = (20, 25),  font = 1, flags = RT_HALIGN_RIGHT, text = 5), # selection,
+											], True, "showNever"),
+											"notselected": (25, [
+													MultiContentEntryText(pos = (0, 0),   size = (40, 25),  font = 0, flags = RT_HALIGN_LEFT,  text = 1), # key,
+													MultiContentEntryText(pos = (45, 0),  size = (65, 25),  font = 0, flags = RT_HALIGN_LEFT,  text = 2), # number,
+													MultiContentEntryText(pos = (115, 0), size = (130, 25), font = 0, flags = RT_HALIGN_LEFT,  text = 3), # description,
+													MultiContentEntryText(pos = (250, 0), size = (300, 25), font = 0, flags = RT_HALIGN_LEFT,  text = 4), # language,
+													MultiContentEntryText(pos = (630, 4), size = (20, 25),  font = 1, flags = RT_HALIGN_RIGHT, text = 5), # selection,
+											], False, "showNever")
+											},
+									"fonts": [gFont("Regular", 20), gFont("Regular", 16)],
+									"itemHeight": 30
+									}
+				</convert>
+		</widget>
+		<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
+		<panel name="template1_2layer" />
+		<ePixmap name="AudioPixmap" position="891,222" size="256,256" pixmap="MetrixHD/icons/audio.png" transparent="1" alphatest="blend" />
+	</screen>
 
 	<!-- CHECK/OPTIMIZE FURTHER -->
 
-	<screen name="AudioSelection" title="Audio" position="center,center" size="1280,720" backgroundColor="transparent">
-		<eLabel position="40,24" zPosition="-10" size="1205,650" backgroundColor="metrixBackground" />
-		<widget source="Title" render="Label" position="85,47" size="700,43" zPosition="1" halign="left" font="SetrixHD; 32" backgroundColor="metrixBackground" transparent="1" />
-		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="metrixBackground" transparent="1" foregroundColor="metrixAccent1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="metrixBackground" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget name="config" zPosition="2" position="120,125" size="710,220" scrollbarMode="showOnDemand" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,130" size="30,19" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="70,157" size="30,18" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="70,182" size="30,17" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="70,207" size="30,18" alphatest="blend" />
-		<widget source="streams" render="Listbox" scrollbarMode="showOnDemand" position="54,319" size="550,199" zPosition="3" backgroundColor="metrixBackground" transparent="1">
-			<convert type="TemplatedMultiContent">
-				{"templates":
-					{"default": (25, [
-						MultiContentEntryText(pos = (0, 0),   size = (40, 25),  font = 0, flags = RT_HALIGN_LEFT,  text = 1), # key,
-						MultiContentEntryText(pos = (45, 0),  size = (65, 25),  font = 0, flags = RT_HALIGN_LEFT,  text = 2), # number,
-						MultiContentEntryText(pos = (115, 0), size = (130, 25), font = 0, flags = RT_HALIGN_LEFT,  text = 3), # description,
-						MultiContentEntryText(pos = (250, 0), size = (220, 25), font = 0, flags = RT_HALIGN_LEFT,  text = 4), # language,
-						MultiContentEntryText(pos = (485, 4), size = (20, 25),  font = 1, flags = RT_HALIGN_RIGHT, text = 5), # selection,
-					], True, "showNever"),
-					"notselected": (25, [
-						MultiContentEntryText(pos = (0, 0),   size = (40, 25),  font = 0, flags = RT_HALIGN_LEFT,  text = 1), # key,
-						MultiContentEntryText(pos = (45, 0),  size = (65, 25),  font = 0, flags = RT_HALIGN_LEFT,  text = 2), # number,
-						MultiContentEntryText(pos = (115, 0), size = (130, 25), font = 0, flags = RT_HALIGN_LEFT,  text = 3), # description,
-						MultiContentEntryText(pos = (250, 0), size = (220, 25), font = 0, flags = RT_HALIGN_LEFT,  text = 4), # language,
-						MultiContentEntryText(pos = (485, 4), size = (20, 25),  font = 1, flags = RT_HALIGN_RIGHT, text = 5), # selection,
-					], False, "showNever")
-					},
-				"fonts": [gFont("Regular", 20), gFont("Regular", 16)],
-				"itemHeight": 30
-				}
-				</convert>
-		</widget>
-		<ePixmap pixmap="MetrixHD/buttons/key_exit.png" alphatest="blend" position="337,595" size="82,35" zPosition="3" transparent="1" />
-		<eLabel text="Cancel" backgroundColor="metrixBackground" font="Regular;22" halign="left" position="426,599" size="220,26" transparent="1" zPosition="1" />
-		<ePixmap pixmap="MetrixHD/buttons/ok.png" alphatest="blend" position="103,595" size="80,37" zPosition="3" />
-		<eLabel text="OK" backgroundColor="metrixBackground" font="Regular;22" halign="left" position="193,600" size="102,30" transparent="1" zPosition="3" />
-		<ePixmap position="663,595" size="83,41" pixmap="MetrixHD/buttons/key_menu.png" alphatest="blend" />
-		<ePixmap name="AudioPixmap" position="915,235" size="256,256" pixmap="MetrixHD/icons/audio.png" transparent="1" alphatest="blend" />
-	</screen>
 	<screen name="AboutOE" position="center,center" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="40,24" zPosition="-10" size="1205,650" backgroundColor="metrixBackground" />
 		<widget source="Title" render="Label" position="85,47" size="700,43" zPosition="1" halign="left" font="SetrixHD; 32" backgroundColor="metrixBackground" transparent="1" />
