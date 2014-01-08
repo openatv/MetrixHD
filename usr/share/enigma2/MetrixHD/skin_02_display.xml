@@ -1,0 +1,64 @@
+<skin>
+	<!-- DISPLAY -->
+	<!-- LCD screen (channelselection) -->
+	<screen name="ChannelSelection_summary" position="0,0" size="200,20">
+		<widget source="parent.ServiceEvent" render="Label" position="0,0" size="200,20" font="SetrixHD;20">
+			<convert type="ServiceName">Name</convert>
+		</widget>
+	</screen>
+	<!-- LCD screen (main) -->
+	<screen name="InfoBarSummary" position="0,0" size="200,20">
+		<widget source="session.CurrentService" render="RollerCharLCD" position="0,0" size="200,20" font="SetrixHD;20">
+			<convert type="ServiceName">Name</convert>
+		</widget>
+	</screen>
+	<!-- LCD screen (menus) -->
+	<screen name="MenuSummary" position="0,0" size="200,20">
+		<widget source="parent.title" render="Label" position="0,0" size="200,20" font="SetrixHD;20" />
+		<widget source="parent.menu" render="Label" position="0,0" size="200,20" font="SetrixHD;20">
+			<convert type="StringListSelection" />
+		</widget>
+	</screen>
+	<!-- LCD screen (Pluginbrowser) -->
+	<screen name="PluginBrowserSummary" position="0,0" size="200,20">
+		<widget source="parent.title" render="Label" position="0,0" size="200,20" font="SetrixHD;20" />
+		<widget source="parent.menu" render="Label" position="0,0" size="200,20" font="SetrixHD;20">
+			<convert type="StringListSelection" />
+		</widget>
+	</screen>
+	<!-- LCD screen (movieplayer) -->
+	<screen name="InfoBarMoviePlayerSummary" position="0,0" size="200,20">
+		<widget source="session.CurrentService" render="RollerCharLCD" position="0,0" size="200,20" font="SetrixHD;20">
+			<convert type="ServiceName">Name</convert>
+		</widget>
+	</screen>
+	<!-- LCD screen (setup) -->
+	<screen name="SetupSummary" position="0,0" size="200,20">
+		<widget source="SetupTitle" render="Label" position="0,0" size="200,20" font="SetrixHD;20" />
+	</screen>
+	<!-- LCD screen (misc) -->
+	<screen name="SimpleSummary" position="0,0" size="200,20">
+		<widget source="parent.Title" render="RollerCharLCD" position="0,0" size="200,20" font="SetrixHD;20" />
+	</screen>
+	<!-- LCD screen (dvd player ) -->
+	<screen name="DVDSummary" position="0,0" size="132,64">
+		<widget source="session.CurrentService" render="Label" position="0,0" size="132,64" font="SetrixHD;45" halign="center" valign="top">
+			<convert type="ServicePosition">Remaining</convert>
+		</widget>
+	</screen>
+	<!-- LCD StandBy-Clock -->
+	<screen name="StandbySummary" position="0,0" size="132,64">
+		<widget source="global.CurrentTime" render="Label" position="6,4" size="120,24" font="SetrixHD;22" halign="center" valign="center">
+			<convert type="ClockToText">Format:%H:%M  </convert>
+		</widget>
+		<eLabel position="0,28" size="132,1" backgroundColor="metrixForeground" />
+		<widget source="global.CurrentTime" render="Label" position="6,32" size="120,32" font="SetrixHD;28" halign="center" valign="center">
+			<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
+		</widget>
+		<widget source="session.RecordState" render="FixedLabel" position="0,0" zPosition="1" size="200,20" text=" REC ">
+			<convert type="ConfigEntryTest">config.usage.blinking_display_clock_during_recording,True,CheckSourceBoolean</convert>
+			<convert type="ConditionalShowHide">Blink</convert>
+		</widget>
+	</screen>
+	<!-- DISPLAY */-->
+</skin>
