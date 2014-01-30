@@ -53,6 +53,18 @@
 			<widget name="key_yellow" position="445,637" size="160,25" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
 			<widget name="key_blue" position="630,637" size="160,25" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
 		</screen>
+		<screen name="rgyb-keys_template1-source">
+			<widget source="key_red" render="Label" position="70,637" size="160,25" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
+			<widget source="key_green" render="Label" position="257,637" size="160,25" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
+			<widget source="key_yellow" render="Label" position="445,637" size="160,25" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
+			<widget source="key_blue" render="Label" position="630,637" size="160,25" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
+		</screen>
+		<screen name="r___-buttons_template1">
+			<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" />
+		</screen>
+		<screen name="r___-keys_template1-source">
+			<widget source="key_red" render="Label" position="70,637" size="160,25" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
+		</screen>
 		<screen name="rg__-buttons_template1">
 			<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" />
 			<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="222,635" size="30,40" alphatest="blend" />
@@ -60,6 +72,18 @@
 		<screen name="rg__-keys_template1">
 			<widget name="key_red" position="70,637" size="160,25" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
 			<widget name="key_green" position="257,637" size="160,25" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
+		</screen>
+		<screen name="rg__-keys_template1-source">
+			<widget source="key_red" render="Label" position="70,637" size="160,25" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
+			<widget source="key_green" render="Label" position="257,637" size="160,25" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
+		</screen>
+		<screen name="r_y_-buttons_template1">
+			<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" />
+			<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="222,635" size="30,40" alphatest="blend" />
+		</screen>
+		<screen name="r_y_-keys_template1-source">
+			<widget source="key_red" render="Label" position="70,637" size="160,25" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
+			<widget source="key_yellow" render="Label" position="257,637" size="160,25" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="metrixBackground" transparent="1" />
 		</screen>
 		<screen name="rg_b-buttons_template1">
 			<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" />
@@ -254,7 +278,7 @@
 			</widget>
 			<!-- CHANNEL NAME */-->
 		</screen>
-		<screen name="INFOBARRESOLUTION">  
+		<screen name="INFOBARRESOLUTION">
 			<!-- /* ResolutionInfo -->
 			<widget source="session.CurrentService" render="Label" position="644,666" size="60,26" font="RegularLight; 24" halign="right" valign="center" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
 				<convert type="ServiceInfo">VideoWidth</convert>
