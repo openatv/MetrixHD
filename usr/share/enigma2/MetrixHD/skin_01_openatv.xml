@@ -8,7 +8,7 @@
 		<panel name="INFOBARSERVICEINFO" />
 		<panel name="INFOBARRECORDSTATE" />
 		<panel name="INFOBARRESOLUTION" />
-		<panel name="INFOBARORBITALPOSITION" /> 
+		<panel name="INFOBARORBITALPOSITION" />
 		<panel name="INFOBARSNR" />
 		<panel name="INFOBARTUNERINFO" />
 		<!-- <panel name="GRIDLINES" /> */ -->
@@ -21,7 +21,7 @@
 		<panel name="INFOBARSERVICEINFO" />
 		<panel name="INFOBARRECORDSTATE" />
 		<panel name="INFOBARRESOLUTION" />
-		<panel name="INFOBARORBITALPOSITION" /> 
+		<panel name="INFOBARORBITALPOSITION" />
 		<panel name="INFOBARSNR" />
 		<panel name="INFOBARTUNERINFO" />
 		<panel name="INFOBAREXTENDEDINFO" />
@@ -45,7 +45,7 @@
 			<convert type="EventTime">EndTime</convert>
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
-		<eLabel position="117,260" size="206,1" backgroundColor="metrixAccent1" foregroundColor="metrixAccent1" />  
+		<eLabel position="117,260" size="206,1" backgroundColor="metrixAccent1" foregroundColor="metrixAccent1" />
 		<widget source="ServiceEvent" render="Progress" position="117,258" size="206,5" borderWidth="0" backgroundColor="metrixBackground2" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
@@ -54,7 +54,7 @@
 		</widget>
 		<widget source="ServiceEvent" render="NextEvent" position="63,517" size="320,53" font="Regular;19" foregroundColor="metrixAccent1" backgroundColor="metrixBackground2" transparent="1">
 		</widget>
-		<panel name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720" /> 
+		<panel name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720" />
 		<panel name="rgyb-buttons_screen_pos416_51_size_810_619" />
 		<panel name="rgyb-keys_screen_pos416_51_size_810_619" />
 		<ePixmap name="new ePixmap" position="1125,630" size="81,40" pixmap="MetrixHD/buttons/key_menu.png" />
@@ -83,7 +83,7 @@
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
 		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="63,440" size="314,125" font="RegularLight; 19" foregroundColor="metrixAccent1" backgroundColor="metrixBackground2" noWrap="1" transparent="1" />
-		<panel name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720" /> 
+		<panel name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720" />
 		<panel name="rgyb-buttons_screen_pos416_51_size_810_619" />
 		<panel name="rgyb-keys_screen_pos416_51_size_810_619" />
 		<ePixmap name="new ePixmap" position="1125,630" size="81,40" pixmap="MetrixHD/buttons/key_menu.png" />
@@ -108,7 +108,7 @@
 			<convert type="EventTime">EndTime</convert>
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
-		<eLabel position="914,287" size="206,1" backgroundColor="metrixAccent1" foregroundColor="metrixAccent1" />  
+		<eLabel position="914,287" size="206,1" backgroundColor="metrixAccent1" foregroundColor="metrixAccent1" />
 		<widget source="ServiceEvent" render="Progress" position="914,285" size="206,5" borderWidth="0" backgroundColor="metrixBackground2" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
@@ -141,7 +141,7 @@
 			<convert type="EventTime">EndTime</convert>
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
-		<eLabel position="914,167" size="206,1" backgroundColor="metrixAccent1" foregroundColor="metrixAccent1" />  
+		<eLabel position="914,167" size="206,1" backgroundColor="metrixAccent1" foregroundColor="metrixAccent1" />
 		<widget source="ServiceEvent" render="Progress" position="914,165" size="206,5" borderWidth="0" backgroundColor="metrixBackground2" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
@@ -194,7 +194,7 @@
 		</widget>
 		<ePixmap pixmap="MetrixHD/icons/setup.png" position="310,85" size="256,256" alphatest="blend" />
 		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
-	</screen>	
+	</screen>
 	<screen name="QuickMenu" position="0,0" size="1280,720" title="Quick Launch Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel name="" position="-1,0" zPosition="-11" size="1282,79" backgroundColor="metrixBackground" foregroundColor="metrixBackground" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="217,0" size="30,40" alphatest="blend" />
@@ -557,7 +557,7 @@
 		<widget source="global.CurrentTime" render="Label" position="831,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="metrixBackground" foregroundColor="metrixAccent1" transparent="1">
 			<convert type="ClockToText">Format:%e. %b</convert>
 		</widget>
-		<eLabel text="Devices" position="170,47" size="600,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" /> 
+		<eLabel text="Devices" position="170,47" size="600,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
 		<eLabel position="170,100" size="970,2" backgroundColor="metrixAccent1" />
 		<eLabel text="Available Devices" position="170,112" size="540,43" font="SetrixHD;35" halign="left" foregroundColor="metrixAccent1" backgroundColor="metrixBackground" transparent="1" />
 		<widget source="devicelist" render="Listbox" position="170,207" size="780,450" font="SetrixHD;16" scrollbarMode="showOnDemand" transparent="1">
@@ -893,5 +893,157 @@
 		<widget source="session.CurrentService" render="Label" position="30,416" size="1250,256" font="SetrixHD; 140" valign="top" noWrap="1" backgroundColor="metrixPreTrans2" transparent="1" foregroundColor="metrixPreTrans2" zPosition="-99">
 			<convert type="ServiceName">Name</convert>
 		</widget>
+	</screen>
+
+	<screen name="Setup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="metrixBackground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+	</screen>
+
+	<!-- MountScreens (NetworkBrowser) -->
+	<screen name="AutoMountManager" position="0,0" size="1280,720" title="AutoMountManager" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="AutoMountManager" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
+		<widget source="config" render="Listbox" position="70,115" size="700,480" scrollbarMode="showOnDemand" backgroundColor="metrixBackground" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryText(pos = (60, 5), size = (620, 28), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 2 is the Menu Titel
+						MultiContentEntryText(pos = (70, 35), size = (610, 20), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 3 is the Description
+						MultiContentEntryPixmapAlphaTest(pos = (10, 6), size = (48, 48), png = 3), # index 4 is the pixmap
+					],
+				"fonts": [gFont("Regular", 22),gFont("Regular", 16)],
+				"itemHeight": 60
+				}
+			</convert>
+		</widget>
+		<widget source="introduction" render="Label" position="70,598" size="700,30" font="Regular; 22" halign="center" backgroundColor="metrixBackground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="r___-buttons_template1" />
+		<panel name="r___-keys_template1-source" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/net.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="AutoMountEdit" position="0,0" size="1280,720" title="MountEdit" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="MountEdit" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="config" position="70,121" size="700,450" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="HelpWindow" position="120,470" zPosition="1" size="1,1" transparent="1" alphatest="blend" />
+		<widget name="VKeyIcon" pixmap="MetrixHD/buttons/text.png" position="700,633" zPosition="10" size="70,30" transparent="1" alphatest="blend" />
+		<widget source="introduction" render="Label" position="70,598" size="700,30" font="SetrixHD;22" halign="center" transparent="1" backgroundColor="metrixBackground" />
+		<panel name="template1_2layer" />
+		<panel name="r___-buttons_template1" />
+		<panel name="r___-keys_template1-source" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/net.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="AutoMountView" position="0,0" size="1280,720" title="MountView" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="MountView" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
+		<widget source="legend1" render="Label" position="70,130" size="130,60" font="SetrixHD;18" halign="center" valign="center" transparent="1" />
+		<widget source="legend2" render="Label" position="230,128" size="400,60" font="SetrixHD;20" halign="center" valign="center" transparent="1" />
+		<widget source="legend3" render="Label" position="650,128" size="120,60" font="SetrixHD;20" halign="center" valign="center" transparent="1" />
+		<eLabel position="70,205" size="700,2" backgroundColor="metrixAccent1" />
+		<widget source="config" render="Listbox" position="70,220" size="700,360" scrollbarMode="showOnDemand" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryPixmapAlphaTest(pos = (40, 6), size = (48, 48), png = 0), # index 0 is the isMounted pixmap
+						MultiContentEntryText(pos = (210, 5), size = (200, 28), font=0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is the sharename
+						MultiContentEntryText(pos = (390, 8), size = (250, 20), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the IPdescription
+						MultiContentEntryText(pos = (210, 35), size = (350, 20), font=1, flags = RT_HALIGN_LEFT, text = 3), # index 3 is the DIRdescription
+						MultiContentEntryPixmapAlphaTest(pos = (600, 15), size = (48, 48), png = 4), # index 4 is the activepng pixmap
+						MultiContentEntryPixmapAlphaTest(pos = (630, 6), size = (48, 48), png = 5), # index 4 is the mounttype pixmap
+					],
+				"fonts": [gFont("SetrixHD", 22),gFont("SetrixHD", 17)],
+				"itemHeight": 60
+				}
+			</convert>
+		</widget>
+		<widget source="introduction" render="Label" position="70,598" size="700,30" font="SetrixHD;22" halign="center" backgroundColor="metrixBackground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="r_y_-buttons_template1" />
+		<panel name="r_y_-keys_template1-source" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/net.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="NetworkBrowser" position="0,0" size="1280,720" title="Network Neighbourhood" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Network Neighbourhood" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
+		<widget source="list" render="Listbox" position="70,120" size="700,480" zPosition="3" scrollbarMode="showOnDemand" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryPixmapAlphaTest(pos = (10, 6), size = (48, 48), png = 1), # index 1 is the expandable/expanded/verticalline icon
+						MultiContentEntryText(pos = (70, 4), size = (600, 26), font=2, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the Hostname
+						MultiContentEntryText(pos = (160, 5), size = (510, 25), font=0, flags = RT_HALIGN_LEFT, text = 3), # index 3 is the sharename
+						MultiContentEntryText(pos = (160, 32), size = (510, 17), font=1, flags = RT_HALIGN_LEFT, text = 4), # index 4 is the sharedescription
+						MultiContentEntryPixmapAlphaTest(pos = (65, 6), size = (48, 48), png = 5), # index 5 is the nfs/cifs icon
+						MultiContentEntryPixmapAlphaTest(pos = (110, 6), size = (48, 48), png = 6), # index 6 is the isMounted icon
+					],
+				"fonts": [gFont("SetrixHD", 22),gFont("SetrixHD", 17),gFont("SetrixHD", 24)],
+				"itemHeight": 60
+				}
+			</convert>
+		</widget>
+		<widget source="infotext" render="Label" position="70,598" size="700,30" zPosition="3" font="Regular; 22" halign="center" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1-source" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/net.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="UserDialog" position="0,0" size="1280,720" title="UserDialog" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="UserDialog" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="config" position="70,120" size="700,350" zPosition="3" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="HelpWindow" position="120,470" zPosition="1" size="1,1" transparent="1" alphatest="blend" />
+		<widget name="VKeyIcon" pixmap="MetrixHD/buttons/text.png" position="700,633" zPosition="10" size="70,30" transparent="1" alphatest="blend" />
+		<widget source="introduction" render="Label" position="70,598" size="700,30" font="SetrixHD;22" halign="center" backgroundColor="metrixBackground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="r___-buttons_template1" />
+		<panel name="r___-keys_template1-source" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/net.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="UserManager" position="0,0" size="1280,720" title="UserManager" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="UserManager" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
+		<widget source="config" render="Listbox" position="70,120" size="700,420" zPosition="3" scrollbarMode="showOnDemand" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryText(pos = (80, 4), size = (590, 50), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
+						MultiContentEntryPixmapAlphaTest(pos = (10, 6), size = (48, 48), png = 3), # index 4 is the status pixmap
+					],
+				"fonts": [gFont("SetrixHD", 40)],
+				"itemHeight": 60
+				}
+			</convert>
+		</widget>
+		<widget source="introduction" render="Label" position="70,598" size="700,30" font="SetrixHD;22" halign="center" backgroundColor="metrixBackground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="r_y_-buttons_template1" />
+		<panel name="r_y_-keys_template1-source" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/net.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- HddMount Screens -->
+	<screen name="HddMount" position="0,0" size="1280,720" title="Mount Manager" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Mount Manager" position="70,47" size="800,43" font="Regular;35" backgroundColor="background20" transparent="1" />
+		<widget source="list" render="Listbox" position="70,120" size="700,371" font="Regular;16" scrollbarMode="showOnDemand" transparent="1" backgroundColorSelected="background20" foregroundColorSelected="white">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+				 MultiContentEntryText(pos = (90, 0), size = (600, 30), font=0, text = 0),
+				 MultiContentEntryText(pos = (110, 30), size = (600, 50), font=1, flags = RT_VALIGN_TOP, text = 1),
+				 MultiContentEntryPixmapAlphaBlend(pos = (0, 0), size = (80, 80), png = 2),
+				],
+				"fonts": [gFont("Regular", 24),gFont("Regular", 20)],
+				"itemHeight": 85
+				}
+			</convert>
+		</widget>
+		<widget name="lab1" zPosition="2" position="126,129" size="600,40" font="Regular;22" halign="center" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1-source" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="DevicePanelConf" position="0,0" size="1280,720" title="UserManager" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Mount Manager Setup" position="70,47" size="800,43" font="Regular;35" backgroundColor="background20" transparent="1" />
+		<widget name="config" position="70,120" size="700,371" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" />
+		<widget name="Linconn" position="71,505" size="700,20" font="Regular;18" halign="center" valign="center" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
 </skin>
