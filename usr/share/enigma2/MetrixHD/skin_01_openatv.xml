@@ -1046,4 +1046,55 @@
 		<panel name="rg__-keys_template1-source" />
 		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
+
+<!--
+	425,55 > 70, 47
+	424, 100 > 830, 110
+	59,55 > 830, 65
+
+
+	219 + 830 = 1049
+
+ -->
+	<!-- EMC : Enhanced Movie Center -->
+	<screen name="EMCSelection" position="0,0" size="1280,720" title="Enhanced Movie Center" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Enhanced Movie Center" position="70,47" size="800,43" font="Regular; 29" backgroundColor="background20" transparent="1" />
+		<widget name="list" position="70,100" size="700,512" itemHeight="32" CoolFont="Regular;21" CoolSelectFont="Regular;21" CoolDateFont="Regular;21" CoolMoviePos="35" CoolMovieSize="545" CoolFolderSize="550" CoolTitleColor="0" CoolDatePos="1000" CoolDateWidth="110" CoolDateColor="0" CoolHighlightColor="0" CoolProgressPos="1000" CoolBarPos="640" CoolBarHPos="10" CoolBarSize="55,10" CoolBarSizeSa="110,16" BackColorSel="metrixSelection" DefaultColor="#FFFFFF" UnwatchedColor="#FFFFFF" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" backgroundColor="background20" foregroundColorSelected="#ffffff" scrollbarMode="showNever" transparent="1" />
+		<widget name="wait" position="-1,283" size="1283,50" zPosition="1" font="Regular;32" foregroundColor="metrixAccent1" backgroundColor="un18080911" halign="center" valign="center" />
+		<widget source="Service" render="Label" position="830,80" size="360,50" font="RegularLight; 22" foregroundColor="metrixAccent1" backgroundColor="metrixBackground2" halign="left" transparent="1">
+		<widget source="Title" render="Label" position="830,110" size="790,35" font="RegularLight; 22" foregroundColor="metrixAccent1" backgroundColor="metrixBackground2" transparent="1" />
+			<convert type="EMCEventName">Name</convert>
+		</widget>
+		<widget source="Service" render="Label" position="830,135" size="360,40" font="RegularLight; 19" foregroundColor="metrixAccent1" halign="left" backgroundColor="metrixBackground2" transparent="1">
+			<convert type="EMCMovieInfo">RecordServiceName</convert>
+		</widget>
+		<widget source="Service" render="Label" position="830,165" size="70,33" font="RegularLight; 20" halign="left" foregroundColor="metrixAccent1" backgroundColor="metrixBackground2" transparent="1">
+			<convert type="EMCServiceTime">StartTime</convert>
+			<convert type="EMCClockToText">Format:%H:%M </convert>
+		</widget>
+		<widget source="Service" render="Label" position="884,165" size="70,33" font="RegularLight; 20" foregroundColor="metrixAccent1" backgroundColor="metrixBackground2" transparent="1">
+			<convert type="EMCServiceTime">EndTime</convert>
+			<convert type="EMCClockToText">Format:- %H:%M </convert>
+		</widget>
+		<widget source="Service" render="Label" position="1049,165" size="100,33" font="RegularLight; 20" halign="right" foregroundColor="metrixAccent1" backgroundColor="metrixBackground2" transparent="1">
+			<convert type="EMCServiceTime">Duration</convert>
+			<convert type="EMCClockToText">InMinutes</convert>
+		</widget>
+		<widget source="Service" render="Label" position="830,208" size="360,336" font="RegularLight; 19" foregroundColor="metrixAccent1" backgroundColor="metrixBackground2" transparent="1" halign="left" valign="top">
+			<convert type="EMCEventName">ExtendedDescription</convert>
+		</widget>
+		<widget source="Service" render="Label" position="830,557" size="270,30" font="RegularLight; 17" foregroundColor="metrixAccent1" halign="left" backgroundColor="metrixBackground2" transparent="1">
+			<convert type="EMCServiceTime">StartTime</convert>
+			<convert type="EMCClockToText">Date</convert>
+		</widget>
+		<widget source="Service" render="Label" position="1049,557" size="150,30" font="RegularLight; 17" foregroundColor="metrixAccent1" halign="right" backgroundColor="metrixBackground2" transparent="1">
+			<convert type="EMCMovieInfo">FileSize</convert>
+		</widget>
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+		<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
+	</screen>
 </skin>
