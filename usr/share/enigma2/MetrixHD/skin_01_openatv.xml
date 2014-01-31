@@ -1168,4 +1168,20 @@
 		<panel name="__e-buttons_template1" />
 		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
+    <!--
+    	<widget name="config" position="25,25" size="550,350" />
+		<widget source="current_address" render="Label" position="25,375" size="550,30" zPosition="10" font="Regular;21" halign="left" valign="center" />
+		<widget source="fixed_address" render="Label" position="25,405" size="550,30" zPosition="10" font="Regular;21" halign="left" valign="center" />
+    -->
+    <screen name="HdmiCECSetupScreen" position="0,0" size="1280,720" title="HDMI CEC setup">
+        <eLabel text="HDMI CEC setup" position="70,47" size="700,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="config" position="70,125" size="550,350" />
+		<widget source="current_address" render="Label" position="70,485" size="550,30" font="Regular;21" backgroundColor="metrixBackground" halign="left" valign="center" />
+		<widget source="fixed_address" render="Label" position="70,515" size="550,30" font="Regular;21" backgroundColor="metrixBackground" halign="left" valign="center" />
+	    <panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/hdmicec.png" transparent="1" alphatest="blend" />
+    </screen>
 </skin>
