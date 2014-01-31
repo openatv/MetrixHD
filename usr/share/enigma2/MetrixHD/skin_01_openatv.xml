@@ -1040,11 +1040,11 @@
 	</screen>
 	<!-- EMC : Enhanced Movie Center -->
 	<screen name="EMCSelection" position="0,0" size="1280,720" title="Enhanced Movie Center" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Enhanced Movie Center" position="70,47" size="800,43" font="Regular; 29" backgroundColor="background20" transparent="1" />
-		<widget name="list" position="70,100" size="700,512" itemHeight="32" CoolFont="Regular;21" CoolSelectFont="Regular;21" CoolDateFont="Regular;21" CoolMoviePos="35" CoolMovieSize="545" CoolFolderSize="550" CoolTitleColor="0" CoolDatePos="1000" CoolDateWidth="110" CoolDateColor="0" CoolHighlightColor="0" CoolProgressPos="1000" CoolBarPos="640" CoolBarHPos="10" CoolBarSize="55,10" CoolBarSizeSa="110,16" BackColorSel="metrixSelection" DefaultColor="#FFFFFF" UnwatchedColor="#FFFFFF" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" backgroundColor="background20" foregroundColorSelected="#ffffff" scrollbarMode="showNever" transparent="1" />
+		<eLabel text="Enhanced Movie Center" position="70,47" size="800,43" font="Regular; 29" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="list" position="70,130" size="700,482" itemHeight="32" CoolFont="Regular;21" CoolSelectFont="Regular;21" CoolDateFont="Regular;21" CoolMoviePos="35" CoolMovieSize="545" CoolFolderSize="550" CoolTitleColor="0" CoolDatePos="1000" CoolDateWidth="110" CoolDateColor="0" CoolHighlightColor="0" CoolProgressPos="1000" CoolBarPos="640" CoolBarHPos="10" CoolBarSize="55,10" CoolBarSizeSa="110,16" BackColorSel="metrixSelection" DefaultColor="#FFFFFF" UnwatchedColor="#FFFFFF" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" backgroundColor="background20" foregroundColorSelected="#ffffff" scrollbarMode="showNever" transparent="1" />
 		<widget name="wait" position="-1,283" size="1283,50" zPosition="1" font="Regular;32" foregroundColor="metrixAccent1" backgroundColor="un18080911" halign="center" valign="center" />
-		<widget source="Service" render="Label" position="830,80" size="360,50" font="RegularLight; 22" foregroundColor="metrixAccent1" backgroundColor="metrixBackground2" halign="left" transparent="1">
-		<widget source="Title" render="Label" position="830,110" size="790,35" font="RegularLight; 22" foregroundColor="metrixAccent1" backgroundColor="metrixBackground2" transparent="1" />
+		<widget source="Title" render="Label" position="70,95" size="360,50" font="RegularLight; 22" foregroundColor="metrixAccent1" backgroundColor="metrixBackground" halign="left" transparent="1" />
+		<widget source="Service" render="Label" position="830,110" size="790,35" font="RegularLight; 22" foregroundColor="metrixAccent1" backgroundColor="metrixBackground2" transparent="1">
 			<convert type="EMCEventName">Name</convert>
 		</widget>
 		<widget source="Service" render="Label" position="830,135" size="360,40" font="RegularLight; 19" foregroundColor="metrixAccent1" halign="left" backgroundColor="metrixBackground2" transparent="1">
@@ -1076,5 +1076,96 @@
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
 		<panel name="ime-buttons_template1" />
+	</screen>
+	<!-- Timer Editor -->
+	<screen name="TimerEditList" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Timer Editor" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="timerlist" position="70,115" size="700,500" scrollbarMode="showOnDemand" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+		<!--
+		<widget name="description" position="830,80" size="360,600" font="Regular; 20" foregroundColor="metrixAccent1" halign="left" backgroundColor="metrixBackground2" valign="top" transparent="1"/>
+		 -->
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="TimerEntry" position="0,0" size="1280,720" title="Timer entry" flags="wfNoBorder" backgroundColor="transparent">
+		<widget name="HelpWindow" position="120,470" size="1,1" zPosition="1" transparent="1" alphatest="blend" />
+		<eLabel text="Timer entry" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="config" position="70,120" size="700,390" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="cancel" pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
+		<widget name="ok" pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
+		<widget name="canceltext" position="105,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="oktext" position="395,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="metrixBackground" transparent="1" />
+		<panel name="template1_2layer" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- AutoTimer -->
+	<screen name="AutoTimerOverview" position="0,0" size="1280,720" title="AutoTimer Overview" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="entries" position="70,115" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="metrixBackground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1-source" />
+		<panel name="_me-buttons_template1" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="AutoTimerImporter" position="0,0" size="1280,720" title="Import AutoTimer" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="list" position="70,115" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="metrixBackground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="AutoTimerEditor" position="0,0" size="1280,720" title="Edit AutoTimer" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="config" position="70,115" size="700,450" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="metrixBackground" transparent="1" />
+		<eLabel position="70,572" size="700,2" backgroundColor="metrixAccent1" />
+		<widget source="help" render="Label" position="70,577" size="700,50" font="SetrixHD;20" backgroundColor="metrixBackground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="AutoTimerFilterEditor" position="0,0" size="1280,720" title="Edit AutoTimer Filters" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="config" position="70,115" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="metrixBackground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="AutoTimerServiceEditor" position="0,0" size="1280,720" title="Edit AutoTimer Services" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="config" position="70,115" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="metrixBackground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="AutoTimerSettings" position="0,0" size="1280,720" title="AutoTimer Settings" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="config" position="70,115" size="700,450" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="metrixBackground" transparent="1" />
+		<eLabel position="70,572" size="700,2" backgroundColor="metrixAccent1" />
+		<widget source="help" render="Label" position="70,577" size="700,50" font="SetrixHD;20" backgroundColor="metrixBackground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- General Screens -->
+	<screen name="SimpleChannelSelection" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Channel Selection" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="metrixBackground" transparent="1" />
+		<widget name="list" position="70,85" size="700,540" scrollbarMode="showNever" foregroundColor="metrixForeground" colorServiceDescription="metrixAccent1" colorServiceDescriptionSelected="metrixForeground" colorEventProgressbarBorder="metrixSelection" colorEventProgressbarBorderSelected="metrixForeground" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="SetrixHD;26" serviceNameFont="SetrixHD;26" serviceInfoFont="Regular;22" transparent="1" backgroundColor="metrixBackground" itemHeight="50" />
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
 </skin>
