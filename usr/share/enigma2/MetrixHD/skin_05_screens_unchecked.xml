@@ -395,41 +395,9 @@
 			<convert type="ConditionalShowHide" />
 		</widget>
 	</screen>
-	<screen name="UpdatePluginMenu" position="0,0" size="1280,720" title="Softwaremanager..." flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="39,25" zPosition="-10" size="785,650" backgroundColor="layer-a-background" />
-		<eLabel position="825,75" zPosition="-10" size="384,550" backgroundColor="layer-b-background" />
-		<widget source="global.CurrentTime" render="Label" position="659,48" size="140,43" font="SetrixHD; 35" halign="right" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<eLabel position="40,25" zPosition="-10" size="785,650" backgroundColor="layer-a-background" />
-		<eLabel text="Softwaremanager" position="70,47" size="400,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="menu" render="Listbox" position="70,110" size="727,506" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
-			<convert type="TemplatedMultiContent">
-				{"template": [
-						MultiContentEntryText(pos = (15, 5), size = (383, 30), flags = RT_HALIGN_LEFT, text = 1), # index 0 is the MenuText,
-					],
-				"fonts": [gFont("SetrixHD", 22)],
-				"itemHeight": 40
-				}
-			</convert>
-		</widget>
-		<widget source="menu" render="Listbox" position="838,87" size="355,250" zPosition="3" scrollbarMode="showNever" selectionDisabled="1" foregroundColor="layer-a-accent1" backgroundColor="layer-b-background" transparent="1">
-			<convert type="TemplatedMultiContent">
-				{"template": [
-	MultiContentEntryText(pos = (0, 0), size = (355, 150), flags = RT_HALIGN_LEFT|RT_VALIGN_TOP|RT_WRAP, text = 2), # index 2 is the Description,
-					],
-				"fonts": [gFont("SetrixHD", 20)],
-				"itemHeight": 170
-				}
-			</convert>
-		</widget>
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="45,635" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="85,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="889,334" size="256,256" zPosition="2" pixmap="MetrixHD/icons/swm.png" transparent="1" alphatest="blend" />
-	</screen>
 	<screen name="About" position="1,1" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel name="" position="58,51" zPosition="-11" size="861,595" backgroundColor="layer-a-background" foregroundColor="layer-a-background" />
-		<eLabel text="About Vu+ Series" position="20,552" size="1273,296" font="SetrixHD; 150" backgroundColor="metrixPreTrans" transparent="1" foregroundColor="metrixPreTrans" valign="top" zPosition="-20" />
+		<eLabel text="About" position="20,552" size="1273,296" font="SetrixHD; 150" backgroundColor="metrixPreTrans" transparent="1" foregroundColor="metrixPreTrans" valign="top" zPosition="-20" />
 		<widget source="EnigmaVersion" render="Label" position="70,71" size="700,40" font="SetrixHD; 26" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="ImageVersion" render="Label" position="70,111" size="700,40" font="SetrixHD; 26" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="FPVersion" render="Label" position="70,151" size="700,40" font="SetrixHD; 26" backgroundColor="layer-a-background" transparent="1" />

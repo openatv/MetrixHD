@@ -202,9 +202,9 @@
 		<widget name="key_green" position="472,10" size="160,30" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="key_yellow" position="686,10" size="160,30" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel name="" position="222,105" zPosition="-11" size="426,466" backgroundColor="layer-a-background" foregroundColor="layer-a-background" />
-		<widget name="list" position="239,114" size="400,450" itemHeight="50" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-a-background" backgroundColorSelected="layer-b-background" />
+		<widget name="list" position="239,114" size="400,450" itemHeight="50" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-b-background" />
 		<eLabel name="" position="648,122" zPosition="-11" size="397,431" backgroundColor="layer-b-background" foregroundColor="layer-b-background" />
-		<widget name="sublist" position="656,135" size="377,408" itemHeight="50" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-b-background" backgroundColorSelected="layer-a-background" />
+		<widget name="sublist" position="656,135" size="377,408" itemHeight="50" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" backgroundColorSelected="layer-a-background" />
 		<widget name="description" position="42,44" size="1206,35" zPosition="1" font="Regular;22" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Quick Launch Menu" position="20,552" size="1273,298" font="SetrixHD; 150" backgroundColor="metrixPreTrans" transparent="1" foregroundColor="metrixPreTrans" valign="top" zPosition="-50" />
 	</screen>
@@ -323,7 +323,7 @@
 		<widget name="list" position="70,115" size="700,500" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" enableWrapAround="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
-		<widget name="red" position="70,637" size="160,30" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="red" position="70,637" size="260,30" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="green" position="257,637" size="160,30" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="_me-buttons_template1" />
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/plugin.png" transparent="1" alphatest="blend" />
@@ -389,7 +389,7 @@
 		<panel name="rg_b-keys_template1" />
 	</screen>
 	<screen name="Console" position="0,0" size="1280,720" title="Command execution..." flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="text" position="70,120" size="700,460" font="Console;16" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-a-background" />
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/console.png" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
@@ -489,7 +489,7 @@
 	</screen>
 	<screen name="RestorePlugins" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
-		<eLabel text="Restore Plugins" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Restore Plugins" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/plugin.png" transparent="1" alphatest="blend" />
 		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
@@ -784,7 +784,7 @@
 	</screen>
 	<screen name="MediaPlayerSettings" position="0,0" size="1280,720" title="Edit Settings" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
-		<widget source="Title" render="Label" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
@@ -866,7 +866,7 @@
 	</screen>
 
 	<screen name="Setup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Setup" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Setup" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
@@ -876,7 +876,7 @@
 
 	<!-- MountScreens (NetworkBrowser) -->
 	<screen name="AutoMountManager" position="0,0" size="1280,720" title="AutoMountManager" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="AutoMountManager" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="AutoMountManager" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="config" render="Listbox" position="70,115" size="700,480" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
@@ -896,7 +896,7 @@
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/net.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="AutoMountEdit" position="0,0" size="1280,720" title="MountEdit" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="MountEdit" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="MountEdit" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,121" size="700,450" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
 		<widget name="HelpWindow" position="120,470" zPosition="1" size="1,1" transparent="1" alphatest="blend" />
 		<widget name="VKeyIcon" pixmap="MetrixHD/buttons/text.png" position="700,633" zPosition="10" size="70,30" transparent="1" alphatest="blend" />
@@ -907,7 +907,7 @@
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/net.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="AutoMountView" position="0,0" size="1280,720" title="MountView" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="MountView" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="MountView" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="legend1" render="Label" position="70,130" size="130,60" font="SetrixHD;18" halign="center" valign="center" transparent="1" />
 		<widget source="legend2" render="Label" position="230,128" size="400,60" font="SetrixHD;20" halign="center" valign="center" transparent="1" />
 		<widget source="legend3" render="Label" position="650,128" size="120,60" font="SetrixHD;20" halign="center" valign="center" transparent="1" />
@@ -934,7 +934,7 @@
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/net.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="NetworkBrowser" position="0,0" size="1280,720" title="Network Neighbourhood" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Network Neighbourhood" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Network Neighbourhood" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="list" render="Listbox" position="70,120" size="700,480" zPosition="3" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
@@ -957,7 +957,7 @@
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/net.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="UserDialog" position="0,0" size="1280,720" title="UserDialog" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="UserDialog" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="UserDialog" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,120" size="700,350" zPosition="3" scrollbarMode="showOnDemand" transparent="1" />
 		<widget name="HelpWindow" position="120,470" zPosition="1" size="1,1" transparent="1" alphatest="blend" />
 		<widget name="VKeyIcon" pixmap="MetrixHD/buttons/text.png" position="700,633" zPosition="10" size="70,30" transparent="1" alphatest="blend" />
@@ -968,7 +968,7 @@
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/net.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="UserManager" position="0,0" size="1280,720" title="UserManager" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="UserManager" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="UserManager" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="config" render="Listbox" position="70,120" size="700,420" zPosition="3" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
@@ -988,7 +988,7 @@
 	</screen>
 	<!-- HddMount Screens -->
 	<screen name="HddMount" position="0,0" size="1280,720" title="Mount Manager" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Mount Manager" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="background20" transparent="1" />
+		<eLabel text="Mount Manager" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="background20" transparent="1" />
 		<widget source="list" render="Listbox" position="70,120" size="700,371" font="Regular;16" scrollbarMode="showOnDemand" transparent="1" backgroundColorSelected="background20" foregroundColorSelected="white">
 			<convert type="TemplatedMultiContent">
 				{"template": [
@@ -1008,7 +1008,7 @@
 		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="DevicePanelConf" position="0,0" size="1280,720" title="UserManager" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Mount Manager Setup" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="background20" transparent="1" />
+		<eLabel text="Mount Manager Setup" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="background20" transparent="1" />
 		<widget name="config" position="70,120" size="700,371" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="background20" transparent="1" />
 		<widget name="Linconn" position="71,505" size="700,20" font="Regular;18" halign="center" valign="center" />
 		<panel name="template1_2layer" />
@@ -1018,7 +1018,7 @@
 	</screen>
 	<!-- EMC : Enhanced Movie Center -->
 	<screen name="EMCSelection" position="0,0" size="1280,720" title="Enhanced Movie Center" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Enhanced Movie Center" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Enhanced Movie Center" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,130" size="700,482" itemHeight="32" CoolFont="Regular;21" CoolSelectFont="Regular;21" CoolDateFont="Regular;21" CoolMoviePos="35" CoolMovieSize="545" CoolFolderSize="550" CoolTitleColor="0" CoolDatePos="1000" CoolDateWidth="110" CoolDateColor="0" CoolHighlightColor="0" CoolProgressPos="1000" CoolBarPos="640" CoolBarHPos="10" CoolBarSize="55,10" CoolBarSizeSa="110,16" BackColorSel="selection-background" DefaultColor="#FFFFFF" UnwatchedColor="#FFFFFF" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" backgroundColor="background20" foregroundColorSelected="#ffffff" scrollbarMode="showNever" transparent="1" />
 		<widget name="wait" position="-1,283" size="1283,50" zPosition="1" font="Regular;32" backgroundColor="un18080911" halign="center" valign="center" />
 		<widget source="Title" render="Label" position="70,95" size="360,50" font="RegularLight; 22" backgroundColor="layer-a-background" halign="left" transparent="1" />
@@ -1057,7 +1057,7 @@
 	</screen>
 	<!-- Timer Editor -->
 	<screen name="TimerEditList" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Timer Editor" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Timer Editor" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="timerlist" position="70,115" size="700,500" scrollbarMode="showOnDemand" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
@@ -1069,7 +1069,7 @@
 	</screen>
 	<screen name="TimerEntry" position="0,0" size="1280,720" title="Timer entry" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="HelpWindow" position="120,470" size="1,1" zPosition="1" transparent="1" alphatest="blend" />
-		<eLabel text="Timer entry" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Timer entry" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,120" size="700,390" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
 		<widget name="cancel" pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<widget name="ok" pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
@@ -1080,7 +1080,7 @@
 	</screen>
 	<!-- AutoTimer -->
 	<screen name="AutoTimerOverview" position="0,0" size="1280,720" title="AutoTimer Overview" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="entries" position="70,115" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
@@ -1089,7 +1089,7 @@
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="AutoTimerImporter" position="0,0" size="1280,720" title="Import AutoTimer" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,115" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
@@ -1098,7 +1098,7 @@
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="AutoTimerEditor" position="0,0" size="1280,720" title="Edit AutoTimer" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,115" size="700,450" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,572" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget source="help" render="Label" position="70,577" size="700,50" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
@@ -1109,7 +1109,7 @@
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="AutoTimerFilterEditor" position="0,0" size="1280,720" title="Edit AutoTimer Filters" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,115" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
@@ -1118,7 +1118,7 @@
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="AutoTimerServiceEditor" position="0,0" size="1280,720" title="Edit AutoTimer Services" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,115" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
@@ -1127,7 +1127,7 @@
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="AutoTimerSettings" position="0,0" size="1280,720" title="AutoTimer Settings" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,115" size="700,450" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,572" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget source="help" render="Label" position="70,577" size="700,50" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
@@ -1138,7 +1138,7 @@
 	</screen>
 	<!-- General Screens -->
 	<screen name="SimpleChannelSelection" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Channel Selection" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Channel Selection" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,85" size="700,540" scrollbarMode="showNever" foregroundColor="layer-a-foreground" colorServiceDescription="layer-a-accent1" colorServiceDescriptionSelected="layer-a-foreground" colorEventProgressbarBorder="selection-background" colorEventProgressbarBorderSelected="layer-a-foreground" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="SetrixHD;26" serviceNameFont="SetrixHD;26" serviceInfoFont="Regular;22" transparent="1" backgroundColor="layer-a-background" itemHeight="50" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
@@ -1146,15 +1146,42 @@
 		<panel name="__e-buttons_template1" />
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
-    <screen name="HdmiCECSetupScreen" position="0,0" size="1280,720" title="HDMI CEC setup">
-        <eLabel text="HDMI CEC setup" position="70,47" size="700,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+	<screen name="HdmiCECSetupScreen" position="0,0" size="1280,720" title="HDMI CEC setup">
+		<eLabel text="HDMI CEC setup" position="70,47" size="700,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,125" size="550,350" />
 		<widget source="current_address" render="Label" position="70,485" size="550,30" font="Regular;21" backgroundColor="layer-a-background" halign="left" valign="center" />
 		<widget source="fixed_address" render="Label" position="70,515" size="550,30" font="Regular;21" backgroundColor="layer-a-background" halign="left" valign="center" />
-	    <panel name="template1_2layer" />
+		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1-source" />
 		<panel name="__e-buttons_template1" />
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/hdmicec.png" transparent="1" alphatest="blend" />
-    </screen>
+	</screen>
+	<screen name="UpdatePluginMenu" position="0,0" size="1280,720" title="Softwaremanager..." flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<eLabel text="Softwaremanager" position="70,47" size="400,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="menu" render="Listbox" position="70,110" size="727,506" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryText(pos = (15, 5), size = (383, 30), flags = RT_HALIGN_LEFT, text = 1), # index 0 is the MenuText,
+					],
+				"fonts": [gFont("SetrixHD", 22)],
+				"itemHeight": 40
+				}
+			</convert>
+		</widget>
+		<widget source="menu" render="Listbox" position="838,87" size="355,250" zPosition="3" scrollbarMode="showNever" selectionDisabled="1" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryText(pos = (0, 0), size = (355, 250), flags = RT_HALIGN_LEFT|RT_VALIGN_TOP|RT_WRAP, text = 2), # index 2 is the Description,
+					],
+				"fonts": [gFont("SetrixHD", 20)],
+				"itemHeight": 250
+				}
+			</convert>
+		</widget>
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="45,635" size="30,40" alphatest="blend" />
+		<widget source="key_red" render="Label" position="85,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<ePixmap position="889,334" size="256,256" zPosition="2" pixmap="MetrixHD/icons/swm.png" transparent="1" alphatest="blend" />
+	</screen>
 </skin>
