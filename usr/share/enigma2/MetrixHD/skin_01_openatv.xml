@@ -319,29 +319,29 @@
 		<ePixmap name="AudioPixmap" position="891,222" size="256,256" pixmap="MetrixHD/icons/audio.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="PluginBrowser" position="0,0" size="1280,720" title="Plugin browser" flags="wfNoBorder" backgroundColor="transparent">
-        <eLabel text="Plugin browser" position="70,47" size="700,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,115" size="700,510" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" enableWrapAround="1" transparent="1" />
+		<eLabel text="Plugin browser" position="70,47" size="700,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list" position="70,115" size="700,500" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" enableWrapAround="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
-        <widget name="red" position="70,637" size="160,25" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="green" position="257,637" size="160,25" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="red" position="70,637" size="160,30" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="green" position="257,637" size="160,30" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="_me-buttons_template1" />
-        <ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/plugin.png" transparent="1" alphatest="blend" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/plugin.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="PluginDownloadBrowser" position="0,0" size="1280,720" title="Downloadable plugins" flags="wfNoBorder" backgroundColor="transparent">
-        <widget source="Title" render="Label" position="70,47" size="700,48" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-        <widget name="list" position="60,115" size="700,530" zPosition="4" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
-        <widget name="text" position="855,500" size="334,160" zPosition="1" font="SetrixHD;24" halign="center" valign="center" backgroundColor="layer-b-background" transparent="1" />
-        <panel name="template1_2layer" />
-        <ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/plugin.png" transparent="1" alphatest="blend" />
-    </screen>
-    <screen name="SoftwarePanel" position="0,0" size="1280,720" title="SoftwarePanel" flags="wfNoBorder" backgroundColor="transparent">
-        <widget source="Title" render="Label" position="70,47" size="700,43" zPosition="1" halign="left" font="SetrixHD; 32" backgroundColor="layer-a-background" transparent="1" />
-        <eLabel text="Software Update" position="10,552" size="1273,296" font="SetrixHD; 150" backgroundColor="metrixPreTrans2" transparent="1" foregroundColor="metrixPreTrans2" valign="top" zPosition="-20" />
-        <widget name="packagetext" position="70,115" size="250,35" zPosition="1" font="Regular;25" halign="right" backgroundColor="layer-a-background" transparent="1" />
-        <widget name="packagenr" position="324,115" size="50,35" zPosition="1" font="Regular;25" halign="right" backgroundColor="layer-a-background" transparent="1" />
-        <widget source="list" render="Listbox" position="70,175" size="700,420" itemHeight="55" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1">
-            <convert type="TemplatedMultiContent">
+		<widget source="Title" render="Label" position="70,47" size="700,48" font="SetrixHD;35" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list" position="60,115" size="700,530" zPosition="4" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="text" position="855,500" size="334,160" zPosition="1" font="SetrixHD;24" halign="center" valign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/plugin.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="SoftwarePanel" position="0,0" size="1280,720" title="SoftwarePanel" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="700,43" zPosition="1" halign="left" font="SetrixHD; 32" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Software Update" position="10,552" size="1273,296" font="SetrixHD; 150" backgroundColor="metrixPreTrans2" transparent="1" foregroundColor="metrixPreTrans2" valign="top" zPosition="-20" />
+		<widget name="packagetext" position="70,115" size="250,35" zPosition="1" font="Regular;25" halign="right" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="packagenr" position="324,115" size="50,35" zPosition="1" font="Regular;25" halign="right" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="list" render="Listbox" position="70,175" size="700,420" itemHeight="55" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1">
+			<convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryText(pos = (5, 1), size = (590, 28), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
 						MultiContentEntryText(pos = (5, 26), size = (590, 20), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
