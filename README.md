@@ -9,13 +9,18 @@ MetrixHD is created by iMaxxx http://open-store.net
 
 **The skin uses a modern 2-layer style with 2 main fonts and several font colors to catch the users attention on the important areas of a screen.**
 
-**_metrixSelection_** *- color for selected items*  
-**_metrixForeground_** *- Foreground color text*  
-**_metrixAccent1_** *- First foreground accent color*  
-**_metrixAccent2_** *- Second foreground accent color*  
-**_metrixBackground_** *- Primary background color Layer 1*  
-**_metrixBackground2_** *- Secondary background color Layer 2*  
-**_metrixPreTrans_** *- Primary foreground color for texts in background*  
+**_selection-foreground_** *- MetrixColors - Foreground for selected items*  
+**_selection-background_** *- MetrixColors - Background for selected items*  
+**_layer-a-foreground_** *- MetrixColors - Foreground layer a*  
+**_layer-a-background_** *- MetrixColors - Background layer a*  
+**_layer-a-accent1_** *- MetrixColors - First accent layer a*  
+**_layer-a-accent2_** *- MetrixColors - Second accent layer a*  
+**_layer-a-progress_** *- MetrixColors - Progress layer a*  
+**_layer-b-foreground_** *- MetrixColors - Foreground layer b*  
+**_layer-b-background_** *- MetrixColors - Background layer b*  
+**_layer-b-accent1_** *- MetrixColors - First accent layer b*  
+**_layer-b-accent2_** *- MetrixColors - Second accent layer b*  
+**_layer-b-progress_** *- MetrixColors - Progress layer b*  
 
 **The skin will be used in openATV without any additional pre-installed plugin using the default configuration - not customizable using the GUI.**
 
