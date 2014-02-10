@@ -281,7 +281,7 @@
 			<convert type="MenuEntryCompare">setup_selection</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/plugin.png" position="310,85" size="256,256" alphatest="blend">
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/pluginmanager.png" position="310,85" size="256,256" alphatest="blend">
 			<convert type="MenuEntryCompare">plugin_selection</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
@@ -392,6 +392,10 @@
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/shutdowntimer.png" position="310,85" size="256,256" alphatest="on" zPosition="1">
 			<convert type="MenuEntryCompare">sleep</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/powertimers.png" position="310,85" size="256,256" alphatest="blend">
+			<convert type="MenuEntryCompare">powertimer_edit</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 	</screen>
@@ -2907,7 +2911,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget source="global.CurrentTime" render="Label" position="1040,12" size="120,22" font="SetrixHD;18" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
 			<convert type="ClockToText">Format:%d.%m.%Y</convert>
 		</widget>
-		<ePixmap position="150,55" size="100,40" zPosition="4" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/MyTube/plugin.png" alphatest="blend" transparent="1" />
+		<ePixmap position="150,55" size="100,40" zPosition="4" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/MyTube/pluginmanager.png" alphatest="blend" transparent="1" />
 		<widget source="session.CurrentService" render="Label" position="170,95" size="100,28" font="SetrixHD;24" halign="center" valign="center" backgroundColor="layer-a-background" shadowColor="layer-a-background" shadowOffset="-1,-1" transparent="1">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
@@ -2970,7 +2974,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		</widget>
 		<widget name="title" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,120" size="700,480" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="1050,460" size="100,40" zPosition="4" pixmap="~/plugin.png" alphatest="blend" transparent="1" />
+		<ePixmap position="1050,460" size="100,40" zPosition="4" pixmap="~/pluginmanager.png" alphatest="blend" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<widget name="key_red" position="105,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
@@ -3015,7 +3019,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 				}
 			</convert>
 		</widget>
-		<ePixmap position="1050,460" size="100,40" zPosition="4" pixmap="~/plugin.png" alphatest="blend" transparent="1" />
+		<ePixmap position="1050,460" size="100,40" zPosition="4" pixmap="~/pluginmanager.png" alphatest="blend" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<widget name="key_red" position="105,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/youtube.png" transparent="1" alphatest="blend" />
@@ -3033,7 +3037,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		</widget>
 		<widget name="title" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="detailtext" position="70,120" size="700,500" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="1050,460" size="100,40" zPosition="4" pixmap="~/plugin.png" alphatest="blend" transparent="1" />
+		<ePixmap position="1050,460" size="100,40" zPosition="4" pixmap="~/pluginmanager.png" alphatest="blend" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<widget name="key_red" position="105,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/youtube.png" transparent="1" alphatest="blend" />
@@ -3076,7 +3080,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget name="starsbg" position="650,260" size="100,20" pixmap="~/starsbar_empty.png" zPosition="5" transparent="1" alphatest="blend" />
 		<widget name="stars" position="650,260" size="100,20" pixmap="~/starsbar_filled.png" zPosition="6" transparent="1" />
 		<widget name="detailtext" position="70,450" size="700,170" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="1050,460" size="100,40" zPosition="4" pixmap="~/plugin.png" alphatest="blend" transparent="1" />
+		<ePixmap position="1050,460" size="100,40" zPosition="4" pixmap="~/pluginmanager.png" alphatest="blend" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<widget name="key_red" position="105,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="thumbnail" position="0,0" size="170,130" alphatest="blend" /> # fake entry for dynamic thumbnail resizing, currently there is no other way doing this.
@@ -3527,7 +3531,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_green" render="Label" position="395,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/plugin.png" transparent="1" alphatest="blend" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
 		<widget name="divpic" position="0,0" size="0,0" />
 	</screen>
 	<screen name="PluginManager" position="0,0" size="1280,720" title="Plugin manager" flags="wfNoBorder" backgroundColor="transparent">
@@ -3569,7 +3573,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget source="key_green" render="Label" position="395,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_yellow" render="Label" position="685,637" size="180,22" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_blue" render="Label" position="975,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/plugin.png" transparent="1" alphatest="blend" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="PluginManagerInfo" position="0,0" size="1280,720" title="Plugin manager activity" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
@@ -3600,7 +3604,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_green" render="Label" position="395,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/plugin.png" transparent="1" alphatest="blend" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="PluginManagerHelp" position="0,0" size="1280,720" title="Plugin manager help" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
@@ -3629,7 +3633,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget source="status" render="Label" position="70,590" size="480,25" halign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/plugin.png" transparent="1" alphatest="blend" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="RestoreMenu" position="0,0" size="1280,720" title="Restore Backups" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
@@ -3650,7 +3654,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget source="key_red" render="Label" position="105,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_green" render="Label" position="395,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_yellow" render="Label" position="685,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/plugin.png" transparent="1" alphatest="blend" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="RestoreMenuImage" position="0,0" size="1280,720" title="Restore Backups" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
@@ -3671,7 +3675,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget source="key_red" render="Label" position="105,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_green" render="Label" position="395,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_yellow" render="Label" position="685,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/plugin.png" transparent="1" alphatest="blend" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- WebInterface -->
 	<screen name="WebIfConfigScreen" position="0,0" size="1280,720" title="Main Setup" flags="wfNoBorder" backgroundColor="transparent">

@@ -190,7 +190,22 @@
 				}
 			</convert>
 		</widget>
-		<ePixmap pixmap="MetrixHD/icons/setup.png" position="310,85" size="256,256" alphatest="blend" />
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/autotimers.png" position="310,85" size="256,256" alphatest="blend">
+			<convert type="MenuEntryCompare">autotimer_setup</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/crontimers.png" position="310,85" size="256,256" alphatest="blend">
+			<convert type="MenuEntryCompare">crontimer_edit</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/timers.png" position="310,85" size="256,256" alphatest="blend">
+			<convert type="MenuEntryCompare">timer_edit</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/powertimers.png" position="310,85" size="256,256" alphatest="blend">
+			<convert type="MenuEntryCompare">powertimer_edit</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
 		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
 	</screen>
 	<screen name="QuickMenu" position="0,0" size="1280,720" title="Quick Launch Menu" flags="wfNoBorder" backgroundColor="transparent">
@@ -326,14 +341,14 @@
 		<widget name="red" position="70,637" size="260,30" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="green" position="257,637" size="160,30" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="_me-buttons_template1" />
-		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/plugin.png" transparent="1" alphatest="blend" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="PluginDownloadBrowser" position="0,0" size="1280,720" title="Downloadable plugins" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" size="700,48" font="SetrixHD;35" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="60,115" size="700,530" zPosition="4" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="text" position="855,500" size="334,160" zPosition="1" font="SetrixHD;24" halign="center" valign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
 		<panel name="template1_2layer" />
-		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/plugin.png" transparent="1" alphatest="blend" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="SoftwarePanel" position="0,0" size="1280,720" title="SoftwarePanel" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" size="700,43" zPosition="1" halign="left" font="SetrixHD; 32" backgroundColor="layer-a-background" transparent="1" />
@@ -481,7 +496,7 @@
 	<screen name="RestorePlugins" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
 		<eLabel text="Restore Plugins" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/plugin.png" transparent="1" alphatest="blend" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
 		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
