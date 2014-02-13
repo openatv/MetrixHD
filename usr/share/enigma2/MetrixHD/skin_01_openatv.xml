@@ -432,6 +432,27 @@
 		<widget name="btt_blue" position="630,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="MetrixHD/icons/pluginmanager.png" position="891,222" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
 	</screen>
+	<screen name="Devices" position="0,0" size="1280,720" title="SystemInfo" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<widget source="Title" render="Label" position="70,47" size="400,54" font="SetrixHD; 35" backgroundColor="layer-a-background" transparent="1" />
+		<ePixmap pixmap="MetrixHD/icons/info.png" position="891,222" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+		<widget source="TunerHeader" render="Label" position="70,121" size="458,36" font="Regular;20" transparent="1" zPosition="1" />
+		<widget source="nims" render="Label" position="70,162" size="458,108" font="Regular;18" transparent="1" zPosition="1" enableWrapAround="0" />
+		<widget source="HDDHeader" render="Label" position="70,275" size="458,36" font="Regular;20" transparent="1" zPosition="1" />
+		<widget source="hdd" render="Label" position="70,315" size="644,112" font="Regular;18" transparent="1" zPosition="1" enableWrapAround="0" />
+		<widget source="MountsHeader" render="Label" position="70,431" size="458,36" font="Regular;20" transparent="1" zPosition="1" />
+		<widget source="mounts" render="Label" position="70,470" size="458,143" font="Regular;18" transparent="1" zPosition="1" enableWrapAround="0" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
+	<screen name="SystemMemoryInfo" position="0,0" size="1280,720" title="SystemInfo" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<widget source="Title" render="Label" position="70,47" size="400,54" font="SetrixHD; 35" backgroundColor="layer-a-background" transparent="1" />
+		<ePixmap pixmap="MetrixHD/icons/info.png" position="891,222" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+		<widget source="lab1" render="Label" position="70,133" size="458,35" font="Regular;30" transparent="1" zPosition="2" />
+		<widget source="lab2" render="Label" position="70,178" size="458,25" font="Regular;19" transparent="1" zPosition="2" />
+		<widget name="AboutScrollLabel" position="70,214" size="458,484" font="Regular;20" transparent="1" zPosition="1" scrollbarMode="showOnDemand" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
 	<screen name="Menu" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MENU_template" />
 	</screen>
