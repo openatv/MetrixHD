@@ -918,36 +918,39 @@
 		<widget name="AboutScrollLabel" position="70,214" size="458,484" font="Regular;20" transparent="1" zPosition="1" scrollbarMode="showOnDemand" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
-
-	<screen name="SystemNetworkInfo" position="center,center" size=" 1280,720" title="SystemInfo" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="42,24" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
-		<widget source="Title" render="Label" position="85,47" size="700,43" zPosition="1" halign="left" font="SetrixHD; 32" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget name="AboutScrollLabel" position="79,107" size="458,213" font="Regular;20" transparent="0" zPosition="1" scrollbarMode="showOnDemand" />
-		<widget source="LabelBSSID" render="Label" position="51,332" size="200,25" valign="left" font="Regular;20" transparent="0" />
-		<widget source="LabelESSID" render="Label" position="54,369" size="200,25" valign="center" font="Regular;20" transparent="0" />
-		<widget source="LabelQuality" render="Label" position="54,407" size="200,25" valign="center" font="Regular;20" transparent="0" />
-		<widget source="LabelSignal" render="Label" position="54,445" size="200,25" valign="center" font="Regular;20" transparent="0" />
-		<widget source="LabelBitrate" render="Label" position="55,480" size="200,25" valign="center" font="Regular;20" transparent="0" />
-		<widget source="LabelEnc" render="Label" position="54,515" size="200,25" valign="center" font="Regular;20" transparent="0" />
-		<widget source="BSSID" render="Label" position="229,332" size="310,25" valign="center" font="Regular;20" transparent="0" />
-		<widget source="ESSID" render="Label" position="229,370" size="310,25" valign="center" font="Regular;20" transparent="0" />
-		<widget source="quality" render="Label" position="229,407" size="310,25" valign="center" font="Regular;20" transparent="0" />
-		<widget source="signal" render="Label" position="214,445" size="310,25" valign="center" font="Regular;20" transparent="0" />
-		<widget source="bitrate" render="Label" position="214,480" size="310,25" valign="center" font="Regular;20" transparent="0" />
-		<widget source="enc" render="Label" position="214,514" size="310,25" valign="center" font="Regular;20" transparent="0" />
-		<widget source="IFtext" render="Label" position="81,549" size="120,28" zPosition="10" font="Regular;20" halign="left" transparent="0" />
-		<widget source="IF" render="Label" position="214,548" size="375,28" zPosition="10" font="Regular;20" halign="left" transparent="0" />
-		<widget source="Statustext" render="Label" position="160,626" size="115,25" zPosition="10" font="Regular;20" halign="left" transparent="0" />
-		<widget name="statuspic" pixmaps="skin_default/buttons/button_green.png,skin_default/buttons/button_green_off.png" position="296,634" zPosition="10" size="15,16" transparent="0" alphatest="on" />
+	</screen>
+		<screen name="SystemNetworkInfo" position="center,center" size="1280,721" title="SystemInfo" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<widget source="Title" render="Label" position="70,47" size="400,54" font="SetrixHD; 35" backgroundColor="layer-a-background" transparent="1" />
+		<ePixmap pixmap="MetrixHD/icons/info.png" position="891,222" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+		<widget name="AboutScrollLabel" position="70,108" size="458,291" font="Regular;20" transparent="1" zPosition="1" scrollbarMode="showOnDemand" />
+		<widget source="LabelBSSID" render="Label" position="70,403" size="200,25" valign="left" font="Regular;20" transparent="1" />
+		<widget source="LabelESSID" render="Label" position="70,432" size="200,25" valign="center" font="Regular;20" transparent="1" />
+		<widget source="LabelQuality" render="Label" position="70,462" size="200,25" valign="center" font="Regular;20" transparent="1" />
+		<widget source="LabelSignal" render="Label" position="70,493" size="200,25" valign="center" font="Regular;20" transparent="1" />
+		<widget source="LabelBitrate" render="Label" position="70,523" size="200,25" valign="center" font="Regular;20" transparent="1" />
+		<widget source="LabelEnc" render="Label" position="70,553" size="200,25" valign="center" font="Regular;20" transparent="1" />
+		<widget source="BSSID" render="Label" position="245,403" size="310,25" valign="center" font="Regular;20" transparent="1" />
+		<widget source="ESSID" render="Label" position="245,433" size="310,25" valign="center" font="Regular;20" transparent="1" />
+		<widget source="quality" render="Label" position="245,463" size="310,25" valign="center" font="Regular;20" transparent="1" />
+		<widget source="signal" render="Label" position="245,492" size="310,25" valign="center" font="Regular;20" transparent="1" />
+		<widget source="bitrate" render="Label" position="245,522" size="310,25" valign="center" font="Regular;20" transparent="1" />
+		<widget source="enc" render="Label" position="245,553" size="310,25" valign="center" font="Regular;20" transparent="1" />
+		<widget source="IFtext" render="Label" position="70,593" size="120,28" zPosition="10" font="Regular;20" halign="left" transparent="1" />
+		<widget source="IF" render="Label" position="181,592" size="375,28" zPosition="10" font="Regular;20" halign="left" transparent="1" />
+		<widget source="Statustext" render="Label" position="70,631" size="115,30" zPosition="10" font="Regular;20" halign="left" transparent="1" />
+		<widget name="statuspic" pixmaps="skin_default/buttons/button_green.png,skin_default/buttons/button_green_off.png" position="190,634" zPosition="10" size="15,16" transparent="1" alphatest="on" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
+</screen>
+	<screen name="ServiceInfo" position="0,0" size="1280,720" title="Serviceinfo" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<eLabel text="Serviceinfo" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="infolist" position="70,120" size="750,480" itemHeight="40" selectionDisabled="1" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
+		<ePixmap position="906,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/info.png" transparent="1" alphatest="blend" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="TranscodingSetup" position="center,center" size="1280,720" backgroundColor="transparent">
 		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
