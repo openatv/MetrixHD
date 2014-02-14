@@ -444,15 +444,6 @@
 		<widget source="mounts" render="Label" position="70,470" size="458,143" font="Regular;18" transparent="1" zPosition="1" enableWrapAround="0" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
-	<screen name="SystemMemoryInfo" position="0,0" size="1280,720" title="SystemInfo" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="70,47" size="400,54" font="SetrixHD; 35" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="MetrixHD/icons/info.png" position="891,222" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
-		<widget source="lab1" render="Label" position="70,133" size="458,35" font="Regular;30" transparent="1" zPosition="2" />
-		<widget source="lab2" render="Label" position="70,178" size="458,25" font="Regular;19" transparent="1" zPosition="2" />
-		<widget name="AboutScrollLabel" position="70,214" size="458,484" font="Regular;20" transparent="1" zPosition="1" scrollbarMode="showOnDemand" />
-		<panel name="_oe-buttons_template1" />
-	</screen>
 	<screen name="Menu" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MENU_template" />
 	</screen>
@@ -918,24 +909,16 @@
 			<convert type="ConditionalShowHide" />
 		</widget>
 	</screen>
-
-
-	<screen name="SystemMemoryInfo" position="center,center" size=" 1280,720" title="SystemInfo" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="42,24" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
-		<widget source="Title" render="Label" position="85,47" size="700,43" zPosition="1" halign="left" font="SetrixHD; 32" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="lab1" render="Label" position="87,143" size="458,35" font="Regular; 32" transparent="0" zPosition="2" />
-		<widget source="lab2" render="Label" position="87,203" size="458,25" font="Regular;19" transparent="0" zPosition="2" />
-		<widget name="AboutScrollLabel" position="87,256" size="458,376" font="Regular;20" transparent="0" zPosition="1" scrollbarMode="showOnDemand" />
+	<screen name="SystemMemoryInfo" position="0,0" size="1280,720" title="SystemInfo" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<widget source="Title" render="Label" position="70,47" size="400,54" font="SetrixHD; 35" backgroundColor="layer-a-background" transparent="1" />
+		<ePixmap pixmap="MetrixHD/icons/info.png" position="891,222" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+		<widget source="lab1" render="Label" position="70,133" size="458,35" font="Regular;30" transparent="1" zPosition="2" />
+		<widget source="lab2" render="Label" position="70,178" size="458,25" font="Regular;19" transparent="1" zPosition="2" />
+		<widget name="AboutScrollLabel" position="70,214" size="458,484" font="Regular;20" transparent="1" zPosition="1" scrollbarMode="showOnDemand" />
+		<panel name="_oe-buttons_template1" />
 	</screen>
+
 	<screen name="SystemNetworkInfo" position="center,center" size=" 1280,720" title="SystemInfo" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="42,24" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
 		<widget source="Title" render="Label" position="85,47" size="700,43" zPosition="1" halign="left" font="SetrixHD; 32" backgroundColor="layer-a-background" transparent="1" />
