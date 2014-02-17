@@ -16,16 +16,18 @@ MetrixHD is created by iMaxxx http://open-store.net
 **_yellow_** *- MetrixColors - Color Button Yellow*  
 **_layer-a-foreground_** *- MetrixColors - Foreground layer a*  
 **_layer-a-background_** *- MetrixColors - Background layer a*  
+**_layer-a-selection-foreground_** *- MetrixColors - Foreground layer a for selected items*  
+**_layer-a-selection-background_** *- MetrixColors - Background layer a for selected items*  
 **_layer-a-accent1_** *- MetrixColors - First accent layer a*  
 **_layer-a-accent2_** *- MetrixColors - Second accent layer a*  
 **_layer-a-progress_** *- MetrixColors - Progress layer a*  
 **_layer-b-foreground_** *- MetrixColors - Foreground layer b*  
 **_layer-b-background_** *- MetrixColors - Background layer b*  
+**_layer-b-selection-foreground_** *- MetrixColors - Foreground layer b for selected items*  
+**_layer-b-selection-background_** *- MetrixColors - Background layer b for selected items*  
 **_layer-b-accent1_** *- MetrixColors - First accent layer b*  
 **_layer-b-accent2_** *- MetrixColors - Second accent layer b*  
 **_layer-b-progress_** *- MetrixColors - Progress layer b*  
-**_selection-foreground_** *- MetrixColors - Foreground for selected items*  
-**_selection-background_** *- MetrixColors - Background for selected items*  
 **_title-background_** *- MetrixColors - Background color for window title*  
 **_title-foreground_** *- MetrixColors - Foreground color for window title*  
 

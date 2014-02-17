@@ -118,22 +118,27 @@ TransparencyList=[
 config.plugins.MyMetrixLiteColors = ConfigSubsection()
 
 #MetrixColors
-config.plugins.MyMetrixLiteColors.selectionbackground = ConfigSelection(default="0050EF", choices = ColorList)
-config.plugins.MyMetrixLiteColors.selectionbackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
-config.plugins.MyMetrixLiteColors.selectionforeground = ConfigSelection(default="000000", choices = ColorList)
-config.plugins.MyMetrixLiteColors.selectionforegroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
+
 config.plugins.MyMetrixLiteColors.backgroundtext = ConfigSelection(default="FFFFFF", choices = ColorList)
 config.plugins.MyMetrixLiteColors.backgroundtexttransparency = ConfigSelection(default="80", choices = TransparencyList)
+
 config.plugins.MyMetrixLiteColors.layerabackground = ConfigSelection(default="1C1C1C", choices = ColorList)
 config.plugins.MyMetrixLiteColors.layerabackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
 config.plugins.MyMetrixLiteColors.layeraforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
+config.plugins.MyMetrixLiteColors.layeraselectionbackground = ConfigSelection(default="0050EF", choices = ColorList)
+config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
+config.plugins.MyMetrixLiteColors.layeraselectionforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
 config.plugins.MyMetrixLiteColors.layeraaccent1 = ConfigSelection(default="BDBDBD", choices = ColorList)
 config.plugins.MyMetrixLiteColors.layeraaccent2 = ConfigSelection(default="6E6E6E", choices = ColorList)
 config.plugins.MyMetrixLiteColors.layeraprogress = ConfigSelection(default="0050EF", choices = ColorList)
 config.plugins.MyMetrixLiteColors.layeraprogresstransparency = ConfigSelection(default="1A", choices = TransparencyList)
+
 config.plugins.MyMetrixLiteColors.layerbbackground = ConfigSelection(default="0050EF", choices = ColorList)
 config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
 config.plugins.MyMetrixLiteColors.layerbforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
+config.plugins.MyMetrixLiteColors.layerbselectionbackground = ConfigSelection(default="1C1C1C", choices = ColorList)
+config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
+config.plugins.MyMetrixLiteColors.layerbselectionforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
 config.plugins.MyMetrixLiteColors.layerbaccent1 = ConfigSelection(default="BDBDBD", choices = ColorList)
 config.plugins.MyMetrixLiteColors.layerbaccent2 = ConfigSelection(default="6E6E6E", choices = ColorList)
 config.plugins.MyMetrixLiteColors.layerbprogress = ConfigSelection(default="FFFFFF", choices = ColorList)
@@ -170,30 +175,41 @@ class MyMetrixLiteColors(ConfigListScreen, Screen):
 		self.PicLoad = ePicLoad()
 		self["helperimage"] = Pixmap()
 		list = []
-		list.append(getConfigListEntry(_("Selection  -----------------------------------------------------------------------------------"), ))
-		list.append(getConfigListEntry(_("    Background color"), config.plugins.MyMetrixLiteColors.selectionbackground))
-		list.append(getConfigListEntry(_("    Background color transparency"), config.plugins.MyMetrixLiteColors.selectionbackgroundtransparency))
-		list.append(getConfigListEntry(_("    Font color"), config.plugins.MyMetrixLiteColors.selectionforeground))
-		list.append(getConfigListEntry(_("    Font color transparency"), config.plugins.MyMetrixLiteColors.selectionforegroundtransparency))
 		list.append(getConfigListEntry(_("Text in background  -----------------------------------------------------------------------------------"), ))
 		list.append(getConfigListEntry(_("    Font color"), config.plugins.MyMetrixLiteColors.backgroundtext))
 		list.append(getConfigListEntry(_("    Font color transparency"), config.plugins.MyMetrixLiteColors.backgroundtexttransparency))
 		list.append(getConfigListEntry(_("Layer A (main layer)  -----------------------------------------------------------------------------------"), ))
-		list.append(getConfigListEntry(_("    Background color"), config.plugins.MyMetrixLiteColors.layerabackground))
-		list.append(getConfigListEntry(_("    Background color transparency"), config.plugins.MyMetrixLiteColors.layerabackgroundtransparency))
+		list.append(getConfigListEntry(_("    Background"), ))
+		list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.layerabackground))
+		list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.layerabackgroundtransparency))
 		list.append(getConfigListEntry(_("    Font color"), config.plugins.MyMetrixLiteColors.layeraforeground))
-		list.append(getConfigListEntry(_("    Progress bar color"), config.plugins.MyMetrixLiteColors.layeraprogress))
-		list.append(getConfigListEntry(_("    Progress bar color transparency"), config.plugins.MyMetrixLiteColors.layeraprogresstransparency))
-		list.append(getConfigListEntry(_("    Accent color 1"), config.plugins.MyMetrixLiteColors.layeraaccent1))
-		list.append(getConfigListEntry(_("    Accent color 2"), config.plugins.MyMetrixLiteColors.layeraaccent2))
+		list.append(getConfigListEntry(_("    Selection bar"), ))
+		list.append(getConfigListEntry(_("        Background"), ))
+		list.append(getConfigListEntry(_("            Color"), config.plugins.MyMetrixLiteColors.layeraselectionbackground))
+		list.append(getConfigListEntry(_("            Transparency"), config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency))
+		list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.layeraselectionforeground))
+		list.append(getConfigListEntry(_("    Progress bar"), ))
+		list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.layeraprogress))
+		list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.layeraprogresstransparency))
+		list.append(getConfigListEntry(_("    Accent colors"), ))
+		list.append(getConfigListEntry(_("        Color 1"), config.plugins.MyMetrixLiteColors.layeraaccent1))
+		list.append(getConfigListEntry(_("        Color 2"), config.plugins.MyMetrixLiteColors.layeraaccent2))
 		list.append(getConfigListEntry(_("Layer B (secondary layer)  -----------------------------------------------------------------------------------"), ))
-		list.append(getConfigListEntry(_("    Background color"), config.plugins.MyMetrixLiteColors.layerbbackground))
-		list.append(getConfigListEntry(_("    Background color transparency"), config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency))
+		list.append(getConfigListEntry(_("    Background"), ))
+		list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.layerbbackground))
+		list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency))
 		list.append(getConfigListEntry(_("    Font color"), config.plugins.MyMetrixLiteColors.layerbforeground))
-		list.append(getConfigListEntry(_("    Progress bar color"), config.plugins.MyMetrixLiteColors.layerbprogress))
-		list.append(getConfigListEntry(_("    Progress bar color transparency"), config.plugins.MyMetrixLiteColors.layerbprogresstransparency))
-		list.append(getConfigListEntry(_("    Accent color 1"), config.plugins.MyMetrixLiteColors.layerbaccent1))
-		list.append(getConfigListEntry(_("    Accent color 2"), config.plugins.MyMetrixLiteColors.layerbaccent2))
+		list.append(getConfigListEntry(_("    Selection bar"), ))
+		list.append(getConfigListEntry(_("        Background"), ))
+		list.append(getConfigListEntry(_("            Color"), config.plugins.MyMetrixLiteColors.layerbselectionbackground))
+		list.append(getConfigListEntry(_("            Transparency"), config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency))
+		list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.layerbselectionforeground))
+		list.append(getConfigListEntry(_("    Progress bar"), ))
+		list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.layerbprogress))
+		list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.layerbprogresstransparency))
+		list.append(getConfigListEntry(_("    Accent colors"), ))
+		list.append(getConfigListEntry(_("        Color 1"), config.plugins.MyMetrixLiteColors.layerbaccent1))
+		list.append(getConfigListEntry(_("        Color 2"), config.plugins.MyMetrixLiteColors.layerbaccent2))
 
 		ConfigListScreen.__init__(self, list)
 		self["actions"] = ActionMap(["OkCancelActions","DirectionActions", "InputActions", "ColorActions"], {"left": self.keyLeft,"down": self.keyDown,"up": self.keyUp,"right": self.keyRight,"red": self.exit,"yellow": self.reboot, "blue": self.defaults, "green": self.save,"cancel": self.exit}, -1)
@@ -240,26 +256,32 @@ class MyMetrixLiteColors(ConfigListScreen, Screen):
 		restartbox.setTitle(_("Restart GUI"))
 
 	def defaults(self):
-		config.plugins.MyMetrixLiteColors.selectionbackground.setValue("0050EF")
-		config.plugins.MyMetrixLiteColors.selectionbackgroundtransparency.setValue("1A")
-		config.plugins.MyMetrixLiteColors.selectionforeground.setValue("000000")
-		config.plugins.MyMetrixLiteColors.selectionforegroundtransparency.setValue("1A")
+
 		config.plugins.MyMetrixLiteColors.backgroundtext.setValue("FFFFFF")
 		config.plugins.MyMetrixLiteColors.backgroundtexttransparency.setValue("80")
+
 		config.plugins.MyMetrixLiteColors.layerabackground.setValue("1C1C1C")
 		config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.setValue("1A")
 		config.plugins.MyMetrixLiteColors.layeraforeground.setValue("FFFFFF")
+		config.plugins.MyMetrixLiteColors.layeraselectionbackground.setValue("0050EF")
+		config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency.setValue("1A")
+		config.plugins.MyMetrixLiteColors.layeraselectionforeground.setValue("FFFFFF")
 		config.plugins.MyMetrixLiteColors.layeraprogress.setValue("0050EF")
 		config.plugins.MyMetrixLiteColors.layeraprogresstransparency.setValue("1A")
 		config.plugins.MyMetrixLiteColors.layeraaccent1.setValue("BDBDBD")
 		config.plugins.MyMetrixLiteColors.layeraaccent2.setValue("6E6E6E")
+
 		config.plugins.MyMetrixLiteColors.layerbbackground.setValue("0050EF")
 		config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.setValue("1A")
 		config.plugins.MyMetrixLiteColors.layerbforeground.setValue("FFFFFF")
+		config.plugins.MyMetrixLiteColors.layerbselectionbackground.setValue("1C1C1C")
+		config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency.setValue("1A")
+		config.plugins.MyMetrixLiteColors.layerbselectionforeground.setValue("FFFFFF")
 		config.plugins.MyMetrixLiteColors.layerbprogress.setValue("FFFFFF")
 		config.plugins.MyMetrixLiteColors.layerbprogresstransparency.setValue("1A")
 		config.plugins.MyMetrixLiteColors.layerbaccent1.setValue("BDBDBD")
 		config.plugins.MyMetrixLiteColors.layerbaccent2.setValue("6E6E6E")
+
 		config.plugins.MyMetrixLiteColors.save()
 		self.session.open(MyMetrixLiteColors,"/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLiteColors/images/metrixcolors.jpg")
 
@@ -275,36 +297,40 @@ class MyMetrixLiteColors(ConfigListScreen, Screen):
 
 		try:
 
-			self.selectionbackground = ('name="selection-background" value="#' + config.plugins.MyMetrixLiteColors.selectionbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.selectionbackground.value + '"')
-			self.selectionforeground = ('name="selection-foreground" value="#' + config.plugins.MyMetrixLiteColors.selectionforegroundtransparency.value + config.plugins.MyMetrixLiteColors.selectionforeground.value + '"')
 			self.backgroundtext = ('name="background-text" value="#' + config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value + config.plugins.MyMetrixLiteColors.backgroundtext.value + '"')
-
 
 			self.layerabackground = ('name="layer-a-background" value="#' + config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layerabackground.value + '"')
 			self.layeraforeground = ('name="layer-a-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layeraforeground.value + '"')
+			self.layeraselectionbackground = ('name="layer-a-selection-background" value="#' + config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layeraselectionbackground.value + '"')
+			self.layeraselectionforeground = ('name="layer-a-selection-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layeraselectionforeground.value + '"')
 			self.layeraaccent1 = ('name="layer-a-accent1" value="#00' + config.plugins.MyMetrixLiteColors.layeraaccent1.value + '"')
 			self.layeraaccent2 = ('name="layer-a-accent2" value="#00' + config.plugins.MyMetrixLiteColors.layeraaccent2.value + '"')
 			self.layeraprogress = ('name="layer-a-progress" value="#' + config.plugins.MyMetrixLiteColors.layeraprogresstransparency.value + config.plugins.MyMetrixLiteColors.layeraprogress.value + '"')
 
-
 			self.layerbbackground = ('name="layer-b-background" value="#' + config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layerbbackground.value + '"')
 			self.layerbforeground = ('name="layer-b-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layerbforeground.value + '"')
+			self.layerbselectionbackground = ('name="layer-b-selection-background" value="#' + config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layerbselectionbackground.value + '"')
+			self.layerbselectionforeground = ('name="layer-b-selection-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layerbselectionforeground.value + '"')
 			self.layerbaccent1 = ('name="layer-b-accent1" value="#00' + config.plugins.MyMetrixLiteColors.layerbaccent1.value + '"')
 			self.layerbaccent2 = ('name="layer-b-accent2" value="#00' + config.plugins.MyMetrixLiteColors.layerbaccent2.value + '"')
 			self.layerbprogress = ('name="layer-b-progress" value="#' + config.plugins.MyMetrixLiteColors.layerbprogresstransparency.value + config.plugins.MyMetrixLiteColors.layerbprogress.value + '"')
 
 			self.skinSearchAndReplace = []
 			
-			self.skinSearchAndReplace.append(['name="selection-background" value="#1E27408B"', self.selectionbackground ])
-			self.skinSearchAndReplace.append(['name="selection-foreground" value="#1E000000"', self.selectionforeground ])
 			self.skinSearchAndReplace.append(['name="background-text" value="#96FFFFFF"', self.backgroundtext ])
+
 			self.skinSearchAndReplace.append(['name="layer-a-background" value="#1E0F0F0F"', self.layerabackground ])
 			self.skinSearchAndReplace.append(['name="layer-a-foreground" value="#00FFFFFF"', self.layeraforeground ])
+			self.skinSearchAndReplace.append(['name="layer-a-selection-background" value="#1E27408B"', self.layeraselectionbackground ])
+			self.skinSearchAndReplace.append(['name="layer-a-selection-foreground" value="#00FFFFFF"', self.layeraselectionforeground ])
 			self.skinSearchAndReplace.append(['name="layer-a-accent1" value="#00CCCCCC"', self.layeraaccent1 ])
 			self.skinSearchAndReplace.append(['name="layer-a-accent2" value="#007F7F7F"', self.layeraaccent2 ])
 			self.skinSearchAndReplace.append(['name="layer-a-progress" value="#1E27408B"', self.layeraprogress ])
+
 			self.skinSearchAndReplace.append(['name="layer-b-background" value="#1E27408B"', self.layerbbackground ])
 			self.skinSearchAndReplace.append(['name="layer-b-foreground" value="#00FFFFFF"', self.layerbforeground ])
+			self.skinSearchAndReplace.append(['name="layer-b-selection-background" value="#1E0F0F0F"', self.layerbselectionbackground ])
+			self.skinSearchAndReplace.append(['name="layer-b-selection-foreground" value="#00FFFFFF"', self.layerbselectionforeground ])
 			self.skinSearchAndReplace.append(['name="layer-b-accent1" value="#00CCCCCC"', self.layerbaccent1 ])
 			self.skinSearchAndReplace.append(['name="layer-b-accent2" value="#007F7F7F"', self.layerbaccent2 ])
 			self.skinSearchAndReplace.append(['name="layer-b-progress" value="#1EFFFFFF"', self.layerbprogress ])
@@ -370,7 +396,7 @@ class MyMetrixLiteColors(ConfigListScreen, Screen):
 #############################################################
 
 def main(session, **kwargs):
-	session.open(MyMetrixLiteColors,"/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLiteColors/images/metrixcolors.jpg")
+	session.open(MyMetrixLiteColors,"/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLiteColors/images/FFFFFF.png")
 
 def Plugins(**kwargs):
 	return PluginDescriptor(name="MyMetrixLiteColors", description=_("openATV color configuration tool for MetrixHD"), where = PluginDescriptor.WHERE_PLUGINMENU, icon="plugin.png", fnc=main)
