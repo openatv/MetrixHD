@@ -199,7 +199,7 @@
 		<widget alphatest="blend" position="70,55" render="MetrixHDXPicon" size="220,132" source="Service" transparent="1" zPosition="1">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
-		<widget source="Service" render="Label" position="315,93" size="650,45" font="SetrixHD; 34" backgroundColor="layer-a-background" transparent="0">
+		<widget source="Service" render="Label" position="315,93" size="400,45" font="SetrixHD; 34" backgroundColor="layer-a-background" transparent="0">
 			<convert type="ServiceName">Name</convert>
 		</widget>
 		<widget name="list" position="70,200" size="700,420" font="SetrixHD; 29" zPosition="3" itemHeight="35" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
@@ -1352,7 +1352,14 @@
 			<convert type="ServiceName">Name</convert>
 		</widget>
 	</screen>
-
+	<screen name="ExtensionsList" position="0,0" size="1280,720" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Please choose an extension..." position="70,47" size="700,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="list" position="70,115" size="700,500" font="SetrixHD; 29" zPosition="3" itemHeight="35" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
+		<ePixmap position="891,222" size="256,256" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
+		<eLabel text="Extensionslist" position="10,552" size="1273,296" font="SetrixHD; 150" backgroundColor="background-text" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
+		<panel name="template1_2layer" />
+		<panel name="__e-buttons_template1" />
+	</screen>
 	<screen name="Setup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Setup" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
@@ -1361,7 +1368,6 @@
 		<panel name="rg__-keys_template1-source" />
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
-
 	<!-- MountScreens (NetworkBrowser) -->
 	<screen name="AutoMountManager" position="0,0" size="1280,720" title="AutoMountManager" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="AutoMountManager" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
