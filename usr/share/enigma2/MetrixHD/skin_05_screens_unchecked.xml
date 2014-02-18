@@ -682,33 +682,6 @@
 		<widget name="arrowup" position="-100,-100" size="37,70" pixmap="skin_default/arrowup.png" zPosition="11" alphatest="blend" />
 		<widget name="arrowup2" position="-100,-100" size="37,70" pixmap="skin_default/arrowup.png" zPosition="11" alphatest="blend" />
 	</screen>
-	<screen name="LanguageSelection" position="0,0" size="1280,720" title="Language selection" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
-		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<eLabel text="Setup" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="Language selection" position="70,115" size="700,30" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget source="languages" render="Listbox" position="70,175" size="700,420" zPosition="3" scrollbarMode="showOnDemand" transparent="1">
-			<convert type="TemplatedMultiContent">
-				{"template": [
-				MultiContentEntryText(pos = (130, 17), size = (550, 60), flags = RT_HALIGN_LEFT, text = 1), # index 1 is the language name,
-				MultiContentEntryPixmap(pos = (20, 10), size = (60, 40), png = 2), # index 2 is the pixmap
-				],
-				"fonts": [gFont("SetrixHD", 24)],
-				"itemHeight": 60
-				}
-			</convert>
-		</widget>
-		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
-	</screen>
 	<screen name="LocationBox" position="0,0" size="1280,720" title="Location Box" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
 		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
@@ -1663,30 +1636,6 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="210,162" size="30,30" zPosition="2" alphatest="blend" />
 		<widget source="key_red" render="Label" position="55,165" size="160,24" zPosition="2" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_green" render="Label" position="245,165" size="160,24" zPosition="2" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-	</screen>
-	<screen name="VideoEnhancementSetup" position="0,0" size="1280,720" title="VideoEnhancementSetup" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
-		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<eLabel text="VideoEnhancementSetup" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,120" size="700,450" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="introduction" position="70,600" size="700,25" font="SetrixHD;22" halign="center" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="650,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="940,635" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="105,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_green" render="Label" position="395,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_yellow" render="Label" position="685,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_blue" render="Label" position="975,637" size="260,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="VirtualKeyBoard" position="0,0" size="1280,720" zPosition="99" title="Virtual KeyBoard" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
@@ -3514,7 +3463,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
 			<convert type="ClockToText">Format:%e. %b</convert>
 		</widget>
-		<eLabel text="DefaultWizard" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="DefaultWizard" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="wizard" position="500,120" size="110,174" pixmap="skin_default/wizard.png" zPosition="10" transparent="1" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="500,305" size="30,40" alphatest="blend" />
 		<widget name="languagetext" position="535,305" size="150,23" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
@@ -3566,7 +3515,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
 			<convert type="ClockToText">Format:%e. %b</convert>
 		</widget>
-		<eLabel text="ImageWizard" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="ImageWizard" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="rc" position="175,115" size="154,500" pixmaps="skin_default/rc.png,skin_default/rcold.png" zPosition="10" alphatest="blend" />
 		<widget name="arrowdown" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />
 		<widget name="arrowdown2" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />
@@ -3597,7 +3546,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
 			<convert type="ClockToText">Format:%e. %b</convert>
 		</widget>
-		<eLabel text="LanguageWizard" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="LanguageWizard" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="rc" position="175,115" size="154,500" pixmaps="skin_default/rc.png,skin_default/rcold.png" zPosition="10" alphatest="blend" />
 		<widget name="arrowdown" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />
 		<widget name="arrowdown2" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />
@@ -3628,7 +3577,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
 			<convert type="ClockToText">Format:%e. %b</convert>
 		</widget>
-		<eLabel text="NetworkWizard" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="NetworkWizard" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="rc" position="175,115" size="154,500" pixmaps="skin_default/rc.png,skin_default/rcold.png" zPosition="10" alphatest="blend" />
 		<widget name="arrowdown" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />
 		<widget name="arrowdown2" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />
@@ -3659,7 +3608,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
 			<convert type="ClockToText">Format:%e. %b</convert>
 		</widget>
-		<eLabel text="StartWizard" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="StartWizard" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="rc" position="175,115" size="154,500" pixmaps="skin_default/rc.png,skin_default/rcold.png" zPosition="10" alphatest="blend" />
 		<widget name="arrowdown" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />
 		<widget name="arrowdown2" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />
@@ -3690,7 +3639,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
 			<convert type="ClockToText">Format:%e. %b</convert>
 		</widget>
-		<eLabel text="VideoWizard" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="VideoWizard" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="rc" position="175,115" size="154,500" pixmaps="skin_default/rc.png,skin_default/rcold.png" zPosition="10" alphatest="blend" />
 		<widget name="arrowdown" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />
 		<widget name="arrowdown2" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />

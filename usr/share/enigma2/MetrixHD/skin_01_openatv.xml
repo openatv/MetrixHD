@@ -211,6 +211,16 @@
 		<panel name="rgyb-keys_template1" />
 		<panel name="ime-buttons_template1" />
 	</screen>
+
+	<screen name="ExtensionsList" position="0,0" size="1280,720" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Please choose an extension..." position="70,47" size="700,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="list" position="70,115" size="700,500" font="SetrixHD; 29" zPosition="3" itemHeight="35" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
+		<ePixmap position="891,222" size="256,256" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
+		<eLabel text="Extensionslist" position="10,552" size="1273,296" font="SetrixHD; 150" backgroundColor="background-text" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
+		<panel name="template1_2layer" />
+		<panel name="__e-buttons_template1" />
+	</screen>
+
 	<screen name="EventView" position="0,0" size="1280,720" title="Eventview" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Eventview" position="10,552" size="1273,296" font="SetrixHD; 150" backgroundColor="background-text" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
 		<widget source="Title" render="MetrixHDXPicon" position="907,80" size="220,132" zPosition="5" transparent="1" alphatest="blend">
@@ -406,6 +416,8 @@
 		<panel name="rgy_-buttons_template1" />
 		<panel name="__e-buttons_template1" />
 	</screen>
+
+
 	<screen name="NetworkSamba" title="Samba Setup" position="center,center" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<widget source="Title" render="Label" position="70,47" size="400,54" font="SetrixHD; 35" backgroundColor="layer-a-background" transparent="1" />
@@ -1364,22 +1376,265 @@
 			<convert type="ServiceName">Name</convert>
 		</widget>
 	</screen>
-	<screen name="ExtensionsList" position="0,0" size="1280,720" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Please choose an extension..." position="70,47" size="700,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="list" position="70,115" size="700,500" font="SetrixHD; 29" zPosition="3" itemHeight="35" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
-		<ePixmap position="891,222" size="256,256" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
-		<eLabel text="Extensionslist" position="10,552" size="1273,296" font="SetrixHD; 150" backgroundColor="background-text" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
-		<panel name="template1_2layer" />
-		<panel name="__e-buttons_template1" />
-	</screen>
 	<screen name="Setup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Setup" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Setup" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
+	<screen name="setup_epgsettings" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup EPG" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_epg_epg_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="setup_epgmulti" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup MultiEPG" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_epg_setup_epgmulti.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="setup_epgenhanced" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup SingleEPG" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_epg_setup_epgenhanced.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="setup_epginfobar" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup InfobarEPG" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_epg_setup_epginfobar.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="setup_epginfobargraphical" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup Graphical InfobarEPG" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_epg_setup_epginfobargraphical.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="setup_epggraphical" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup GraphicalEPG" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_epg_setup_epggraphical.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="setup_subtitlesetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup Subtitle" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_extended_subtitle_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="setup_dvdplayer" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup DVD-Player" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_extended_dvdplayer_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="setup_logs" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup Logs" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_extended_logs_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="setup_time" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup Time" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_extended_time_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="setup_keyboard" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup Keyboard" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_extended_keyboard.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="setup_recording" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup Recordings" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_extended_recording_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="setup_timeshift" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup Timeshift" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_extended_timshift_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="setup_specialfeatures" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup Special Features" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_extended_specialfeatures_menu.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="setup_display" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup Display" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_display_display_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="setup_channelselection" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup ChannelSelection" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_system_channelselection_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="setup_usage" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup Usage" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_system_usage_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="setup_remotesetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup Remote" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_system_remote_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="setup_autolanguagesetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup AutoLanguage" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_system_autolanguage_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+
+	<screen name="VideoEnhancementSetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup VideoEnhancement" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1-source" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_system_videoenhancement_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="VFD_GigaSetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup VFD Gigablue" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_system_VFD_Giga.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="LanguageSelection" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup Language" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="languages" render="Listbox" position="70,100" size="700,515" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+				MultiContentEntryText(pos = (130, 17), size = (550, 60), flags = RT_HALIGN_LEFT, text = 1), # index 1 is the language name,
+				MultiContentEntryPixmap(pos = (20, 10), size = (60, 40), png = 2), # index 2 is the pixmap
+				],
+				"fonts": [gFont("SetrixHD", 24)],
+				"itemHeight": 60
+				}
+			</convert>
+		</widget>
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_system_language_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="InputDeviceSelection" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Select InputDevice" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="list" render="Listbox" position="70,100" size="700,350" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" scrollbarMode="showOnDemand" enableWrapAround="1">
+			<convert type="TemplatedMultiContent">
+							{"template": [
+									MultiContentEntryPixmapAlphaTest(pos = (2, 8), size = (54, 54), png = 2), # index 3 is the interface pixmap
+									MultiContentEntryText(pos = (65, 6), size = (450, 54), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_WRAP, text = 1), # index 1 is the interfacename
+								],
+							"fonts": [gFont("Regular", 20),gFont("Regular", 20)],
+							"itemHeight": 70
+							}
+			</convert>
+		</widget>
+		<widget source="introduction" render="Label" position="70,450" size="500,30" zPosition="10" font="Regular;21" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left" valign="center" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_extended_input_device_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="InputDeviceSetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup InputDevice" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,350" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget source="introduction" render="Label" position="70,450" size="500,30" zPosition="10" font="Regular;21" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left" valign="center" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_extended_input_device_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="HdmiCECSetupScreen" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup HDMI-CEC" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,350" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget source="current_address" render="Label" position="70,485" size="550,30" font="Regular;21" backgroundColor="layer-a-background" halign="left" valign="center" />
+		<widget source="fixed_address" render="Label" position="70,515" size="550,30" font="Regular;21" backgroundColor="layer-a-background" halign="left" valign="center" />
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/hdmicec.png" transparent="1" alphatest="blend" />
+	</screen>
+
 	<!-- MountScreens (NetworkBrowser) -->
 	<screen name="AutoMountManager" position="0,0" size="1280,720" title="AutoMountManager" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="AutoMountManager" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
@@ -1651,17 +1906,6 @@
 		<panel name="rgyb-keys_template1" />
 		<panel name="__e-buttons_template1" />
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="HdmiCECSetupScreen" position="0,0" size="1280,720" title="HDMI CEC setup">
-		<eLabel text="HDMI CEC setup" position="70,47" size="700,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,125" size="550,350" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground"/>
-		<widget source="current_address" render="Label" position="70,485" size="550,30" font="Regular;21" backgroundColor="layer-a-background" halign="left" valign="center" />
-		<widget source="fixed_address" render="Label" position="70,515" size="550,30" font="Regular;21" backgroundColor="layer-a-background" halign="left" valign="center" />
-		<panel name="template1_2layer" />
-		<panel name="rgyb-buttons_template1" />
-		<panel name="rgyb-keys_template1-source" />
-		<panel name="__e-buttons_template1" />
-		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/hdmicec.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="UpdatePluginMenu" position="0,0" size="1280,720" title="Softwaremanager..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
