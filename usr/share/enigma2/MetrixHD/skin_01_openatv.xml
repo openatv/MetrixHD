@@ -1961,107 +1961,178 @@
 		<widget source="key_red" render="Label" position="85,637" size="240,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap position="889,334" size="256,256" zPosition="2" pixmap="MetrixHD/icons/swm.png" transparent="1" alphatest="blend" />
 	</screen>
-<screen name="GraphicalEPG" position="0,0" size="1280,720" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
-    <eLabel name="new eLabel" position="40,24" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" transparent="0" />
-    <widget source="global.CurrentTime" render="Label" position="1120,37" size="100,28" font="Regular;26" halign="right" backgroundColor="background" transparent="1">
-      <convert type="ClockToText">Default</convert>
-    </widget>
-    <widget source="global.CurrentTime" render="Label" position="870,67" size="350,25" font="RegularLight; 20" halign="right" backgroundColor="background" transparent="1">
-      <convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
-    </widget>
-    <eLabel text="Electronic Program Guide" position="70,47" size="800,43" font="Regular; 35" backgroundColor="background" transparent="1" />
-    <widget source="Event" render="Label" position="70,90" size="700,39" font="Regular; 24" backgroundColor="background" transparent="1">
-      <convert type="EventName">Name</convert>
-    </widget>
-    <widget source="Event" render="Label" position="70,136" size=" 65, 22" font="Regular; 18" halign="center" backgroundColor="background" transparent="1">
-      <convert type="EventTime">StartTime</convert>
-      <convert type="ClockToText">Format:%H:%M </convert>
-    </widget>
-    <widget source="Event" render="Label" position="1142,136" size=" 80, 22" font="Regular; 18" backgroundColor="background" transparent="1" halign="center">
-      <convert type="EventTime">EndTime</convert>
-      <convert type="ClockToText">Format:%H:%M</convert>
-    </widget>
-    <widget source="Event" render="Progress" position="146,143" size="990,5" borderWidth="0" backgroundColor="white" transparent="1" zPosition="1">
-      <convert type="EventTime">Progress</convert>
-    </widget>
-    <eLabel position="70,163" zPosition="0" size="1153,122" backgroundColor="layer-b-background" transparent="0" />
-    <widget source="Event" render="Label" position="70,163" size="1153,122" font="RegularLight; 19" backgroundColor="layer-b-background" transparent="1" valign="top" zPosition="1">
-      <convert type="EventName">ExtendedDescription</convert>
-    </widget>
-    <eLabel position="146,145" size="990,1" backgroundColor="grey" />
-    <widget name="timeline_text" position="71,293" size="1160,25" selectionDisabled="1" transparent="1" />
-    <widget name="list" position="72,324" size="1160,295" itemHeight="62" EntryBorderColor="white" EntryBackgroundColor="black" EntryBackgroundColorSelected="grey" scrollbarMode="showNever" transparent="1" />
-    <widget name="timeline0" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
-    <widget name="timeline1" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
-    <widget name="timeline2" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
-    <widget name="timeline3" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
-    <widget name="timeline4" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
-    <widget name="timeline5" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
-    <widget name="timeline_now" position="80,317" zPosition="2" size="13,308" pixmap="MetrixHD/epg/timeline-now.png" alphatest="blend" />
-    <ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,634" size="30,40" alphatest="blend" />
-    <ePixmap pixmap="MetrixHD/buttons/key_green.png" position="265,635" size="30,40" alphatest="blend" />
-    <ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="460,635" size="30,40" alphatest="blend" />
-    <ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="655,635" size="30,40" alphatest="blend" />
-    <widget name="key_red" position="105,637" size="160,25" zPosition="1" font="RegularLight;20" halign="left" backgroundColor="background" transparent="1" />
-    <widget name="key_green" position="300,637" size="160,25" zPosition="1" font="RegularLight;20" halign="left" backgroundColor="background" transparent="1" />
-    <widget name="key_yellow" position="495,637" size="160,25" zPosition="1" font="RegularLight;20" halign="left" backgroundColor="background" transparent="1" />
-    <widget name="key_blue" position="690,637" size="160,25" zPosition="1" font="RegularLight;20" halign="left" backgroundColor="background" transparent="1" />
-    <ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
-    <ePixmap name="Info" position="1031,635" size="81,40" pixmap="MetrixHD/buttons/key_info.png" />
-  </screen>
-<screen name="GraphicalEPGPIG" position="0,0" size="1280,720" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
-    <widget source="session.VideoPicture" render="Pig" position="883,103" size="355,189" zPosition="3" backgroundColor="unff000000" />
-    <eLabel name="new eLabel" position="40,23" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" transparent="0" />
-    <widget source="global.CurrentTime" render="Label" position="1130,33" size="100,28" font="Regular;26" halign="right" backgroundColor="background" transparent="1">
-      <convert type="ClockToText">Default</convert>
-    </widget>
-    <widget source="global.CurrentTime" render="Label" position="993,69" size="237,25" font="RegularLight; 20" halign="right" backgroundColor="background" transparent="1">
-      <convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
-    </widget>
-    <eLabel position="70,163" zPosition="0" size="808,127" backgroundColor="layer-b-background" transparent="0" />
-    <widget source="Event" render="Label" position="70,163" size="808,127" font="RegularLight; 19" backgroundColor="layer-b-background" transparent="1" valign="top">
-      <convert type="EventName">ExtendedDescription</convert>
-    </widget>
-    <eLabel text="Electronic Program Guide" position="70,33" size="499,43" font="Regular;35" backgroundColor="background" transparent="1" />
-    <widget source="Event" render="Label" position="70,78" size="700,39" font="Regular; 24" backgroundColor="background" transparent="1">
-      <convert type="EventName">Name</convert>
-    </widget>
-    <widget source="Event" render="Label" position="70,126" size=" 65, 22" font="Regular; 18" halign="center" backgroundColor="background" transparent="1">
-      <convert type="EventTime">StartTime</convert>
-      <convert type="ClockToText">Format:%H:%M </convert>
-    </widget>
-    <widget source="Event" render="Label" position="797,126" size=" 80, 22" font="Regular; 18" backgroundColor="background" transparent="1" halign="center">
-      <convert type="EventTime">EndTime</convert>
-      <convert type="ClockToText">Format:%H:%M</convert>
-    </widget>
-    <eLabel position="146,135" size="640,1" backgroundColor="grey" />
-    <widget source="Event" render="Label" position="70,162" size="808,127" font="RegularLight; 19" backgroundColor="layer-b-background" transparent="1" valign="top" zPosition="1">
-      <convert type="EventName">ExtendedDescription</convert>
-    </widget>
-    <widget source="Event" render="Progress" position="146,133" size="640,5" borderWidth="0" backgroundColor="white" transparent="1" zPosition="1">
-      <convert type="EventTime">Progress</convert>
-    </widget>
-    <widget source="Event" render="Label" position="70,163" size="808,127" font="RegularLight; 19" backgroundColor="layer-b-background" transparent="1" valign="top">
-      <convert type="EventName">ExtendedDescription</convert>
-    </widget>
-    <widget name="timeline_text" position="70,296" size="1155,25" selectionDisabled="1" transparent="1" />
-    <widget name="list" position="70,328" size="1150,301" itemHeight="60" EntryBorderColor="white" EntryBackgroundColor="black" EntryBackgroundColorSelected="grey" scrollbarMode="showNever" transparent="1" />
-    <widget name="timeline0" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
-    <widget name="timeline1" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
-    <widget name="timeline2" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
-    <widget name="timeline3" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
-    <widget name="timeline4" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
-    <widget name="timeline5" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
-    <widget name="timeline_now" position="80,322" zPosition="2" size="13,310" pixmap="MetrixHD/epg/timeline-now.png" alphatest="blend" />
-    <ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
-    <ePixmap pixmap="MetrixHD/buttons/key_green.png" position="265,635" size="30,40" alphatest="blend" />
-    <ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="460,635" size="30,40" alphatest="blend" />
-    <ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="655,635" size="30,40" alphatest="blend" />
-    <widget name="key_red" position="105,637" size="160,25" zPosition="1" font="RegularLight;20" halign="left" backgroundColor="background" transparent="1" />
-    <widget name="key_green" position="300,637" size="160,25" zPosition="1" font="RegularLight;20" halign="left" backgroundColor="background" transparent="1" />
-    <widget name="key_yellow" position="495,637" size="160,25" zPosition="1" font="RegularLight;20" halign="left" backgroundColor="background" transparent="1" />
-    <widget name="key_blue" position="690,637" size="160,25" zPosition="1" font="RegularLight;20" halign="left" backgroundColor="background" transparent="1" />
-    <ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
-    <ePixmap name="Info" position="1031,635" size="81,40" pixmap="MetrixHD/buttons/key_info.png" />
- </screen>
+	<screen name="GraphicalEPG" position="0,0" size="1280,720" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel name="new eLabel" position="40,24" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" transparent="0" />
+		<widget source="global.CurrentTime" render="Label" position="1120,37" size="100,28" font="Regular;26" halign="right" backgroundColor="background" transparent="1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="870,67" size="350,25" font="RegularLight; 20" halign="right" backgroundColor="background" transparent="1">
+			<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
+		</widget>
+		<eLabel text="Electronic Program Guide" position="70,47" size="800,43" font="Regular; 35" backgroundColor="background" transparent="1" />
+		<widget source="Event" render="Label" position="70,90" size="700,39" font="Regular; 24" backgroundColor="background" transparent="1">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget source="Event" render="Label" position="70,136" size=" 65, 22" font="Regular; 18" halign="center" backgroundColor="background" transparent="1">
+			<convert type="EventTime">StartTime</convert>
+			<convert type="ClockToText">Format:%H:%M </convert>
+		</widget>
+		<widget source="Event" render="Label" position="1142,136" size=" 80, 22" font="Regular; 18" backgroundColor="background" transparent="1" halign="center">
+			<convert type="EventTime">EndTime</convert>
+			<convert type="ClockToText">Format:%H:%M</convert>
+		</widget>
+		<widget source="Event" render="Progress" position="146,143" size="990,5" borderWidth="0" backgroundColor="white" transparent="1" zPosition="1">
+			<convert type="EventTime">Progress</convert>
+		</widget>
+		<eLabel position="70,163" zPosition="0" size="1153,122" backgroundColor="layer-b-background" transparent="0" />
+		<widget source="Event" render="Label" position="70,163" size="1153,122" font="RegularLight; 19" backgroundColor="layer-b-background" transparent="1" valign="top" zPosition="1">
+			<convert type="EventName">ExtendedDescription</convert>
+		</widget>
+		<eLabel position="146,145" size="990,1" backgroundColor="grey" />
+		<widget name="timeline_text" position="71,293" size="1160,25" selectionDisabled="1" transparent="1" />
+		<widget name="list" position="72,324" size="1160,295" itemHeight="62" EntryBorderColor="white" EntryBackgroundColor="black" EntryBackgroundColorSelected="grey" scrollbarMode="showNever" transparent="1" />
+		<widget name="timeline0" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
+		<widget name="timeline1" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
+		<widget name="timeline2" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
+		<widget name="timeline3" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
+		<widget name="timeline4" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
+		<widget name="timeline5" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
+		<widget name="timeline_now" position="80,317" zPosition="2" size="13,308" pixmap="MetrixHD/epg/timeline-now.png" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,634" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="265,635" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="460,635" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="655,635" size="30,40" alphatest="blend" />
+		<widget name="key_red" position="105,637" size="160,25" zPosition="1" font="RegularLight;20" halign="left" backgroundColor="background" transparent="1" />
+		<widget name="key_green" position="300,637" size="160,25" zPosition="1" font="RegularLight;20" halign="left" backgroundColor="background" transparent="1" />
+		<widget name="key_yellow" position="495,637" size="160,25" zPosition="1" font="RegularLight;20" halign="left" backgroundColor="background" transparent="1" />
+		<widget name="key_blue" position="690,637" size="160,25" zPosition="1" font="RegularLight;20" halign="left" backgroundColor="background" transparent="1" />
+		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
+		<ePixmap name="Info" position="1031,635" size="81,40" pixmap="MetrixHD/buttons/key_info.png" />
+	</screen>
+	<screen name="GraphicalEPGPIG" position="0,0" size="1280,720" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="session.VideoPicture" render="Pig" position="883,103" size="355,189" zPosition="3" backgroundColor="unff000000" />
+		<eLabel name="new eLabel" position="40,23" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" transparent="0" />
+		<widget source="global.CurrentTime" render="Label" position="1130,33" size="100,28" font="Regular;26" halign="right" backgroundColor="background" transparent="1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="993,69" size="237,25" font="RegularLight; 20" halign="right" backgroundColor="background" transparent="1">
+			<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
+		</widget>
+		<eLabel position="70,163" zPosition="0" size="808,127" backgroundColor="layer-b-background" transparent="0" />
+		<widget source="Event" render="Label" position="70,163" size="808,127" font="RegularLight; 19" backgroundColor="layer-b-background" transparent="1" valign="top">
+			<convert type="EventName">ExtendedDescription</convert>
+		</widget>
+		<eLabel text="Electronic Program Guide" position="70,33" size="499,43" font="Regular;35" backgroundColor="background" transparent="1" />
+		<widget source="Event" render="Label" position="70,78" size="700,39" font="Regular; 24" backgroundColor="background" transparent="1">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget source="Event" render="Label" position="70,126" size=" 65, 22" font="Regular; 18" halign="center" backgroundColor="background" transparent="1">
+			<convert type="EventTime">StartTime</convert>
+			<convert type="ClockToText">Format:%H:%M </convert>
+		</widget>
+		<widget source="Event" render="Label" position="797,126" size=" 80, 22" font="Regular; 18" backgroundColor="background" transparent="1" halign="center">
+			<convert type="EventTime">EndTime</convert>
+			<convert type="ClockToText">Format:%H:%M</convert>
+		</widget>
+		<eLabel position="146,135" size="640,1" backgroundColor="grey" />
+		<widget source="Event" render="Label" position="70,162" size="808,127" font="RegularLight; 19" backgroundColor="layer-b-background" transparent="1" valign="top" zPosition="1">
+			<convert type="EventName">ExtendedDescription</convert>
+		</widget>
+		<widget source="Event" render="Progress" position="146,133" size="640,5" borderWidth="0" backgroundColor="white" transparent="1" zPosition="1">
+			<convert type="EventTime">Progress</convert>
+		</widget>
+		<widget source="Event" render="Label" position="70,163" size="808,127" font="RegularLight; 19" backgroundColor="layer-b-background" transparent="1" valign="top">
+			<convert type="EventName">ExtendedDescription</convert>
+		</widget>
+		<widget name="timeline_text" position="70,296" size="1155,25" selectionDisabled="1" transparent="1" />
+		<widget name="list" position="70,328" size="1150,301" itemHeight="60" EntryBorderColor="white" EntryBackgroundColor="black" EntryBackgroundColorSelected="grey" scrollbarMode="showNever" transparent="1" />
+		<widget name="timeline0" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
+		<widget name="timeline1" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
+		<widget name="timeline2" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
+		<widget name="timeline3" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
+		<widget name="timeline4" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
+		<widget name="timeline5" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
+		<widget name="timeline_now" position="80,322" zPosition="2" size="13,310" pixmap="MetrixHD/epg/timeline-now.png" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="265,635" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="460,635" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="655,635" size="30,40" alphatest="blend" />
+		<widget name="key_red" position="105,637" size="160,25" zPosition="1" font="RegularLight;20" halign="left" backgroundColor="background" transparent="1" />
+		<widget name="key_green" position="300,637" size="160,25" zPosition="1" font="RegularLight;20" halign="left" backgroundColor="background" transparent="1" />
+		<widget name="key_yellow" position="495,637" size="160,25" zPosition="1" font="RegularLight;20" halign="left" backgroundColor="background" transparent="1" />
+		<widget name="key_blue" position="690,637" size="160,25" zPosition="1" font="RegularLight;20" halign="left" backgroundColor="background" transparent="1" />
+		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
+		<ePixmap name="Info" position="1031,635" size="81,40" pixmap="MetrixHD/buttons/key_info.png" />
+	</screen>
+	<screen name="TempFanControl" position="0,0" size="1280,720" title="Fan Control" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<eLabel text="Fan Control" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="60,125" size="550,120" scrollbarMode="showOnDemand" />
+		<widget source="SensorTempText0" render="Label" position="60,255" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="SensorTemp0" render="Label" position="150,255" zPosition="1" size="100,20" font="Regular;19" halign="right">
+			<convert type="SensorToText"></convert>
+		</widget>
+		<widget source="SensorTempText1" render="Label" position="60,274" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="SensorTemp1" render="Label" position="150,275" zPosition="1" size="100,20" font="Regular;19" halign="right">
+			<convert type="SensorToText"></convert>
+		</widget>
+		<widget source="SensorTempText2" render="Label" position="60,295" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="SensorTemp2" render="Label" position="150,294" zPosition="1" size="100,20" font="Regular;19" halign="right">
+			<convert type="SensorToText"></convert>
+		</widget>
+		<widget source="SensorTempText3" render="Label" position="61,315" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="SensorTemp3" render="Label" position="150,314" zPosition="1" size="100,20" font="Regular;19" halign="right">
+			<convert type="SensorToText"></convert>
+		</widget>
+		<widget source="SensorTempText4" render="Label" position="60,333" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="SensorTemp4" render="Label" position="150,335" zPosition="1" size="100,20" font="Regular;19" halign="right">
+			<convert type="SensorToText"></convert>
+		</widget>
+		<widget source="SensorTempText5" render="Label" position="60,354" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="SensorTemp5" render="Label" position="150,355" zPosition="1" size="100,20" font="Regular;19" halign="right">
+			<convert type="SensorToText"></convert>
+		</widget>
+		<widget source="SensorTempText6" render="Label" position="60,375" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="SensorTemp6" render="Label" position="150,374" zPosition="1" size="100,20" font="Regular;19" halign="right">
+			<convert type="SensorToText"></convert>
+		</widget>
+		<widget source="SensorTempText7" render="Label" position="60,393" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="SensorTemp7" render="Label" position="150,395" zPosition="1" size="100,20" font="Regular;19" halign="right">
+			<convert type="SensorToText"></convert>
+		</widget>
+		<widget source="SensorFanText0" render="Label" position="340,254" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="SensorFan0" render="Label" position="430,250" zPosition="1" size="150,23" font="Regular;19" halign="right">
+			<convert type="SensorToText"></convert>
+		</widget>
+		<widget source="SensorFanText1" render="Label" position="340,273" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="SensorFan1" render="Label" position="430,274" zPosition="1" size="150,20" font="Regular;19" halign="right">
+			<convert type="SensorToText"></convert>
+		</widget>
+		<widget source="SensorFanText2" render="Label" position="340,295" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="SensorFan2" render="Label" position="430,292" zPosition="1" size="150,20" font="Regular;19" halign="right">
+			<convert type="SensorToText"></convert>
+		</widget>
+		<widget source="SensorFanText3" render="Label" position="341,314" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="SensorFan3" render="Label" position="430,315" zPosition="1" size="150,20" font="Regular;19" halign="right">
+			<convert type="SensorToText"></convert>
+		</widget>
+		<widget source="SensorFanText4" render="Label" position="340,334" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="SensorFan4" render="Label" position="430,335" zPosition="1" size="150,20" font="Regular;19" halign="right">
+			<convert type="SensorToText"></convert>
+		</widget>
+		<widget source="SensorFanText5" render="Label" position="341,355" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="SensorFan5" render="Label" position="430,354" zPosition="1" size="150,20" font="Regular;19" halign="right">
+			<convert type="SensorToText"></convert>
+		</widget>
+		<widget source="SensorFanText6" render="Label" position="340,374" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="SensorFan6" render="Label" position="430,375" zPosition="1" size="150,20" font="Regular;19" halign="right">
+			<convert type="SensorToText"></convert>
+		</widget>
+		<widget source="SensorFanText7" render="Label" position="340,395" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="SensorFan7" render="Label" position="431,395" zPosition="1" size="150,20" font="Regular;19" halign="right">
+			<convert type="SensorToText"></convert>
+		</widget>
+		<ePixmap position="906,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fan.png" transparent="1" alphatest="blend" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
 </skin>
