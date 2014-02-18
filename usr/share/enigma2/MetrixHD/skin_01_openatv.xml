@@ -650,6 +650,10 @@
 			<convert type="MenuEntryCompare">VFD_Giga</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_VFD_INI.png" position="310,85" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">VFD_INI</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_videoenhancement_setup.png" position="310,85" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">videoenhancement_setup</convert>
 			<convert type="ConditionalShowHide" />
@@ -665,7 +669,11 @@
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_fansetup_config.png" position="310,85" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">fansetup_config</convert>
 			<convert type="ConditionalShowHide" />
-		</widget>		
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_AutomaticVolumeAdjustment.png" position="310,85" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">AutomaticVolumeAdjustment</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
 	</screen>
 	<screen name="menu_extended" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MENU_template" />
@@ -1374,6 +1382,25 @@
 		<!--ClockWidget */-->
 		<widget source="session.CurrentService" render="Label" position="30,416" size="1250,256" font="SetrixHD; 140" valign="top" noWrap="1" backgroundColor="background-text" transparent="1" foregroundColor="background-text" zPosition="-99">
 			<convert type="ServiceName">Name</convert>
+		</widget>
+	</screen>
+	<screen name="HistoryZapSelector" position="center,center" size="550,500" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="History Zap..." position="0,-32" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel position="0,0" zPosition="-2" size="550,480" backgroundColor="layer-a-background" />
+		<widget source="menu" render="Listbox" position="0,60" size="550,420" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryPixmapAlphaBlend(pos=(0, 5), size=(83, 50), png=6, flags = BT_SCALE), # picon
+						MultiContentEntryText(pos = (95, 0), size = (10, 60), font = 2, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 1), # Current Service
+						MultiContentEntryText(pos = (115, 0), size = (400, 21), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 2), # Servicename
+						MultiContentEntryText(pos = (115, 20), size = (400, 22), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3), # Eventname
+						MultiContentEntryText(pos = (115, 40), size = (240, 17), font = 3, flags = RT_HALIGN_LEFT, text = 5) # Eventtime
+						# MultiContentEntryText(pos = (285, 5), size = (335, 60), font = 3, flags = RT_HALIGN_LEFT|RT_WRAP, text = 4) # Eventdescription
+					],
+				 "fonts": [gFont("Regular", 22), gFont("Regular", 20), gFont("Regular", 17), gFont("Regular", 16)],
+				 "itemHeight": 70
+				}
+			</convert>
 		</widget>
 	</screen>
 	<screen name="Setup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
