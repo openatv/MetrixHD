@@ -1445,12 +1445,11 @@
 		<widget source="menu" render="Listbox" position="0,60" size="550,420" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
-						MultiContentEntryPixmapAlphaBlend(pos=(0, 5), size=(83, 50), png=6, flags = BT_SCALE), # picon
 						MultiContentEntryText(pos = (95, 0), size = (10, 60), font = 2, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 1), # Current Service
 						MultiContentEntryText(pos = (115, 0), size = (400, 21), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 2), # Servicename
 						MultiContentEntryText(pos = (115, 20), size = (400, 22), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3), # Eventname
-						MultiContentEntryText(pos = (115, 40), size = (240, 17), font = 3, flags = RT_HALIGN_LEFT, text = 5) # Eventtime
-						# MultiContentEntryText(pos = (285, 5), size = (335, 60), font = 3, flags = RT_HALIGN_LEFT|RT_WRAP, text = 4) # Eventdescription
+						MultiContentEntryText(pos = (115, 40), size = (240, 17), font = 3, flags = RT_HALIGN_LEFT, text = 5), # Eventtime
+						MultiContentEntryPixmapAlphaBlend(pos=(0, 5), size=(83, 50), png=6, flags = BT_SCALE) # picon
 					],
 				 "fonts": [gFont("Regular", 22), gFont("Regular", 20), gFont("Regular", 17), gFont("Regular", 16)],
 				 "itemHeight": 70
