@@ -413,5 +413,126 @@
 		<ePixmap position="1088,620" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" alphatest="blend" />
 	</screen>
 	<!-- CoolTV */-->
+	<!-- Fritz! -->
+	<screen name="FritzDisplayCalls" position="center,center" size="1280,720"  flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<widget source="Title" render="Label" position="70,47" size="800,40" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="statusbar" position="70,115" size="710,28" font="Regular; 24" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel position="70,155" size="710,2" backgroundColor="layer-a-accent1" />
+		<widget source="entries" render="Listbox" position="70,165" size="710,450" zPosition="3" scrollbarMode="showNever" backgroundColor="layer-a-background" transparent="1">
+			<convert type="TemplatedMultiContent">
+			{"template": [
+										 MultiContentEntryText(pos = (5,5),size = (120,24),flags = RT_HALIGN_LEFT,text = 1),# index 0 is the MenuText,
+										 MultiContentEntryPixmapAlphaTest(pos = (130,5),size = (25,25),png = 2),# index 1 i direction pixmap
+										 MultiContentEntryText(pos = (160,5),size = (270,24),flags = RT_HALIGN_LEFT,text = 3),# index 2 is remote name/number
+										 MultiContentEntryText(pos = (440,5),size = (60,24),flags = RT_HALIGN_LEFT,text = 4),# index 3 is length of call
+										 MultiContentEntryText(pos = (510,5),size = (225,24),flags = RT_HALIGN_CENTER,text = 5),# index 4 is my number/name for number
+										],
+										 "fonts": [gFont("Regular",18)],
+										 "itemHeight": 30}
+		 </convert>
+		</widget>
+		<ePixmap position="906,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fritz.png" transparent="1" alphatest="blend" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
+	<screen name="FritzDisplayPhonebook" position="0,0" size="1280,720" title="Fritz Display Phonebook" flags="wfNoBorder" backgroundColor="transparent">
+		 <panel name="template1_2layer" />
+			<widget source="Title" render="Label" position="70,47" size="800,40" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+			<widget source="entries" render="Listbox" position="70,120" size="710,450" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1">
+				<convert type="TemplatedMultiContent">
+					{"template": [
+						MultiContentEntryText(pos = (5,5),size = (320,24),flags = RT_HALIGN_LEFT,text = 1),# index 0 is the name,index 1 is shortname
+						MultiContentEntryText(pos = (340,5),size = (360,24),flags = RT_HALIGN_LEFT,text = 2),# index 2 is number
+						],
+						"fonts": [gFont("Regular",19)],
+						"itemHeight": 35
+					}
+			</convert>
+		</widget>
+		<ePixmap position="906,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fritz.png" transparent="1" alphatest="blend" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
+	<screen name="FritzMenu" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<widget source="Title" render="Label" position="70,47" size="800,40" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="FBFInfo" position="70,115" size="710,24" font="Regular; 20" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel position="70,155" size="710,2" backgroundColor="layer-a-accent1" />
+		<widget name="FBFInternet" position="105,165" size="630,80" font="Regular; 20" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="internet_inactive" position="70,165" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
+		<widget name="internet_active" position="70,165" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
+		<widget name="FBFDsl" position="105,252" size="630,24" font="Regular; 20" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="dsl_inactive" position="70,250" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
+		<widget name="dsl_active" position="70,250" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
+		<widget name="FBFWlan" position="105,287" size="630,24" font="Regular; 20" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="wlan_inactive" position="70,285" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
+		<widget name="wlan_active" position="70,285" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
+		<widget name="FBFMailbox" position="105,322" size="630,24" font="Regular; 20" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="mailbox_inactive" position="70,320" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
+		<widget name="mailbox_active" position="70,320" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
+		<widget name="FBFRufuml" position="105,357" size="630,24" font="Regular; 20" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="rufuml_inactive" position="70,355" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
+		<widget name="rufuml_active" position="70,355" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
+		<widget name="FBFFax" position="105,392" size="630,24" font="Regular; 20" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="fax_inactive" position="70,390" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
+		<widget name="fax_active" position="70,390" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
+		<ePixmap position="906,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fritz.png" transparent="1" alphatest="blend" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
+	<screen name="FritzCallSetup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<widget source="Title" render="Label" position="70,79" size="800,40" font="SetrixHD;30" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="consideration" position="70,145" size="715,60" font="Regular; 19" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel position="70,185" size="710,2" backgroundColor="layer-a-accent1" />
+		<widget name="config" position="70,195" size="710,270" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel position="70,473" size="710,2" backgroundColor="layer-a-accent1" />
+		<ePixmap position="906,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fritz.png" transparent="1" alphatest="blend" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
+	<screen name="AddScreen" position="0,0" size="1280,720" title="Add Screen" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
+		<widget source="Title" render="Label" position="70,47" size="800,40" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="global.CurrentTime" render="Label" position="1120,32" size="100,32" font="SetrixHD;28" halign="right" backgroundColor="layer-a-background" transparent="1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
+			<convert type="ClockToText">Format:%A</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+			<convert type="ClockToText">Format:%e. %b</convert>
+		</widget>
+		<widget name="config" position="70,115" size="710,300" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="610,635" size="30,40" alphatest="blend" />
+		<widget name="key_red" position="105,637" size="160,25" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="key_green" position="645,637" size="160,25" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fritz.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="FritzAbout" position="0,0" size="1280,720" title="About Fritz Call" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
+		<eLabel text="About FritzCall" position="70,47" size="800,40" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="global.CurrentTime" render="Label" position="1120,32" size="100,32" font="SetrixHD;28" halign="right" backgroundColor="layer-a-background" transparent="1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
+			<convert type="ClockToText">Format:%A</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+			<convert type="ClockToText">Format:%e. %b</convert>
+		</widget>
+		<widget name="text" position="80,130" size="540,250" font="Regular; 24" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="url" position="829,130" size="400,50" font="Regular; 22" backgroundColor="layer-a-background" transparent="1" />
+		<ePixmap position="840,635" size="30,30" zPosition="10" pixmap="MetrixHD/buttons/key_ok.png" transparent="1" alphatest="blend" />
+		<ePixmap position="520,450" size="175,175" zPosition="4" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FritzCall/images/website.png" alphatest="blend" transparent="1" />
+		<ePixmap position="894,262" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fritz.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- Fritz! */-->   
 	<!-- PLUGINS */-->
 </skin>
