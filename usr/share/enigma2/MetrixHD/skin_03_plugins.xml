@@ -496,24 +496,14 @@
 		<panel name="rgyb-keys_template1" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
-	<screen name="AddScreen" position="0,0" size="1280,720" title="Add Screen" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
-		<widget source="Title" render="Label" position="70,47" size="800,40" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="global.CurrentTime" render="Label" position="1120,32" size="100,32" font="SetrixHD;28" halign="right" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget name="config" position="70,115" size="710,300" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="610,635" size="30,40" alphatest="blend" />
-		<widget name="key_red" position="105,637" size="160,25" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_green" position="645,637" size="160,25" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fritz.png" transparent="1" alphatest="blend" />
+	<screen name="AddScreen" position="0,0" size="1280,720" title="Add entry to phonebook" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<widget source="Title" render="Label" position="70,59" size="800,40" font="SetrixHD;30" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,120" size="710,300" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
+		<ePixmap position="906,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fritz.png" transparent="1" alphatest="blend" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1" />
+		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="FritzAbout" position="-1,center" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
