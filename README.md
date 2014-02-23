@@ -5,7 +5,7 @@ MetrixHD
 
 MetrixHD is created by iMaxxx http://open-store.net
 
-##![alt text](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/openstore.png "Logo openStore http://www.open-store.net")
+##![alt text](https://raw2.github.com/openatv/MetrixHD/master/MetrixHD-INFO/openstore.png "Logo openStore http://www.open-store.net")
 
 **The skin uses a modern 2-layer style with 2 main fonts and several font colors to catch the users attention on the important areas of a screen.**
 
