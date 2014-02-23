@@ -194,6 +194,16 @@
 		<widget name="description" position="42,44" size="1206,35" zPosition="1" font="Regular;22" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Quick Launch Menu" position="20,552" size="1273,298" font="SetrixHD; 150" backgroundColor="background-text" transparent="1" foregroundColor="background-text" valign="top" zPosition="-50" />
 	</screen>
+	<screen name="SoftwareManagerSetup" position="0,0" size="1280,720" title="SoftwareManager Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup SoftwareManager" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,350" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget source="introduction" render="Label" position="70,450" size="700,60" zPosition="10" font="Regular;21" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left" valign="top" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/swm.png" transparent="1" alphatest="blend" />
+	</screen>
 	<screen name="EPGSelection" position="0,0" size="1280,720" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="EPG Selection" position="10,552" size="1273,296" font="SetrixHD; 150" backgroundColor="background-text" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
 		<widget alphatest="blend" position="70,55" render="MetrixHDXPicon" size="220,132" source="Service" transparent="1" zPosition="1">
