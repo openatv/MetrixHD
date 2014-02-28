@@ -2051,32 +2051,33 @@
 	</screen>
 	<screen name="GraphicalEPG" position="0,0" size="1280,720" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel name="new eLabel" position="40,24" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" transparent="0" />
-		<widget source="global.CurrentTime" render="Label" position="1120,37" size="100,28" font="Regular;26" halign="right" backgroundColor="background" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="1120,37" size="100,28" font="Regular;26" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="870,67" size="350,25" font="RegularLight; 20" halign="right" backgroundColor="background" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="870,67" size="350,25" font="RegularLight; 20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 			<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
 		</widget>
-		<eLabel text="Electronic Program Guide" position="70,47" size="800,43" font="Regular; 35" backgroundColor="background" transparent="1" />
-		<widget source="Event" render="Label" position="70,90" size="700,39" font="Regular; 24" backgroundColor="background" transparent="1">
+		<eLabel text="Electronic Program Guide" position="70,47" size="800,43" font="Regular; 35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="Event" render="Label" position="70,90" size="700,39" font="Regular; 24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 			<convert type="EventName">Name</convert>
 		</widget>
-		<widget source="Event" render="Label" position="70,136" size=" 65, 22" font="Regular; 18" halign="center" backgroundColor="background" transparent="1">
+		<widget source="Event" render="Label" position="70,136" size=" 65, 22" font="Regular; 18" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 			<convert type="EventTime">StartTime</convert>
 			<convert type="ClockToText">Format:%H:%M </convert>
 		</widget>
-		<widget source="Event" render="Label" position="1142,136" size=" 80, 22" font="Regular; 18" backgroundColor="background" transparent="1" halign="center">
+		<widget source="Event" render="Label" position="1142,136" size=" 80, 22" font="Regular; 18" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="center">
 			<convert type="EventTime">EndTime</convert>
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
-		<widget source="Event" render="Progress" position="146,143" size="990,5" borderWidth="0" backgroundColor="white" transparent="1" zPosition="1">
+		<eLabel position="146,145" size="990,1" backgroundColor="layer-a-progress" foregroundColor="layer-a-progress" zPosition="1" />
+		<widget source="Event" render="Progress" position="146,143" size="990,5" borderWidth="0" backgroundColor="layer-a-background" foregroundColor="layer-a-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
 		<eLabel position="70,163" zPosition="0" size="1153,122" backgroundColor="layer-b-background" transparent="0" />
-		<widget source="Event" render="Label" position="70,163" size="1153,122" font="RegularLight; 19" backgroundColor="layer-b-background" transparent="1" valign="top" zPosition="1">
+		<widget source="Event" render="Label" position="70,163" size="1153,122" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top" zPosition="1">
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
-		<eLabel position="146,145" size="990,1" backgroundColor="grey" />
+		<eLabel position="146,145" size="990,1" backgroundColor="layer-a-background" foregroundColor="layer-a-progress" />
 		<widget name="timeline_text" position="71,293" size="1160,25" selectionDisabled="1" transparent="1" />
 		<widget name="list" position="72,324" size="1160,295" itemHeight="62" EntryBorderColor="white" EntryBackgroundColor="black" EntryBackgroundColorSelected="grey" scrollbarMode="showNever" transparent="1" />
 		<widget name="timeline0" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
@@ -2100,37 +2101,31 @@
 	<screen name="GraphicalEPGPIG" position="0,0" size="1280,720" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="session.VideoPicture" render="Pig" position="883,103" size="355,189" zPosition="3" backgroundColor="unff000000" />
 		<eLabel name="new eLabel" position="40,23" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" transparent="0" />
-		<widget source="global.CurrentTime" render="Label" position="1130,33" size="100,28" font="Regular;26" halign="right" backgroundColor="background" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="1130,33" size="100,28" font="Regular;26" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="993,69" size="237,25" font="RegularLight; 20" halign="right" backgroundColor="background" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="993,69" size="237,25" font="RegularLight; 20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 			<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
 		</widget>
 		<eLabel position="70,163" zPosition="0" size="808,127" backgroundColor="layer-b-background" transparent="0" />
-		<widget source="Event" render="Label" position="70,163" size="808,127" font="RegularLight; 19" backgroundColor="layer-b-background" transparent="1" valign="top">
+		<widget source="Event" render="Label" position="70,163" size="808,127" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top" zPosition="1">
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
-		<eLabel text="Electronic Program Guide" position="70,33" size="499,43" font="Regular;35" backgroundColor="background" transparent="1" />
-		<widget source="Event" render="Label" position="70,78" size="700,39" font="Regular; 24" backgroundColor="background" transparent="1">
+		<eLabel text="Electronic Program Guide" position="70,33" size="499,43" font="Regular;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="Event" render="Label" position="70,78" size="700,39" font="Regular; 24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 			<convert type="EventName">Name</convert>
 		</widget>
-		<widget source="Event" render="Label" position="70,126" size=" 65, 22" font="Regular; 18" halign="center" backgroundColor="background" transparent="1">
+		<widget source="Event" render="Label" position="70,126" size=" 65, 22" font="Regular; 18" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 			<convert type="EventTime">StartTime</convert>
 			<convert type="ClockToText">Format:%H:%M </convert>
 		</widget>
-		<widget source="Event" render="Label" position="797,126" size=" 80, 22" font="Regular; 18" backgroundColor="background" transparent="1" halign="center">
+		<widget source="Event" render="Label" position="797,126" size=" 80, 22" font="Regular; 18" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="center">
 			<convert type="EventTime">EndTime</convert>
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
-		<eLabel position="146,135" size="640,1" backgroundColor="grey" />
-		<widget source="Event" render="Label" position="70,162" size="808,127" font="RegularLight; 19" backgroundColor="layer-b-background" transparent="1" valign="top" zPosition="1">
-			<convert type="EventName">ExtendedDescription</convert>
-		</widget>
-		<widget source="Event" render="Progress" position="146,133" size="640,5" borderWidth="0" backgroundColor="white" transparent="1" zPosition="1">
+		<eLabel position="146,135" size="640,1" backgroundColor="layer-a-progress" foregroundColor="layer-a-progress" zPosition="1" />
+		<widget source="Event" render="Progress" position="146,133" size="640,5" borderWidth="0" backgroundColor="layer-a-background" foregroundColor="layer-a-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
-		</widget>
-		<widget source="Event" render="Label" position="70,163" size="808,127" font="RegularLight; 19" backgroundColor="layer-b-background" transparent="1" valign="top">
-			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
 		<widget name="timeline_text" position="70,296" size="1155,25" selectionDisabled="1" transparent="1" />
 		<widget name="list" position="70,328" size="1150,301" itemHeight="60" EntryBorderColor="white" EntryBackgroundColor="black" EntryBackgroundColorSelected="grey" scrollbarMode="showNever" transparent="1" />
