@@ -36,12 +36,12 @@ class WeatherSettingsView(ConfigListScreen, Screen):
  <screen name="MyMetrixLiteWeatherView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
     <eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
     <eLabel position="60,55" size="560,50" text="MyMetrixLite - MetrixWeather" font="Regular; 40" valign="center" transparent="1" backgroundColor="#00000000" />
-    <widget name="config" position="61,114" size="590,500" backgroundColor="#00000000" foregroundColor="00ffffff" scrollbarMode="showOnDemand" transparent="1" />
+    <widget name="config" position="61,114" size="590,500" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
     <eLabel font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" position="70,640" size="160,30" text="Cancel" transparent="1" />
     <eLabel font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" position="257,640" size="160,30" text="Save" transparent="1" />
     <eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
     <eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
-    <widget name="helperimage" position="840,222" size="256,256" backgroundColor="00000000" zPosition="1" transparent="1" alphatest="blend" />
+    <widget name="helperimage" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
   </screen>
 """
 
