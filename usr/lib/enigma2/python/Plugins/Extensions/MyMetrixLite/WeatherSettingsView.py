@@ -18,36 +18,18 @@
 #
 #######################################################################
 
-from . import _, COLOR_IMAGE_PATH
+from . import _, initWeatherConfig, appendSkinFile, COLOR_IMAGE_PATH, SKIN_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET_TMP, SKIN_SECOND_INFOBAR_SOURCE, SKIN_SECOND_INFOBAR_TARGET_TMP
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
 from Components.AVSwitch import AVSwitch
-from Components.config import config, configfile, ConfigSubsection, getConfigListEntry, ConfigSelection, ConfigNumber
+from Components.config import config, configfile, ConfigSubsection, getConfigListEntry, ConfigSelection, ConfigNumber, \
+    ConfigBoolean
 from Components.ConfigList import ConfigListScreen
 from Components.Pixmap import Pixmap
 from enigma import ePicLoad
 
 #############################################################
-
-config.plugins.MetrixWeather = ConfigSubsection()
-
-#MetrixWeather
-'''
-config.plugins.MetrixWeather.enabled = ConfigSelection(default="yes", choices = [
-    ("yes", _("Yes")),
-    ("no", _("No"))
-])
-'''
-
-config.plugins.MetrixWeather.refreshInterval = ConfigNumber(default=10)
-config.plugins.MetrixWeather.woeid = ConfigNumber(default=676757) #Location (visit metrixhd.info)
-config.plugins.MetrixWeather.tempUnit = ConfigSelection(default="Celsius", choices = [
-    ("Celsius", _("Celsius")),
-    ("Fahrenheit", _("Fahrenheit"))
-])
-
-#######################################################################
 
 class WeatherSettingsView(ConfigListScreen, Screen):
     skin = """
@@ -64,20 +46,20 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 """
 
     def __init__(self, session, args = None):
-        self.skin_lines = []
         Screen.__init__(self, session)
         self.session = session
         self.Scale = AVSwitch().getFramebufferScale()
         self.PicLoad = ePicLoad()
         self["helperimage"] = Pixmap()
 
-        list = []
-        #list.append(getConfigListEntry(_("Enabled"), config.plugins.MyMetrixLiteWeather.enabled))
-        list.append(getConfigListEntry(_("MetrixWeather ID"), config.plugins.MetrixWeather.woeid))
-        list.append(getConfigListEntry(_("Unit"), config.plugins.MetrixWeather.tempUnit))
-        list.append(getConfigListEntry(_("Refresh Interval (min)"), config.plugins.MetrixWeather.refreshInterval))
+        initWeatherConfig()
 
-        ConfigListScreen.__init__(self, list)
+        ConfigListScreen.__init__(
+            self,
+            self.getMenuItemList(),
+            session = session,
+            on_change = self.__changedEntry
+        )
 
         self["actions"] = ActionMap(
         [
@@ -97,6 +79,18 @@ class WeatherSettingsView(ConfigListScreen, Screen):
         }, -1)
 
         self.onLayoutFinish.append(self.UpdatePicture)
+
+    def getMenuItemList(self):
+        list = []
+
+        list.append(getConfigListEntry(_("Enabled"), config.plugins.MetrixWeather.enabled, "WEATHER_ENABLED"))
+
+        if config.plugins.MetrixWeather.enabled.getValue() is True:
+            list.append(getConfigListEntry(_("MetrixWeather ID"), config.plugins.MetrixWeather.woeid))
+            list.append(getConfigListEntry(_("Unit"), config.plugins.MetrixWeather.tempUnit))
+            list.append(getConfigListEntry(_("Refresh Interval (min)"), config.plugins.MetrixWeather.refreshInterval))
+
+        return list
 
     def UpdatePicture(self):
         self.PicLoad.PictureData.get().append(self.DecodePicture)
@@ -132,6 +126,32 @@ class WeatherSettingsView(ConfigListScreen, Screen):
             else:
                 pass
 
+        try:
+            skinSearchAndReplace = []
+
+            if config.plugins.MetrixWeather.enabled.getValue() is False:
+                skinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
+
+            # InfoBar
+            skin_lines = appendSkinFile(SKIN_INFOBAR_SOURCE, skinSearchAndReplace)
+
+            xFile = open(SKIN_INFOBAR_TARGET_TMP, "w")
+            for xx in skin_lines:
+                print xx
+                xFile.writelines(xx)
+            xFile.close()
+
+
+            # SecondInfoBar
+            skin_lines = appendSkinFile(SKIN_SECOND_INFOBAR_SOURCE, skinSearchAndReplace)
+
+            xFile = open(SKIN_SECOND_INFOBAR_TARGET_TMP, "w")
+            for xx in skin_lines:
+                xFile.writelines(xx)
+            xFile.close()
+        except:
+            self.session.open(MessageBox, _("Error creating Skin!"), MessageBox.TYPE_ERROR)
+
         configfile.save()
         self.exit()
 
@@ -142,3 +162,11 @@ class WeatherSettingsView(ConfigListScreen, Screen):
             else:
                     pass
         self.close()
+
+    def __changedEntry(self):
+        cur = self["config"].getCurrent()
+        cur = cur and len(cur) > 2 and cur[2]
+
+        # change if type is BACKUP
+        if cur == "WEATHER_ENABLED":
+            self["config"].setList(self.getMenuItemList())

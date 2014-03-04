@@ -18,7 +18,7 @@
 #
 #######################################################################
 
-from . import _, SKIN_TARGET_TMP, SKIN_SOURCE, COLOR_IMAGE_PATH
+from . import _, initColorsConfig, appendSkinFile, SKIN_TARGET_TMP, SKIN_SOURCE, COLOR_IMAGE_PATH
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
@@ -29,93 +29,6 @@ from skin import parseColor
 from Components.Pixmap import Pixmap
 from enigma import ePicLoad
 
-
-#############################################################
-
-
-ColorList = [
-            ("F0A30A", _("Amber")),
-            ("825A2C", _("Brown")),
-            ("0050EF", _("Cobalt")),
-            ("911D10", _("Crimson")),
-            ("1BA1E2", _("Cyan")),
-            ("00008B", _("Darkblue")),
-            ("A61D4D", _("Magenta")),
-            ("A4C400", _("Lime")),
-            ("6A00FF", _("Indigo")),
-            ("70AD11", _("Green")),
-            ("008A00", _("Emerald")),
-            ("76608A", _("Mauve")),
-            ("0000CD", _("Mediumblue")),
-            ("000080", _("Navy")),
-            ("6D8764", _("Olive")),
-            ("C3461B", _("Orange")),
-            ("F472D0", _("Pink")),
-            ("E51400", _("Red")),
-            ("7A3B3F", _("Sienna")),
-            ("647687", _("Steel")),
-            ("149BAF", _("Teal")),
-            ("6C0AAB", _("Violet")),
-            ("BF9217", _("Yellow")),
-            ("000000", _("Black")),
-            ("151515", _("Greyscale 1")),
-            ("1C1C1C", _("Greyscale 2")),
-            ("2E2E2E", _("Greyscale 3")),
-            ("424242", _("Greyscale 4")),
-            ("585858", _("Greyscale 5")),
-            ("6E6E6E", _("Greyscale 6")),
-            ("848484", _("Greyscale 7")),
-            ("A4A4A4", _("Greyscale 8")),
-            ("BDBDBD", _("Greyscale 9")),
-            ("D8D8D8", _("Greyscale 10")),
-            ("E6E6E6", _("Greyscale 11")),
-            ("F2F2F2", _("Greyscale 12")),
-            ("FAFAFA", _("Greyscale 13")),
-            ("FFFFFF", _("White"))
-            ]
-
-TransparencyList=[
-            ("00", _("0%")),
-            ("0D", _("5%")),
-            ("1A", _("10%")),
-            ("27", _("15%")),
-            ("34", _("20%")),
-            ("40", _("25%")),
-            ("4D", _("30%")),
-            ("5A", _("35%")),
-            ("67", _("40%")),
-            ("74", _("45%")),
-            ("80", _("50%"))
-            ]
-
-config.plugins.MyMetrixLiteColors = ConfigSubsection()
-
-#MetrixColors
-
-config.plugins.MyMetrixLiteColors.backgroundtext = ConfigSelection(default="FFFFFF", choices = ColorList)
-config.plugins.MyMetrixLiteColors.backgroundtexttransparency = ConfigSelection(default="80", choices = TransparencyList)
-
-config.plugins.MyMetrixLiteColors.layerabackground = ConfigSelection(default="1C1C1C", choices = ColorList)
-config.plugins.MyMetrixLiteColors.layerabackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
-config.plugins.MyMetrixLiteColors.layeraforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
-config.plugins.MyMetrixLiteColors.layeraselectionbackground = ConfigSelection(default="0050EF", choices = ColorList)
-config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
-config.plugins.MyMetrixLiteColors.layeraselectionforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
-config.plugins.MyMetrixLiteColors.layeraaccent1 = ConfigSelection(default="BDBDBD", choices = ColorList)
-config.plugins.MyMetrixLiteColors.layeraaccent2 = ConfigSelection(default="6E6E6E", choices = ColorList)
-config.plugins.MyMetrixLiteColors.layeraprogress = ConfigSelection(default="0050EF", choices = ColorList)
-config.plugins.MyMetrixLiteColors.layeraprogresstransparency = ConfigSelection(default="1A", choices = TransparencyList)
-
-config.plugins.MyMetrixLiteColors.layerbbackground = ConfigSelection(default="0050EF", choices = ColorList)
-config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
-config.plugins.MyMetrixLiteColors.layerbforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
-config.plugins.MyMetrixLiteColors.layerbselectionbackground = ConfigSelection(default="1C1C1C", choices = ColorList)
-config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
-config.plugins.MyMetrixLiteColors.layerbselectionforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
-config.plugins.MyMetrixLiteColors.layerbaccent1 = ConfigSelection(default="BDBDBD", choices = ColorList)
-config.plugins.MyMetrixLiteColors.layerbaccent2 = ConfigSelection(default="6E6E6E", choices = ColorList)
-config.plugins.MyMetrixLiteColors.layerbprogress = ConfigSelection(default="FFFFFF", choices = ColorList)
-config.plugins.MyMetrixLiteColors.layerbprogresstransparency = ConfigSelection(default="1A", choices = TransparencyList)
 
 #######################################################################
 
@@ -136,13 +49,14 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 """
 
     def __init__(self, session, args = None):
-        self.skin_lines = []
         Screen.__init__(self, session)
         self.session = session
         self.picPath = COLOR_IMAGE_PATH % "FFFFFF"
         self.Scale = AVSwitch().getFramebufferScale()
         self.PicLoad = ePicLoad()
         self["helperimage"] = Pixmap()
+
+        initColorsConfig()
 
         list = []
         list.append(getConfigListEntry(_("Text in background  -----------------------------------------------------------------------------------"), ))
@@ -265,9 +179,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.layerbaccent1)
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.layerbaccent2)
 
-        config.plugins.MyMetrixLiteColors.save()
-
-        self.exit()
+        self.save()
 
     def setInputToDefault(self, configItem):
         configItem.setValue(configItem.default)
@@ -301,30 +213,30 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             self.layerbaccent2 = ('name="layer-b-accent2" value="#00' + config.plugins.MyMetrixLiteColors.layerbaccent2.value + '"')
             self.layerbprogress = ('name="layer-b-progress" value="#' + config.plugins.MyMetrixLiteColors.layerbprogresstransparency.value + config.plugins.MyMetrixLiteColors.layerbprogress.value + '"')
 
-            self.skinSearchAndReplace = []
+            skinSearchAndReplace = []
 
-            self.skinSearchAndReplace.append(['name="background-text" value="#96FFFFFF"', self.backgroundtext ])
+            skinSearchAndReplace.append(['name="background-text" value="#96FFFFFF"', self.backgroundtext ])
 
-            self.skinSearchAndReplace.append(['name="layer-a-background" value="#1E0F0F0F"', self.layerabackground ])
-            self.skinSearchAndReplace.append(['name="layer-a-foreground" value="#00FFFFFF"', self.layeraforeground ])
-            self.skinSearchAndReplace.append(['name="layer-a-selection-background" value="#1E27408B"', self.layeraselectionbackground ])
-            self.skinSearchAndReplace.append(['name="layer-a-selection-foreground" value="#00FFFFFF"', self.layeraselectionforeground ])
-            self.skinSearchAndReplace.append(['name="layer-a-accent1" value="#00CCCCCC"', self.layeraaccent1 ])
-            self.skinSearchAndReplace.append(['name="layer-a-accent2" value="#007F7F7F"', self.layeraaccent2 ])
-            self.skinSearchAndReplace.append(['name="layer-a-progress" value="#1E27408B"', self.layeraprogress ])
+            skinSearchAndReplace.append(['name="layer-a-background" value="#1E0F0F0F"', self.layerabackground ])
+            skinSearchAndReplace.append(['name="layer-a-foreground" value="#00FFFFFF"', self.layeraforeground ])
+            skinSearchAndReplace.append(['name="layer-a-selection-background" value="#1E27408B"', self.layeraselectionbackground ])
+            skinSearchAndReplace.append(['name="layer-a-selection-foreground" value="#00FFFFFF"', self.layeraselectionforeground ])
+            skinSearchAndReplace.append(['name="layer-a-accent1" value="#00CCCCCC"', self.layeraaccent1 ])
+            skinSearchAndReplace.append(['name="layer-a-accent2" value="#007F7F7F"', self.layeraaccent2 ])
+            skinSearchAndReplace.append(['name="layer-a-progress" value="#1E27408B"', self.layeraprogress ])
 
-            self.skinSearchAndReplace.append(['name="layer-b-background" value="#1E27408B"', self.layerbbackground ])
-            self.skinSearchAndReplace.append(['name="layer-b-foreground" value="#00FFFFFF"', self.layerbforeground ])
-            self.skinSearchAndReplace.append(['name="layer-b-selection-background" value="#1E0F0F0F"', self.layerbselectionbackground ])
-            self.skinSearchAndReplace.append(['name="layer-b-selection-foreground" value="#00FFFFFF"', self.layerbselectionforeground ])
-            self.skinSearchAndReplace.append(['name="layer-b-accent1" value="#00CCCCCC"', self.layerbaccent1 ])
-            self.skinSearchAndReplace.append(['name="layer-b-accent2" value="#007F7F7F"', self.layerbaccent2 ])
-            self.skinSearchAndReplace.append(['name="layer-b-progress" value="#1EFFFFFF"', self.layerbprogress ])
+            skinSearchAndReplace.append(['name="layer-b-background" value="#1E27408B"', self.layerbbackground ])
+            skinSearchAndReplace.append(['name="layer-b-foreground" value="#00FFFFFF"', self.layerbforeground ])
+            skinSearchAndReplace.append(['name="layer-b-selection-background" value="#1E0F0F0F"', self.layerbselectionbackground ])
+            skinSearchAndReplace.append(['name="layer-b-selection-foreground" value="#00FFFFFF"', self.layerbselectionforeground ])
+            skinSearchAndReplace.append(['name="layer-b-accent1" value="#00CCCCCC"', self.layerbaccent1 ])
+            skinSearchAndReplace.append(['name="layer-b-accent2" value="#007F7F7F"', self.layerbaccent2 ])
+            skinSearchAndReplace.append(['name="layer-b-progress" value="#1EFFFFFF"', self.layerbprogress ])
 
-            self.appendSkinFile(SKIN_SOURCE)
+            skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
 
             xFile = open(SKIN_TARGET_TMP, "w")
-            for xx in self.skin_lines:
+            for xx in skin_lines:
                 xFile.writelines(xx)
             xFile.close()
         except:
@@ -332,32 +244,6 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 
         configfile.save()
         self.exit()
-
-    def appendSkinFile(self, appendFileName, skinPartSearchAndReplace=None):
-        """
-        add skin file to main skin content
-
-        appendFileName:
-         xml skin-part to add
-
-        skinPartSearchAndReplace:
-         (optional) a list of search and replace arrays. first element, search, second for replace
-        """
-        skFile = open(appendFileName, "r")
-        file_lines = skFile.readlines()
-        skFile.close()
-
-        tmpSearchAndReplace = []
-
-        if skinPartSearchAndReplace is not None:
-            tmpSearchAndReplace = self.skinSearchAndReplace + skinPartSearchAndReplace
-        else:
-            tmpSearchAndReplace = self.skinSearchAndReplace
-
-        for skinLine in file_lines:
-            for item in tmpSearchAndReplace:
-                skinLine = skinLine.replace(item[0], item[1])
-            self.skin_lines.append(skinLine)
 
     def exit(self):
         for x in self["config"].list:

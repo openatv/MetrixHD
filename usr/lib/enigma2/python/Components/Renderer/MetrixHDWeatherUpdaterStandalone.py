@@ -29,31 +29,11 @@ import urllib2
 from enigma import eLabel
 #import easy to use xml parser called minidom:
 from xml.dom.minidom import parseString
-from Components.config import config, ConfigSubsection, configfile, ConfigText, ConfigNumber, ConfigDateTime,ConfigSelection
-
-config.plugins.MetrixWeather = ConfigSubsection()
-config.plugins.MetrixWeather.refreshInterval = ConfigNumber(default="10")
-config.plugins.MetrixWeather.woeid = ConfigNumber(default="676757") #Location (visit metrixhd.info)
-config.plugins.MetrixWeather.tempUnit = ConfigSelection(default="Celsius", choices = [
-                ("Celsius", _("Celsius")),
-                ("Fahrenheit", _("Fahrenheit"))
-                ])
-config.plugins.MetrixWeather.currentLocation = ConfigText(default="N/A")
-config.plugins.MetrixWeather.currentWeatherCode = ConfigText(default="(")
-config.plugins.MetrixWeather.currentWeatherText = ConfigText(default="N/A")
-config.plugins.MetrixWeather.currentWeatherTemp = ConfigText(default="0")
-
-config.plugins.MetrixWeather.forecastTodayCode = ConfigText(default="(")
-config.plugins.MetrixWeather.forecastTodayText = ConfigText(default="N/A")
-config.plugins.MetrixWeather.forecastTodayTempMin = ConfigText(default="0")
-config.plugins.MetrixWeather.forecastTodayTempMax = ConfigText(default="0")
-
-config.plugins.MetrixWeather.forecastTomorrowCode = ConfigText(default="(")
-config.plugins.MetrixWeather.forecastTomorrowText = ConfigText(default="N/A")
-config.plugins.MetrixWeather.forecastTomorrowTempMin = ConfigText(default="0")
-config.plugins.MetrixWeather.forecastTomorrowTempMax = ConfigText(default="0")
+from Components.config import config, configfile
+from Plugins.Extensions.MyMetrixLite.__init__ import initWeatherConfig
 
 
+initWeatherConfig()
 
 class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 

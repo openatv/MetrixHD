@@ -18,7 +18,9 @@
 #
 #######################################################################
 
-from . import _, SKIN_TARGET, SKIN_TARGET_TMP, COLOR_IMAGE_PATH
+from . import _, appendSkinFile, SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, COLOR_IMAGE_PATH, SKIN_INFOBAR_TARGET, SKIN_INFOBAR_TARGET_TMP, SKIN_SECOND_INFOBAR_TARGET, SKIN_SECOND_INFOBAR_TARGET_TMP
+
+import os
 
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -29,15 +31,13 @@ from Components.config import config, configfile, ConfigYesNo, ConfigSubsection,
 from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryPixmapAlphaTest, MultiContentEntryText
 from Components.Pixmap import Pixmap
-from shutil import move
+from shutil import move, copy
 from skin import parseColor
 from enigma import ePicLoad, eListboxPythonMultiContent, gFont
 from ColorsSettingsView import ColorsSettingsView
 from WeatherSettingsView import WeatherSettingsView
 
-
 #############################################################
-
 
 class MainMenuList(MenuList):
     def __init__(self, list, font0 = 24, font1 = 16, itemHeight = 50, enableWrapAround = True):
@@ -50,9 +50,7 @@ class MainMenuList(MenuList):
 
 def MenuEntryItem(itemDescription, key):
     res = [(itemDescription, key)]
-    #res.append(MultiContentEntryPixmapAlphaTest(pos=(10, 5), size=(40, 40), png=entry[0]))  # png vorn
-    res.append(MultiContentEntryText(pos=(10, 5), size=(440, 40), font=0, text=itemDescription))  # menupunkt
-    #res.append(MultiContentEntryText(pos=(60, 10), size=(440, 40), font=0, text=entry[1]))  # menupunkt
+    res.append(MultiContentEntryText(pos=(10, 5), size=(440, 40), font=0, text=itemDescription))
     return res
 
 #############################################################
@@ -61,7 +59,7 @@ class MainSettingsView(Screen):
     skin = """
   <screen name="MyMetrixLiteMainSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
     <eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
-    <eLabel position="60,55" size="500,50" text="MyMetrixLite - MetrixColors" font="Regular; 40" valign="center" transparent="1" backgroundColor="#00000000" />
+    <eLabel position="60,55" size="500,50" text="MyMetrixLite" font="Regular; 40" valign="center" transparent="1" backgroundColor="#00000000" />
     <widget name="menuList" position="61,114" size="590,500" backgroundColor="#00000000" foregroundColor="00ffffff" scrollbarMode="showOnDemand" transparent="1" />
     <eLabel font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" position="70,640" size="160,30" text="Cancel" transparent="1" />
     <eLabel font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" position="257,640" size="160,30" text="Apply changes" transparent="1" />
@@ -135,15 +133,29 @@ class MainSettingsView(Screen):
         restartbox.setTitle(_("Restart GUI"))
 
     def applyChanges(self):
-        for x in self["config"].list:
-            if len(x) > 1:
-                x[1].save()
-            else:
-                pass
 
         try:
+            if os.path.isfile(SKIN_TARGET_TMP) is False:
+                #create tmp file
+                copy(SKIN_SOURCE, SKIN_TARGET_TMP)
+
+            if os.path.isfile(SKIN_INFOBAR_TARGET_TMP) and os.path.isfile(SKIN_SECOND_INFOBAR_TARGET_TMP):
+                move(SKIN_INFOBAR_TARGET_TMP, SKIN_INFOBAR_TARGET)
+                move(SKIN_SECOND_INFOBAR_TARGET_TMP, SKIN_SECOND_INFOBAR_TARGET)
+
+                skinSearchAndReplace = []
+                skinSearchAndReplace.append(['skin_00a_InfoBar.xml', 'skin_00a_InfoBar.MySkin.xml'])
+                skinSearchAndReplace.append(['skin_00b_SecondInfoBar.xml', 'skin_00b_SecondInfoBar.MySkin.xml'])
+
+                skin_lines = appendSkinFile(SKIN_TARGET_TMP, skinSearchAndReplace)
+
+                xFile = open(SKIN_TARGET_TMP, "w")
+                for xx in skin_lines:
+                    xFile.writelines(xx)
+                xFile.close()
+
             move(SKIN_TARGET_TMP, SKIN_TARGET)
-            #system('rm -rf ' + SKIN_TARGET_TMP)
+
             config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")
             config.skin.save()
         except:
