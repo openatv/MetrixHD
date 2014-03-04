@@ -27,9 +27,9 @@ from Screens.MessageBox import MessageBox
 from Screens.Standby import TryQuitMainloop
 from Components.ActionMap import ActionMap
 from Components.AVSwitch import AVSwitch
-from Components.config import config, configfile, ConfigYesNo, ConfigSubsection, getConfigListEntry, ConfigSelection, ConfigNumber, ConfigText, ConfigInteger
+from Components.config import config, configfile
 from Components.MenuList import MenuList
-from Components.MultiContent import MultiContentEntryPixmapAlphaTest, MultiContentEntryText
+from Components.MultiContent import MultiContentEntryText
 from Components.Pixmap import Pixmap
 from shutil import move, copy
 from skin import parseColor
@@ -96,19 +96,36 @@ class MainSettingsView(Screen):
 
         self["menuList"] = MainMenuList([], font0=24, font1=15, itemHeight=50)
         self["menuList"].l.setList(list)
-        self["menuList"].onSelectionChanged.append(self.__selectionChanged)
 
         self.onChangedEntry = []
 
         self.onLayoutFinish.append(self.UpdatePicture)
+
+    def __del__(self):
+        self["menuList"].onSelectionChanged.remove(self.__selectionChanged)
 
     def UpdatePicture(self):
         self.PicLoad.PictureData.get().append(self.DecodePicture)
         self.onLayoutFinish.append(self.ShowPicture)
 
     def ShowPicture(self):
+        if self["helperimage"].instance is None or self["helperimage"] is None:
+            return
+
+        cur = self["menuList"].getCurrent()
+
+        imageUrl = COLOR_IMAGE_PATH % "FFFFFF"
+
+        if cur:
+            selectedKey = cur[0][1]
+
+            if selectedKey == "COLOR":
+                imageUrl = COLOR_IMAGE_PATH % "MyMetrixLiteColor"
+            elif selectedKey == "WEATHER":
+                imageUrl = COLOR_IMAGE_PATH % "MyMetrixLiteWeather"
+
         self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
-        self.PicLoad.startDecode(COLOR_IMAGE_PATH % "FFFFFF")
+        self.PicLoad.startDecode(imageUrl)
 
     def DecodePicture(self, PicInfo = ""):
         ptr = self.PicLoad.getData()
@@ -133,7 +150,6 @@ class MainSettingsView(Screen):
         restartbox.setTitle(_("Restart GUI"))
 
     def applyChanges(self):
-
         try:
             if os.path.isfile(SKIN_TARGET_TMP) is False:
                 #create tmp file
@@ -172,7 +188,9 @@ class MainSettingsView(Screen):
             self.close()
 
     def exit(self):
+        self["menuList"].onSelectionChanged.append(self.__selectionChanged)
         self.close()
 
     def __selectionChanged(self):
-        pass
+        self.ShowPicture()
+

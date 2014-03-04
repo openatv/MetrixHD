@@ -31,6 +31,7 @@ from enigma import eLabel
 from xml.dom.minidom import parseString
 from Components.config import config, configfile
 from Plugins.Extensions.MyMetrixLite.__init__ import initWeatherConfig
+from threading import Timer
 
 
 initWeatherConfig()
@@ -44,23 +45,23 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
         config.plugins.MetrixWeather.save()
         configfile.save()
         self.woeid = config.plugins.MetrixWeather.woeid.value
-        self.timer = 1
+        self.initTimer()
+        self.getWeather()
+
     GUI_WIDGET = eLabel
 
-    def changed(self, what):
-        if self.timer == 1:
-            try:
-                self.GetWeather()
-            except:
-                pass
-        elif self.timer >= int(config.plugins.MetrixWeather.refreshInterval.value) * 60:
-            self.timer = 0
-        self.timer = self.timer + 1
+    def initTimer(self):
+        minutes = int(config.plugins.MetrixWeather.refreshInterval.value) * 60
+
+        timer = Timer(minutes, self.getWeather)
+        timer.start()
 
     def onShow(self):
         self.text = config.plugins.MetrixWeather.currentWeatherCode.value
 
-    def GetWeather(self):
+    def getWeather(self):
+        self.initTimer()
+
         print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid)
         url = "http://query.yahooapis.com/v1/public/yql?q=select%20item%20from%20weather.forecast%20where%20woeid%3D%22"+str(self.woeid)+"%22&format=xml"
         #url = "http://query.yahooapis.com/v1/public/yql?q=select%20item%20from%20weather.forecast%20where%20woeid%3D%22"+str(self.woeid)+"%22%20u%3Dc&format=xml"
@@ -71,7 +72,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
             data = file.read()
             file.close()
         except urllib2.URLError, e:
-            print "There was an error: %r" % e
+            print "Cant get weather data: %r" % e
 
             # cancel weather function
             return

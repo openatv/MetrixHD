@@ -98,7 +98,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 
     def ShowPicture(self):
         self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
-        self.PicLoad.startDecode(COLOR_IMAGE_PATH % "FFFFFF")
+        self.PicLoad.startDecode(COLOR_IMAGE_PATH % "MyMetrixLiteWeather")
 
     def DecodePicture(self, PicInfo = ""):
         ptr = self.PicLoad.getData()
