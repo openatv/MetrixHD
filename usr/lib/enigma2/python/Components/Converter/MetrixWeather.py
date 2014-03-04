@@ -69,9 +69,9 @@ class MetrixWeather(Converter, object):
 		
 	def getCF(self):
 		if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit":
-			return "Â°F"
+			return "°F"
 		else: 
-			return "Â°C"
+			return "°C"
 		
 
 	text = property(getText)
