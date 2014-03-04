@@ -34,9 +34,9 @@ from Components.config import config, ConfigSubsection, configfile, ConfigText, 
 config.plugins.MetrixWeather = ConfigSubsection()
 config.plugins.MetrixWeather.refreshInterval = ConfigNumber(default="10")
 config.plugins.MetrixWeather.woeid = ConfigNumber(default="676757") #Location (visit metrixhd.info)
-config.plugins.MetrixWeather.tempUnit = ConfigSelection(default="C", choices = [
-                ("C", _("Celsius")),
-                ("F", _("Fahrenheit"))
+config.plugins.MetrixWeather.tempUnit = ConfigSelection(default="Celsius", choices = [
+                ("Celsius", _("Celsius")),
+                ("Fahrenheit", _("Fahrenheit"))
                 ])
 config.plugins.MetrixWeather.currentLocation = ConfigText(default="N/A")
 config.plugins.MetrixWeather.currentWeatherCode = ConfigText(default="(")
