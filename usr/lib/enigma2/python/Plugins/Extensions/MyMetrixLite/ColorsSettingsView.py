@@ -23,7 +23,7 @@ from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
 from Components.AVSwitch import AVSwitch
-from Components.config import config, configfile, ConfigYesNo, ConfigSubsection, getConfigListEntry, ConfigSelection, ConfigNumber, ConfigText, ConfigInteger
+from Components.config import config, configfile, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
 from skin import parseColor
 from Components.Pixmap import Pixmap

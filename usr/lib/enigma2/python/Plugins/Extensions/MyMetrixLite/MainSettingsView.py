@@ -18,7 +18,9 @@
 #
 #######################################################################
 
-from . import _, appendSkinFile, SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, COLOR_IMAGE_PATH, SKIN_INFOBAR_TARGET, SKIN_INFOBAR_TARGET_TMP, SKIN_SECOND_INFOBAR_TARGET, SKIN_SECOND_INFOBAR_TARGET_TMP
+from . import _, initWeatherConfig, initOtherConfig, appendSkinFile, SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, \
+    COLOR_IMAGE_PATH, SKIN_INFOBAR_TARGET, SKIN_INFOBAR_SOURCE, SKIN_SECOND_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET_TMP, \
+    SKIN_SECOND_INFOBAR_TARGET, SKIN_SECOND_INFOBAR_TARGET_TMP
 
 import os
 
@@ -36,6 +38,7 @@ from skin import parseColor
 from enigma import ePicLoad, eListboxPythonMultiContent, gFont
 from ColorsSettingsView import ColorsSettingsView
 from WeatherSettingsView import WeatherSettingsView
+from OtherSettingsView import OtherSettingsView
 
 #############################################################
 
@@ -76,6 +79,9 @@ class MainSettingsView(Screen):
         self.PicLoad = ePicLoad()
         self["helperimage"] = Pixmap()
 
+        initWeatherConfig()
+        initOtherConfig()
+
         self["actions"] = ActionMap(
             [
                 "OkCancelActions",
@@ -93,6 +99,7 @@ class MainSettingsView(Screen):
         list = []
         list.append(MenuEntryItem(_("Color settings"), "COLOR"))
         list.append(MenuEntryItem(_("Weather settings"), "WEATHER"))
+        list.append(MenuEntryItem(_("Other settings"), "OTHER"))
 
         self["menuList"] = MainMenuList([], font0=24, font1=15, itemHeight=50)
         self["menuList"].l.setList(list)
@@ -126,6 +133,8 @@ class MainSettingsView(Screen):
                 imageUrl = COLOR_IMAGE_PATH % "MyMetrixLiteColor"
             elif selectedKey == "WEATHER":
                 imageUrl = COLOR_IMAGE_PATH % "MyMetrixLiteWeather"
+            elif selectedKey == "OTHER":
+                imageUrl = COLOR_IMAGE_PATH % "MyMetrixLiteWeather"
 
         self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
         self.PicLoad.startDecode(imageUrl)
@@ -144,6 +153,8 @@ class MainSettingsView(Screen):
                 self.session.open(ColorsSettingsView)
             elif selectedKey == "WEATHER":
                 self.session.open(WeatherSettingsView)
+            elif selectedKey == "OTHER":
+                self.session.open(OtherSettingsView)
 
     def reboot(self, message = None):
         if message is None:
@@ -158,20 +169,57 @@ class MainSettingsView(Screen):
                 #create tmp file
                 copy(SKIN_SOURCE, SKIN_TARGET_TMP)
 
-            if os.path.isfile(SKIN_INFOBAR_TARGET_TMP) and os.path.isfile(SKIN_SECOND_INFOBAR_TARGET_TMP):
-                move(SKIN_INFOBAR_TARGET_TMP, SKIN_INFOBAR_TARGET)
-                move(SKIN_SECOND_INFOBAR_TARGET_TMP, SKIN_SECOND_INFOBAR_TARGET)
 
-                skinSearchAndReplace = []
-                skinSearchAndReplace.append(['skin_00a_InfoBar.xml', 'skin_00a_InfoBar.MySkin.xml'])
-                skinSearchAndReplace.append(['skin_00b_SecondInfoBar.xml', 'skin_00b_SecondInfoBar.MySkin.xml'])
+            ################
+            # InfoBar
+            ################
 
-                skin_lines = appendSkinFile(SKIN_TARGET_TMP, skinSearchAndReplace)
+            infobarSkinSearchAndReplace = []
 
-                xFile = open(SKIN_TARGET_TMP, "w")
-                for xx in skin_lines:
-                    xFile.writelines(xx)
-                xFile.close()
+            if config.plugins.MetrixWeather.enabled.getValue() is False:
+                infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
+
+            if config.plugins.MyMetrixLiteOther.showServiceIcons.getValue() is False:
+                infobarSkinSearchAndReplace.append(['<panel name="INFOBARSERVICEINFO" />', ''])
+
+            # InfoBar
+            skin_lines = appendSkinFile(SKIN_INFOBAR_SOURCE, infobarSkinSearchAndReplace)
+
+            xFile = open(SKIN_INFOBAR_TARGET_TMP, "w")
+            for xx in skin_lines:
+                xFile.writelines(xx)
+            xFile.close()
+
+
+            move(SKIN_INFOBAR_TARGET_TMP, SKIN_INFOBAR_TARGET)
+
+
+            # SecondInfoBar
+            skin_lines = appendSkinFile(SKIN_SECOND_INFOBAR_SOURCE, infobarSkinSearchAndReplace)
+
+            xFile = open(SKIN_SECOND_INFOBAR_TARGET_TMP, "w")
+            for xx in skin_lines:
+                xFile.writelines(xx)
+            xFile.close()
+
+
+            move(SKIN_SECOND_INFOBAR_TARGET_TMP, SKIN_SECOND_INFOBAR_TARGET)
+
+
+            ################
+            # Skin
+            ################
+
+            skinSearchAndReplace = []
+            skinSearchAndReplace.append(['skin_00a_InfoBar.xml', 'skin_00a_InfoBar.MySkin.xml'])
+            skinSearchAndReplace.append(['skin_00b_SecondInfoBar.xml', 'skin_00b_SecondInfoBar.MySkin.xml'])
+
+            skin_lines = appendSkinFile(SKIN_TARGET_TMP, skinSearchAndReplace)
+
+            xFile = open(SKIN_TARGET_TMP, "w")
+            for xx in skin_lines:
+                xFile.writelines(xx)
+            xFile.close()
 
             move(SKIN_TARGET_TMP, SKIN_TARGET)
 

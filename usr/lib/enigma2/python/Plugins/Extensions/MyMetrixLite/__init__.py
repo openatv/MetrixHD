@@ -179,6 +179,15 @@ def initWeatherConfig():
 
 #######################################################################
 
+def initOtherConfig():
+    config.plugins.MyMetrixLiteOther = ConfigSubsection()
+
+    #OtherSettings
+
+    config.plugins.MyMetrixLiteOther.showServiceIcons = ConfigYesNo(default=True)
+
+#######################################################################
+
 def appendSkinFile(appendFileName, skinPartSearchAndReplace):
     """
     add skin file to main skin content

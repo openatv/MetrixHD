@@ -18,7 +18,7 @@
 #
 #######################################################################
 
-from . import _, initWeatherConfig, COLOR_IMAGE_PATH
+from . import _, initOtherConfig, COLOR_IMAGE_PATH
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
@@ -30,11 +30,11 @@ from enigma import ePicLoad
 
 #############################################################
 
-class WeatherSettingsView(ConfigListScreen, Screen):
+class OtherSettingsView(ConfigListScreen, Screen):
     skin = """
- <screen name="MyMetrixLiteWeatherView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+ <screen name="MyMetrixLiteOtherView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
     <eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
-    <eLabel position="60,55" size="560,50" text="MyMetrixLite - MetrixWeather" font="Regular; 40" valign="center" transparent="1" backgroundColor="#00000000" />
+    <eLabel position="60,55" size="560,50" text="MyMetrixLite - OtherSettings" font="Regular; 40" valign="center" transparent="1" backgroundColor="#00000000" />
     <widget name="config" position="61,114" size="590,500" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
     <eLabel font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" position="70,640" size="160,30" text="Cancel" transparent="1" />
     <eLabel font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" position="257,640" size="160,30" text="Save" transparent="1" />
@@ -51,13 +51,12 @@ class WeatherSettingsView(ConfigListScreen, Screen):
         self.PicLoad = ePicLoad()
         self["helperimage"] = Pixmap()
 
-        initWeatherConfig()
+        initOtherConfig()
 
         ConfigListScreen.__init__(
             self,
             self.getMenuItemList(),
-            session = session,
-            on_change = self.__changedEntry
+            session = session
         )
 
         self["actions"] = ActionMap(
@@ -82,12 +81,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
     def getMenuItemList(self):
         list = []
 
-        list.append(getConfigListEntry(_("Enabled"), config.plugins.MetrixWeather.enabled, "WEATHER_ENABLED"))
-
-        if config.plugins.MetrixWeather.enabled.getValue() is True:
-            list.append(getConfigListEntry(_("MetrixWeather ID"), config.plugins.MetrixWeather.woeid))
-            list.append(getConfigListEntry(_("Unit"), config.plugins.MetrixWeather.tempUnit))
-            list.append(getConfigListEntry(_("Refresh Interval (min)"), config.plugins.MetrixWeather.refreshInterval))
+        list.append(getConfigListEntry(_("Show ServiceIcons"), config.plugins.MyMetrixLiteOther.showServiceIcons))
 
         return list
 
@@ -135,11 +129,3 @@ class WeatherSettingsView(ConfigListScreen, Screen):
             else:
                     pass
         self.close()
-
-    def __changedEntry(self):
-        cur = self["config"].getCurrent()
-        cur = cur and len(cur) > 2 and cur[2]
-
-        # change if type is BACKUP
-        if cur == "WEATHER_ENABLED":
-            self["config"].setList(self.getMenuItemList())
