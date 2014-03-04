@@ -97,6 +97,9 @@ class MainSettingsView(Screen):
         self["menuList"] = MainMenuList([], font0=24, font1=15, itemHeight=50)
         self["menuList"].l.setList(list)
 
+        if not self.__selectionChanged in self["menuList"].onSelectionChanged:
+            self["menuList"].onSelectionChanged.append(self.__selectionChanged)
+
         self.onChangedEntry = []
 
         self.onLayoutFinish.append(self.UpdatePicture)
@@ -109,7 +112,12 @@ class MainSettingsView(Screen):
         self.onLayoutFinish.append(self.ShowPicture)
 
     def ShowPicture(self):
-        if self["helperimage"].instance is None or self["helperimage"] is None:
+
+        print "####### ShowPicture"
+        print self["helperimage"]
+        print self["helperimage"].instance
+
+        if self["helperimage"] is None or self["helperimage"].instance is None:
             return
 
         cur = self["menuList"].getCurrent()
@@ -188,7 +196,7 @@ class MainSettingsView(Screen):
             self.close()
 
     def exit(self):
-        self["menuList"].onSelectionChanged.append(self.__selectionChanged)
+        self["menuList"].onSelectionChanged.remove(self.__selectionChanged)
         self.close()
 
     def __selectionChanged(self):
