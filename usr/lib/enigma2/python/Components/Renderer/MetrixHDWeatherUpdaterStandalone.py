@@ -22,6 +22,7 @@
 #
 #
 #######################################################################
+
 from Renderer import Renderer
 from Components.VariableText import VariableText
 #import library to do http requests:
@@ -45,7 +46,6 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
         config.plugins.MetrixWeather.save()
         configfile.save()
         self.woeid = config.plugins.MetrixWeather.woeid.value
-
         self.timer = None
         self.startTimer()
         self.getWeather()
@@ -53,7 +53,8 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
     GUI_WIDGET = eLabel
 
     def __del__(self):
-        self.timer.cancel()
+        if self.timer is not None:
+            self.timer.cancel()
 
     def startTimer(self):
         minutes = int(config.plugins.MetrixWeather.refreshInterval.value) * 60
