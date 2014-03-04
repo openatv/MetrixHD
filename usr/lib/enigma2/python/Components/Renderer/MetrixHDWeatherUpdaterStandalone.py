@@ -45,22 +45,38 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
         config.plugins.MetrixWeather.save()
         configfile.save()
         self.woeid = config.plugins.MetrixWeather.woeid.value
-        self.initTimer()
+
+        self.timer = None
+        self.startTimer()
         self.getWeather()
 
     GUI_WIDGET = eLabel
 
-    def initTimer(self):
+    def __del__(self):
+        self.timer.cancel()
+
+    def startTimer(self):
         minutes = int(config.plugins.MetrixWeather.refreshInterval.value) * 60
 
-        timer = Timer(minutes, self.getWeather)
-        timer.start()
+        if minutes < 1:
+            minutes = 10
+
+        if self.timer:
+            self.timer.cancel()
+            self.timer = None
+
+        self.timer = Timer(minutes, self.getWeather)
+        self.timer.start()
 
     def onShow(self):
         self.text = config.plugins.MetrixWeather.currentWeatherCode.value
 
     def getWeather(self):
-        self.initTimer()
+        self.startTimer()
+
+        # skip if weather-widget is disabled
+        if config.plugins.MetrixWeather.enabled.getValue() is False:
+            return
 
         print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid)
         url = "http://query.yahooapis.com/v1/public/yql?q=select%20item%20from%20weather.forecast%20where%20woeid%3D%22"+str(self.woeid)+"%22&format=xml"

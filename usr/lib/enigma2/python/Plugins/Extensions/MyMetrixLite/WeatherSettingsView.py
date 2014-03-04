@@ -137,7 +137,6 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 
             xFile = open(SKIN_INFOBAR_TARGET_TMP, "w")
             for xx in skin_lines:
-                print xx
                 xFile.writelines(xx)
             xFile.close()
 
