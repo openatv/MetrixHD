@@ -112,11 +112,6 @@ class MainSettingsView(Screen):
         self.onLayoutFinish.append(self.ShowPicture)
 
     def ShowPicture(self):
-
-        print "####### ShowPicture"
-        print self["helperimage"]
-        print self["helperimage"].instance
-
         if self["helperimage"] is None or self["helperimage"].instance is None:
             return
 
