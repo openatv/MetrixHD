@@ -57,16 +57,16 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
             self.timer.cancel()
 
     def startTimer(self):
-        minutes = int(config.plugins.MetrixWeather.refreshInterval.value) * 60
+        seconds = int(config.plugins.MetrixWeather.refreshInterval.value) * 60
 
-        if minutes < 1:
-            minutes = 10
+        if seconds < 60:
+            seconds = 300
 
         if self.timer:
             self.timer.cancel()
             self.timer = None
 
-        self.timer = Timer(minutes, self.getWeather)
+        self.timer = Timer(seconds, self.getWeather)
         self.timer.start()
 
     def onShow(self):
