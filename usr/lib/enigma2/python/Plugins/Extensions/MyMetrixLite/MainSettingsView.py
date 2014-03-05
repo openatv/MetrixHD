@@ -134,7 +134,7 @@ class MainSettingsView(Screen):
             elif selectedKey == "WEATHER":
                 imageUrl = COLOR_IMAGE_PATH % "MyMetrixLiteWeather"
             elif selectedKey == "OTHER":
-                imageUrl = COLOR_IMAGE_PATH % "MyMetrixLiteWeather"
+                imageUrl = COLOR_IMAGE_PATH % "MyMetrixLiteOther"
 
         self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
         self.PicLoad.startDecode(imageUrl)
@@ -165,11 +165,6 @@ class MainSettingsView(Screen):
 
     def applyChanges(self):
         try:
-            if os.path.isfile(SKIN_TARGET_TMP) is False:
-                #create tmp file
-                copy(SKIN_SOURCE, SKIN_TARGET_TMP)
-
-
             ################
             # InfoBar
             ################
@@ -210,11 +205,48 @@ class MainSettingsView(Screen):
             # Skin
             ################
 
+            backgroundtext = ('name="background-text" value="#' + config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value + config.plugins.MyMetrixLiteColors.backgroundtext.value + '"')
+
+            layerabackground = ('name="layer-a-background" value="#' + config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layerabackground.value + '"')
+            layeraforeground = ('name="layer-a-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layeraforeground.value + '"')
+            layeraselectionbackground = ('name="layer-a-selection-background" value="#' + config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layeraselectionbackground.value + '"')
+            layeraselectionforeground = ('name="layer-a-selection-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layeraselectionforeground.value + '"')
+            layeraaccent1 = ('name="layer-a-accent1" value="#00' + config.plugins.MyMetrixLiteColors.layeraaccent1.value + '"')
+            layeraaccent2 = ('name="layer-a-accent2" value="#00' + config.plugins.MyMetrixLiteColors.layeraaccent2.value + '"')
+            layeraprogress = ('name="layer-a-progress" value="#' + config.plugins.MyMetrixLiteColors.layeraprogresstransparency.value + config.plugins.MyMetrixLiteColors.layeraprogress.value + '"')
+
+            layerbbackground = ('name="layer-b-background" value="#' + config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layerbbackground.value + '"')
+            layerbforeground = ('name="layer-b-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layerbforeground.value + '"')
+            layerbselectionbackground = ('name="layer-b-selection-background" value="#' + config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layerbselectionbackground.value + '"')
+            layerbselectionforeground = ('name="layer-b-selection-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layerbselectionforeground.value + '"')
+            layerbaccent1 = ('name="layer-b-accent1" value="#00' + config.plugins.MyMetrixLiteColors.layerbaccent1.value + '"')
+            layerbaccent2 = ('name="layer-b-accent2" value="#00' + config.plugins.MyMetrixLiteColors.layerbaccent2.value + '"')
+            layerbprogress = ('name="layer-b-progress" value="#' + config.plugins.MyMetrixLiteColors.layerbprogresstransparency.value + config.plugins.MyMetrixLiteColors.layerbprogress.value + '"')
+
             skinSearchAndReplace = []
+
+            skinSearchAndReplace.append(['name="background-text" value="#96FFFFFF"', backgroundtext ])
+
+            skinSearchAndReplace.append(['name="layer-a-background" value="#1E0F0F0F"', layerabackground ])
+            skinSearchAndReplace.append(['name="layer-a-foreground" value="#00FFFFFF"', layeraforeground ])
+            skinSearchAndReplace.append(['name="layer-a-selection-background" value="#1E27408B"', layeraselectionbackground ])
+            skinSearchAndReplace.append(['name="layer-a-selection-foreground" value="#00FFFFFF"', layeraselectionforeground ])
+            skinSearchAndReplace.append(['name="layer-a-accent1" value="#00CCCCCC"', layeraaccent1 ])
+            skinSearchAndReplace.append(['name="layer-a-accent2" value="#007F7F7F"', layeraaccent2 ])
+            skinSearchAndReplace.append(['name="layer-a-progress" value="#1E27408B"', layeraprogress ])
+
+            skinSearchAndReplace.append(['name="layer-b-background" value="#1E27408B"', layerbbackground ])
+            skinSearchAndReplace.append(['name="layer-b-foreground" value="#00FFFFFF"', layerbforeground ])
+            skinSearchAndReplace.append(['name="layer-b-selection-background" value="#1E0F0F0F"', layerbselectionbackground ])
+            skinSearchAndReplace.append(['name="layer-b-selection-foreground" value="#00FFFFFF"', layerbselectionforeground ])
+            skinSearchAndReplace.append(['name="layer-b-accent1" value="#00CCCCCC"', layerbaccent1 ])
+            skinSearchAndReplace.append(['name="layer-b-accent2" value="#007F7F7F"', layerbaccent2 ])
+            skinSearchAndReplace.append(['name="layer-b-progress" value="#1EFFFFFF"', layerbprogress ])
+
             skinSearchAndReplace.append(['skin_00a_InfoBar.xml', 'skin_00a_InfoBar.MySkin.xml'])
             skinSearchAndReplace.append(['skin_00b_SecondInfoBar.xml', 'skin_00b_SecondInfoBar.MySkin.xml'])
 
-            skin_lines = appendSkinFile(SKIN_TARGET_TMP, skinSearchAndReplace)
+            skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
 
             xFile = open(SKIN_TARGET_TMP, "w")
             for xx in skin_lines:

@@ -194,54 +194,6 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             else:
                 pass
 
-        try:
-            self.backgroundtext = ('name="background-text" value="#' + config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value + config.plugins.MyMetrixLiteColors.backgroundtext.value + '"')
-
-            self.layerabackground = ('name="layer-a-background" value="#' + config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layerabackground.value + '"')
-            self.layeraforeground = ('name="layer-a-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layeraforeground.value + '"')
-            self.layeraselectionbackground = ('name="layer-a-selection-background" value="#' + config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layeraselectionbackground.value + '"')
-            self.layeraselectionforeground = ('name="layer-a-selection-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layeraselectionforeground.value + '"')
-            self.layeraaccent1 = ('name="layer-a-accent1" value="#00' + config.plugins.MyMetrixLiteColors.layeraaccent1.value + '"')
-            self.layeraaccent2 = ('name="layer-a-accent2" value="#00' + config.plugins.MyMetrixLiteColors.layeraaccent2.value + '"')
-            self.layeraprogress = ('name="layer-a-progress" value="#' + config.plugins.MyMetrixLiteColors.layeraprogresstransparency.value + config.plugins.MyMetrixLiteColors.layeraprogress.value + '"')
-
-            self.layerbbackground = ('name="layer-b-background" value="#' + config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layerbbackground.value + '"')
-            self.layerbforeground = ('name="layer-b-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layerbforeground.value + '"')
-            self.layerbselectionbackground = ('name="layer-b-selection-background" value="#' + config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layerbselectionbackground.value + '"')
-            self.layerbselectionforeground = ('name="layer-b-selection-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layerbselectionforeground.value + '"')
-            self.layerbaccent1 = ('name="layer-b-accent1" value="#00' + config.plugins.MyMetrixLiteColors.layerbaccent1.value + '"')
-            self.layerbaccent2 = ('name="layer-b-accent2" value="#00' + config.plugins.MyMetrixLiteColors.layerbaccent2.value + '"')
-            self.layerbprogress = ('name="layer-b-progress" value="#' + config.plugins.MyMetrixLiteColors.layerbprogresstransparency.value + config.plugins.MyMetrixLiteColors.layerbprogress.value + '"')
-
-            skinSearchAndReplace = []
-
-            skinSearchAndReplace.append(['name="background-text" value="#96FFFFFF"', self.backgroundtext ])
-
-            skinSearchAndReplace.append(['name="layer-a-background" value="#1E0F0F0F"', self.layerabackground ])
-            skinSearchAndReplace.append(['name="layer-a-foreground" value="#00FFFFFF"', self.layeraforeground ])
-            skinSearchAndReplace.append(['name="layer-a-selection-background" value="#1E27408B"', self.layeraselectionbackground ])
-            skinSearchAndReplace.append(['name="layer-a-selection-foreground" value="#00FFFFFF"', self.layeraselectionforeground ])
-            skinSearchAndReplace.append(['name="layer-a-accent1" value="#00CCCCCC"', self.layeraaccent1 ])
-            skinSearchAndReplace.append(['name="layer-a-accent2" value="#007F7F7F"', self.layeraaccent2 ])
-            skinSearchAndReplace.append(['name="layer-a-progress" value="#1E27408B"', self.layeraprogress ])
-
-            skinSearchAndReplace.append(['name="layer-b-background" value="#1E27408B"', self.layerbbackground ])
-            skinSearchAndReplace.append(['name="layer-b-foreground" value="#00FFFFFF"', self.layerbforeground ])
-            skinSearchAndReplace.append(['name="layer-b-selection-background" value="#1E0F0F0F"', self.layerbselectionbackground ])
-            skinSearchAndReplace.append(['name="layer-b-selection-foreground" value="#00FFFFFF"', self.layerbselectionforeground ])
-            skinSearchAndReplace.append(['name="layer-b-accent1" value="#00CCCCCC"', self.layerbaccent1 ])
-            skinSearchAndReplace.append(['name="layer-b-accent2" value="#007F7F7F"', self.layerbaccent2 ])
-            skinSearchAndReplace.append(['name="layer-b-progress" value="#1EFFFFFF"', self.layerbprogress ])
-
-            skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
-
-            xFile = open(SKIN_TARGET_TMP, "w")
-            for xx in skin_lines:
-                xFile.writelines(xx)
-            xFile.close()
-        except:
-            self.session.open(MessageBox, _("Error creating Skin!"), MessageBox.TYPE_ERROR)
-
         configfile.save()
         self.exit()
 
