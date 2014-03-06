@@ -22,8 +22,6 @@ from . import _, initWeatherConfig, initOtherConfig, appendSkinFile, SKIN_SOURCE
     COLOR_IMAGE_PATH, SKIN_INFOBAR_TARGET, SKIN_INFOBAR_SOURCE, SKIN_SECOND_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET_TMP, \
     SKIN_SECOND_INFOBAR_TARGET, SKIN_SECOND_INFOBAR_TARGET_TMP
 
-import os
-
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Screens.Standby import TryQuitMainloop
@@ -33,6 +31,7 @@ from Components.config import config, configfile
 from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText
 from Components.Pixmap import Pixmap
+from Components.NimManager import nimmanager
 from shutil import move, copy
 from skin import parseColor
 from enigma import ePicLoad, eListboxPythonMultiContent, gFont
@@ -171,11 +170,19 @@ class MainSettingsView(Screen):
 
             infobarSkinSearchAndReplace = []
 
+            infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-2" />', '<panel name="INFOBARTUNERINFO-%d" />' % self.getTunerCount()])
+
             if config.plugins.MetrixWeather.enabled.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
 
-            if config.plugins.MyMetrixLiteOther.showServiceIcons.getValue() is False:
+            if config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARSERVICEINFO" />', ''])
+
+            if config.plugins.MyMetrixLiteOther.showInfoBarChannelName.getValue() is False:
+                infobarSkinSearchAndReplace.append(['<panel name="INFOBARCHANNELNAME" />', ''])
+
+            if config.plugins.MyMetrixLiteOther.showInfoBarResolution.getValue() is False:
+                infobarSkinSearchAndReplace.append(['<panel name="INFOBARRESOLUTION" />', ''])
 
             # InfoBar
             skin_lines = appendSkinFile(SKIN_INFOBAR_SOURCE, infobarSkinSearchAndReplace)
@@ -263,6 +270,15 @@ class MainSettingsView(Screen):
         configfile.save()
 
         self.reboot(_("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?"))
+
+    # get tuner count
+    def getTunerCount(self):
+        tunerCount = nimmanager.getSlotCount()
+
+        tunerCount = max(1, tunerCount)
+        tunerCount = min(4, tunerCount)
+
+        return tunerCount
 
     def restartGUI(self, answer):
         if answer is True:

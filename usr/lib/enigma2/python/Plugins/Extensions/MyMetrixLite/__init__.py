@@ -184,7 +184,9 @@ def initOtherConfig():
 
     #OtherSettings
 
-    config.plugins.MyMetrixLiteOther.showServiceIcons = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showInfoBarChannelName = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showInfoBarResolution = ConfigYesNo(default=True)
 
 #######################################################################
 
