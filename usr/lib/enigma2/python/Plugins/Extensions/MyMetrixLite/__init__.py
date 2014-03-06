@@ -187,6 +187,7 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showInfoBarChannelName = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showInfoBarResolution = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showInfoBarClock = ConfigYesNo(default=True)
 
 #######################################################################
 

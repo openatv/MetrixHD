@@ -184,6 +184,9 @@ class MainSettingsView(Screen):
             if config.plugins.MyMetrixLiteOther.showInfoBarResolution.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARRESOLUTION" />', ''])
 
+            if config.plugins.MyMetrixLiteOther.showInfoBarClock.getValue() is False:
+                infobarSkinSearchAndReplace.append(['<panel name="INFOBARCLOCKWIDGET" />', ''])
+
             # InfoBar
             skin_lines = appendSkinFile(SKIN_INFOBAR_SOURCE, infobarSkinSearchAndReplace)
 
