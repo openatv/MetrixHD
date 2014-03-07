@@ -55,7 +55,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
         self["helperimage"] = Pixmap()
 
         self["titleText"] = StaticText("")
-        self["titleText"].setText(_("MyMetrixLite > MetrixWeather"))
+        self["titleText"].setText(_("Weather settings"))
 
         self["info"] = StaticText("")
         self["info"].setText(_("Get your local MetrixWeather ID from www.mymetrix.de"))

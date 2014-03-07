@@ -59,7 +59,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         self["helperimage"] = Pixmap()
 
         self["titleText"] = StaticText("")
-        self["titleText"].setText(_("MyMetrixLite > MetrixColors"))
+        self["titleText"].setText(_("Color settings"))
 
         self["cancelBtn"] = StaticText("")
         self["cancelBtn"].setText(_("Cancel"))

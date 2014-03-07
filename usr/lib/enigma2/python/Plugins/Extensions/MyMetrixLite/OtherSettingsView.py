@@ -54,7 +54,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         self["helperimage"] = Pixmap()
 
         self["titleText"] = StaticText("")
-        self["titleText"].setText(_("MyMetrixLite > OtherSettings"))
+        self["titleText"].setText(_("Other settings"))
 
         self["cancelBtn"] = StaticText("")
         self["cancelBtn"].setText(_("Cancel"))
