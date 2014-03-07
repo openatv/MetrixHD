@@ -278,8 +278,7 @@ class MainSettingsView(Screen):
 
             config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")
             config.skin.save()
-        except Exception as error:
-            print error
+        except:
             self.session.open(MessageBox, _("Error creating Skin!"), MessageBox.TYPE_ERROR)
 
         configfile.save()
