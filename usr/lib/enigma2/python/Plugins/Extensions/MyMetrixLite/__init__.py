@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 #######################################################################
 #
-#    MyMetrixLite by arn354 and svox
+#    MyMetrixLite by arn354 & svox
 #    based on
 #    MyMetrix
 #    Coded by iMaxxx (c) 2013
@@ -27,17 +27,24 @@ from os import environ
 
 #############################################################
 
-lang = language.getLanguage()
-environ["LANGUAGE"] = lang[:2]
-gettext.bindtextdomain("enigma2", resolveFilename(SCOPE_LANGUAGE))
-gettext.textdomain("enigma2")
-gettext.bindtextdomain("MyMetrixLite", "%s%s" % (resolveFilename(SCOPE_PLUGINS), "Extensions/MyMetrixLite/locale/"))
+PLUGIN_PATH = resolveFilename(SCOPE_PLUGINS, "Extensions/MyMetrixLite")
+
+#############################################################
+
+# Gettext
+
+PluginLanguageDomain = "MyMetrixLite"
+
+def localeInit():
+    gettext.bindtextdomain(PluginLanguageDomain, PLUGIN_PATH + "/locale")
 
 def _(txt):
-    t = gettext.dgettext("MyMetrixLite", txt)
-    if t == txt:
-        t = gettext.gettext(txt)
-    return t
+    if gettext.dgettext(PluginLanguageDomain, txt):
+        return gettext.dgettext(PluginLanguageDomain, txt)
+    else:
+        return gettext.gettext(txt)
+
+language.addCallback(localeInit())
 
 #############################################################
 
