@@ -18,7 +18,7 @@
 #
 #######################################################################
 
-from . import _, initWeatherConfig, initOtherConfig, appendSkinFile, SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, \
+from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, appendSkinFile, SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, \
     COLOR_IMAGE_PATH, SKIN_INFOBAR_TARGET, SKIN_INFOBAR_SOURCE, SKIN_SECOND_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET_TMP, \
     SKIN_SECOND_INFOBAR_TARGET, SKIN_SECOND_INFOBAR_TARGET_TMP
 
@@ -88,6 +88,7 @@ class MainSettingsView(Screen):
         self["applyBtn"] = StaticText("")
         self["applyBtn"].setText(_("Apply changes"))
 
+        initColorsConfig()
         initWeatherConfig()
         initOtherConfig()
 
@@ -277,7 +278,8 @@ class MainSettingsView(Screen):
 
             config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")
             config.skin.save()
-        except:
+        except Exception as error:
+            print error
             self.session.open(MessageBox, _("Error creating Skin!"), MessageBox.TYPE_ERROR)
 
         configfile.save()
