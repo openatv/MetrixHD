@@ -278,12 +278,12 @@ class MainSettingsView(Screen):
 
             config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")
             config.skin.save()
+
+            configfile.save()
+
+            self.reboot(_("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?"))
         except:
             self.session.open(MessageBox, _("Error creating Skin!"), MessageBox.TYPE_ERROR)
-
-        configfile.save()
-
-        self.reboot(_("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?"))
 
     # get tuner count
     def getTunerCount(self):
