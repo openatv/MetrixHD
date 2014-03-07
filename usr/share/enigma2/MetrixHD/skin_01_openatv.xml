@@ -1,4 +1,26 @@
 <skin>
+	<screen name="SlimChannelSelection" position="center,center" size="560,600">
+		<widget name="list" position="0,0" size="560,420" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" colorServiceDescription="layer-a-selection-background" colorServiceDescriptionSelected="layer-a-foreground" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-foreground" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="SetrixHD;20" serviceNameFont="SetrixHD;20" serviceInfoFont="Regular;20" valign="center" transparent="0" itemHeight="30" />
+		<widget source="ServiceEvent" render="Label" position="2,430" zPosition="2" size="60,25" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="right" noWrap="1" valign="top" transparent="0">
+			<convert type="EventTime">StartTime</convert>
+			<convert type="ClockToText">Format:%H:%M </convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="62,430" zPosition="2" size="73,25" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" noWrap="1" valign="top" transparent="0">
+			<convert type="EventTime">EndTime</convert>
+			<convert type="ClockToText">Format: - %H:%M</convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="15,455" size="533,93" font="Regular;18" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" valign="top" zPosition="2" transparent="0">
+			<convert type="EventName">FullDescription</convert>
+		</widget>
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,e-40" size="30,40" zPosition="2" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="140,e-40" size="30,40" zPosition="2" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="280,e-40" size="30,40" zPosition="2" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="420,e-40" size="30,40" zPosition="2" alphatest="blend" />
+		<widget name="key_red" position="35,e-40" zPosition="1" size="140,40" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="key_green" position="175,e-40" zPosition="1" size="140,40" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="key_yellow" position="315,e-40" zPosition="1" size="140,40" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="key_blue" position="455,e-40" zPosition="1" size="140,40" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+	</screen>
 	<screen name="ChannelContextMenu" position="center,center" size="1280,720" title="Channellist menu" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
 		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
 		<ePixmap position="310,85" size="256,256" pixmap="MetrixHD/icons/service_info.png" alphatest="blend" />
