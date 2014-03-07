@@ -32,6 +32,7 @@ from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText
 from Components.Pixmap import Pixmap
 from Components.NimManager import nimmanager
+from Components.Sources.StaticText import StaticText
 from shutil import move, copy
 from skin import parseColor
 from enigma import ePicLoad, eListboxPythonMultiContent, gFont
@@ -61,10 +62,10 @@ class MainSettingsView(Screen):
     skin = """
   <screen name="MyMetrixLiteMainSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
     <eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
-    <eLabel position="60,55" size="500,50" text="MyMetrixLite" font="Regular; 40" valign="center" transparent="1" backgroundColor="#00000000" />
+    <widget source="titleText" position="60,55" size="590,50" render="Label" font="Regular; 40" foregroundColor="00ffffff" backgroundColor="#00000000" valign="center" transparent="1" />
     <widget name="menuList" position="61,114" size="590,500" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
-    <eLabel font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" position="70,640" size="160,30" text="Cancel" transparent="1" />
-    <eLabel font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" position="257,640" size="160,30" text="Apply changes" transparent="1" />
+    <widget source="cancelBtn" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+    <widget source="applyBtn" position="257,640" size="360,30" render="Label" font="Regular; 20" foregroundColor="00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
     <eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
     <widget name="helperimage" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
@@ -77,6 +78,15 @@ class MainSettingsView(Screen):
         self.Scale = AVSwitch().getFramebufferScale()
         self.PicLoad = ePicLoad()
         self["helperimage"] = Pixmap()
+
+        self["titleText"] = StaticText("")
+        self["titleText"].setText(_("MyMetrixLite"))
+
+        self["cancelBtn"] = StaticText("")
+        self["cancelBtn"].setText(_("Cancel"))
+
+        self["applyBtn"] = StaticText("")
+        self["applyBtn"].setText(_("Apply changes"))
 
         initWeatherConfig()
         initOtherConfig()

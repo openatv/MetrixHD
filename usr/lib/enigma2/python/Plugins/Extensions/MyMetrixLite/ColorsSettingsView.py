@@ -26,6 +26,7 @@ from Components.ActionMap import ActionMap
 from Components.AVSwitch import AVSwitch
 from Components.config import config, configfile, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
+from Components.Sources.StaticText import StaticText
 from skin import parseColor
 from Components.Pixmap import Pixmap
 from enigma import ePicLoad
@@ -37,11 +38,11 @@ class ColorsSettingsView(ConfigListScreen, Screen):
     skin = """
  <screen name="MyMetrixLiteColorsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
     <eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
-    <eLabel position="60,55" size="500,50" text="MyMetrixLite - MetrixColors" font="Regular; 40" valign="center" transparent="1" backgroundColor="#00000000" />
+    <widget source="titleText" position="60,55" size="590,50" render="Label" font="Regular; 40" foregroundColor="00ffffff" backgroundColor="#00000000" valign="center" transparent="1" />
     <widget name="config" position="61,114" size="590,500" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
-    <eLabel font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" position="70,640" size="160,30" text="Cancel" transparent="1" />
-    <eLabel font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" position="257,640" size="160,30" text="Save" transparent="1" />
-    <eLabel font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" position="445,640" size="160,30" text="Defaults" transparent="1" />
+    <widget source="cancelBtn" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+    <widget source="saveBtn" position="257,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+    <widget source="defaultsBtn" position="445,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
     <eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
     <eLabel position="430,635" size="5,40" backgroundColor="#00e5dd00" />
@@ -56,6 +57,18 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         self.Scale = AVSwitch().getFramebufferScale()
         self.PicLoad = ePicLoad()
         self["helperimage"] = Pixmap()
+
+        self["titleText"] = StaticText("")
+        self["titleText"].setText(_("MyMetrixLite > MetrixColors"))
+
+        self["cancelBtn"] = StaticText("")
+        self["cancelBtn"].setText(_("Cancel"))
+
+        self["saveBtn"] = StaticText("")
+        self["saveBtn"].setText(_("Save"))
+
+        self["defaultsBtn"] = StaticText("")
+        self["defaultsBtn"].setText(_("Defaults"))
 
         initColorsConfig()
 
