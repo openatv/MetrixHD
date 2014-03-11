@@ -29,6 +29,20 @@
 		<eLabel position="645,51" zPosition="-11" size="412,565" backgroundColor="layer-a-background" foregroundColor="layer-a-background" />
 		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
 	</screen>
+	<screen name="TimeshiftState" position="187,200" zPosition="2" size="889,250" backgroundColor="transparent" flags="wfNoBorder">
+		<widget name="state" position="257,20" size="381,95" font="Arial; 100" halign="center" backgroundColor="layer-a-background" transparent="1" valign="top" />
+		<widget source="session.CurrentService" render="Label" position="5,175" size="80,27" font="Regular; 20" halign="right" backgroundColor="layer-a-background">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="805,175" size="80,27" font="Regular; 20" halign="left" backgroundColor="layer-a-background">
+			<convert type="ServicePosition">Length</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Progress" position="95,187" size="700,5" zPosition="5" transparent="1">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
+		<eLabel name="new eLabel" position="95,189" size="700,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="1" />
+		<eLabel name="new eLabel" position="0,160" size="890,60" zPosition="-1" />
+	</screen>
 	<screen name="Volume" position="47,38" size="324,74" title="Volume" flags="wfNoBorder" backgroundColor="transparent" zPosition="99">
 		<widget name="Volume" position="72,34" size="170,5" zPosition="3" foregroundColor="layer-a-progress" transparent="1" />
 		<ePixmap position="5,5" size="64,64" zPosition="1" pixmap="MetrixHD/icons/volume.png" transparent="0" alphatest="blend" />
