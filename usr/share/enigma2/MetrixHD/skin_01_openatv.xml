@@ -1,4 +1,26 @@
 <skin>
+	<screen name="SlimChannelSelection" position="center,center" size="560,600">
+		<widget name="list" position="0,0" size="560,420" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" colorServiceDescription="layer-a-selection-background" colorServiceDescriptionSelected="layer-a-foreground" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-foreground" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="SetrixHD;20" serviceNameFont="SetrixHD;20" serviceInfoFont="Regular;20" valign="center" transparent="0" itemHeight="30" />
+		<widget source="ServiceEvent" render="Label" position="2,430" zPosition="2" size="60,25" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="right" noWrap="1" valign="top" transparent="0">
+			<convert type="EventTime">StartTime</convert>
+			<convert type="ClockToText">Format:%H:%M </convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="62,430" zPosition="2" size="73,25" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" noWrap="1" valign="top" transparent="0">
+			<convert type="EventTime">EndTime</convert>
+			<convert type="ClockToText">Format: - %H:%M</convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="15,455" size="533,93" font="Regular;18" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" valign="top" zPosition="2" transparent="0">
+			<convert type="EventName">FullDescription</convert>
+		</widget>
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,e-40" size="30,40" zPosition="2" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="140,e-40" size="30,40" zPosition="2" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="280,e-40" size="30,40" zPosition="2" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="420,e-40" size="30,40" zPosition="2" alphatest="blend" />
+		<widget name="key_red" position="35,e-40" zPosition="1" size="140,40" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="key_green" position="175,e-40" zPosition="1" size="140,40" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="key_yellow" position="315,e-40" zPosition="1" size="140,40" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="key_blue" position="455,e-40" zPosition="1" size="140,40" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+	</screen>
 	<screen name="ChannelContextMenu" position="center,center" size="1280,720" title="Channellist menu" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
 		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
 		<ePixmap position="310,85" size="256,256" pixmap="MetrixHD/icons/service_info.png" alphatest="blend" />
@@ -6,6 +28,20 @@
 		<widget name="menu" position="656,61" size="390,550" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="3" itemHeight="35" scrollbarMode="showNever" enableWrapAround="1" transparent="1" />
 		<eLabel position="645,51" zPosition="-11" size="412,565" backgroundColor="layer-a-background" foregroundColor="layer-a-background" />
 		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
+	</screen>
+	<screen name="TimeshiftState" position="187,200" zPosition="2" size="889,250" backgroundColor="transparent" flags="wfNoBorder">
+		<widget name="state" position="257,20" size="381,95" font="Arial; 100" halign="center" backgroundColor="layer-a-background" transparent="1" valign="top" />
+		<widget source="session.CurrentService" render="Label" position="5,175" size="80,27" font="Regular; 20" halign="right" backgroundColor="layer-a-background">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="805,175" size="80,27" font="Regular; 20" halign="left" backgroundColor="layer-a-background">
+			<convert type="ServicePosition">Length</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Progress" position="95,187" size="700,5" zPosition="5" transparent="1">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
+		<eLabel name="new eLabel" position="95,189" size="700,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="1" />
+		<eLabel name="new eLabel" position="0,160" size="890,60" zPosition="-1" />
 	</screen>
 	<screen name="Volume" position="47,38" size="324,74" title="Volume" flags="wfNoBorder" backgroundColor="transparent" zPosition="99">
 		<widget name="Volume" position="72,34" size="170,5" zPosition="3" foregroundColor="layer-a-progress" transparent="1" />
@@ -15,13 +51,15 @@
 		<eLabel position="2,2" size="320,70" backgroundColor="layer-a-background" zPosition="-1" transparent="0" />
 		<eLabel position="0,0" size="324,74" backgroundColor="layer-b-background" zPosition="-2" transparent="0" />
 	</screen>
-	<screen name="UnhandledKey" position="49,40" size="70,70" title="UnhandledKey" zPosition="100" flags="wfNoBorder" backgroundColor="transparent">
-		<widget name="UnhandledKeyPixmap" pixmap="MetrixHD/icons/error.png" position="3,3" size="64,64" zPosition="2" alphatest="blend" />
-		<eLabel name="new eLabel" position="0, 0" size="70,70" backgroundColor="layer-a-background" zPosition="1" />
+	<screen name="UnhandledKey" position="49,40" size="72,72" title="UnhandledKey" zPosition="100" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="0,0" size="72,72" zPosition="0" backgroundColor="layer-b-background" transparent="0" />
+		<eLabel position="1,1" size="70,70" zPosition="1" backgroundColor="layer-a-background" />
+		<widget name="UnhandledKeyPixmap" position="4,4" size="64,64" zPosition="2" pixmap="MetrixHD/icons/error.png" alphatest="blend" />
 	</screen>
-	<screen name="Mute" position="49,40" size="70,70" title="Mute" zPosition="11" flags="wfNoBorder" backgroundColor="transparent">
-		<ePixmap position="3,3" zPosition="-1" size="70,70" pixmap="MetrixHD/icons/mute.png" borderWidth="0" borderColor="transparent" alphatest="blend" transparent="1" />
-		<eLabel position="0, 0" size="70,70" zPosition="-10" backgroundColor="layer-a-background" />
+	<screen name="Mute" position="49,40" size="72,72" title="Mute" zPosition="11" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="0,0" size="72,72" zPosition="0" backgroundColor="layer-b-background" transparent="0" />
+		<eLabel position="1,1" size="70,70" zPosition="1" backgroundColor="layer-a-background" />
+		<ePixmap position="4,4" size="64,64" zPosition="2" pixmap="MetrixHD/icons/mute.png" borderWidth="0" borderColor="transparent" alphatest="blend" />
 	</screen>
 	<screen name="QuickMenu" position="0,0" size="1280,720" title="Quick Launch Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="-1,0" zPosition="-11" size="1282,79" backgroundColor="layer-a-background" foregroundColor="layer-a-background" />
@@ -80,7 +118,7 @@
 		</widget>
 		<widget name="epg_description" position="70,90" size="700,520" font="SetrixHD; 24" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="channel" position="852,247" size="320,50" font="SetrixHD; 26" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
-		<eLabel position="859,310" size="315,1" backgroundColor="layer-b-accent1" foregroundColor="layer-b-accent1" />
+		<eLabel position="859,310" size="315,1" backgroundColor="layer-b-progress" />
 		<widget source="session.Event_Now" render="Progress" position="859,308" size="315,5" borderWidth="0" backgroundColor="layer-b-background" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>

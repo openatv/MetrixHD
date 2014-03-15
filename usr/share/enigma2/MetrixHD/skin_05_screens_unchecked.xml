@@ -1412,20 +1412,6 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget name="timerlist" position="70,115" size="700,500" scrollbarMode="showOnDemand" transparent="1" />
 		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
-	<screen name="TimeshiftState" position="187,200" zPosition="2" size="889,360" backgroundColor="transparent" flags="wfNoBorder">
-		<widget name="state" position="257,20" size="381,95" font="Arial; 100" halign="center" backgroundColor="layer-a-background" transparent="1" valign="top" />
-		<widget source="session.CurrentService" render="Label" position="5,175" size="80,27" font="Regular; 20" halign="right" backgroundColor="layer-a-background">
-			<convert type="ServicePosition">Position</convert>
-		</widget>
-		<widget source="session.CurrentService" render="Label" position="805,175" size="80,27" font="Regular; 20" halign="left" backgroundColor="layer-a-background">
-			<convert type="ServicePosition">Length</convert>
-		</widget>
-		<widget source="session.CurrentService" render="Progress" position="95,187" size="700,5" zPosition="5" transparent="1">
-			<convert type="ServicePosition">Position</convert>
-		</widget>
-		<eLabel name="new eLabel" position="95,189" size="700,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="1" />
-		<eLabel name="new eLabel" position="0,160" size="890,60" zPosition="-1" />
-	</screen>
 	<!-- AutoTimeshift -->
 	<screen name="AutoTimeshift" position="0,0" size="1280,720" title="Auto Timeshift Configuration" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />

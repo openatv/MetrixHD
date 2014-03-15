@@ -78,6 +78,7 @@ def initColorsConfig():
         ("911D10", _("Crimson")),
         ("1BA1E2", _("Cyan")),
         ("00008B", _("Darkblue")),
+        ("0F0F0F", _("Darkgrey")),
         ("A61D4D", _("Magenta")),
         ("A4C400", _("Lime")),
         ("6A00FF", _("Indigo")),
@@ -90,6 +91,7 @@ def initColorsConfig():
         ("C3461B", _("Orange")),
         ("F472D0", _("Pink")),
         ("E51400", _("Red")),
+        ("27408B", _("Royal Blue")),
         ("7A3B3F", _("Sienna")),
         ("647687", _("Steel")),
         ("149BAF", _("Teal")),
@@ -133,21 +135,21 @@ def initColorsConfig():
     config.plugins.MyMetrixLiteColors.backgroundtext = ConfigSelection(default="FFFFFF", choices = ColorList)
     config.plugins.MyMetrixLiteColors.backgroundtexttransparency = ConfigSelection(default="80", choices = TransparencyList)
 
-    config.plugins.MyMetrixLiteColors.layerabackground = ConfigSelection(default="1C1C1C", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.layerabackground = ConfigSelection(default="0F0F0F", choices = ColorList)
     config.plugins.MyMetrixLiteColors.layerabackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
     config.plugins.MyMetrixLiteColors.layeraforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
-    config.plugins.MyMetrixLiteColors.layeraselectionbackground = ConfigSelection(default="0050EF", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.layeraselectionbackground = ConfigSelection(default="27408B", choices = ColorList)
     config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
     config.plugins.MyMetrixLiteColors.layeraselectionforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
     config.plugins.MyMetrixLiteColors.layeraaccent1 = ConfigSelection(default="BDBDBD", choices = ColorList)
     config.plugins.MyMetrixLiteColors.layeraaccent2 = ConfigSelection(default="6E6E6E", choices = ColorList)
-    config.plugins.MyMetrixLiteColors.layeraprogress = ConfigSelection(default="0050EF", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.layeraprogress = ConfigSelection(default="27408B", choices = ColorList)
     config.plugins.MyMetrixLiteColors.layeraprogresstransparency = ConfigSelection(default="1A", choices = TransparencyList)
 
-    config.plugins.MyMetrixLiteColors.layerbbackground = ConfigSelection(default="0050EF", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.layerbbackground = ConfigSelection(default="27408B", choices = ColorList)
     config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
     config.plugins.MyMetrixLiteColors.layerbforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
-    config.plugins.MyMetrixLiteColors.layerbselectionbackground = ConfigSelection(default="1C1C1C", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.layerbselectionbackground = ConfigSelection(default="0F0F0F", choices = ColorList)
     config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
     config.plugins.MyMetrixLiteColors.layerbselectionforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
     config.plugins.MyMetrixLiteColors.layerbaccent1 = ConfigSelection(default="BDBDBD", choices = ColorList)
