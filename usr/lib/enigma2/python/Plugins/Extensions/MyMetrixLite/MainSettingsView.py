@@ -18,9 +18,10 @@
 #
 #######################################################################
 
-from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, appendSkinFile, SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, \
-    COLOR_IMAGE_PATH, SKIN_INFOBAR_TARGET, SKIN_INFOBAR_SOURCE, SKIN_SECOND_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET_TMP, \
-    SKIN_SECOND_INFOBAR_TARGET, SKIN_SECOND_INFOBAR_TARGET_TMP
+from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, getTunerPositionList, appendSkinFile, \
+    SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, COLOR_IMAGE_PATH, SKIN_INFOBAR_TARGET, SKIN_INFOBAR_SOURCE, \
+    SKIN_SECOND_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET_TMP, SKIN_SECOND_INFOBAR_TARGET, SKIN_SECOND_INFOBAR_TARGET_TMP, \
+    SKIN_CHANNEL_SELECTION_SOURCE, SKIN_CHANNEL_SELECTION_TARGET, SKIN_CHANNEL_SELECTION_TARGET_TMP
 
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -33,7 +34,7 @@ from Components.MultiContent import MultiContentEntryText
 from Components.Pixmap import Pixmap
 from Components.NimManager import nimmanager
 from Components.Sources.StaticText import StaticText
-from shutil import move, copy
+from shutil import move
 from skin import parseColor
 from enigma import ePicLoad, eListboxPythonMultiContent, gFont
 from ColorsSettingsView import ColorsSettingsView
@@ -63,7 +64,7 @@ class MainSettingsView(Screen):
   <screen name="MyMetrixLiteMainSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
     <eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
     <widget source="titleText" position="60,55" size="590,50" render="Label" font="Regular; 40" foregroundColor="00ffffff" backgroundColor="#00000000" valign="center" transparent="1" />
-    <widget name="menuList" position="61,114" size="590,500" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
+    <widget name="menuList" position="61,124" size="590,490" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
     <widget source="cancelBtn" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <widget source="applyBtn" position="257,640" size="360,30" render="Label" font="Regular; 20" foregroundColor="00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
@@ -181,6 +182,18 @@ class MainSettingsView(Screen):
 
             infobarSkinSearchAndReplace = []
 
+            '''
+            i = 0
+            tunerXml = ""
+            for nimSlot in nimmanager.nim_slots:
+                tunerData = getTunerPositionList()[i]
+
+                tunerXml += self.getTunerXMLItem(nimSlot.getSlotID(), tunerData[0], tunerData[1], tunerData[2], tunerData[3], nimmanager.somethingConnected(nimSlot.slot))
+                i += 1
+
+            infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-2" />', tunerXml])
+            '''
+
             infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-2" />', '<panel name="INFOBARTUNERINFO-%d" />' % self.getTunerCount()])
 
             if config.plugins.MetrixWeather.enabled.getValue() is False:
@@ -210,6 +223,7 @@ class MainSettingsView(Screen):
             move(SKIN_INFOBAR_TARGET_TMP, SKIN_INFOBAR_TARGET)
 
 
+
             # SecondInfoBar
             skin_lines = appendSkinFile(SKIN_SECOND_INFOBAR_SOURCE, infobarSkinSearchAndReplace)
 
@@ -220,6 +234,26 @@ class MainSettingsView(Screen):
 
 
             move(SKIN_SECOND_INFOBAR_TARGET_TMP, SKIN_SECOND_INFOBAR_TARGET)
+
+
+
+            ################
+            # ChannelSelection
+            ################
+
+            channelSelectionSkinSearchAndReplace = []
+
+            channelSelectionSkinSearchAndReplace.append(['<panel name="CHANNELSELECTION-1" />', '<panel name="%s" />' % config.plugins.MyMetrixLiteOther.channelSelectionStyle.getValue()])
+
+            skin_lines = appendSkinFile(SKIN_CHANNEL_SELECTION_SOURCE, channelSelectionSkinSearchAndReplace)
+
+            xFile = open(SKIN_CHANNEL_SELECTION_TARGET_TMP, "w")
+            for xx in skin_lines:
+                xFile.writelines(xx)
+            xFile.close()
+
+            move(SKIN_CHANNEL_SELECTION_TARGET_TMP, SKIN_CHANNEL_SELECTION_TARGET)
+
 
 
             ################
@@ -266,6 +300,7 @@ class MainSettingsView(Screen):
 
             skinSearchAndReplace.append(['skin_00a_InfoBar.xml', 'skin_00a_InfoBar.MySkin.xml'])
             skinSearchAndReplace.append(['skin_00b_SecondInfoBar.xml', 'skin_00b_SecondInfoBar.MySkin.xml'])
+            skinSearchAndReplace.append(['skin_00e_ChannelSelection.xml', 'skin_00e_ChannelSelection.MySkin.xml'])
 
             skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
 
@@ -282,7 +317,8 @@ class MainSettingsView(Screen):
             configfile.save()
 
             self.reboot(_("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?"))
-        except:
+        except Exception as error:
+            print error
             self.session.open(MessageBox, _("Error creating Skin!"), MessageBox.TYPE_ERROR)
 
     # get tuner count
@@ -293,6 +329,21 @@ class MainSettingsView(Screen):
         tunerCount = min(4, tunerCount)
 
         return tunerCount
+
+    def getTunerXMLItem(self, slotID, position1, position2, valueBitTest, valueRange, isTunerEnabled):
+        xml = '''<eLabel position="''' + position1 + '''" text="''' + slotID + '''" zPosition="1" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" />
+        <widget position="''' + position1 + '''" text="''' + slotID + '''" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1">
+            <convert type="TunerInfo">TunerUseMask</convert>
+            <convert type="ValueBitTest">''' + valueBitTest + '''</convert>
+            <convert type="ConditionalShowHide" />
+        </widget>
+        <widget position="''' + position2 + '''" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" font="RegularLight; 24" halign="center" backgroundColor="layer-a-selection-background" transparent="0" valign="top">
+            <convert type="FrontendInfo">NUMBER</convert>
+            <convert type="ValueRange">''' + valueRange + '''</convert>
+            <convert type="ConditionalShowHide" />
+        </widget>'''
+
+        return xml
 
     def restartGUI(self, answer):
         if answer is True:

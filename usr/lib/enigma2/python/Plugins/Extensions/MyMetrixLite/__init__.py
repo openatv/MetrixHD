@@ -20,10 +20,9 @@
 #######################################################################
 
 from Components.Language import language
-from Tools.Directories import resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 from Components.config import config, ConfigSubsection, ConfigSelection, ConfigNumber, ConfigYesNo, ConfigText
 import gettext
-from os import environ
 
 #############################################################
 
@@ -60,6 +59,10 @@ SKIN_INFOBAR_TARGET_TMP = SKIN_INFOBAR_TARGET + ".tmp"
 SKIN_SECOND_INFOBAR_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00b_SecondInfoBar.xml"
 SKIN_SECOND_INFOBAR_TARGET = "/usr/share/enigma2/MetrixHD/skin_00b_SecondInfoBar.MySkin.xml"
 SKIN_SECOND_INFOBAR_TARGET_TMP = SKIN_SECOND_INFOBAR_TARGET + ".tmp"
+
+SKIN_CHANNEL_SELECTION_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00e_ChannelSelection.xml"
+SKIN_CHANNEL_SELECTION_TARGET = "/usr/share/enigma2/MetrixHD/skin_00e_ChannelSelection.MySkin.xml"
+SKIN_CHANNEL_SELECTION_TARGET_TMP = SKIN_CHANNEL_SELECTION_TARGET + ".tmp"
 
 #############################################################
 
@@ -188,6 +191,13 @@ def initWeatherConfig():
 #######################################################################
 
 def initOtherConfig():
+    channelSelectionStyleList = [
+        ("CHANNELSELECTION-1", _("Focus left, no picon, 5 next Events")),
+        ("CHANNELSELECTION-2", _("Focus left, 1 picon, 1 next Events")),
+        ("CHANNELSELECTION-3", _("Focus right, 1 big picon, 1 next Events")),
+        ("CHANNELSELECTION-4", _("Focus right, no picon, 5 next Events"))
+        ]
+    
     config.plugins.MyMetrixLiteOther = ConfigSubsection()
 
     #OtherSettings
@@ -196,6 +206,20 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.showInfoBarChannelName = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showInfoBarResolution = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showInfoBarClock = ConfigYesNo(default=True)
+    
+    config.plugins.MyMetrixLiteOther.channelSelectionStyle = ConfigSelection(default="CHANNELSELECTION-1", choices = channelSelectionStyleList)
+
+#######################################################################
+
+def getTunerPositionList():
+    tunerPositionList = [
+        ("286,666", "286,693", "1", "0,0"),
+        ("306,666", "306,693", "2", "1,1"),
+        ("326,666", "326,693", "4", "2,2"),
+        ("346,666", "346,693", "8", "3,3")
+    ]
+
+    return tunerPositionList
 
 #######################################################################
 
