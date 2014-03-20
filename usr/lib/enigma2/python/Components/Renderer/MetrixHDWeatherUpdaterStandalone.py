@@ -88,8 +88,8 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
             file = urllib2.urlopen(url, timeout=2)
             data = file.read()
             file.close()
-        except urllib2.URLError, e:
-            print "Cant get weather data: %r" % e
+        except Exception as error:
+            print "Cant get weather data: %r" % error
 
             # cancel weather function
             return

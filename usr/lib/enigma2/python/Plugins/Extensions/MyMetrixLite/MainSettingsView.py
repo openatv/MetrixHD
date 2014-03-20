@@ -330,20 +330,20 @@ class MainSettingsView(Screen):
 
         return tunerCount
 
-    def getTunerXMLItem(self, slotID, position1, position2, valueBitTest, valueRange, isTunerEnabled):
-        xml = '''<eLabel position="''' + position1 + '''" text="''' + slotID + '''" zPosition="1" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" />
-        <widget position="''' + position1 + '''" text="''' + slotID + '''" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1">
-            <convert type="TunerInfo">TunerUseMask</convert>
-            <convert type="ValueBitTest">''' + valueBitTest + '''</convert>
-            <convert type="ConditionalShowHide" />
-        </widget>
-        <widget position="''' + position2 + '''" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" font="RegularLight; 24" halign="center" backgroundColor="layer-a-selection-background" transparent="0" valign="top">
-            <convert type="FrontendInfo">NUMBER</convert>
-            <convert type="ValueRange">''' + valueRange + '''</convert>
-            <convert type="ConditionalShowHide" />
-        </widget>'''
-
-        return xml
+    # def getTunerXMLItem(self, slotID, position1, position2, valueBitTest, valueRange, isTunerEnabled):
+    #     xml = '''<eLabel position="''' + position1 + '''" text="''' + slotID + '''" zPosition="1" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" />
+    #     <widget position="''' + position1 + '''" text="''' + slotID + '''" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1">
+    #         <convert type="TunerInfo">TunerUseMask</convert>
+    #         <convert type="ValueBitTest">''' + valueBitTest + '''</convert>
+    #         <convert type="ConditionalShowHide" />
+    #     </widget>
+    #     <widget position="''' + position2 + '''" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" font="RegularLight; 24" halign="center" backgroundColor="layer-a-selection-background" transparent="0" valign="top">
+    #         <convert type="FrontendInfo">NUMBER</convert>
+    #         <convert type="ValueRange">''' + valueRange + '''</convert>
+    #         <convert type="ConditionalShowHide" />
+    #     </widget>'''
+    #
+    #     return xml
 
     def restartGUI(self, answer):
         if answer is True:
