@@ -65,8 +65,8 @@ class MainSettingsView(Screen):
     <eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
     <widget source="titleText" position="60,55" size="590,50" render="Label" font="Regular; 40" foregroundColor="00ffffff" backgroundColor="#00000000" valign="center" transparent="1" />
     <widget name="menuList" position="61,124" size="590,490" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
-    <widget source="cancelBtn" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
-    <widget source="applyBtn" position="257,640" size="360,30" render="Label" font="Regular; 20" foregroundColor="00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+    <widget source="cancelBtn" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+    <widget source="applyBtn" position="257,640" size="360,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
     <eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
     <widget name="helperimage" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
@@ -203,7 +203,9 @@ class MainSettingsView(Screen):
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARSERVICEINFO" />', ''])
 
             if config.plugins.MyMetrixLiteOther.showInfoBarChannelName.getValue() is False:
-                infobarSkinSearchAndReplace.append(['<panel name="INFOBARCHANNELNAME" />', ''])
+                infobarSkinSearchAndReplace.append(['<panel name="INFOBARCHANNELNAME-1" />', ''])
+            elif config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize.getValue() is not None:
+                infobarSkinSearchAndReplace.append(['<panel name="INFOBARCHANNELNAME-1" />', '<panel name="%s" />' % config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize.getValue()])
 
             if config.plugins.MyMetrixLiteOther.showInfoBarResolution.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARRESOLUTION" />', ''])
