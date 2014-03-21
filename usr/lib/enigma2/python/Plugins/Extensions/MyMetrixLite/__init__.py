@@ -207,13 +207,14 @@ def initOtherConfig():
         ("INFOBARCHANNELNAME-4", _("50")),
         ("INFOBARCHANNELNAME-5", _("40"))
         ]
-    
+
     config.plugins.MyMetrixLiteOther = ConfigSubsection()
 
     #OtherSettings
 
     config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons = ConfigYesNo(default=True)
-    config.plugins.MyMetrixLiteOther.showInfoBarChannelName = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showChannelNumber = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showChannelName = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize = ConfigSelection(default="INFOBARCHANNELNAME-1", choices = infoBarChannelNameFontSizeList)
     config.plugins.MyMetrixLiteOther.showInfoBarResolution = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showInfoBarClock = ConfigYesNo(default=True)

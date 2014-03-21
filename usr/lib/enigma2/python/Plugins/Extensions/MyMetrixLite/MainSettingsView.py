@@ -35,7 +35,6 @@ from Components.Pixmap import Pixmap
 from Components.NimManager import nimmanager
 from Components.Sources.StaticText import StaticText
 from shutil import move
-from skin import parseColor
 from enigma import ePicLoad, eListboxPythonMultiContent, gFont
 from ColorsSettingsView import ColorsSettingsView
 from WeatherSettingsView import WeatherSettingsView
@@ -202,10 +201,8 @@ class MainSettingsView(Screen):
             if config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARSERVICEINFO" />', ''])
 
-            if config.plugins.MyMetrixLiteOther.showInfoBarChannelName.getValue() is False:
-                infobarSkinSearchAndReplace.append(['<panel name="INFOBARCHANNELNAME-1" />', ''])
-            elif config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize.getValue() is not None:
-                infobarSkinSearchAndReplace.append(['<panel name="INFOBARCHANNELNAME-1" />', '<panel name="%s" />' % config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize.getValue()])
+            channelNameXML = self.getInfoBarChannelNameXML(config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize.getValue(), config.plugins.MyMetrixLiteOther.showChannelNumber.getValue(), config.plugins.MyMetrixLiteOther.showChannelName.getValue())
+            infobarSkinSearchAndReplace.append(['<panel name="INFOBARCHANNELNAME" />', channelNameXML])
 
             if config.plugins.MyMetrixLiteOther.showInfoBarResolution.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARRESOLUTION" />', ''])
@@ -323,14 +320,49 @@ class MainSettingsView(Screen):
             print error
             self.session.open(MessageBox, _("Error creating Skin!"), MessageBox.TYPE_ERROR)
 
-    # get tuner count
-    def getTunerCount(self):
+    @staticmethod
+    def getTunerCount():
+        '''
+        get tuner count
+        :return:
+        '''
         tunerCount = nimmanager.getSlotCount()
 
         tunerCount = max(1, tunerCount)
         tunerCount = min(4, tunerCount)
 
         return tunerCount
+
+    @staticmethod
+    def getInfoBarChannelNameXML(fontSizeType, showChannelNumber, showChannelName):
+        fontSize = "80"
+
+        if fontSizeType == "INFOBARCHANNELNAME-2":
+            fontSize = "70"
+        elif fontSizeType == "INFOBARCHANNELNAME-3":
+            fontSize = "60"
+        elif fontSizeType == "INFOBARCHANNELNAME-4":
+            fontSize = "50"
+        elif fontSizeType == "INFOBARCHANNELNAME-5":
+            fontSize = "40"
+
+        if showChannelNumber and showChannelName:
+            channelRenderer = "ServiceNumberAndName"
+        elif showChannelNumber:
+            channelRenderer = "ServiceNumber"
+        elif showChannelName:
+            channelRenderer = "ServiceName"
+        else:
+            channelRenderer = None
+
+        if channelRenderer is not None:
+            xml = '''<widget font="SetrixHD;''' + fontSize + '''" foregroundColor="background-text" noWrap="1" position="35,455" render="Label" size="1252,105" source="session.CurrentService" transparent="1" valign="bottom" zPosition="-30">
+                <convert type="MetrixHDExtServiceInfo">''' + channelRenderer + '''</convert>
+            </widget>'''
+        else:
+            xml = ""
+
+        return xml
 
     # def getTunerXMLItem(self, slotID, position1, position2, valueBitTest, valueRange, isTunerEnabled):
     #     xml = '''<eLabel position="''' + position1 + '''" text="''' + slotID + '''" zPosition="1" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" />

@@ -67,8 +67,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         ConfigListScreen.__init__(
             self,
             self.getMenuItemList(),
-            session,
-            self.__selectionChanged
+            session
         )
 
         self["actions"] = ActionMap(
@@ -89,23 +88,24 @@ class OtherSettingsView(ConfigListScreen, Screen):
         }, -1)
 
         self.onLayoutFinish.append(self.UpdatePicture)
-
+    '''
     def __selectionChanged(self):
         cur = self["config"].getCurrent()
         cur = cur and len(cur) > 2 and cur[2]
 
         if cur == "SHOW_CHANNEL_NAME":
             self["config"].setList(self.getMenuItemList())
+    '''
 
     def getMenuItemList(self):
         list = []
 
         list.append(getConfigListEntry(_("InfoBar/SecondInfobar   -----------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Show ServiceIcons"), config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons))
-        list.append(getConfigListEntry(_("Show ChannelName"), config.plugins.MyMetrixLiteOther.showInfoBarChannelName, "SHOW_CHANNEL_NAME"))
 
-        if config.plugins.MyMetrixLiteOther.showInfoBarChannelName.getValue() is True:
-            list.append(getConfigListEntry(_("ChannelName FontSize"), config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize))
+        list.append(getConfigListEntry(_("Show ChannelNumber"), config.plugins.MyMetrixLiteOther.showChannelNumber))
+        list.append(getConfigListEntry(_("Show ChannelName"), config.plugins.MyMetrixLiteOther.showChannelName))
+        list.append(getConfigListEntry(_("ChannelName/Number FontSize"), config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize))
 
         list.append(getConfigListEntry(_("Show Resolution"), config.plugins.MyMetrixLiteOther.showInfoBarResolution))
         list.append(getConfigListEntry(_("Show Clock"), config.plugins.MyMetrixLiteOther.showInfoBarClock))
