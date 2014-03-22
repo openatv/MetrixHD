@@ -331,20 +331,43 @@
 	<screen name="NetworkInadyn" title="Inadyn Setup" position="center,center" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<widget source="Title" render="Label" position="70,47" size="400,54" font="SetrixHD; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="lab1" position="70,165" size="180,30" font="Regular; 24" valign="center" transparent="0" halign="left" zPosition="3" />
-		<widget name="labactive" position="280,166" size="200,30" font="Regular; 24" valign="center" transparent="0" zPosition="3" />
-		<widget name="lab2" position="72,332" size="180,30" font="Regular; 24" valign="center" transparent="0" halign="left" zPosition="3" />
-		<widget name="labstop" position="280,332" size="200,30" font="Regular; 24" valign="center" halign="center" backgroundColor="red" zPosition="2" />
-		<widget name="labrun" position="279,332" size="140,30" zPosition="3" font="Regular; 24" valign="center" halign="center" backgroundColor="green" />
+		<widget name="autostart" position="70,130" size="150,30" font="Regular; 22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="labdisabled" position="320,130" size="160,30" font="Regular; 22" valign="center" halign="center" backgroundColor="red" zPosition="1" />
+		<widget name="labactive" position="320,130" size="160,30" font="Regular; 22" valign="center" halign="center" backgroundColor="green" zPosition="2" />
+		<widget name="status" position="70,190" size="150,30" font="Regular; 22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="labstop" position="320,190" size="160,30" font="Regular; 22" valign="center" halign="center" backgroundColor="red" zPosition="1" />
+		<widget name="labrun" position="320,190" size="160,30" font="Regular; 22" valign="center" halign="center" backgroundColor="green" zPosition="2" />
+		<widget name="time" position="70,250" size="240,30" font="Regular; 22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="labtime" position="320,250" size="100,30" font="Regular; 22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="username" position="70,310" size="220,30" font="Regular; 22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="labuser" position="320,310" size="350,30" font="Regular; 22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="password" position="70,370" size="220,30" font="Regular; 22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="labpass" position="320,370" size="350,30" font="Regular; 22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="alias" position="70,430" size="150,30" font="Regular; 22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="labalias" position="320,430" size="350,30" font="Regular; 22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="sinactive" position="70,490" zPosition="1" pixmap="skin_default/icons/lock_off.png" size="32,32" alphatest="on" />
+		<widget name="sactive" position="70,490" zPosition="2" pixmap="skin_default/icons/lock_on.png" size="32,32" alphatest="on" />
+		<widget name="system" position="110,490" size="100,30" font="Regular; 22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="labsys" position="320,490" size="350,30" font="Regular; 22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
-		<panel name="_oe-buttons_template1" />
+		<panel name="moe-buttons_template1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_network_Inadyn_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="NetworkInadynSetup" title="Inadyn Setup" position="center,center" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<widget source="Title" render="Label" position="70,47" size="400,54" font="SetrixHD; 35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,115" size="700,500" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="0" />
+		<widget name="HelpWindow" position="120,435" size="700,160" zPosition="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" alphatest="on" />
+		<panel name="r___-buttons_template1" />
+		<panel name="r___-keys_template1" />
+		<panel name="__e-buttons_template1" />
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_network_Inadyn_setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="NetworkInadynLog" title="Inadyn Log" position="center,center" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<widget source="Title" render="Label" position="70,47" size="400,54" font="SetrixHD; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="infotext" position="70,115" size="700,500" font="SetrixHD; 18" zPosition="3" itemHeight="25" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
+		<widget name="infotext" position="70,115" size="700,500" font="SetrixHD; 18" zPosition="3" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_network_Inadyn_setup.png" transparent="1" alphatest="blend" />
 	</screen>
