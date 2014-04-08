@@ -1060,38 +1060,31 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/look.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="PositionerSetup" position="0,0" size="1280,720" title="Positioner setup..." flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
-		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
+		<panel name="template1_2layer" />
 		<eLabel text="Positioner setup..." position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="220,120" size="400,180" itemHeight="30" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="red" position=" 70,330" size="170,100" backgroundColor="red" halign="center" valign="center" font="SetrixHD;21" />
-		<widget name="green" position="240,330" size="170,100" backgroundColor="green" halign="center" valign="center" font="SetrixHD;21" />
-		<widget name="yellow" position="410,330" size="170,100" backgroundColor="yellow" halign="center" valign="center" font="SetrixHD;21" />
-		<widget name="blue" position="580,330" size="170,100" backgroundColor="blue" halign="center" valign="center" font="SetrixHD;21" />
-		<widget name="snr_db" position="160,455" size="200,25" halign="center" valign="center" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="SNR:" position=" 70,490" size="80,25" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="snr_bar" position="160,490" size="200,25" borderWidth="1" transparent="1" />
-		<widget name="snr_percentage" position="370,490" size="80,25" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="BER:" position=" 70,525" size="80,25" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="ber_bar" position="160,525" size="200,25" borderWidth="1" transparent="1" />
-		<widget name="ber_value" position="370,525" size="80,25" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="Lock:" position=" 70,560" size="80,25" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="lock_state" position="160,560" size="200,25" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="Frequency:" position="490,490" size="150,25" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="frequency_value" position="650,490" size="150,25" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="Symbolrate:" position="490,525" size="150,25" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="symbolrate_value" position="650,525" size="150,25" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="FEC:" position="490,560" size="150,25" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="fec_value" position="650,560" size="150,25" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="920,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+		<widget name="snr_db" position="160,405" size="200,25" halign="center" valign="center" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="SNR:" position=" 70,440" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="snr_bar" position="160,440" size="200,25" borderWidth="1" transparent="1" />
+		<widget name="snr_percentage" position="370,440" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="BER:" position=" 70,475" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="ber_bar" position="160,475" size="200,25" borderWidth="1" transparent="1" />
+		<widget name="ber_value" position="370,475" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Lock:" position=" 70,510" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="lock_state" position="160,510" size="200,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Status:" position=" 70,545" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="status_bar" position="160,545" size="300,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Frequency:" position="490,440" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="frequency_value" position="650,440" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Symbolrate:" position="490,475" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="symbolrate_value" position="650,475" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="FEC:" position="490,510" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="fec_value" position="650,510" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Polarisation:" position="490,545" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="polarisation" position="650,545" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_positioner_setup.png" transparent="1" alphatest="blend" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
 	</screen>
 	<screen name="RadioInfoBar" position="0,515" size="1280,200" title="Radio" zPosition="-9" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="0,0" zPosition="-10" size="1280,200" backgroundColor="layer-a-background" transparent="1" />
