@@ -74,6 +74,9 @@ class MainSettingsView(Screen):
 
     def __init__(self, session, args = None):
         Screen.__init__(self, session)
+        self.applyChangesFirst = args
+        if self.applyChangesFirst:
+            self.applyChanges()
         self.session = session
         self.Scale = AVSwitch().getFramebufferScale()
         self.PicLoad = ePicLoad()
@@ -174,6 +177,7 @@ class MainSettingsView(Screen):
         restartbox.setTitle(_("Restart GUI"))
 
     def applyChanges(self):
+        print"MyMetrixLite apply Changes"
         try:
             ################
             # InfoBar
@@ -314,11 +318,12 @@ class MainSettingsView(Screen):
             config.skin.save()
 
             configfile.save()
-
-            self.reboot(_("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?"))
+            if not self.applyChangesFirst:
+                self.reboot(_("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?"))
         except Exception as error:
             print error
-            self.session.open(MessageBox, _("Error creating Skin!"), MessageBox.TYPE_ERROR)
+            if not self.applyChangesFirst:
+                self.session.open(MessageBox, _("Error creating Skin!"), MessageBox.TYPE_ERROR)
 
     @staticmethod
     def getTunerCount():
