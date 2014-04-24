@@ -74,9 +74,6 @@ class MainSettingsView(Screen):
 
     def __init__(self, session, args = None):
         Screen.__init__(self, session)
-        self.applyChangesFirst = args
-        if self.applyChangesFirst:
-            self.applyChanges()
         self.session = session
         self.Scale = AVSwitch().getFramebufferScale()
         self.PicLoad = ePicLoad()
@@ -94,6 +91,10 @@ class MainSettingsView(Screen):
         initColorsConfig()
         initWeatherConfig()
         initOtherConfig()
+
+        self.applyChangesFirst = args
+        if self.applyChangesFirst:
+            self.applyChanges()
 
         self["actions"] = ActionMap(
             [
