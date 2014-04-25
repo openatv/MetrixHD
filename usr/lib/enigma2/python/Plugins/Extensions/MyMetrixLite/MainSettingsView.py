@@ -315,12 +315,12 @@ class MainSettingsView(Screen):
 
             move(SKIN_TARGET_TMP, SKIN_TARGET)
 
-            config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")
-            config.skin.save()
-
-            configfile.save()
             if not self.applyChangesFirst:
+                config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")
+                config.skin.save()
+                configfile.save()
                 self.reboot(_("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?"))
+
         except Exception as error:
             print error
             if not self.applyChangesFirst:
