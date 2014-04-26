@@ -73,6 +73,13 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         initColorsConfig()
 
         list = []
+        list.append(getConfigListEntry(_("Channelselection  -----------------------------------------------------------------------------------"), ))
+        list.append(getConfigListEntry(_("    Service"), ))
+        list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.channelselectionservice))
+        list.append(getConfigListEntry(_("        Font color selected"), config.plugins.MyMetrixLiteColors.channelselectionserviceselected))
+        list.append(getConfigListEntry(_("    Service Description"), ))
+        list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.channelselectionservicedescription))
+        list.append(getConfigListEntry(_("        Font color selected"), config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected))
         list.append(getConfigListEntry(_("Text in background  -----------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("    Font color"), config.plugins.MyMetrixLiteColors.backgroundtext))
         list.append(getConfigListEntry(_("    Font color transparency"), config.plugins.MyMetrixLiteColors.backgroundtexttransparency))
@@ -168,6 +175,11 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         self.ShowPicture()
 
     def defaults(self):
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectionservice)
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectionserviceselected)
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectionservicedescription)
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected)
+
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.backgroundtext)
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.backgroundtexttransparency)
 
