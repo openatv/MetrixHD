@@ -251,18 +251,6 @@
 		<widget name="key_blue" position="660,467" size="140,22" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap position="1130,465" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
 	</screen>
-	<screen name="ChoiceBox" position="0,0" size="1308,720" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="40,25" zPosition="-10" size="736,650" backgroundColor="layer-a-background" />
-		<widget source="global.CurrentTime" render="Label" position="789,609" size="140,35" font="Regular; 22" halign="left" backgroundColor="layer-b-background" transparent="1" valign="top">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="Title" render="Label" position="22,656" size="1200,65" font="SetrixHD; 55" transparent="1" foregroundColor="background-text" backgroundColor="background-text" />
-		<widget name="text" position="794,66" size="430,90" font="SetrixHD;22" halign="left" transparent="1" backgroundColor="layer-b-background" />
-		<widget name="list" position="59,38" size="697,620" itemHeight="35" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel position="776,51" zPosition="-10" size="460,600" backgroundColor="layer-b-background" />
-		<ePixmap position="1140,611" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
-		<ePixmap position="873,216" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
-	</screen>
 	<screen name="CrashlogAutoSubmitConfiguration" position="0,0" size="1280,720" title="CrashlogAutoSubmit settings" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
 		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">

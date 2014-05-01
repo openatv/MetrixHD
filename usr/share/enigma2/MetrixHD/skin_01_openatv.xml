@@ -1298,6 +1298,13 @@
 		<eLabel text="Save" position="395,637" size="250,28" font="Regular; 20" halign="left" valign="top" transparent="1" />
 		<ePixmap position="911,252" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
+	<screen name="ChoiceBox" position="0,0" size="1308,720" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<widget source="Title" render="Label" position="70,47" size="800,50" font="SetrixHD; 35" transparent="1" backgroundColor="layer-a-background" />
+		<widget name="text" position="794,66" size="430,90" font="SetrixHD;22" halign="left" transparent="1" backgroundColor="layer-b-background" />
+		<widget name="list" position="70,115" size="700,530" itemHeight="35" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
+		<ePixmap position="906,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+	</screen>
 	<screen name="MoviePlayer" position="0,0" size="1283,723" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="0,570" zPosition="-2" size="1281,150" backgroundColor="layer-a-background" />
 		<widget source="session.CurrentService" render="Label" position="149,581" size="892,56" font="SetrixHD; 40" valign="top" noWrap="1" backgroundColor="layer-a-background" transparent="1">
