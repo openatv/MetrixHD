@@ -767,54 +767,6 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<eLabel text="Movielist menu" position="31,115" size="700,28" font="SetrixHD;23" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="menu" position="14,196" size="350,450" zPosition="3" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
 	</screen>
-	<screen name="MovieSelection" position="0,0" size="1280,720" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="51,51" zPosition="-10" size="340,525" backgroundColor="layer-a-background" />
-		<eLabel text="Select a movie" position="10,562" size="1273,296" font="SetrixHD; 145" backgroundColor="background-text" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
-		<widget source="Title" render="Label" position="441,65" size="760,45" font="SetrixHD; 29" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="440,118" size="760,455" scrollbarMode="showOnDemand" itemHeight="40" transparent="1" />
-		<widget name="freeDiskSpace" position="441,584" size="700,25" font="SetrixHD;20" valign="center" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Service" render="Label" position="61,59" size="320,50" font="SetrixHD; 30" backgroundColor="layer-a-background" transparent="1">
-			<convert type="MovieInfo">ShortDescription</convert>
-		</widget>
-		<widget source="Service" render="Label" position="61,119" size="319,24" font="Regular; 19" backgroundColor="layer-a-background" transparent="1">
-			<convert type="MovieInfo">RecordServiceName</convert>
-		</widget>
-		<widget source="Service" render="Label" position="64,543" size=" 80, 24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ServiceTime">Duration</convert>
-			<convert type="ClockToText">AsLength</convert>
-		</widget>
-		<widget source="Service" render="Label" position="276,543" size="100, 24" font="SetrixHD;20" halign="right" backgroundColor="layer-a-background" transparent="1">
-			<convert type="MovieInfo">FileSize</convert>
-		</widget>
-		<widget source="Service" render="Label" position="64,158" size="317,372" font="Regular; 18" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" valign="top">
-			<convert type="EventName">ExtendedDescription</convert>
-		</widget>
-		<!-- /*Buttons-->
-		<ePixmap name="new ePixmap" position="1125,630" size="81,40" pixmap="MetrixHD/buttons/key_menu.png" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="415,630" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="597,630" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="771,630" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="941,630" size="30,40" alphatest="blend" />
-		<widget name="key_red" position="453,635" size="140,24" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_green" position="637,635" size="130,24" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_yellow" position="810,635" size="130,24" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_blue" position="981,635" size="130,24" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<!--Button */-->
-		<widget name="waitingtext" position="0,0" size="0,0" />
-		<eLabel position="417,52" zPosition="-10" size="810,619" backgroundColor="layer-a-background" />
-		<!-- /*ClockWidget-->
-		<widget source="global.CurrentTime" render="Label" position="239,590" size="169,80" font="SetrixHD; 60" halign="left" backgroundColor="layer-a-background" transparent="1" valign="top">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="83,632" size="148,29" font="SetrixHD; 20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="107,602" size="125,30" font="SetrixHD; 20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<eLabel position="51,599" zPosition="-1" size="340,70" backgroundColor="layer-a-background" transparent="0" />
-		<!--ClockWidget */-->
-	</screen>
 	<screen name="NameserverSetup" position="0,0" size="1280,720" title="Nameserver Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
 		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">

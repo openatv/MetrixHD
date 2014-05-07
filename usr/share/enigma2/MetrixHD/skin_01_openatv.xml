@@ -2152,4 +2152,46 @@
 		<ePixmap position="906,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fan.png" transparent="1" alphatest="blend" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
+
+    <!-- Default Movie Player (not EMC) -->
+
+
+    <screen name="AutoTimerOverview" position="0,0" size="1280,720" title="AutoTimer Overview" flags="wfNoBorder" backgroundColor="transparent">
+        <widget source="Title" render="Label" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+        <widget name="entries" position="70,115" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+        <panel name="template1_2layer" />
+        <panel name="rgyb-buttons_template1" />
+        <panel name="rgyb-keys_template1-source" />
+        <panel name="_me-buttons_template1" />
+        <ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
+    </screen>
+
+    <screen name="MovieSelection" position="0,0" size="1280,720" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
+        <eLabel text="Movie Center" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+
+        <widget name="list" position="70,115" size="700,460" scrollbarMode="showOnDemand" itemHeight="40" transparent="1" />
+        <widget name="freeDiskSpace" position="441,584" size="700,25" font="SetrixHD;20" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-b-foreground" transparent="1" />
+
+        <widget source="Service" render="Label" position="830,110" size="320,50" font="SetrixHD; 30" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+            <convert type="MovieInfo">ShortDescription</convert>
+        </widget>
+        <widget source="Service" render="Label" position="830,170" size="319,24" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+            <convert type="MovieInfo">RecordServiceName</convert>
+        </widget>
+        <widget source="Service" render="Label" position="833,218" size="317,372" font="RegularLight; 18" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top">
+            <convert type="EventName">ExtendedDescription</convert>
+        </widget>
+        <widget source="Service" render="Label" position="830,553" size="80, 24" font="RegularLight;20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+            <convert type="ServiceTime">Duration</convert>
+            <convert type="ClockToText">AsLength</convert>
+        </widget>
+        <widget source="Service" render="Label" position="1045,553" size="100, 24" font="RegularLight;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-b-foreground" transparent="1">
+            <convert type="MovieInfo">FileSize</convert>
+        </widget>
+        <panel name="template1_2layer" />
+        <panel name="rgyb-buttons_template1" />
+        <panel name="rgyb-keys_template1-source" />
+        <panel name="_me-buttons_template1" />
+        <widget name="waitingtext" position="0,0" size="0,0" />
+    </screen>
 </skin>
