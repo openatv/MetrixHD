@@ -21,7 +21,8 @@
 from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, getTunerPositionList, appendSkinFile, \
     SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, COLOR_IMAGE_PATH, SKIN_INFOBAR_TARGET, SKIN_INFOBAR_SOURCE, \
     SKIN_SECOND_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET_TMP, SKIN_SECOND_INFOBAR_TARGET, SKIN_SECOND_INFOBAR_TARGET_TMP, \
-    SKIN_CHANNEL_SELECTION_SOURCE, SKIN_CHANNEL_SELECTION_TARGET, SKIN_CHANNEL_SELECTION_TARGET_TMP
+    SKIN_CHANNEL_SELECTION_SOURCE, SKIN_CHANNEL_SELECTION_TARGET, SKIN_CHANNEL_SELECTION_TARGET_TMP, \
+    SKIN_MOVIEPLAYER_SOURCE, SKIN_MOVIEPLAYER_TARGET, SKIN_MOVIEPLAYER_TARGET_TMP
 
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -206,14 +207,19 @@ class MainSettingsView(Screen):
             if config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARSERVICEINFO" />', ''])
 
-            channelNameXML = self.getInfoBarChannelNameXML(config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize.getValue(), config.plugins.MyMetrixLiteOther.showChannelNumber.getValue(), config.plugins.MyMetrixLiteOther.showChannelName.getValue())
-            infobarSkinSearchAndReplace.append(['<panel name="INFOBARCHANNELNAME" />', channelNameXML])
+            channelNameXML = self.getChannelNameXML(
+                "35,455",
+                config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize.getValue(),
+                config.plugins.MyMetrixLiteOther.showChannelNumber.getValue(),
+                config.plugins.MyMetrixLiteOther.showChannelName.getValue()
+            )
+            infobarSkinSearchAndReplace.append(['<panel name="CHANNELNAME" />', channelNameXML])
 
             if config.plugins.MyMetrixLiteOther.showInfoBarResolution.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARRESOLUTION" />', ''])
 
             if config.plugins.MyMetrixLiteOther.showInfoBarClock.getValue() is False:
-                infobarSkinSearchAndReplace.append(['<panel name="INFOBARCLOCKWIDGET" />', ''])
+                infobarSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
 
             # InfoBar
             skin_lines = appendSkinFile(SKIN_INFOBAR_SOURCE, infobarSkinSearchAndReplace)
@@ -225,7 +231,6 @@ class MainSettingsView(Screen):
 
 
             move(SKIN_INFOBAR_TARGET_TMP, SKIN_INFOBAR_TARGET)
-
 
 
             # SecondInfoBar
@@ -257,6 +262,36 @@ class MainSettingsView(Screen):
             xFile.close()
 
             move(SKIN_CHANNEL_SELECTION_TARGET_TMP, SKIN_CHANNEL_SELECTION_TARGET)
+
+
+
+            ################
+            # MoviePlayer
+            ################
+
+            moviePlayerSkinSearchAndReplace = []
+
+            channelNameXML = self.getChannelNameXML(
+                "30,470",
+                config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize.getValue(),
+                config.plugins.MyMetrixLiteOther.showChannelNumber.getValue(),
+                config.plugins.MyMetrixLiteOther.showChannelName.getValue()
+            )
+            moviePlayerSkinSearchAndReplace.append(['<panel name="CHANNELNAME" />', channelNameXML])
+
+            if config.plugins.MyMetrixLiteOther.showInfoBarClock.getValue() is False:
+                moviePlayerSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
+
+            # InfoBar
+            skin_lines = appendSkinFile(SKIN_MOVIEPLAYER_SOURCE, moviePlayerSkinSearchAndReplace)
+
+            xFile = open(SKIN_MOVIEPLAYER_TARGET_TMP, "w")
+            for xx in skin_lines:
+                xFile.writelines(xx)
+            xFile.close()
+
+
+            move(SKIN_MOVIEPLAYER_TARGET_TMP, SKIN_MOVIEPLAYER_TARGET)
 
 
 
@@ -315,6 +350,7 @@ class MainSettingsView(Screen):
             skinSearchAndReplace.append(['skin_00a_InfoBar.xml', 'skin_00a_InfoBar.MySkin.xml'])
             skinSearchAndReplace.append(['skin_00b_SecondInfoBar.xml', 'skin_00b_SecondInfoBar.MySkin.xml'])
             skinSearchAndReplace.append(['skin_00e_ChannelSelection.xml', 'skin_00e_ChannelSelection.MySkin.xml'])
+            skinSearchAndReplace.append(['skin_00f_MoviePlayer.xml', 'skin_00f_MoviePlayer.MySkin.xml'])
 
             skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
 
@@ -350,7 +386,7 @@ class MainSettingsView(Screen):
         return tunerCount
 
     @staticmethod
-    def getInfoBarChannelNameXML(fontSizeType, showChannelNumber, showChannelName):
+    def getChannelNameXML(widgetPosition, fontSizeType, showChannelNumber, showChannelName):
         fontSize = "80"
 
         if fontSizeType == "INFOBARCHANNELNAME-2":
@@ -372,13 +408,13 @@ class MainSettingsView(Screen):
             channelRenderer = None
 
         if channelRenderer is not None:
-            xml = '''<widget font="SetrixHD;''' + fontSize + '''" foregroundColor="background-text" noWrap="1" position="35,455" render="Label" size="1252,105" source="session.CurrentService" transparent="1" valign="bottom" zPosition="-30">
+            return '''<widget font="SetrixHD;''' + fontSize + '''" foregroundColor="background-text" noWrap="1" position="''' \
+                + widgetPosition \
+                + '''" render="Label" size="1252,105" source="session.CurrentService" transparent="1" valign="bottom" zPosition="-30">
                 <convert type="MetrixHDExtServiceInfo">''' + channelRenderer + '''</convert>
             </widget>'''
-        else:
-            xml = ""
 
-        return xml
+        return ""
 
     # def getTunerXMLItem(self, slotID, position1, position2, valueBitTest, valueRange, isTunerEnabled):
     #     xml = '''<eLabel position="''' + position1 + '''" text="''' + slotID + '''" zPosition="1" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" />

@@ -100,7 +100,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
     def getMenuItemList(self):
         list = []
 
-        list.append(getConfigListEntry(_("InfoBar/SecondInfobar   -----------------------------------------------------------------------------------"), ))
+        list.append(getConfigListEntry(_("InfoBar/SecondInfobar/MoviePlayer   --------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Show ServiceIcons"), config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons))
 
         list.append(getConfigListEntry(_("Show ChannelNumber"), config.plugins.MyMetrixLiteOther.showChannelNumber))
