@@ -193,13 +193,16 @@ class MainSettingsView(Screen):
             for nimSlot in nimmanager.nim_slots:
                 tunerData = getTunerPositionList()[i]
 
-                tunerXml += self.getTunerXMLItem(nimSlot.getSlotID(), tunerData[0], tunerData[1], tunerData[2], tunerData[3], nimmanager.somethingConnected(nimSlot.slot))
+                tunerXml += self.getTunerXMLItem(nimSlot.getSlotID(), tunerData[0], tunerData[1], tunerData[2], tunerData[3], tunerData[4], tunerData[5], nimmanager.somethingConnected(nimSlot.slot))
                 i += 1
 
             infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-2" />', tunerXml])
             '''
 
-            infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-2" />', '<panel name="INFOBARTUNERINFO-%d" />' % self.getTunerCount()])
+            if config.plugins.MyMetrixLiteOther.setTunerAuto.getValue() is False:
+                infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-2" />', '<panel name="INFOBARTUNERINFO-%d" />' % config.plugins.MyMetrixLiteOther.setTunerManual.getValue()])
+            else:
+                infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-2" />', '<panel name="INFOBARTUNERINFO-%d" />' % self.getTunerCount()])
 
             if config.plugins.MetrixWeather.enabled.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
@@ -220,6 +223,9 @@ class MainSettingsView(Screen):
 
             if config.plugins.MyMetrixLiteOther.showInfoBarClock.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
+
+            if config.plugins.MyMetrixLiteOther.showCPULoad.getValue() is False:
+                infobarSkinSearchAndReplace.append(['<panel name="CPULOAD" />', ''])
 
             # InfoBar
             skin_lines = appendSkinFile(SKIN_INFOBAR_SOURCE, infobarSkinSearchAndReplace)
@@ -381,7 +387,7 @@ class MainSettingsView(Screen):
         tunerCount = nimmanager.getSlotCount()
 
         tunerCount = max(1, tunerCount)
-        tunerCount = min(4, tunerCount)
+        tunerCount = min(6, tunerCount)
 
         return tunerCount
 

@@ -291,6 +291,11 @@
 			</widget>
 			<!-- STYLE MODERN */ -->
 		</screen>
+		<screen name="CPULOAD">
+			<eLabel text="CPU-Load:" position="1098,696" size="97,20" font="Regular; 16" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" halign="right" />
+			<widget source="global.CurrentTime" render="MetrixHDCPULoad" position="1198,696" size="40,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+			</widget>
+		</screen>	
 		<screen name="CLOCKWIDGET">
 			<!--/* ClockWidget -->
 			<eLabel backgroundColor="layer-a-background" position="1076,40" size="158,72" transparent="0" zPosition="-1"/>
@@ -359,8 +364,8 @@
 		</screen>
 		<screen name="INFOBARRECORDSTATE">
 			<!--/* RECORDSTATE -->
-			<ePixmap alphatest="blend" pixmap="/usr/share/enigma2/MetrixHD/icons/ico_rec_off.png" position="805,671" size="45,23" zPosition="1"/>
-			<widget alphatest="blend" pixmap="/usr/share/enigma2/MetrixHD/icons/ico_rec_on.png" position="805,671" render="Pixmap" size="45,23" source="session.RecordState" zPosition="2">
+			<ePixmap alphatest="blend" pixmap="/usr/share/enigma2/MetrixHD/icons/ico_rec_off.png" position="805,672" size="45,23" zPosition="1"/>
+			<widget alphatest="blend" pixmap="/usr/share/enigma2/MetrixHD/icons/ico_rec_on.png" position="805,672" render="Pixmap" size="45,23" source="session.RecordState" zPosition="2">
 				<convert type="ConditionalShowHide">Blink</convert>
 			</widget>
 			<!-- RECORDSTATE */-->
@@ -490,18 +495,148 @@
 		</screen>
 		<screen name="INFOBARSNR">
 			<!-- /* SNR -->
-			<eLabel text="SNR:" position="384,666" size="50,26" font="RegularLight; 24" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
-			<widget source="session.FrontendStatus" render="Label" position="443,666" size="70,26" font="RegularLight; 24" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" halign="left">
+			<eLabel text="SNR:" position="424,666" size="50,26" font="RegularLight; 24" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+			<widget source="session.FrontendStatus" render="Label" position="483,666" size="70,26" font="RegularLight; 24" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" halign="left">
 				<convert type="FrontendInfo">SNR</convert>
 			</widget>
 			<!-- SNR */-->
 		</screen>
 		<screen name="INFOBARORBITALPOSITION">
 			<!-- /* Sat-Position -->
-			<widget source="session.CurrentService" render="Label" position="521,666" size="100,26" font="RegularLight; 24" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+			<widget source="session.CurrentService" render="Label" position="541,666" size="100,26" font="RegularLight; 24" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
 				<convert type="ServiceOrbitalPosition" />
 			</widget>
 			<!-- Sat-Position */-->
+		</screen>
+		<screen name="INFOBARTUNERINFO-6">
+			<!-- /* TunerInfo -->
+			<eLabel position="286,666" text="A" zPosition="1" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" />
+			<widget position="286,666" text="A" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">1</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="286,693" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" font="RegularLight; 24" halign="center" backgroundColor="layer-a-selection-background" transparent="0" valign="top">
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">0,0</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="306,666" text="B" zPosition="1" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" />
+			<widget position="306,666" text="B" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">2</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="306,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" font="RegularLight; 24" halign="center" backgroundColor="layer-a-selection-background" transparent="0" valign="top">
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">1,1</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="326,666" text="C" zPosition="1" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" />
+			<widget position="326,666" text="C" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">4</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="326,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" font="RegularLight; 24" halign="center" backgroundColor="layer-a-selection-background" transparent="0" valign="top">
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">2,2</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="346,666" text="D" zPosition="1" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" />
+			<widget position="346,666" text="D" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">8</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="346,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" font="RegularLight; 24" halign="center" backgroundColor="layer-a-selection-background" transparent="0" valign="top">
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">3,3</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<!--text="E" results "O", text="EE" results "E"-->
+			<eLabel position="366,666" text="EE" zPosition="1" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" />
+			<widget position="366,666" text="EE" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">16</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="366,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" font="RegularLight; 24" halign="center" backgroundColor="layer-a-selection-background" transparent="0" valign="top">
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">4,4</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="386,666" text="F" zPosition="1" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" />
+			<widget position="386,666" text="F" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">32</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="386,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" font="RegularLight; 24" halign="center" backgroundColor="layer-a-selection-background" transparent="0" valign="top">
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">5,5</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<!-- TunerInfo */-->
+		</screen>
+		<screen name="INFOBARTUNERINFO-5">
+			<!-- /* TunerInfo -->
+			<eLabel position="286,666" text="A" zPosition="1" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" />
+			<widget position="286,666" text="A" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">1</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="286,693" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" font="RegularLight; 24" halign="center" backgroundColor="layer-a-selection-background" transparent="0" valign="top">
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">0,0</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="306,666" text="B" zPosition="1" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" />
+			<widget position="306,666" text="B" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">2</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="306,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" font="RegularLight; 24" halign="center" backgroundColor="layer-a-selection-background" transparent="0" valign="top">
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">1,1</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="326,666" text="C" zPosition="1" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" />
+			<widget position="326,666" text="C" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">4</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="326,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" font="RegularLight; 24" halign="center" backgroundColor="layer-a-selection-background" transparent="0" valign="top">
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">2,2</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="346,666" text="D" zPosition="1" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" />
+			<widget position="346,666" text="D" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">8</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="346,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" font="RegularLight; 24" halign="center" backgroundColor="layer-a-selection-background" transparent="0" valign="top">
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">3,3</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="366,666" text="EE" zPosition="1" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" />
+			<widget position="366,666" text="EE" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,26" font="RegularLight; 24" halign="center" transparent="1" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">16</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="366,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" font="RegularLight; 24" halign="center" backgroundColor="layer-a-selection-background" transparent="0" valign="top">
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">4,4</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<!-- TunerInfo */-->
 		</screen>
 		<screen name="INFOBARTUNERINFO-4">
 			<!-- /* TunerInfo -->
@@ -651,8 +786,8 @@
 				<convert type="ServiceInfo">IsMultichannel</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
-			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hd_off.png" position="1080,670" size="49,24" zPosition="1"/>
-			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_on.png" position="1080,670" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hd_off.png" position="1080,671" size="49,24" zPosition="1"/>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_on.png" position="1080,671" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
 				<convert type="ServiceInfo">VideoWidth</convert>
 				<convert type="ValueRange">721,1980</convert>
 				<convert type="ConditionalShowHide"/>

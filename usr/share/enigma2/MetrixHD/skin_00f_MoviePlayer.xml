@@ -1,21 +1,21 @@
 <skin>
-    <screen name="MoviePlayer" position="0,0" size="1283,723" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
+    <screen name="MoviePlayer" position="0,0" size="1280,720" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
         <eLabel position="0,570" zPosition="-2" size="1281,150" backgroundColor="layer-a-background" />
         <widget source="session.CurrentService" render="Label" position="149,581" size="892,56" font="SetrixHD; 40" valign="top" noWrap="1" backgroundColor="layer-a-background" transparent="1">
             <convert type="ServiceName">Name</convert>
         </widget>
-        <ePixmap pixmap="MetrixHD/icons/ico_dolby_off.png" position="1051,616" size="64,23" zPosition="1" alphatest="blend" />
-        <widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_dolby_on.png" position="1051,616" size="64,23" zPosition="2" alphatest="blend">
+        <ePixmap pixmap="MetrixHD/icons/ico_dolby_off.png" position="1057,616" size="64,23" zPosition="1" alphatest="blend" />
+        <widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_dolby_on.png" position="1057,616" size="64,23" zPosition="2" alphatest="blend">
             <convert type="ServiceInfo">IsMultichannel</convert>
             <convert type="ConditionalShowHide" />
         </widget>
-        <ePixmap pixmap="MetrixHD/icons/ico_format_off.png" position="1127,615" size="41,26" zPosition="1" alphatest="blend" />
-        <widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_format_on.png" position="1127,615" size="41,26" zPosition="2" alphatest="blend">
+        <ePixmap pixmap="MetrixHD/icons/ico_format_off.png" position="1115,616" size="43,26" zPosition="1" alphatest="blend" />
+        <widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_format_on.png" position="1115,616" size="43,26" zPosition="2" alphatest="blend">
             <convert type="ServiceInfo">IsWidescreen</convert>
             <convert type="ConditionalShowHide" />
         </widget>
-        <ePixmap pixmap="MetrixHD/icons/ico_hd_off.png" position="1188,617" size="49,24" zPosition="1" alphatest="blend" />
-        <widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_on.png" position="1188,617" size="49,24" zPosition="2" alphatest="blend">
+        <ePixmap pixmap="MetrixHD/icons/ico_hd_off.png" position="1177,616" size="49,24" zPosition="1" alphatest="blend" />
+        <widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_on.png" position="1177,616" size="49,24" zPosition="2" alphatest="blend">
             <convert type="ServiceInfo">VideoWidth</convert>
             <convert type="ValueRange">721,1980</convert>
             <convert type="ConditionalShowHide" />
@@ -27,7 +27,7 @@
         <widget source="session.CurrentService" render="Label" font="Regular; 18" position="1146,576" size="55,25" halign="left" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
             <convert type="ServiceInfo">VideoHeight</convert>
         </widget>
-        <widget source="session.RecordState" render="Pixmap" pixmap="MetrixHD/icons/ico_rec_on.png" position="57,40" size="74,23" zPosition="2" alphatest="blend">
+        <widget source="session.RecordState" render="Pixmap" pixmap="MetrixHD/icons/ico_rec_on.png" position="1010,617" size="74,23" zPosition="2" alphatest="blend">
             <convert type="ConditionalShowHide">Blink</convert>
         </widget>
         <widget source="session.CurrentService" render="Label" position="40,656" size="100,28" font="SetrixHD;24" halign="right" valign="center" backgroundColor="layer-a-background" shadowColor="layer-a-background" shadowOffset="-1,-1" transparent="1">
@@ -45,6 +45,7 @@
         <widget source="session.CurrentService" render="Label" position="3,581" size="137,56" font="SetrixHD; 40" halign="right" valign="top" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent2">
             <convert type="ServicePosition">Length</convert>
         </widget>
+        <eLabel name="new eLabel" position="150,670" size="980,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="-1" />
         <panel name="CLOCKWIDGET" />
         <panel name="CHANNELNAME" />
     </screen>

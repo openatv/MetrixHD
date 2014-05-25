@@ -21,7 +21,7 @@
 
 from Components.Language import language
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
-from Components.config import config, ConfigSubsection, ConfigSelection, ConfigNumber, ConfigYesNo, ConfigText
+from Components.config import config, ConfigSubsection, ConfigSelection, ConfigNumber, ConfigSelectionNumber, ConfigYesNo, ConfigText
 import gettext
 
 #############################################################
@@ -227,7 +227,9 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize = ConfigSelection(default="INFOBARCHANNELNAME-1", choices = infoBarChannelNameFontSizeList)
     config.plugins.MyMetrixLiteOther.showInfoBarResolution = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showInfoBarClock = ConfigYesNo(default=True)
-    
+    config.plugins.MyMetrixLiteOther.showCPULoad = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.setTunerAuto = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelectionNumber(1, 6, 1, default = 2)
     config.plugins.MyMetrixLiteOther.channelSelectionStyle = ConfigSelection(default="CHANNELSELECTION-1", choices = channelSelectionStyleList)
 
 #######################################################################
@@ -237,7 +239,9 @@ def getTunerPositionList():
         ("286,666", "286,693", "1", "0,0"),
         ("306,666", "306,693", "2", "1,1"),
         ("326,666", "326,693", "4", "2,2"),
-        ("346,666", "346,693", "8", "3,3")
+        ("346,666", "346,693", "8", "3,3"),
+        ("366,666", "346,693", "8", "3,3"),
+        ("386,666", "346,693", "8", "3,3")
     ]
 
     return tunerPositionList
