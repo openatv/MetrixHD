@@ -29,18 +29,18 @@
 	<widget source="session.CurrentService" render="Label" position="149,581" size="892,56" font="SetrixHD; 40" valign="top" noWrap="1" backgroundColor="layer-a-background" transparent="1">
 		<convert type="ServiceName">Name</convert>
 	</widget>
-	<ePixmap pixmap="MetrixHD/icons/ico_dolby_off.png" position="1051,616" size="64,23" zPosition="1" alphatest="blend" />
-	<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_dolby_on.png" position="1051,616" size="64,23" zPosition="2" alphatest="blend">
+	<ePixmap pixmap="MetrixHD/icons/ico_dolby_off.png" position="1057,616" size="64,23" zPosition="1" alphatest="blend" />
+	<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_dolby_on.png" position="1057,616" size="64,23" zPosition="2" alphatest="blend">
 		<convert type="ServiceInfo">IsMultichannel</convert>
 		<convert type="ConditionalShowHide" />
 	</widget>
-	<ePixmap pixmap="MetrixHD/icons/ico_format_off.png" position="1127,615" size="41,26" zPosition="1" alphatest="blend" />
-	<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_format_on.png" position="1127,615" size="41,26" zPosition="2" alphatest="blend">
+	<ePixmap pixmap="MetrixHD/icons/ico_format_off.png" position="1115,616" size="43,26" zPosition="1" alphatest="blend" />
+	<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_format_on.png" position="1115,616" size="43,26" zPosition="2" alphatest="blend">
 		<convert type="ServiceInfo">IsWidescreen</convert>
 		<convert type="ConditionalShowHide" />
 	</widget>
-	<ePixmap pixmap="MetrixHD/icons/ico_hd_off.png" position="1188,617" size="49,24" zPosition="1" alphatest="blend" />
-	<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_on.png" position="1188,617" size="49,24" zPosition="2" alphatest="blend">
+	<ePixmap pixmap="MetrixHD/icons/ico_hd_off.png" position="1177,616" size="49,24" zPosition="1" alphatest="blend" />
+	<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_on.png" position="1177,616" size="49,24" zPosition="2" alphatest="blend">
 		<convert type="ServiceInfo">VideoWidth</convert>
 		<convert type="ValueRange">721,1980</convert>
 		<convert type="ConditionalShowHide" />
@@ -52,7 +52,7 @@
 	<widget source="session.CurrentService" render="Label" font="Regular; 19" position="1146,576" size="55,25" halign="left" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
 		<convert type="ServiceInfo">VideoHeight</convert>
 	</widget>
-	<widget source="session.RecordState" render="Pixmap" pixmap="MetrixHD/icons/ico_rec_on.png" position="57,40" size="74,23" zPosition="2" alphatest="blend">
+	<widget source="session.RecordState" render="Pixmap" pixmap="MetrixHD/icons/ico_rec_on.png" position="987,616" size="74,23" zPosition="2" alphatest="blend">
 		<convert type="ConditionalShowHide">Blink</convert>
 	</widget>
 	<widget source="Service" render="Label" position="40,656" size="100,28" font="SetrixHD;24" halign="right" valign="center" backgroundColor="layer-a-background" shadowColor="layer-a-background" shadowOffset="-1,-1" transparent="1">
@@ -73,23 +73,24 @@
 	<widget source="Service" render="Label" position="3,581" size="137,56" font="SetrixHD; 40" halign="right" valign="top" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent2">
 		<convert type="EMCServicePosition">Length</convert>
 	</widget>
-	<!-- /*ClockWidget-->
-	<widget source="global.CurrentTime" render="Label" position="1081,31" size="169,80" font="SetrixHD; 60" halign="left" backgroundColor="layer-b-background" transparent="1" valign="top">
+	<!--/* ClockWidget -->
+	<eLabel backgroundColor="layer-a-background" position="1076,40" size="158,72" transparent="0" zPosition="-1"/>
+	<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="SetrixHD; 60" halign="left" position="1086,31" render="Label" size="169,80" source="global.CurrentTime" transparent="1" valign="top">
 		<convert type="ClockToText">Default</convert>
 	</widget>
-	<widget source="global.CurrentTime" render="Label" position="921,73" size="148,29" font="SetrixHD; 20" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-a-accent1" transparent="1">
-		<convert type="ClockToText">Format:%e. %B</convert>
+	<eLabel backgroundColor="layer-b-background" position="962,43" size="114,66" transparent="0" zPosition="-2"/>
+	<widget backgroundColor="layer-b-background" font="Regular; 18" foregroundColor="layer-b-foreground" halign="right" position="967,77" render="Label" size="102,29" source="global.CurrentTime" transparent="1">
+		<convert type="ClockToText">Format:%e. %b</convert>
 	</widget>
-	<widget source="global.CurrentTime" render="Label" position="943,45" size="125,30" font="SetrixHD; 20" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-a-accent1" transparent="1">
+	<widget backgroundColor="layer-b-background" font="Regular; 18" foregroundColor="layer-b-foreground" halign="right" noWrap="1" position="964,47" render="Label" size="104,30" source="global.CurrentTime" transparent="1">
 		<convert type="ClockToText">Format:%A</convert>
 	</widget>
+	<!-- ClockWidget */-->
 	<eLabel name="new eLabel" position="150,670" size="980,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="-1" />
-	<eLabel position="913,40" zPosition="-1" size="320,70" backgroundColor="layer-a-background" transparent="0" />
-	<!--ClockWidget */-->
-	<widget source="session.CurrentService" render="Label" position="30,415" size="1250,256" font="SetrixHD; 140" valign="top" noWrap="1" backgroundColor="layer-a-background" transparent="1" foregroundColor="background-text" zPosition="-99">
+	<!--eLabel position="913,40" zPosition="-1" size="320,70" backgroundColor="layer-a-background" transparent="0" /-->
+	<!--widget source="session.CurrentService" render="Label" position="30,415" size="1250,256" font="SetrixHD; 100" valign="top" noWrap="1" backgroundColor="layer-a-background" transparent="1" foregroundColor="background-text" zPosition="-99">
 		<convert type="ServiceName">Name</convert>
-	</widget>
-	<!--old:-->
+	</widget-->
 	<widget name="audioLabel" position="961,577" size="100,22" font="EMCRegularFont;18" backgroundColor="layer-a-background" zPosition="3" transparent="1" halign="right" />
 	<widget name="chapterLabel" position="148,686" size="981,34" font="SetrixHD;22" halign="left" foregroundColor="layer-a-accent2" backgroundColor="layer-a-background" transparent="1" />
 	<!-- Subtitel Label only for DVD -->
