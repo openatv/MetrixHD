@@ -1239,65 +1239,6 @@
 		<widget source="key_red" render="Label" position="290,660" size="160,26" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_green" render="Label" position="508,660" size="160,26" zPosition="1" font="SetrixHD;22" halign="left" backgroundColor="layer-a-background" transparent="1" />
 	</screen>
-	<screen name="MediaPlayer" position="center,center" size="1280,720" title="MediaPlayer" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
-		<ePixmap position="0,0" zPosition="-20" size="1280,720" pixmap="MetrixHD/movie-back.png" />
-		<eLabel position="417,52" zPosition="-10" size="810,619" backgroundColor="layer-a-background" transparent="0" />
-		<eLabel position="432,280" size="500,40" text="Playlist" font="SetrixHD; 22" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel name="new eLabel" position="71,412" size="300,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="-1" />
-		<eLabel position="51,51" zPosition="-10" size="340,525" backgroundColor="layer-a-background" transparent="0" />
-		<widget name="filelist" position="430,107" size="782,167" itemHeight="25" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget name="coverArt" position="96,67" size="256,256" pixmap="MetrixHD/icons/media.png" transparent="1" alphatest="blend" />
-		<widget name="artist" position="58,371" size="329,30" font="SetrixHD;22" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="albumtext" position="57,470" size="120,25" font="SetrixHD;22" valign="top" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" halign="left" />
-		<widget name="album" position="58,500" size="320,30" font="SetrixHD;22" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="year" position="131,468" size="250,30" font="SetrixHD;22" valign="top" backgroundColor="layer-a-background" transparent="1" halign="right" />
-		<widget name="genre" position="58,540" size="320,30" font="SetrixHD;22" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="title" position="58,328" size="325,40" font="SetrixHD; 26" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="playlist" position="430,324" size="782,307" itemHeight="25" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget name="repeat" pixmaps="MetrixHD/repeat_off.png,MetrixHD/repeat_on.png" position="1035,633" size="70,30" transparent="1" alphatest="blend" />
-		<widget source="session.CurrentService" render="Label" position="58,425" size="119,32" zPosition="2" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" noWrap="1" transparent="1">
-			<convert type="ServicePosition">Position,ShowHours</convert>
-		</widget>
-		<widget source="session.CurrentService" render="Label" position="262,425" size="119,32" zPosition="2" font="SetrixHD; 22" halign="right" backgroundColor="layer-a-background" noWrap="1" transparent="1">
-			<convert type="ServicePosition">Length,ShowHours</convert>
-		</widget>
-		<widget source="session.CurrentService" render="Progress" pixmap="MetrixHD/colors/000F6EB2.png" position="71,410" size="300,5" zPosition="1" transparent="1">
-			<convert type="ServicePosition">Position</convert>
-		</widget>
-		<ePixmap position="1130,631" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
-		<!-- /*ClockWidget-->
-		<widget source="global.CurrentTime" render="Label" position="239,590" size="169,80" font="SetrixHD; 60" halign="left" backgroundColor="layer-a-background" transparent="1" valign="top">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="83,632" size="148,29" font="SetrixHD; 20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="107,602" size="125,30" font="SetrixHD; 20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<eLabel position="51,597" zPosition="-1" size="340,70" backgroundColor="layer-a-background" transparent="0" />
-		<!--ClockWidget */-->
-		<eLabel position="432,60" size="500,40" text="Media Player" font="SetrixHD; 26" backgroundColor="layer-a-background" transparent="1" />
-	</screen>
-	<screen name="MediaPlayerSettings" position="0,0" size="1280,720" title="Edit Settings" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
-		<widget source="Title" render="Label" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget name="config" position="70,120" size="710,490" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="3" scrollbarMode="showNever" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
-		<eLabel text="Cancel" position="105,637" size="250,28" font="Regular; 20" halign="left" valign="top" transparent="1" />
-		<eLabel text="Save" position="395,637" size="250,28" font="Regular; 20" halign="left" valign="top" transparent="1" />
-		<ePixmap position="911,252" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
-	</screen>
 	<screen name="ChoiceBox" position="0,0" size="1308,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<widget source="Title" render="Label" position="70,47" size="800,50" font="SetrixHD; 35" transparent="1" backgroundColor="layer-a-background" />
@@ -1723,45 +1664,6 @@
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
 		<ePixmap position="891,222" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
-	</screen>
-	<!-- EMC : Enhanced Movie Center -->
-	<screen name="EMCSelection" position="0,0" size="1280,720" title="Enhanced Movie Center" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Enhanced Movie Center" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,130" size="700,482" itemHeight="32" CoolFont="Regular;21" CoolSelectFont="Regular;21" CoolDateFont="Regular;21" CoolMoviePos="35" CoolMovieSize="545" CoolFolderSize="550" CoolTitleColor="0" CoolDatePos="1000" CoolDateWidth="110" CoolDateColor="0" CoolHighlightColor="0" CoolProgressPos="1000" CoolBarPos="640" CoolBarHPos="10" CoolBarSize="55,10" CoolBarSizeSa="110,16" BackColorSel="layer-a-selection-background" DefaultColor="#FFFFFF" UnwatchedColor="#FFFFFF" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" backgroundColor="layer-a-background" foregroundColorSelected="#ffffff" scrollbarMode="showNever" transparent="1" />
-		<widget name="wait" position="-1,283" size="1283,50" zPosition="1" font="Regular;32" backgroundColor="un18080911" halign="center" valign="center" />
-		<widget source="Title" render="Label" position="70,95" size="800,35" font="RegularLight; 22" backgroundColor="layer-a-background" halign="left" transparent="1" />
-		<widget source="Service" render="Label" position="830,110" size="790,35" font="RegularLight; 22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
-			<convert type="EMCEventName">Name</convert>
-		</widget>
-		<widget source="Service" render="Label" position="830,135" size="360,40" font="RegularLight; 19" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
-			<convert type="EMCMovieInfo">RecordServiceName</convert>
-		</widget>
-		<widget source="Service" render="Label" position="830,165" size="70,33" font="RegularLight; 20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
-			<convert type="EMCServiceTime">StartTime</convert>
-			<convert type="EMCClockToText">Format:%H:%M </convert>
-		</widget>
-		<widget source="Service" render="Label" position="884,165" size="70,33" font="RegularLight; 20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
-			<convert type="EMCServiceTime">EndTime</convert>
-			<convert type="EMCClockToText">Format:- %H:%M </convert>
-		</widget>
-		<widget source="Service" render="Label" position="1049,165" size="100,33" font="RegularLight; 20" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
-			<convert type="EMCServiceTime">Duration</convert>
-			<convert type="EMCClockToText">InMinutes</convert>
-		</widget>
-		<widget source="Service" render="Label" position="830,208" size="360,325" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" halign="left" valign="top">
-			<convert type="EMCEventName">FullDescription</convert>
-		</widget>
-		<widget source="Service" render="Label" position="830,557" size="270,30" font="RegularLight; 17" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
-			<convert type="EMCServiceTime">StartTime</convert>
-			<convert type="EMCClockToText">Date</convert>
-		</widget>
-		<widget source="Service" render="Label" position="1049,557" size="150,30" font="RegularLight; 17" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
-			<convert type="EMCMovieInfo">FileSize</convert>
-		</widget>
-		<panel name="template1_2layer" />
-		<panel name="rgyb-buttons_template1" />
-		<panel name="rgyb-keys_template1" />
-		<panel name="ime-buttons_template1" />
 	</screen>
 	<!-- Timer Editor -->
 	<screen name="TimerEditList" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">

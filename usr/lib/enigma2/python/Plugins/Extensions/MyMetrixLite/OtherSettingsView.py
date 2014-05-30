@@ -105,6 +105,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
         list.append(getConfigListEntry(_("Show ChannelNumber"), config.plugins.MyMetrixLiteOther.showChannelNumber))
         list.append(getConfigListEntry(_("Show ChannelName"), config.plugins.MyMetrixLiteOther.showChannelName))
+        list.append(getConfigListEntry(_("Show MovieName"), config.plugins.MyMetrixLiteOther.showMovieName))
         list.append(getConfigListEntry(_("ChannelName/Number FontSize"), config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize))
 
         list.append(getConfigListEntry(_("Show Resolution"), config.plugins.MyMetrixLiteOther.showInfoBarResolution))
