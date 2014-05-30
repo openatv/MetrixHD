@@ -22,7 +22,8 @@ from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, getTunerP
     SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, COLOR_IMAGE_PATH, SKIN_INFOBAR_TARGET, SKIN_INFOBAR_SOURCE, \
     SKIN_SECOND_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET_TMP, SKIN_SECOND_INFOBAR_TARGET, SKIN_SECOND_INFOBAR_TARGET_TMP, \
     SKIN_CHANNEL_SELECTION_SOURCE, SKIN_CHANNEL_SELECTION_TARGET, SKIN_CHANNEL_SELECTION_TARGET_TMP, \
-    SKIN_MOVIEPLAYER_SOURCE, SKIN_MOVIEPLAYER_TARGET, SKIN_MOVIEPLAYER_TARGET_TMP
+    SKIN_MOVIEPLAYER_SOURCE, SKIN_MOVIEPLAYER_TARGET, SKIN_MOVIEPLAYER_TARGET_TMP, \
+	SKIN_EMC_SOURCE, SKIN_EMC_TARGET, SKIN_EMC_TARGET_TMP
 
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -278,12 +279,13 @@ class MainSettingsView(Screen):
             moviePlayerSkinSearchAndReplace = []
 
             channelNameXML = self.getChannelNameXML(
-                "30,470",
+                "35,465",
                 config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize.getValue(),
-                config.plugins.MyMetrixLiteOther.showChannelNumber.getValue(),
-                config.plugins.MyMetrixLiteOther.showChannelName.getValue()
+                #config.plugins.MyMetrixLiteOther.showChannelNumber.getValue(),
+                False,
+				config.plugins.MyMetrixLiteOther.showMovieName.getValue()
             )
-            moviePlayerSkinSearchAndReplace.append(['<panel name="CHANNELNAME" />', channelNameXML])
+            moviePlayerSkinSearchAndReplace.append(['<panel name="MOVIENAME" />', channelNameXML])
 
             if config.plugins.MyMetrixLiteOther.showInfoBarClock.getValue() is False:
                 moviePlayerSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
@@ -298,6 +300,35 @@ class MainSettingsView(Screen):
 
 
             move(SKIN_MOVIEPLAYER_TARGET_TMP, SKIN_MOVIEPLAYER_TARGET)
+
+            ################
+            # EMC
+            ################
+
+            EMCSkinSearchAndReplace = []
+
+            channelNameXML = self.getChannelNameXML(
+                "35,465",
+                config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize.getValue(),
+                #config.plugins.MyMetrixLiteOther.showChannelNumber.getValue(),
+                False,
+				config.plugins.MyMetrixLiteOther.showMovieName.getValue()
+            )
+            EMCSkinSearchAndReplace.append(['<panel name="MOVIENAME" />', channelNameXML])
+
+            if config.plugins.MyMetrixLiteOther.showInfoBarClock.getValue() is False:
+                EMCSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
+
+            # InfoBar
+            skin_lines = appendSkinFile(SKIN_EMC_SOURCE, EMCSkinSearchAndReplace)
+
+            xFile = open(SKIN_EMC_TARGET_TMP, "w")
+            for xx in skin_lines:
+                xFile.writelines(xx)
+            xFile.close()
+
+
+            move(SKIN_EMC_TARGET_TMP, SKIN_EMC_TARGET)
 
 
 
@@ -357,6 +388,7 @@ class MainSettingsView(Screen):
             skinSearchAndReplace.append(['skin_00b_SecondInfoBar.xml', 'skin_00b_SecondInfoBar.MySkin.xml'])
             skinSearchAndReplace.append(['skin_00e_ChannelSelection.xml', 'skin_00e_ChannelSelection.MySkin.xml'])
             skinSearchAndReplace.append(['skin_00f_MoviePlayer.xml', 'skin_00f_MoviePlayer.MySkin.xml'])
+            skinSearchAndReplace.append(['skin_00g_EMC.xml', 'skin_00g_EMC.MySkin.xml'])
 
             skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
 

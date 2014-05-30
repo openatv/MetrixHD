@@ -351,6 +351,13 @@
 			</widget>
 			<!-- CHANNEL NAME */-->
 		</screen>
+		<screen name="MOVIENAME">
+			<!--/* MOVIE NAME -->
+			<widget font="SetrixHD;80" foregroundColor="background-text" noWrap="1" position="35,465" render="Label" size="1252,105" source="session.CurrentService" transparent="1" valign="bottom" zPosition="-30">
+				<convert type="MetrixHDExtServiceInfo">ServiceNumberAndName</convert>
+			</widget>
+			<!-- MOVIE NAME */-->
+		</screen>
 		<screen name="INFOBARRESOLUTION">
 			<!-- /* ResolutionInfo -->
 			<widget source="session.CurrentService" render="Label" position="644,666" size="60,26" font="RegularLight; 24" halign="right" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
