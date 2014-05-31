@@ -21,7 +21,7 @@ class MetrixHDSYSTemp(Renderer, VariableText):
 					out_line = popen("cat /proc/stb/fp/temp_sensor").readline()
 					systemp = out_line.replace('\n', '')
 				if not systemp == "-- " and len(systemp) > 2:
-					systemp = tempinfo[:2]
+					systemp = systemp[:2]
 			except:
 				pass
 			self.text = systemp + str('\xc2\xb0') + "C"
