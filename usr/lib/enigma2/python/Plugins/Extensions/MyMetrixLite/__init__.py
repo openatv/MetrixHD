@@ -233,6 +233,7 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.showInfoBarResolution = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showInfoBarClock = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showCPULoad = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showSYSTemp = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.setTunerAuto = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelectionNumber(1, 6, 1, default = 2)
     config.plugins.MyMetrixLiteOther.channelSelectionStyle = ConfigSelection(default="CHANNELSELECTION-1", choices = channelSelectionStyleList)

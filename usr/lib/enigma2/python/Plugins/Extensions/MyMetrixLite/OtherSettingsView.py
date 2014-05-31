@@ -111,6 +111,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(_("Show Resolution"), config.plugins.MyMetrixLiteOther.showInfoBarResolution))
         list.append(getConfigListEntry(_("Show Clock"), config.plugins.MyMetrixLiteOther.showInfoBarClock))
         list.append(getConfigListEntry(_("Show CPU-Load"), config.plugins.MyMetrixLiteOther.showCPULoad))
+        list.append(getConfigListEntry(_("Show SYS-Temp"), config.plugins.MyMetrixLiteOther.showSYSTemp))
         list.append(getConfigListEntry(_("Tuner   ----------------------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Set number of tuner automatically"), config.plugins.MyMetrixLiteOther.setTunerAuto))
         list.append(getConfigListEntry(_("Set number of tuner manually"), config.plugins.MyMetrixLiteOther.setTunerManual))
