@@ -292,21 +292,21 @@
 			<!-- STYLE MODERN */ -->
 		</screen>
 		<screen name="CPULOAD">
-			<eLabel text="CPU-Load:" position="1098,698" size="97,20" font="Regular; 16" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" halign="right" />
-			<widget source="global.CurrentTime" render="MetrixHDCPULoad" position="1198,698" size="40,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+			<eLabel text="CPU-Load:" position="1098,697" size="97,20" font="Regular; 16" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" halign="right" />
+			<widget source="global.CurrentTime" render="MetrixHDCPULoad" position="1198,697" size="40,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
 			</widget>
 		</screen>	
 		<screen name="SYSTEMP">
-			<eLabel text="SYS-Temp:" position="1098,698" size="97,20" font="Regular; 16" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" halign="right" />
-			<widget source="global.CurrentTime" render="MetrixHDSYSTemp" position="1198,698" size="40,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+			<eLabel text="SYS-Temp:" position="1098,697" size="97,20" font="Regular; 16" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" halign="right" />
+			<widget source="global.CurrentTime" render="MetrixHDSYSTemp" position="1198,697" size="40,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
 			</widget>
 		</screen>	
 		<screen name="CPULOADSYSTEMP">
-			<eLabel text="CPU-Load:" position="960,698" size="97,20" font="Regular; 16" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" halign="right" />
-			<widget source="global.CurrentTime" render="MetrixHDCPULoad" position="1060,698" size="40,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+			<eLabel text="CPU-Load:" position="960,697" size="97,20" font="Regular; 16" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" halign="right" />
+			<widget source="global.CurrentTime" render="MetrixHDCPULoad" position="1060,697" size="40,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
 			</widget>
-			<eLabel text="SYS-Temp:" position="1098,698" size="97,20" font="Regular; 16" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" halign="right" />
-			<widget source="global.CurrentTime" render="MetrixHDSYSTemp" position="1198,698" size="40,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+			<eLabel text="SYS-Temp:" position="1098,697" size="97,20" font="Regular; 16" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" halign="right" />
+			<widget source="global.CurrentTime" render="MetrixHDSYSTemp" position="1198,697" size="40,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
 			</widget>
 		</screen>	
 		<screen name="CLOCKWIDGET">
@@ -384,8 +384,8 @@
 		</screen>
 		<screen name="INFOBARRECORDSTATE">
 			<!--/* RECORDSTATE -->
-			<ePixmap alphatest="blend" pixmap="/usr/share/enigma2/MetrixHD/icons/ico_rec_off.png" position="805,672" size="45,23" zPosition="1"/>
-			<widget alphatest="blend" pixmap="/usr/share/enigma2/MetrixHD/icons/ico_rec_on.png" position="805,672" render="Pixmap" size="45,23" source="session.RecordState" zPosition="2">
+			<ePixmap alphatest="blend" pixmap="/usr/share/enigma2/MetrixHD/icons/ico_rec_off.png" position="805,670" size="45,23" zPosition="1"/>
+			<widget alphatest="blend" pixmap="/usr/share/enigma2/MetrixHD/icons/ico_rec_on.png" position="805,670" render="Pixmap" size="45,23" source="session.RecordState" zPosition="2">
 				<convert type="ConditionalShowHide">Blink</convert>
 			</widget>
 			<!-- RECORDSTATE */-->
@@ -786,39 +786,39 @@
 		</screen>
 		<screen name="INFOBARSERVICEINFO">
 			<!--/* SERVICE INFO -->
-			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/subtitle_off.png" position="862,671" size="31,23"/>
-			<widget alphatest="blend" pixmap="MetrixHD/icons/subtitle_on.png" position="862,671" render="Pixmap" size="31,23" source="session.CurrentService" zPosition="1">
+			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/subtitle_off.png" position="862,669" size="31,23"/>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/subtitle_on.png" position="862,669" render="Pixmap" size="31,23" source="session.CurrentService" zPosition="1">
 				<convert type="ServiceInfo">SubservicesAvailable</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
-			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hbbtv_off.png" position="907,670" size="64,24" zPosition="1"/>
-			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hbbtv_on.png" position="907,670" render="Pixmap" size="64,24" source="session.CurrentService" zPosition="2">
+			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hbbtv_off.png" position="907,668" size="64,24" zPosition="1"/>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hbbtv_on.png" position="907,668" render="Pixmap" size="64,24" source="session.CurrentService" zPosition="2">
 				<convert type="ServiceInfo">HasHBBTV</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
-			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_txt_off.png" position="986,671" size="30,23" zPosition="1"/>
-			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_txt_on.png" position="986,671" render="Pixmap" size="30,23" source="session.CurrentService" zPosition="2">
+			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_txt_off.png" position="986,669" size="30,23" zPosition="1"/>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_txt_on.png" position="986,669" render="Pixmap" size="30,23" source="session.CurrentService" zPosition="2">
 				<convert type="ServiceInfo">HasTelext</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
-			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_dolby_off.png" position="1030,671" size="34,23" zPosition="1"/>
-			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_dolby_on.png" position="1030,671" render="Pixmap" size="34,23" source="session.CurrentService" zPosition="2">
+			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_dolby_off.png" position="1030,669" size="34,23" zPosition="1"/>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_dolby_on.png" position="1030,669" render="Pixmap" size="34,23" source="session.CurrentService" zPosition="2">
 				<convert type="ServiceInfo">IsMultichannel</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
-			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hd_off.png" position="1080,671" size="49,24" zPosition="1"/>
-			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_on.png" position="1080,671" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hd_off.png" position="1080,669" size="49,24" zPosition="1"/>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_on.png" position="1080,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
 				<convert type="ServiceInfo">VideoWidth</convert>
 				<convert type="ValueRange">721,1980</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
-			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_format_off.png" position="1141,671" size="43,23" zPosition="1"/>
-			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_format_on.png" position="1141,671" render="Pixmap" size="43,22" source="session.CurrentService" zPosition="2">
+			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_format_off.png" position="1141,669" size="43,23" zPosition="1"/>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_format_on.png" position="1141,669" render="Pixmap" size="43,22" source="session.CurrentService" zPosition="2">
 				<convert type="ServiceInfo">IsWidescreen</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
-			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_crypt_off.png" position="1200,671" size="37,23" zPosition="1"/>
-			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_crypt_on.png" position="1200,671" render="Pixmap" size="37,23" source="session.CurrentService" zPosition="2">
+			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_crypt_off.png" position="1200,669" size="37,23" zPosition="1"/>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_crypt_on.png" position="1200,669" render="Pixmap" size="37,23" source="session.CurrentService" zPosition="2">
 				<convert type="ServiceInfo">IsCrypted</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
