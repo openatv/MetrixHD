@@ -80,6 +80,9 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(_("    Service Description"), ))
         list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.channelselectionservicedescription))
         list.append(getConfigListEntry(_("        Font color selected"), config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected))
+        list.append(getConfigListEntry(_("Text Windowtitle  -------------------------------------------------------------------------------------"), ))
+        list.append(getConfigListEntry(_("    Font color"), config.plugins.MyMetrixLiteColors.windowtitletext))
+        list.append(getConfigListEntry(_("    Font color transparency"), config.plugins.MyMetrixLiteColors.windowtitletexttransparency))
         list.append(getConfigListEntry(_("Text in background  -----------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("    Font color"), config.plugins.MyMetrixLiteColors.backgroundtext))
         list.append(getConfigListEntry(_("    Font color transparency"), config.plugins.MyMetrixLiteColors.backgroundtexttransparency))
@@ -180,6 +183,8 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectionservicedescription)
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected)
 
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.windowtitletext)
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.windowtitletexttransparency)
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.backgroundtext)
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.backgroundtexttransparency)
 

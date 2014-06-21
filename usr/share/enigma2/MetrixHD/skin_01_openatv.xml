@@ -1884,16 +1884,16 @@
 		<widget source="Event" render="Label" position="70,78" size="700,39" font="Regular; 24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 			<convert type="EventName">Name</convert>
 		</widget>
-		<widget source="Event" render="Label" position="70,126" size=" 65, 22" font="Regular; 18" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
+		<widget source="Event" render="Label" position="70,123" size=" 65, 22" font="Regular; 18" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 			<convert type="EventTime">StartTime</convert>
 			<convert type="ClockToText">Format:%H:%M </convert>
 		</widget>
-		<widget source="Event" render="Label" position="797,126" size=" 80, 22" font="Regular; 18" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="center">
+		<widget source="Event" render="Label" position="797,123" size=" 80, 22" font="Regular; 18" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="center">
 			<convert type="EventTime">EndTime</convert>
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
-		<eLabel position="146,135" size="640,1" backgroundColor="layer-a-progress" foregroundColor="layer-a-progress" zPosition="1" />
-		<widget source="Event" render="Progress" position="146,133" size="640,5" borderWidth="0" backgroundColor="layer-a-background" foregroundColor="layer-a-progress" transparent="1" zPosition="1">
+		<eLabel position="146,135" size="640,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="1" />
+		<widget source="Event" render="Progress" position="146,133" size="640,5" borderWidth="0" backgroundColor="layer-a-background" foregroundColor="layer-a-progress" transparent="1" zPosition="2">
 			<convert type="EventTime">Progress</convert>
 		</widget>
 		<widget name="timeline_text" position="70,296" size="1155,25" selectionDisabled="1" transparent="1" />

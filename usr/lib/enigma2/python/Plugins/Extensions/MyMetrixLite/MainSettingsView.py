@@ -345,6 +345,7 @@ class MainSettingsView(Screen):
             channelselectionservicedescription = ('name="layer-a-channelselection-foreground-ServiceDescription" value="#00' + config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value + '"')
             channelselectionservicedescriptionselected = ('name="layer-a-channelselection-foreground-ServiceDescriptionSelected" value="#00' + config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value + '"')
 
+            windowtitletext = ('name="title-foreground" value="#' + config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value + config.plugins.MyMetrixLiteColors.windowtitletext.value + '"')
             backgroundtext = ('name="background-text" value="#' + config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value + config.plugins.MyMetrixLiteColors.backgroundtext.value + '"')
 
             layerabackground = ('name="layer-a-background" value="#' + config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layerabackground.value + '"')
@@ -370,6 +371,7 @@ class MainSettingsView(Screen):
             skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-ServiceDescription" value="#00CCCCCC"', channelselectionservicedescription ])
             skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-ServiceDescriptionSelected" value="#00FFFFFF"', channelselectionservicedescriptionselected ])
 
+            skinSearchAndReplace.append(['name="title-foreground" value="#11FFFFFF"', windowtitletext ])
             skinSearchAndReplace.append(['name="background-text" value="#96FFFFFF"', backgroundtext ])
 
             skinSearchAndReplace.append(['name="layer-a-background" value="#1E0F0F0F"', layerabackground ])
@@ -450,7 +452,7 @@ class MainSettingsView(Screen):
             channelRenderer = None
 
         if channelRenderer is not None:
-            return '''<widget font="SetrixHD;''' + fontSize + '''" foregroundColor="background-text" noWrap="1" position="''' \
+            return '''<widget font="SetrixHD;''' + fontSize + '''" backgroundColor="layer-a-background" foregroundColor="background-text" noWrap="1" position="''' \
                 + widgetPosition \
                 + '''" render="Label" size="1252,105" source="session.CurrentService" transparent="1" valign="bottom" zPosition="-30">
                 <convert type="MetrixHDExtServiceInfo">''' + channelRenderer + '''</convert>
