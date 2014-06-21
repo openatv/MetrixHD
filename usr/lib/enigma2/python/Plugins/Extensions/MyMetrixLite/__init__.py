@@ -145,8 +145,10 @@ def initColorsConfig():
     config.plugins.MyMetrixLiteColors.channelselectionservicedescription = ConfigSelection(default="BDBDBD", choices = ColorList)
     config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected = ConfigSelection(default="FFFFFF", choices = ColorList)
 
+    config.plugins.MyMetrixLiteColors.windowtitletext = ConfigSelection(default="FFFFFF", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.windowtitletexttransparency = ConfigSelection(default="10", choices = TransparencyList)
     config.plugins.MyMetrixLiteColors.backgroundtext = ConfigSelection(default="FFFFFF", choices = ColorList)
-    config.plugins.MyMetrixLiteColors.backgroundtexttransparency = ConfigSelection(default="80", choices = TransparencyList)
+    config.plugins.MyMetrixLiteColors.backgroundtexttransparency = ConfigSelection(default="10", choices = TransparencyList)
 
     config.plugins.MyMetrixLiteColors.layerabackground = ConfigSelection(default="0F0F0F", choices = ColorList)
     config.plugins.MyMetrixLiteColors.layerabackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
@@ -246,8 +248,8 @@ def getTunerPositionList():
         ("306,666", "306,693", "2", "1,1"),
         ("326,666", "326,693", "4", "2,2"),
         ("346,666", "346,693", "8", "3,3"),
-        ("366,666", "346,693", "8", "3,3"),
-        ("386,666", "346,693", "8", "3,3")
+        ("366,666", "366,693", "16", "4,4"),
+        ("386,666", "386,693", "32", "5,5")
     ]
 
     return tunerPositionList
