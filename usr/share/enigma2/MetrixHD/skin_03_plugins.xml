@@ -515,6 +515,40 @@
 		<ePixmap position="906,230" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fritz.png" transparent="1" alphatest="blend" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
-	<!-- Fritz! */-->   
+	<!-- Fritz! */-->
+ <!-- PPanel -->
+ <screen name="ToplevelPPanel"  position="center,center" size="800,600" backgroundColor="transparent" flags="wfNoBorder">
+  <eLabel position="0,0" zPosition="-10" size="800,600" backgroundColor="layer-a-background" />
+  <widget source="Title" render="Label" position="0,0" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+  <widget name="nodelist" font="Regular;22" scrollbarMode="showOnDemand"  position="0,50" size="800,500" />
+  <widget name="helptext" position="0,550" size="800,50" valign="center" halign="left" font="Regular;20" />
+ </screen>
+ <screen name="PPanel"  position="center,center" size="800,600" backgroundColor="transparent" flags="wfNoBorder">
+  <eLabel position="0,0" zPosition="-10" size="800,600" backgroundColor="layer-a-background" />
+  <widget source="Title" render="Label" position="0,0" size="800,40" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+  <widget name="nodelist" font="Regular;22" scrollbarMode="showOnDemand"  position="0,50" size="800,500" />
+  <widget name="helptext" position="0,550" size="800,50" valign="center" halign="left" font="Regular;20" />
+ </screen>
+ <screen name="File"  position="center,center" size="800,600" backgroundColor="transparent" flags="wfNoBorder">
+  <eLabel position="0,0" zPosition="-10" size="800,600" backgroundColor="layer-a-background" />
+  <widget source="Title" render="Label" position="0,0" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+  <widget name="nodelist" font="Regular;22" scrollbarMode="showOnDemand"  position="0,50" size="800,500" />
+  <widget name="helptext" position="0,550" size="800,50" valign="center" halign="left" font="Regular;20" />
+ </screen>
+ <screen name="Tarball"  position="center,center" size="800,600" backgroundColor="transparent" flags="wfNoBorder">
+  <eLabel position="0,0" zPosition="-10" size="800,600" backgroundColor="layer-a-background" />
+  <widget source="Title" render="Label" position="0,0" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+  <widget name="progress" font="Regular;22" scrollbarMode="showOnDemand"  position="0,50" size="800,500" />
+ </screen>
+ <screen name="Execute"  position="center,center" size="800,600" backgroundColor="transparent" flags="wfNoBorder">
+  <eLabel position="0,0" zPosition="-10" size="800,600" backgroundColor="layer-a-background" />
+  <widget source="Title" render="Label" position="0,0" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+  <eLabel text="left" position="90,565" size="60,30" font="SetrixHD; 20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+  <eLabel text="right" position="730,565" size="60,30" font="SetrixHD; 20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+  <ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="50,560" size="30,40" alphatest="blend" />
+  <ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="690,560" size="30,40" alphatest="blend" />
+  <widget name="linelist" font="Regular;22" scrollbarMode="showOnDemand"  position="0,50" size="800,500" />
+ </screen>
+ <!-- PPanel -->
 	<!-- PLUGINS */-->
 </skin>
