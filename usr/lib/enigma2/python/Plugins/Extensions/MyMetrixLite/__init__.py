@@ -133,7 +133,17 @@ def initColorsConfig():
         ("5A", _("35%")),
         ("67", _("40%")),
         ("74", _("45%")),
-        ("80", _("50%"))
+        ("80", _("50%")),
+        ("8D", _("55%")),
+        ("9A", _("60%")),
+        ("A7", _("65%")),
+        ("B4", _("70%")),
+        ("C0", _("75%")),
+        ("CD", _("80%")),
+        ("DA", _("85%")),
+        ("E7", _("90%")),
+        ("F4", _("95%")),
+        ("FF", _("100%"))
     ]
 
     config.plugins.MyMetrixLiteColors = ConfigSubsection()
@@ -146,9 +156,13 @@ def initColorsConfig():
     config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected = ConfigSelection(default="FFFFFF", choices = ColorList)
 
     config.plugins.MyMetrixLiteColors.windowtitletext = ConfigSelection(default="FFFFFF", choices = ColorList)
-    config.plugins.MyMetrixLiteColors.windowtitletexttransparency = ConfigSelection(default="10", choices = TransparencyList)
+    config.plugins.MyMetrixLiteColors.windowtitletexttransparency = ConfigSelection(default="1A", choices = TransparencyList)
+    config.plugins.MyMetrixLiteColors.windowtitletextback = ConfigSelection(default="FFFFFF", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency = ConfigSelection(default="34", choices = TransparencyList)
     config.plugins.MyMetrixLiteColors.backgroundtext = ConfigSelection(default="FFFFFF", choices = ColorList)
-    config.plugins.MyMetrixLiteColors.backgroundtexttransparency = ConfigSelection(default="10", choices = TransparencyList)
+    config.plugins.MyMetrixLiteColors.backgroundtexttransparency = ConfigSelection(default="34", choices = TransparencyList)
+    config.plugins.MyMetrixLiteColors.backgroundtextback = ConfigSelection(default="FFFFFF", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.backgroundtextbacktransparency = ConfigSelection(default="67", choices = TransparencyList)
 
     config.plugins.MyMetrixLiteColors.layerabackground = ConfigSelection(default="0F0F0F", choices = ColorList)
     config.plugins.MyMetrixLiteColors.layerabackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
