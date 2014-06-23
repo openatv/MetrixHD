@@ -346,7 +346,9 @@ class MainSettingsView(Screen):
             channelselectionservicedescriptionselected = ('name="layer-a-channelselection-foreground-ServiceDescriptionSelected" value="#00' + config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value + '"')
 
             windowtitletext = ('name="title-foreground" value="#' + config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value + config.plugins.MyMetrixLiteColors.windowtitletext.value + '"')
+            windowtitletextback = ('name="title-background" value="#' + config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value + config.plugins.MyMetrixLiteColors.windowtitletextback.value + '"')
             backgroundtext = ('name="background-text" value="#' + config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value + config.plugins.MyMetrixLiteColors.backgroundtext.value + '"')
+            backgroundtextback = ('name="text-background" value="#' + config.plugins.MyMetrixLiteColors.backgroundtextbacktransparency.value + config.plugins.MyMetrixLiteColors.backgroundtextback.value + '"')
 
             layerabackground = ('name="layer-a-background" value="#' + config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layerabackground.value + '"')
             layeraforeground = ('name="layer-a-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layeraforeground.value + '"')
@@ -368,33 +370,35 @@ class MainSettingsView(Screen):
 
             skinSearchAndReplace.append(['name="layer-a-channelselection-foreground" value="#00FFFFFF"', channelselectionservice ])
             skinSearchAndReplace.append(['name="layer-a-channelselection-foregroundColorSelected" value="#00FFFFFF"', channelselectionserviceselected ])
-            skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-ServiceDescription" value="#00CCCCCC"', channelselectionservicedescription ])
+            skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-ServiceDescription" value="#00BDBDBD"', channelselectionservicedescription ])
             skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-ServiceDescriptionSelected" value="#00FFFFFF"', channelselectionservicedescriptionselected ])
 
-            skinSearchAndReplace.append(['name="title-foreground" value="#11FFFFFF"', windowtitletext ])
-            skinSearchAndReplace.append(['name="background-text" value="#96FFFFFF"', backgroundtext ])
-
-            skinSearchAndReplace.append(['name="layer-a-background" value="#1E0F0F0F"', layerabackground ])
+            skinSearchAndReplace.append(['name="layer-a-background" value="#1A0F0F0F"', layerabackground ])
             skinSearchAndReplace.append(['name="layer-a-foreground" value="#00FFFFFF"', layeraforeground ])
-            skinSearchAndReplace.append(['name="layer-a-selection-background" value="#1E27408B"', layeraselectionbackground ])
+            skinSearchAndReplace.append(['name="layer-a-selection-background" value="#1A27408B"', layeraselectionbackground ])
             skinSearchAndReplace.append(['name="layer-a-selection-foreground" value="#00FFFFFF"', layeraselectionforeground ])
-            skinSearchAndReplace.append(['name="layer-a-accent1" value="#00CCCCCC"', layeraaccent1 ])
-            skinSearchAndReplace.append(['name="layer-a-accent2" value="#007F7F7F"', layeraaccent2 ])
-            skinSearchAndReplace.append(['name="layer-a-progress" value="#1E27408B"', layeraprogress ])
+            skinSearchAndReplace.append(['name="layer-a-accent1" value="#00BDBDBD"', layeraaccent1 ])
+            skinSearchAndReplace.append(['name="layer-a-accent2" value="#006E6E6E"', layeraaccent2 ])
+            skinSearchAndReplace.append(['name="layer-a-progress" value="#1A27408B"', layeraprogress ])
 
-            skinSearchAndReplace.append(['name="layer-b-background" value="#1E27408B"', layerbbackground ])
+            skinSearchAndReplace.append(['name="layer-b-background" value="#1A27408B"', layerbbackground ])
             skinSearchAndReplace.append(['name="layer-b-foreground" value="#00FFFFFF"', layerbforeground ])
-            skinSearchAndReplace.append(['name="layer-b-selection-background" value="#1E0F0F0F"', layerbselectionbackground ])
+            skinSearchAndReplace.append(['name="layer-b-selection-background" value="#1A0F0F0F"', layerbselectionbackground ])
             skinSearchAndReplace.append(['name="layer-b-selection-foreground" value="#00FFFFFF"', layerbselectionforeground ])
-            skinSearchAndReplace.append(['name="layer-b-accent1" value="#00CCCCCC"', layerbaccent1 ])
-            skinSearchAndReplace.append(['name="layer-b-accent2" value="#007F7F7F"', layerbaccent2 ])
-            skinSearchAndReplace.append(['name="layer-b-progress" value="#1EFFFFFF"', layerbprogress ])
+            skinSearchAndReplace.append(['name="layer-b-accent1" value="#00BDBDBD"', layerbaccent1 ])
+            skinSearchAndReplace.append(['name="layer-b-accent2" value="#006E6E6E"', layerbaccent2 ])
+            skinSearchAndReplace.append(['name="layer-b-progress" value="#1AFFFFFF"', layerbprogress ])
 
             skinSearchAndReplace.append(['skin_00a_InfoBar.xml', 'skin_00a_InfoBar.MySkin.xml'])
             skinSearchAndReplace.append(['skin_00b_SecondInfoBar.xml', 'skin_00b_SecondInfoBar.MySkin.xml'])
             skinSearchAndReplace.append(['skin_00e_ChannelSelection.xml', 'skin_00e_ChannelSelection.MySkin.xml'])
             skinSearchAndReplace.append(['skin_00f_MoviePlayer.xml', 'skin_00f_MoviePlayer.MySkin.xml'])
             skinSearchAndReplace.append(['skin_00g_EMC.xml', 'skin_00g_EMC.MySkin.xml'])
+
+            skinSearchAndReplace.append(['name="title-foreground" value="#1AFFFFFF"', windowtitletext ])
+            skinSearchAndReplace.append(['name="title-background" value="#34FFFFFF"', windowtitletextback ])
+            skinSearchAndReplace.append(['name="background-text" value="#34FFFFFF"', backgroundtext ])
+            skinSearchAndReplace.append(['name="text-background" value="#67FFFFFF"', backgroundtextback ])
 
             skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
 
@@ -452,7 +456,7 @@ class MainSettingsView(Screen):
             channelRenderer = None
 
         if channelRenderer is not None:
-            return '''<widget font="SetrixHD;''' + fontSize + '''" backgroundColor="layer-a-background" foregroundColor="background-text" noWrap="1" position="''' \
+            return '''<widget font="SetrixHD;''' + fontSize + '''" backgroundColor="text-background" foregroundColor="background-text" noWrap="1" position="''' \
                 + widgetPosition \
                 + '''" render="Label" size="1252,105" source="session.CurrentService" transparent="1" valign="bottom" zPosition="-30">
                 <convert type="MetrixHDExtServiceInfo">''' + channelRenderer + '''</convert>
