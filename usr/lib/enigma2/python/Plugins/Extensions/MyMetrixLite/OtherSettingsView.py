@@ -29,6 +29,7 @@ from Components.ConfigList import ConfigListScreen
 from Components.Sources.StaticText import StaticText
 from Components.Pixmap import Pixmap
 from enigma import ePicLoad
+from os import path
 
 #############################################################
 
@@ -111,7 +112,24 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(_("Show Resolution"), config.plugins.MyMetrixLiteOther.showInfoBarResolution))
         list.append(getConfigListEntry(_("Show Clock"), config.plugins.MyMetrixLiteOther.showInfoBarClock))
         list.append(getConfigListEntry(_("Show CPU-Load"), config.plugins.MyMetrixLiteOther.showCPULoad))
-        list.append(getConfigListEntry(_("Show SYS-Temp"), config.plugins.MyMetrixLiteOther.showSYSTemp))
+        temp = ""
+        if path.exists('/proc/stb/fp/temp_sensor_avs'):
+            f = open('/proc/stb/fp/temp_sensor_avs', 'r')
+            temp = f.read()
+            f.close()
+        if (temp and int(temp.replace('\n', '')) > 0) or config.plugins.MyMetrixLiteOther.showCPUTemp.getValue() is not False:
+            list.append(getConfigListEntry(_("Show CPU-Temp"), config.plugins.MyMetrixLiteOther.showCPUTemp))
+        temp = ""
+        if path.exists('/proc/stb/sensors/temp0/value'):
+            f = open('/proc/stb/sensors/temp0/value', 'r')
+            temp = f.read()
+            f.close()
+        elif path.exists('/proc/stb/fp/temp_sensor'):
+            f = open('/proc/stb/fp/temp_sensor', 'r')
+            temp = f.read()
+            f.close()
+        if (temp and int(temp.replace('\n', '')) > 0) or config.plugins.MyMetrixLiteOther.showSYSTemp.getValue() is not False:
+            list.append(getConfigListEntry(_("Show SYS-Temp"), config.plugins.MyMetrixLiteOther.showSYSTemp))
         list.append(getConfigListEntry(_("Tuner   ----------------------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Set number of tuner automatically"), config.plugins.MyMetrixLiteOther.setTunerAuto))
         list.append(getConfigListEntry(_("Set number of tuner manually"), config.plugins.MyMetrixLiteOther.setTunerManual))
