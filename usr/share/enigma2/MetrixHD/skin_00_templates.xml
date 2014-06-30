@@ -291,22 +291,9 @@
 			</widget>
 			<!-- STYLE MODERN */ -->
 		</screen>
-		<screen name="CPULOAD">
-			<eLabel text="CPU-Load:" position="1098,697" size="97,20" font="Regular; 16" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" halign="right" />
-			<widget source="global.CurrentTime" render="MetrixHDCPULoad" position="1198,697" size="40,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
-			</widget>
-		</screen>	
-		<screen name="SYSTEMP">
-			<eLabel text="SYS-Temp:" position="1098,697" size="97,20" font="Regular; 16" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" halign="right" />
-			<widget source="global.CurrentTime" render="MetrixHDSYSTemp" position="1198,697" size="40,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
-			</widget>
-		</screen>	
-		<screen name="CPULOADSYSTEMP">
-			<eLabel text="CPU-Load:" position="960,697" size="97,20" font="Regular; 16" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" halign="right" />
-			<widget source="global.CurrentTime" render="MetrixHDCPULoad" position="1060,697" size="40,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
-			</widget>
-			<eLabel text="SYS-Temp:" position="1098,697" size="97,20" font="Regular; 16" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" halign="right" />
-			<widget source="global.CurrentTime" render="MetrixHDSYSTemp" position="1198,697" size="40,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+		<screen name="STBINFO">
+			<widget backgroundColor="layer-a-background" position="598,697" size="640,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" transparent="1" zPosition="10" render="Label" source="global.CurrentTime">
+				<convert type="MetrixSTBinfo">MyMetrixConfig</convert>
 			</widget>
 		</screen>	
 		<screen name="CLOCKWIDGET">

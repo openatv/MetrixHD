@@ -225,13 +225,6 @@ class MainSettingsView(Screen):
             if config.plugins.MyMetrixLiteOther.showInfoBarClock.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
 
-            if config.plugins.MyMetrixLiteOther.showCPULoad.getValue() is False and config.plugins.MyMetrixLiteOther.showSYSTemp.getValue() is False:
-                infobarSkinSearchAndReplace.append(['<panel name="CPULOADSYSTEMP" />', ''])
-            elif config.plugins.MyMetrixLiteOther.showCPULoad.getValue() is False:
-                infobarSkinSearchAndReplace.append(['<panel name="CPULOADSYSTEMP" />', '<panel name="SYSTEMP" />'])
-            elif config.plugins.MyMetrixLiteOther.showSYSTemp.getValue() is False:
-                infobarSkinSearchAndReplace.append(['<panel name="CPULOADSYSTEMP" />', '<panel name="CPULOAD" />'])
-
             # InfoBar
             skin_lines = appendSkinFile(SKIN_INFOBAR_SOURCE, infobarSkinSearchAndReplace)
 
