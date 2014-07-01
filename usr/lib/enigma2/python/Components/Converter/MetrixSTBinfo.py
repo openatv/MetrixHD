@@ -3,6 +3,7 @@ from Components.config import config
 from Components.Element import cached
 from os import path
 from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
+import Screens.Standby
 
 initOtherConfig()
 
@@ -14,7 +15,9 @@ class MetrixSTBinfo(Converter, object):
 
 	@cached
 	def getText(self):
-		if self.type == "CPUload":
+		if Screens.Standby.inStandby:
+			return ""
+		elif self.type == "CPUload":
 			return self.getCPUload()
 		elif self.type == "CPUtemp":
 			return self.getCPUtemp()
@@ -29,7 +32,7 @@ class MetrixSTBinfo(Converter, object):
 		info = ""
 		space = "        "
 		if config.plugins.MyMetrixLiteOther.showCPULoad.getValue() is not False:
-			info += space + self.getCPUload()
+			info += self.getCPUload()
 		if config.plugins.MyMetrixLiteOther.showCPUTemp.getValue() is not False:
 			info += space + self.getCPUtemp()
 		if config.plugins.MyMetrixLiteOther.showSYSTemp.getValue() is not False:
