@@ -275,6 +275,9 @@ class MainSettingsView(Screen):
 
             moviePlayerSkinSearchAndReplace = []
 
+            if config.plugins.MetrixWeather.enabled.getValue() is False:
+                moviePlayerSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
+
             channelNameXML = self.getChannelNameXML(
                 "35,465",
                 config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize.getValue(),
@@ -303,6 +306,9 @@ class MainSettingsView(Screen):
             ################
 
             EMCSkinSearchAndReplace = []
+
+            if config.plugins.MetrixWeather.enabled.getValue() is False:
+                EMCSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
 
             channelNameXML = self.getChannelNameXML(
                 "35,465",

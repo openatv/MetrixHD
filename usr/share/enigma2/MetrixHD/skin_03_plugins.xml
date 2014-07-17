@@ -550,5 +550,69 @@
   <widget name="linelist" font="Regular;22" scrollbarMode="showOnDemand"  position="0,50" size="800,500" />
  </screen>
  <!-- PPanel -->
-	<!-- PLUGINS */-->
+ <!-- MediaPlayer -->
+	<screen name="MediaPlayer" position="center,center" size="1280,720" title="MediaPlayer" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
+		<ePixmap position="0,0" zPosition="-20" size="1280,720" pixmap="MetrixHD/movie-back.png" />
+		<eLabel position="417,52" zPosition="-10" size="810,619" backgroundColor="layer-a-background" transparent="0" />
+		<eLabel position="432,280" size="500,40" text="Playlist" font="SetrixHD; 22" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel name="new eLabel" position="71,412" size="300,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="-1" />
+		<eLabel position="51,51" zPosition="-10" size="340,525" backgroundColor="layer-a-background" transparent="0" />
+		<widget name="filelist" position="430,107" size="782,167" itemHeight="25" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="coverArt" position="96,67" size="256,256" pixmap="MetrixHD/icons/media.png" transparent="1" alphatest="blend" />
+		<widget name="artist" position="58,371" size="329,30" font="SetrixHD;22" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="albumtext" position="57,470" size="120,25" font="SetrixHD;22" valign="top" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" halign="left" />
+		<widget name="album" position="58,500" size="320,30" font="SetrixHD;22" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="year" position="131,468" size="250,30" font="SetrixHD;22" valign="top" backgroundColor="layer-a-background" transparent="1" halign="right" />
+		<widget name="genre" position="58,540" size="320,30" font="SetrixHD;22" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="title" position="58,328" size="325,40" font="SetrixHD; 26" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="playlist" position="430,324" size="782,307" itemHeight="25" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="repeat" pixmaps="MetrixHD/repeat_off.png,MetrixHD/repeat_on.png" position="1035,633" size="70,30" transparent="1" alphatest="blend" />
+		<widget source="session.CurrentService" render="Label" position="58,425" size="119,32" zPosition="2" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" noWrap="1" transparent="1">
+			<convert type="ServicePosition">Position,ShowHours</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="262,425" size="119,32" zPosition="2" font="SetrixHD; 22" halign="right" backgroundColor="layer-a-background" noWrap="1" transparent="1">
+			<convert type="ServicePosition">Length,ShowHours</convert>
+		</widget>
+		<!--widget source="session.CurrentService" render="Progress" pixmap="MetrixHD/colors/000F6EB2.png" position="71,410" size="300,5" zPosition="1" transparent="1">
+			<convert type="ServicePosition">Position</convert>
+		</widget-->
+        <widget source="session.CurrentService" render="Progress" position="70,410" size="300,3" foregroundColor="layer-a-progress" borderWidth="0" transparent="1" zPosition="1">
+            <convert type="ServicePosition">Position</convert>
+        </widget>
+		<ePixmap position="1130,631" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
+		<!-- /*ClockWidget-->
+		<widget source="global.CurrentTime" render="Label" position="239,590" size="169,80" font="SetrixHD; 60" halign="left" backgroundColor="layer-a-background" transparent="1" valign="top">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="83,632" size="148,29" font="SetrixHD; 20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+			<convert type="ClockToText">Format:%e. %b</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="107,602" size="125,30" font="SetrixHD; 20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+			<convert type="ClockToText">Format:%A</convert>
+		</widget>
+		<eLabel position="51,597" zPosition="-1" size="340,70" backgroundColor="layer-a-background" transparent="0" />
+		<!--ClockWidget */-->
+		<eLabel position="432,60" size="500,40" text="Media Player" font="SetrixHD; 26" backgroundColor="layer-a-background" transparent="1" />
+	</screen>
+	<screen name="MediaPlayerSettings" position="0,0" size="1280,720" title="Edit Settings" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
+		<widget source="Title" render="Label" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
+			<convert type="ClockToText">Format:%A</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+			<convert type="ClockToText">Format:%e. %b</convert>
+		</widget>
+		<widget name="config" position="70,120" size="710,490" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="3" scrollbarMode="showNever" transparent="1" />
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
+		<eLabel text="Cancel" position="105,637" size="250,28" font="Regular; 20" halign="left" valign="top" transparent="1" />
+		<eLabel text="Save" position="395,637" size="250,28" font="Regular; 20" halign="left" valign="top" transparent="1" />
+		<ePixmap position="911,252" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- MediaPlayer -->
+<!-- PLUGINS */-->
 </skin>
