@@ -30,7 +30,7 @@
 		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
 	</screen>
 	<screen name="TimeshiftState" position="187,238" zPosition="2" size="889,230" backgroundColor="transparent" flags="wfNoBorder">
-		<widget name="state" position="257,20" size="381,95" font="Arial; 100" halign="center" backgroundColor="layer-a-background" transparent="1" valign="top" />
+		<widget name="state" position="257,20" size="381,95" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="center" transparent="1" valign="top" />
 		<widget source="session.CurrentService" render="Label" position="5,175" size="80,27" font="Regular; 20" halign="right" backgroundColor="layer-a-background">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
@@ -42,6 +42,9 @@
 		</widget>
 		<eLabel name="new eLabel" position="95,189" size="700,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="1" />
 		<eLabel name="new eLabel" position="0,160" size="890,60" zPosition="-1" />
+	</screen>
+	<screen name="PVRState" position="187,238" zPosition="2" size="889,230" backgroundColor="transparent" flags="wfNoBorder">
+		<widget name="state" position="257,20" size="381,95" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="center" transparent="1" valign="top" />
 	</screen>
 	<screen name="Volume" position="47,38" size="324,74" title="Volume" flags="wfNoBorder" backgroundColor="transparent" zPosition="99">
 		<widget name="Volume" position="72,34" size="170,5" zPosition="3" foregroundColor="layer-a-progress" transparent="1" />
@@ -131,8 +134,8 @@
 			<convert type="ServiceInfo">SubservicesAvailable</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hbbtv_off.png" position="874,491" size="64,24" zPosition="1"/>
-		<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hbbtv_on.png" position="874,491" render="Pixmap" size="64,24" source="session.CurrentService" zPosition="2">
+		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hbbtv_off.png" position="874,490" size="64,24" zPosition="1"/>
+		<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hbbtv_on.png" position="874,490" render="Pixmap" size="64,24" source="session.CurrentService" zPosition="2">
 			<convert type="ServiceInfo">HasHBBTV</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
@@ -146,8 +149,8 @@
 			<convert type="ServiceInfo">IsMultichannel</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hd_off.png" position="1047,491" size="49,24" zPosition="1"/>
-		<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_on.png" position="1047,491" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hd_off.png" position="1047,490" size="49,24" zPosition="1"/>
+		<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_on.png" position="1047,490" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
 			<convert type="ServiceInfo">VideoWidth</convert>
 			<convert type="ValueRange">721,1980</convert>
 			<convert type="ConditionalShowHide"/>
@@ -166,6 +169,42 @@
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
 		<panel name="ime-buttons_template1" />
+	</screen>
+	<!-- EventViewSimple , optimized for MovieInfo (EMC)-->
+	<screen name="EventViewSimple" position="0,0" size="1280,720" title="EventviewSimple" flags="wfNoBorder" backgroundColor="transparent">
+		<widget name="epg_description" position="70,90" size="700,520" font="SetrixHD; 24" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="channel" position="852,247" size="320,50" font="SetrixHD; 26" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget source="Service" render="MetrixHDXPicon" position="907,80" size="220,132" zPosition="5" transparent="1" alphatest="blend">
+			<convert type="MovieInfo">RecordServiceRef</convert>
+		</widget>
+		<eLabel position="859,310" size="315,1" backgroundColor="layer-b-progress" />
+		<widget source="session.CurrentService" render="Progress" position="859,308" size="315,5" borderWidth="0" backgroundColor="layer-b-background" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
+		<widget name="datetime" position="882,337" size="270,40" font="SetrixHD; 24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="duration" position="882,377" size="270,40" font="SetrixHD; 24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget source="Service" render="Label" position="882,417" size="270,40" font="SetrixHD; 24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" >
+			<convert type="MovieInfo">FileSize</convert>
+		</widget>
+		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_dolby_off.png" position="942,490" size="34,23" zPosition="1"/>
+		<widget alphatest="blend" pixmap="MetrixHD/icons/ico_dolby_on.png" position="942,490" render="Pixmap" size="34,23" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">IsMultichannel</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hd_off.png" position="992,490" size="49,24" zPosition="1"/>
+		<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_on.png" position="992,490" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">VideoWidth</convert>
+			<convert type="ValueRange">721,1980</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_format_off.png" position="1059,490" size="43,23" zPosition="1"/>
+		<widget alphatest="blend" pixmap="MetrixHD/icons/ico_format_on.png" position="1059,490" render="Pixmap" size="43,22" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">IsWidescreen</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<panel name="template1_2layer" />
+		<panel name="ime-buttons_template1" />
+		<eLabel text="EventviewSimple" position="10,552" size="1273,296" font="SetrixHD; 150" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
 	</screen>
 	<screen name="VideoFinetune" position="0,0" size="1280,720" backgroundColor="layer-a-background" flags="wfNoBorder">
 		<widget source="Canvas" render="Canvas" position="140,70" size="1000,576" />
@@ -2015,33 +2054,4 @@
 		<eLabel text="PiPSetup" position="10,5" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="0" />
 		<widget name="text" position="10,55" size="800,170" font="SetrixHD;20" halign="left" scrollbarMode="showNever" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
 	</screen>
-    <!-- Default Movie Center (not EMC) -->
-
-    <screen name="MovieSelection" position="0,0" size="1280,720" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
-        <eLabel text="Movie Center" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-        <widget name="list" position="70,115" size="700,460" scrollbarMode="showOnDemand" font="Regular;21"  itemHeight="40" transparent="1" />
-        <widget name="freeDiskSpace" position="371,584" size="380,25" font="SetrixHD;20" valign="center" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-b-foreground" transparent="1" />
-
-        <widget source="Service" render="Label" position="830,110" size="370,50" font="SetrixHD; 30" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
-            <convert type="MovieInfo">ShortDescription</convert>
-        </widget>
-        <widget source="Service" render="Label" position="830,170" size="370,24" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
-            <convert type="MovieInfo">RecordServiceName</convert>
-        </widget>
-        <widget source="Service" render="Label" position="833,218" size="370,325" font="RegularLight; 18" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top">
-            <convert type="EventName">ExtendedDescription</convert>
-        </widget>
-        <widget source="Service" render="Label" position="830,553" size="80,24" font="RegularLight;20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
-            <convert type="ServiceTime">Duration</convert>
-            <convert type="ClockToText">AsLength</convert>
-        </widget>
-        <widget source="Service" render="Label" position="945,553" size="253,24" font="RegularLight;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-b-foreground" transparent="1">
-            <convert type="MovieInfo">FileSize</convert>
-        </widget>
-        <panel name="template1_2layer" />
-        <panel name="rgyb-buttons_template1" />
-        <panel name="rgyb-keys_template1-source" />
-        <panel name="ime-buttons_template1" />
-        <widget name="waitingtext" position="0,0" size="0,0" />
-    </screen>
 </skin>
