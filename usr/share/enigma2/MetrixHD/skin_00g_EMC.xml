@@ -61,7 +61,7 @@
 		<ePixmap pixmap="MetrixHD/icons/ico_dolby_off.png" position="1060,616" size="34,23" zPosition="1" alphatest="blend" />
 		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_dolby_on.png" position="1060,616" size="34,23" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsMultichannel</convert>
-		<convert type="ConditionalShowHide" />
+			<convert type="ConditionalShowHide" />
 		</widget>
 		<ePixmap pixmap="MetrixHD/icons/ico_format_off.png" position="1175,616" size="43,26" zPosition="1" alphatest="blend" />
 		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_format_on.png" position="1175,616" size="43,26" zPosition="2" alphatest="blend">
@@ -90,9 +90,9 @@
 		<widget source="Service" render="EMCPositionGauge" position="151,666" size="980,9" zPosition="6" transparent="1">
 			<convert type="EMCServicePosition">Gauge</convert>
 		</widget>
-        <widget source="Service" render="Progress" position="150,669" size="980,3" foregroundColor="layer-a-progress" borderWidth="0" transparent="1" zPosition="5">
-            <convert type="EMCServicePosition">Position</convert>
-        </widget>
+		<widget source="Service" render="Progress" position="150,669" size="980,3" foregroundColor="layer-a-progress" borderWidth="0" transparent="1" zPosition="5">
+			<convert type="EMCServicePosition">Position</convert>
+		</widget>
 		<!--widget source="Service" render="EMCPositionGauge" pointer="MetrixHD/extensions/CoolPointer.png:980,0" position="151,669" size="980,3" zPosition="5" transparent="1">
 			<convert type="EMCServicePosition">Position</convert>
 		</widget-->
@@ -108,7 +108,7 @@
 		<eLabel name="new eLabel" position="150,670" size="980,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="-1" />
 		<widget name="audioLabel" position="961,577" size="100,22" font="EMCRegularFont;18" backgroundColor="layer-a-background" zPosition="3" transparent="1" halign="right" />
 		<widget name="chapterLabel" position="148,686" size="981,34" font="SetrixHD;22" halign="left" foregroundColor="layer-a-accent2" backgroundColor="layer-a-background" transparent="1" />
-        <panel name="CLOCKWIDGET" />
+		<panel name="CLOCKWIDGET" />
 		<panel name="INFOBARWEATHERWIDGET" />
 		<panel name="MOVIENAME" />
 	</screen>
