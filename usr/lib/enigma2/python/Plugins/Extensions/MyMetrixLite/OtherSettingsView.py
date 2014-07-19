@@ -38,7 +38,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
  <screen name="MyMetrixLiteOtherView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
     <eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
     <widget source="titleText" position="60,55" size="590,50" render="Label" font="Regular; 40" foregroundColor="00ffffff" backgroundColor="#00000000" valign="center" transparent="1" />
-    <widget name="config" position="61,124" size="590,490" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
+    <widget name="config" position="61,124" size="590,480" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
     <widget source="cancelBtn" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <widget source="saveBtn" position="257,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
@@ -68,7 +68,8 @@ class OtherSettingsView(ConfigListScreen, Screen):
         ConfigListScreen.__init__(
             self,
             self.getMenuItemList(),
-            session
+            session = session,
+            on_change = self.__selectionChanged
         )
 
         self["actions"] = ActionMap(
@@ -89,36 +90,26 @@ class OtherSettingsView(ConfigListScreen, Screen):
         }, -1)
 
         self.onLayoutFinish.append(self.UpdatePicture)
-    '''
+
     def __selectionChanged(self):
         cur = self["config"].getCurrent()
         cur = cur and len(cur) > 2 and cur[2]
 
-        if cur == "SHOW_CHANNEL_NAME":
+        if cur == "ENABLED":
             self["config"].setList(self.getMenuItemList())
-    '''
 
-    def getMenuItemList(self):
-        list = []
-
-        list.append(getConfigListEntry(_("InfoBar/SecondInfobar/MoviePlayer   --------------------------------------------------------------------"), ))
-        list.append(getConfigListEntry(_("Show ServiceIcons"), config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons))
-
-        list.append(getConfigListEntry(_("Show ChannelNumber"), config.plugins.MyMetrixLiteOther.showChannelNumber))
-        list.append(getConfigListEntry(_("Show ChannelName"), config.plugins.MyMetrixLiteOther.showChannelName))
-        list.append(getConfigListEntry(_("Show MovieName"), config.plugins.MyMetrixLiteOther.showMovieName))
-        list.append(getConfigListEntry(_("ChannelName/Number FontSize"), config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize))
-
-        list.append(getConfigListEntry(_("Show Resolution"), config.plugins.MyMetrixLiteOther.showInfoBarResolution))
-        list.append(getConfigListEntry(_("Show Clock"), config.plugins.MyMetrixLiteOther.showInfoBarClock))
-        list.append(getConfigListEntry(_("Show CPU-Load"), config.plugins.MyMetrixLiteOther.showCPULoad))
+    def getSYSSensor(self):
         temp = ""
         if path.exists('/proc/stb/fp/temp_sensor_avs'):
             f = open('/proc/stb/fp/temp_sensor_avs', 'r')
             temp = f.read()
             f.close()
-        if (temp and int(temp.replace('\n', '')) > 0) or config.plugins.MyMetrixLiteOther.showCPUTemp.getValue() is not False:
-            list.append(getConfigListEntry(_("Show CPU-Temp"), config.plugins.MyMetrixLiteOther.showCPUTemp))
+        if temp and int(temp.replace('\n', '')) > 0:
+            return True
+        else:
+            return False
+
+    def getCPUSensor(self):
         temp = ""
         if path.exists('/proc/stb/sensors/temp0/value'):
             f = open('/proc/stb/sensors/temp0/value', 'r')
@@ -128,11 +119,37 @@ class OtherSettingsView(ConfigListScreen, Screen):
             f = open('/proc/stb/fp/temp_sensor', 'r')
             temp = f.read()
             f.close()
-        if (temp and int(temp.replace('\n', '')) > 0) or config.plugins.MyMetrixLiteOther.showSYSTemp.getValue() is not False:
+        if temp and int(temp.replace('\n', '')) > 0:
+            return True
+        else:
+            return False
+
+    def getMenuItemList(self):
+        
+        list = []
+
+        list.append(getConfigListEntry(_("STB-Info   -------------------------------------------------------------------------------------------"), ))
+        list.append(getConfigListEntry(_("Show CPU-Load"), config.plugins.MyMetrixLiteOther.showCPULoad))
+        if self.getCPUSensor() or config.plugins.MyMetrixLiteOther.showCPUTemp.getValue() is not False:
+            list.append(getConfigListEntry(_("Show CPU-Temp"), config.plugins.MyMetrixLiteOther.showCPUTemp))
+        if self.getSYSSensor() or config.plugins.MyMetrixLiteOther.showSYSTemp.getValue() is not False:
             list.append(getConfigListEntry(_("Show SYS-Temp"), config.plugins.MyMetrixLiteOther.showSYSTemp))
-        list.append(getConfigListEntry(_("Tuner   ----------------------------------------------------------------------------------------------"), ))
-        list.append(getConfigListEntry(_("Set number of tuner automatically"), config.plugins.MyMetrixLiteOther.setTunerAuto))
-        list.append(getConfigListEntry(_("Set number of tuner manually"), config.plugins.MyMetrixLiteOther.setTunerManual))
+        list.append(getConfigListEntry(_("InfoBar/SecondInfobar/MoviePlayer   ------------------------------------------------------------------"), ))
+        list.append(getConfigListEntry(_("ChannelName/Number FontSize"), config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize))
+        list.append(getConfigListEntry(_("InfoBar/SecondInfobar   ------------------------------------------------------------------------------"), ))
+        list.append(getConfigListEntry(_("Show ServiceIcons"), config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons))
+        list.append(getConfigListEntry(_("Show Resolution"), config.plugins.MyMetrixLiteOther.showInfoBarResolution))
+        list.append(getConfigListEntry(_("Show Clock"), config.plugins.MyMetrixLiteOther.showInfoBarClock))
+        list.append(getConfigListEntry(_("Show ChannelNumber"), config.plugins.MyMetrixLiteOther.showChannelNumber))
+        list.append(getConfigListEntry(_("Show ChannelName"), config.plugins.MyMetrixLiteOther.showChannelName))
+        list.append(getConfigListEntry(_("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfo))
+        list.append(getConfigListEntry(_("Set number of tuner automatically"), config.plugins.MyMetrixLiteOther.setTunerAuto, "ENABLED"))
+        if config.plugins.MyMetrixLiteOther.setTunerAuto.getValue() is False:
+            list.append(getConfigListEntry(_("Set number of tuner manually"), config.plugins.MyMetrixLiteOther.setTunerManual))
+        list.append(getConfigListEntry(_("MoviePlayer/EMC  -------------------------------------------------------------------------------------"), ))
+        list.append(getConfigListEntry(_("Show MovieName"), config.plugins.MyMetrixLiteOther.showMovieName))
+        list.append(getConfigListEntry(_("Show Clock"), config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer))
+        list.append(getConfigListEntry(_("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer))
         list.append(getConfigListEntry(_("ChannelSelection   -----------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Channel selection style"), config.plugins.MyMetrixLiteOther.channelSelectionStyle))
 
