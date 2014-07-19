@@ -98,7 +98,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         if cur == "ENABLED":
             self["config"].setList(self.getMenuItemList())
 
-    def getSYSSensor(self):
+    def getCPUSensor(self):
         temp = ""
         if path.exists('/proc/stb/fp/temp_sensor_avs'):
             f = open('/proc/stb/fp/temp_sensor_avs', 'r')
@@ -109,7 +109,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         else:
             return False
 
-    def getCPUSensor(self):
+    def getSYSSensor(self):
         temp = ""
         if path.exists('/proc/stb/sensors/temp0/value'):
             f = open('/proc/stb/sensors/temp0/value', 'r')
