@@ -568,6 +568,10 @@
 	</screen>
 	<screen name="menu_information" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MENU_template" />
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_information_supportchannel.png" position="310,85" size="256,256" alphatest="blend">
+			<convert type="MenuEntryCompare">supportchannel_YTChannel</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_information_about.png" position="310,85" size="256,256" alphatest="blend">
 			<convert type="MenuEntryCompare">about_screen</convert>
 			<convert type="ConditionalShowHide" />
