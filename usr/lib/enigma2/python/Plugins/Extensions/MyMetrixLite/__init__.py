@@ -194,6 +194,7 @@ def initWeatherConfig():
     #MetrixWeather
 
     config.plugins.MetrixWeather.enabled = ConfigYesNo(default=True)
+    config.plugins.MetrixWeather.MoviePlayer = ConfigYesNo(default=True)
     config.plugins.MetrixWeather.refreshInterval = ConfigNumber(default=10)
     config.plugins.MetrixWeather.woeid = ConfigNumber(default=676757) #Location (visit metrixhd.info)
     config.plugins.MetrixWeather.tempUnit = ConfigSelection(default="Celsius", choices = [
@@ -240,20 +241,25 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther = ConfigSubsection()
 
     #OtherSettings
-
-    config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons = ConfigYesNo(default=True)
-    config.plugins.MyMetrixLiteOther.showChannelNumber = ConfigYesNo(default=True)
-    config.plugins.MyMetrixLiteOther.showChannelName = ConfigYesNo(default=True)
-    config.plugins.MyMetrixLiteOther.showMovieName = ConfigYesNo(default=True)
-    config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize = ConfigSelection(default="INFOBARCHANNELNAME-1", choices = infoBarChannelNameFontSizeList)
-    config.plugins.MyMetrixLiteOther.showInfoBarResolution = ConfigYesNo(default=True)
-    config.plugins.MyMetrixLiteOther.showInfoBarClock = ConfigYesNo(default=True)
+	#STb-Info
     config.plugins.MyMetrixLiteOther.showCPULoad = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showSYSTemp = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.showCPUTemp = ConfigYesNo(default=False)
+	#Infobar/Secondinfobar
+    config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showChannelNumber = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showChannelName = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize = ConfigSelection(default="INFOBARCHANNELNAME-1", choices = infoBarChannelNameFontSizeList)
+    config.plugins.MyMetrixLiteOther.showInfoBarResolution = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showInfoBarClock = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showSTBinfo = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.setTunerAuto = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelectionNumber(1, 6, 1, default = 2)
     config.plugins.MyMetrixLiteOther.channelSelectionStyle = ConfigSelection(default="CHANNELSELECTION-1", choices = channelSelectionStyleList)
+	#MoviePlayer
+    config.plugins.MyMetrixLiteOther.showMovieName = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer = ConfigYesNo(default=True)
 
 #######################################################################
 

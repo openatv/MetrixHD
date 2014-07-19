@@ -65,7 +65,7 @@ class MainSettingsView(Screen):
   <screen name="MyMetrixLiteMainSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
     <eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
     <widget source="titleText" position="60,55" size="590,50" render="Label" font="Regular; 40" foregroundColor="00ffffff" backgroundColor="#00000000" valign="center" transparent="1" />
-    <widget name="menuList" position="61,124" size="590,490" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
+    <widget name="menuList" position="61,124" size="590,480" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
     <widget source="cancelBtn" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <widget source="applyBtn" position="257,640" size="360,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
@@ -208,8 +208,8 @@ class MainSettingsView(Screen):
             if config.plugins.MetrixWeather.enabled.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
 
-            if config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons.getValue() is False:
-                infobarSkinSearchAndReplace.append(['<panel name="INFOBARSERVICEINFO" />', ''])
+            if config.plugins.MyMetrixLiteOther.showSTBinfo.getValue() is False:
+                infobarSkinSearchAndReplace.append(['<panel name="STBINFO" />', ''])
 
             channelNameXML = self.getChannelNameXML(
                 "35,455",
@@ -275,20 +275,23 @@ class MainSettingsView(Screen):
 
             moviePlayerSkinSearchAndReplace = []
 
-            if config.plugins.MetrixWeather.enabled.getValue() is False:
+            if config.plugins.MetrixWeather.MoviePlayer.getValue() is False or config.plugins.MetrixWeather.enabled.getValue() is False:
                 moviePlayerSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
+
+            if config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer.getValue() is False:
+                moviePlayerSkinSearchAndReplace.append(['<panel name="STBINFOMOVIEPLAYER" />', ''])
+
+            if config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer.getValue() is False:
+                moviePlayerSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
 
             channelNameXML = self.getChannelNameXML(
                 "35,465",
                 config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize.getValue(),
                 #config.plugins.MyMetrixLiteOther.showChannelNumber.getValue(),
                 False,
-				config.plugins.MyMetrixLiteOther.showMovieName.getValue()
+                config.plugins.MyMetrixLiteOther.showMovieName.getValue()
             )
             moviePlayerSkinSearchAndReplace.append(['<panel name="MOVIENAME" />', channelNameXML])
-
-            if config.plugins.MyMetrixLiteOther.showInfoBarClock.getValue() is False:
-                moviePlayerSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
 
             # InfoBar
             skin_lines = appendSkinFile(SKIN_MOVIEPLAYER_SOURCE, moviePlayerSkinSearchAndReplace)
@@ -307,20 +310,23 @@ class MainSettingsView(Screen):
 
             EMCSkinSearchAndReplace = []
 
-            if config.plugins.MetrixWeather.enabled.getValue() is False:
+            if config.plugins.MetrixWeather.MoviePlayer.getValue() is False or config.plugins.MetrixWeather.enabled.getValue() is False:
                 EMCSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
+
+            if config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer.getValue() is False:
+                EMCSkinSearchAndReplace.append(['<panel name="STBINFOMOVIEPLAYER" />', ''])
+
+            if config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer.getValue() is False:
+                EMCSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
 
             channelNameXML = self.getChannelNameXML(
                 "35,465",
                 config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize.getValue(),
                 #config.plugins.MyMetrixLiteOther.showChannelNumber.getValue(),
                 False,
-				config.plugins.MyMetrixLiteOther.showMovieName.getValue()
+                config.plugins.MyMetrixLiteOther.showMovieName.getValue()
             )
             EMCSkinSearchAndReplace.append(['<panel name="MOVIENAME" />', channelNameXML])
-
-            if config.plugins.MyMetrixLiteOther.showInfoBarClock.getValue() is False:
-                EMCSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
 
             # InfoBar
             skin_lines = appendSkinFile(SKIN_EMC_SOURCE, EMCSkinSearchAndReplace)
