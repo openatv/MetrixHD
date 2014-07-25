@@ -1016,25 +1016,25 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 			<convert type="ClockToText">Format:%e. %b</convert>
 		</widget>
 		<eLabel text="Satfinder" position="70,47" size="800,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Frontend" render="Label" position="120,120" size="600,22" zPosition="2" font="SetrixHD;21" backgroundColor="layer-a-background" halign="center" transparent="1">
+		<widget source="Frontend" render="Label" position="120,120" size="600,30" zPosition="2" font="SetrixHD;21" backgroundColor="layer-a-background" halign="center" transparent="1">
 			<convert type="FrontendInfo">SNRdB</convert>
 		</widget>
 		<eLabel name="snr" text="SNR:" position="120,150" size=" 80,25" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Frontend" render="Progress" position="210,152" size="420,20" borderWidth="1" borderColor="layer-a-accent1" transparent="1">
+		<widget source="Frontend" render="Progress" position="210,155" size="420,20" borderWidth="1" borderColor="layer-a-accent1" transparent="1">
 			<convert type="FrontendInfo">SNR</convert>
 		</widget>
 		<widget source="Frontend" render="Label" position="640,150" size=" 80,25" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1">
 			<convert type="FrontendInfo">SNR</convert>
 		</widget>
 		<eLabel name="ber" text="BER:" position="120,185" size=" 80,25" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Frontend" render="Progress" position="210,187" size="420,20" borderWidth="1" borderColor="layer-a-accent1" transparent="1">
+		<widget source="Frontend" render="Progress" position="210,190" size="420,20" borderWidth="1" borderColor="layer-a-accent1" transparent="1">
 			<convert type="FrontendInfo">BER</convert>
 		</widget>
 		<widget source="Frontend" render="Label" position="640,185" size=" 80,25" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1">
 			<convert type="FrontendInfo">BER</convert>
 		</widget>
-		<eLabel name="lock" text="Lock:" position="120,225" size=" 80,25" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Frontend" render="Pixmap" position="210,223" size=" 38,31" zPosition="1" pixmap="skin_default/icons/lock_on.png" alphatest="blend">
+		<eLabel name="lock" text="Lock:" position="120,225" size=" 80,30" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Frontend" render="Pixmap" position="210,225" size=" 38,31" zPosition="1" pixmap="skin_default/icons/lock_on.png" alphatest="blend">
 			<convert type="FrontendInfo">LOCK</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
