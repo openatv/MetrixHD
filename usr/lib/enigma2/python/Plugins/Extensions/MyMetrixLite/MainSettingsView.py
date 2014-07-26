@@ -208,6 +208,9 @@ class MainSettingsView(Screen):
             if config.plugins.MetrixWeather.enabled.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
 
+            if config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons.getValue() is False: 
+                infobarSkinSearchAndReplace.append(['<panel name="INFOBARSERVICEINFO" />', '']) 
+
             if config.plugins.MyMetrixLiteOther.showSTBinfo.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="STBINFO" />', ''])
 
