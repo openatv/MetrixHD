@@ -154,6 +154,10 @@
 		<screen name="__e-buttons_template1">
 			<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
 		</screen>
+		<screen name="_ie-buttons_template1">
+			<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="blend" />
+			<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
+		</screen>
 		<screen name="_oe-buttons_template1">
 			<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="blend" />
 			<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
@@ -168,8 +172,7 @@
 			<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="blend" />
 			<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
 		</screen>
-			<!-- BUTTONS */ -->
-
+		<!-- BUTTONS */ -->
 		<screen name="GRIDLINES">
 			<!-- /* GRIDLINES -->
 			<eLabel position="10,30" size="30,15" text="50" zPosition="99" font="RegularLight;15" backgroundColor="#ff000000" foregroundColor="red" transparent="1" halign="left" valign="center" />
@@ -856,25 +859,36 @@
 			<eLabel position="51,599" zPosition="-1" size="340,70" backgroundColor="layer-a-background" transparent="0" />
 		<!--ClockWidget */-->
 		</screen>
+		<!-- template1_1layer -->
+		<screen name="template1_1layer">
+			<eLabel name="layer1" position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
+			<widget source="global.CurrentTime" render="Label" position="1115,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
+				<convert type="ClockToText">Default</convert>
+			</widget>
+			<widget source="global.CurrentTime" render="Label" position="938,41" size="161,27" font="SetrixHD; 16" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
+				<convert type="ClockToText">Format:%A</convert>
+			</widget>
+			<widget source="global.CurrentTime" render="Label" position="938,64" size="161,29" font="SetrixHD; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+				<convert type="ClockToText">Format:%e. %b</convert>
+			</widget>
+		</screen>
+		<!-- template1_1layer -->
+		<!-- template1_2layer -->
 		<screen name="template1_2layer">
 			<eLabel name="layer1" position="40,25" zPosition="-10" size="755,650" backgroundColor="layer-a-background" />
 			<eLabel name="layer2" position="795,60" zPosition="-10" size="445,580" backgroundColor="layer-b-background" />
-			<!-- <widget source="global.CurrentTime" render="Label" position="628,47" size="140,43" font="SetrixHD; 35" halign="right" backgroundColor="layer-a-background" transparent="1">
-				<convert type="ClockToText">Default</convert>
-			</widget>*/ -->
-			<!-- /*ClockWidget-->
 			<widget source="global.CurrentTime" render="Label" position="525,46" size="150,20" font="SetrixHD; 15" halign="right" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Format:%A</convert>
 			</widget>
-			<widget source="global.CurrentTime" render="Label" position="525,61" size="150,20" font="SetrixHD; 15" halign="right" backgroundColor="layer-a-background" transparent="1">
+			<widget source="global.CurrentTime" render="Label" position="525,62" size="150,20" font="SetrixHD; 15" halign="right" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Format:%e. %B</convert>
 			</widget>
-			<widget source="global.CurrentTime" render="Label" position="695,40" size="100,45" font="SetrixHD; 34" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1">
+			<widget source="global.CurrentTime" render="Label" position="685,36" size="100,45" font="SetrixHD; 40" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Default</convert>
 			</widget>
 			<eLabel position="51,599" zPosition="-1" size="340,70" backgroundColor="layer-a-background" transparent="0" />
-		<!--ClockWidget */-->
 		</screen>
+		<!-- template1_2layer -->
 		<screen name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70">
 			<!-- /*ClockWidget-->
 			<eLabel position="265,410" zPosition="-1" size="340,70" backgroundColor="layer-a-background" transparent="0" />
