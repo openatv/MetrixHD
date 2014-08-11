@@ -785,30 +785,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget name="scan_progress" position="120,250" size="600,15" borderWidth="1" borderColor="layer-a-accent1" transparent="1" />
 		<widget name="servicelist" position="120,300" size="600,300" itemHeight="30" selectionDisabled="1" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/search.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="SkinSelector" position="0,0" size="1280,720" title="Skin Selector" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
-		<!-- /*ClockWidget-->
-		<widget source="global.CurrentTime" render="Label" position="450,401" size="169,80" font="SetrixHD; 60" halign="left" backgroundColor="layer-a-background" transparent="1" valign="top">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="290,444" size="148,29" font="SetrixHD; 20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="313,415" size="125,30" font="SetrixHD; 20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<eLabel position="265,410" zPosition="-1" size="340,70" backgroundColor="layer-a-background" transparent="0" />
-		<!--ClockWidget */-->
-		<eLabel text="Skin" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-50" />
-		<widget name="SkinList" position="656,62" size="389,453" itemHeight="35" scrollbarMode="showNever" backgroundColor="layer-a-background" enableWrapAround="1" transparent="1">
-		</widget>
-		<eLabel name="" position="645,51" zPosition="-11" size="412,565" backgroundColor="layer-a-background" foregroundColor="layer-a-background" />
-		<widget name="Preview" position="293,105" size="280,210" alphatest="blend" />
-		<widget source="introduction" render="Label" position="655,523" size="392,49" font="SetrixHD; 18" halign="center" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="660,577" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="700,579" size="240,30" zPosition="1" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-	</screen>
+	</screen>		
 	<screen name="SleepTimerEdit" position="0,0" size="1280,720" title="Sleep Timer" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<eLabel text="Sleep Timer" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
