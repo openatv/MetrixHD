@@ -576,9 +576,9 @@
 		<!--widget source="session.CurrentService" render="Progress" pixmap="MetrixHD/colors/000F6EB2.png" position="71,410" size="300,5" zPosition="1" transparent="1">
 			<convert type="ServicePosition">Position</convert>
 		</widget-->
-        <widget source="session.CurrentService" render="Progress" position="70,410" size="300,3" foregroundColor="layer-a-progress" borderWidth="0" transparent="1" zPosition="1">
-            <convert type="ServicePosition">Position</convert>
-        </widget>
+		<widget source="session.CurrentService" render="Progress" position="70,410" size="300,3" foregroundColor="layer-a-progress" borderWidth="0" transparent="1" zPosition="1">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
 		<ePixmap position="1130,631" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
 		<!-- /*ClockWidget-->
 		<widget source="global.CurrentTime" render="Label" position="239,590" size="169,80" font="SetrixHD; 60" halign="left" backgroundColor="layer-a-background" transparent="1" valign="top">
@@ -595,17 +595,8 @@
 		<eLabel position="432,60" size="500,40" text="Media Player" font="SetrixHD; 26" backgroundColor="layer-a-background" transparent="1" />
 	</screen>
 	<screen name="MediaPlayerSettings" position="0,0" size="1280,720" title="Edit Settings" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
+		<panel name="template1_1layer" />
 		<widget source="Title" render="Label" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
 		<widget name="config" position="70,120" size="710,490" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="3" scrollbarMode="showNever" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
@@ -615,13 +606,14 @@
 	</screen>
 	<!-- MediaPlayer -->
 	<!-- PluginHider -->
-	<screen name="PluginHiderSetup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="PluginHider Setup" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="tabbar" pixmaps="MetrixHD/epg_now_big.png,MetrixHD/epg_next_big.png,MetrixHD/epg_more_big.png" position="70,100" size="700,515" alphatest="blend" />
+	<screen name="PluginHiderSetup" position="0,0" size="1280,720" title="PluginHider Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<!--eLabel text="PluginHider Setup" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" /-->
+		<widget name="tabbar" pixmaps="MetrixHD/tab_now.png,MetrixHD/tab_next.png,MetrixHD/tab_more.png" position="70,127" size="700,515" alphatest="blend" />
 		<widget name="list" position="70,140" size="700,515" font="Regular;20" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget valign="center" transparent="1" size="150,22" backgroundColor="#25062748" position="115,100" zPosition="2" source="plugins" render="Label" halign="center" font="Regular;18" />
-		<widget valign="center" transparent="1" size="150,22" backgroundColor="#25062748" position="350,100" zPosition="2" source="extensions" render="Label" halign="center" font="Regular;18" />
-		<widget valign="center" transparent="1" size="150,22" backgroundColor="#25062748" position="575,100" zPosition="2" source="eventinfo" render="Label" halign="center" font="Regular;18" />
+		<widget valign="center" transparent="1" size="150,22" backgroundColor="layer-a-background" position="115,100" zPosition="2" source="plugins" render="Label" halign="center" font="Regular;18" />
+		<widget valign="center" transparent="1" size="150,22" backgroundColor="layer-a-background" position="350,100" zPosition="2" source="extensions" render="Label" halign="center" font="Regular;18" />
+		<widget valign="center" transparent="1" size="150,22" backgroundColor="layer-a-background" position="575,100" zPosition="2" source="eventinfo" render="Label" halign="center" font="Regular;18" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1-source" />
@@ -657,6 +649,86 @@
 		<panel name="__e-buttons_template1" />
 		<widget name="coverArt" backgroundColor="layer-b-background" position="880,185" size="270,200" zPosition="2" transparent="1" alphatest="blend" />
 	</screen>
-<!-- openATVSupportChannel -->
+	<!-- openATVSupportChannel -->
+	<!-- Fancontrol -->
+	<screen name="FanSetupScreen" title="Fan Control" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<!--widget source="Title" render="Label" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" /-->
+		<eLabel text="Fan Control" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="config" position="70,120" size="700,390" itemHeight="30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="sysTemp" position="70,525" size="230,30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="Regular;20" halign="left" zPosition="1" transparent="1" />
+		<widget name="hddTemp" position="315,525" size="250,30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="Regular;20" halign="right" zPosition="1" transparent="1" />
+		<widget name="powerstatus" position="620,525" size="150,30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="Regular;20" zPosition="1" transparent="1" />
+		<widget name="daemon0" alphatest="on" pixmap="skin_default/buttons/button_green_off.png" position="750,530" size="15,16" zPosition="10" transparent="1"/>
+		<widget name="daemon1" alphatest="on" pixmap="skin_default/buttons/button_green.png" position="750,530" size="15,16" zPosition="10" transparent="1"/>
+		<widget name="cancel" position="70,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="ok" position="257,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_system_fansetup_config.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- Fancontrol -->
+	<!-- CronManager (info panel ->  extensions -> cron manager, is different to timer menu -> cron timers) -->
+	<screen name="CronManager" position="0,0" size="1280,720" title="Cron Manager" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="list" render="Listbox" position="70,115" size="700,510" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
+			<convert type="StringList" />
+		</widget>
+		<widget name="lab1" position="400,575" size="100,30" font="Regular;20" valign="center" halign="right" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="labdisabled" position="550,575" size="100,30" font="Regular;20" valign="center" halign="center" backgroundColor="red"  zPosition="1" transparent="0"/>
+		<widget name="labactive" position="550,575" size="100,30" font="Regular;20" valign="center" halign="center" backgroundColor="green" zPosition="2" transparent="0" />
+		<widget name="lab2" position="100,575" size="100,30" font="Regular;20" valign="center" halign="right" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="labstop" position="250,575" size="100,30" font="Regular;20" valign="center" halign="center" backgroundColor="red" zPosition="1" transparent="0" />
+		<widget name="labrun" position="250,575" size="100,30" font="Regular;20" valign="center" halign="center" backgroundColor="green" zPosition="2" transparent="0" />
+		<!--widget name="key" position="70,520" size="700,30" font="Regular;20" foregroundColor="layer-a-foreground" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/-->
+		<widget name="key" position="825,420" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="SetupCronConf" position="0,0" size="1280,720" title="Cron Manager" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="r___-buttons_template1" />
+		<panel name="r___-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- CronManager -->
+	<!-- ScriptRunner -->
+	<screen name="ScriptRunner" position="0,0" size="1280,720" title="Job Manager" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="lab1" position="70,105" size="700,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list"  position="70,150" size="700,510" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/console.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- ScriptRunner -->
+	<!-- Swap -->
+	<screen name="Swap" position="0,0" size="1280,720" title="Swap Manager" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="lab2" position="70,130" size="150,30" font="Regular;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" valign="center" transparent="1"/>
+		<widget name="labplace" position="220,130" size="550,30" font="Regular;20" valign="center" backgroundColor="layer-b-background"/>
+		<widget name="lab3" position="70,180" size="150,30" font="Regular;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" valign="center" transparent="1"/>
+		<widget name="labsize" position="220,180" size="550,30" font="Regular;20" valign="center" backgroundColor="layer-b-background"/>
+		<widget name="lab4" position="70,230" size="150,30" font="Regular;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" valign="center" transparent="1" />
+		<widget name="inactive" position="220,230" size="100,30" font="Regular;20" valign="center" halign="center" backgroundColor="red"/>
+		<widget name="active" position="220,230" size="100,30" font="Regular;20" valign="center" halign="center" backgroundColor="green"/>
+		<widget name="autostart_off" position="70,300" zPosition="1" pixmap="skin_default/icons/lock_off.png" size="32,32" alphatest="on" />
+		<widget name="autostart_on" position="70,300" zPosition="2" pixmap="skin_default/icons/lock_on.png" size="32,32" alphatest="on" />
+		<widget name="lab1" position="110,300" size="360,30" font="Regular;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" valign="center" transparent="1"/>
+		<panel name="template1_2layer" />
+		<panel name="rgy_-buttons_template1" />
+		<panel name="rgy_-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- Swap -->
 <!-- PLUGINS */-->
 </skin>

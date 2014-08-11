@@ -46,23 +46,23 @@
 	<screen name="PVRState" position="187,238" zPosition="2" size="889,230" backgroundColor="transparent" flags="wfNoBorder">
 		<widget name="state" position="257,40" size="381,95" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="center" transparent="1" valign="top" />
 	</screen>
-	<screen name="Volume" position="47,38" size="324,74" title="Volume" flags="wfNoBorder" backgroundColor="transparent" zPosition="99">
-		<widget name="Volume" position="72,34" size="170,5" zPosition="3" foregroundColor="layer-a-progress" transparent="1" />
+	<screen name="Volume" position="46,40" size="318,71" title="Volume" flags="wfNoBorder" backgroundColor="transparent" zPosition="99">
+		<widget name="Volume" position="72,33" size="170,5" zPosition="3" foregroundColor="layer-a-progress" transparent="1" />
 		<ePixmap position="5,5" size="64,64" zPosition="1" pixmap="MetrixHD/icons/volume.png" transparent="0" alphatest="blend" />
-		<widget font="SetrixHD;40" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="left" valign="center" render="VVolumeText" source="global.CurrentTime" position="246,4" size="85,60" zPosition="20" transparent="1" />
-		<eLabel position="72,36" size="170,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" />
-		<eLabel position="2,2" size="320,70" backgroundColor="layer-a-background" zPosition="-1" transparent="0" />
-		<eLabel position="0,0" size="324,74" backgroundColor="layer-b-background" zPosition="-2" transparent="0" />
+		<widget font="SetrixHD;40" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="left" valign="center" render="VVolumeText" source="global.CurrentTime" position="250,3" size="85,60" zPosition="20" transparent="1" />
+		<eLabel position="72,35" size="170,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" />
+		<eLabel position="1,1" size="316,69" backgroundColor="layer-a-background" zPosition="-1" transparent="0" />
+		<eLabel position="0,0" size="318,71" backgroundColor="layer-b-background" zPosition="-2" transparent="0" />
 	</screen>
-	<screen name="UnhandledKey" position="49,40" size="72,72" title="UnhandledKey" zPosition="100" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="0,0" size="72,72" zPosition="0" backgroundColor="layer-b-background" transparent="0" />
-		<eLabel position="1,1" size="70,70" zPosition="1" backgroundColor="layer-a-background" />
-		<widget name="UnhandledKeyPixmap" position="4,4" size="64,64" zPosition="2" pixmap="MetrixHD/icons/error.png" alphatest="blend" />
+	<screen name="UnhandledKey" position="46,40" size="71,71" title="UnhandledKey" zPosition="100" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="0,0" size="71,71" zPosition="0" backgroundColor="layer-b-background" transparent="0" />
+		<eLabel position="1,1" size="69,69" zPosition="1" backgroundColor="layer-a-background" />
+		<widget name="UnhandledKeyPixmap" position="3,3" size="64,64" zPosition="2" pixmap="MetrixHD/icons/error.png" alphatest="blend" />
 	</screen>
-	<screen name="Mute" position="49,40" size="72,72" title="Mute" zPosition="11" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="0,0" size="72,72" zPosition="0" backgroundColor="layer-b-background" transparent="0" />
-		<eLabel position="1,1" size="70,70" zPosition="1" backgroundColor="layer-a-background" />
-		<ePixmap position="4,4" size="64,64" zPosition="2" pixmap="MetrixHD/icons/mute.png" borderWidth="0" borderColor="transparent" alphatest="blend" />
+	<screen name="Mute" position="46,40" size="71,71" title="Mute" zPosition="11" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="0,0" size="71,71" zPosition="0" backgroundColor="layer-b-background" transparent="0" />
+		<eLabel position="1,1" size="69,69" zPosition="1" backgroundColor="layer-a-background" />
+		<ePixmap position="3,3" size="64,64" zPosition="2" pixmap="MetrixHD/icons/mute.png" borderWidth="0" borderColor="transparent" alphatest="blend" />
 	</screen>
 	<screen name="QuickMenu" position="0,0" size="1280,720" title="Quick Launch Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="-1,0" zPosition="-11" size="1282,100" backgroundColor="layer-a-background" foregroundColor="layer-a-background" />
@@ -248,16 +248,17 @@
 		<widget name="list" position="70,115" size="700,500" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
-		<widget name="red" position="70,637" size="260,30" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="green" position="257,637" size="160,30" zPosition="1" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="red" position="70,637" size="160,30" zPosition="1" font="SetrixHD; 20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="green" position="257,637" size="160,30" zPosition="1" font="SetrixHD; 20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="_me-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="PluginDownloadBrowser" position="0,0" size="1280,720" title="Downloadable plugins" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" size="700,48" font="SetrixHD;35" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="60,115" size="700,530" zPosition="4" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget name="text" position="855,500" size="334,160" zPosition="1" font="SetrixHD;24" halign="center" valign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="text" position="825,420" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
+		<panel name="__e-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="SoftwarePanel" position="0,0" size="1280,720" title="SoftwarePanel" flags="wfNoBorder" backgroundColor="transparent">
@@ -286,10 +287,10 @@
 		<widget name="feedstatusYELLOW" position="1043,126" size="200,30" zPosition="1" font="Regular;25" halign="left" backgroundColor="layer-b-background" transparent="1" />
 		<widget name="feedstatusGREEN" position="1043,158" size="200,30" zPosition="1" font="Regular;25" halign="left" backgroundColor="layer-b-background" transparent="1" />
 		<ePixmap position="890,175" size="256,256" pixmap="MetrixHD/icons/swupdate.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1" />
+		<panel name="__e-buttons_template1" />
 	</screen>
 	<screen name="UpdatePlugin" position="0,0" size="1280,720" title="Software Update..." flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" size="700,43" zPosition="1" halign="left" font="SetrixHD; 32" backgroundColor="layer-a-background" transparent="1" />
@@ -299,25 +300,25 @@
 		<widget source="status" render="Label" position="70,230" size="700,30" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="slider" position="70,400" size="700,20" borderWidth="1" transparent="1" />
 		<ePixmap position="890,175" size="256,256" pixmap="MetrixHD/icons/swupdate.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="ImageBackup" position="0,0" size="1280,720" title="Image Backup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" size="700,43" zPosition="1" halign="left" font="SetrixHD; 32" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="info-hdd" position="70,127" zPosition="1" size="550,150" font="SetrixHD; 22" halign="left" valign="top" transparent="1" backgroundColor="layer-a-background" />
 		<widget name="info-usb" position="70,301" zPosition="1" size="550,250" font="SetrixHD; 22" halign="left" valign="top" transparent="1" backgroundColor="layer-a-background" />
 		<ePixmap position="890,175" size="256,256" pixmap="MetrixHD/icons/swm.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
 		<panel name="rg_b-buttons_template1" />
 		<panel name="rg_b-keys_template1" />
+		<panel name="__e-buttons_template1" />
 	</screen>
 	<screen name="Console" position="0,0" size="1280,720" title="Command execution..." flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="text" position="70,120" size="700,460" font="Console;16" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-a-background" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/console.png" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
+		<panel name="__e-buttons_template1" />
 	</screen>
 	<screen name="AboutOE" position="center,center" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" size="600,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="0" />
@@ -329,9 +330,8 @@
 		<eLabel text="https://github.com/openatv" position="880,480" size="300,35" font="SetrixHD;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" zPosition="1" />
 		<eLabel text="https://github.com/oe-alliance" position="880,530" size="300,35" font="SetrixHD;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" zPosition="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="MetrixHD/icons/infopanel.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
+		<panel name="_ie-buttons_template1" />
 	</screen>
 	<screen name="SoftwareUpdateChanges" position="center,center" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" size="600,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="0" />
@@ -603,6 +603,10 @@
 			<convert type="MenuEntryCompare">ci_setup</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_setup_ci.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">cam_setup</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_setup_audio.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">Volume_Adjust</convert>
 			<convert type="ConditionalShowHide" />
@@ -617,6 +621,13 @@
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_setup_software_manager.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">software_manager</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+	</screen>
+	<screen name="menu_cam" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="MENU_template" />
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_setup_ci.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">ci_setup</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 	</screen>
@@ -972,7 +983,7 @@
 		<ePixmap pixmap="MetrixHD/icons/info.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
 		<widget source="lab1" render="Label" position="70,133" size="458,35" font="Regular;30" transparent="0" zPosition="2" />
 		<widget source="lab2" render="Label" position="70,178" size="458,25" font="Regular;19" transparent="0" zPosition="2" />
-		<widget name="AboutScrollLabel" position="70,214" size="458,484" font="Regular;20" transparent="0" zPosition="1" scrollbarMode="showOnDemand" />
+		<widget name="AboutScrollLabel" position="70,214" size="458,454" font="Regular;20" transparent="0" zPosition="1" scrollbarMode="showOnDemand" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="SystemNetworkInfo" position="center,center" size="1280,721" title="SystemInfo" flags="wfNoBorder" backgroundColor="transparent">
@@ -995,7 +1006,7 @@
 		<widget source="IFtext" render="Label" position="70,593" size="120,28" zPosition="10" font="Regular;20" halign="left" transparent="0" />
 		<widget source="IF" render="Label" position="181,592" size="375,28" zPosition="10" font="Regular;20" halign="left" transparent="0" />
 		<widget source="Statustext" render="Label" position="70,631" size="115,30" zPosition="10" font="Regular;20" halign="left" transparent="0" />
-		<widget name="statuspic" pixmaps="skin_default/buttons/button_green.png,skin_default/buttons/button_green_off.png" position="190,634" zPosition="10" size="15,16" transparent="1" alphatest="on" />
+		<widget name="statuspic" pixmaps="skin_default/buttons/button_green.png,skin_default/buttons/button_green_off.png" position="190,636" zPosition="10" size="15,16" transparent="1" alphatest="on" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="ServiceInfo" position="0,0" size="1280,720" title="Serviceinfo" flags="wfNoBorder" backgroundColor="transparent">
@@ -1008,17 +1019,8 @@
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="TranscodingSetup" position="center,center" size="1280,720" backgroundColor="transparent">
-		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
+		<panel name="template1_1layer" />
 		<widget source="Title" render="Label" position="70,47" size="700,43" zPosition="1" halign="left" font="SetrixHD; 32" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
 		<widget name="config" zPosition="2" position="70,130" size="710,172" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1" />
 		<widget name="description" position="70,341" size="710,91" font="Regular;20" halign="center" valign="center" />
 		<widget name="text" position="70,579" size="710,30" font="Regular;22" halign="center" valign="center" />
@@ -1032,18 +1034,9 @@
 		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="610,635" size="30,40" alphatest="blend" />
 	</screen>
 	<screen name="RestorePlugins" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
+		<panel name="template1_1layer" />
 		<eLabel text="Restore Plugins" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
-		<widget source="global.CurrentTime" render="Label" position="1103,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="931,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
 		<widget source="menu" render="Listbox" position="70,120" size="700,480" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
@@ -1059,13 +1052,14 @@
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,637" size="240,30" zPosition="1" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_green" render="Label" position="395,637" size="240,30" zPosition="1" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="__e-buttons_template1" />
 	</screen>
 	<screen name="QuickMenuDevices" position="0,0" size="1280,720" title="Devices" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="140,25" zPosition="-10" size="1005,650" backgroundColor="layer-a-background" />
 		<widget source="global.CurrentTime" render="Label" position="1003,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="831,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
+		<widget source="global.CurrentTime" render="Label" position="831,41" size="161,27" font="Regular; 16" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
 			<convert type="ClockToText">Format:%A</convert>
 		</widget>
 		<widget source="global.CurrentTime" render="Label" position="831,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
@@ -1090,13 +1084,13 @@
 	</screen>
 	<screen name="SoftcamPanel" position="0,0" size="1280,720" title="Softcam Panel" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="200,25" zPosition="-10" size="831,650" backgroundColor="layer-a-background" />
-		<widget source="global.CurrentTime" render="Label" position="863,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="893,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="691,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
+		<widget source="global.CurrentTime" render="Label" position="721,41" size="161,27" font="Regular; 16" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
 			<convert type="ClockToText">Format:%A</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="691,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="721,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
 			<convert type="ClockToText">Format:%e. %b</convert>
 		</widget>
 		<eLabel text="Softcam Panel" position="230,47" size="338,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
@@ -1122,7 +1116,7 @@
 		<widget source="global.CurrentTime" render="Label" position="863,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="691,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
+		<widget source="global.CurrentTime" render="Label" position="691,41" size="161,27" font="Regular; 16" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
 			<convert type="ClockToText">Format:%A</convert>
 		</widget>
 		<widget source="global.CurrentTime" render="Label" position="691,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
@@ -1152,13 +1146,13 @@
 	</screen>
 	<screen name="Infopanel" position="0,0" size="1280,720" title="Info Panel" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="250,25" zPosition="-10" size="731,650" backgroundColor="layer-a-background" />
-		<widget source="global.CurrentTime" render="Label" position="813,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="843,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="641,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
+		<widget source="global.CurrentTime" render="Label" position="671,41" size="161,27" font="Regular; 16" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
 			<convert type="ClockToText">Format:%A</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="641,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="671,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
 			<convert type="ClockToText">Format:%e. %b</convert>
 		</widget>
 		<eLabel text="Info Panel" position="280,47" size="338,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
@@ -1168,13 +1162,13 @@
 	</screen>
 	<screen name="CCcamInfoMain" position="0,0" size="1280,720" title="CCcam Info" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="250,25" zPosition="-10" size="731,650" backgroundColor="layer-a-background" />
-		<widget source="global.CurrentTime" render="Label" position="813,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="843,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="641,37" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
+		<widget source="global.CurrentTime" render="Label" position="671,41" size="161,27" font="Regular; 16" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
 			<convert type="ClockToText">Format:%A</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="641,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="671,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
 			<convert type="ClockToText">Format:%e. %b</convert>
 		</widget>
 		<eLabel text="CCcam Info" position="280,47" size="338,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
@@ -1187,7 +1181,7 @@
 		<widget source="global.CurrentTime" render="Label" position="863,126" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="692,137" size="161,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="692,141" size="161,27" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
 			<convert type="ClockToText">Format:%A</convert>
 		</widget>
 		<widget source="global.CurrentTime" render="Label" position="692,164" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
@@ -1226,7 +1220,7 @@
 		<widget source="global.CurrentTime" render="Label" position="713,26" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="598,37" size="104,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
+		<widget source="global.CurrentTime" render="Label" position="598,41" size="104,27" font="Regular; 16" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
 			<convert type="ClockToText">Format:%A</convert>
 		</widget>
 		<widget source="global.CurrentTime" render="Label" position="598,64" size="104,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
@@ -1248,7 +1242,7 @@
 		<widget source="global.CurrentTime" render="Label" position="713,26" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="598,37" size="104,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
+		<widget source="global.CurrentTime" render="Label" position="598,41" size="104,27" font="Regular; 16" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
 			<convert type="ClockToText">Format:%A</convert>
 		</widget>
 		<widget source="global.CurrentTime" render="Label" position="598,64" size="104,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
@@ -1271,7 +1265,7 @@
 		<widget source="global.CurrentTime" render="Label" position="713,26" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="598,37" size="104,27" font="Regular; 15" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
+		<widget source="global.CurrentTime" render="Label" position="598,41" size="104,27" font="Regular; 16" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
 			<convert type="ClockToText">Format:%A</convert>
 		</widget>
 		<widget source="global.CurrentTime" render="Label" position="598,64" size="104,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
@@ -1314,6 +1308,7 @@
 	</screen>
 	<!--Volume Adjust-->
 	<screen name="Volume_adjust" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<!--widget source="Title" render="Label" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" /-->
 		<eLabel text="Volume Adjust" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="ServiceList.desc" position="100,100" size="700,30" font="SetrixHD;26" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="ServiceList" position="70,150" size="700,515" font="Regular;20" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
@@ -1325,6 +1320,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_setup_audio.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="Change_volume" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<!--widget source="Title" render="Label" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" /-->
 		<eLabel text="Change Volume offset" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="config" position="70,130" size="700,515" font="Regular;20" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
@@ -1334,6 +1330,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_setup_audio.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="Volume_Config" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<!--widget source="Title" render="Label" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" /-->
 		<eLabel text="Volume Config" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="config" position="70,130" size="700,515" font="Regular;20" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="infotext"  render="Label"  position="825,425" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
@@ -1344,6 +1341,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_setup_audio.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="mySmallChannelSelection" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<!--widget source="Title" render="Label" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" /-->
 		<eLabel text="Select service to add..." position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="list" position="70,130" size="700,515" font="Regular;20" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
@@ -1355,6 +1353,7 @@
 	<!--Volume Adjust-->
 	<!--Parental control setup-->
 	<screen name="ParentalControlSetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<!--widget source="Title" render="Label" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" /-->
 		<eLabel text="Parental control setup" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
@@ -1364,6 +1363,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/look.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="ParentalControlChangePin" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<!--widget source="Title" render="Label" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" /-->
 		<eLabel text="Change pin code" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
@@ -1373,7 +1373,8 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/look.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="ParentalControlEditor" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Parental control services Editor" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<!--widget source="Title" render="Label" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" /-->
+		<eLabel text="Parental control editor" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="servicelist" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
@@ -1528,7 +1529,7 @@
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_extended_keyboard.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_osd_menu_user_interface.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="setup_recording" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Setup Recording" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -1822,11 +1823,12 @@
 				}
 			</convert>
 		</widget>
-		<widget name="lab1" zPosition="2" position="126,129" size="600,40" font="Regular;22" halign="center" transparent="1" />
+		<widget name="lab1" zPosition="2" position="126,129" size="600,40" font="Regular;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1-source" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+		<panel name="__e-buttons_template1" />
 	</screen>
 	<screen name="DevicePanelConf" position="0,0" size="1280,720" title="UserManager" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Mount Manager Setup" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
@@ -1836,6 +1838,7 @@
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+		<panel name="__e-buttons_template1" />
 	</screen>
 	<!-- Timer Editor -->
 	<screen name="TimerEditList" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
@@ -1850,6 +1853,7 @@
 		<widget name="description" position="830,80" size="360,600" font="Regular; 20" foregroundColor="layer-a-accent1" halign="left" backgroundColor="layer-b-background" valign="top" transparent="1"/>
 		 -->
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
+		<panel name="__e-buttons_template1" />
 	</screen>
 	<screen name="TimerEntry" position="0,0" size="1280,720" title="Timer entry" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="HelpWindow" position="120,470" size="1,1" zPosition="1" transparent="1" alphatest="blend" />
@@ -1869,12 +1873,14 @@
 		<widget source="list" render="Listbox" position="70,115" size="700,510" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
 			<convert type="StringList" />
 		</widget>
-		<widget name="lab1" position="100,575" size="100,30" font="SetrixHD;20" valign="center" halign="right" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="labdisabled" position="250,575" size="100,30" font="SetrixHD;20" valign="center" halign="center" backgroundColor="red"  zPosition="1" transparent="0"/>
-		<widget name="labactive" position="250,575" size="100,30" font="SetrixHD;20" valign="center" halign="center" backgroundColor="green" zPosition="2" transparent="0" />
-		<widget name="lab2" position="400,575" size="100,30" font="SetrixHD;20" valign="center" halign="right" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="labstop" position="550,575" size="100,30" font="SetrixHD;20" valign="center" halign="center" backgroundColor="red" zPosition="1" transparent="0" />
-		<widget name="labrun" position="550,575" size="100,30" font="SetrixHD;20" valign="center" halign="center" backgroundColor="green" zPosition="2" transparent="0" />
+		<widget name="lab1" position="400,575" size="100,30" font="Regular;20" valign="center" halign="right" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="labdisabled" position="550,575" size="100,30" font="Regular;20" valign="center" halign="center" backgroundColor="red"  zPosition="1" transparent="0"/>
+		<widget name="labactive" position="550,575" size="100,30" font="Regular;20" valign="center" halign="center" backgroundColor="green" zPosition="2" transparent="0" />
+		<widget name="lab2" position="100,575" size="100,30" font="Regular;20" valign="center" halign="right" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="labstop" position="250,575" size="100,30" font="Regular;20" valign="center" halign="center" backgroundColor="red" zPosition="1" transparent="0" />
+		<widget name="labrun" position="250,575" size="100,30" font="Regular;20" valign="center" halign="center" backgroundColor="green" zPosition="2" transparent="0" />
+		<!--widget name="key" position="70,520" size="700,30" font="Regular;20" foregroundColor="layer-a-foreground" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/-->
+		<widget name="key" position="825,420" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1-source" />
@@ -1937,6 +1943,7 @@
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- General Screens -->
@@ -1979,10 +1986,10 @@
 	</screen>
 	<screen name="GraphicalEPG" position="0,0" size="1280,720" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel name="new eLabel" position="40,24" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" transparent="0" />
-		<widget source="global.CurrentTime" render="Label" position="1120,37" size="100,28" font="Regular;26" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="1120,37" size="100,33" font="SetrixHD;26" halign="right" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="870,67" size="350,25" font="RegularLight; 20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="870,72" size="350,25" font="SetrixHD;20" halign="right" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
 		</widget>
 		<eLabel text="Electronic Program Guide" position="70,47" size="800,43" font="Regular; 35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -2020,19 +2027,19 @@
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="265,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="460,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="655,635" size="30,40" alphatest="blend" />
-		<widget name="key_red" position="105,637" size="160,25" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="background" transparent="1" />
-		<widget name="key_green" position="300,637" size="160,25" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="background" transparent="1" />
-		<widget name="key_yellow" position="495,637" size="160,25" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="background" transparent="1" />
-		<widget name="key_blue" position="690,637" size="160,25" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="background" transparent="1" />
+		<widget name="key_red" position="105,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="background" transparent="1" />
+		<widget name="key_green" position="300,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="background" transparent="1" />
+		<widget name="key_yellow" position="495,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="background" transparent="1" />
+		<widget name="key_blue" position="690,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="background" transparent="1" />
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
 		<ePixmap name="Info" position="1031,635" size="81,40" pixmap="MetrixHD/buttons/key_info.png" />
 	</screen>
 	<screen name="GraphicalInfoBarEPG" title="InfoBar" position="center,499" size="1280,221" backgroundColor="transparent" flags="wfNoBorder">
 		<eLabel name="new eLabel" position="0,-4" zPosition="-10" size="1280,225" backgroundColor="layer-a-background" transparent="0" />
-		<widget source="global.CurrentTime" render="Label" position="1139,1" size="126,43" backgroundColor="layer-a-background" transparent="1" zPosition="1" font="SetrixHD; 40" valign="top" halign="left">
+		<widget source="global.CurrentTime" render="Label" position="1175,1" size="126,43" backgroundColor="layer-a-background" transparent="1" zPosition="1" font="SetrixHD; 40" valign="top" halign="left">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="909,14" size="225,25" backgroundColor="layer-a-background" transparent="1" zPosition="1" font="SetrixHD; 20" valign="top" halign="right" foregroundColor="grey">
+		<widget source="global.CurrentTime" render="Label" position="925,16" size="225,30" backgroundColor="layer-a-background" transparent="1" zPosition="1" font="SetrixHD; 20" valign="top" halign="right" foregroundColor="grey">
 			<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="20,5" size="850,45" font="SetrixHD; 35" valign="top" noWrap="1" backgroundColor="layer-a-background" transparent="1">
@@ -2046,10 +2053,10 @@
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="255,184" size="30,38" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="505,184" size="30,38" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="750,184" size="30,38" alphatest="blend" />
-		<widget name="key_red" position="45,189" size="220,26" backgroundColor="layer-a-background" transparent="1" zPosition="1" font="SetrixHD;20" halign="left" />
-		<widget name="key_green" position="290,189" size="220,26" backgroundColor="layer-a-background" transparent="1" zPosition="1" font="SetrixHD;20" halign="left" />
-		<widget name="key_yellow" position="539,189" size="220,26" backgroundColor="layer-a-background" transparent="1" zPosition="1" font="SetrixHD;20" halign="left" />
-		<widget name="key_blue" position="785,189" size="220,26" backgroundColor="layer-a-background" transparent="1" zPosition="1" font="SetrixHD;20" halign="left" />
+		<widget name="key_red" position="45,187" size="220,30" backgroundColor="layer-a-background" transparent="1" zPosition="1" font="SetrixHD;20" halign="left" />
+		<widget name="key_green" position="290,187" size="220,30" backgroundColor="layer-a-background" transparent="1" zPosition="1" font="SetrixHD;20" halign="left" />
+		<widget name="key_yellow" position="539,187" size="220,30" backgroundColor="layer-a-background" transparent="1" zPosition="1" font="SetrixHD;20" halign="left" />
+		<widget name="key_blue" position="785,187" size="220,30" backgroundColor="layer-a-background" transparent="1" zPosition="1" font="SetrixHD;20" halign="left" />
 		<ePixmap position="1075,181" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="on" />
 		<ePixmap position="1180,181" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
 	</screen>
@@ -2062,7 +2069,7 @@
 	</screen>
 	<screen name="GraphicalEPGPIG" position="0,0" size="1280,720" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="session.VideoPicture" render="Pig" position="883,103" size="355,189" zPosition="3" backgroundColor="unff000000" />
-		<eLabel name="new eLabel" position="40,23" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" transparent="0" />
+		<eLabel name="new eLabel" position="40,23" zPosition="-10" size="1205,652" backgroundColor="layer-a-background" transparent="0" />
 		<widget source="global.CurrentTime" render="Label" position="1130,33" size="100,28" font="Regular;26" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
@@ -2103,10 +2110,10 @@
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="265,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="460,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="655,635" size="30,40" alphatest="blend" />
-		<widget name="key_red" position="105,637" size="160,25" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="background" transparent="1" />
-		<widget name="key_green" position="300,637" size="160,25" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="background" transparent="1" />
-		<widget name="key_yellow" position="495,637" size="160,25" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="background" transparent="1" />
-		<widget name="key_blue" position="690,637" size="160,25" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="background" transparent="1" />
+		<widget name="key_red" position="105,639" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="background" transparent="1" />
+		<widget name="key_green" position="300,639" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="background" transparent="1" />
+		<widget name="key_yellow" position="495,639" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="background" transparent="1" />
+		<widget name="key_blue" position="690,639" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="background" transparent="1" />
 		<ePixmap position="1031,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="on" />
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
 	</screen>
