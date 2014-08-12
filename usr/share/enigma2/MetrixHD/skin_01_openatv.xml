@@ -2209,4 +2209,46 @@
 	    <panel name="_oe-buttons_template1" />
 	    <ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/skin_selector.png" transparent="1" alphatest="blend" />
 	</screen>
+	<screen name="NimSelection" position="0,0" size="1280,720" title="Choose Tuner" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Choose Tuner" position="70,47" size="700,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="nimlist" render="Listbox" position="70,120" size="700,440" enableWrapAround="1" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryText(pos = (10, 8), size = (680, 30), flags = RT_HALIGN_LEFT, text = 1), # index 1 is the nim name,
+						MultiContentEntryText(pos = (50, 43), size = (640, 60), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text = 2), # index 2 is a description of the nim settings,
+					],
+				 "fonts": [gFont("SetrixHD", 23), gFont("SetrixHD", 20)],
+				 "itemHeight": 110
+				}
+			</convert>
+		</widget>		
+		<panel name="template1_2layer" />		
+	    <panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_setup_tuner.png" transparent="1" alphatest="blend" />	
+	</screen>
+	<screen name="NimSetup" position="0,0" size="1280,720" title="Reception Settings" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Reception Settings" position="70,47" size="700,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,115" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_setup_tuner.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="ScanSetup" position="0,0" size="1280,720" title="Service scan" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Service scan" position="70,47" size="700,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,115" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="introduction" render="Label" position="825,425" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/search.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="ScanSimple" position="0,0" size="1280,720" title="Service scan" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Service scan" position="70,47" size="700,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="header" position="70,115" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel position="70,150" size="700,2" backgroundColor="layer-a-accent1" />
+		<widget name="config" position="70,160" size="700,480" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="footer" position="825,425" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/search.png" transparent="1" alphatest="blend" />
+	</screen>
 </skin>
