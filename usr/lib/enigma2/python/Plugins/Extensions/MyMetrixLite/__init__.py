@@ -60,6 +60,10 @@ SKIN_SECOND_INFOBAR_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00b_SecondInfoBar
 SKIN_SECOND_INFOBAR_TARGET = "/usr/share/enigma2/MetrixHD/skin_00b_SecondInfoBar.MySkin.xml"
 SKIN_SECOND_INFOBAR_TARGET_TMP = SKIN_SECOND_INFOBAR_TARGET + ".tmp"
 
+SKIN_SECOND_INFOBARECM_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00c_SecondInfoBarECM.xml"
+SKIN_SECOND_INFOBARECM_TARGET = "/usr/share/enigma2/MetrixHD/skin_00c_SecondInfoBarECM.MySkin.xml"
+SKIN_SECOND_INFOBARECM_TARGET_TMP = SKIN_SECOND_INFOBARECM_TARGET + ".tmp"
+
 SKIN_CHANNEL_SELECTION_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00e_ChannelSelection.xml"
 SKIN_CHANNEL_SELECTION_TARGET = "/usr/share/enigma2/MetrixHD/skin_00e_ChannelSelection.MySkin.xml"
 SKIN_CHANNEL_SELECTION_TARGET_TMP = SKIN_CHANNEL_SELECTION_TARGET + ".tmp"
@@ -237,7 +241,12 @@ def initOtherConfig():
         ("INFOBARCHANNELNAME-4", _("50")),
         ("INFOBARCHANNELNAME-5", _("40"))
         ]
-
+		
+    secondInfoBarEcmInfoTypeList = [
+        ("INFOBAREXTENDEDINFO", _("Metrix (Default)")),
+        ("INFOBAREXTENDEDINFOPLI", _("PLi"))
+        ]
+		
     config.plugins.MyMetrixLiteOther = ConfigSubsection()
 
     #OtherSettings
@@ -246,9 +255,11 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.showSYSTemp = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.showCPUTemp = ConfigYesNo(default=False)
 	#Infobar/Secondinfobar
+    config.plugins.MyMetrixLiteOther.showInfoBarServerInfo = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showChannelNumber = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showChannelName = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.secondInfoBarEcmInfoType = ConfigSelection(default="INFOBAREXTENDEDINFO", choices = secondInfoBarEcmInfoTypeList)
     config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize = ConfigSelection(default="INFOBARCHANNELNAME-1", choices = infoBarChannelNameFontSizeList)
     config.plugins.MyMetrixLiteOther.showInfoBarResolution = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showInfoBarClock = ConfigYesNo(default=True)

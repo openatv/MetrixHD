@@ -2,7 +2,7 @@
 	<!--/* TEMPLATES -->
 		<!--/* BUTTONS /> -->
 		<screen name="INFOBARKEYSNONVISIBLE">
-			<widget name="key_red" position="105,800" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+			<widgete name="key_red" position="105,800" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 			<widget name="key_green" position="395,800" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 			<widget name="key_yellow" position="685,800" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 			<widget name="key_blue" position="975,800" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
@@ -513,6 +513,24 @@
 			</widget>
 			<!-- CRYPT */ -->
 		</screen>
+		<screen name="INFOBAREXTENDEDINFOPLI">
+			<eLabel backgroundColor="layer-a-background" name="new ePixmap" position="380,33" size="574,87" transparent="0" zPosition="-99"/>
+			<widget source="session.CurrentService" render="Label" backgroundColor="layer-a-background" noWrap="1" position="386,38" size="558,60" font="Regular;16" halign="left" foregroundColor="layer-a-accent1" transparent="1" zPosition="10" >
+				<convert type="PliExtraInfo">All</convert>
+			</widget>
+			<!-- /* AGC -->
+			<eLabel text="AGC:" position="386,98" size="35,15" font="Regular; 15" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+			<widget source="session.FrontendStatus" render="Label" position="426,98" size="40,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" halign="left">
+				<convert type="FrontendInfo">AGC</convert>
+			</widget>
+			<!-- AGC */-->
+			<!-- /* BER -->
+			<eLabel text="BER:" position="485,98" size="35,15" font="Regular; 15" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+			<widget source="session.FrontendStatus" render="Label" position="520,98" size="40,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" halign="left">
+				<convert type="FrontendInfo">BER</convert>
+			</widget>
+			<!-- BER */-->
+		</screen>
 		<screen name="INFOBARSNR">
 			<!-- /* SNR -->
 			<eLabel text="SNR:" position="424,666" size="50,26" font="RegularLight; 24" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
@@ -783,6 +801,13 @@
 				<convert type="ConditionalShowHide" />
 			</widget>
 			<!-- TunerInfo */-->
+		</screen>
+		<screen name="INFOBARSERVERINFO">
+			<!-- /* SeverInfo -->
+			<widget source="session.CurrentService" render="Label"  backgroundColor="layer-a-background" position="286,697" size="300,20" font="Regular;16" halign="left" foregroundColor="layer-a-accent1" transparent="1" zPosition="10">
+				<convert type="CryptoInfo">VerboseInfo</convert>
+			</widget>
+			<!-- ServerInfo */-->
 		</screen>
 		<screen name="INFOBARSERVICEINFO">
 			<!--/* SERVICE INFO -->

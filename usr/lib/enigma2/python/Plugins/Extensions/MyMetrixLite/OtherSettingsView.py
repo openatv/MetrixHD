@@ -137,6 +137,8 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(_("InfoBar/SecondInfobar/MoviePlayer   ------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("ChannelName/Number FontSize"), config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize))
         list.append(getConfigListEntry(_("InfoBar/SecondInfobar   ------------------------------------------------------------------------------"), ))
+        list.append(getConfigListEntry(_("Show Server Name"), config.plugins.MyMetrixLiteOther.showInfoBarServerInfo))
+        list.append(getConfigListEntry(_("Show Second Infobar ECM type"), config.plugins.MyMetrixLiteOther.secondInfoBarEcmInfoType))		
         list.append(getConfigListEntry(_("Show ServiceIcons"), config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons))
         list.append(getConfigListEntry(_("Show Resolution"), config.plugins.MyMetrixLiteOther.showInfoBarResolution))
         list.append(getConfigListEntry(_("Show Clock"), config.plugins.MyMetrixLiteOther.showInfoBarClock))
