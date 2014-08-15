@@ -71,43 +71,66 @@
 		<eLabel position="950,423" zPosition="-1" size="270,50" backgroundColor="layer-a-background" transparent="0" />
 	</screen>
 	<screen name="AdapterSetup" position="0,0" size="1280,720" title="Network Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
+		<!--panel name="template1_1layer" /-->
 		<eLabel text="Network Setup" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="Adapter" render="Label" position="70,115" size="495,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,165" size="700,240" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="introduction2" render="Label" position="70,595" size="700,32" font="SetrixHD;24" halign="center" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="introduction" render="Label" position="800,390" size="430,32" font="SetrixHD;24" halign="center" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel position="800,430" size="430,2" backgroundColor="layer-a-accent1" />
-		<widget source="IPtext" render="Label" position="800,440" size="210,24" font="SetrixHD;20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Netmasktext" render="Label" position="800,470" size="210,24" font="SetrixHD;20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Gatewaytext" render="Label" position="800,500" size="210,24" font="SetrixHD;20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="DNS1text" render="Label" position="800,530" size="210,24" font="SetrixHD;20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="DNS2text" render="Label" position="800,560" size="210,24" font="SetrixHD;20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="IP" render="Label" position="1020,440" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Mask" render="Label" position="1020,470" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Gateway" render="Label" position="1020,500" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="DNS1" render="Label" position="1020,530" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="DNS2" render="Label" position="1020,560" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
+		<!--widget source="introduction2" render="Label" position="70,595" size="700,32" font="SetrixHD;24" halign="center" backgroundColor="layer-a-background" transparent="1" /-->
+		<widget source="introduction2" render="Label" position="825,420" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<widget source="introduction" render="Label" position="200,390" size="430,32" font="SetrixHD;24" halign="center" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel position="200,430" size="430,2" backgroundColor="layer-a-accent1" />
+		<widget source="IPtext" render="Label" position="200,440" size="210,24" font="SetrixHD;20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Netmasktext" render="Label" position="200,470" size="210,24" font="SetrixHD;20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Gatewaytext" render="Label" position="200,500" size="210,24" font="SetrixHD;20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="DNS1text" render="Label" position="200,530" size="210,24" font="SetrixHD;20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="DNS2text" render="Label" position="200,560" size="210,24" font="SetrixHD;20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="IP" render="Label" position="420,440" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Mask" render="Label" position="420,470" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Gateway" render="Label" position="420,500" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="DNS1" render="Label" position="420,530" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="DNS2" render="Label" position="420,560" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<!--ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="940,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_blue" render="Label" position="975,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="key_blue" render="Label" position="975,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" /-->
 		<widget name="VKeyIcon" text="Text" position="430,637" size="70,24" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="HelpWindow" position="120,460" size="1,1" transparent="1" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="595,635" size="30,40" alphatest="blend" />
+		<widget source="key_red" render="Label" position="70,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="key_blue" render="Label" position="630,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/net.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="AdapterSetupConfiguration" position="0,0" size="1280,720" title="Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
+		<!--panel name="template1_1layer" /-->
 		<eLabel text="Network Configuration..." position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="IF" render="Label" position=" 70,115" size="495,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Statustext" render="Label" position="576,115" size="160,32" font="SetrixHD;24" transparent="1" />
+		<widget source="Statustext" render="Label" position="576,115" size="160,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="statuspic" position="740,117" size=" 30,30" pixmaps="MetrixHD/buttons/key_green.png,MetrixHD/buttons/grey.png" transparent="1" alphatest="blend" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="menulist" position="70,165" size="700,280" itemHeight="35" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="description" render="Label" position="70,520" size="700,100" font="SetrixHD;22" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="description" render="Label" position="825,420" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<!--widget source="description" render="Label" position="70,520" size="700,100" font="SetrixHD;22" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="105,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="key_red" render="Label" position="105,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" /-->
+		<panel name="r___-buttons_template1" />
+		<panel name="r___-keys_template1-source" />
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/net.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="NetworkMountsMenu" position="0,0" size="1280,720" title="Mounts Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="550,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="menulist" position="70,130" size="700,515" itemHeight="35" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="introduction" position="825,420" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="r___-buttons_template1" />
+		<panel name="r___-keys_template1-source" />
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_network_netmounts_setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="BouquetSelector" position="0,0" size="1280,720" title="Choose bouquet" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -520,16 +543,20 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget name="menu" position="14,196" size="350,450" zPosition="3" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
 	</screen>
 	<screen name="NameserverSetup" position="0,0" size="1280,720" title="Nameserver Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
+		<!--panel name="template1_1layer" /-->
 		<eLabel text="Nameserver Setup" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,120" size="700,450" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="introduction" position="70,600" size="700,25" font="SetrixHD;22" halign="center" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
+		<!--ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="650,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_green" render="Label" position="395,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_yellow" render="Label" position="685,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="key_yellow" render="Label" position="685,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" /-->
+		<panel name="rgy_-buttons_template1" />
+		<panel name="rgy_-keys_template1-source" />
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/net.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="NetworkAdapterSelection" position="0,0" size="1280,720" title="Select Network Adapter" flags="wfNoBorder" backgroundColor="transparent">
@@ -560,47 +587,51 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/net.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="NetworkAdapterTest" position="0,0" size="1280,720" title="Network test..." flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
+		<!--panel name="template1_1layer" /-->
 		<eLabel text="Network test..." position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="Adaptertext" position=" 70,120" size="400,25" zPosition="1" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="Adapter" position=" 70,150" size="400,25" zPosition="1" font="SetrixHD;22" foregroundColors="#8c8c93,#f23d21,#1cff1c" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="AdapterInfo_OK" position="535,136" size=" 30,30" pixmap="MetrixHD/buttons/key_green.png" zPosition="2" alphatest="blend" />
+		<widget name="Adaptertext" position=" 70,120" size="400,30" zPosition="1" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="Adapter" position=" 70,150" size="400,30" zPosition="1" font="SetrixHD;22" foregroundColors="#8c8c93,#f23d21,#1cff1c" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="AdapterInfo_OK" position="535,133" size=" 30,30" pixmap="MetrixHD/buttons/key_green.png" zPosition="2" alphatest="blend" />
 		<widget name="AdapterInfo_Text" position="570,131" size="200,34" zPosition="2" font="SetrixHD;22" halign="center" valign="center" foregroundColors="#8c8c93,grey,#ffffff" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="AdapterInfo" position="570,130" size="200,35" pixmaps="MetrixHD/menu/lan-seloff.png,MetrixHD/menu/lan-sel.png" zPosition="1" alphatest="blend" />
 		<eLabel position=" 70,185" size="700, 2" backgroundColor="layer-a-accent2" />
-		<widget name="Networktext" position=" 70,200" size="400,25" zPosition="1" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="Network" position=" 70,230" size="400,25" zPosition="1" font="SetrixHD;22" foregroundColors="#8c8c93,#f23d21,#1cff1c" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="NetworkInfo_Check" position="535,216" size=" 30,30" pixmaps="MetrixHD/buttons/key_green.png,MetrixHD/buttons/key_red.png" zPosition="2" alphatest="blend" />
+		<widget name="Networktext" position=" 70,200" size="400,30" zPosition="1" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="Network" position=" 70,230" size="400,30" zPosition="1" font="SetrixHD;22" foregroundColors="#8c8c93,#f23d21,#1cff1c" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="NetworkInfo_Check" position="535,213" size=" 30,30" pixmaps="MetrixHD/buttons/key_green.png,MetrixHD/buttons/key_red.png" zPosition="2" alphatest="blend" />
 		<widget name="NetworkInfo_Text" position="570,211" size="200,34" zPosition="2" font="SetrixHD;22" halign="center" valign="center" foregroundColors="#8c8c93,grey,#ffffff" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="NetworkInfo" position="570,210" size="200,35" pixmaps="MetrixHD/menu/lan-seloff.png,MetrixHD/menu/lan-sel.png" zPosition="1" alphatest="blend" />
 		<eLabel position=" 70,265" size="700, 2" backgroundColor="layer-a-accent2" />
-		<widget name="Dhcptext" position=" 70,280" size="400,25" zPosition="1" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="Dhcp" position=" 70,310" size="400,25" zPosition="1" font="SetrixHD;22" foregroundColors="#8c8c93,#f23d21,#1cff1c" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="DhcpInfo_Check" position="535,296" size=" 30,30" pixmaps="MetrixHD/buttons/key_green.png,MetrixHD/buttons/key_red.png" zPosition="2" alphatest="blend" />
-		<widget name="DhcpInfo_Text" position="570,290" size="200,35" zPosition="2" font="SetrixHD;22" halign="center" valign="center" foregroundColors="#8c8c93,grey,#ffffff" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="Dhcptext" position=" 70,280" size="400,30" zPosition="1" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="Dhcp" position=" 70,310" size="400,30" zPosition="1" font="SetrixHD;22" foregroundColors="#8c8c93,#f23d21,#1cff1c" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="DhcpInfo_Check" position="535,293" size=" 30,30" pixmaps="MetrixHD/buttons/key_green.png,MetrixHD/buttons/key_red.png" zPosition="2" alphatest="blend" />
+		<widget name="DhcpInfo_Text" position="570,291" size="200,35" zPosition="2" font="SetrixHD;22" halign="center" valign="center" foregroundColors="#8c8c93,grey,#ffffff" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="DhcpInfo" position="570,290" size="200,35" pixmaps="MetrixHD/menu/lan-seloff.png,MetrixHD/menu/lan-sel.png" zPosition="1" alphatest="blend" />
 		<eLabel position=" 70,345" size="700, 2" backgroundColor="layer-a-accent2" />
-		<widget name="IPtext" position=" 70,360" size="400,25" zPosition="1" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="IP" position=" 70,390" size="400,25" zPosition="1" font="SetrixHD;22" foregroundColors="#8c8c93,#f23d21,#1cff1c" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="IPInfo_Check" position="535,376" size=" 30,30" pixmaps="MetrixHD/buttons/key_green.png,MetrixHD/buttons/key_red.png" zPosition="2" alphatest="blend" />
+		<widget name="IPtext" position=" 70,360" size="400,30" zPosition="1" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="IP" position=" 70,390" size="400,30" zPosition="1" font="SetrixHD;22" foregroundColors="#8c8c93,#f23d21,#1cff1c" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="IPInfo_Check" position="535,373" size=" 30,30" pixmaps="MetrixHD/buttons/key_green.png,MetrixHD/buttons/key_red.png" zPosition="2" alphatest="blend" />
 		<widget name="IPInfo_Text" position="570,371" size="200,34" zPosition="2" font="SetrixHD;22" halign="center" valign="center" foregroundColors="#8c8c93,grey,#ffffff" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="IPInfo" position="570,370" size="200,35" pixmaps="MetrixHD/menu/lan-seloff.png,MetrixHD/menu/lan-sel.png" zPosition="1" alphatest="blend" />
 		<eLabel position=" 70,425" size="700, 2" backgroundColor="layer-a-accent2" />
-		<widget name="DNStext" position=" 70,440" size="400,25" zPosition="1" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="DNS" position=" 70,470" size="400,25" zPosition="1" font="SetrixHD;22" foregroundColors="#8c8c93,#f23d21,#1cff1c" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="DNSInfo_Check" position="535,456" size=" 30,30" pixmaps="MetrixHD/buttons/key_green.png,MetrixHD/buttons/key_red.png" zPosition="2" alphatest="blend" />
+		<widget name="DNStext" position=" 70,440" size="400,30" zPosition="1" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="DNS" position=" 70,470" size="400,30" zPosition="1" font="SetrixHD;22" foregroundColors="#8c8c93,#f23d21,#1cff1c" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="DNSInfo_Check" position="535,453" size=" 30,30" pixmaps="MetrixHD/buttons/key_green.png,MetrixHD/buttons/key_red.png" zPosition="2" alphatest="blend" />
 		<widget name="DNSInfo_Text" position="570,451" size="200,34" zPosition="2" font="SetrixHD;22" halign="center" valign="center" foregroundColors="#8c8c93,grey,#ffffff" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="DNSInfo" position="570,450" size="200,35" pixmaps="MetrixHD/menu/lan-seloff.png,MetrixHD/menu/lan-sel.png" zPosition="1" alphatest="blend" />
 		<eLabel position=" 70,505" size="700, 2" backgroundColor="layer-a-accent2" />
-		<widget name="EditSettings_Text" position="470,531" size="300,34" zPosition="2" font="SetrixHD;22" halign="center" valign="center" foregroundColors="grey,grey,#ffffff" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="EditSettingsButton" position="470,530" size="300,35" pixmaps="MetrixHD/menu/lan-seloff.png,MetrixHD/menu/lan-sel300.png" zPosition="2" alphatest="blend" />
+		<widget name="EditSettings_Text" position="260,531" size="300,34" zPosition="2" font="SetrixHD;22" halign="center" valign="center" foregroundColors="grey,grey,#ffffff" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="EditSettingsButton" position="260,530" size="300,35" pixmaps="MetrixHD/menu/lan-seloff.png,MetrixHD/menu/lan-sel300.png" zPosition="2" alphatest="blend" />
 		<widget name="InfoText" position=" 70,120" size="700,387" zPosition="25" font="SetrixHD;22" valign="center" halign="center" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
+		<!--ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="650,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_green" render="Label" position="395,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_yellow" render="Label" position="685,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="key_yellow" render="Label" position="685,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" /-->
+		<panel name="rgy_-buttons_template1" />
+		<panel name="rgy_-keys_template1-source" />
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/net.png" transparent="1" alphatest="blend" />
 	</screen>	
 	<screen name="NumberZapExt" position="293,243" size="700,165" title="Channel" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
@@ -824,18 +855,22 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget name="ok" position="0,0" size="0,0" />
 	</screen>
 	<screen name="TimerLog" position="0,0" size="1280,720" title="Timer log" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
+		<!--panel name="template1_1layer" /-->
 		<eLabel text="Timer log" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="loglist" position="70,130" size="700,250" scrollbarMode="showOnDemand" transparent="1" />
-		<widget name="logentry" position="70,420" size="700,130" font="SetrixHD;20" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
+		<widget name="loglist" position="70,110" size="700,505" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="logentry" position="825,420" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<!--ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="650,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="940,635" size="30,40" alphatest="blend" />
 		<widget name="key_red" position="105,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="key_green" position="395,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="key_yellow" position="685,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_blue" position="975,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="key_blue" position="975,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" /-->
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="TimerSanityConflict" position="0,0" size="1280,720" title="Timer sanity error" flags="wfNoBorder" backgroundColor="transparent">
