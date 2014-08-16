@@ -972,5 +972,23 @@
 		<widget name="text4" position="4,47" size="132,15" halign="center" valign="top" font="SetrixHD;10" />
 	</screen>
 	<!-- MerlinMusicPlayer, iDream *--> 
+    <!--* VPS -->
+	<screen name="VPS_Setup" title="VPS-Plugin" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">	
+		<widget source="Title" render="Label" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,115" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
+    	<widget source="help" render="Label" position="825,425" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+        <panel name="template1_2layer"/>
+	    <panel name="rgyb-keys_template1-source"/>
+		<panel name="rgyb-buttons_template1"/>		
+		<ePixmap pixmap="MetrixHD/icons/setup.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+    </screen>   
+    <screen name="VPS_Screen_Info" position="0,0" size="1280,720" title="VPS-Plugin Information" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="text" position="70,115" size="700,510" font="SetrixHD;23" backgroundColor="layer-a-background" scrollbarMode="showOnDemand" transparent="1" />
+	    <panel name="template1_2layer"/>
+	    <panel name="__e-buttons_template1"/>	
+		<ePixmap pixmap="MetrixHD/icons/info.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+	</screen>
+   <!-- VPS *--> 
 <!-- PLUGINS */-->
 </skin>
