@@ -1006,5 +1006,51 @@
 		<eLabel name="layer2" position="460,7" size="230,150" zPosition="-10" backgroundColor="layer-b-background" />		
 	</screen>
 	<!-- NumberZapExt *-->  
-    <!-- PLUGINS */-->
+    <!--* VirtualZap -->
+	<screen name="VirtualZapConfig" position="0,0" size="1280,720" backgroundColor="transparent" >
+		<eLabel text="Virtual Zap Config" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,115" size="700,510" scrollbarMode="showOnDemand" transparent="1" />
+		<panel name="template1_2layer"/>
+		<panel name="rg__-keys_template1-source"/>
+		<panel name="rg__-buttons_template1"/>
+	    <ePixmap pixmap="MetrixHD/icons/setup.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+	</screen>	
+	<screen name="DirectoryBrowserVZ" position="0,0" size="1280,720" title=" " backgroundColor="transparent" flags="wfNoBorder">
+		<eLabel text="Directory Browser" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="curdir" render="Label" position="70,115" size="700,28" font="SetrixHD;23" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
+		<widget name="filelist" position="70,165" size="700,450" zPosition="3" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="template1_2layer"/>
+		<panel name="rg__-keys_template1-source"/>
+		<panel name="rg__-buttons_template1"/>		
+	    <ePixmap pixmap="MetrixHD/icons/search.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+	</screen>	
+	<screen name="VirtualZapPiconNoPiP" position="0,0" size="1280,720" title="Virtual Zap" backgroundColor="transparent" flags="wfNoBorder">
+		<eLabel name="InfoBar" backgroundColor="layer-a-background" position="-1,560" size="1283,160" zPosition="-10"/>
+		<eLabel position="288,615" size="980,1" backgroundColor="layer-a-accent1" zPosition="2" />
+		<widget name="vzProgress" position="288,614" size="980,3" foregroundColor="layer-a-progress" zPosition="3" transparent="1"/>
+		<widget name="video" position="39,570" size="220,132" backgroundColor="layer-a-background" zPosition="1"/>
+		<widget name="vzPicon" position="39,570" size="220,132" alphatest="blend" zPosition="3"/>
+		<widget name="NowNum" font="SetrixHD;80" position="30,455" size="350,105" foregroundColor="background-text" backgroundColor="text-background" valign="bottom" transparent="1" zPosition="2"/>
+		<widget name="NowChannel" font="SetrixHD;80" position="180,455" size="1115,105" foregroundColor="background-text" backgroundColor="text-background" valign="bottom" transparent="1" zPosition="2"/>
+		<widget name="NowEPG" font="SetrixHD; 40" position="286,558" size="805,56" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" noWrap="1" zPosition="3"/>
+		<widget name="NextEPG" font="Regular;26" position="286,624" size="805,40" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" halign="left" valign="top" transparent="1" zPosition="3"/>
+		<widget name="NowTime" font="Regular;24" position="1145,586" size="124,28" backgroundColor="layer-a-background" halign="right" transparent="1" zPosition="3"/>
+		<widget name="NextTime" font="Regular;24" position="1145,621" size="124,28" backgroundColor="layer-a-background" halign="right" transparent="1" zPosition="3"/>
+	</screen>	
+	<screen name="VirtualZapPicon" position="0,0" size="1280,720" title="Virtual Zap" backgroundColor="transparent" flags="wfNoBorder">
+		<eLabel name="InfoBar" backgroundColor="layer-a-background" position="-1,560" size="1283,160" zPosition="-10"/>
+		<eLabel position="288,615" size="980,1" backgroundColor="layer-a-accent1" zPosition="2" />
+		<widget name="vzProgress" position="288,614" size="980,3" foregroundColor="layer-a-progress" zPosition="3" transparent="1"/>
+		<widget name="video" position="39,570" size="220,132" backgroundColor="transparent" zPosition="5"/>
+		<widget name="vzPicon" position="39,570" size="220,132" alphatest="blend" zPosition="3"/>
+		<widget name="NowNum" font="SetrixHD;80" position="30,455" size="350,105" foregroundColor="background-text" backgroundColor="text-background" valign="bottom" transparent="1" zPosition="2"/>
+		<widget name="NowChannel" font="SetrixHD;80" position="180,455" size="1115,105" foregroundColor="background-text" backgroundColor="text-background" valign="bottom" transparent="1" zPosition="2"/>
+		<widget name="NowEPG" font="SetrixHD; 40" position="286,558" size="805,56" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" noWrap="1" zPosition="3"/>
+		<widget name="NextEPG" font="Regular;26" position="286,624" size="805,40" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" halign="left" valign="top" transparent="1" zPosition="3"/>
+		<widget name="NowTime" font="Regular;24" position="1145,586" size="124,28" backgroundColor="layer-a-background" halign="right" transparent="1" zPosition="3"/>
+		<widget name="NextTime" font="Regular;24" position="1145,621" size="124,28" backgroundColor="layer-a-background" halign="right" transparent="1" zPosition="3"/>
+	</screen>
+	<!-- VirtualZap *-->
+	<!-- PLUGINS */-->
 </skin>
