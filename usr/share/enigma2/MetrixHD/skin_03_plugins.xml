@@ -1052,5 +1052,141 @@
 		<widget name="NextTime" font="Regular;24" position="1145,621" size="124,28" backgroundColor="layer-a-background" halign="right" transparent="1" zPosition="3"/>
 	</screen>
 	<!-- VirtualZap *-->
+	<!--* MSNWeatherPlugin -->
+	<screen name="MSNWeatherPluginEntriesListConfigScreen" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="MSN WeatherPlugin" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget render="Label" source="city" font="SetrixHD;23" position="70,115" size="400,50" backgroundColor="layer-a-background" halign="left"/>
+		<widget render="Label" source="degreetype" font="SetrixHD;23" position="450,115" size="130,50" backgroundColor="layer-a-background" halign="left"/>
+		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
+		<widget name="entrylist" font="Regular;24" position="70,165" size="700,450" zPosition="3" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="template1_2layer"/>
+		<panel name="rgyb-keys_template1-source"/>
+		<panel name="rgyb-buttons_template1"/>
+		<ePixmap pixmap="MetrixHD/icons/usage_setup.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="MSNWeatherPluginEntryConfigScreen" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="MSN WeatherPlugin" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Search" font="SetrixHD;23" position="70,115" size="400,50" backgroundColor="layer-a-background" halign="left"/>
+		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
+		<widget name="config" position="70,165" size="700,450" zPosition="3" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="template1_2layer"/>
+		<panel name="rgyb-keys_template1-source"/>
+		<panel name="rgyb-buttons_template1"/>
+		<ePixmap pixmap="MetrixHD/icons/languages.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="MSNWeatherPluginSearch" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="MSN WeatherPlugin" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Selection" font="SetrixHD;23" position="70,115" size="400,50" backgroundColor="layer-a-background" halign="left"/>
+		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
+		<widget name="entrylist" position="70,165" size="700,450" zPosition="3" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="template1_2layer"/>
+		<panel name="rg__-keys_template1-source"/>
+		<panel name="rg__-buttons_template1"/>
+		<ePixmap pixmap="MetrixHD/icons/languages.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="MSNWeatherPlugin" position="0,0" size="1280,720" title="Weather Plugin" flags="wfNoBorder" backgroundColor="transpBlack" >
+		<ePixmap pixmap="MetrixHD/msn_weather_icons/background.png" position="0,0" size="1280,720" zPosition="-1" transparent="1" alphatest="blend" />
+		<!--day1-->
+		<widget source="session.MSNWeather" render="Label" font="Regular;28" position="288,15" size="180,45" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center" >
+			<convert type="MSNWeather">weekshortday,current</convert>
+		</widget>
+		<widget source="session.MSNWeather" render="Label" font="Regular;28" position="360,15" size="180,45" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center" >
+			<convert type="MSNWeather">date,current</convert>
+		</widget>
+		<widget render="Label" source="observationtime" font="Regular;22" position="310,50" size="240,40" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center" />
+		<widget render="Label" source="currentTemp" font="Regular;50" position="230,170" size="400,120" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center" />
+		<widget render="Label" source="feelsliketemp" font="Regular;22" position="310,258" size="240,40" backgroundColor="#363b38" zPosition="3" transparent="1" valign="center" halign="center" />
+		<widget render="Label" source="condition" font="Regular;24" position="310,294" size="240,45" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center"/>
+		<widget render="Label" source="caption" font="Regular;22" position="590,25" size="370,50" backgroundColor="transBlack" zPosition="3" transparent="1" halign="center" valign="top" />
+		<widget render="Label" source="observationpoint" font="Regular;22" position="590,75" size="370,55" backgroundColor="transBlack" zPosition="3" transparent="1" halign="center" valign="top" />
+		<ePixmap pixmap="MetrixHD/msn_weather_icons/overlay.png" position="310,19" size="240,320" zPosition="2" transparent="1" alphatest="blend" />
+		<widget render="MSNWeatherPixmap" source="session.MSNWeather" position="310,19" size="240,320" zPosition="1" transparent="1" alphatest="blend">
+			<convert type="MSNWeather">weathericon,current,/etc/enigma2/weather_icons_special/,png</convert>
+		</widget>
+		<ePixmap pixmap="MetrixHD/msn_weather_icons/temp_high_low.png" position="815,136" size="28,70" zPosition="3" transparent="1" alphatest="blend" />
+		<widget source="session.MSNWeather" render="Label" font="Regular;35" position="625,126" size="300,40" backgroundColor="transBlack" zPosition="3" transparent="1" valign="center" halign="center">
+			<convert type="MSNWeather">temperature_high,current</convert>
+		</widget>
+		<widget source="session.MSNWeather" render="Label" font="Regular;35" position="625,169" size="300,40" backgroundColor="transBlack" zPosition="3" transparent="1" valign="center" halign="center">
+			<convert type="MSNWeather">temperature_low,current</convert>
+		</widget>
+		<widget source="session.MSNWeather" render="Label" font="Regular;24" position="625,214" size="300,40" backgroundColor="transBlack" zPosition="3" transparent="1" halign="center" valign="center" >
+			<convert type="MSNWeather">temperature_text,day1</convert>
+		</widget>
+		<ePixmap pixmap="MetrixHD/msn_weather_icons/wind.png" position="610,258" size="60,60" zPosition="3" transparent="1" alphatest="blend" />
+		<widget render="Label" source="wind_condition" font="Regular;24" position="628,260" size="300,30" backgroundColor="transBlack" zPosition="3" transparent="1" valign="center" halign="center" />
+		<ePixmap pixmap="MetrixHD/msn_weather_icons/umbrella.png" position="907,280" size="50,54" zPosition="3" transparent="1" alphatest="blend" />
+		<widget render="Label" source="humidity" font="Regular;24" position="628,297" size="300,35" backgroundColor="transBlack" zPosition="3" transparent="1" valign="center" halign="center" />
+		<!--day2 -->
+		<widget source="session.MSNWeather" render="Label" font="Regular;28" position="65,376" size="180,45" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center">
+			<convert type="MSNWeather">weekshortday,day2</convert>
+		</widget>
+		<widget source="session.MSNWeather" render="Label" font="Regular;28" position="137,376" size="180,45" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center" >
+			<convert type="MSNWeather">date,day2</convert>
+		</widget>
+		<ePixmap pixmap="MetrixHD/msn_weather_icons/overlay.png" position="85,380" size="240,320" zPosition="2" transparent="1" alphatest="blend" />
+		<widget render="MSNWeatherPixmap" source="session.MSNWeather" position="85,380" size="240,320" zPosition="1" transparent="1" alphatest="blend">
+			<convert type="MSNWeather">weathericon,day2,/etc/enigma2/weather_icons_special/,png</convert>
+		</widget>
+		<widget render="Label" source="weekday2_temp" font="Regular;34" position="85,605" size="240,40" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center"/>
+		<widget source="session.MSNWeather" render="Label" font="Regular;24" position="85,655" size="240,40" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center" >
+			<convert type="MSNWeather">temperature_text,day2</convert>
+		</widget>
+		<!-- day3 -->
+		<widget source="session.MSNWeather" render="Label" font="Regular;28" position="355,376" size="180,45" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center">
+			<convert type="MSNWeather">weekshortday,day3</convert>
+		</widget>
+		<widget source="session.MSNWeather" render="Label" font="Regular;28" position="427,376" size="180,45" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center" >
+			<convert type="MSNWeather">date,day3</convert>
+		</widget>
+		<ePixmap pixmap="MetrixHD/msn_weather_icons/overlay.png" position="375,380" size="240,320" zPosition="2" transparent="1" alphatest="blend" />
+		<widget render="MSNWeatherPixmap" source="session.MSNWeather" position="375,380" size="240,320" zPosition="1" transparent="1" alphatest="blend">
+			<convert type="MSNWeather">weathericon,day3,/etc/enigma2/weather_icons_special/,png</convert>
+		</widget>
+		<widget render="Label" source="weekday3_temp" font="Regular;34" position="375,605" size="240,40" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center"/>
+		<widget source="session.MSNWeather" render="Label" font="Regular;24" position="375,655" size="240,40" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center" >
+			<convert type="MSNWeather">temperature_text,day3</convert>
+		</widget>
+		<!--day4-->
+		<widget source="session.MSNWeather" render="Label" font="Regular;28" position="645,376" size="180,45" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center">
+			<convert type="MSNWeather">weekshortday,day4</convert>
+		</widget>
+		<widget source="session.MSNWeather" render="Label" font="Regular;28" position="717,376" size="180,45" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center" >
+			<convert type="MSNWeather">date,day4</convert>
+		</widget>
+		<ePixmap pixmap="MetrixHD/msn_weather_icons/overlay.png" position="665,380" size="240,320" zPosition="2" transparent="1" alphatest="blend" />
+		<widget render="MSNWeatherPixmap" source="session.MSNWeather" position="665,380" size="240,320" zPosition="1" transparent="1" alphatest="blend">
+			<convert type="MSNWeather">weathericon,day4,/etc/enigma2/weather_icons_special/,png</convert>
+		</widget>
+		<widget render="Label" source="weekday4_temp" font="Regular;34" position="665,605" size="240,40" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center"/>
+		<widget source="session.MSNWeather" render="Label" font="Regular;24" position="665,655" size="240,40" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center" >
+			<convert type="MSNWeather">temperature_text,day4</convert>
+		</widget>
+		<!--day5-->
+		<widget source="session.MSNWeather" render="Label" font="Regular;28" position="935,376" size="180,45" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center">
+			<convert type="MSNWeather">weekshortday,day5</convert>
+		</widget>
+		<widget source="session.MSNWeather" render="Label" font="Regular;28" position="1007,376" size="180,45" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center" >
+			<convert type="MSNWeather">date,day5</convert>
+		</widget>
+		<ePixmap pixmap="MetrixHD/msn_weather_icons/overlay.png" position="955,380" size="240,320" zPosition="2" transparent="1" alphatest="blend" />
+		<widget render="MSNWeatherPixmap" source="session.MSNWeather" position="955,380" size="240,320" zPosition="1" transparent="1" alphatest="blend">
+			<convert type="MSNWeather">weathericon,day5,/etc/enigma2/weather_icons_special/,png</convert>
+		</widget>
+		<widget render="Label" source="weekday5_temp" font="Regular;34" position="955,605" size="240,40" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center"/>
+		<widget source="session.MSNWeather" render="Label" font="Regular;24" position="955,655" size="240,40" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center" >
+			<convert type="MSNWeather">temperature_text,day5</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" font="SetrixHD; 50" position="1145,8" size="140,60" zPosition="2" halign="left" backgroundColor="transpBlack" transparent="1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" font="SetrixHD; 16" position="968,21" size="161,27" zPosition="2" halign="right" backgroundColor="transpBlack" transparent="1">
+			<convert type="ClockToText">Format:%A</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" font="SetrixHD; 16" position="968,44" size="161,29" zPosition="2" halign="right" backgroundColor="transpBlack" transparent="1">
+			<convert type="ClockToText">Format:%e. %b</convert>
+		</widget>
+	</screen>
+	<!-- MSNWeatherPlugin *-->
 	<!-- PLUGINS */-->
 </skin>
