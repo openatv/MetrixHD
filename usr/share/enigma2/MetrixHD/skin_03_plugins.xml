@@ -1,6 +1,16 @@
 <skin>
 	<!--/* PLUGINS -->
 	<!-- CoolTV -->
+	<screen name="CoolTVGuideSetup" title="Cool TV Guide Setup" position="0,0" size="1280,720" backgroundColor="transparent">
+	    <widget source="Title" render="Label" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,115" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
+    	<widget name="CoolText1" position="825,425" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+	    <widget name="CoolText2" position="825,465" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+	   	<panel name="template1_2layer"/>
+	    <panel name="rgyb-keys_template1-source"/>
+		<panel name="rgyb-buttons_template1"/>		
+		<ePixmap pixmap="MetrixHD/icons/setup.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+	</screen>
 	<screen name="CoolSingleGuide" position="40,25" size="1200,660" zPosition="1" title="Cool Single Guide" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="0,0" zPosition="-10" size="1200,660" backgroundColor="layer-a-background" />
 		<widget source="Service" render="CoolPico" position="276,21" zPosition="1" size="50,28" alphatest="blend" transparent="1" />
