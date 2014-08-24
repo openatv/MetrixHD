@@ -43,15 +43,15 @@
 		<panel name="ime-buttons_template1" />
 	</screen>
 	<!-- EMC EnhancedMovieCenterMenu -->
-	<screen name="EnhancedMovieCenterMenu" position="center,center" size="620,500" title="EnhancedMovieCenterMenu" backgroundColor="layer-a-background">
-		<widget name="config" position="10,10" size="605,353 " enableWrapAround="1" scrollbarMode="showOnDemand" />
-		<eLabel position="0,362" size="620,2" backgroundColor="layer-a-accent2" zPosition="1" />
-		<widget source="help" render="Label" position="10,367" size="605,88" font="SetrixHD;20" foregroundColor="layer-a-accent2" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="11,455" zPosition="0" size="140,40" transparent="1" alphatest="on" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="412,455" zPosition="0" size="140,40" transparent="1" alphatest="on" />
-		<widget name="key_red" position="46,455" zPosition="1" size="140,40" font="SetrixHD;20" valign="center" halign="center" backgroundColor="un9f1313" transparent="1" shadowColor="layer-a-background" shadowOffset="-1,-1" />
-		<widget name="key_green" position="447,455" zPosition="1" size="140,40" font="SetrixHD;20" valign="center" halign="center" backgroundColor="un1f771f" transparent="1" shadowColor="layer-a-background" shadowOffset="-1,-1" />
-	</screen>
+	<screen name="EnhancedMovieCenterMenu" position="0,0" size="1280,720" title="EnhancedMovieCenterMenu" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Enhanced Movie Center Setup" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,115" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
+		<widget source="help" render="Label" position="825,425" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+	    <panel name="template1_2layer"/>
+	    <panel name="rg__-keys_template1"/>
+		<panel name="rg__-buttons_template1"/>		
+		<ePixmap pixmap="MetrixHD/icons/setup.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+	</screen>	
 	<!-- EMC 1280 EMCMediaCenter -->
 	<screen name="EMCMediaCenter" position="0,0" size="1280,720" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="0,570" zPosition="-2" size="1281,150" backgroundColor="layer-a-background" />
