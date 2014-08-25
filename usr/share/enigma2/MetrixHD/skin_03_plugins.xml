@@ -1250,5 +1250,30 @@
 		<widget source="downloadProgressText" position="0,150" size="500,30" render="Label" font="Regular; 20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" transparent="1" />
 	</screen>
 	<!-- Picons Updater -->
+	<!-- EPGRefresh -->
+	<screen name="EPGRefreshServiceEditor" position="0,0" size="1280,720" title="Edit Services to refresh" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="525,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,115" size="700,505" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1-source" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="EPGRefreshConfiguration" position="0,0" size="1280,720" title="Configure EPGRefresh" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="525,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,115" size="700,505" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="help" render="Label" position="825,420" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1-source" />
+		<panel name="ioe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="EPGRefreshConfigurationFunctionContextMenu" position="0,0" size="1280,720" title="EGGRefresh menu" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="MENU_template" />
+		<ePixmap position="305,80" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- EPGRefresh -->
 	<!-- PLUGINS */-->
 </skin>
