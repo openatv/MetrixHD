@@ -807,7 +807,6 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="WlanScan" position="0,0" size="1280,720" title="Choose a Wireless Network" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
 		<eLabel text="Choose a Wireless Network" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="info" render="Label" position="70,115" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
@@ -825,19 +824,16 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 				}
 			</convert>
 		</widget>
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="650,635" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="105,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_green" render="Label" position="395,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_yellow" render="Label" position="685,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rgy_-buttons_template1" />
+		<panel name="rgy_-keys_template1-source" />
+		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/wlan.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="WlanStatus" position="0,0" size="1280,720" title="Wireless Network State" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
 		<eLabel text="W-LAN Status" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="IF" render="Label" position=" 70,115" size="495,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Statustext" render="Label" position="576,115" size="160,32" font="SetrixHD;24" transparent="1" />
+		<widget source="Statustext" render="Label" position="576,115" size="160,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="statuspic" position="740,117" size=" 30,30" pixmaps="MetrixHD/buttons/key_green.png,MetrixHD/buttons/grey.png" transparent="1" alphatest="blend" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget source="LabelBSSID" render="Label" position="160,180" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
@@ -852,57 +848,49 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget source="signal" render="Label" position="470,300" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="bitrate" render="Label" position="470,340" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="enc" render="Label" position="470,380" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="105,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="r___-buttons_template1" />
+		<panel name="r___-keys_template1-source" />
+		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/wlan.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="WlanSelection" position="0,0" size="1280,720" title="Wireless Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
-		<ePixmap pixmap="MetrixHD/icons/wlan.png" position="890,175" size="256,256" alphatest="blend" transparent="1" />
-		<eLabel text="Wireless Network Adapter Selection..." position="90,47" size="700,43" font="SetrixHD;32" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="250,635" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="105,637" zPosition="1" size="150,25" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_green" render="Label" position="285,637" zPosition="1" size="150,25" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Wireless Network Adapter Selection..." position="70,47" size="525,50" font="SetrixHD;32" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="menulist" position="70,120" size="340,438" transparent="1" backgroundColor="layer-a-background" zPosition="10" scrollbarMode="showOnDemand" />
-		<widget source="description" render="Label" position="450,119" size="280,460" font="SetrixHD;19" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="description" render="Label" position="825,420" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap pixmap="MetrixHD/icons/wlan.png" position="890,175" size="256,256" alphatest="blend" transparent="1" />
 	</screen>
 	<screen name="WlanSetup" position="0,0" size="1280,720" title="Wireless Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
-		<ePixmap pixmap="MetrixHD/icons/wlan.png" position="890,175" size="256,256" alphatest="blend" transparent="1" />
-		<eLabel text="Wireless Network Setup Menu..." position="90,47" size="700,43" font="SetrixHD;32" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="250,635" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="105,637" zPosition="1" size="150,25" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_green" render="Label" position="285,637" zPosition="1" size="150,25" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Wireless Network Setup Menu..." position="90,47" size="525,50" font="SetrixHD;32" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="menulist" position="70,119" size="360,438" transparent="1" backgroundColor="layer-a-background" zPosition="10" scrollbarMode="showOnDemand" />
-		<widget source="description" render="Label" position="450,120" size="280,460" font="SetrixHD;19" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="description" render="Label" position="825,420" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap pixmap="MetrixHD/icons/wlan.png" position="890,175" size="256,256" alphatest="blend" transparent="1" />
 	</screen>
 	<screen name="WlanConfig" position="0,0" size="1280,720" title="Wireless Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
-		<ePixmap pixmap="MetrixHD/icons/wlan.png" position="890,175" size="256,256" alphatest="blend" transparent="1" />
-		<eLabel text="Wireless Network Configuration..." position="90,47" size="700,43" font="SetrixHD;32" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="250,635" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="105,637" zPosition="1" size="150,25" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_green" render="Label" position="285,637" zPosition="1" size="150,25" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,119" size="710,380" transparent="1" backgroundColor="layer-a-background" zPosition="10" scrollbarMode="showOnDemand" />
+		<eLabel text="Wireless Network Configuration..." position="70,47" size="525,50" font="SetrixHD;32" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,119" size="700,380" transparent="1" backgroundColor="layer-a-background" zPosition="10" scrollbarMode="showOnDemand" />
 		<eLabel text="IP Address : " position="70,510" size="200,26" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="ipaddress" render="Label" position="285,510" zPosition="1" size="200,26" font="SetrixHD; 22" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="NetMask : " position="70,550" size="200,26" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="netmask" render="Label" position="285,549" zPosition="1" size="200,26" font="SetrixHD; 22" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Gateway : " position="70,590" size="200,26" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="gateway" render="Label" position="285,590" zPosition="1" size="200,26" font="SetrixHD; 22" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap pixmap="MetrixHD/icons/wlan.png" position="890,175" size="256,256" alphatest="blend" transparent="1" />
 	</screen>
 	<screen name="WlanScanAp" position="0,0" size="1280,720" title="Wireless Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
-		<eLabel text="Wireless Network AP Scan..." position="90,47" size="700,43" font="SetrixHD;32" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="250,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="630,635" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="105,637" zPosition="1" size="150,25" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_green" render="Label" position="285,637" zPosition="1" size="150,25" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_blue" render="Label" position="665,637" zPosition="1" size="150,25" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Wireless Network AP Scan..." position="70,47" size="525,50" font="SetrixHD;32" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="menulist" position="70,120" size="360,480" transparent="1" backgroundColor="layer-a-background" zPosition="10" scrollbarMode="showOnDemand" />
 		<widget source="Address" render="Label" position="470,120" zPosition="1" size="300,30" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="ESSID" render="Label" position="470,149" zPosition="1" size="300,30" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
@@ -910,15 +898,19 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget source="Frequency" render="Label" position="470,210" zPosition="1" size="300,30" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="Encryption key" render="Label" position="470,240" zPosition="1" size="300,30" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="BitRate" render="Label" position="470,271" zPosition="1" size="300,60" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg_b-buttons_template1" />
+		<panel name="rg_b-keys_template1-source" />
+		<panel name="_oe-buttons_template1" />
 		<ePixmap pixmap="MetrixHD/icons/wlan.png" position="890,175" size="256,256" alphatest="blend" transparent="1" />
 	</screen>
 	<screen name="Wlanstatus" position="0,0" size="1280,720" title="Wireless Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
-		<ePixmap pixmap="MetrixHD/icons/wlan.png" position="890,175" size="256,256" alphatest="blend" transparent="1" />
-		<eLabel text="Wireless Network Status..." position="90,47" size="700,43" font="Reguler;32" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="105,637" zPosition="1" size="150,25" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="status" render="Label" position="70,120" size="710,500" transparent="1" font="SetrixHD;20" backgroundColor="layer-a-background" zPosition="1" />
+		<eLabel text="Wireless Network Status..." position="70,47" size="525,50" font="Reguler;32" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="status" render="Label" position="70,120" size="700,500" transparent="1" font="SetrixHD;20" backgroundColor="layer-a-background" zPosition="1" />
+		<panel name="template1_2layer" />
+		<panel name="r___-buttons_template1" />
+		<panel name="r___-keys_template1-source" />
+		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="VideoEnhancementPreview" position="center,480" size="600,190" title="VideoEnhancementPreview" backgroundColor="layer-a-background">
 		<widget name="config" position="10, 10" size="580,90" itemHeight="30" scrollbarMode="showOnDemand" />
