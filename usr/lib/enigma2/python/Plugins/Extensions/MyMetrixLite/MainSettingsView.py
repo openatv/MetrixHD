@@ -21,6 +21,7 @@
 from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, getTunerPositionList, appendSkinFile, \
     SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, COLOR_IMAGE_PATH, SKIN_INFOBAR_TARGET, SKIN_INFOBAR_SOURCE, \
     SKIN_SECOND_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET_TMP, SKIN_SECOND_INFOBAR_TARGET, SKIN_SECOND_INFOBAR_TARGET_TMP, \
+    SKIN_SECOND_INFOBARECM_SOURCE, SKIN_SECOND_INFOBARECM_TARGET_TMP, SKIN_SECOND_INFOBARECM_TARGET, SKIN_SECOND_INFOBARECM_TARGET_TMP, \
     SKIN_CHANNEL_SELECTION_SOURCE, SKIN_CHANNEL_SELECTION_TARGET, SKIN_CHANNEL_SELECTION_TARGET_TMP, \
     SKIN_MOVIEPLAYER_SOURCE, SKIN_MOVIEPLAYER_TARGET, SKIN_MOVIEPLAYER_TARGET_TMP, \
 	SKIN_EMC_SOURCE, SKIN_EMC_TARGET, SKIN_EMC_TARGET_TMP
@@ -207,7 +208,10 @@ class MainSettingsView(Screen):
 
             if config.plugins.MetrixWeather.enabled.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
-
+            
+            if config.plugins.MyMetrixLiteOther.showInfoBarServerInfo.getValue() is False: 
+                infobarSkinSearchAndReplace.append(['<panel name="INFOBARSERVERINFO" />', '']) 
+				
             if config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons.getValue() is False: 
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARSERVICEINFO" />', '']) 
 
@@ -252,6 +256,23 @@ class MainSettingsView(Screen):
             move(SKIN_SECOND_INFOBAR_TARGET_TMP, SKIN_SECOND_INFOBAR_TARGET)
 
 
+			#######################
+            # SecondInfoBarEcmType
+            #######################
+
+            secondinfobarEcmTypeSkinSearchAndReplace = []
+
+            secondinfobarEcmTypeSkinSearchAndReplace.append(['<panel name="INFOBAREXTENDEDINFO" />', '<panel name="%s" />' % config.plugins.MyMetrixLiteOther.secondInfoBarEcmInfoType.getValue()])
+
+            skin_lines = appendSkinFile(SKIN_SECOND_INFOBARECM_SOURCE, secondinfobarEcmTypeSkinSearchAndReplace)
+
+            xFile = open(SKIN_SECOND_INFOBARECM_TARGET_TMP, "w")
+            for xx in skin_lines:
+                xFile.writelines(xx)
+            xFile.close()
+
+            move(SKIN_SECOND_INFOBARECM_TARGET_TMP, SKIN_SECOND_INFOBARECM_TARGET)
+			
 
             ################
             # ChannelSelection
@@ -402,7 +423,8 @@ class MainSettingsView(Screen):
             skinSearchAndReplace.append(['skin_00e_ChannelSelection.xml', 'skin_00e_ChannelSelection.MySkin.xml'])
             skinSearchAndReplace.append(['skin_00f_MoviePlayer.xml', 'skin_00f_MoviePlayer.MySkin.xml'])
             skinSearchAndReplace.append(['skin_00g_EMC.xml', 'skin_00g_EMC.MySkin.xml'])
-
+            skinSearchAndReplace.append(['skin_00c_SecondInfoBarECM.xml', 'skin_00c_SecondInfoBarECM.MySkin.xml'])
+			
             skinSearchAndReplace.append(['name="title-foreground" value="#1AFFFFFF"', windowtitletext ])
             skinSearchAndReplace.append(['name="title-background" value="#34FFFFFF"', windowtitletextback ])
             skinSearchAndReplace.append(['name="background-text" value="#34FFFFFF"', backgroundtext ])
