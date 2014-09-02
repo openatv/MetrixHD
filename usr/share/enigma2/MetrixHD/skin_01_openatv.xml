@@ -1053,14 +1053,14 @@
 	<!--Infopanel-->
 	<screen name="Infopanel" position="0,0" size="1280,720" title="Info Panel" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="250,25" zPosition="-10" size="731,650" backgroundColor="layer-a-background" />
-		<widget source="global.CurrentTime" render="Label" position="838,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="840,28" size="140,60" font="SetrixHD; 50" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="666,41" size="161,27" font="Regular; 16" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
+		<widget source="global.CurrentTime" render="Label" position="666,41" size="161,27" font="Regular; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Format:%A</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="666,64" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
+		<widget source="global.CurrentTime" render="Label" position="666,64" size="161,27" font="Regular; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+			<convert type="ClockToText">Format:%e. %B</convert>
 		</widget>
 		<eLabel text="Info Panel" position="280,47" size="338,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="280,100" size="670,2" backgroundColor="layer-a-accent1" />
@@ -1803,7 +1803,7 @@
 	</screen>
 	<screen name="TranscodingSetup" position="center,center" size="1280,720" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" size="525,43" zPosition="1" halign="left" font="SetrixHD; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" zPosition="2" position="70,110" size="700,400" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" zPosition="2" position="70,110" size="700,350" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1" />
 		<widget name="text" position="70,470" size="700,30" font="Regular;22" halign="center" valign="center" />
 		<!--widget name="description" position="70,341" size="710,91" font="Regular;20" halign="center" valign="center" />
 		<widget source="key_red" render="Label" position="105,637" zPosition="1" size="140,25" font="SetrixHD; 20" halign="left" valign="center" transparent="1" />
@@ -2294,14 +2294,14 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 	<screen name="JobView" position="0,0" size="1280,720" title="JobView" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="JobView" position="235,146" size="338,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="200,125" zPosition="-10" size="831,420" backgroundColor="layer-a-background" />
-		<widget source="global.CurrentTime" render="Label" position="883,126" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="883,126" size="140,60" font="SetrixHD; 50" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="712,141" size="161,27" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="712,141" size="161,27" font="Regular; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Format:%A</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="712,164" size="161,29" font="Regular; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
+		<widget source="global.CurrentTime" render="Label" position="712,164" size="161,27" font="Regular; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+			<convert type="ClockToText">Format:%e. %B</convert>
 		</widget>
 		<eLabel position="230,200" size="770,2" backgroundColor="layer-a-accent1" />
 		<widget source="job_name" render="Label" position="230,254" size="780,40" font="Regular;26" halign="center" />
@@ -2332,14 +2332,14 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		</widget>
 	</screen>
 	<!-- EPG Screens -->
-	<screen name="GraphicalEPGPIG" position="0,0" size="1280,720" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="black">
+	<screen name="GraphicalEPGPIG" position="0,0" size="1280,720" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Electronic Program Guide" position="60,33" size="499,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="Event" render="Label" position="60,78" size="700,40" font="SetrixHD; 24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 			<convert type="EventName">Name</convert>
 		</widget>
 		<widget source="session.VideoPicture" render="Pig" position="900,104" size="326,183" zPosition="3" backgroundColor="unff000000" />
-		<eLabel position="60,160" zPosition="0" size="825,125" backgroundColor="layer-b-background" transparent="0" />
-		<widget source="Event" render="Label" position="70,160" size="815,125" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top" zPosition="1">
+		<eLabel position="60,160" zPosition="0" size="830,125" backgroundColor="layer-b-background" transparent="0" />
+		<widget source="Event" render="Label" position="65,160" size="820,125" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top" zPosition="1">
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
 		<widget source="Event" render="Label" position="70,123" size=" 65, 22" font="Regular; 18" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
@@ -2350,13 +2350,14 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 			<convert type="EventTime">EndTime</convert>
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
-		<eLabel position="146,135" size="640,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="1" />
-		<widget source="Event" render="Progress" position="146,133" size="640,5" borderWidth="0" backgroundColor="layer-a-background" foregroundColor="layer-a-progress" transparent="1" zPosition="2">
+		<eLabel position="146,135" size="645,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="1" />
+		<widget source="Event" render="Progress" position="146,133" size="645,5" borderWidth="0" backgroundColor="layer-a-background" foregroundColor="layer-a-progress" transparent="1" zPosition="2">
 			<convert type="EventTime">Progress</convert>
 		</widget>
 		<widget name="lab1" position="60,455" size="1165,35" font="Regular;24" halign="center" valign="center" zPosition="20" backgroundColor="layer-a-background" transparent="1" />
+		<!--widget name="timeline_text" position="60,295" size="1165,30" foregroundColor="layer-a-accent1" selectionDisabled="1" transparent="1" /-->
 		<widget name="timeline_text" position="60,295" size="1165,30" selectionDisabled="1" transparent="1" />
-		<widget name="list" position="60,330" size="1165,300" itemHeight="60" EntryBorderColor="white" EntryBackgroundColor="black" EntryBackgroundColorSelected="grey" scrollbarMode="showNever" transparent="1" />
+		<widget name="list" position="60,330" size="1165,300" foregroundColor="layer-a-foreground" itemHeight="60" EntryFontWrap="no" EntryBorderColor="white" EntryBackgroundColor="black" EntryBackgroundColorSelected="grey" scrollbarMode="showNever" transparent="1" />
 		<!--widget name="timeline0" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
 		<widget name="timeline1" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
 		<widget name="timeline2" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
@@ -2393,8 +2394,9 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
 		<widget name="lab1" position="60,455" size="1165,35" font="Regular;24" halign="center" valign="center" zPosition="20" backgroundColor="layer-a-background" transparent="1" />
+		<!--widget name="timeline_text" position="60,295" size="1165,30" foregroundColor="layer-a-accent1" selectionDisabled="1" transparent="1" /-->
 		<widget name="timeline_text" position="60,295" size="1165,30" selectionDisabled="1" transparent="1" />
-		<widget name="list" position="60,330" size="1165,300" itemHeight="62" EntryBorderColor="white" EntryBackgroundColor="black" EntryBackgroundColorSelected="grey" scrollbarMode="showNever" transparent="1" />
+		<widget name="list" position="60,330" size="1165,300" itemHeight="60" foregroundColor="layer-a-foreground" EntryFontWrap="no" EntryBorderColor="white" EntryBackgroundColor="black" EntryBackgroundColorSelected="grey" scrollbarMode="showNever" transparent="1" />
 		<!--widget name="timeline0" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
 		<widget name="timeline1" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
 		<widget name="timeline2" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
@@ -2411,21 +2413,22 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 	</screen>
 	<screen name="GraphicalInfoBarEPG" title="InfoBar EPG" position="0,490" size="1280,230" backgroundColor="transparent" flags="wfNoBorder">
 		<eLabel name="new eLabel" position="0,10" zPosition="-10" size="1280,220" backgroundColor="layer-a-background" transparent="0" />
-		<widget source="global.CurrentTime" render="Label" position="1145,1" size="140,55" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="1145,1" size="140,55" font="SetrixHD; 50" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="968,14" size="161,27" font="SetrixHD; 16" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
+		<widget source="global.CurrentTime" render="Label" position="968,14" size="161,27" font="SetrixHD; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Format:%A</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="968,37" size="161,24" font="SetrixHD; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="968,37" size="161,27" font="SetrixHD; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Format:%e. %B</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="30,10" size="850,45" font="SetrixHD; 35" valign="top" noWrap="1" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ServiceName">Name</convert>
 		</widget>
 		<widget name="lab1" position="0,105" size="1280,35" font="Regular;24" halign="center" valign="center" zPosition="20" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="timeline_text" position="0,65" size="1280,30" foregroundColor="white" font="Regular; 20" transparent="1" zPosition="-1" />
-		<widget name="list" position="0,100" size="1280,80" backgroundColor="layer-a-background" scrollbarMode="showNever" zPosition="1" EntryFontWrap="no" transparent="1" />
+		<!--widget name="timeline_text" position="0,65" size="1280,30" foregroundColor="layer-a-accent1" selectionDisabled="1" transparent="1" /-->
+		<widget name="timeline_text" position="0,65" size="1280,30" selectionDisabled="1" transparent="1" />
+		<widget name="list" position="0,100" size="1280,80" itemHeight="60" foregroundColor="layer-a-foreground" EntryFontWrap="no" EntryBorderColor="white" EntryBackgroundColor="black" EntryBackgroundColorSelected="grey" scrollbarMode="showNever" transparent="1" />
 		<widget name="timeline_now" position="0,95" zPosition="2" size="16,90" pixmap="MetrixHD/epg/timeline-now_s.png" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="35,190" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="222,190" size="30,40" alphatest="blend" />
