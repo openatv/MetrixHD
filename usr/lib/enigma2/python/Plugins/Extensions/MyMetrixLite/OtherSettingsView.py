@@ -128,7 +128,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         
         list = []
 
-        list.append(getConfigListEntry(_("STB-Info   -------------------------------------------------------------------------------------------"), ))
+        list.append(getConfigListEntry(_("STB-Info   ------------------------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Show CPU-Load"), config.plugins.MyMetrixLiteOther.showCPULoad))
         if self.getCPUSensor() or config.plugins.MyMetrixLiteOther.showCPUTemp.getValue() is not False:
             list.append(getConfigListEntry(_("Show CPU-Temp"), config.plugins.MyMetrixLiteOther.showCPUTemp))
@@ -137,18 +137,25 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(_("InfoBar/SecondInfobar/MoviePlayer   ------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("ChannelName/Number FontSize"), config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize))
         list.append(getConfigListEntry(_("InfoBar/SecondInfobar   ------------------------------------------------------------------------------"), ))
-        list.append(getConfigListEntry(_("Show ServiceIcons"), config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons))
-        list.append(getConfigListEntry(_("Show Resolution"), config.plugins.MyMetrixLiteOther.showInfoBarResolution))
         list.append(getConfigListEntry(_("Show Clock"), config.plugins.MyMetrixLiteOther.showInfoBarClock))
-        list.append(getConfigListEntry(_("Show ChannelNumber"), config.plugins.MyMetrixLiteOther.showChannelNumber))
         list.append(getConfigListEntry(_("Show ChannelName"), config.plugins.MyMetrixLiteOther.showChannelName))
+        list.append(getConfigListEntry(_("Show ChannelNumber"), config.plugins.MyMetrixLiteOther.showChannelNumber))
+        list.append(getConfigListEntry(_("Show ServiceIcons"), config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons))
+        list.append(getConfigListEntry(_("Show Record-State"), config.plugins.MyMetrixLiteOther.showRecordstate))
+        list.append(getConfigListEntry(_("Show Screen-Resolution"), config.plugins.MyMetrixLiteOther.showInfoBarResolution))
+        list.append(getConfigListEntry(_("Show Orbital-Position"), config.plugins.MyMetrixLiteOther.showOrbitalposition))
+        list.append(getConfigListEntry(_("Show SNR-Info"), config.plugins.MyMetrixLiteOther.showSnr))
+        list.append(getConfigListEntry(_("Show Tuner-Info"), config.plugins.MyMetrixLiteOther.showTunerinfo, "ENABLED"))
+        if config.plugins.MyMetrixLiteOther.showTunerinfo.getValue() is True:
+            list.append(getConfigListEntry(_("Set number of tuner automatically"), config.plugins.MyMetrixLiteOther.setTunerAuto, "ENABLED"))
+            if config.plugins.MyMetrixLiteOther.setTunerAuto.getValue() is False:
+                list.append(getConfigListEntry(_("Set number of tuner manually"), config.plugins.MyMetrixLiteOther.setTunerManual))
         list.append(getConfigListEntry(_("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfo))
-        list.append(getConfigListEntry(_("Set number of tuner automatically"), config.plugins.MyMetrixLiteOther.setTunerAuto, "ENABLED"))
-        if config.plugins.MyMetrixLiteOther.setTunerAuto.getValue() is False:
-            list.append(getConfigListEntry(_("Set number of tuner manually"), config.plugins.MyMetrixLiteOther.setTunerManual))
+        list.append(getConfigListEntry(_("InfoBar   -------------------------------------------------------------------------------------------------"), ))
+        list.append(getConfigListEntry(_("Show Extended-Info"), config.plugins.MyMetrixLiteOther.showExtendedinfo))
         list.append(getConfigListEntry(_("MoviePlayer/EMC  -------------------------------------------------------------------------------------"), ))
-        list.append(getConfigListEntry(_("Show MovieName"), config.plugins.MyMetrixLiteOther.showMovieName))
         list.append(getConfigListEntry(_("Show Clock"), config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer))
+        list.append(getConfigListEntry(_("Show MovieName"), config.plugins.MyMetrixLiteOther.showMovieName))
         list.append(getConfigListEntry(_("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer))
         list.append(getConfigListEntry(_("ChannelSelection   -----------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Channel selection style"), config.plugins.MyMetrixLiteOther.channelSelectionStyle))
