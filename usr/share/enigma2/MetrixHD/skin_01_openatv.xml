@@ -2338,8 +2338,8 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 			<convert type="EventName">Name</convert>
 		</widget>
 		<widget source="session.VideoPicture" render="Pig" position="900,104" size="326,183" zPosition="3" backgroundColor="unff000000" />
-		<eLabel position="60,160" zPosition="0" size="830,125" backgroundColor="layer-b-background" transparent="0" />
-		<widget source="Event" render="Label" position="65,160" size="820,125" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top" zPosition="1">
+		<eLabel position="60,160" zPosition="0" size="830,125" backgroundColor="epg-eventdescription-background" transparent="0" />
+		<widget source="Event" render="Label" position="65,160" size="820,125" font="RegularLight; 19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
 		<widget source="Event" render="Label" position="70,123" size=" 65, 22" font="Regular; 18" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
@@ -2355,9 +2355,8 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 			<convert type="EventTime">Progress</convert>
 		</widget>
 		<widget name="lab1" position="60,455" size="1165,35" font="Regular;24" halign="center" valign="center" zPosition="20" backgroundColor="layer-a-background" transparent="1" />
-		<!--widget name="timeline_text" position="60,295" size="1165,30" foregroundColor="layer-a-accent1" selectionDisabled="1" transparent="1" /-->
-		<widget name="timeline_text" position="60,295" size="1165,30" selectionDisabled="1" transparent="1" />
-		<widget name="list" position="60,330" size="1165,300" foregroundColor="layer-a-foreground" itemHeight="60" EntryFontWrap="no" EntryBorderColor="white" EntryBackgroundColor="black" EntryBackgroundColorSelected="grey" scrollbarMode="showNever" transparent="1" />
+		<widget name="timeline_text" position="60,295" size="1165,30" foregroundColor="epg-timeline-foreground" selectionDisabled="1" transparent="1" />
+		<widget name="list" position="60,330" size="1165,300" EntryForegroundColor="epg-event-foreground" itemHeight="60" EntryFontWrap="no" EntryBorderColor="white" EntryBackgroundColor="black" EntryBackgroundColorSelected="grey" scrollbarMode="showNever" transparent="1" />
 		<!--widget name="timeline0" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
 		<widget name="timeline1" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
 		<widget name="timeline2" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
@@ -2389,14 +2388,13 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget source="Event" render="Progress" position="146,133" size="990,5" borderWidth="0" backgroundColor="layer-a-background" foregroundColor="layer-a-progress" transparent="1" zPosition="2">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<eLabel position="60,160" zPosition="0" size="1165,125" backgroundColor="layer-b-background" transparent="0" />
-		<widget source="Event" render="Label" position="70,160" size="1153,125" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top" zPosition="1">
+		<eLabel position="60,160" zPosition="0" size="1165,125" backgroundColor="epg-eventdescription-background" transparent="0" />
+		<widget source="Event" render="Label" position="70,160" size="1153,125" font="RegularLight; 19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
 		<widget name="lab1" position="60,455" size="1165,35" font="Regular;24" halign="center" valign="center" zPosition="20" backgroundColor="layer-a-background" transparent="1" />
-		<!--widget name="timeline_text" position="60,295" size="1165,30" foregroundColor="layer-a-accent1" selectionDisabled="1" transparent="1" /-->
-		<widget name="timeline_text" position="60,295" size="1165,30" selectionDisabled="1" transparent="1" />
-		<widget name="list" position="60,330" size="1165,300" itemHeight="60" foregroundColor="layer-a-foreground" EntryFontWrap="no" EntryBorderColor="white" EntryBackgroundColor="black" EntryBackgroundColorSelected="grey" scrollbarMode="showNever" transparent="1" />
+		<widget name="timeline_text" position="60,295" size="1165,30" foregroundColor="epg-timeline-foreground" selectionDisabled="1" transparent="1" />
+		<widget name="list" position="60,330" size="1165,300" itemHeight="60" EntryForegroundColor="epg-event-foreground" EntryFontWrap="no" EntryBorderColor="white" EntryBackgroundColor="black" EntryBackgroundColorSelected="grey" scrollbarMode="showNever" transparent="1" />
 		<!--widget name="timeline0" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
 		<widget name="timeline1" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
 		<widget name="timeline2" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/epg/timeline.png" />
@@ -2426,9 +2424,8 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 			<convert type="ServiceName">Name</convert>
 		</widget>
 		<widget name="lab1" position="0,105" size="1280,35" font="Regular;24" halign="center" valign="center" zPosition="20" backgroundColor="layer-a-background" transparent="1" />
-		<!--widget name="timeline_text" position="0,65" size="1280,30" foregroundColor="layer-a-accent1" selectionDisabled="1" transparent="1" /-->
-		<widget name="timeline_text" position="0,65" size="1280,30" selectionDisabled="1" transparent="1" />
-		<widget name="list" position="0,100" size="1280,80" itemHeight="60" foregroundColor="layer-a-foreground" EntryFontWrap="no" EntryBorderColor="white" EntryBackgroundColor="black" EntryBackgroundColorSelected="grey" scrollbarMode="showNever" transparent="1" />
+		<widget name="timeline_text" position="0,65" size="1280,30" foregroundColor="epg-timeline-foreground" selectionDisabled="1" transparent="1" />
+		<widget name="list" position="0,100" size="1280,80" itemHeight="60" EntryForegroundColor="epg-event-foreground" EntryFontWrap="no" EntryBorderColor="white" EntryBackgroundColor="black" EntryBackgroundColorSelected="grey" scrollbarMode="showNever" transparent="1" />
 		<widget name="timeline_now" position="0,95" zPosition="2" size="16,90" pixmap="MetrixHD/epg/timeline-now_s.png" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="35,190" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="222,190" size="30,40" alphatest="blend" />
@@ -2440,6 +2437,13 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget name="key_blue" position="630,192" size="220,30" backgroundColor="layer-a-background" transparent="1" zPosition="1" font="SetrixHD;20" halign="left" />
 		<ePixmap position="1045,190" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="on" />
 		<ePixmap position="1140,190" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
+	</screen>
+	<screen name="InfoBarEventView" position="0,0" size="1280,499" backgroundColor="transparent" flags="wfNoBorder" zPosition="1">
+		<eLabel name="new eLabel" position="30,30" zPosition="-10" size="1220,440" backgroundColor="layer-a-background" transparent="0" />
+		<widget name="channel" position="50,50" size="850,45" font="SetrixHD;35" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" zPosition="2" />
+		<widget name="datetime" position="980,45" size="250,30" font="SetrixHD;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="0" noWrap="1" valign="top" halign="right" zPosition="2" />
+		<widget name="duration" position="1080,75" size="150,30" font="SetrixHD;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="0" noWrap="1" valign="top" halign="right" zPosition="2" />
+		<widget name="epg_description" position="50,122" size="1180,344" font="Regular; 22" scrollbarMode="showNever" foregroundColor="epg-eventdescription-foreground" backgroundColor="epg-eventdescription-background" transparent="0" zPosition="1" />
 	</screen>
 	<screen name="EPGSelectionMulti" position="0,0" size="1280,720" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="EPG Selection" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
@@ -2459,13 +2463,6 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<panel name="rgyb-keys_template1" />
 		<panel name="template1_2layer" />
 		<panel name="ime-buttons_template1" />
-	</screen>
-	<screen name="InfoBarEventView" position="0,0" size="1280,499" backgroundColor="transparent" flags="wfNoBorder" zPosition="1">
-		<eLabel name="new eLabel" position="30,30" zPosition="-10" size="1220,440" backgroundColor="layer-a-background" transparent="0" />
-		<widget name="channel" position="50,50" size="850,45" font="SetrixHD;35" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" zPosition="2" />
-		<widget name="datetime" position="980,45" size="250,30" font="SetrixHD;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="0" noWrap="1" valign="top" halign="right" zPosition="2" />
-		<widget name="duration" position="1080,75" size="150,30" font="SetrixHD;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="0" noWrap="1" valign="top" halign="right" zPosition="2" />
-		<widget name="epg_description" position="50,122" size="1180,344" font="Regular; 22" scrollbarMode="showNever" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="0" zPosition="1" />
 	</screen>
 	<screen name="SimpleChannelSelection" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Channel Selection" position="70,47" size="525,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />

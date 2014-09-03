@@ -316,11 +316,11 @@
 		</screen>
 		<screen name="CLOCKWIDGET">
 			<!--/* ClockWidget -->
-			<eLabel backgroundColor="layer-a-background" position="1076,40" size="158,72" transparent="0" zPosition="-1"/>
+			<eLabel backgroundColor="layer-a-background" position="1076,40" size="158,71" transparent="0" zPosition="-1"/>
 			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="SetrixHD; 60" valign="center" halign="left" position="1086,31" render="Label" size="169,70" source="global.CurrentTime" transparent="1" >
 				<convert type="ClockToText">Default</convert>
 			</widget>
-			<eLabel backgroundColor="layer-b-background" position="960,43" size="116,66" transparent="0" zPosition="-2"/>
+			<eLabel backgroundColor="layer-b-background" position="960,43" size="116,65" transparent="0" zPosition="-2"/>
 			<widget backgroundColor="layer-b-background" font="Regular; 16" foregroundColor="layer-b-accent1" valign="center" halign="right" position="963,77" render="Label" size="104,26" source="global.CurrentTime" transparent="1">
 				<convert type="ClockToText">Format:%e. %B</convert>
 			</widget>
@@ -335,7 +335,7 @@
 			<!-- /* NEEDED WITHOUT OPENSTORE INSTALLED -->
 			<widget render="MetrixHDWeatherUpdaterStandalone" source="global.CurrentTime" position="0,0" size="0,0" transparent="1" />
 			<!-- NEEDED WITHOUT OPENSTORE INSTALLED */ -->
-			<eLabel backgroundColor="layer-a-background" position="46,40" size="213,72"/>
+			<eLabel backgroundColor="layer-a-background" position="46,40" size="213,71"/>
 			<widget backgroundColor="layer-a-background" font="SetrixHD; 60" foregroundColor="layer-a-foreground" halign="right" noWrap="1" position="45,31" render="Label" size="78,70" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
 				<convert type="MetrixWeather">currentWeatherTemp</convert>
 			</widget>
@@ -357,7 +357,7 @@
 			<widget backgroundColor="layer-b-background" font="Regular; 16" foregroundColor="layer-b-accent1" halign="right" noWrap="1" position="327,77" render="Label" size="39,26" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
 				<convert type="MetrixWeather">forecastTomorrowTempMin</convert>
 			</widget>
-			<eLabel backgroundColor="layer-b-background" position="259,43" size="116,66"/>
+			<eLabel backgroundColor="layer-b-background" position="259,43" size="116,65"/>
 			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="Meteo; 45" halign="left" noWrap="1" position="156,50" render="Label" size="50,50" source="session.CurrentService" transparent="1" valign="center" zPosition="9">
 				<convert type="MetrixWeather">forecastTodayCode</convert>
 			</widget>
@@ -398,7 +398,7 @@
 		</screen>
 		<screen name="INFOBAREXTENDEDINFO">
 			<!-- /* ECM -->
-			<eLabel backgroundColor="layer-a-background" name="new ePixmap" position="380,40" size="520,72" transparent="0" zPosition="-99"/>
+			<eLabel backgroundColor="layer-a-background" name="new ePixmap" position="380,40" size="520,71" transparent="0" zPosition="-99"/>
 			<!--eLabel backgroundColor="layer-a-background" name="new ePixmap" position="46,40" size="1188,72" transparent="0" zPosition="-99"/-->
 			<widget source="session.CurrentService" position="386,45" size="508,15" render="Label" font="Regular; 15" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" noWrap="1">
 				<convert type="MetrixHDCaidDisplay">Default</convert>
