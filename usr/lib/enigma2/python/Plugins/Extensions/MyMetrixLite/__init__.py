@@ -186,6 +186,12 @@ def initColorsConfig():
     config.plugins.MyMetrixLiteColors.layerbprogress = ConfigSelection(default="FFFFFF", choices = ColorList)
     config.plugins.MyMetrixLiteColors.layerbprogresstransparency = ConfigSelection(default="1A", choices = TransparencyList)
 
+    config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground = ConfigSelection(default="27408B", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
+    config.plugins.MyMetrixLiteColors.epgeventforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.epgtimelineforeground = ConfigSelection(default="F0A30A", choices = ColorList)
+
 #############################################################
 
 def initWeatherConfig():
@@ -251,15 +257,20 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.showChannelName = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize = ConfigSelection(default="INFOBARCHANNELNAME-1", choices = infoBarChannelNameFontSizeList)
     config.plugins.MyMetrixLiteOther.showInfoBarResolution = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showExtendedinfo = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.showSnr = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showRecordstate = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showOrbitalposition = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showInfoBarClock = ConfigYesNo(default=True)
-    config.plugins.MyMetrixLiteOther.showSTBinfo = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showSTBinfo = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.showTunerinfo = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.setTunerAuto = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelectionNumber(1, 6, 1, default = 2)
     config.plugins.MyMetrixLiteOther.channelSelectionStyle = ConfigSelection(default="CHANNELSELECTION-1", choices = channelSelectionStyleList)
 	#MoviePlayer
     config.plugins.MyMetrixLiteOther.showMovieName = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer = ConfigYesNo(default=True)
-    config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer = ConfigYesNo(default=False)
 
 #######################################################################
 

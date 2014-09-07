@@ -36,6 +36,7 @@ class MetrixHDXPicon(Renderer):
 				pos = sname.rfind(':')
 				if pos != -1:
 					sname = sname[:pos].rstrip(':').replace(':','_')
+					sname = sname.split("_http")[0]
 				pngname = self.nameCache.get(sname, "")
 				if pngname == "":
 					pngname = self.findPicon(sname)

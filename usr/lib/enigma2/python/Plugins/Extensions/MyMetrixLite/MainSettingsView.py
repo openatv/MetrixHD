@@ -200,10 +200,13 @@ class MainSettingsView(Screen):
             infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-2" />', tunerXml])
             '''
 
-            if config.plugins.MyMetrixLiteOther.setTunerAuto.getValue() is False:
-                infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-2" />', '<panel name="INFOBARTUNERINFO-%d" />' % config.plugins.MyMetrixLiteOther.setTunerManual.getValue()])
+            if config.plugins.MyMetrixLiteOther.showTunerinfo.getValue() is True:
+                if config.plugins.MyMetrixLiteOther.setTunerAuto.getValue() is False:
+                    infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-2" />', '<panel name="INFOBARTUNERINFO-%d" />' % config.plugins.MyMetrixLiteOther.setTunerManual.getValue()])
+                else:
+                    infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-2" />', '<panel name="INFOBARTUNERINFO-%d" />' % self.getTunerCount()])
             else:
-                infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-2" />', '<panel name="INFOBARTUNERINFO-%d" />' % self.getTunerCount()])
+                    infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-2" />', '']) 
 
             if config.plugins.MetrixWeather.enabled.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
@@ -211,8 +214,17 @@ class MainSettingsView(Screen):
             if config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons.getValue() is False: 
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARSERVICEINFO" />', '']) 
 
-            if config.plugins.MyMetrixLiteOther.showSTBinfo.getValue() is False:
-                infobarSkinSearchAndReplace.append(['<panel name="STBINFO" />', ''])
+            if config.plugins.MyMetrixLiteOther.showRecordstate.getValue() is False: 
+                infobarSkinSearchAndReplace.append(['<panel name="INFOBARRECORDSTATE" />', '']) 
+
+            if config.plugins.MyMetrixLiteOther.showSnr.getValue() is False: 
+                infobarSkinSearchAndReplace.append(['<panel name="INFOBARSNR" />', '']) 
+
+            if config.plugins.MyMetrixLiteOther.showOrbitalposition.getValue() is False: 
+                infobarSkinSearchAndReplace.append(['<panel name="INFOBARORBITALPOSITION" />', '']) 
+
+            if config.plugins.MyMetrixLiteOther.showSTBinfo.getValue() is True:
+                infobarSkinSearchAndReplace.append(['<!--panel name="STBINFO" /-->', '<panel name="STBINFO" />'])
 
             channelNameXML = self.getChannelNameXML(
                 "35,455",
@@ -228,18 +240,6 @@ class MainSettingsView(Screen):
             if config.plugins.MyMetrixLiteOther.showInfoBarClock.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
 
-            # InfoBar
-            skin_lines = appendSkinFile(SKIN_INFOBAR_SOURCE, infobarSkinSearchAndReplace)
-
-            xFile = open(SKIN_INFOBAR_TARGET_TMP, "w")
-            for xx in skin_lines:
-                xFile.writelines(xx)
-            xFile.close()
-
-
-            move(SKIN_INFOBAR_TARGET_TMP, SKIN_INFOBAR_TARGET)
-
-
             # SecondInfoBar
             skin_lines = appendSkinFile(SKIN_SECOND_INFOBAR_SOURCE, infobarSkinSearchAndReplace)
 
@@ -248,10 +248,20 @@ class MainSettingsView(Screen):
                 xFile.writelines(xx)
             xFile.close()
 
-
             move(SKIN_SECOND_INFOBAR_TARGET_TMP, SKIN_SECOND_INFOBAR_TARGET)
 
+            # InfoBar
+            if config.plugins.MyMetrixLiteOther.showExtendedinfo.getValue() is True:
+                infobarSkinSearchAndReplace.append(['<!--panel name="INFOBAREXTENDEDINFO" /-->', '<panel name="INFOBAREXTENDEDINFO" />']) 
 
+            skin_lines = appendSkinFile(SKIN_INFOBAR_SOURCE, infobarSkinSearchAndReplace)
+
+            xFile = open(SKIN_INFOBAR_TARGET_TMP, "w")
+            for xx in skin_lines:
+                xFile.writelines(xx)
+            xFile.close()
+
+            move(SKIN_INFOBAR_TARGET_TMP, SKIN_INFOBAR_TARGET)
 
             ################
             # ChannelSelection
@@ -281,8 +291,8 @@ class MainSettingsView(Screen):
             if config.plugins.MetrixWeather.MoviePlayer.getValue() is False or config.plugins.MetrixWeather.enabled.getValue() is False:
                 moviePlayerSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
 
-            if config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer.getValue() is False:
-                moviePlayerSkinSearchAndReplace.append(['<panel name="STBINFOMOVIEPLAYER" />', ''])
+            if config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer.getValue() is True:
+                moviePlayerSkinSearchAndReplace.append(['<!--panel name="STBINFOMOVIEPLAYER" /-->', '<panel name="STBINFOMOVIEPLAYER" />'])
 
             if config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer.getValue() is False:
                 moviePlayerSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
@@ -316,8 +326,8 @@ class MainSettingsView(Screen):
             if config.plugins.MetrixWeather.MoviePlayer.getValue() is False or config.plugins.MetrixWeather.enabled.getValue() is False:
                 EMCSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
 
-            if config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer.getValue() is False:
-                EMCSkinSearchAndReplace.append(['<panel name="STBINFOMOVIEPLAYER" />', ''])
+            if config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer.getValue() is True:
+                EMCSkinSearchAndReplace.append(['<!--panel name="STBINFOMOVIEPLAYER" /-->', '<panel name="STBINFOMOVIEPLAYER" />'])
 
             if config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer.getValue() is False:
                 EMCSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
@@ -374,6 +384,11 @@ class MainSettingsView(Screen):
             layerbaccent2 = ('name="layer-b-accent2" value="#00' + config.plugins.MyMetrixLiteColors.layerbaccent2.value + '"')
             layerbprogress = ('name="layer-b-progress" value="#' + config.plugins.MyMetrixLiteColors.layerbprogresstransparency.value + config.plugins.MyMetrixLiteColors.layerbprogress.value + '"')
 
+            epgeventdescriptionbackground = ('name="epg-eventdescription-background" value="#' + config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value + '"')
+            epgeventdescriptionforeground = ('name="epg-eventdescription-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value + '"')
+            epgeventforeground = ('name="epg-event-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgeventforeground.value + '"')
+            epgtimelineforeground = ('name="epg-timeline-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgtimelineforeground.value + '"')
+
             skinSearchAndReplace = []
 
             skinSearchAndReplace.append(['name="layer-a-channelselection-foreground" value="#00FFFFFF"', channelselectionservice ])
@@ -397,16 +412,21 @@ class MainSettingsView(Screen):
             skinSearchAndReplace.append(['name="layer-b-accent2" value="#006E6E6E"', layerbaccent2 ])
             skinSearchAndReplace.append(['name="layer-b-progress" value="#1AFFFFFF"', layerbprogress ])
 
+            skinSearchAndReplace.append(['name="title-foreground" value="#1AFFFFFF"', windowtitletext ])
+            skinSearchAndReplace.append(['name="title-background" value="#34FFFFFF"', windowtitletextback ])
+            skinSearchAndReplace.append(['name="background-text" value="#34FFFFFF"', backgroundtext ])
+            skinSearchAndReplace.append(['name="text-background" value="#67FFFFFF"', backgroundtextback ])
+
+            skinSearchAndReplace.append(['name="epg-eventdescription-background" value="#1A27408B"', epgeventdescriptionbackground ])
+            skinSearchAndReplace.append(['name="epg-eventdescription-foreground" value="#00FFFFFF"', epgeventdescriptionforeground ])
+            skinSearchAndReplace.append(['name="epg-event-foreground" value="#00FFFFFF"', epgeventforeground ])
+            skinSearchAndReplace.append(['name="epg-timeline-foreground" value="#00F0A30A"', epgtimelineforeground ])
+
             skinSearchAndReplace.append(['skin_00a_InfoBar.xml', 'skin_00a_InfoBar.MySkin.xml'])
             skinSearchAndReplace.append(['skin_00b_SecondInfoBar.xml', 'skin_00b_SecondInfoBar.MySkin.xml'])
             skinSearchAndReplace.append(['skin_00e_ChannelSelection.xml', 'skin_00e_ChannelSelection.MySkin.xml'])
             skinSearchAndReplace.append(['skin_00f_MoviePlayer.xml', 'skin_00f_MoviePlayer.MySkin.xml'])
             skinSearchAndReplace.append(['skin_00g_EMC.xml', 'skin_00g_EMC.MySkin.xml'])
-
-            skinSearchAndReplace.append(['name="title-foreground" value="#1AFFFFFF"', windowtitletext ])
-            skinSearchAndReplace.append(['name="title-background" value="#34FFFFFF"', windowtitletextback ])
-            skinSearchAndReplace.append(['name="background-text" value="#34FFFFFF"', backgroundtext ])
-            skinSearchAndReplace.append(['name="text-background" value="#67FFFFFF"', backgroundtextback ])
 
             skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
 

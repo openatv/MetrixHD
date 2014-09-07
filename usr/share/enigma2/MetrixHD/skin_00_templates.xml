@@ -119,6 +119,11 @@
 			<widget name="key_green" position="257,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 			<widget name="key_blue" position="630,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		</screen>
+		<screen name="rg_b-keys_template1-source">
+			<widget source="key_red" render="Label" position="70,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+			<widget source="key_green" render="Label" position="257,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+			<widget source="key_blue" render="Label" position="630,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		</screen>
 		<screen name="_gyb-buttons_template1">
 			<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="35,635" size="30,40" alphatest="blend" />
 			<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="222,635" size="30,40" alphatest="blend" />
@@ -303,23 +308,24 @@
 			<widget backgroundColor="layer-a-background" position="597,697" size="640,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" transparent="1" zPosition="10" render="Label" source="global.CurrentTime">
 				<convert type="MetrixSTBinfo">MyMetrixConfig</convert>
 			</widget>
-		</screen>	
+		</screen>
 		<screen name="STBINFOMOVIEPLAYER">
 			<widget backgroundColor="layer-a-background" position="547,697" size="640,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" transparent="1" zPosition="10" render="Label" source="global.CurrentTime">
 				<convert type="MetrixSTBinfo">MyMetrixConfig</convert>
 			</widget>
-		</screen>	
+		</screen>
 		<screen name="CLOCKWIDGET">
 			<!--/* ClockWidget -->
-			<eLabel backgroundColor="layer-a-background" position="1076,40" size="158,72" transparent="0" zPosition="-1"/>
-			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="SetrixHD; 60" halign="left" position="1086,31" render="Label" size="169,80" source="global.CurrentTime" transparent="1" valign="top">
+			<eLabel backgroundColor="layer-a-background" position="1076,40" size="158,71" transparent="0" zPosition="-1"/>
+			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="SetrixHD; 60" valign="center" halign="left" position="1086,31" render="Label" size="169,70" source="global.CurrentTime" transparent="1" >
 				<convert type="ClockToText">Default</convert>
 			</widget>
-			<eLabel backgroundColor="layer-b-background" position="970,43" size="106,66" transparent="0" zPosition="-2"/>
-			<widget backgroundColor="layer-b-background" font="Regular; 18" foregroundColor="layer-b-foreground" halign="right" position="967,77" render="Label" size="102,29" source="global.CurrentTime" transparent="1">
-				<convert type="ClockToText">Format:%e. %b</convert>
+			<eLabel backgroundColor="layer-b-background" position="960,43" size="116,65" transparent="0" zPosition="-2"/>
+			<widget backgroundColor="layer-b-background" font="Regular; 16" foregroundColor="layer-b-accent1" valign="center" halign="right" position="963,77" render="Label" size="104,26" source="global.CurrentTime" transparent="1">
+				<convert type="ClockToText">Format:%e. %B</convert>
 			</widget>
-			<widget backgroundColor="layer-b-background" font="Regular; 18" foregroundColor="layer-b-foreground" halign="right" noWrap="1" position="964,47" render="Label" size="104,30" source="global.CurrentTime" transparent="1">
+			<!--eLabel text="30. September" backgroundColor="layer-b-background" font="Regular; 16" foregroundColor="layer-b-accent1" valign="center" halign="right" position="963,77" size="104,26" transparent="1" /-->
+			<widget backgroundColor="layer-b-background" font="Regular; 16" foregroundColor="layer-b-accent1" valign="center" halign="right" noWrap="1" position="963,47" render="Label" size="104,26" source="global.CurrentTime" transparent="1">
 				<convert type="ClockToText">Format:%A</convert>
 			</widget>
 			<!-- ClockWidget */-->
@@ -333,26 +339,26 @@
 			<widget backgroundColor="layer-a-background" font="SetrixHD; 60" foregroundColor="layer-a-foreground" halign="right" noWrap="1" position="45,31" render="Label" size="78,70" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
 				<convert type="MetrixWeather">currentWeatherTemp</convert>
 			</widget>
-			<widget backgroundColor="layer-a-background" font="Regular; 17" foregroundColor="layer-a-foreground" halign="left" noWrap="1" position="127,47" render="Label" size="30,26" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
+			<widget backgroundColor="layer-a-background" font="Regular; 18" foregroundColor="layer-a-foreground" halign="left" noWrap="1" position="127,47" render="Label" size="30,26" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
 				<convert type="MetrixWeather">CF</convert>
 			</widget>
-			<widget backgroundColor="layer-a-background" font="Regular; 16" foregroundColor="layer-a-accent1" halign="right" noWrap="1" position="210,50" render="Label" size="39,26" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
+			<widget backgroundColor="layer-a-background" font="Regular; 16" foregroundColor="layer-a-accent1" halign="right" noWrap="1" position="210,47" render="Label" size="39,26" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
 				<convert type="MetrixWeather">forecastTodayTempMax</convert>
 			</widget>
-			<widget backgroundColor="layer-a-background" font="Regular; 16" foregroundColor="layer-a-accent1" halign="right" noWrap="1" position="210,76" render="Label" size="39,26" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
+			<widget backgroundColor="layer-a-background" font="Regular; 16" foregroundColor="layer-a-accent1" halign="right" noWrap="1" position="210,77" render="Label" size="39,26" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
 				<convert type="MetrixWeather">forecastTodayTempMin</convert>
 			</widget>
-			<widget backgroundColor="layer-b-background" font="Meteo; 45" foregroundColor="layer-b-foreground" halign="left" noWrap="1" position="265,50" render="Label" size="50,50" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
+			<widget backgroundColor="layer-b-background" font="Meteo; 45" foregroundColor="layer-b-accent1" halign="left" noWrap="1" position="270,50" render="Label" size="50,50" source="session.CurrentService" transparent="1" valign="center" zPosition="9">
 				<convert type="MetrixWeather">forecastTomorrowCode</convert>
 			</widget>
-			<widget backgroundColor="layer-b-background" font="Regular; 16" foregroundColor="layer-b-foreground" halign="right" noWrap="1" position="317,50" render="Label" size="39,26" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
+			<widget backgroundColor="layer-b-background" font="Regular; 16" foregroundColor="layer-b-accent1" halign="right" noWrap="1" position="327,47" render="Label" size="39,26" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
 				<convert type="MetrixWeather">forecastTomorrowTempMax</convert>
 			</widget>
-			<widget backgroundColor="layer-b-background" font="Regular; 16" foregroundColor="layer-b-foreground" halign="right" noWrap="1" position="317,76" render="Label" size="39,26" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
+			<widget backgroundColor="layer-b-background" font="Regular; 16" foregroundColor="layer-b-accent1" halign="right" noWrap="1" position="327,77" render="Label" size="39,26" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
 				<convert type="MetrixWeather">forecastTomorrowTempMin</convert>
 			</widget>
-			<eLabel backgroundColor="layer-b-background" position="259,43" size="105,65"/>
-			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="Meteo; 45" halign="left" noWrap="1" position="156,50" render="Label" size="50,50" source="session.CurrentService" transparent="1" valign="center" zPosition="10">
+			<eLabel backgroundColor="layer-b-background" position="259,43" size="116,65"/>
+			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="Meteo; 45" halign="left" noWrap="1" position="156,50" render="Label" size="50,50" source="session.CurrentService" transparent="1" valign="center" zPosition="9">
 				<convert type="MetrixWeather">forecastTodayCode</convert>
 			</widget>
 			<!-- WEATHER WIDGET */ -->
@@ -392,55 +398,56 @@
 		</screen>
 		<screen name="INFOBAREXTENDEDINFO">
 			<!-- /* ECM -->
-			<eLabel backgroundColor="layer-a-background" name="new ePixmap" position="380,40" size="520,70" transparent="0" zPosition="-99"/>
-			<widget source="session.CurrentService" position="386,45" size="508,15" render="Label" font="Regular; 15" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" noWrap="1">
+			<eLabel backgroundColor="layer-a-background" name="new ePixmap" position="380,40" size="520,71" transparent="0" zPosition="-99"/>
+			<!--eLabel backgroundColor="layer-a-background" name="new ePixmap" position="46,40" size="1188,72" transparent="0" zPosition="-99"/-->
+			<widget source="session.CurrentService" position="386,45" size="508,15" render="Label" font="Regular; 15" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" noWrap="1">
 				<convert type="MetrixHDCaidDisplay">Default</convert>
 			</widget>
 			<!-- ECM */-->
 			<!-- /* TUNERTYPE -->
 			<eLabel text="TYPE:" position="386,65" size="40,15" font="RegularLight; 15" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
-			<widget source="session.FrontendInfo" render="FixedLabel" text="DVB-S" position="426,65" size="50,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" halign="left">
+			<widget source="session.FrontendInfo" render="FixedLabel" text="DVB-S" position="426,65" size="50,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
 				<convert type="FrontendInfo">TYPE</convert>
 				<convert type="ValueRange">0,0</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget source="session.FrontendInfo" render="FixedLabel" text="DVB-C" position="426,65" size="50,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" halign="left">
+			<widget source="session.FrontendInfo" render="FixedLabel" text="DVB-C" position="426,65" size="50,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
 				<convert type="FrontendInfo">TYPE</convert>
 				<convert type="ValueRange">1,1</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget source="session.FrontendInfo" render="FixedLabel" text="DVB-T" position="426,65" size="50,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" halign="left">
+			<widget source="session.FrontendInfo" render="FixedLabel" text="DVB-T" position="426,65" size="50,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
 				<convert type="FrontendInfo">TYPE</convert>
 				<convert type="ValueRange">2,2</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget source="session.FrontendInfo" render="FixedLabel" text="ATSC" position="426,65" size="50,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" halign="left">
+			<widget source="session.FrontendInfo" render="FixedLabel" text="ATSC" position="426,65" size="50,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
 				<convert type="FrontendInfo">TYPE</convert>
 				<convert type="ValueRange">3,3</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
 			<!-- TUNERTYPE */-->
 			<!-- /* SERVICEINFO -->
-			<widget source="session.CurrentService" render="Label" position="475,65" zPosition="1" size="300, 15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" halign="left">
+			<widget source="session.CurrentService" render="Label" position="475,65" zPosition="1" size="300, 15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
 				<convert type="MetrixHDSmartInfo">ExpertInfo</convert>
 			</widget>
 			<!-- SERVICEINFO */-->
 			<!-- /* AGC -->
 			<eLabel text="AGC:" position="386,85" size="35,15" font="Regular; 15" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
-			<widget source="session.FrontendStatus" render="Label" position="426,85" size="40,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" halign="left">
+			<widget source="session.FrontendStatus" render="Label" position="426,85" size="40,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
 				<convert type="FrontendInfo">AGC</convert>
 			</widget>
 			<!-- AGC */-->
 			<!-- /* BER -->
 			<eLabel text="BER:" position="465,85" size="35,15" font="Regular; 15" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
-			<widget source="session.FrontendStatus" render="Label" position="500,85" size="40,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" halign="left">
+			<widget source="session.FrontendStatus" render="Label" position="500,85" size="40,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
 				<convert type="FrontendInfo">BER</convert>
 			</widget>
 			<!-- BER */-->
 			<!-- /* CRYPT -->
 			<eLabel text="CRYPT:" position="664,85" size="55,15" font="Regular; 15" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
 			<eLabel position="719,85" size="13,15" text="B" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
-			<widget position="719,85" size="13,15" text="B" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+			<widget position="719,85" size="13,15" text="B" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
 				<convert type="MetrixHDChannelCryptoInfo">BetaCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -449,7 +456,7 @@
 				<convert type="ConditionalShowHide" />
 			</widget>
 			<eLabel position="737,85" size="13,15" text="I" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
-			<widget position="737,85" size="13,15" text="I" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+			<widget position="737,85" size="13,15" text="I" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
 				<convert type="MetrixHDChannelCryptoInfo">IrdCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -458,7 +465,7 @@
 				<convert type="ConditionalShowHide" />
 			</widget>
 			<eLabel position="755,85" size="13,15" text="S" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
-			<widget position="755,85" size="13,15" text="S" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+			<widget position="755,85" size="13,15" text="S" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
 				<convert type="MetrixHDChannelCryptoInfo">SecaCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -467,7 +474,7 @@
 				<convert type="ConditionalShowHide" />
 			</widget>
 			<eLabel position="773,85" size="13,15" text="V" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
-			<widget position="773,85" size="13,15" text="V" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+			<widget position="773,85" size="13,15" text="V" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
 				<convert type="MetrixHDChannelCryptoInfo">ViaCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -476,7 +483,7 @@
 				<convert type="ConditionalShowHide" />
 			</widget>
 			<eLabel position="791,85" size="13,15" text="N" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
-			<widget position="791,85" size="13,15" text="N" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+			<widget position="791,85" size="13,15" text="N" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
 				<convert type="MetrixHDChannelCryptoInfo">NagraCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -485,7 +492,7 @@
 				<convert type="ConditionalShowHide" />
 			</widget>
 			<eLabel position="809,85" size="25,15" text="CW" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
-			<widget position="809,85" size="25,15" text="CW" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+			<widget position="809,85" size="25,15" text="CW" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
 				<convert type="MetrixHDChannelCryptoInfo">CrwCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -494,7 +501,7 @@
 				<convert type="ConditionalShowHide" />
 			</widget>
 			<eLabel position="839,85" size="25,15" text="ND" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
-			<widget position="839,85" size="25,15" text="ND" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+			<widget position="839,85" size="25,15" text="ND" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
 				<convert type="MetrixHDChannelCryptoInfo">NdsCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -503,7 +510,7 @@
 				<convert type="ConditionalShowHide" />
 			</widget>
 			<eLabel position="869,85" size="25,15" text="CO" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
-			<widget position="869,85" size="25,15" text="CO" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+			<widget position="869,85" size="25,15" text="CO" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
 				<convert type="MetrixHDChannelCryptoInfo">ConaxCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -847,13 +854,13 @@
 			<eLabel position="416,51" zPosition="-1" size="810,619" backgroundColor="layer-a-background" />
 			<widget source="Title" render="Label" position="425,55" size="790,45" font="SetrixHD; 29" backgroundColor="layer-a-background" transparent="1" />
 			<!-- /*ClockWidget-->
-			<widget source="global.CurrentTime" render="Label" position="239,590" size="169,80" font="SetrixHD; 60" halign="left" backgroundColor="layer-a-background" transparent="1" valign="top">
+			<widget source="global.CurrentTime" render="Label" position="239,590" size="169,80" font="SetrixHD; 60" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" valign="top">
 				<convert type="ClockToText">Default</convert>
 			</widget>
-			<widget source="global.CurrentTime" render="Label" position="83,633" size="148,29" font="SetrixHD; 20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+			<widget source="global.CurrentTime" render="Label" position="83,633" size="148,29" font="SetrixHD; 20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Format:%e. %b</convert>
 			</widget>
-			<widget source="global.CurrentTime" render="Label" position="107,602" size="125,30" font="SetrixHD; 20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+			<widget source="global.CurrentTime" render="Label" position="107,602" size="125,30" font="SetrixHD; 20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Format:%A</convert>
 			</widget>
 			<eLabel position="51,599" zPosition="-1" size="340,70" backgroundColor="layer-a-background" transparent="0" />
@@ -862,14 +869,14 @@
 		<!-- template1_1layer -->
 		<screen name="template1_1layer">
 			<eLabel name="layer1" position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
-			<widget source="global.CurrentTime" render="Label" position="1115,28" size="140,60" font="SetrixHD; 50" halign="left" backgroundColor="layer-a-background" transparent="1">
+			<widget source="global.CurrentTime" render="Label" position="1115,26" size="140,60" font="SetrixHD; 50" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Default</convert>
 			</widget>
-			<widget source="global.CurrentTime" render="Label" position="938,41" size="161,27" font="SetrixHD; 16" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent1">
+			<widget source="global.CurrentTime" render="Label" position="938,39" size="161,27" font="SetrixHD; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Format:%A</convert>
 			</widget>
-			<widget source="global.CurrentTime" render="Label" position="938,64" size="161,29" font="SetrixHD; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
-				<convert type="ClockToText">Format:%e. %b</convert>
+			<widget source="global.CurrentTime" render="Label" position="938,62" size="161,27" font="SetrixHD; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+				<convert type="ClockToText">Format:%e. %B</convert>
 			</widget>
 		</screen>
 		<!-- template1_1layer -->
@@ -877,28 +884,36 @@
 		<screen name="template1_2layer">
 			<eLabel name="layer1" position="40,25" zPosition="-10" size="755,650" backgroundColor="layer-a-background" />
 			<eLabel name="layer2" position="795,60" zPosition="-10" size="445,580" backgroundColor="layer-b-background" />
-			<widget source="global.CurrentTime" render="Label" position="525,46" size="150,20" font="SetrixHD; 15" halign="right" backgroundColor="layer-a-background" transparent="1">
+			<!--widget source="global.CurrentTime" render="Label" position="525,46" size="150,20" font="SetrixHD; 15" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Format:%A</convert>
 			</widget>
-			<widget source="global.CurrentTime" render="Label" position="525,62" size="150,20" font="SetrixHD; 15" halign="right" backgroundColor="layer-a-background" transparent="1">
+			<widget source="global.CurrentTime" render="Label" position="525,62" size="150,20" font="SetrixHD; 15" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Format:%e. %B</convert>
 			</widget>
-			<widget source="global.CurrentTime" render="Label" position="685,36" size="100,45" font="SetrixHD; 40" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1">
+			<widget source="global.CurrentTime" render="Label" position="685,36" size="100,45" font="SetrixHD; 40" halign="left" valign="top" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1">
+				<convert type="ClockToText">Default</convert>
+			</widget-->
+			<widget source="global.CurrentTime" render="Label" position="667,26" size="140,60" font="SetrixHD; 50" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Default</convert>
 			</widget>
-			<!--eLabel position="51,599" zPosition="-1" size="340,70" backgroundColor="layer-a-background" transparent="0" /-->
+			<widget source="global.CurrentTime" render="Label" position="512,39" size="140,27" font="SetrixHD; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+				<convert type="ClockToText">Format:%A</convert>
+			</widget>
+			<widget source="global.CurrentTime" render="Label" position="512,62" size="140,27" font="SetrixHD; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+				<convert type="ClockToText">Format:%e. %b.</convert>
+			</widget>
 		</screen>
 		<!-- template1_2layer -->
 		<screen name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70">
 			<!-- /*ClockWidget-->
 			<eLabel position="265,410" zPosition="-1" size="340,70" backgroundColor="layer-a-background" transparent="0" />
-			<widget source="global.CurrentTime" render="Label" position="450,401" size="169,80" font="SetrixHD; 60" halign="left" backgroundColor="layer-a-background" transparent="1" valign="top">
+			<widget source="global.CurrentTime" render="Label" position="450,401" size="169,80" font="SetrixHD; 60" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" valign="top">
 				<convert type="ClockToText">Default</convert>
 			</widget>
-			<widget source="global.CurrentTime" render="Label" position="290,444" size="150,30" font="SetrixHD; 20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+			<widget source="global.CurrentTime" render="Label" position="290,444" size="150,30" font="SetrixHD; 20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Format:%e. %B</convert>
 			</widget>
-			<widget source="global.CurrentTime" render="Label" position="290,415" size="150,30" font="SetrixHD; 20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+			<widget source="global.CurrentTime" render="Label" position="290,415" size="150,30" font="SetrixHD; 20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Format:%A</convert>
 			</widget>
 			<!--ClockWidget */-->
@@ -920,8 +935,8 @@
 	<!-- CHANNELSELECTION 1 FOCUS LEFT NO PICON 5 NEXT EVENTS */ -->
 	<screen name="CHANNELSELECTION-1">
 		<eLabel text="Channel Selection" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
-		<widget source="Title" render="Label" position="70,45" size="790,45" font="SetrixHD; 29" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,85" size="700,540" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-foreground" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="SetrixHD;26" serviceNameFont="SetrixHD;26" serviceInfoFont="Regular;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="50" />
+		<widget source="Title" render="Label" position="70,47" size="525,45" font="SetrixHD; 35" noWrap="0" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-foreground" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="SetrixHD;26" serviceNameFont="SetrixHD;26" serviceInfoFont="Regular;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="50" />
 		<widget source="ServiceEvent" render="Label" position="820,80" size="395,65" font="SetrixHD; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center">
 			<convert type="EventName">Name</convert>
 		</widget>
@@ -949,8 +964,8 @@
 	<!-- CHANNELSELECTION 2 FOCUS LEFT PICON 1 NEXT EVENT */ -->
 	<screen name="CHANNELSELECTION-2">
 		<eLabel text="Channel Selection" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
-		<widget source="Title" render="Label" position="70,45" size="790,45" font="SetrixHD; 29" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,85" size="700,540" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-foreground" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="SetrixHD;26" serviceNameFont="SetrixHD;26" serviceInfoFont="Regular;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="50" />
+		<widget source="Title" render="Label" position="70,47" size="525,45" font="SetrixHD; 35" noWrap="0" valign="top" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-foreground" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="SetrixHD;26" serviceNameFont="SetrixHD;26" serviceInfoFont="Regular;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="50" />
 		<widget alphatest="blend" position="907,80" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="0" zPosition="1">
 			<convert type="MetrixRefString">ServicelistRef</convert>
 		</widget>

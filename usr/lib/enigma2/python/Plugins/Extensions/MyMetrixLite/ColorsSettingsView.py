@@ -126,6 +126,16 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(_("    Accent colors"), ))
         list.append(getConfigListEntry(_("        Color 1"), config.plugins.MyMetrixLiteColors.layerbaccent1))
         list.append(getConfigListEntry(_("        Color 2"), config.plugins.MyMetrixLiteColors.layerbaccent2))
+        list.append(getConfigListEntry(_("Graphical EPG  ---------------------------------------------------------------------------------------"), ))
+        list.append(getConfigListEntry(_("  Event Description"), ))
+        list.append(getConfigListEntry(_("        Background"), ))
+        list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground))
+        list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency))
+        list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground))
+        list.append(getConfigListEntry(_("  Event List"), ))
+        list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.epgeventforeground))
+        list.append(getConfigListEntry(_("  Time Line"), ))
+        list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.epgtimelineforeground))
 
         ConfigListScreen.__init__(self, list)
 
@@ -221,6 +231,12 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.layerbprogresstransparency)
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.layerbaccent1)
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.layerbaccent2)
+
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground)
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground)
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency)
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.epgeventforeground)
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.epgtimelineforeground)
 
         self.save()
 
