@@ -2282,7 +2282,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget name="text" position="825,420" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<widget name="list" position="70,115" size="700,530" itemHeight="35" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
-		<panel name="__e-buttons_template1" />
+		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="Console" position="0,0" size="1280,720" title="Command execution..." flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" size="525,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
@@ -3251,4 +3251,22 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/imdb.png" transparent="1" alphatest="blend" />
 	</screen>	
+	<!-- E2 Bookmarks -->
+	<screen name="LocationBox" position="0,0" size="1280,720" title="Location Box" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="text" position="70,115" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="target" position="70,150" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel position="70,185" size="700,2" backgroundColor="layer-a-accent1" />
+		<widget name="filelist" position="70,195" size="700,180" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" selectionDisabled="1" />
+		<widget name="textbook" position="70,390" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel position="70,425" size="700,2" backgroundColor="layer-a-accent1" />
+		<widget name="booklist" position="70,435" size="700,180" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgy_-keys_template1" />
+		<widget name="key_blue" position="630,637" noWrap="0" size="150,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<!--eLabel position="795,640" size="40,35" backgroundColor="layer-a-background" zPosition="-10" /-->
+		<panel name="template1_2layer" />
+		<panel name="moe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+	</screen>
 </skin>

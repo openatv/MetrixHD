@@ -1270,10 +1270,42 @@
 		<panel name="ioe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
-	<screen name="EPGRefreshConfigurationFunctionContextMenu" position="0,0" size="1280,720" title="EGGRefresh menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<ePixmap position="305,80" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+	<screen name="EPGRefreshConfigurationFunctionContextMenu" position="0,0" size="1280,720" title="Menu EPGRefresh" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="CONTEXTMENU_template" />
 	</screen>
 	<!-- EPGRefresh -->
+	<!-- Cutlist Editor -->
+	<screen name="CutListEditor" position="0,0" size="1280,720" title="Cutlist editor" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_1layer" />
+		<eLabel text="Cutlist editor" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel position="70,130" zPosition="1" size="700,381" backgroundColor="layer-a-foreground" />
+		<eLabel position="72,132" zPosition="3" size="696,377" backgroundColor="unff000000" />
+		<widget name="Video" position="72,132" zPosition="-10" size="696,377" />
+		<widget source="session.CurrentService" render="Label" position="70,520" size="700,32" font="SetrixHD;24" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1">
+			<convert type="ServiceName">Name</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="70,560" size="700,25" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1">
+			<convert type="ServicePosition">Position,Detailed</convert>
+		</widget>
+		<widget name="Timeline" position="70,597" size="700,20" backgroundColor="un808888" pointer="skin_default/position_arrow.png:3,5" foregroundColor="layer-a-background" />
+		<eLabel position="800,130" size="420,440" zPosition="1" backgroundColor="layer-a-foreground" />
+		<eLabel position="802,132" size="416,436" zPosition="2" backgroundColor="layer-a-background" />
+		<widget source="cutlist" render="Listbox" position="810,145" size="400,410" zPosition="3" scrollbarMode="showOnDemand">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryText(pos=(0,4), size=(280, 30), text = 1, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, backcolor = MultiContentTemplateColor(3)),
+						MultiContentEntryText(pos=(280,4), size=(120, 30), text = 2, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, backcolor = MultiContentTemplateColor(3))
+					],
+				 "fonts": [gFont("Regular", 20)],
+				 "itemHeight": 37
+				}
+			</convert>
+		</widget>
+		<ePixmap pixmap="MetrixHD/mp_buttons.png" position="880,592" size="260,32" alphatest="blend" />
+	</screen>
+	<screen name="CutListContextMenu" position="0,0" size="1280,720" title="Menu Cutlisteditor" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="CONTEXTMENU_template" />
+	</screen>
+	<!-- Cutlist Editor -->
 	<!-- PLUGINS */-->
 </skin>
