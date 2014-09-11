@@ -116,34 +116,6 @@
 		<widget source="key_green" render="Label" position="395,637" size="240,30" zPosition="1" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="VKeyIcon" pixmap="MetrixHD/buttons/text.png" position="700,635" zPosition="10" size="70,30" transparent="1" alphatest="blend" />
 	</screen>
-	<screen name="CutListEditor" position="0,0" size="1280,720" title="Cutlist editor" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
-		<eLabel text="Cutlist editor" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel position="70,130" zPosition="1" size="700,381" backgroundColor="layer-a-foreground" />
-		<eLabel position="72,132" zPosition="3" size="696,377" backgroundColor="unff000000" />
-		<widget name="Video" position="72,132" zPosition="-10" size="696,377" />
-		<widget source="session.CurrentService" render="Label" position="70,520" size="700,32" font="SetrixHD;24" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ServiceName">Name</convert>
-		</widget>
-		<widget source="session.CurrentService" render="Label" position="70,560" size="700,25" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ServicePosition">Position,Detailed</convert>
-		</widget>
-		<widget name="Timeline" position="70,597" size="700,20" backgroundColor="un808888" pointer="skin_default/position_arrow.png:3,5" foregroundColor="layer-a-background" />
-		<eLabel position="800,130" size="420,440" zPosition="1" backgroundColor="layer-a-foreground" />
-		<eLabel position="802,132" size="416,436" zPosition="2" backgroundColor="layer-a-background" />
-		<widget source="cutlist" render="Listbox" position="810,140" size="400,420" zPosition="3" scrollbarMode="showOnDemand">
-			<convert type="TemplatedMultiContent">
-				{"template": [
-						MultiContentEntryText(pos=(0,4), size=(280, 22), text = 1, flags = RT_HALIGN_CENTER, backcolor = MultiContentTemplateColor(3)),
-						MultiContentEntryText(pos=(280,4), size=(100, 22), text = 2, flags = RT_HALIGN_CENTER, backcolor = MultiContentTemplateColor(3))
-					],
-				 "fonts": [gFont("SetrixHD", 22)],
-				 "itemHeight": 30
-				}
-			</convert>
-		</widget>
-		<ePixmap pixmap="MetrixHD/mp_buttons.png" position="880,592" size="260,32" alphatest="blend" />
-	</screen>
 	<screen name="Dish" position="900,100" size="130,160" title="Dish" zPosition="-1" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="Dishpixmap" pixmap="MetrixHD/skin_default/icons/dish.png" position="0,0" size="130,160" alphatest="off" />
 	</screen>
@@ -224,26 +196,6 @@
 		<widget name="wait" position="70,130" size="700,275" transparent="1" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/hdd.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="LocationBox" position="0,0" size="1280,720" title="Location Box" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="text" position="70,115" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="target" position="70,150" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel position="70,185" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget name="filelist" position="70,195" size="700,150" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" selectionDisabled="1" />
-		<widget name="textbook" position="70,415" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel position="70,450" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget name="booklist" position="70,460" size="700,150" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="650,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="940,635" size="30,40" alphatest="blend" />
-		<widget name="key_red" position="105,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_green" position="395,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_yellow" position="685,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_blue" position="975,637" size="240,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="DirectoryBrowser" position="0,0" size="1280,720" title="Directorybrowser" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />

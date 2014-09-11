@@ -932,6 +932,20 @@
 			</widget>
 			<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
 		</screen>
+	<screen name="CONTEXTMENU_template" >
+		<eLabel position="380,105" zPosition="-1" size="520,480" backgroundColor="layer-a-background" />
+		<widget source="title" render="Label" position="390,105" size="500,50" font="SetrixHD;35" halign="center" />
+		<eLabel position="390,155" size="500,2" backgroundColor="layer-a-accent1" />
+		<widget source="menu" render="Listbox" position="390,166" size="500,410" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [ MultiContentEntryText(pos = (0, 5), size = (500, 30), flags = RT_HALIGN_CENTER, text = 0) ],
+				"fonts": [gFont("Regular", 22)],
+				"itemHeight": 37
+				}
+			</convert>
+		</widget>
+		<widget source="Title" render="Label" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-50" />
+	</screen>
 	<!-- CHANNELSELECTION 1 FOCUS LEFT NO PICON 5 NEXT EVENTS */ -->
 	<screen name="CHANNELSELECTION-1">
 		<eLabel text="Channel Selection" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
