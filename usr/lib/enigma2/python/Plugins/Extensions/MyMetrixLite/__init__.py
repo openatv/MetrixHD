@@ -247,7 +247,7 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther = ConfigSubsection()
 
     #OtherSettings
-	#STb-Info
+	#STB-Info
     config.plugins.MyMetrixLiteOther.showCPULoad = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showSYSTemp = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.showCPUTemp = ConfigYesNo(default=False)
@@ -267,10 +267,14 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.setTunerAuto = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelectionNumber(1, 6, 1, default = 2)
     config.plugins.MyMetrixLiteOther.channelSelectionStyle = ConfigSelection(default="CHANNELSELECTION-1", choices = channelSelectionStyleList)
-	#MoviePlayer
+	#EMC/MoviePlayer
     config.plugins.MyMetrixLiteOther.showMovieName = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer = ConfigYesNo(default=False)
+	#EMC
+    config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover = ConfigSelection(default = "small", choices = [("small", _("Small")), ("big", _("Big")), ("no", _("No"))])
+    config.plugins.MyMetrixLiteOther.showEMCSelectionCover = ConfigSelection(default = "small", choices = [("small", _("Small")), ("big", _("Big")), ("no", _("No"))])
+
 
 #######################################################################
 

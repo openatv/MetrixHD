@@ -280,8 +280,6 @@ class MainSettingsView(Screen):
 
             move(SKIN_CHANNEL_SELECTION_TARGET_TMP, SKIN_CHANNEL_SELECTION_TARGET)
 
-
-
             ################
             # MoviePlayer
             ################
@@ -306,14 +304,12 @@ class MainSettingsView(Screen):
             )
             moviePlayerSkinSearchAndReplace.append(['<panel name="MOVIENAME" />', channelNameXML])
 
-            # InfoBar
             skin_lines = appendSkinFile(SKIN_MOVIEPLAYER_SOURCE, moviePlayerSkinSearchAndReplace)
 
             xFile = open(SKIN_MOVIEPLAYER_TARGET_TMP, "w")
             for xx in skin_lines:
                 xFile.writelines(xx)
             xFile.close()
-
 
             move(SKIN_MOVIEPLAYER_TARGET_TMP, SKIN_MOVIEPLAYER_TARGET)
 
@@ -328,9 +324,20 @@ class MainSettingsView(Screen):
 
             if config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer.getValue() is True:
                 EMCSkinSearchAndReplace.append(['<!--panel name="STBINFOMOVIEPLAYER" /-->', '<panel name="STBINFOMOVIEPLAYER" />'])
+                EMCSkinSearchAndReplace.append(['<!--panel name="STBINFO" /-->', '<panel name="STBINFO" />'])
 
             if config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer.getValue() is False:
                 EMCSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
+
+            if config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover.getValue() == "big":
+                EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenterCover_small" />', '<panel name="EMCMediaCenterCover_big" />'])
+            elif config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover.getValue() == "no":
+                EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenterCover_small" />', '<panel name="EMCMediaCenterCover_no" />'])
+
+            if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "big":
+                EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionCover_small" />', '<panel name="EMCSelectionCover_big" />'])
+            elif config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "no":
+                EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionCover_small" />', '<panel name="EMCSelectionCover_no" />'])
 
             channelNameXML = self.getChannelNameXML(
                 "35,465",
@@ -341,7 +348,6 @@ class MainSettingsView(Screen):
             )
             EMCSkinSearchAndReplace.append(['<panel name="MOVIENAME" />', channelNameXML])
 
-            # InfoBar
             skin_lines = appendSkinFile(SKIN_EMC_SOURCE, EMCSkinSearchAndReplace)
 
             xFile = open(SKIN_EMC_TARGET_TMP, "w")
@@ -349,10 +355,7 @@ class MainSettingsView(Screen):
                 xFile.writelines(xx)
             xFile.close()
 
-
             move(SKIN_EMC_TARGET_TMP, SKIN_EMC_TARGET)
-
-
 
             ################
             # Skin

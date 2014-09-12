@@ -2018,7 +2018,7 @@
 	<screen name="TimerEditList" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Timer Editor" position="70,47" size="525,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="timerlist" position="70,115" size="700,500" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1" />
-		<widget name="description" position="825,420" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<widget name="description" position="825,420" size="380,170" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
@@ -2241,22 +2241,22 @@ newwidth = wsize[0]
 self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		</applet>
 	</screen>
-	<screen name="TimeshiftState" position="187,238" zPosition="2" size="889,230" backgroundColor="transparent" flags="wfNoBorder">
-		<widget name="state" position="257,40" size="381,95" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="center" transparent="1" valign="top" />
+	<screen name="TimeshiftState" position="190,238" zPosition="2" size="900,230" backgroundColor="transparent" flags="wfNoBorder">
+		<widget name="state" position="0,40" size="900,95" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="center" transparent="1" valign="top" />
 		<widget source="session.CurrentService" render="Label" position="5,175" size="80,27" font="Regular; 20" halign="right" backgroundColor="layer-a-background">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Label" position="805,175" size="80,27" font="Regular; 20" halign="left" backgroundColor="layer-a-background">
+		<widget source="session.CurrentService" render="Label" position="815,175" size="80,27" font="Regular; 20" halign="left" backgroundColor="layer-a-background">
 			<convert type="ServicePosition">Length</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Progress" position="95,187" size="700,5" zPosition="5" transparent="1">
+		<widget source="session.CurrentService" render="Progress" position="100,187" size="700,5" zPosition="5" transparent="1">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
-		<eLabel name="new eLabel" position="95,189" size="700,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="1" />
-		<eLabel name="new eLabel" position="0,160" size="890,60" zPosition="-1" />
+		<eLabel name="new eLabel" position="100,189" size="700,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="1" />
+		<eLabel name="new eLabel" position="0,160" size="900,59" zPosition="-1" backgroundColor="layer-a-background" />
 	</screen>
-	<screen name="PVRState" position="187,238" zPosition="2" size="889,230" backgroundColor="transparent" flags="wfNoBorder">
-		<widget name="state" position="257,40" size="381,95" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="center" transparent="1" valign="top" />
+	<screen name="PVRState" position="300,238" zPosition="2" size="680,230" backgroundColor="transparent" flags="wfNoBorder">
+		<widget name="state" position="0,40" size="680,95" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="center" transparent="1" valign="top" />
 	</screen>
 	<screen name="Volume" position="46,40" size="318,71" title="Volume" flags="wfNoBorder" backgroundColor="transparent" zPosition="99">
 		<widget name="Volume" position="72,33" size="170,5" zPosition="3" foregroundColor="layer-a-progress" transparent="1" />
@@ -2277,12 +2277,15 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<ePixmap position="3,3" size="64,64" zPosition="2" pixmap="MetrixHD/icons/mute.png" borderWidth="0" borderColor="transparent" alphatest="blend" />
 	</screen>
 	<screen name="ChoiceBox" position="0,0" size="1308,720" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="70,47" size="525,50" noWrap="0" font="SetrixHD; 35" transparent="1" backgroundColor="layer-a-background"/>
+		<eLabel text="Choice Box" position="70,47" size="525,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<!--widget source="Title" render="Label" position="70,47" size="525,50" noWrap="0" font="SetrixHD; 35" transparent="1" backgroundColor="layer-a-background"/-->
+		<widget source="Title" render="Label" position="70,100" size="700,30" noWrap="0" font="Regular; 24" transparent="1" backgroundColor="layer-a-background"/>
+		<!--widget name="list" position="70,110" size="700,530" itemHeight="35" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" /-->
+		<widget name="list" position="70,150" size="700,495" itemHeight="35" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="text" position="825,420" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<widget name="list" position="70,115" size="700,530" itemHeight="35" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="Console" position="0,0" size="1280,720" title="Command execution..." flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" size="525,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
@@ -2937,9 +2940,9 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget name="a_red" position="1000,90" zPosition="1" size="36,97" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/icons/ared.png" alphatest="on" />
 		<widget name="a_yellow" position="1000,90" zPosition="1" size="36,97" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/icons/ayellow.png" alphatest="on" />
 		<widget name="a_green" position="1000,90" zPosition="1" size="36,97" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/icons/agreen.png" alphatest="on" />
-		<widget name="feedstatusRED" position="1043,94" size="200,30" zPosition="1" font="Regular;25" halign="left" backgroundColor="layer-b-background" transparent="1" />
-		<widget name="feedstatusYELLOW" position="1043,126" size="200,30" zPosition="1" font="Regular;25" halign="left" backgroundColor="layer-b-background" transparent="1" />
-		<widget name="feedstatusGREEN" position="1043,158" size="200,30" zPosition="1" font="Regular;25" halign="left" backgroundColor="layer-b-background" transparent="1" />
+		<widget name="feedstatusRED" position="1043,91" size="200,30" zPosition="1" font="Regular;25" halign="left" backgroundColor="layer-b-background" transparent="1" />
+		<widget name="feedstatusYELLOW" position="1043,123" size="200,30" zPosition="1" font="Regular;25" halign="left" backgroundColor="layer-b-background" transparent="1" />
+		<widget name="feedstatusGREEN" position="1043,155" size="200,30" zPosition="1" font="Regular;25" halign="left" backgroundColor="layer-b-background" transparent="1" />
 		<ePixmap position="890,175" size="256,256" pixmap="MetrixHD/icons/swupdate.png" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
