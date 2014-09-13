@@ -329,15 +329,15 @@ class MainSettingsView(Screen):
             if config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer.getValue() is False:
                 EMCSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
 
-            if config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover.getValue() == "big":
-                EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenterCover_small" />', '<panel name="EMCMediaCenterCover_big" />'])
-            elif config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover.getValue() == "no":
-                EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenterCover_small" />', '<panel name="EMCMediaCenterCover_no" />'])
+            if config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover.getValue() == "small":
+                EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenterCover_no" />', '<panel name="EMCMediaCenterCover_small" />'])
+            elif config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover.getValue() == "large":
+                EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenterCover_no" />', '<panel name="EMCMediaCenterCover_large" />'])
 
-            if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "big":
-                EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionCover_small" />', '<panel name="EMCSelectionCover_big" />'])
-            elif config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "no":
-                EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionCover_small" />', '<panel name="EMCSelectionCover_no" />'])
+            if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "small":
+                EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionCover_no" />', '<panel name="EMCSelectionCover_small" />'])
+            elif config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "large":
+                EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionCover_no" />', '<panel name="EMCSelectionCover_large" />'])
 
             channelNameXML = self.getChannelNameXML(
                 "35,465",

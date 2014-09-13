@@ -272,8 +272,8 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer = ConfigYesNo(default=False)
 	#EMC
-    config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover = ConfigSelection(default = "small", choices = [("small", _("Small")), ("big", _("Big")), ("no", _("No"))])
-    config.plugins.MyMetrixLiteOther.showEMCSelectionCover = ConfigSelection(default = "small", choices = [("small", _("Small")), ("big", _("Big")), ("no", _("No"))])
+    config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover = ConfigSelection(default = "no", choices = [("no", _("No")), ("small", _("Small")), ("large", _("Large"))])
+    config.plugins.MyMetrixLiteOther.showEMCSelectionCover = ConfigSelection(default = "no", choices = [("no", _("No")), ("small", _("Small")), ("large", _("Large"))])
 
 
 #######################################################################

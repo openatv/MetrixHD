@@ -5,13 +5,13 @@
 	</screen>
 	<!-- EMCMediaCenterCover_small -->
 	<screen name="EMCMediaCenterCover_small">
-		<eLabel position="139,325" size="1,140" backgroundColor="transparent" zPosition="3" />
-		<widget name="Cover" position="40,325" size="100,140" alphatest="blend" zPosition="2" />
+		<eLabel position="142,321" size="1,140" backgroundColor="transparent" zPosition="3" />
+		<widget name="Cover" position="43,321" size="100,140" alphatest="blend" zPosition="2" />
 	</screen>
-	<!-- EMCMediaCenterCover_big -->
-	<screen name="EMCMediaCenterCover_big">
-		<eLabel position="222,205" zPosition="5" size="1,256" backgroundColor="transparent" />
-		<widget name="Cover" position="40,205" size="183,256" zPosition="4" alphatest="blend" />
+	<!-- EMCMediaCenterCover_large -->
+	<screen name="EMCMediaCenterCover_large">
+		<eLabel position="225,205" zPosition="5" size="1,256" backgroundColor="transparent" />
+		<widget name="Cover" position="43,205" size="183,256" zPosition="4" alphatest="blend" />
 	</screen>
 	<!-- EMCSelectionCover_no -->
 	<screen name="EMCSelectionCover_no">
@@ -19,7 +19,7 @@
 		<widget source="Service" render="Label" position="825,90" size="380,30" noWrap="0" font="RegularLight; 22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCEventName">Name</convert>
 		</widget>
-		<widget source="Service" render="Label" position="825,127" size="300,25" font="RegularLight; 19" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="825,128" size="300,25" font="RegularLight; 19" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCMovieInfo">RecordServiceName</convert>
 		</widget>
 		<widget source="Service" render="Label" position="825,165" size="55,25" font="RegularLight; 20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
@@ -44,7 +44,7 @@
 		<widget source="Service" render="Label" position="825,90" size="300,30" noWrap="0" font="RegularLight; 22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCEventName">Name</convert>
 		</widget>
-		<widget source="Service" render="Label" position="825,127" size="300,25" font="RegularLight; 19" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="825,128" size="300,25" font="RegularLight; 19" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCMovieInfo">RecordServiceName</convert>
 		</widget>
 		<widget source="Service" render="Label" position="825,165" size="55,25" font="RegularLight; 20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
@@ -65,8 +65,8 @@
 		<eLabel position="1234,66" size="1,140" backgroundColor="layer-b-background" zPosition="3" />
 		<widget name="Cover" position="1135,66" size="100,140" alphatest="blend" zPosition="2" />
 	</screen>
-	<!-- EMCSelectionCover_big -->
-	<screen name="EMCSelectionCover_big">
+	<!-- EMCSelectionCover_large -->
+	<screen name="EMCSelectionCover_large">
 		<widget name="list" position="70,130" size="700,225" itemHeight="32" CoolFont="Regular;21" CoolSelectFont="Regular;21" CoolDateFont="Regular;21" CoolMoviePos="35" CoolMovieSize="545" CoolFolderSize="550" CoolTitleColor="0" CoolDatePos="1000" CoolDateWidth="110" CoolDateColor="0" CoolHighlightColor="0" CoolProgressPos="1000" CoolBarPos="640" CoolBarHPos="10" CoolBarSize="55,10" CoolBarSizeSa="110,16" BackColorSel="layer-a-selection-background" DefaultColor="#FFFFFF" UnwatchedColor="#FFFFFF" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" backgroundColor="layer-a-background" foregroundColorSelected="#ffffff" scrollbarMode="showNever" transparent="1" />
 		<eLabel position="70,365" size="700,2" backgroundColor="layer-a-accent1" />
 		<eLabel position="70,380" size="700,230" backgroundColor="layer-a-background" zPosition="-9" />
@@ -200,7 +200,7 @@
 		<widget source="Service" render="Label" position="1099,557" size="100,30" font="RegularLight; 17" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCMovieInfo">FileSize</convert>
 		</widget>
-		<panel name="EMCSelectionCover_small" />
+		<panel name="EMCSelectionCover_no" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
@@ -262,7 +262,7 @@
 		<eLabel name="new eLabel" position="150,670" size="980,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="-1" />
 		<widget name="audioLabel" position="961,577" size="100,22" font="EMCRegularFont;18" backgroundColor="layer-a-background" zPosition="3" transparent="1" halign="right" />
 		<widget name="chapterLabel" position="148,686" size="981,34" font="SetrixHD;22" halign="left" foregroundColor="layer-a-accent2" backgroundColor="layer-a-background" transparent="1" />
-		<panel name="EMCMediaCenterCover_small" />
+		<panel name="EMCMediaCenterCover_no" />
 		<panel name="CLOCKWIDGET" />
 		<panel name="INFOBARWEATHERWIDGET" />
 		<panel name="MOVIENAME" />
