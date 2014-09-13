@@ -72,7 +72,7 @@
 	<screen name="ServiceInfo" position="0,0" size="1280,720" title="Serviceinfo" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<eLabel text="Serviceinfo" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="infolist" position="70,120" size="750,480" itemHeight="40" selectionDisabled="1" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="infolist" position="70,120" size="700,480" itemHeight="40" selectionDisabled="1" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/info.png" transparent="1" alphatest="blend" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
@@ -2532,13 +2532,21 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget name="key_yellow" position="315,e-40" zPosition="1" size="140,40" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
 		<widget name="key_blue" position="455,e-40" zPosition="1" size="140,40" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
 	</screen>
-	<screen name="ChannelContextMenu" position="center,center" size="1280,720" title="Channellist menu" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
+	<!--screen name="ChannelContextMenu" position="0,0" size="1280,720" title="Channellist menu" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
+		<eLabel position="645,51" zPosition="-11" size="412,565" backgroundColor="layer-a-background" foregroundColor="layer-a-background" />
 		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
 		<ePixmap position="305,80" size="256,256" pixmap="MetrixHD/icons/service_info.png" alphatest="blend" />
 		<eLabel text="Channellist menu" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-50" />
 		<widget name="menu" position="656,61" size="390,550" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="3" itemHeight="35" scrollbarMode="showNever" enableWrapAround="1" transparent="1" />
-		<eLabel position="645,51" zPosition="-11" size="412,565" backgroundColor="layer-a-background" foregroundColor="layer-a-background" />
 		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
+	</screen-->
+	<screen name="ChannelContextMenu" position="0,0" size="1280,720" title="Channellist menu" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
+		<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" foregroundColor="layer-a-background" />
+		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
+		<widget name="menu" position="636,60" size="499,545" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" itemHeight="45" enableWrapAround="1" transparent="1" />
+		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
+		<ePixmap position="305,80" size="256,256" pixmap="MetrixHD/icons/service_info.png" alphatest="blend" />
+		<eLabel text="Channellist menu" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" transparent="1" backgroundColor="text-background" foregroundColor="background-text" valign="top" zPosition="-50" />
 	</screen>
 	<screen name="SoftwareManagerSetup" position="0,0" size="1280,720" title="SoftwareManager Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Setup SoftwareManager" position="70,47" size="525,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -3251,7 +3259,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
 		<panel name="template1_2layer" />
-		<panel name="_oe-buttons_template1" />
+		<panel name="moe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/imdb.png" transparent="1" alphatest="blend" />
 	</screen>	
 	<!-- E2 Bookmarks -->
