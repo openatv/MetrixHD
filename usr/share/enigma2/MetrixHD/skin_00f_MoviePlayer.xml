@@ -1,31 +1,30 @@
 <skin>
-   <!-- Default Movie Center (not EMC) -->
+   <!-- Default Movie Center -->
     <screen name="MovieSelection" position="0,0" size="1280,720" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
         <eLabel text="Movie Center" position="70,47" size="800,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-        <widget name="list" position="70,115" size="700,460" scrollbarMode="showOnDemand" font="Regular;21"  itemHeight="40" transparent="1" />
-        <widget name="freeDiskSpace" position="371,584" size="380,25" font="SetrixHD;20" valign="center" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-b-foreground" transparent="1" />
-
-        <widget source="Service" render="Label" position="830,110" size="370,50" font="SetrixHD; 30" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+        <widget name="list" position="70,130" size="700,482" scrollbarMode="showOnDemand" font="Regular;21"  itemHeight="40" transparent="1" />
+		<widget name="waitingtext" position="70,300" size="700,30" zPosition="1" font="Regular;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" valign="center" transparent="1"/>
+        <widget name="freeDiskSpace" position="70,95" size="700,26" font="RegularLight; 22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+        <widget source="Service" render="Label" position="825,90" noWrap="0" size="385,30" font="RegularLight; 22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
             <convert type="MovieInfo">ShortDescription</convert>
         </widget>
-        <widget source="Service" render="Label" position="830,170" size="370,24" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+        <widget source="Service" render="Label" position="825,128" size="385,24" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
             <convert type="MovieInfo">RecordServiceName</convert>
         </widget>
-        <widget source="Service" render="Label" position="833,218" size="370,325" font="RegularLight; 18" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top">
+        <widget source="Service" render="Label" position="825,165" size="385,375" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top">
             <convert type="EventName">ExtendedDescription</convert>
         </widget>
-        <widget source="Service" render="Label" position="830,553" size="80,24" font="RegularLight;20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+        <widget source="Service" render="Label" position="825,557" size="80,24" font="RegularLight;20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
             <convert type="ServiceTime">Duration</convert>
             <convert type="ClockToText">AsLength</convert>
         </widget>
-        <widget source="Service" render="Label" position="945,553" size="253,24" font="RegularLight;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-b-foreground" transparent="1">
+        <widget source="Service" render="Label" position="1010,557" size="200,24" font="RegularLight;20" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
             <convert type="MovieInfo">FileSize</convert>
         </widget>
         <panel name="template1_2layer" />
         <panel name="rgyb-buttons_template1" />
         <panel name="rgyb-keys_template1-source" />
         <panel name="ime-buttons_template1" />
-        <widget name="waitingtext" position="0,0" size="0,0" />
     </screen>
     <screen name="MoviePlayer" position="0,0" size="1280,720" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
         <eLabel position="0,570" zPosition="-2" size="1281,150" backgroundColor="layer-a-background" />
@@ -73,7 +72,7 @@
         <widget source="session.CurrentService" render="Label" position="3,581" size="137,56" font="SetrixHD; 40" halign="right" valign="top" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent2">
             <convert type="ServicePosition">Length</convert>
         </widget>
-        <eLabel name="new eLabel" position="150,670" size="980,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="-1" />
+        <eLabel name="new eLabel" position="151,670" size="980,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="-1" />
         <panel name="CLOCKWIDGET" />
 		<panel name="INFOBARWEATHERWIDGET" />
 		<panel name="MOVIENAME" />

@@ -282,8 +282,8 @@
 				<convert type="EventTime">Remaining</convert>
 				<convert type="RemainingToText">InMinutes</convert>
 			</widget>
-			<eLabel backgroundColor="layer-a-accent1" name="new eLabel" position="288,615" size="950,1"/>
-			<widget render="Progress" position="288,614" size="950,3" source="session.Event_Now" foregroundColor="layer-a-progress" transparent="1" zPosition="7">
+			<eLabel backgroundColor="layer-a-accent1" name="new eLabel" position="286,615" size="952,1"/>
+			<widget render="Progress" position="286,614" size="952,3" source="session.Event_Now" foregroundColor="layer-a-progress" transparent="1" zPosition="7">
 				<convert type="EventTime">Progress</convert>
 			</widget>
 			<widget backgroundColor="layer-a-background" font="Regular; 18" foregroundColor="layer-a-accent1" halign="right" noWrap="1" position="1091,619" render="Label" size="75,28" source="session.Event_Next" transparent="1" valign="top">
@@ -981,10 +981,10 @@
 		<widget source="ServiceEvent" render="Progress" position="914,165" size="206,5" borderWidth="0" backgroundColor="layer-b-background" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget source="ServiceEvent" render="Label" position="820,190" size="395,225" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
+		<widget source="ServiceEvent" render="Label" position="825,190" size="385,225" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
 			<convert type="EventName">FullDescription</convert>
 		</widget>
-		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="820,443" size="395,125" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="0" />
+		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="825,443" size="385,125" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="0" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
@@ -1013,15 +1013,13 @@
 		<widget source="ServiceEvent" render="Progress" position="914,285" size="206,5" borderWidth="0" backgroundColor="layer-b-background" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget source="ServiceEvent" render="Label" position="820,310" size="395,230" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
+		<widget source="ServiceEvent" render="Label" position="825,310" size="385,230" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
 			<convert type="EventName">FullDescription</convert>
 		</widget>
-		<widget source="ServiceEvent" render="NextEvent" position="820,543" size="395,53" font="RegularLight;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0">
+		<widget source="ServiceEvent" render="NextEvent" position="825,543" size="385,53" font="RegularLight;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0">
 		</widget>
-		<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
+		<panel name="ime-buttons_template1" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
 	</screen>
