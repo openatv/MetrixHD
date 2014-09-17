@@ -2409,7 +2409,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 			<convert type="EventTime">Progress</convert>
 		</widget>
 		<eLabel position="60,160" zPosition="0" size="1165,125" backgroundColor="epg-eventdescription-background" transparent="0" />
-		<widget source="Event" render="Label" position="70,160" size="1153,125" font="RegularLight; 19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
+		<widget source="Event" render="Label" position="65,160" size="1155,125" font="RegularLight; 19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
 		<widget name="lab1" position="60,455" size="1165,35" font="Regular;24" halign="center" valign="center" zPosition="20" backgroundColor="layer-a-background" transparent="1" />
@@ -2463,7 +2463,8 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget name="channel" position="50,50" size="850,45" font="SetrixHD;35" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" zPosition="2" />
 		<widget name="datetime" position="980,45" size="250,30" font="SetrixHD;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="0" noWrap="1" valign="top" halign="right" zPosition="2" />
 		<widget name="duration" position="1080,75" size="150,30" font="SetrixHD;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="0" noWrap="1" valign="top" halign="right" zPosition="2" />
-		<widget name="epg_description" position="50,122" size="1180,344" font="Regular; 22" scrollbarMode="showNever" foregroundColor="epg-eventdescription-foreground" backgroundColor="epg-eventdescription-background" transparent="0" zPosition="1" />
+		<eLabel name="new eLabel" position="50,120" zPosition="-9" size="1180,330" backgroundColor="epg-eventdescription-background" transparent="0" />
+		<widget name="epg_description" position="55,120" size="1170,330" font="Regular; 22" scrollbarMode="showNever" foregroundColor="epg-eventdescription-foreground" backgroundColor="epg-eventdescription-background" transparent="0" zPosition="1" />
 	</screen>
 	<screen name="QuickEPG" title="InfoBar QuickEPG" position="0,490" size="1280,230" backgroundColor="transparent" flags="wfNoBorder">
 		<eLabel name="new eLabel" position="0,10" zPosition="-10" size="1280,220" backgroundColor="layer-a-background" transparent="0" />
@@ -2510,7 +2511,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget name="more_text" position="370,117" size="150,30" zPosition="3" text="MORE" font="SetrixHD; 25" halign="center" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="date" position="520,118" size="250,30" font="SetrixHD;22" backgroundColor="layer-a-background" valign="center" halign="right" transparent="1" />
 		<widget name="list" position="70,166" size="700,450" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Event" render="Label" position="811,79" size="415,515" font="RegularLight; 22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top">
+		<widget source="Event" render="Label" position="825,90" size="385,505" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top">
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
 		<panel name="rgyb-buttons_template1" />
@@ -2549,22 +2550,6 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget name="key_yellow" position="315,e-40" zPosition="1" size="140,40" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
 		<widget name="key_blue" position="455,e-40" zPosition="1" size="140,40" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
 	</screen>
-	<!--screen name="ChannelContextMenu" position="0,0" size="1280,720" title="Channellist menu" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
-		<eLabel position="645,51" zPosition="-11" size="412,565" backgroundColor="layer-a-background" foregroundColor="layer-a-background" />
-		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
-		<ePixmap position="305,80" size="256,256" pixmap="MetrixHD/icons/service_info.png" alphatest="blend" />
-		<eLabel text="Channellist menu" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-50" />
-		<widget name="menu" position="656,61" size="390,550" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="3" itemHeight="35" scrollbarMode="showNever" enableWrapAround="1" transparent="1" />
-		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
-	</screen-->
-	<screen name="ChannelContextMenu" position="0,0" size="1280,720" title="Channellist menu" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
-		<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" foregroundColor="layer-a-background" />
-		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
-		<widget name="menu" position="636,60" size="499,545" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" itemHeight="45" enableWrapAround="1" transparent="1" />
-		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
-		<ePixmap position="305,80" size="256,256" pixmap="MetrixHD/icons/service_info.png" alphatest="blend" />
-		<eLabel text="Channellist menu" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" transparent="1" backgroundColor="text-background" foregroundColor="background-text" valign="top" zPosition="-50" />
-	</screen>
 	<screen name="SoftwareManagerSetup" position="0,0" size="1280,720" title="SoftwareManager Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Setup SoftwareManager" position="70,47" size="525,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="config" position="70,110" size="700,490" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
@@ -2584,7 +2569,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 			<convert type="ServiceName">Name</convert>
 		</widget>
 		<widget name="list" position="70,200" size="700,420" font="SetrixHD; 29" zPosition="3" itemHeight="35" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
-		<widget source="Event" render="Label" position="825,100" size="385,495" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" valign="top">
+		<widget source="Event" render="Label" position="825,90" size="385,505" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" valign="top">
 			<convert type="EventName">FullDescription</convert>
 		</widget>
 		<panel name="template1_2layer" />

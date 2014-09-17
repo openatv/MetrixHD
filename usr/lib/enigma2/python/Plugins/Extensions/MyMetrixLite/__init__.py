@@ -21,7 +21,7 @@
 
 from Components.Language import language
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
-from Components.config import config, ConfigSubsection, ConfigSelection, ConfigNumber, ConfigSelectionNumber, ConfigYesNo, ConfigText
+from Components.config import config, ConfigSubsection, ConfigSelection, ConfigNumber, ConfigSelectionNumber, ConfigYesNo, ConfigText, ConfigInteger
 import gettext
 
 #############################################################
@@ -192,6 +192,19 @@ def initColorsConfig():
     config.plugins.MyMetrixLiteColors.epgeventforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
     config.plugins.MyMetrixLiteColors.epgtimelineforeground = ConfigSelection(default="F0A30A", choices = ColorList)
 
+    config.plugins.MyMetrixLiteColors.upperleftcornerbackground = ConfigSelection(default="27408B", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.upperleftcornertransparency = ConfigSelection(default="1A", choices = TransparencyList)
+    config.plugins.MyMetrixLiteColors.lowerleftcornerbackground = ConfigSelection(default="27408B", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.lowerleftcornertransparency = ConfigSelection(default="1A", choices = TransparencyList)
+    config.plugins.MyMetrixLiteColors.upperrightcornerbackground = ConfigSelection(default="0F0F0F", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.upperrightcornertransparency = ConfigSelection(default="1A", choices = TransparencyList)
+    config.plugins.MyMetrixLiteColors.lowerrightcornerbackground = ConfigSelection(default="0F0F0F", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.lowerrightcornertransparency = ConfigSelection(default="1A", choices = TransparencyList)
+    config.plugins.MyMetrixLiteColors.optionallayerhorizontalbackground = ConfigSelection(default="27408B", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.optionallayerhorizontaltransparency = ConfigSelection(default="1A", choices = TransparencyList)
+    config.plugins.MyMetrixLiteColors.optionallayerverticalbackground = ConfigSelection(default="27408B", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency = ConfigSelection(default="1A", choices = TransparencyList)
+
 #############################################################
 
 def initWeatherConfig():
@@ -244,6 +257,13 @@ def initOtherConfig():
         ("INFOBARCHANNELNAME-5", _("40"))
         ]
 
+    skinDesignShowLayerList = [
+        ("no", _("No")),
+        ("screens", _("in Screens")),
+        ("menus", _("in Menus")),
+        ("both", _("in Menus and Screens"))
+        ]
+
     config.plugins.MyMetrixLiteOther = ConfigSubsection()
 
     #OtherSettings
@@ -274,7 +294,38 @@ def initOtherConfig():
 	#EMC
     config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover = ConfigSelection(default = "no", choices = [("no", _("No")), ("small", _("Small")), ("large", _("Large"))])
     config.plugins.MyMetrixLiteOther.showEMCSelectionCover = ConfigSelection(default = "no", choices = [("no", _("No")), ("small", _("Small")), ("large", _("Large"))])
-
+    config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription = ConfigYesNo(default=True)
+	#SkinDesign
+    config.plugins.MyMetrixLiteOther.SkinDesign = ConfigSelection(default = "1", choices = [("1", _("Standard")), ("2", _("Layer A and B same height, Clock in Layer A")), ("3", _("Layer A and B same height, Clock in Layer B"))])
+    config.plugins.MyMetrixLiteOther.SkinDesignSpace = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.SkinDesignLUC = ConfigSelection(default = "no", choices = skinDesignShowLayerList)
+    config.plugins.MyMetrixLiteOther.SkinDesignLLC = ConfigSelection(default = "no", choices = skinDesignShowLayerList)
+    config.plugins.MyMetrixLiteOther.SkinDesignRUC = ConfigSelection(default = "no", choices = skinDesignShowLayerList)
+    config.plugins.MyMetrixLiteOther.SkinDesignRLC = ConfigSelection(default = "no", choices = skinDesignShowLayerList)
+    config.plugins.MyMetrixLiteOther.SkinDesignOLH = ConfigSelection(default = "no", choices = skinDesignShowLayerList)
+    config.plugins.MyMetrixLiteOther.SkinDesignOLV = ConfigSelection(default = "no", choices = skinDesignShowLayerList)
+    config.plugins.MyMetrixLiteOther.SkinDesignLUCwidth = ConfigInteger(default=40, limits=(0, 1280))
+    config.plugins.MyMetrixLiteOther.SkinDesignLUCheight = ConfigInteger(default=25, limits=(0, 720))
+    config.plugins.MyMetrixLiteOther.SkinDesignLUCposz = ConfigInteger(default=0, limits=(0, 5))
+    config.plugins.MyMetrixLiteOther.SkinDesignLLCwidth = ConfigInteger(default=40, limits=(0, 1280))
+    config.plugins.MyMetrixLiteOther.SkinDesignLLCheight = ConfigInteger(default=45, limits=(0, 720))
+    config.plugins.MyMetrixLiteOther.SkinDesignLLCposz = ConfigInteger(default=0, limits=(0, 5))
+    config.plugins.MyMetrixLiteOther.SkinDesignRUCwidth = ConfigInteger(default=40, limits=(0, 1280))
+    config.plugins.MyMetrixLiteOther.SkinDesignRUCheight = ConfigInteger(default=60, limits=(0, 720))
+    config.plugins.MyMetrixLiteOther.SkinDesignRUCposz = ConfigInteger(default=0, limits=(0, 5))
+    config.plugins.MyMetrixLiteOther.SkinDesignRLCwidth = ConfigInteger(default=40, limits=(0, 1280))
+    config.plugins.MyMetrixLiteOther.SkinDesignRLCheight = ConfigInteger(default=80, limits=(0, 720))
+    config.plugins.MyMetrixLiteOther.SkinDesignRLCposz = ConfigInteger(default=0, limits=(0, 5))
+    config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth = ConfigInteger(default=1127, limits=(0, 1280))
+    config.plugins.MyMetrixLiteOther.SkinDesignOLHheight = ConfigInteger(default=30, limits=(0, 720))
+    config.plugins.MyMetrixLiteOther.SkinDesignOLHposx = ConfigInteger(default=0, limits=(0, 1280))
+    config.plugins.MyMetrixLiteOther.SkinDesignOLHposy = ConfigInteger(default=655, limits=(0, 720))
+    config.plugins.MyMetrixLiteOther.SkinDesignOLHposz = ConfigInteger(default=0, limits=(0, 5))
+    config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth = ConfigInteger(default=60, limits=(0, 1280))
+    config.plugins.MyMetrixLiteOther.SkinDesignOLVheight = ConfigInteger(default=669, limits=(0, 720))
+    config.plugins.MyMetrixLiteOther.SkinDesignOLVposx = ConfigInteger(default=102, limits=(0, 1280))
+    config.plugins.MyMetrixLiteOther.SkinDesignOLVposy = ConfigInteger(default=51, limits=(0, 720))
+    config.plugins.MyMetrixLiteOther.SkinDesignOLVposz = ConfigInteger(default=0, limits=(0, 5))
 
 #######################################################################
 

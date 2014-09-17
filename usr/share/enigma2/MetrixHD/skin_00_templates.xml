@@ -324,7 +324,6 @@
 			<widget backgroundColor="layer-b-background" font="Regular; 16" foregroundColor="layer-b-accent1" valign="center" halign="right" position="963,77" render="Label" size="104,26" source="global.CurrentTime" transparent="1">
 				<convert type="ClockToText">Format:%e. %B</convert>
 			</widget>
-			<!--eLabel text="30. September" backgroundColor="layer-b-background" font="Regular; 16" foregroundColor="layer-b-accent1" valign="center" halign="right" position="963,77" size="104,26" transparent="1" /-->
 			<widget backgroundColor="layer-b-background" font="Regular; 16" foregroundColor="layer-b-accent1" valign="center" halign="right" noWrap="1" position="963,47" render="Label" size="104,26" source="global.CurrentTime" transparent="1">
 				<convert type="ClockToText">Format:%A</convert>
 			</widget>
@@ -867,7 +866,7 @@
 		<!--ClockWidget */-->
 		</screen>
 		<!-- template1_1layer -->
-		<screen name="template1_1layer">
+		<screen name="template1_1layer-1">
 			<eLabel name="layer1" position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
 			<widget source="global.CurrentTime" render="Label" position="1115,26" size="140,60" font="SetrixHD; 50" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Default</convert>
@@ -881,18 +880,9 @@
 		</screen>
 		<!-- template1_1layer -->
 		<!-- template1_2layer -->
-		<screen name="template1_2layer">
+		<screen name="template1_2layer-1">
 			<eLabel name="layer1" position="40,25" zPosition="-10" size="755,650" backgroundColor="layer-a-background" />
 			<eLabel name="layer2" position="795,60" zPosition="-10" size="445,580" backgroundColor="layer-b-background" />
-			<!--widget source="global.CurrentTime" render="Label" position="525,46" size="150,20" font="SetrixHD; 15" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
-				<convert type="ClockToText">Format:%A</convert>
-			</widget>
-			<widget source="global.CurrentTime" render="Label" position="525,62" size="150,20" font="SetrixHD; 15" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
-				<convert type="ClockToText">Format:%e. %B</convert>
-			</widget>
-			<widget source="global.CurrentTime" render="Label" position="685,36" size="100,45" font="SetrixHD; 40" halign="left" valign="top" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1">
-				<convert type="ClockToText">Default</convert>
-			</widget-->
 			<widget source="global.CurrentTime" render="Label" position="667,26" size="140,60" font="SetrixHD; 50" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Default</convert>
 			</widget>
@@ -901,6 +891,72 @@
 			</widget>
 			<widget source="global.CurrentTime" render="Label" position="512,62" size="140,27" font="SetrixHD; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Format:%e. %b.</convert>
+			</widget>
+		</screen>
+		<screen name="template1_2layer-2">
+			<eLabel name="layer1" position="40,25" zPosition="-10" size="755,650" backgroundColor="layer-a-background" />
+			<eLabel name="layer2" position="795,25" zPosition="-10" size="445,650" backgroundColor="layer-b-background" />
+			<widget source="global.CurrentTime" render="Label" position="667,26" size="140,60" font="SetrixHD; 50" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1">
+				<convert type="ClockToText">Default</convert>
+			</widget>
+			<widget source="global.CurrentTime" render="Label" position="512,39" size="140,27" font="SetrixHD; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+				<convert type="ClockToText">Format:%A</convert>
+			</widget>
+			<widget source="global.CurrentTime" render="Label" position="512,62" size="140,27" font="SetrixHD; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+				<convert type="ClockToText">Format:%e. %b.</convert>
+			</widget>
+		</screen>
+		<screen name="template1_2layer-3">
+			<eLabel name="layer1" position="40,25" zPosition="-10" size="755,650" backgroundColor="layer-a-background" />
+			<eLabel name="layer2" position="795,25" zPosition="-10" size="445,650" backgroundColor="layer-b-background" />
+			<widget source="global.CurrentTime" render="Label" position="1115,26" size="140,60" font="SetrixHD; 50" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1">
+				<convert type="ClockToText">Default</convert>
+			</widget>
+			<widget source="global.CurrentTime" render="Label" position="938,39" size="161,27" font="SetrixHD; 16" halign="right" foregroundColor="layer-b-accent1" backgroundColor="layer-b-background" transparent="1">
+				<convert type="ClockToText">Format:%A</convert>
+			</widget>
+			<widget source="global.CurrentTime" render="Label" position="938,62" size="161,27" font="SetrixHD; 16" halign="right" foregroundColor="layer-b-accent1" backgroundColor="layer-b-background" transparent="1">
+				<convert type="ClockToText">Format:%e. %B</convert>
+			</widget>
+		</screen>
+		<!-- template1_2layer with space-->
+		<screen name="template1_2layer-1s">
+			<eLabel name="layer1" position="40,25" zPosition="-10" size="750,650" backgroundColor="layer-a-background" />
+			<eLabel name="layer2" position="800,60" zPosition="-10" size="440,580" backgroundColor="layer-b-background" />
+			<widget source="global.CurrentTime" render="Label" position="667,26" size="140,60" font="SetrixHD; 50" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1">
+				<convert type="ClockToText">Default</convert>
+			</widget>
+			<widget source="global.CurrentTime" render="Label" position="512,39" size="140,27" font="SetrixHD; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+				<convert type="ClockToText">Format:%A</convert>
+			</widget>
+			<widget source="global.CurrentTime" render="Label" position="512,62" size="140,27" font="SetrixHD; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+				<convert type="ClockToText">Format:%e. %b.</convert>
+			</widget>
+		</screen>
+		<screen name="template1_2layer-2s">
+			<eLabel name="layer1" position="40,25" zPosition="-10" size="750,650" backgroundColor="layer-a-background" />
+			<eLabel name="layer2" position="800,25" zPosition="-10" size="440,650" backgroundColor="layer-b-background" />
+			<widget source="global.CurrentTime" render="Label" position="667,26" size="140,60" font="SetrixHD; 50" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1">
+				<convert type="ClockToText">Default</convert>
+			</widget>
+			<widget source="global.CurrentTime" render="Label" position="512,39" size="140,27" font="SetrixHD; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+				<convert type="ClockToText">Format:%A</convert>
+			</widget>
+			<widget source="global.CurrentTime" render="Label" position="512,62" size="140,27" font="SetrixHD; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+				<convert type="ClockToText">Format:%e. %b.</convert>
+			</widget>
+		</screen>
+		<screen name="template1_2layer-3s">
+			<eLabel name="layer1" position="40,25" zPosition="-10" size="750,650" backgroundColor="layer-a-background" />
+			<eLabel name="layer2" position="800,25" zPosition="-10" size="440,650" backgroundColor="layer-b-background" />
+			<widget source="global.CurrentTime" render="Label" position="1115,26" size="140,60" font="SetrixHD; 50" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1">
+				<convert type="ClockToText">Default</convert>
+			</widget>
+			<widget source="global.CurrentTime" render="Label" position="938,39" size="161,27" font="SetrixHD; 16" halign="right" foregroundColor="layer-b-accent1" backgroundColor="layer-b-background" transparent="1">
+				<convert type="ClockToText">Format:%A</convert>
+			</widget>
+			<widget source="global.CurrentTime" render="Label" position="938,62" size="161,27" font="SetrixHD; 16" halign="right" foregroundColor="layer-b-accent1" backgroundColor="layer-b-background" transparent="1">
+				<convert type="ClockToText">Format:%e. %B</convert>
 			</widget>
 		</screen>
 		<!-- template1_2layer -->
@@ -918,8 +974,8 @@
 			</widget>
 			<!--ClockWidget */-->
 		</screen>
-		<screen name="MENU_template">
-			<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" foregroundColor="layer-a-background" />
+		<screen name="MENU_template-1">
+			<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" transparent="0"  />
 			<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
 			<widget source="title" render="Label" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" transparent="1" backgroundColor="text-background" foregroundColor="background-text" valign="top" zPosition="-50" />
 			<widget source="menu" render="Listbox" position="636,60" size="499,555" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
@@ -932,22 +988,8 @@
 			</widget>
 			<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
 		</screen>
-	<!--screen name="CONTEXTMENU_template" >
-		<eLabel position="380,105" zPosition="-1" size="520,480" backgroundColor="layer-a-background" />
-		<widget source="title" render="Label" position="390,105" size="500,50" font="SetrixHD;35" halign="center" />
-		<eLabel position="390,155" size="500,2" backgroundColor="layer-a-accent1" />
-		<widget source="menu" render="Listbox" position="390,166" size="500,410" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1">
-			<convert type="TemplatedMultiContent">
-				{"template": [ MultiContentEntryText(pos = (0, 5), size = (500, 30), flags = RT_HALIGN_CENTER, text = 0) ],
-				"fonts": [gFont("Regular", 22)],
-				"itemHeight": 37
-				}
-			</convert>
-		</widget>
-		<widget source="Title" render="Label" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-50" />
-	</screen-->
-	<screen name="CONTEXTMENU_template" >
-		<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" foregroundColor="layer-a-background" />
+	<screen name="CONTEXTMENU_template-1" >
+		<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" transparent="0" />
 		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
 		<!--widget source="title" render="Label" position="264,51" size="340,30" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" noWrap="0"/-->
 		<widget source="menu" render="Listbox"  position="636,60" size="499,545" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
@@ -981,10 +1023,10 @@
 		<widget source="ServiceEvent" render="Progress" position="914,165" size="206,5" borderWidth="0" backgroundColor="layer-b-background" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget source="ServiceEvent" render="Label" position="825,190" size="385,225" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
+		<widget source="ServiceEvent" render="Label" position="825,195" size="385,250" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
 			<convert type="EventName">FullDescription</convert>
 		</widget>
-		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="825,443" size="385,125" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="0" />
+		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="825,460" size="385,125" font="RegularLight; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="0" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />

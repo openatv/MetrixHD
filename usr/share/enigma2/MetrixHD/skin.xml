@@ -147,4 +147,57 @@
 	<include filename="/usr/share/enigma2/MetrixHD/skin_03_plugins.xml" />
 	<include filename="/usr/share/enigma2/MetrixHD/skin_04_check.xml" />
 	<include filename="/usr/share/enigma2/MetrixHD/skin_05_screens_unchecked.xml" />
+<!-- SKIN DESIGN -->
+	<screen name="SkinDesign-s">
+		<!--eLabel name="upperleftcorner-s" position="0,0" zPosition="-105" size="40,25" backgroundColor="#1A27408B" /-->
+		<!--eLabel name="lowerleftcorner-s" position="0,675" zPosition="-105" size="40,45" backgroundColor="#1A27408B" /-->
+		<!--eLabel name="upperrightcorner-s" position="1240,0" zPosition="-105" size="40,60" backgroundColor="#1A0F0F0F" /-->
+		<!--eLabel name="lowerrightcorner-s" position="1240,640" zPosition="-105" size="40,80" backgroundColor="#1A0F0F0F" /-->
+		<!--eLabel name="optionallayerhorizontal-s" position="0,655" zPosition="-105" size="1127,30" backgroundColor="#1A27408B" /-->
+		<!--eLabel name="optionallayervertical-s" position="102,51" zPosition="-105" size="60,669" backgroundColor="#1A27408B" /-->
+	</screen>
+	<screen name="SkinDesign-m">
+		<!--eLabel name="upperleftcorner-m" position="0,0" zPosition="-105" size="40,25" backgroundColor="#1A27408B" /-->
+		<!--eLabel name="lowerleftcorner-m" position="0,675" zPosition="-105" size="40,45" backgroundColor="#1A27408B" /-->
+		<!--eLabel name="upperrightcorner-m" position="1240,0" zPosition="-105" size="40,60" backgroundColor="#1A0F0F0F" /-->
+		<!--eLabel name="lowerrightcorner-m" position="1240,640" zPosition="-105" size="40,80" backgroundColor="#1A0F0F0F" /-->
+		<!--eLabel name="optionallayerhorizontal-m" position="0,655" zPosition="-105" size="1127,30" backgroundColor="#1A27408B" /-->
+		<!--eLabel name="optionallayervertical-m" position="102,51" zPosition="-105" size="60,669" backgroundColor="#1A27408B" /-->
+	</screen>
+<!-- SKIN DESIGN - SCREENS -->
+	<screen name="template1_2layer">
+		<panel name="SkinDesign-s" />
+		<panel name="template1_2layer-1" />
+	</screen>
+	<screen name="template1_1layer">
+		<panel name="SkinDesign-s" />
+		<panel name="template1_1layer-1" />
+	</screen>
+<!-- SKIN DESIGN - MENUS -->
+	<screen name="MENU_template">
+		<panel name="SkinDesign-m" />
+		<panel name="MENU_template-1" />
+	</screen>
+	<screen name="CONTEXTMENU_template">
+		<panel name="SkinDesign-m" />
+		<panel name="CONTEXTMENU_template-1" />
+	</screen>
+	<screen name="EventViewContextMenu" position="0,0" size="1280,720" title="Eventview menu" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
+		<panel name="SkinDesign-m" />
+		<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" transparent="0"  />
+		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
+		<widget name="menu" position="636,60" size="499,545" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" itemHeight="45" enableWrapAround="1" transparent="1" />
+		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
+		<ePixmap position="305,80" size="256,256" pixmap="MetrixHD/icons/service_info.png" alphatest="blend" />
+		<eLabel text="Eventview menu" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" transparent="1" backgroundColor="text-background" foregroundColor="background-text" valign="top" zPosition="-50" />
+	</screen>
+	<screen name="ChannelContextMenu" position="0,0" size="1280,720" title="Channellist menu" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
+		<panel name="SkinDesign-m" />
+		<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" transparent="0"  />
+		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
+		<widget name="menu" position="636,60" size="499,545" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" itemHeight="45" enableWrapAround="1" transparent="1" />
+		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
+		<ePixmap position="305,80" size="256,256" pixmap="MetrixHD/icons/service_info.png" alphatest="blend" />
+		<eLabel text="Channellist menu" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" transparent="1" backgroundColor="text-background" foregroundColor="background-text" valign="top" zPosition="-50" />
+	</screen>
 </skin>
