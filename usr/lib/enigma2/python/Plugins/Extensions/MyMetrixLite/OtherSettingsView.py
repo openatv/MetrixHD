@@ -41,8 +41,10 @@ class OtherSettingsView(ConfigListScreen, Screen):
     <widget name="config" position="61,124" size="590,480" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
     <widget source="cancelBtn" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <widget source="saveBtn" position="257,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+    <widget source="defaultsBtn" position="445,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
     <eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
+    <eLabel position="430,635" size="5,40" backgroundColor="#00e5dd00" />
     <widget name="helperimage" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
   </screen>
 """
@@ -62,6 +64,9 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
         self["saveBtn"] = StaticText("")
         self["saveBtn"].setText(_("Save"))
+
+        self["defaultsBtn"] = StaticText("")
+        self["defaultsBtn"].setText(_("Defaults"))
 
         initOtherConfig()
 
@@ -86,6 +91,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
             "right": self.keyRight,
             "red": self.exit,
             "green": self.save,
+            "yellow": self.defaults,
             "cancel": self.exit
         }, -1)
 
@@ -159,9 +165,49 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(_("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer))
         list.append(getConfigListEntry(_("EMC   ------------------------------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Show Cover in Media Center"),config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover))
-        list.append(getConfigListEntry(_("Show Cover in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionCover))
+        list.append(getConfigListEntry(_("Show Cover in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionCover, "ENABLED"))
+        if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "large":
+            list.append(getConfigListEntry(_("Show Movie Description"), config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription))
         list.append(getConfigListEntry(_("ChannelSelection   -----------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Channel selection style"), config.plugins.MyMetrixLiteOther.channelSelectionStyle))
+        list.append(getConfigListEntry(_("Skin Design   ----------------------------------------------------------------------------------------------"), ))
+        list.append(getConfigListEntry(_("Chose Skin Design"),config.plugins.MyMetrixLiteOther.SkinDesign))
+        list.append(getConfigListEntry(_("Show Space between Layer A and B"),config.plugins.MyMetrixLiteOther.SkinDesignSpace))
+        list.append(getConfigListEntry(_("Skin Design - additional Layers  ---------------------------------------------------------------------------"), ))
+        list.append(getConfigListEntry(_("Show upper left Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignLUC, "ENABLED"))
+        if config.plugins.MyMetrixLiteOther.SkinDesignLUC.getValue() is not "no":
+            list.append(getConfigListEntry(_("   width"), config.plugins.MyMetrixLiteOther.SkinDesignLUCwidth))
+            list.append(getConfigListEntry(_("   height"), config.plugins.MyMetrixLiteOther.SkinDesignLUCheight))
+            list.append(getConfigListEntry(_("   pos z"), config.plugins.MyMetrixLiteOther.SkinDesignLUCposz))
+        list.append(getConfigListEntry(_("Show lower left Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignLLC, "ENABLED"))
+        if config.plugins.MyMetrixLiteOther.SkinDesignLLC.getValue() is not "no":
+            list.append(getConfigListEntry(_("   width"), config.plugins.MyMetrixLiteOther.SkinDesignLLCwidth))
+            list.append(getConfigListEntry(_("   height"), config.plugins.MyMetrixLiteOther.SkinDesignLLCheight))
+            list.append(getConfigListEntry(_("   pos z"), config.plugins.MyMetrixLiteOther.SkinDesignLLCposz))
+        list.append(getConfigListEntry(_("Show upper right Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignRUC, "ENABLED"))
+        if config.plugins.MyMetrixLiteOther.SkinDesignRUC.getValue() is not "no":
+            list.append(getConfigListEntry(_("   width"), config.plugins.MyMetrixLiteOther.SkinDesignRUCwidth))
+            list.append(getConfigListEntry(_("   height"), config.plugins.MyMetrixLiteOther.SkinDesignRUCheight))
+            list.append(getConfigListEntry(_("   pos z"), config.plugins.MyMetrixLiteOther.SkinDesignRUCposz))
+        list.append(getConfigListEntry(_("Show lower right Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignRLC, "ENABLED"))
+        if config.plugins.MyMetrixLiteOther.SkinDesignRLC.getValue() is not "no":
+            list.append(getConfigListEntry(_("   width"), config.plugins.MyMetrixLiteOther.SkinDesignRLCwidth))
+            list.append(getConfigListEntry(_("   height"), config.plugins.MyMetrixLiteOther.SkinDesignRLCheight))
+            list.append(getConfigListEntry(_("   pos z"), config.plugins.MyMetrixLiteOther.SkinDesignRLCposz))
+        list.append(getConfigListEntry(_("Show optional horizontal Layer"),config.plugins.MyMetrixLiteOther.SkinDesignOLH, "ENABLED"))
+        if config.plugins.MyMetrixLiteOther.SkinDesignOLH.getValue() is not "no":
+            list.append(getConfigListEntry(_("   width"), config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth))
+            list.append(getConfigListEntry(_("   height"), config.plugins.MyMetrixLiteOther.SkinDesignOLHheight))
+            list.append(getConfigListEntry(_("   pos x"), config.plugins.MyMetrixLiteOther.SkinDesignOLHposx))
+            list.append(getConfigListEntry(_("   pos y"), config.plugins.MyMetrixLiteOther.SkinDesignOLHposy))
+            list.append(getConfigListEntry(_("   pos z"), config.plugins.MyMetrixLiteOther.SkinDesignOLHposz))
+        list.append(getConfigListEntry(_("Show optional vertical Layer"),config.plugins.MyMetrixLiteOther.SkinDesignOLV, "ENABLED"))
+        if config.plugins.MyMetrixLiteOther.SkinDesignOLV.getValue() is not "no":
+            list.append(getConfigListEntry(_("   width"), config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth))
+            list.append(getConfigListEntry(_("   height"), config.plugins.MyMetrixLiteOther.SkinDesignOLVheight))
+            list.append(getConfigListEntry(_("   pos x"), config.plugins.MyMetrixLiteOther.SkinDesignOLVposx))
+            list.append(getConfigListEntry(_("   pos y"), config.plugins.MyMetrixLiteOther.SkinDesignOLVposy))
+            list.append(getConfigListEntry(_("   pos z"), config.plugins.MyMetrixLiteOther.SkinDesignOLVposz))
 
         return list
 
@@ -209,3 +255,65 @@ class OtherSettingsView(ConfigListScreen, Screen):
             else:
                     pass
         self.close()
+
+    def defaults(self):
+
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showCPULoad)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showCPUTemp)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showSYSTemp)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showChannelNumber)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showChannelName)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showInfoBarResolution)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showExtendedinfo)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showSnr)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showRecordstate)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showOrbitalposition)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showInfoBarClock)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showSTBinfo)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showTunerinfo)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.setTunerAuto)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.setTunerManual)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.channelSelectionStyle)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showMovieName)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showEMCSelectionCover)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesign)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignSpace)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignLUC)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignLLC)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignRUC)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignRLC)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLH)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLV)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignLUCwidth)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignLUCheight)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignLUCposz)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignLLCwidth)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignLLCheight)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignLLCposz)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignRUCwidth)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignRUCheight)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignRUCposz)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignRLCwidth)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignRLCheight)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignRLCposz) 
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLHheight)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLHposx)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLHposy)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLHposz)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLVheight)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLVposx)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLVposy)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLVposz)
+
+        self.save()
+
+    def setInputToDefault(self, configItem):
+        configItem.setValue(configItem.default)
