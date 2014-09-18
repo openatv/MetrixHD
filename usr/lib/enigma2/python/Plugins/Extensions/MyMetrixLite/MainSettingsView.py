@@ -437,8 +437,8 @@ class MainSettingsView(Screen):
             confvalue = config.plugins.MyMetrixLiteOther.SkinDesignLUC.getValue()
             if confvalue != "no": 
                 color = (config.plugins.MyMetrixLiteColors.upperleftcornertransparency.value + config.plugins.MyMetrixLiteColors.upperleftcornerbackground.value)
-                width = int(config.plugins.MyMetrixLiteOther.SkinDesignLUCwidth.value)
-                height = int(config.plugins.MyMetrixLiteOther.SkinDesignLUCheight.value)
+                width = config.plugins.MyMetrixLiteOther.SkinDesignLUCwidth.value
+                height = config.plugins.MyMetrixLiteOther.SkinDesignLUCheight.value
                 posx = 0
                 posy = 0
                 posz = -105 + int(config.plugins.MyMetrixLiteOther.SkinDesignLUCposz.value)
@@ -455,7 +455,7 @@ class MainSettingsView(Screen):
             confvalue = config.plugins.MyMetrixLiteOther.SkinDesignLLC.getValue()
             if  confvalue != "no": 
                 color = (config.plugins.MyMetrixLiteColors.lowerleftcornertransparency.value + config.plugins.MyMetrixLiteColors.lowerleftcornerbackground.value)
-                width = int(config.plugins.MyMetrixLiteOther.SkinDesignLLCwidth.value)
+                width = config.plugins.MyMetrixLiteOther.SkinDesignLLCwidth.value
                 height = int(config.plugins.MyMetrixLiteOther.SkinDesignLLCheight.value)
                 posx = 0
                 posy = 720 - height
@@ -474,7 +474,7 @@ class MainSettingsView(Screen):
             if  confvalue != "no": 
                 color = (config.plugins.MyMetrixLiteColors.upperrightcornertransparency.value + config.plugins.MyMetrixLiteColors.upperrightcornerbackground.value)
                 width = int(config.plugins.MyMetrixLiteOther.SkinDesignRUCwidth.value)
-                height = int(config.plugins.MyMetrixLiteOther.SkinDesignRUCheight.value)
+                height = config.plugins.MyMetrixLiteOther.SkinDesignRUCheight.value
                 posx = 1280 - width
                 posy = 0
                 posz = -105 + int(config.plugins.MyMetrixLiteOther.SkinDesignRUCposz.value)
@@ -514,10 +514,6 @@ class MainSettingsView(Screen):
                 posx = config.plugins.MyMetrixLiteOther.SkinDesignOLHposx.value
                 posy = config.plugins.MyMetrixLiteOther.SkinDesignOLHposy.value
                 posz = -105 + int(config.plugins.MyMetrixLiteOther.SkinDesignOLHposz.value)
-                if int(posx) + int(width) > 1280:
-                    width = int(width) - (int(posx) + int(width) - 1280)
-                if int(posy) + int(height) > 720:
-                    height = int(height) - (int(posy) + int(height) - 720)
                 newlines = (('<eLabel name="optionallayerhorizontal-s" position="%s,%s" zPosition="%s" size="%s,%s" backgroundColor="#%s" />') % (posx, posy, posz, width, height, color))
                 newlinem = (('<eLabel name="optionallayerhorizontal-m" position="%s,%s" zPosition="%s" size="%s,%s" backgroundColor="#%s" />') % (posx, posy, posz, width, height, color))
                 if confvalue == "both": 
@@ -536,10 +532,6 @@ class MainSettingsView(Screen):
                 posx = config.plugins.MyMetrixLiteOther.SkinDesignOLVposx.value
                 posy = config.plugins.MyMetrixLiteOther.SkinDesignOLVposy.value
                 posz = -105 + int(config.plugins.MyMetrixLiteOther.SkinDesignOLVposz.value)
-                if int(posx) + int(width) > 1280:
-                    width = int(width) - (int(posx) + int(width) - 1280)
-                if int(posy) + int(height) > 720:
-                    height = int(height) - (int(posy) + int(height) - 720)
                 newlines = (('<eLabel name="optionallayervertical-s" position="%s,%s" zPosition="%s" size="%s,%s" backgroundColor="#%s" />') % (posx, posy, posz, width, height, color))
                 newlinem = (('<eLabel name="optionallayervertical-m" position="%s,%s" zPosition="%s" size="%s,%s" backgroundColor="#%s" />') % (posx, posy, posz, width, height, color))
                 if confvalue == "both": 

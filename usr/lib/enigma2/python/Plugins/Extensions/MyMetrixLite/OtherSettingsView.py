@@ -239,6 +239,29 @@ class OtherSettingsView(ConfigListScreen, Screen):
         self.session.open(MessageBox, _("Information"), MessageBox.TYPE_INFO)
 
     def save(self):
+
+        width = int(config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth.value)
+        height = int(config.plugins.MyMetrixLiteOther.SkinDesignOLHheight.value)
+        posx = int(config.plugins.MyMetrixLiteOther.SkinDesignOLHposx.value)
+        posy = int(config.plugins.MyMetrixLiteOther.SkinDesignOLHposy.value)
+        if (posx + width) > 1280:
+            width = width - (posx + width - 1280)
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth.setValue(width)
+        if (posy + height) > 720:
+            height = height - (posy + height - 720)
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHheight.setValue(height)
+
+        width = int(config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth.value)
+        height = int(config.plugins.MyMetrixLiteOther.SkinDesignOLVheight.value)
+        posx = int(config.plugins.MyMetrixLiteOther.SkinDesignOLVposx.value)
+        posy = int(config.plugins.MyMetrixLiteOther.SkinDesignOLVposy.value)
+        if (posx + width) > 1280:
+            width = width - (posx + width - 1280)
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth.setValue(width)
+        if (posy + height) > 720:
+            height = height - (posy + height - 720)
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVheight.setValue(height)
+
         for x in self["config"].list:
             if len(x) > 1:
                 x[1].save()
