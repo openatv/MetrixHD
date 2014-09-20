@@ -43,8 +43,9 @@
         </widget>
         <ePixmap pixmap="MetrixHD/icons/ico_hd_off.png" position="1109,616" size="49,24" zPosition="1" alphatest="blend" />
         <widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
-            <convert type="ServiceInfo">VideoWidth</convert>
-            <convert type="ValueRange">721,1980</convert>
+            <!--convert type="ServiceInfo">VideoWidth</convert>
+            <convert type="ValueRange">721,1980</convert-->
+            <convert type="ServiceInfo">IsHD</convert>
             <convert type="ConditionalShowHide" />
         </widget>
         <widget source="session.CurrentService" render="Label" font="Regular; 18" position="1070,576" size="55,25" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
