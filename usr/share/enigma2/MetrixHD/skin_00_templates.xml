@@ -814,8 +814,9 @@
 			</widget>
 			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hd_off.png" position="1077,669" size="49,24" zPosition="1"/>
 			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_on.png" position="1077,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
-				<convert type="ServiceInfo">VideoWidth</convert>
-				<convert type="ValueRange">721,1980</convert>
+				<!--convert type="ServiceInfo">VideoWidth</convert>
+				<convert type="ValueRange">721,1980</convert-->
+				<convert type="ServiceInfo">IsHD</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
 			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_format_off.png" position="1140,669" size="43,23" zPosition="1"/>
@@ -857,7 +858,7 @@
 				<convert type="ClockToText">Default</convert>
 			</widget>
 			<widget source="global.CurrentTime" render="Label" position="83,633" size="148,29" font="SetrixHD; 20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
-				<convert type="ClockToText">Format:%e. %b</convert>
+				<convert type="ClockToText">Format:%e. %B</convert>
 			</widget>
 			<widget source="global.CurrentTime" render="Label" position="107,602" size="125,30" font="SetrixHD; 20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Format:%A</convert>

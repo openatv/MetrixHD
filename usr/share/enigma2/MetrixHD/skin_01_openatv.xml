@@ -2562,10 +2562,10 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 	</screen>
 	<screen name="EPGSelection" position="0,0" size="1280,720" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="EPG Selection" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
-		<widget alphatest="blend" position="70,55" render="MetrixHDXPicon" size="220,132" source="Service" transparent="1" zPosition="1">
+		<widget alphatest="blend" position="70,60" render="MetrixHDXPicon" size="220,132" source="Service" transparent="1" zPosition="1">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
-		<widget source="Service" render="Label" position="315,93" size="400,45" font="SetrixHD; 34" backgroundColor="layer-a-background" transparent="0">
+		<widget source="Service" render="Label" position="290,120" size="480,50" font="SetrixHD;35" halign="center" valign="top" backgroundColor="layer-a-background" transparent="0">
 			<convert type="ServiceName">Name</convert>
 		</widget>
 		<widget name="list" position="70,200" size="700,420" font="SetrixHD; 29" zPosition="3" itemHeight="35" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
@@ -2622,8 +2622,9 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		</widget>
 		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hd_off.png" position="1047,490" size="49,24" zPosition="1"/>
 		<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_on.png" position="1047,490" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
-			<convert type="ServiceInfo">VideoWidth</convert>
-			<convert type="ValueRange">721,1980</convert>
+			<!--convert type="ServiceInfo">VideoWidth</convert>
+			<convert type="ValueRange">721,1980</convert-->
+			<convert type="ServiceInfo">IsHD</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
 		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_format_off.png" position="1108,490" size="43,23" zPosition="1"/>
@@ -2664,8 +2665,9 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		</widget>
 		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hd_off.png" position="992,490" size="49,24" zPosition="1"/>
 		<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_on.png" position="992,490" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
-			<convert type="ServiceInfo">VideoWidth</convert>
-			<convert type="ValueRange">721,1980</convert>
+			<!--convert type="ServiceInfo">VideoWidth</convert>
+			<convert type="ValueRange">721,1980</convert-->
+			<convert type="ServiceInfo">IsHD</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
 		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_format_off.png" position="1059,490" size="43,23" zPosition="1"/>
