@@ -1392,7 +1392,7 @@
 	</screen>
 	<!-- AutoBackup -->
 	<!-- FullBackup -->
-	<screen name="FullBackupConfig" position="0,0" size="1280,720" title="Select files/folders to backup" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="FullBackupConfig" position="0,0" size="1280,720" title="FullBackup Configuration" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" size="525,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,115" size="700,360" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="status" position="70,500" size="700,130" font="Regular;18" />
@@ -1436,15 +1436,15 @@
 		<widget name="cover" position="900,303" size="326,312" zPosition="4" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/no_cover.png" alphatest="blend" />
 		<widget name="config"  position="60,110" size="830,505" backgroundColor="#000000" foregroundColor="layer-a-foreground" scrollbarMode="showOnDemand" transparent="0" zPosition="5" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground"/>
 		<eLabel name="popup_bg" position="60,110" size="830,505" backgroundColor="#000000" transparent="0" zPosition="4" />
-		<widget name="popup_list" position="180,190" size="580,370" backgroundColor="#000000" foregroundColor="layer-a-foreground" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1"  zPosition="5"/>
+		<widget name="popup_list" position="180,170" size="580,380" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0"  zPosition="5"/>
 		<widget name="Web_Channel" position="60,110" size="277,30" font="Regular; 22" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" zPosition="5"/>
 		<widget name="STB_Channel" position="337,110" size="276,30" font="Regular; 22" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" zPosition="5"/>
 		<widget name="alt_STB_Channel" position="613,110" size="277,30" font="Regular; 22" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" zPosition="5"/>
 		<widget name="separator" position="60,148" size="830,2" backgroundColor="layer-a-accent1" zPosition="6" />
 		<widget name="list" position="60,157" size="830,458" itemHeight="30" backgroundColor="#000000" scrollbarMode="showOnDemand" transparent="0" zPosition="5" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground"/>
-		<widget name="popup_list2" position="180,170" size="580,370" backgroundColor="#000000" foregroundColor="layer-a-foreground" scrollbarMode="showOnDemand" transparent="0" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="5"/>
+		<widget name="popup_list2" position="180,170" size="580,380" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarMode="showOnDemand" transparent="0" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="5"/>
 		<widget name="config_information" position="900,303" zPosition="3" size="326,312" backgroundColor="layer-b-background" />
-		<widget name="config_information_text" position="905,303" size="316,312" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" halign="center" valign="center" zPosition="5" font="Regular;16"/>
+		<widget name="config_information_text" position="905,303" size="316,312" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" halign="center" valign="center" zPosition="5" font="Regular;17"/>
 		<widget name="path" position="60,50" size="830,55" foregroundColor="layer-a-foreground" backgroundColor="#000000" transparent="1" font="Regular;19" valign="center" halign="left" />
 		<widget name="bt_red" pixmap="MetrixHD/buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" />
 		<widget name="text_red" position="70,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
@@ -1454,25 +1454,27 @@
 		<widget name="text_yellow" position="445,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="bt_blue" pixmap="MetrixHD/buttons/key_blue.png" position="595,635" size="30,40" alphatest="blend" />
 		<widget name="text_blue" position="630,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="bt_0" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/key_0.png" position="10,685" zPosition="3" size="32,32" alphatest="on" />
-		<widget name="bt_5" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/key_5.png" position="10,685" zPosition="2" size="32,32" alphatest="on" />
-		<widget name="bt_exit" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/key_exit.png" position="10,685" zPosition="1" size="32,32" alphatest="on" />
-		<widget name="text_0" position="50,688" size="250,26" zPosition="1" font="Regular; 19" halign="left" backgroundColor="#000000" transparent="1" />
-		<widget name="bt_1" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/key_1.png" position="300,685" zPosition="3" size="32,32" alphatest="on" />
-		<widget name="bt_6" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/key_6.png" position="300,685" zPosition="2" size="32,32" alphatest="on" />
-		<widget name="text_1" position="340,688" size="210,26" zPosition="1" font="Regular;19" halign="left" backgroundColor="#000000" transparent="1" />
-		<widget name="bt_2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/key_2.png" position="550,685" zPosition="3" size="32,32" alphatest="on" />
-		<widget name="bt_7" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/key_7.png" position="550,685" zPosition="2" size="32,32" alphatest="on" />
-		<widget name="bt_epg" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/key_epg.png" position="550,685" zPosition="1" size="32,32" alphatest="on" />
-		<widget name="text_2" position="590,688" size="220,26" zPosition="1" font="Regular;19" halign="left" backgroundColor="#000000" transparent="1" />
-		<widget name="bt_3" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/key_3.png" position="810,685" zPosition="3" size="32,32" alphatest="on" />
-		<widget name="bt_8" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/key_8.png" position="810,685" zPosition="2" size="32,32" alphatest="on" />
-		<widget name="bt_info" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/key_help.png" position="810,685" zPosition="1" size="32,32" alphatest="on" />
-		<widget name="text_3" position="850,688" size="200,26" zPosition="1" font="Regular;19" halign="left" backgroundColor="#000000" transparent="1" />
-		<widget name="bt_4" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/key_4.png" position="1050,685" zPosition="3" size="32,32" alphatest="on" />
-		<widget name="bt_9" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/key_9.png" position="1050,685" zPosition="2" size="32,32" alphatest="on" />
-		<widget name="bt_menu" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/key_menu.png" position="1050,685" zPosition="1" size="32,32" alphatest="on" />
-		<widget name="text_4" position="1290,688" size="250,26" zPosition="1" font="Regular;19" halign="left" backgroundColor="#000000" transparent="1" />
+		<widget name="bt_0" pixmap="MetrixHD/skin_default/buttons/key_0.png" position="10,685" zPosition="3" size="32,32" alphatest="on" />
+		<widget name="bt_5" pixmap="MetrixHD/skin_default/buttons/key_5.png" position="10,685" zPosition="2" size="32,32" alphatest="on" />
+		<widget name="bt_exit" pixmap="MetrixHD/skin_default/buttons/key_exit.png" position="10,685" zPosition="1" size="32,32" alphatest="on" />
+		<widget name="text_0" position="45,688" size="180,26" zPosition="1" font="Regular; 18" halign="left" backgroundColor="#000000" transparent="1" />
+		<widget name="bt_1" pixmap="MetrixHD/skin_default/buttons/key_1.png" position="225,685" zPosition="3" size="32,32" alphatest="on" />
+		<widget name="bt_6" pixmap="MetrixHD/skin_default/buttons/key_6.png" position="225,685" zPosition="2" size="32,32" alphatest="on" />
+		<widget name="text_1" position="260,688" size="180,26" zPosition="1" font="Regular;18" halign="left" backgroundColor="#000000" transparent="1" />
+		<widget name="bt_2" pixmap="MetrixHD/skin_default/buttons/key_2.png" position="440,685" zPosition="3" size="32,32" alphatest="on" />
+		<widget name="bt_7" pixmap="MetrixHD/skin_default/buttons/key_7.png" position="440,685" zPosition="2" size="32,32" alphatest="on" />
+		<widget name="bt_epg" pixmap="MetrixHD/skin_default/buttons/key_epg.png" position="440,685" zPosition="1" size="32,32" alphatest="on" />
+		<widget name="text_2" position="475,688" size="180,26" zPosition="1" font="Regular;18" halign="left" backgroundColor="#000000" transparent="1" />
+		<widget name="bt_3" pixmap="MetrixHD/skin_default/buttons/key_3.png" position="650,685" zPosition="3" size="32,32" alphatest="on" />
+		<widget name="bt_8" pixmap="MetrixHD/skin_default/buttons/key_8.png" position="650,685" zPosition="2" size="32,32" alphatest="on" />
+		<widget name="bt_info" pixmap="MetrixHD/skin_default/buttons/key_help.png" position="650,685" zPosition="1" size="32,32" alphatest="on" />
+		<widget name="text_3" position="690,688" size="180,26" zPosition="1" font="Regular;18" halign="left" backgroundColor="#000000" transparent="1" />
+		<widget name="bt_4" pixmap="MetrixHD/skin_default/buttons/key_4.png" position="870,685" zPosition="3" size="32,32" alphatest="on" />
+		<widget name="bt_9" pixmap="MetrixHD/skin_default/buttons/key_9.png" position="870,685" zPosition="2" size="32,32" alphatest="on" />
+		<widget name="bt_menu" pixmap="MetrixHD/skin_default/buttons/key_menu.png" position="870,685" zPosition="1" size="32,32" alphatest="on" />
+		<widget name="text_4" position="905,688" size="180,26" zPosition="1" font="Regular;18" halign="left" backgroundColor="#000000" transparent="1" />
+		<widget name="bt_ok" pixmap="MetrixHD/skin_default/buttons/key_ok.png" position="1085,685" zPosition="1" size="32,32" alphatest="on" />
+		<widget name="text_ok" position="1120,688" size="160,26" zPosition="1" font="Regular;18" halign="left" backgroundColor="#000000" transparent="1" />
 	</screen>
 	<!-- Serienrecorder -->
 	<!-- PLUGINS */-->
