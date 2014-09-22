@@ -16,10 +16,10 @@
 	<!-- EMCSelectionCover_no -->
 	<screen name="EMCSelectionCover_no">
 		<widget name="list" position="70,130" size="700,482" itemHeight="32" CoolFont="Regular;21" CoolSelectFont="Regular;21" CoolDateFont="Regular;21" CoolMoviePos="35" CoolMovieSize="545" CoolFolderSize="550" CoolTitleColor="0" CoolDatePos="1000" CoolDateWidth="110" CoolDateColor="0" CoolHighlightColor="0" CoolProgressPos="1000" CoolBarPos="640" CoolBarHPos="10" CoolBarSize="55,10" CoolBarSizeSa="110,16" BackColorSel="layer-a-selection-background" DefaultColor="#FFFFFF" UnwatchedColor="#FFFFFF" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" backgroundColor="layer-a-background" foregroundColorSelected="#ffffff" scrollbarMode="showNever" transparent="1" />
-		<widget source="Service" render="Label" position="825,90" size="385,30" noWrap="0" font="RegularLight; 22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="825,90" size="385,50" font="RegularLight; 22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCEventName">Name</convert>
 		</widget>
-		<widget source="Service" render="Label" position="825,138" size="385,25" font="RegularLight; 20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="825,160" size="385,25" font="RegularLight; 20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCMovieInfo">RecordServiceName</convert>
 		</widget>
 		<widget source="Service" render="Label" position="825,185" size="55,25" font="RegularLight; 20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
@@ -41,10 +41,10 @@
 	<!-- EMCSelectionCover_small -->
 	<screen name="EMCSelectionCover_small">
 		<widget name="list" position="70,130" size="700,482" itemHeight="32" CoolFont="Regular;21" CoolSelectFont="Regular;21" CoolDateFont="Regular;21" CoolMoviePos="35" CoolMovieSize="545" CoolFolderSize="550" CoolTitleColor="0" CoolDatePos="1000" CoolDateWidth="110" CoolDateColor="0" CoolHighlightColor="0" CoolProgressPos="1000" CoolBarPos="640" CoolBarHPos="10" CoolBarSize="55,10" CoolBarSizeSa="110,16" BackColorSel="layer-a-selection-background" DefaultColor="#FFFFFF" UnwatchedColor="#FFFFFF" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" backgroundColor="layer-a-background" foregroundColorSelected="#ffffff" scrollbarMode="showNever" transparent="1" />
-		<widget source="Service" render="Label" position="825,90" size="300,30" noWrap="0" font="RegularLight; 22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="825,90" size="300,50" font="RegularLight; 22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCEventName">Name</convert>
 		</widget>
-		<widget source="Service" render="Label" position="825,138" size="300,25" font="RegularLight; 20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="825,160" size="300,25" font="RegularLight; 20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCMovieInfo">RecordServiceName</convert>
 		</widget>
 		<widget source="Service" render="Label" position="825,185" size="55,25" font="RegularLight; 20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
@@ -68,9 +68,9 @@
 	<!-- EMCSelectionCover_large -->
 	<screen name="EMCMediaCenterCover_large_description_on">
 		<widget name="list" position="70,130" size="700,225" itemHeight="32" CoolFont="Regular;21" CoolSelectFont="Regular;21" CoolDateFont="Regular;21" CoolMoviePos="35" CoolMovieSize="545" CoolFolderSize="550" CoolTitleColor="0" CoolDatePos="1000" CoolDateWidth="110" CoolDateColor="0" CoolHighlightColor="0" CoolProgressPos="1000" CoolBarPos="640" CoolBarHPos="10" CoolBarSize="55,10" CoolBarSizeSa="110,16" BackColorSel="layer-a-selection-background" DefaultColor="#FFFFFF" UnwatchedColor="#FFFFFF" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" backgroundColor="layer-a-background" foregroundColorSelected="#ffffff" scrollbarMode="showNever" transparent="1" />
-		<eLabel position="70,365" size="700,1" backgroundColor="layer-a-accent2" />
-		<eLabel position="70,380" size="700,230" backgroundColor="layer-a-background" zPosition="-9" />
-		<widget source="Service" render="Label" position="70,380" size="700,250" font="RegularLight; 19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left" valign="top">
+		<eLabel position="70,360" size="700,1" backgroundColor="layer-a-accent2" />
+		<!--eLabel position="70,372" size="700,230" backgroundColor="layer-a-background" zPosition="-9" /-->
+		<widget source="Service" render="Label" position="70,372" size="700,250" font="RegularLight; 19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left" valign="top">
 			<convert type="EMCEventName">FullDescription</convert>
 		</widget>
 	</screen>
@@ -79,7 +79,7 @@
 	</screen>
 	<screen name="EMCSelectionCover_large">
 		<panel name="EMCMediaCenterCover_large_description_on" />
-		<widget source="Service" render="Label" position="825,80" size="380,30" noWrap="1" valign="center" halign="center" font="RegularLight; 22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="825,90" size="380,50" valign="center" halign="center" font="RegularLight; 22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCEventName">Name</convert>
 		</widget>
 		<widget source="Service" render="Label" position="825,475" size="380,25" font="RegularLight; 20" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
