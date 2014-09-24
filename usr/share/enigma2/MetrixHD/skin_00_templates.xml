@@ -260,10 +260,55 @@
 			<eLabel position="1250,0" size="1,720" zPosition="99" name="new eLabel" backgroundColor="green" foregroundColor="green"/>
 			<!-- GRIDLINES */-->
 		</screen>
+		<!-- WIDGETS EMC/MOVIEPLAYER -->
+		<screen name="SERVICEICONSMOVIEPLAYER">
+			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_dolby_off.png" position="1082,669" size="34,23" zPosition="1"/>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_dolby_on.png" position="1082,669" render="Pixmap" size="34,23" source="session.CurrentService" zPosition="2">
+				<convert type="ServiceInfo">IsMultichannel</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
+			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hd_off.png" position="1130,669" size="49,24" zPosition="1"/>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_on.png" position="1130,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+				<convert type="ServiceInfo">IsHD</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
+			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_format_off.png" position="1193,669" size="43,23" zPosition="1"/>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_format_on.png" position="1193,669" render="Pixmap" size="43,22" source="session.CurrentService" zPosition="2">
+				<convert type="ServiceInfo">IsWidescreen</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
+				<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_rec_off.png" position="1021,670" size="45,23" zPosition="1"/>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_rec_on.png" position="1021,670" render="Pixmap" size="45,23" source="session.RecordState" zPosition="2">
+				<convert type="ConditionalShowHide">Blink</convert>
+			</widget>
+		</screen>
+		<screen name="RESOLUTIONMOVIEPLAYER">
+			<widget source="session.CurrentService" render="Label" position="863,666" size="60,26" font="RegularLight; 24" halign="right" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+				<convert type="ServiceInfo">VideoWidth</convert>
+			</widget>
+			<eLabel text="x" position="924,666" size="16,26" font="RegularLight; 24" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+			<widget source="session.CurrentService" render="Label" position="940,666" size="60,26" font="RegularLight; 24" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+				<convert type="ServiceInfo">VideoHeight</convert>
+			</widget>
+		</screen>
+		<screen name="STBINFOMOVIEPLAYER">
+			<widget backgroundColor="layer-a-background" position="547,697" size="640,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" transparent="1" zPosition="10" render="Label" source="global.CurrentTime">
+				<convert type="MetrixSTBinfo">MyMetrixConfig</convert>
+			</widget>
+		</screen>
+		<screen name="MOVIENAME">
+			<!--/* MOVIE NAME -->
+			<widget font="SetrixHD;80"  backgroundColor="text-background" foregroundColor="background-text" noWrap="1" position="35,465" render="Label" size="1252,105" source="session.CurrentService" transparent="1" valign="bottom" zPosition="-30">
+				<convert type="MetrixHDExtServiceInfo">ServiceNumberAndName</convert>
+			</widget>
+			<!-- MOVIE NAME */-->
+		</screen>
+		<!-- WIDGETS EMC/MOVIEPLAYER -->
+		<!-- WIDGETS INFOBAR/SECONDINFOBAR -->
 		<screen name="INFOBARSTYLEMODERN">
 			<!--/* STYLE MODERN -->
 			<eLabel backgroundColor="layer-a-background" name="InfoBar" position="-1,560" size="1283,160" zPosition="-10"/>
-			<widget alphatest="blend" position="39,570" render="MetrixHDXPicon" size="220,132" source="session.CurrentService" transparent="1" zPosition="4">
+			<widget alphatest="blend" position="35,570" render="MetrixHDXPicon" size="220,132" source="session.CurrentService" transparent="1" zPosition="4">
 				<convert type="ServiceName">Reference</convert>
 			</widget>
 			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="Regular; 19" halign="right" position="1091,563" render="Label" size="75,30" source="session.Event_Now" transparent="1">
@@ -306,11 +351,6 @@
 		</screen>
 		<screen name="STBINFO">
 			<widget backgroundColor="layer-a-background" position="597,697" size="640,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" transparent="1" zPosition="10" render="Label" source="global.CurrentTime">
-				<convert type="MetrixSTBinfo">MyMetrixConfig</convert>
-			</widget>
-		</screen>
-		<screen name="STBINFOMOVIEPLAYER">
-			<widget backgroundColor="layer-a-background" position="547,697" size="640,20" font="Regular;16" halign="right" foregroundColor="layer-a-accent1" transparent="1" zPosition="10" render="Label" source="global.CurrentTime">
 				<convert type="MetrixSTBinfo">MyMetrixConfig</convert>
 			</widget>
 		</screen>
@@ -368,13 +408,6 @@
 				<convert type="MetrixHDExtServiceInfo">ServiceNumberAndName</convert>
 			</widget>
 			<!-- CHANNEL NAME */-->
-		</screen>
-		<screen name="MOVIENAME">
-			<!--/* MOVIE NAME -->
-			<widget font="SetrixHD;80"  backgroundColor="text-background" foregroundColor="background-text" noWrap="1" position="35,465" render="Label" size="1252,105" source="session.CurrentService" transparent="1" valign="bottom" zPosition="-30">
-				<convert type="MetrixHDExtServiceInfo">ServiceNumberAndName</convert>
-			</widget>
-			<!-- MOVIE NAME */-->
 		</screen>
 		<screen name="INFOBARRESOLUTION">
 			<!-- /* ResolutionInfo -->

@@ -290,13 +290,23 @@ class MainSettingsView(Screen):
                 moviePlayerSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
 
             if config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer.getValue() is True:
-                moviePlayerSkinSearchAndReplace.append(['<!--panel name="STBINFOMOVIEPLAYER" /-->', '<panel name="STBINFOMOVIEPLAYER" />'])
+                if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "1":
+                    moviePlayerSkinSearchAndReplace.append(['<!--panel name="STBINFOMOVIEPLAYER" /-->', '<panel name="STBINFOMOVIEPLAYER" />'])
+                else:
+                    moviePlayerSkinSearchAndReplace.append(['<!--panel name="STBINFO" /-->', '<panel name="STBINFO" />'])
 
             if config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer.getValue() is False:
                 moviePlayerSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
 
+            namepos = "35,465"
+            if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
+                moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_1" />', '<panel name="MoviePlayer_2" />' ])
+            elif config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "3":
+                moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_1" />', '<panel name="MoviePlayer_3" />' ])
+                namepos = "35,535"
+
             channelNameXML = self.getChannelNameXML(
-                "35,465",
+                namepos,
                 config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize.getValue(),
                 #config.plugins.MyMetrixLiteOther.showChannelNumber.getValue(),
                 False,
@@ -323,8 +333,10 @@ class MainSettingsView(Screen):
                 EMCSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
 
             if config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer.getValue() is True:
-                EMCSkinSearchAndReplace.append(['<!--panel name="STBINFOMOVIEPLAYER" /-->', '<panel name="STBINFOMOVIEPLAYER" />'])
-                EMCSkinSearchAndReplace.append(['<!--panel name="STBINFO" /-->', '<panel name="STBINFO" />'])
+                if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "1":
+                    EMCSkinSearchAndReplace.append(['<!--panel name="STBINFOMOVIEPLAYER" /-->', '<panel name="STBINFOMOVIEPLAYER" />'])
+                else:
+                    EMCSkinSearchAndReplace.append(['<!--panel name="STBINFO" /-->', '<panel name="STBINFO" />'])
 
             if config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer.getValue() is False:
                 EMCSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
@@ -341,8 +353,15 @@ class MainSettingsView(Screen):
                 if config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription.getValue() is False:
                     EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenterCover_large_description_on" />', '<panel name="EMCMediaCenterCover_large_description_off" />'])
 
+            namepos = "35,465"
+            if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
+                EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_1" />', '<panel name="EMCMediaCenter_2" />' ])
+            elif config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "3":
+                EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_1" />', '<panel name="EMCMediaCenter_3" />' ])
+                namepos = "35,535"
+
             channelNameXML = self.getChannelNameXML(
-                "35,465",
+                namepos,
                 config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize.getValue(),
                 #config.plugins.MyMetrixLiteOther.showChannelNumber.getValue(),
                 False,
