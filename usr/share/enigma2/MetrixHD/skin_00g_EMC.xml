@@ -16,10 +16,10 @@
 	<!-- EMCSelectionCover_no -->
 	<screen name="EMCSelectionCover_no">
 		<widget name="list" position="70,130" size="700,482" itemHeight="32" CoolFont="Regular;21" CoolSelectFont="Regular;21" CoolDateFont="Regular;21" CoolMoviePos="35" CoolMovieSize="545" CoolFolderSize="550" CoolTitleColor="0" CoolDatePos="1000" CoolDateWidth="110" CoolDateColor="0" CoolHighlightColor="0" CoolProgressPos="1000" CoolBarPos="640" CoolBarHPos="10" CoolBarSize="55,10" CoolBarSizeSa="110,16" BackColorSel="layer-a-selection-background" DefaultColor="#FFFFFF" UnwatchedColor="#FFFFFF" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" backgroundColor="layer-a-background" foregroundColorSelected="#ffffff" scrollbarMode="showNever" transparent="1" />
-		<widget source="Service" render="Label" position="825,90" size="385,50" font="RegularLight; 22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="825,90" size="385,55" font="RegularLight; 22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCEventName">Name</convert>
 		</widget>
-		<widget source="Service" render="Label" position="825,160" size="385,25" font="RegularLight; 20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="825,158" size="385,25" font="RegularLight; 20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCMovieInfo">RecordServiceName</convert>
 		</widget>
 		<widget source="Service" render="Label" position="825,185" size="55,25" font="RegularLight; 20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
@@ -41,10 +41,10 @@
 	<!-- EMCSelectionCover_small -->
 	<screen name="EMCSelectionCover_small">
 		<widget name="list" position="70,130" size="700,482" itemHeight="32" CoolFont="Regular;21" CoolSelectFont="Regular;21" CoolDateFont="Regular;21" CoolMoviePos="35" CoolMovieSize="545" CoolFolderSize="550" CoolTitleColor="0" CoolDatePos="1000" CoolDateWidth="110" CoolDateColor="0" CoolHighlightColor="0" CoolProgressPos="1000" CoolBarPos="640" CoolBarHPos="10" CoolBarSize="55,10" CoolBarSizeSa="110,16" BackColorSel="layer-a-selection-background" DefaultColor="#FFFFFF" UnwatchedColor="#FFFFFF" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" backgroundColor="layer-a-background" foregroundColorSelected="#ffffff" scrollbarMode="showNever" transparent="1" />
-		<widget source="Service" render="Label" position="825,90" size="300,50" font="RegularLight; 22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="825,90" size="300,55" font="RegularLight; 22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCEventName">Name</convert>
 		</widget>
-		<widget source="Service" render="Label" position="825,160" size="300,25" font="RegularLight; 20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="825,158" size="300,25" font="RegularLight; 20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCMovieInfo">RecordServiceName</convert>
 		</widget>
 		<widget source="Service" render="Label" position="825,185" size="55,25" font="RegularLight; 20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
@@ -79,7 +79,7 @@
 	</screen>
 	<screen name="EMCSelectionCover_large">
 		<panel name="EMCMediaCenterCover_large_description_on" />
-		<widget source="Service" render="Label" position="825,90" size="380,50" valign="center" halign="center" font="RegularLight; 22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="825,90" size="380,55" valign="center" halign="center" font="RegularLight; 22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCEventName">Name</convert>
 		</widget>
 		<widget source="Service" render="Label" position="825,475" size="380,25" font="RegularLight; 20" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
@@ -99,6 +99,128 @@
 		</widget>
 		<eLabel position="1107,175" zPosition="5" size="1,256" backgroundColor="layer-b-background" />
 		<widget name="Cover" position="925,175" size="183,256" zPosition="4" alphatest="blend" />
+	</screen>
+	<!-- EMCMediacenter_1 - standard version -->
+	<screen name="EMCMediaCenter_1">
+		<eLabel position="0,570" zPosition="-2" size="1281,150" backgroundColor="layer-a-background" />
+		<widget source="session.CurrentService" render="Label" position="150,581" size="892,56" font="SetrixHD; 40" valign="top" noWrap="1" backgroundColor="layer-a-background" transparent="1">
+			<convert type="ServiceName">Name</convert>
+		</widget>
+		<ePixmap pixmap="MetrixHD/icons/ico_dolby_off.png" position="1060,616" size="34,23" zPosition="1" alphatest="blend" />
+		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_dolby_on.png" position="1060,616" size="34,23" zPosition="2" alphatest="blend">
+			<convert type="ServiceInfo">IsMultichannel</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<ePixmap pixmap="MetrixHD/icons/ico_format_off.png" position="1175,616" size="43,26" zPosition="1" alphatest="blend" />
+		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_format_on.png" position="1175,616" size="43,26" zPosition="2" alphatest="blend">
+			<convert type="ServiceInfo">IsWidescreen</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<ePixmap pixmap="MetrixHD/icons/ico_hd_off.png" position="1109,616" size="49,24" zPosition="1" alphatest="blend" />
+		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+			<convert type="ServiceInfo">IsHD</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="session.CurrentService" render="Label" font="Regular; 19" position="1070,576" size="55,25" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+			<convert type="ServiceInfo">VideoWidth</convert>
+		</widget>
+		<eLabel text="x" font="Regular; 19" position="1129,576" size="15,25" halign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="session.CurrentService" render="Label" font="Regular; 19" position="1146,576" size="55,25" halign="left" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
+			<convert type="ServiceInfo">VideoHeight</convert>
+		</widget>
+		<widget source="session.RecordState" render="Pixmap" pixmap="MetrixHD/icons/ico_rec_on.png" position="999,616" size="74,23" zPosition="2" alphatest="blend">
+			<convert type="ConditionalShowHide">Blink</convert>
+		</widget>
+		<widget source="Service" render="Label" position="40,651" size="100,28" font="SetrixHD;24" halign="right" valign="center" backgroundColor="layer-a-background" shadowColor="layer-a-background" shadowOffset="-1,-1" transparent="1">
+			<convert type="EMCServicePosition">Position</convert>
+		</widget>
+		<widget source="Service" render="EMCPositionGauge" position="151,666" size="980,9" zPosition="6" transparent="1">
+			<convert type="EMCServicePosition">Gauge</convert>
+		</widget>
+		<widget source="Service" render="Progress" position="151,669" size="980,3" foregroundColor="layer-a-progress" borderWidth="0" transparent="1" zPosition="5">
+			<convert type="EMCServicePosition">Position</convert>
+		</widget>
+		<!--widget source="Service" render="EMCPositionGauge" pointer="MetrixHD/extensions/CoolPointer.png:980,0" position="151,669" size="980,3" zPosition="5" transparent="1">
+			<convert type="EMCServicePosition">Position</convert>
+		</widget-->
+		<widget source="Service" render="EMCPositionGauge" pointer="MetrixHD/extensions/CoolPointerRec.png:980,0" position="151,669" size="980,3" zPosition="4" transparent="1">
+			<convert type="EMCRecordPosition">Position</convert>
+		</widget>
+		<widget source="Service" render="Label" position="1138,651" size="100,28" font="SetrixHD;24" halign="left" valign="center" backgroundColor="layer-a-background" transparent="1">
+			<convert type="EMCServicePosition">Remaining,Negate</convert>
+		</widget>
+		<widget source="Service" render="Label" position="3,581" size="137,56" font="SetrixHD; 40" halign="right" valign="top" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent2">
+			<convert type="EMCServicePosition">Length</convert>
+		</widget>
+		<eLabel name="new eLabel" position="151,670" size="980,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="-1" />
+		<widget name="audioLabel" position="961,577" size="100,22" font="EMCRegularFont;18" backgroundColor="layer-a-background" zPosition="3" transparent="1" halign="right" />
+		<widget name="chapterLabel" position="148,686" size="981,34" font="SetrixHD;22" halign="left" foregroundColor="layer-a-accent2" backgroundColor="layer-a-background" transparent="1" />
+	</screen>
+	<!-- EMCMediacenter_2 - infobar style -->
+	<screen name="EMCMediaCenter_2">
+		<eLabel position="0,570" zPosition="-2" size="1281,150" backgroundColor="layer-a-background" />
+		<ePixmap position="23,575" zPosition="1" size="140,140" backgroundColor="layer-a-background" alphatest="blend" pixmap="MetrixHD/icons/movie_small.png"/>
+		<widget source="session.CurrentService" render="Label" position="188,568" size="930,56" font="SetrixHD; 40" valign="top" noWrap="1" backgroundColor="layer-a-background" transparent="1">
+			<convert type="ServiceName">Name</convert>
+		</widget>
+		<eLabel foregroundColor="layer-a-accent1" backgroundColor="layer-a-accent1" position="187,625" size="1051,1" zPosition="-1"/>
+		<widget source="Service" render="EMCPositionGauge" position="187,621" size="1051,9" zPosition="6" transparent="1">
+			<convert type="EMCServicePosition">Gauge</convert>
+		</widget>
+		<widget source="Service" render="Progress" position="187,624" size="1051,3" foregroundColor="layer-a-progress" borderWidth="0" transparent="1" zPosition="5">
+			<convert type="EMCServicePosition">Position</convert>
+		</widget>
+		<widget source="Service" render="EMCPositionGauge" pointer="MetrixHD/extensions/CoolPointerRec_2.png:1051,0" position="187,624" size="1051,3" zPosition="4" transparent="1">
+			<convert type="EMCRecordPosition">Position</convert>
+		</widget>
+		<widget source="Service" render="Label" position="1041,568" size="200,56" font="SetrixHD; 40" halign="right" valign="top" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent2">
+			<convert type="EMCServicePosition">Length</convert>
+		</widget>
+		<widget source="Service" render="Label" position="188,630" size="100,28" font="RegularLight;20" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
+			<convert type="EMCServicePosition">Position</convert>
+		</widget>
+		<widget source="Service" render="Label" position="1139,630" size="100,28" font="RegularLight;20" halign="right" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
+			<convert type="EMCServicePosition">Remaining,Negate</convert>
+		</widget>
+		<eLabel text="Chapter" position="187,654" size="300,26" font="RegularLight;14" halign="center" valign="top"  foregroundColor="layer-a-accent2" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="chapterLabel" position="187,666" size="300,30" font="RegularLight;24" halign="center" valign="top"  foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Subtitle" position="487,654" size="80,26" font="RegularLight;14" zPosition="3" halign="center" valign="top"  foregroundColor="layer-a-accent2" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="subtitleLabel" position="487,666" size="80,30"  font="RegularLight;24" zPosition="3" halign="center" valign="top"  foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1"/>
+		<eLabel text="Audio" position="567,654" size="300,26" font="RegularLight;14" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" halign="center" valign="top" zPosition="3" transparent="1" />
+		<widget name="audioLabel" position="567,666" size="300,30" font="RegularLight;24" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" halign="center" valign="top" zPosition="3" transparent="0" />
+		<panel name="SERVICEICONSMOVIEPLAYER" />
+		<panel name="RESOLUTIONMOVIEPLAYER" />
+	</screen>
+	<!-- EMCMediacenter_3 - small style -->
+	<screen name="EMCMediaCenter_3">
+		<eLabel position="0,640" zPosition="-2" size="1281,80" backgroundColor="layer-a-background" />
+		<eLabel foregroundColor="layer-a-accent1" backgroundColor="layer-a-accent1" position="110,683" size="796,1" zPosition="-1"/>
+		<widget source="Service" render="EMCPositionGauge" position="110,679" size="796,9" zPosition="6" transparent="1">
+			<convert type="EMCServicePosition">Gauge</convert>
+		</widget>
+		<widget source="Service" render="Progress" position="110,682" size="796,3" foregroundColor="layer-a-progress" borderWidth="0" transparent="1" zPosition="5">
+			<convert type="EMCServicePosition">Position</convert>
+		</widget>
+		<widget source="Service" render="EMCPositionGauge" pointer="MetrixHD/extensions/CoolPointerRec_3.png:796,0" position="110,682" size="796,3" zPosition="4" transparent="1">
+			<convert type="EMCRecordPosition">Position</convert>
+		</widget>
+		<widget source="Service" render="Label" position="110,644" size="796,30" font="SetrixHD;24" halign="center" valign="top" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent2">
+			<convert type="EMCServicePosition">Length</convert>
+		</widget>
+		<widget source="Service" render="Label" position="15,668" size="75,28" font="RegularLight;20" halign="right" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
+			<convert type="EMCServicePosition">Position</convert>
+		</widget>
+		<widget source="Service" render="Label" position="926,668" size="75,28" font="RegularLight;20" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
+			<convert type="EMCServicePosition">Remaining,Negate</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="1078,644" size="60,26" font="RegularLight; 16" halign="right" valign="rop" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+			<convert type="ServiceInfo">VideoWidth</convert>
+		</widget>
+		<eLabel text="x" position="1142,644" size="16,26" font="RegularLight; 16" halign="center" valign="top" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="1160,644" size="60,26" font="RegularLight; 16" halign="left" valign="top" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1">
+			<convert type="ServiceInfo">VideoHeight</convert>
+		</widget>
+		<panel name="SERVICEICONSMOVIEPLAYER" />
 	</screen>
 	<!-- Templates -->
 	<!-- EMC EnhancedMovieCenter Setup -->
@@ -213,67 +335,14 @@
 		<panel name="rgyb-keys_template1" />
 		<panel name="ime-buttons_template1" />
 	</screen>
-	<!-- EMC 1280 EMCMediaCenter -->
+	<!-- EMCMediacenter -->
 	<screen name="EMCMediaCenter" position="0,0" size="1280,720" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="0,570" zPosition="-2" size="1281,150" backgroundColor="layer-a-background" />
-		<widget source="session.CurrentService" render="Label" position="150,581" size="892,56" font="SetrixHD; 40" valign="top" noWrap="1" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ServiceName">Name</convert>
-		</widget>
-		<ePixmap pixmap="MetrixHD/icons/ico_dolby_off.png" position="1060,616" size="34,23" zPosition="1" alphatest="blend" />
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_dolby_on.png" position="1060,616" size="34,23" zPosition="2" alphatest="blend">
-			<convert type="ServiceInfo">IsMultichannel</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<ePixmap pixmap="MetrixHD/icons/ico_format_off.png" position="1175,616" size="43,26" zPosition="1" alphatest="blend" />
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_format_on.png" position="1175,616" size="43,26" zPosition="2" alphatest="blend">
-			<convert type="ServiceInfo">IsWidescreen</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<ePixmap pixmap="MetrixHD/icons/ico_hd_off.png" position="1109,616" size="49,24" zPosition="1" alphatest="blend" />
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
-			<!--convert type="ServiceInfo">VideoWidth</convert>
-			<convert type="ValueRange">721,1980</convert-->
-			<convert type="ServiceInfo">IsHD</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="session.CurrentService" render="Label" font="Regular; 19" position="1070,576" size="55,25" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ServiceInfo">VideoWidth</convert>
-		</widget>
-		<eLabel text="x" font="Regular; 19" position="1129,576" size="15,25" halign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="session.CurrentService" render="Label" font="Regular; 19" position="1146,576" size="55,25" halign="left" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ServiceInfo">VideoHeight</convert>
-		</widget>
-		<widget source="session.RecordState" render="Pixmap" pixmap="MetrixHD/icons/ico_rec_on.png" position="999,616" size="74,23" zPosition="2" alphatest="blend">
-			<convert type="ConditionalShowHide">Blink</convert>
-		</widget>
-		<widget source="Service" render="Label" position="40,651" size="100,28" font="SetrixHD;24" halign="right" valign="center" backgroundColor="layer-a-background" shadowColor="layer-a-background" shadowOffset="-1,-1" transparent="1">
-			<convert type="EMCServicePosition">Position</convert>
-		</widget>
-		<widget source="Service" render="EMCPositionGauge" position="151,666" size="980,9" zPosition="6" transparent="1">
-			<convert type="EMCServicePosition">Gauge</convert>
-		</widget>
-		<widget source="Service" render="Progress" position="151,669" size="980,3" foregroundColor="layer-a-progress" borderWidth="0" transparent="1" zPosition="5">
-			<convert type="EMCServicePosition">Position</convert>
-		</widget>
-		<!--widget source="Service" render="EMCPositionGauge" pointer="MetrixHD/extensions/CoolPointer.png:980,0" position="151,669" size="980,3" zPosition="5" transparent="1">
-			<convert type="EMCServicePosition">Position</convert>
-		</widget-->
-		<widget source="Service" render="EMCPositionGauge" pointer="MetrixHD/extensions/CoolPointerRec.png:980,0" position="151,669" size="980,3" zPosition="4" transparent="1">
-			<convert type="EMCRecordPosition">Position</convert>
-		</widget>
-		<widget source="Service" render="Label" position="1138,651" size="100,28" font="SetrixHD;24" halign="left" valign="center" backgroundColor="layer-a-background" transparent="1">
-			<convert type="EMCServicePosition">Remaining,Negate</convert>
-		</widget>
-		<widget source="Service" render="Label" position="3,581" size="137,56" font="SetrixHD; 40" halign="right" valign="top" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent2">
-			<convert type="EMCServicePosition">Length</convert>
-		</widget>
-		<eLabel name="new eLabel" position="151,670" size="980,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="-1" />
-		<widget name="audioLabel" position="961,577" size="100,22" font="EMCRegularFont;18" backgroundColor="layer-a-background" zPosition="3" transparent="1" halign="right" />
-		<widget name="chapterLabel" position="148,686" size="981,34" font="SetrixHD;22" halign="left" foregroundColor="layer-a-accent2" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="EMCMediaCenter_1" />
 		<panel name="EMCMediaCenterCover_no" />
 		<panel name="CLOCKWIDGET" />
 		<panel name="INFOBARWEATHERWIDGET" />
 		<panel name="MOVIENAME" />
 		<!--panel name="STBINFOMOVIEPLAYER" /-->
+		<!--panel name="STBINFO" /-->
 	</screen>
 </skin>
