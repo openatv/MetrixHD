@@ -1056,7 +1056,7 @@
 		<widget name="description" position="42,42" size="1206,55" zPosition="1" font="Regular;22" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Quick Launch Menu" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-50" />
 		<panel name="QuickMenu_Layer" />
-		</screen>
+	</screen>
 	<screen name="QuickMenuDevices" position="0,0" size="1280,720" title="Devices" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Devices" position="70,47" size="525,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Available Devices" position="70,110" size="540,43" font="SetrixHD;24" halign="left" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
@@ -1079,20 +1079,19 @@
 	</screen>
 	<!--Infopanel-->
 	<screen name="Infopanel" position="0,0" size="1280,720" title="Info Panel" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="250,25" zPosition="-10" size="731,650" backgroundColor="layer-a-background" />
-		<widget source="global.CurrentTime" render="Label" position="840,28" size="140,60" font="SetrixHD; 50" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="666,41" size="161,27" font="Regular; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="666,64" size="161,27" font="Regular; 16" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ClockToText">Format:%e. %B</convert>
-		</widget>
-		<eLabel text="Info Panel" position="280,47" size="338,43" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel position="280,100" size="670,2" backgroundColor="layer-a-accent1" />
-		<widget name="Mlist" position="280,118" size="435,415" zPosition="1" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" />
-		<widget name="label1" position="255,610" size="700,50" font="Regular;40" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+		<eLabel text="Info Panel" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="Mlist" position="70,115" size="700,530" zPosition="1" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" />
+		<widget name="label1" position="692,65" size="540,25" zPosition="1" font="Regular; 15" halign="right" valign="top" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
+		<panel name="template1_2layer" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_mainmenu_info.png" transparent="1" alphatest="blend" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
+	<screen name="Info" position="0,0" size="1280,720" title="Info" flags="wfNoBorder" backgroundColor="transparent">
+		<widget name="label2" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="label1" position="70,115" size="700,530" font="Console;16" zPosition="1" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground"/>
+		<panel name="template1_2layer" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/console.png" transparent="1" alphatest="blend" />
+		<panel name="_oe-buttons_template1" />
 	</screen>
 	<!--SoftcamPanel-->
 	<screen name="SoftcamPanel" position="0,0" size="1280,720" title="Softcam Panel" flags="wfNoBorder" backgroundColor="transparent">
