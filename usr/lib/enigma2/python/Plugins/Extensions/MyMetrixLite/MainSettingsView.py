@@ -567,11 +567,14 @@ class MainSettingsView(Screen):
             if config.plugins.MyMetrixLiteOther.SkinDesignSpace.getValue() is True:
                 newline1 = ('<panel name="template1_2layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + 's" />')
                 newline2 = ('<panel name="INFOBAREPGWIDGET_Layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + 's" />')
+                newline3 = ('<panel name="QuickMenu_Layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + 's" />')
             else:
                 newline1 = ('<panel name="template1_2layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + '" />')
                 newline2 = ('<panel name="INFOBAREPGWIDGET_Layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + '" />')
+                newline3 = ('<panel name="QuickMenu_Layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + '" />')
             skinSearchAndReplace.append(['<panel name="template1_2layer-1" />', newline1 ])
             skinSearchAndReplace.append(['<panel name="INFOBAREPGWIDGET_Layer-1" />', newline2 ])
+            skinSearchAndReplace.append(['<panel name="QuickMenu_Layer-1" />', newline3 ])
 
             skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
 
