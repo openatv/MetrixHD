@@ -565,10 +565,13 @@ class MainSettingsView(Screen):
                     skinSearchAndReplace.append(['<!--eLabel name="optionallayervertical-m" position="102,51" zPosition="-105" size="60,669" backgroundColor="#1A27408B" /-->', newlinem ])
 
             if config.plugins.MyMetrixLiteOther.SkinDesignSpace.getValue() is True:
-                newline = ('<panel name="template1_2layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + 's" />')
+                newline1 = ('<panel name="template1_2layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + 's" />')
+                newline2 = ('<panel name="INFOBAREPGWIDGET_Layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + 's" />')
             else:
-                newline = ('<panel name="template1_2layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + '" />')
-            skinSearchAndReplace.append(['<panel name="template1_2layer-1" />', newline ])
+                newline1 = ('<panel name="template1_2layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + '" />')
+                newline2 = ('<panel name="INFOBAREPGWIDGET_Layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + '" />')
+            skinSearchAndReplace.append(['<panel name="template1_2layer-1" />', newline1 ])
+            skinSearchAndReplace.append(['<panel name="INFOBAREPGWIDGET_Layer-1" />', newline2 ])
 
             skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
 
