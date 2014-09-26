@@ -1081,7 +1081,8 @@
 	<screen name="Infopanel" position="0,0" size="1280,720" title="Info Panel" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Info Panel" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="Mlist" position="70,115" size="700,530" zPosition="1" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" />
-		<widget name="label1" position="692,65" size="540,25" zPosition="1" font="Regular; 15" halign="right" valign="top" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
+		<!--widget name="label1" position="692,65" size="540,25" zPosition="1" font="Regular; 15" halign="right" valign="top" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" /-->
+		<widget name="label1" position="825,425" size="385,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_mainmenu_info.png" transparent="1" alphatest="blend" />
 		<panel name="_oe-buttons_template1" />
@@ -2954,6 +2955,9 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 	<screen name="PluginBrowser" position="0,0" size="1280,720" title="Plugin browser" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Plugin browser" position="70,47" size="700,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,115" size="700,500" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1" />
+		<widget source="global.CurrentTime" render="Label" position="825,100" size="380,30" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1">
+			<convert type="MetrixSTBinfo">FLASHfree</convert>
+		</widget>
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
 		<widget name="red" position="70,637" size="160,30" zPosition="1" font="SetrixHD; 20" halign="left" backgroundColor="layer-a-background" transparent="1" />
@@ -2965,6 +2969,9 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget source="Title" render="Label" position="70,47" size="700,48" font="SetrixHD;35" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="60,115" size="700,530" zPosition="4" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="text" position="825,420" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<widget source="global.CurrentTime" render="Label" position="825,100" size="380,30" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1">
+			<convert type="MetrixSTBinfo">FLASHfree</convert>
+		</widget>
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />

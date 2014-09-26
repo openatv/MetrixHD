@@ -1,7 +1,7 @@
 from Components.Converter.Converter import Converter
 from Components.config import config
 from Components.Element import cached
-from os import path
+from os import path, popen
 from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
 import Screens.Standby
 
@@ -19,23 +19,29 @@ class MetrixSTBinfo(Converter, object):
 			return ""
 		elif self.type == "CPUload":
 			return self.getCPUload()
+		elif self.type == "RAMfree":
+			return self.getRAMfree()
 		elif self.type == "CPUtemp":
 			return self.getCPUtemp()
 		elif self.type == "SYStemp":
 			return self.getSYStemp()
 		elif self.type =="MyMetrixConfig":
 			return self.getMyMetrixConfig()
+		elif self.type == "FLASHfree":
+			return self.getFLASHfree()
 		else:
 			return ""
 
 	def getMyMetrixConfig(self):
 		info = ""
 		space = "        "
-		if config.plugins.MyMetrixLiteOther.showCPULoad.getValue() is not False:
+		if config.plugins.MyMetrixLiteOther.showCPULoad.getValue() is True:
 			info += self.getCPUload()
-		if config.plugins.MyMetrixLiteOther.showCPUTemp.getValue() is not False:
+		if config.plugins.MyMetrixLiteOther.showRAMfree.getValue() is True:
+			info += space + self.getRAMfree()
+		if config.plugins.MyMetrixLiteOther.showCPUTemp.getValue() is True:
 			info += space + self.getCPUtemp()
-		if config.plugins.MyMetrixLiteOther.showSYSTemp.getValue() is not False:
+		if config.plugins.MyMetrixLiteOther.showSYSTemp.getValue() is True:
 			info += space + self.getSYStemp()
 		return info
 
@@ -46,7 +52,7 @@ class MetrixSTBinfo(Converter, object):
 			f = open('/proc/loadavg', 'r')
 			temp = f.read()
 			f.close()
-			info = "CPU-Load:  " + str(temp[:4])
+			info = "CPU-load:  " + str(temp[:4])
 		else:
 			info = ""
 		return info
@@ -59,7 +65,7 @@ class MetrixSTBinfo(Converter, object):
 			temp = f.read()
 			f.close()
 		if temp and int(temp.replace('\n', '')) > 0:
-			info ="CPU-Temp:  " + temp.replace('\n', '')  + str('\xc2\xb0') + "C"
+			info ="CPU-temp:  " + temp.replace('\n', '')  + str('\xc2\xb0') + "C"
 		else:
 			info = ""
 		return info
@@ -76,9 +82,25 @@ class MetrixSTBinfo(Converter, object):
 			temp = f.read()
 			f.close()
 		if temp and int(temp.replace('\n', '')) > 0:
-			info ="SYS-Temp:  " + temp.replace('\n', '') + str('\xc2\xb0') + "C"
+			info ="SYS-temp:  " + temp.replace('\n', '') + str('\xc2\xb0') + "C"
 		else:
 			info = ""
+		return info
+
+	def getRAMfree(self):
+		info = ""
+		cmd = 'free -m | grep "Mem:" | awk -F " " ' + "'{print $4}'"
+		temp = popen(cmd).read()
+		if temp:
+			info = "RAM-free: " + temp.replace("\n", "") + " MB"
+		return info
+
+	def getFLASHfree(self):
+		info = ""
+		cmd = 'df -m | grep "rootfs" | awk -F " " ' + "'{print $4}'"
+		temp = popen(cmd).read()
+		if temp:
+			info = "Available Flash Memory: " + temp.replace("\n", "") + " MByte"
 		return info
 
 	text = property(getText)

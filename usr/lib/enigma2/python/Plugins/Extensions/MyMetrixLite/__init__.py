@@ -269,6 +269,7 @@ def initOtherConfig():
     #OtherSettings
 	#STB-Info
     config.plugins.MyMetrixLiteOther.showCPULoad = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showRAMfree = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.showSYSTemp = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.showCPUTemp = ConfigYesNo(default=False)
 	#Infobar/Secondinfobar

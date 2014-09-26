@@ -136,6 +136,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
         list.append(getConfigListEntry(_("STB-Info   ------------------------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Show CPU-Load"), config.plugins.MyMetrixLiteOther.showCPULoad))
+        list.append(getConfigListEntry(_("Show free RAM"), config.plugins.MyMetrixLiteOther.showRAMfree))
         if self.getCPUSensor() or config.plugins.MyMetrixLiteOther.showCPUTemp.getValue() is not False:
             list.append(getConfigListEntry(_("Show CPU-Temp"), config.plugins.MyMetrixLiteOther.showCPUTemp))
         if self.getSYSSensor() or config.plugins.MyMetrixLiteOther.showSYSTemp.getValue() is not False:
@@ -285,6 +286,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
     def defaults(self):
 
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showCPULoad)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showRAMfree)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showCPUTemp)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showSYSTemp)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons)
