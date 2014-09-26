@@ -135,6 +135,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list = []
 
         list.append(getConfigListEntry(_("STB-Info   ------------------------------------------------------------------------------------------------"), ))
+        list.append(getConfigListEntry(_("Distance between the STB-Infos"), config.plugins.MyMetrixLiteOther.STBDistance))
         list.append(getConfigListEntry(_("Show CPU-Load"), config.plugins.MyMetrixLiteOther.showCPULoad))
         list.append(getConfigListEntry(_("Show free RAM"), config.plugins.MyMetrixLiteOther.showRAMfree))
         if self.getCPUSensor() or config.plugins.MyMetrixLiteOther.showCPUTemp.getValue() is not False:
@@ -285,6 +286,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
     def defaults(self):
 
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.STBDistance)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showCPULoad)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showRAMfree)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showCPUTemp)

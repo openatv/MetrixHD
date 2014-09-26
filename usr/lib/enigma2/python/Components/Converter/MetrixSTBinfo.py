@@ -34,7 +34,9 @@ class MetrixSTBinfo(Converter, object):
 
 	def getMyMetrixConfig(self):
 		info = ""
-		space = "        "
+		#space = "        "
+		space = " " * int(config.plugins.MyMetrixLiteOther.STBDistance.value)
+
 		if config.plugins.MyMetrixLiteOther.showCPULoad.getValue() is True:
 			info += self.getCPUload()
 		if config.plugins.MyMetrixLiteOther.showRAMfree.getValue() is True:

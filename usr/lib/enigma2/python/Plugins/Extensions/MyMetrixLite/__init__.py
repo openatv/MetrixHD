@@ -268,6 +268,7 @@ def initOtherConfig():
 
     #OtherSettings
 	#STB-Info
+    config.plugins.MyMetrixLiteOther.STBDistance = ConfigSelectionNumber(1, 50, 1, default = 10)
     config.plugins.MyMetrixLiteOther.showCPULoad = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showRAMfree = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.showSYSTemp = ConfigYesNo(default=False)
