@@ -54,7 +54,7 @@ class MetrixSTBinfo(Converter, object):
 			f = open('/proc/loadavg', 'r')
 			temp = f.read()
 			f.close()
-			info = "CPU-load:  " + str(temp[:4])
+			info = "CPU-Load:  " + str(temp[:4])
 		else:
 			info = ""
 		return info
@@ -67,7 +67,7 @@ class MetrixSTBinfo(Converter, object):
 			temp = f.read()
 			f.close()
 		if temp and int(temp.replace('\n', '')) > 0:
-			info ="CPU-temp:  " + temp.replace('\n', '')  + str('\xc2\xb0') + "C"
+			info ="CPU-Temp:  " + temp.replace('\n', '')  + str('\xc2\xb0') + "C"
 		else:
 			info = ""
 		return info
@@ -84,7 +84,7 @@ class MetrixSTBinfo(Converter, object):
 			temp = f.read()
 			f.close()
 		if temp and int(temp.replace('\n', '')) > 0:
-			info ="SYS-temp:  " + temp.replace('\n', '') + str('\xc2\xb0') + "C"
+			info ="SYS-Temp:  " + temp.replace('\n', '') + str('\xc2\xb0') + "C"
 		else:
 			info = ""
 		return info
@@ -94,7 +94,7 @@ class MetrixSTBinfo(Converter, object):
 		cmd = 'free -m | grep "Mem:" | awk -F " " ' + "'{print $4}'"
 		temp = popen(cmd).read()
 		if temp:
-			info = "RAM-free: " + temp.replace("\n", "") + " MB"
+			info = "RAM-Free: " + temp.replace("\n", "") + " MB"
 		return info
 
 	def getFLASHfree(self):
@@ -102,7 +102,7 @@ class MetrixSTBinfo(Converter, object):
 		cmd = 'df -m | grep "rootfs" | awk -F " " ' + "'{print $4}'"
 		temp = popen(cmd).read()
 		if temp:
-			info = "Available Flash Memory: " + temp.replace("\n", "") + " MByte"
+			info = "Flash Memory free: " + temp.replace("\n", "") + " MByte"
 		return info
 
 	text = property(getText)
