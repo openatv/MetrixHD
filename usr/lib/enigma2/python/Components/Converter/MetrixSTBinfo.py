@@ -92,7 +92,10 @@ class MetrixSTBinfo(Converter, object):
 	def getRAMfree(self):
 		info = ""
 		cmd = 'free -m | grep "Mem:" | awk -F " " ' + "'{print $4}'"
-		temp = popen(cmd).read()
+		try:
+			temp = popen(cmd).read()
+		except:
+			return info
 		if temp:
 			info = "RAM-Free: " + temp.replace("\n", "") + " MB"
 		return info
@@ -100,7 +103,10 @@ class MetrixSTBinfo(Converter, object):
 	def getFLASHfree(self):
 		info = ""
 		cmd = 'df -m | grep "rootfs" | awk -F " " ' + "'{print $4}'"
-		temp = popen(cmd).read()
+		try:
+			temp = popen(cmd).read()
+		except:
+			return info
 		if temp:
 			info = "Flash Memory free: " + temp.replace("\n", "") + " MByte"
 		return info
