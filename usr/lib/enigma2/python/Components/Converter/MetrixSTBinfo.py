@@ -4,6 +4,7 @@ from Components.Element import cached
 from os import path, popen
 from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
 import Screens.Standby
+#from time import time
 
 initOtherConfig()
 
@@ -29,34 +30,36 @@ class MetrixSTBinfo(Converter, object):
 			return self.getMyMetrixConfig()
 		elif self.type == "FLASHfree":
 			return self.getFLASHfree()
-		else:
-			return ""
+		elif self.type == "CPUspeed":
+			return self.getCPUspeed()
+		return ""
 
 	def getMyMetrixConfig(self):
+		#stime = time()
 		info = ""
-		#space = "        "
-		space = " " * int(config.plugins.MyMetrixLiteOther.STBDistance.value)
-
-		if config.plugins.MyMetrixLiteOther.showCPULoad.getValue() is True:
-			info += self.getCPUload()
-		if config.plugins.MyMetrixLiteOther.showRAMfree.getValue() is True:
-			info += space + self.getRAMfree()
-		if config.plugins.MyMetrixLiteOther.showCPUTemp.getValue() is True:
-			info += space + self.getCPUtemp()
-		if config.plugins.MyMetrixLiteOther.showSYSTemp.getValue() is True:
-			info += space + self.getSYStemp()
+		try:
+			space = " " * int(config.plugins.MyMetrixLiteOther.STBDistance.value)
+			if config.plugins.MyMetrixLiteOther.showCPULoad.value:
+				info += self.getCPUload()
+			if config.plugins.MyMetrixLiteOther.showRAMfree.value:
+				info += space + self.getRAMfree()
+			if config.plugins.MyMetrixLiteOther.showCPUTemp.value:
+				info += space + self.getCPUtemp()
+			if config.plugins.MyMetrixLiteOther.showSYSTemp.value:
+				info += space + self.getSYStemp()
+		except:
+			pass
+		#etime = time()
+		#info += space + "Time: " + str(int(float(etime - stime)*1000)) + " ms"
 		return info
 
 	def getCPUload(self):
 		info = ""
-		temp = ""
 		if path.exists('/proc/loadavg'):
 			f = open('/proc/loadavg', 'r')
-			temp = f.read()
+			temp = f.readline(4)
 			f.close()
-			info = "CPU-Load:  " + str(temp[:4])
-		else:
-			info = ""
+			info = "CPU-Load: " + temp
 		return info
 
 	def getCPUtemp(self):
@@ -64,12 +67,10 @@ class MetrixSTBinfo(Converter, object):
 		temp = ""
 		if path.exists('/proc/stb/fp/temp_sensor_avs'):
 			f = open('/proc/stb/fp/temp_sensor_avs', 'r')
-			temp = f.read()
+			temp = f.readline()
 			f.close()
 		if temp and int(temp.replace('\n', '')) > 0:
-			info ="CPU-Temp:  " + temp.replace('\n', '')  + str('\xc2\xb0') + "C"
-		else:
-			info = ""
+			info ="CPU-Temp: " + temp.replace('\n', '')  + str('\xc2\xb0') + "C"
 		return info
 
 	def getSYStemp(self):
@@ -77,39 +78,60 @@ class MetrixSTBinfo(Converter, object):
 		temp = ""
 		if path.exists('/proc/stb/sensors/temp0/value'):
 			f = open('/proc/stb/sensors/temp0/value', 'r')
-			temp = f.read()
+			temp = f.readline()
 			f.close()
 		elif path.exists('/proc/stb/fp/temp_sensor'):
 			f = open('/proc/stb/fp/temp_sensor', 'r')
-			temp = f.read()
+			temp = f.readline()
 			f.close()
 		if temp and int(temp.replace('\n', '')) > 0:
-			info ="SYS-Temp:  " + temp.replace('\n', '') + str('\xc2\xb0') + "C"
-		else:
-			info = ""
+			info ="SYS-Temp: " + temp.replace('\n', '') + str('\xc2\xb0') + "C"
 		return info
 
 	def getRAMfree(self):
 		info = ""
-		cmd = 'free -m | grep "Mem:" | awk -F " " ' + "'{print $4}'"
-		try:
-			temp = popen(cmd).read()
-		except:
-			return info
-		if temp:
-			info = "RAM-Free: " + temp.replace("\n", "") + " MB"
+		if path.exists('/proc/meminfo'):
+			f = open('/proc/meminfo', 'r')
+			temp = f.readlines()
+			f.close()
+			try:
+				for lines in temp:
+					lisp = lines.split()
+					if lisp[0] == "MemFree:":
+						info = "RAM-Free: " + str(int(lisp[1]) / 1024) + " MB"
+						break
+			except:
+				pass
 		return info
 
 	def getFLASHfree(self):
 		info = ""
-		cmd = 'df -m | grep "rootfs" | awk -F " " ' + "'{print $4}'"
+		cmd = 'df -m'
 		try:
-			temp = popen(cmd).read()
+			temp = popen(cmd).readlines()
+			for lines in temp:
+				lisp = lines.split()
+				if lisp[5] == "/":
+					info = "Flash Memory free: " + lisp[3] + " MByte"
+					break
 		except:
-			return info
-		if temp:
-			info = "Flash Memory free: " + temp.replace("\n", "") + " MByte"
+			pass
+		return info
+
+	def getCPUspeed(self):
+		info = ""
+		if path.exists('/proc/cpuinfo'):
+			f = open('/proc/cpuinfo', 'r')
+			temp = f.readlines()
+			f.close()
+			try:
+				for lines in temp:
+					lisp = lines.split(': ')
+					if lisp[0].startswith('cpu MHz'):
+						info = "CPU-Speed: " +  str(int(float(lisp[1].replace('\n', '')))) + " MHz"
+						break
+			except:
+				pass
 		return info
 
 	text = property(getText)
-
