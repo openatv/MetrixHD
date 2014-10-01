@@ -411,7 +411,7 @@
 	<!-- Fritz! -->
 	<screen name="FritzDisplayCalls" position="center,center" size="1280,720"  flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="70,47" size="800,40" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="525,40" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="statusbar" position="70,115" size="710,28" font="Regular; 24" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,155" size="710,2" backgroundColor="layer-a-accent1" />
 		<widget source="entries" render="Listbox" position="70,165" size="710,450" zPosition="3" scrollbarMode="showNever" backgroundColor="layer-a-background" transparent="1">
@@ -434,7 +434,7 @@
 	</screen>
 	<screen name="FritzDisplayPhonebook" position="0,0" size="1280,720" title="Fritz Display Phonebook" flags="wfNoBorder" backgroundColor="transparent">
 		 <panel name="template1_2layer" />
-			<widget source="Title" render="Label" position="70,47" size="800,40" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+			<widget source="Title" render="Label" position="70,47" size="525,40" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 			<widget source="entries" render="Listbox" position="70,120" size="710,450" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1">
 				<convert type="TemplatedMultiContent">
 					{"template": [
@@ -453,7 +453,7 @@
 	</screen>
 	<screen name="FritzMenu" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="70,47" size="800,40" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="525,40" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="FBFInfo" position="70,115" size="710,24" font="Regular; 20" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,155" size="710,2" backgroundColor="layer-a-accent1" />
 		<widget name="FBFInternet" position="105,165" size="630,80" font="Regular; 20" backgroundColor="layer-a-background" transparent="1" />
@@ -481,7 +481,7 @@
 	</screen>
 	<screen name="FritzCallSetup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="70,79" size="800,40" font="SetrixHD;30" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="525,40" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="consideration" position="70,145" size="715,60" font="Regular; 19" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,185" size="710,2" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,195" size="710,270" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
@@ -493,7 +493,7 @@
 	</screen>
 	<screen name="AddScreen" position="0,0" size="1280,720" title="Add entry to phonebook" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="70,59" size="800,40" font="SetrixHD;30" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="525,40" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,120" size="710,300" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fritz.png" transparent="1" alphatest="blend" />
 		<panel name="rg__-buttons_template1" />
@@ -502,7 +502,7 @@
 	</screen>
 	<screen name="FritzAbout" position="-1,center" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<eLabel text="About FritzCall" position="70,47" size="800,40" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="About FritzCall" position="70,47" size="525,40" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="template1_2layer" />
 		<widget name="text" position="81,165" size="540,250" font="Regular; 24" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="url" position="81,563" size="400,50" font="Regular; 22" backgroundColor="layer-a-background" transparent="1" />
@@ -1446,7 +1446,7 @@
 	<!-- Serienrecorder -->
 	<!-- RemoteChannelStreamConverter -->
 	<screen name="StreamingChannelFromServerScreen" position="0,0" size="1280,720" title="Streaming Channel from Server" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;30" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,110" size="700,505" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="statusbar" render="Label"  position="825,425" size="380,167" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -1456,7 +1456,7 @@
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="ServerEditor" position="0,0" size="1280,720" title="Server Editor" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;30" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,110" size="700,505" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
@@ -1467,7 +1467,7 @@
 	<!-- RemoteChannelStreamConverter -->
 	<!-- PPanel -->
 	<screen name="ToplevelPPanel" position="0,0" size="1280,720" title="Toplevel PPanel" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;30" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="nodelist" position="70,110" size="700,505" font="Console;16" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="helptext" position="825,425" size="380,167" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -1475,7 +1475,7 @@
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="PPanel" position="0,0" size="1280,720" title="PPanel" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;30" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="nodelist" position="70,110" size="700,505" font="Console;16" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="helptext" position="825,425" size="380,167" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -1483,7 +1483,7 @@
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="File" position="0,0" size="1280,720" title="File" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;30" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="nodelist" position="70,110" size="700,505" font="Console;16" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="helptext" position="825,425" size="380,167" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -1491,14 +1491,14 @@
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="Tarball" position="0,0" size="1280,720" title="Tarball" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;30" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="progress" position="70,110" size="700,505"  font="Console;16" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/console.png" transparent="1" alphatest="blend" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="Execute" position="0,0" size="1280,720" title="Execute" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;30" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="linelist" position="70,110" size="700,505"  font="Console;16" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<widget name="key_yellow" position="445,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
@@ -1511,7 +1511,7 @@
 	<!-- PPanel -->
 	<!-- SimpleUmount -->
 	<screen name="SimpleUmount" position="0,0" size="1280,720" title="Simple Umount" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;30" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="wdg_config" position="70,110" size="700,30" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<eLabel position="70,160" size="700,2" backgroundColor="layer-a-accent1" />
 		<eLabel position="70,225" size="700,1" backgroundColor="layer-a-accent2" />
