@@ -192,6 +192,10 @@ def initColorsConfig():
     config.plugins.MyMetrixLiteColors.epgeventforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
     config.plugins.MyMetrixLiteColors.epgtimelineforeground = ConfigSelection(default="F0A30A", choices = ColorList)
 
+    config.plugins.MyMetrixLiteColors.buttonforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.layeraclockforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.layerbclockforeground = ConfigSelection(default="FFFFFF", choices = ColorList)
+
     config.plugins.MyMetrixLiteColors.upperleftcornerbackground = ConfigSelection(default="27408B", choices = ColorList)
     config.plugins.MyMetrixLiteColors.upperleftcornertransparency = ConfigSelection(default="1A", choices = TransparencyList)
     config.plugins.MyMetrixLiteColors.lowerleftcornerbackground = ConfigSelection(default="27408B", choices = ColorList)
