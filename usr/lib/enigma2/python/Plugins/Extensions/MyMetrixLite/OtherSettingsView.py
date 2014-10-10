@@ -178,6 +178,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(_("Skin Design   ----------------------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Chose Skin Design"),config.plugins.MyMetrixLiteOther.SkinDesign))
         list.append(getConfigListEntry(_("Show Space between Layer A and B"),config.plugins.MyMetrixLiteOther.SkinDesignSpace))
+        list.append(getConfigListEntry(_("Chose Extended-Info Style"), config.plugins.MyMetrixLiteOther.ExtendedinfoStyle))
         list.append(getConfigListEntry(_("Skin Design - additional Layers  ---------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Show upper left Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignLUC, "ENABLED"))
         if config.plugins.MyMetrixLiteOther.SkinDesignLUC.getValue() is not "no":
@@ -297,6 +298,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showInfoBarResolution)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showExtendedinfo)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.ExtendedinfoStyle)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showSnr)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showRecordstate)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showOrbitalposition)

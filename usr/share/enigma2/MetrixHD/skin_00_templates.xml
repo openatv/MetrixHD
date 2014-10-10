@@ -428,130 +428,255 @@
 			</widget>
 			<!-- RECORDSTATE */-->
 		</screen>
-		<screen name="INFOBAREXTENDEDINFO">
+		<!-- INFOBAR EXTENDED INFO -->
+		<screen name="INFOBAREXTENDEDINFO-1">
 			<!-- /* ECM -->
-			<eLabel backgroundColor="layer-a-background" name="new ePixmap" position="380,40" size="520,71" transparent="0" zPosition="-99"/>
-			<!--eLabel backgroundColor="layer-a-background" name="new ePixmap" position="46,40" size="1188,72" transparent="0" zPosition="-99"/-->
-			<widget source="session.CurrentService" position="386,45" size="508,15" render="Label" font="Regular; 15" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" noWrap="1">
+			<eLabel backgroundColor="layer-a-background" position="0,0" size="1280,30" transparent="0" zPosition="-99"/>
+			<widget source="session.CurrentService" position="800,4" size="470,16" render="Label" font="Regular; 16" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" noWrap="1">
 				<convert type="MetrixHDCaidDisplay">Default</convert>
 			</widget>
 			<!-- ECM */-->
 			<!-- /* TUNERTYPE -->
-			<eLabel text="TYPE:" position="386,65" size="40,15" font="RegularLight; 15" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
-			<widget source="session.FrontendInfo" render="FixedLabel" text="DVB-S" position="426,65" size="50,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
+			<eLabel text="TYPE:" position="10,4" size="40,16" font="RegularLight; 16" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+			<widget source="session.FrontendInfo" render="FixedLabel" text="DVB-S" position="50,4" size="50,16" font="Regular; 16" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
 				<convert type="FrontendInfo">TYPE</convert>
 				<convert type="ValueRange">0,0</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget source="session.FrontendInfo" render="FixedLabel" text="DVB-C" position="426,65" size="50,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
+			<widget source="session.FrontendInfo" render="FixedLabel" text="DVB-C" position="50,4" size="50,16" font="Regular; 16" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
 				<convert type="FrontendInfo">TYPE</convert>
 				<convert type="ValueRange">1,1</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget source="session.FrontendInfo" render="FixedLabel" text="DVB-T" position="426,65" size="50,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
+			<widget source="session.FrontendInfo" render="FixedLabel" text="DVB-T" position="50,4" size="50,16" font="Regular; 16" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
 				<convert type="FrontendInfo">TYPE</convert>
 				<convert type="ValueRange">2,2</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget source="session.FrontendInfo" render="FixedLabel" text="ATSC" position="426,65" size="50,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
+			<widget source="session.FrontendInfo" render="FixedLabel" text="ATSC" position="50,4" size="50,16" font="Regular; 16" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
 				<convert type="FrontendInfo">TYPE</convert>
 				<convert type="ValueRange">3,3</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
 			<!-- TUNERTYPE */-->
 			<!-- /* SERVICEINFO -->
-			<widget source="session.CurrentService" render="Label" position="475,65" zPosition="1" size="300, 15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
+			<widget source="session.CurrentService" render="Label" position="100,4" zPosition="1" size="300, 16" font="Regular; 16" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
 				<convert type="MetrixHDSmartInfo">ExpertInfo</convert>
 			</widget>
 			<!-- SERVICEINFO */-->
 			<!-- /* AGC -->
-			<eLabel text="AGC:" position="386,85" size="35,15" font="Regular; 15" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
-			<widget source="session.FrontendStatus" render="Label" position="426,85" size="40,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
+			<eLabel text="AGC:" position="405,4" size="35,16" font="Regular; 16" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+			<widget source="session.FrontendStatus" render="Label" position="440,4" size="40,16" font="Regular; 16" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
 				<convert type="FrontendInfo">AGC</convert>
 			</widget>
 			<!-- AGC */-->
 			<!-- /* BER -->
-			<eLabel text="BER:" position="465,85" size="35,15" font="Regular; 15" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
-			<widget source="session.FrontendStatus" render="Label" position="500,85" size="40,15" font="Regular; 15" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
+			<eLabel text="BER:" position="485,4" size="35,16" font="Regular; 16" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+			<widget source="session.FrontendStatus" render="Label" position="520,4" size="40,16" font="Regular; 16" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
 				<convert type="FrontendInfo">BER</convert>
 			</widget>
 			<!-- BER */-->
 			<!-- /* CRYPT -->
-			<eLabel text="CRYPT:" position="664,85" size="55,15" font="Regular; 15" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
-			<eLabel position="719,85" size="13,15" text="B" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
-			<widget position="719,85" size="13,15" text="B" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+			<eLabel text="CRYPT:" position="570,4" size="55,16" font="Regular; 16" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+			<eLabel position="619,4" size="13,16" text="B" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
+			<widget position="619,4" size="13,16" text="B" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
 				<convert type="MetrixHDChannelCryptoInfo">BetaCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="718,102" size="15,2" text="B" font="Regular; 15" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
+			<widget position="618,2" size="15,2" text="B" font="Regular; 16" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
 				<convert type="MetrixHDChannelCryptoInfo">BetaEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<eLabel position="737,85" size="13,15" text="I" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
-			<widget position="737,85" size="13,15" text="I" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+			<eLabel position="637,4" size="13,16" text="I" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
+			<widget position="637,4" size="13,16" text="I" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
 				<convert type="MetrixHDChannelCryptoInfo">IrdCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="736,102" size="15,2" text="I" font="Regular; 15" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
+			<widget position="636,23" size="15,2" text="I" font="Regular; 16" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
 				<convert type="MetrixHDChannelCryptoInfo">IrdEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<eLabel position="755,85" size="13,15" text="S" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
-			<widget position="755,85" size="13,15" text="S" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+			<eLabel position="655,4" size="13,16" text="S" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
+			<widget position="655,4" size="13,16" text="S" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
 				<convert type="MetrixHDChannelCryptoInfo">SecaCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="754,102" size="15,2" text="S" font="Regular; 15" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
+			<widget position="654,23" size="15,2" text="S" font="Regular; 16" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
 				<convert type="MetrixHDChannelCryptoInfo">SecaEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<eLabel position="773,85" size="13,15" text="V" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
-			<widget position="773,85" size="13,15" text="V" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+			<eLabel position="673,4" size="13,16" text="V" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
+			<widget position="673,4" size="13,16" text="V" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
 				<convert type="MetrixHDChannelCryptoInfo">ViaCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="772,102" size="15,2" text="V" font="Regular; 15" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
+			<widget position="672,23" size="15,2" text="V" font="Regular; 16" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
 				<convert type="MetrixHDChannelCryptoInfo">ViaEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<eLabel position="791,85" size="13,15" text="N" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
-			<widget position="791,85" size="13,15" text="N" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+			<eLabel position="691,4" size="13,16" text="N" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
+			<widget position="691,4" size="13,16" text="N" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
 				<convert type="MetrixHDChannelCryptoInfo">NagraCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="790,102" size="15,2" text="N" font="Regular; 15" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
+			<widget position="690,23" size="15,2" text="N" font="Regular; 16" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
 				<convert type="MetrixHDChannelCryptoInfo">NagraEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<eLabel position="809,85" size="25,15" text="CW" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
-			<widget position="809,85" size="25,15" text="CW" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+			<eLabel position="709,4" size="25,16" text="CW" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
+			<widget position="709,4" size="25,16" text="CW" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
 				<convert type="MetrixHDChannelCryptoInfo">CrwCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="808,102" size="27,2" text="CW" font="Regular; 15" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
+			<widget position="708,23" size="27,2" text="CW" font="Regular; 16" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
 				<convert type="MetrixHDChannelCryptoInfo">CrwEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<eLabel position="839,85" size="25,15" text="ND" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
-			<widget position="839,85" size="25,15" text="ND" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+			<eLabel position="739,4" size="25,16" text="ND" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
+			<widget position="739,4" size="25,16" text="ND" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
 				<convert type="MetrixHDChannelCryptoInfo">NdsCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="838,102" size="27,2" text="ND" font="Regular; 15" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
+			<widget position="738,23" size="27,2" text="ND" font="Regular; 16" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
 				<convert type="MetrixHDChannelCryptoInfo">NdsEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<eLabel position="869,85" size="25,15" text="CO" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
-			<widget position="869,85" size="25,15" text="CO" font="Regular; 15" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+			<eLabel position="769,4" size="25,16" text="CO" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
+			<widget position="769,4" size="25,16" text="CO" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
 				<convert type="MetrixHDChannelCryptoInfo">ConaxCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="868,102" size="27,2" text="CO" font="Regular; 15" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
+			<widget position="768,23" size="27,2" text="CO" font="Regular; 16" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
 				<convert type="MetrixHDChannelCryptoInfo">ConaxEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
 			<!-- CRYPT */ -->
 		</screen>
+		<screen name="INFOBAREXTENDEDINFO-2">
+			<!-- /* ECM -->
+			<!--eLabel backgroundColor="layer-a-background" name="new ePixmap" position="380,40" size="520,71" transparent="0" zPosition="-99"/-->
+			<eLabel backgroundColor="layer-a-background" name="new ePixmap" position="46,40" size="1188,72" transparent="0" zPosition="-99"/>
+			<widget source="session.CurrentService" position="386,44" size="508,16" render="Label" font="Regular; 16" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" noWrap="1">
+				<convert type="MetrixHDCaidDisplay">Default</convert>
+			</widget>
+			<!-- ECM */-->
+			<!-- /* TUNERTYPE -->
+			<eLabel text="TYPE:" position="386,65" size="40,16" font="RegularLight; 16" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+			<widget source="session.FrontendInfo" render="FixedLabel" text="DVB-S" position="426,65" size="50,16" font="Regular; 16" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
+				<convert type="FrontendInfo">TYPE</convert>
+				<convert type="ValueRange">0,0</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget source="session.FrontendInfo" render="FixedLabel" text="DVB-C" position="426,65" size="50,16" font="Regular; 16" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
+				<convert type="FrontendInfo">TYPE</convert>
+				<convert type="ValueRange">1,1</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget source="session.FrontendInfo" render="FixedLabel" text="DVB-T" position="426,65" size="50,16" font="Regular; 16" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
+				<convert type="FrontendInfo">TYPE</convert>
+				<convert type="ValueRange">2,2</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget source="session.FrontendInfo" render="FixedLabel" text="ATSC" position="426,65" size="50,16" font="Regular; 16" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
+				<convert type="FrontendInfo">TYPE</convert>
+				<convert type="ValueRange">3,3</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<!-- TUNERTYPE */-->
+			<!-- /* SERVICEINFO -->
+			<widget source="session.CurrentService" render="Label" position="475,65" zPosition="1" size="300, 16" font="Regular; 16" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
+				<convert type="MetrixHDSmartInfo">ExpertInfo</convert>
+			</widget>
+			<!-- SERVICEINFO */-->
+			<!-- /* AGC -->
+			<eLabel text="AGC:" position="386,85" size="35,16" font="Regular; 16" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+			<widget source="session.FrontendStatus" render="Label" position="426,85" size="40,16" font="Regular; 16" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
+				<convert type="FrontendInfo">AGC</convert>
+			</widget>
+			<!-- AGC */-->
+			<!-- /* BER -->
+			<eLabel text="BER:" position="465,85" size="35,16" font="Regular; 16" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+			<widget source="session.FrontendStatus" render="Label" position="500,85" size="40,16" font="Regular; 16" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
+				<convert type="FrontendInfo">BER</convert>
+			</widget>
+			<!-- BER */-->
+			<!-- /* CRYPT -->
+			<eLabel text="CRYPT:" position="664,85" size="55,16" font="Regular; 16" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+			<eLabel position="719,85" size="13,16" text="B" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
+			<widget position="719,85" size="13,16" text="B" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">BetaCrypt</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="718,104" size="16,2" text="B" font="Regular; 16" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
+				<convert type="MetrixHDChannelCryptoInfo">BetaEcm</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="737,85" size="13,16" text="I" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
+			<widget position="737,85" size="13,16" text="I" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">IrdCrypt</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="736,104" size="16,2" text="I" font="Regular; 16" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
+				<convert type="MetrixHDChannelCryptoInfo">IrdEcm</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="755,85" size="13,16" text="S" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
+			<widget position="755,85" size="13,16" text="S" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">SecaCrypt</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="754,104" size="16,2" text="S" font="Regular; 16" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
+				<convert type="MetrixHDChannelCryptoInfo">SecaEcm</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="773,85" size="13,16" text="V" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
+			<widget position="773,85" size="13,16" text="V" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">ViaCrypt</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="772,104" size="16,2" text="V" font="Regular; 16" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
+				<convert type="MetrixHDChannelCryptoInfo">ViaEcm</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="791,85" size="13,16" text="N" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
+			<widget position="791,85" size="13,16" text="N" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">NagraCrypt</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="790,104" size="16,2" text="N" font="Regular; 16" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
+				<convert type="MetrixHDChannelCryptoInfo">NagraEcm</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="809,85" size="25,16" text="CW" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
+			<widget position="809,85" size="25,16" text="CW" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">CrwCrypt</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="808,104" size="27,2" text="CW" font="Regular; 16" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
+				<convert type="MetrixHDChannelCryptoInfo">CrwEcm</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="839,85" size="25,16" text="ND" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
+			<widget position="839,85" size="25,16" text="ND" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">NdsCrypt</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="838,104" size="27,2" text="ND" font="Regular; 16" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
+				<convert type="MetrixHDChannelCryptoInfo">NdsEcm</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="869,85" size="25,16" text="CO" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" transparent="1" valign="center" zPosition="3" />
+			<widget position="869,85" size="25,16" text="CO" font="Regular; 16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">ConaxCrypt</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="868,104" size="27,2" text="CO" font="Regular; 16" halign="center" backgroundColor="layer-a-selection-background" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" valign="center">
+				<convert type="MetrixHDChannelCryptoInfo">ConaxEcm</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<!-- CRYPT */ -->
+		</screen>
+		<!-- INFOBAR EXTENDED INFO -->
 		<screen name="INFOBARSNR">
 			<!-- /* SNR -->
 			<eLabel text="SNR:" position="424,666" size="50,26" font="RegularLight; 24" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />

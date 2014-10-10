@@ -591,6 +591,8 @@ class MainSettingsView(Screen):
                 skinSearchAndReplace.append(['<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/', '<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/' ])
                 skinSearchAndReplace.append(['<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/', '<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/' ])
 
+            skinSearchAndReplace.append(['<panel name="INFOBAREXTENDEDINFO-1" />', '<panel name="INFOBAREXTENDEDINFO-' + config.plugins.MyMetrixLiteOther.ExtendedinfoStyle.value + '" />' ])
+
             skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
 
             xFile = open(SKIN_TARGET_TMP, "w")
