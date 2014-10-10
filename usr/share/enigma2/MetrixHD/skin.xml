@@ -20,25 +20,25 @@
 		<color name="grey" value="#00bbbbbb" />
 		<color name="orange" value="#00f47d19" />
 		<color name="white" value="#00ffffff" />
-		<color name="blue" value="#000064c7" />													<!-- MetrixColors - Color Button Blue -->
-		<color name="green" value="#00389416" />												<!-- MetrixColors - Color Button Green -->
-		<color name="red" value="#00f23d21" />													<!-- MetrixColors - Color Button Red -->
-		<color name="yellow" value="#00e5b243" />												<!-- MetrixColors - Color Button Yellow -->
-		<color name="layer-a-channelselection-foreground" value="#00FFFFFF" />						<!-- MetrixColors - Foreground Channelselection layer a -->
-		<color name="layer-a-channelselection-foregroundColorSelected" value="#00FFFFFF" />						<!-- MetrixColors - Foreground Selected Channelselection layer a -->
-		<color name="layer-a-channelselection-foreground-ServiceDescription" value="#00BDBDBD" />						<!-- MetrixColors - Foreground Service Description Channelselection layer a -->
-		<color name="layer-a-channelselection-foreground-ServiceDescriptionSelected" value="#00FFFFFF" />						<!-- MetrixColors - Foreground Service Description Selected Channelselection layer a -->
+		<color name="blue" value="#000064c7" />										<!-- MetrixColors - Color Button Blue -->
+		<color name="green" value="#00389416" />									<!-- MetrixColors - Color Button Green -->
+		<color name="red" value="#00f23d21" />										<!-- MetrixColors - Color Button Red -->
+		<color name="yellow" value="#00e5b243" />									<!-- MetrixColors - Color Button Yellow -->
+		<color name="layer-a-channelselection-foreground" value="#00FFFFFF" />		<!-- MetrixColors - Foreground Channelselection layer a -->
+		<color name="layer-a-channelselection-foregroundColorSelected" value="#00FFFFFF" />					<!-- MetrixColors - Foreground Selected Channelselection layer a -->
+		<color name="layer-a-channelselection-foreground-ServiceDescription" value="#00BDBDBD" />			<!-- MetrixColors - Foreground Service Description Channelselection layer a -->
+		<color name="layer-a-channelselection-foreground-ServiceDescriptionSelected" value="#00FFFFFF" />	<!-- MetrixColors - Foreground Service Description Selected Channelselection layer a -->
 		<color name="layer-a-foreground" value="#00FFFFFF" />						<!-- MetrixColors - Foreground layer a -->
 		<color name="layer-a-background" value="#1A0F0F0F" />						<!-- MetrixColors - Background layer a -->
-		<color name="layer-a-selection-foreground" value="#00FFFFFF" />	<!-- MetrixColors - Foreground layer a for selected items -->
-		<color name="layer-a-selection-background" value="#1A27408B" />	<!-- MetrixColors - Background layer a for selected items -->
+		<color name="layer-a-selection-foreground" value="#00FFFFFF" />				<!-- MetrixColors - Foreground layer a for selected items -->
+		<color name="layer-a-selection-background" value="#1A27408B" />				<!-- MetrixColors - Background layer a for selected items -->
 		<color name="layer-a-accent1" value="#00BDBDBD" />							<!-- MetrixColors - First accent layer a -->
 		<color name="layer-a-accent2" value="#006E6E6E" />							<!-- MetrixColors - Second accent layer a -->
 		<color name="layer-a-progress" value="#1A27408B" />							<!-- MetrixColors - Progress layer a -->
 		<color name="layer-b-foreground" value="#00FFFFFF" />						<!-- MetrixColors - Foreground layer b -->
 		<color name="layer-b-background" value="#1A27408B" />						<!-- MetrixColors - Background layer b -->
-		<color name="layer-b-selection-foreground" value="#00FFFFFF" />	<!-- MetrixColors - Foreground layer b for selected items -->
-		<color name="layer-b-selection-background" value="#1A0F0F0F" />	<!-- MetrixColors - Background layer b for selected items -->
+		<color name="layer-b-selection-foreground" value="#00FFFFFF" />				<!-- MetrixColors - Foreground layer b for selected items -->
+		<color name="layer-b-selection-background" value="#1A0F0F0F" />				<!-- MetrixColors - Background layer b for selected items -->
 		<color name="layer-b-accent1" value="#00BDBDBD" />							<!-- MetrixColors - First accent layer b -->
 		<color name="layer-b-accent2" value="#006E6E6E" />							<!-- MetrixColors - Second accent layer b -->
 		<color name="layer-b-progress" value="#1AFFFFFF" />							<!-- MetrixColors - Progress layer b -->
@@ -50,6 +50,10 @@
 		<color name="epg-eventdescription-background" value="#1A27408B" />			<!-- MetrixColors - Graphical EPG Event description background color -->
 		<color name="epg-event-foreground" value="#00FFFFFF" />						<!-- MetrixColors - Graphical EPG Event font color -->
 		<color name="epg-timeline-foreground" value="#00F0A30A" />					<!-- MetrixColors - Graphical EPG timeline font color -->
+		<color name="layer-a-title-foreground" value="#00FFFFFF" />					<!-- MetrixColors - Foreground color for window title in layer a -->
+		<color name="layer-a-button-foreground" value="#00FFFFFF" />				<!-- MetrixColors - Foreground color for button description in layer a -->
+		<color name="layer-a-clock-foreground" value="#00FFFFFF" />					<!-- MetrixColors - Foreground color for clock in layer a -->
+		<color name="layer-b-clock-foreground" value="#00FFFFFF" />					<!-- MetrixColors - Foreground color for clock in layer b -->
 		<color name="un18080911" value="#18080911" />
 		<color name="un1c202b" value="#001c202b" />
 		<color name="un1f771f" value="#001f771f" />
@@ -179,6 +183,37 @@
 	<screen name="QuickMenu_Layer">
 		<panel name="QuickMenu_Layer-1" />
 	</screen>
+<!-- SKIN DESIGN - BUTTONS -->
+	<screen name="ime-buttons_template1">
+		<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="_me-buttons_template1">
+		<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="__e-buttons_template1">
+		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="_ie-buttons_template1">
+		<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="_oe-buttons_template1">
+		<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="moe-buttons_template1">
+		<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="ioe-buttons_template1">
+		<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
+	</screen>
 <!-- SKIN DESIGN - MENUS -->
 	<screen name="MENU_template">
 		<panel name="SkinDesign-m" />
@@ -192,8 +227,8 @@
 		<panel name="SkinDesign-m" />
 		<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" transparent="0"  />
 		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
-		<!--widget name="menu" position="636,60" size="499,545" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" itemHeight="45" enableWrapAround="1" transparent="1" /-->
-		<widget name="menu" position="654,60" size="482,545" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" itemHeight="45" enableWrapAround="1" transparent="1" />
+		<widget name="menu" position="636,60" size="499,545" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" itemHeight="45" enableWrapAround="1" transparent="1" />
+		<!--widget name="menu" position="654,60" size="482,545" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" itemHeight="45" enableWrapAround="1" transparent="1" /-->
 		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
 		<ePixmap position="305,80" size="256,256" pixmap="MetrixHD/icons/service_info.png" alphatest="blend" />
 		<eLabel text="Eventview menu" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" transparent="1" backgroundColor="text-background" foregroundColor="background-text" valign="top" zPosition="-50" />
@@ -206,5 +241,9 @@
 		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
 		<ePixmap position="305,80" size="256,256" pixmap="MetrixHD/icons/service_info.png" alphatest="blend" />
 		<eLabel text="Channellist menu" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" transparent="1" backgroundColor="text-background" foregroundColor="background-text" valign="top" zPosition="-50" />
+	</screen>
+<!-- SKIN DESIGN - INFOBAR EXTENDED INFO -->
+	<screen name="INFOBAREXTENDEDINFO">
+		<panel name="INFOBAREXTENDEDINFO-1" />
 	</screen>
 </skin>

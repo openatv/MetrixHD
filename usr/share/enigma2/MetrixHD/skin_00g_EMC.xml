@@ -229,7 +229,7 @@
 	<!-- Templates -->
 	<!-- EMC EnhancedMovieCenter Setup -->
 	<screen name="EnhancedMovieCenterMenu" position="0,0" size="1280,720" title="EnhancedMovieCenterMenu" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
 		<widget name="config" position="70,110" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
 		<widget source="help" render="Label" position="825,400" size="380,195" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer"/>
@@ -240,7 +240,7 @@
 	</screen>	
 	<!-- EMC MovieInfoSetup -->
 	<screen name="MovieInfoSetup" position="0,0" size="1280,720" title="Movie Information Download Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
 		<widget name="config" position="70,110" size="700,510" scrollbarMode="showOnDemand" transparent="1" />
 		<panel name="template1_2layer"/>
 		<panel name="rg__-keys_template1"/>
@@ -250,7 +250,7 @@
 	</screen>
 	<!-- EMC CoverSearch Setup -->
 	<screen name="imdbSetup" position="0,0" size="1280,720" title="EMC Cover search setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
 		<widget name="config" position="70,110" size="700,510" scrollbarMode="showOnDemand" transparent="1" />
 		<panel name="template1_2layer"/>
 		<panel name="rg__-keys_template1"/>
@@ -265,7 +265,7 @@
 	</screen>
 	<!-- EMC Cover Search -->
 	<screen name="EMCImdbScan" position="0,0" size="1280,720" title="EMC Cover search" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
 		<widget name="menulist" position="70,110" size="700,450" scrollbarMode="showNever" transparent="1" enableWrapAround="on"/>
 		<widget name="done_msg" position="70,580" size="700,30" zPosition="0" font="Regular;20" halign="center" valign="center" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background"/>
 		<widget name="m_info" position="825,85" size="380,70" foregroundColor="#00bab329" backgroundColor="layer-b-background" transparent="1" font="SetrixHD;24" valign="center" halign="center" zPosition="0" />
@@ -276,17 +276,17 @@
 		<widget name="exist" position="950,525" size="130,24" zPosition="0" font="SetrixHD;20" halign="center" valign="center" transparent="1" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background"/>
 		<widget name="no_poster" position="1075,525" size="130,24" zPosition="0" font="SetrixHD;20" halign="center" valign="center" transparent="1" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background"/>
 		<panel name="template1_2layer"/>
-		<widget name="ButtonRedText" position="70,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="ButtonGreenText" position="257,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="Manage Cover" position="445,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="OK = " position="600,637" size="60,30" zPosition="1" font="SetrixHD;20" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="Single search" position="655,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="ButtonRedText" position="70,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="ButtonGreenText" position="257,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="Manage Cover" position="445,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<eLabel text="OK = " position="600,637" size="60,30" zPosition="1" font="SetrixHD;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="Single search" position="655,637" size="160,30" zPosition="1" font="SetrixHD;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="rgy_-buttons_template1"/>
 		<panel name="moe-buttons_template1" />
 	</screen>	
 	<!-- EMC Single CoverSearch -->
 	<screen name="getCover" position="0,0" size="1280,720" title="EMC Cover Selecter" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="EMC Cover Selecter" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		<eLabel text="EMC Cover Selecter" position="70,47" size="525,50" font="SetrixHD;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
 		<widget source="Title" render="Label" position="825,85" size="380,70" foregroundColor="#00bab329" backgroundColor="layer-b-background" transparent="1" font="SetrixHD;24" valign="center" halign="center" zPosition="0" />
 		<widget name="menulist" position="70,110" size="700,450" scrollbarMode="showOnDemand" transparent="1" enableWrapAround="on" />
 		<widget name="info" position="70,580" size="700,30" zPosition="0" font="Regular;20" halign="center" valign="center" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background"/>
@@ -298,7 +298,7 @@
 	</screen>	
 	<!-- EMC MovieInfo -->
 	<screen name="DownloadMovieInfo"  position="0,0" size="1280,720" title="Movie Information Download (TMDb)" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="SetrixHD;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
 		<widget name="movie_name" position="70,110" size="700,50" zPosition="0" font="Regular;21" valign="center" transparent="1" foregroundColor="#00bab329" backgroundColor="layer-a-background"/>
 		<widget name="movielist" position="70,180" size="700,420" scrollbarMode="showOnDemand"/>
 		<widget name="resulttext"  position="825,420" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
@@ -323,7 +323,7 @@
 	</screen>
 	<!-- EMC : Enhanced Movie Center -->
 	<screen name="EMCSelection" position="0,0" size="1280,720" title="Enhanced Movie Center" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Enhanced Movie Center" position="70,47" size="525,50" font="SetrixHD;35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Enhanced Movie Center" position="70,47" size="525,50" font="SetrixHD;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="wait" position="70,300" size="700,30" zPosition="1" font="Regular;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" valign="center" transparent="1" />
 		<widget source="Title" render="Label" position="70,95" size="700,35" font="RegularLight; 22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left" transparent="1" />
 		<widget source="Service" render="Label" position="825,567" size="270,30" font="RegularLight; 17" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
