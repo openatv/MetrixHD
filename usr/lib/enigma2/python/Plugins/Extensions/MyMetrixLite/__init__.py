@@ -284,7 +284,7 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize = ConfigSelection(default="INFOBARCHANNELNAME-1", choices = infoBarChannelNameFontSizeList)
     config.plugins.MyMetrixLiteOther.showInfoBarResolution = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showExtendedinfo = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.ExtendedinfoStyle = ConfigSelection(default = "1", choices = [("1", _("Top")), ("2", _("Between Clock and Weather"))])
+    config.plugins.MyMetrixLiteOther.ExtendedinfoStyle = ConfigSelection(default = "1", choices = [("1", _("Top")), ("2", _("Between Clock and Weather")), ("3", _("Between Clock and Weather floating among"))])
     config.plugins.MyMetrixLiteOther.showSnr = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showRecordstate = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showOrbitalposition = ConfigYesNo(default=True)
