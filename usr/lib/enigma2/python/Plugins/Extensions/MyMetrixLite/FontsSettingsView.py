@@ -298,7 +298,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteFonts.infobartext_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
             config.plugins.MyMetrixLiteFonts.infobartext_scale.value = 105
         elif config.plugins.MyMetrixLiteFonts.SkinFontExamples.value == "preset_2":
-            if not path.exists("/usr/share/enigma2/MetrixHD/fonts/DroidSans.ttf") or not path.exists("/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf") or not path.exists("/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf"):
+            if not path.exists("/usr/share/enigma2/MetrixHD/fonts/DroidSans.ttf") or not path.exists("/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf"):
                 self.showPresetError()
                 return
             config.plugins.MyMetrixLiteFonts.Lcd_type.value = "/usr/share/fonts/lcd.ttf"
