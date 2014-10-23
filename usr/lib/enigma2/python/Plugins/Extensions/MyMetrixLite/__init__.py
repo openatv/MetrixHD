@@ -22,6 +22,7 @@
 from Components.Language import language
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 from Components.config import config, ConfigSubsection, ConfigSelection, ConfigNumber, ConfigSelectionNumber, ConfigYesNo, ConfigText, ConfigInteger
+from os import path
 import gettext
 
 #############################################################
@@ -74,7 +75,11 @@ SKIN_EMC_TARGET_TMP = SKIN_EMC_TARGET + ".tmp"
 
 #############################################################
 
-COLOR_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/%s.png"
+MAIN_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/%s.png"
+WEATHER_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/weather/%s.png"
+COLOR_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/colors/%s.png"
+FONT_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/fonts/%s.png"
+OTHER_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/other/%s.png"
 
 #############################################################
 
@@ -211,6 +216,112 @@ def initColorsConfig():
 
 #############################################################
 
+def initFontsConfig():
+
+    SysFontTypeList = [
+        ("/usr/share/fonts/ae_AlMateen.ttf", ("ae_AlMateen (ae_AlMateen.ttf)")),
+        ("/usr/share/fonts/andale.ttf", ("Andale Mono (andale.ttf)")),
+        ("/usr/share/fonts/lcd.ttf", ("LCD (lcd.ttf)")),
+        #("/usr/share/fonts/md_khmurabi_10.ttf", ("MD King KhammuRabi (md_khmurabi_10.ttf)")),
+        ("/usr/share/fonts/nmsbd.ttf", ("Nemisis Flatline (nmsbd.ttf)")),
+        #("/usr/share/fonts/Roboto-Black.ttf", ("Roboto Bk (Roboto-Black.ttf)")),
+        #("/usr/share/fonts/Roboto-BlackItalic.ttf", ("Roboto Bk (Roboto-BlackItalic.ttf)")),
+        #("/usr/share/fonts/Roboto-Bold.ttf", ("Roboto (Roboto-Bold.ttf)")),
+        #("/usr/share/fonts/Roboto-BoldItalic.ttf", ("Roboto (Roboto-BoldItalic.ttf)")),
+        ("/usr/share/fonts/tuxtxt.ttf", ("Bitstream Vera Sans Mono (tuxtxt.ttf)"))
+        #("/usr/share/fonts/valis_enigma.ttf", ("valis_enigma (valis_enigma.ttf)"))
+    ]
+    SkinFontTypeList = [
+        ("/usr/share/enigma2/MetrixHD/fonts/analog.ttf", ("Analog (analog.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/DejaVuSans.ttf", ("DejaVu Sans (DejaVuSans.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/digi.ttf", ("LCD (digi.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/DroidSans.ttf", ("Droid Sans (DroidSans.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf", ("Droid Sans (DroidSans-Bold.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", ("Open Sans (OpenSans-Regular.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/Raleway-Channel.ttf", ("Raleway (Raleway-Channel.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf", ("Raleway (Raleway-Light.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf", ("Raleway (Raleway-Regular.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", ("Segoe UI Light 8 (setrixHD.ttf)"))
+    ]
+
+    SkinFontPresetList = [
+        ("preset_0", _("Standard Fonts")),
+        ("preset_1", _("Standard Fonts greater")),
+        ("preset_2", _("Bold and greater Fonts")),
+        ("preset_3", _("Raleway Fonts")),
+        ("preset_4", _("Digital Fonts"))
+        ]
+
+    FontTypeList = []
+
+    for lines in SysFontTypeList:
+        if path.exists(lines[0]):
+            FontTypeList.append(lines)
+
+    for lines in SkinFontTypeList:
+        if path.exists(lines[0]):
+            FontTypeList.append(lines)
+
+    config.plugins.MyMetrixLiteFonts = ConfigSubsection()
+#preset
+    config.plugins.MyMetrixLiteFonts.SkinFontExamples = ConfigSelection(default = "preset_0", choices = SkinFontPresetList)
+#system fonts
+    config.plugins.MyMetrixLiteFonts.Lcd_type = ConfigSelection(default="/usr/share/fonts/lcd.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.Lcd_scale = ConfigSelectionNumber(75, 125, 1, default = 100)
+    config.plugins.MyMetrixLiteFonts.Replacement_type = ConfigSelection(default="/usr/share/fonts/ae_AlMateen.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.Replacement_scale = ConfigSelectionNumber(75, 125, 1, default = 100)
+    config.plugins.MyMetrixLiteFonts.Console_type = ConfigSelection(default="/usr/share/fonts/tuxtxt.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.Console_scale = ConfigSelectionNumber(75, 125, 1, default = 100)
+    config.plugins.MyMetrixLiteFonts.Fixed_type = ConfigSelection(default="/usr/share/fonts/andale.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.Fixed_scale = ConfigSelectionNumber(75, 125, 1, default = 100)
+    config.plugins.MyMetrixLiteFonts.Arial_type = ConfigSelection(default="/usr/share/fonts/nmsbd.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.Arial_scale = ConfigSelectionNumber(75, 125, 1, default = 100)
+#skin fonts
+    config.plugins.MyMetrixLiteFonts.Regular_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.Regular_scale = ConfigSelectionNumber(75, 125, 1, default = 95)
+    config.plugins.MyMetrixLiteFonts.RegularLight_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.RegularLight_scale = ConfigSelectionNumber(75, 125, 1, default = 95)
+    config.plugins.MyMetrixLiteFonts.SetrixHD_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.SetrixHD_scale = ConfigSelectionNumber(75, 125, 1, default = 100)
+    config.plugins.MyMetrixLiteFonts.Meteo_scale = ConfigSelectionNumber(75, 125, 1, default = 100)
+#------------------------------#
+#for individual skinned screens#
+#------------------------------#
+#global
+    config.plugins.MyMetrixLiteFonts.globaltitle_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.globaltitle_scale = ConfigSelectionNumber(75, 125, 1, default = 100)
+    config.plugins.MyMetrixLiteFonts.globalbutton_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.globalbutton_scale = ConfigSelectionNumber(75, 125, 1, default = 100)
+    config.plugins.MyMetrixLiteFonts.globalclock_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.globalclock_scale = ConfigSelectionNumber(75, 125, 1, default = 100)
+    config.plugins.MyMetrixLiteFonts.globallarge_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.globallarge_scale = ConfigSelectionNumber(75, 125, 1, default = 100)
+    config.plugins.MyMetrixLiteFonts.globalsmall_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.globalsmall_scale = ConfigSelectionNumber(75, 125, 1, default = 95)
+    config.plugins.MyMetrixLiteFonts.globalmenu_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.globalmenu_scale = ConfigSelectionNumber(75, 125, 1, default = 100)
+#screens, plugins
+    config.plugins.MyMetrixLiteFonts.screenlabel_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.screenlabel_scale = ConfigSelectionNumber(75, 125, 1, default = 95)
+    config.plugins.MyMetrixLiteFonts.screentext_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.screentext_scale = ConfigSelectionNumber(75, 125, 1, default = 95)
+    config.plugins.MyMetrixLiteFonts.screeninfo_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.screeninfo_scale = ConfigSelectionNumber(75, 125, 1, default = 100)
+#epg, channellist, movielist
+    config.plugins.MyMetrixLiteFonts.epgevent_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.epgevent_scale = ConfigSelectionNumber(75, 125, 1, default = 100)
+    config.plugins.MyMetrixLiteFonts.epgtext_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.epgtext_scale = ConfigSelectionNumber(75, 125, 1, default = 95)
+    config.plugins.MyMetrixLiteFonts.epginfo_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.epginfo_scale = ConfigSelectionNumber(75, 125, 1, default = 95)
+#infobar, movieplayer
+    config.plugins.MyMetrixLiteFonts.infobarevent_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.infobarevent_scale = ConfigSelectionNumber(75, 125, 1, default = 100)
+    config.plugins.MyMetrixLiteFonts.infobartext_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteFonts.infobartext_scale = ConfigSelectionNumber(75, 125, 1, default = 95)
+
+#######################################################################
+
 def initWeatherConfig():
     config.plugins.MetrixWeather = ConfigSubsection()
 
@@ -268,6 +379,14 @@ def initOtherConfig():
         ("both", _("in Menus and Screens"))
         ]
 
+    skinDesignPresetList = [
+        ("preset_0", _("No Design")),
+        ("preset_1", _("One Layer Design")),
+        ("preset_2", _("Contrast Layer Design")),
+        ("preset_3", _("Stripe Layer Design")),
+        ("preset_4", _("Block Layer Design"))
+        ]
+
     config.plugins.MyMetrixLiteOther = ConfigSubsection()
 
     #OtherSettings
@@ -284,7 +403,7 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize = ConfigSelection(default="INFOBARCHANNELNAME-1", choices = infoBarChannelNameFontSizeList)
     config.plugins.MyMetrixLiteOther.showInfoBarResolution = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showExtendedinfo = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.ExtendedinfoStyle = ConfigSelection(default = "1", choices = [("1", _("Top of the screen")), ("2", _("Between Clock and Weather enclosed")), ("3", _("Between Clock and Weather centered"))])
+    config.plugins.MyMetrixLiteOther.ExtendedinfoStyle = ConfigSelection(default = "1", choices = [("1", _("Top of the screen")), ("2", _("Between Clock and Weather enclosed")), ("3", _("Between Clock and Weather centered")), ("4", _("Bottom of the screen"))])
     config.plugins.MyMetrixLiteOther.showSnr = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showRecordstate = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showOrbitalposition = ConfigYesNo(default=True)
@@ -335,6 +454,8 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.SkinDesignOLVposx = ConfigInteger(default=102, limits=(0, 1280))
     config.plugins.MyMetrixLiteOther.SkinDesignOLVposy = ConfigInteger(default=51, limits=(0, 720))
     config.plugins.MyMetrixLiteOther.SkinDesignOLVposz = ConfigInteger(default=0, limits=(0, 5))
+#preset
+    config.plugins.MyMetrixLiteOther.SkinDesignExamples = ConfigSelection(default = "preset_0", choices = skinDesignPresetList)
 
 #######################################################################
 
