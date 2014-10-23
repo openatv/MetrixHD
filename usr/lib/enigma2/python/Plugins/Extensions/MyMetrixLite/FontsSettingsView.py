@@ -406,7 +406,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteFonts.infobartext_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
             config.plugins.MyMetrixLiteFonts.infobartext_scale.value = 105
         elif config.plugins.MyMetrixLiteFonts.SkinFontExamples.value == "preset_4":
-            if not path.exists("/usr/share/enigma2/MetrixHD/fonts/digi.ttf") or not path.exists("/usr/share/enigma2/MetrixHD/fonts/analog.ttf") or not path.exists("/usr/share/enigma2/MetrixHD/fonts/Raleway-Channel.ttf"):
+            if not path.exists("/usr/share/enigma2/MetrixHD/fonts/digi.ttf") or not path.exists("/usr/share/enigma2/MetrixHD/fonts/analog.ttf"):
                 self.showPresetError()
                 return
             config.plugins.MyMetrixLiteFonts.Lcd_type.value = "/usr/share/fonts/lcd.ttf"
