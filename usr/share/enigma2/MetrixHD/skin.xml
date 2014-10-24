@@ -92,6 +92,25 @@
 		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="RegularLight" scale="95" />
 		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="SetrixHD" scale="100" />
 		<font filename="/usr/share/enigma2/MetrixHD/fonts/meteocons.ttf" name="Meteo" scale="100" />
+<!-- for individual skinned screens -->
+	<!-- global -->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_title" scale="100" />				<!--Screen or window title-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_button" scale="100" />				<!--Button text-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_clock" scale="100" />				<!--Clock text-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large" scale="100" />				<!--Text in background or large text-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="global_small" scale="95" />		<!--Small text in Infobar, Screens ...-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_menu" scale="100" />				<!--Menu items-->
+	<!-- screens, plugins -->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="screen_label" scale="95" />		<!--Label Name-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="screen_text" scale="95" />		<!--Output Text-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="screen_info" scale="100" />				<!--Info or Description-->
+	<!-- epg, channellist, movielist -->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="epg_event" scale="100" />					<!--Event/Service Name-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_text" scale="95" />			<!--Other Text-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_info" scale="95" />			<!--Info or Description-->
+	<!-- infobar, movieplayer -->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="infobar_event" scale="100" />				<!--Event/Service Name-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="infobar_text" scale="95" />		<!--Other Text-->
 	</fonts>
 	<subtitles>
 		<sub name="Subtitle_TTX" font="Regular;30" shadowColor="#40101010" shadowOffset="3,3" />
@@ -223,24 +242,23 @@
 		<panel name="SkinDesign-m" />
 		<panel name="CONTEXTMENU_template-1" />
 	</screen>
-	<screen name="EventViewContextMenu" position="0,0" size="1280,720" title="Eventview menu" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
+	<screen name="EventViewContextMenu" position="0,0" size="1280,720" title="Eventview Menu" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
 		<panel name="SkinDesign-m" />
 		<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" transparent="0"  />
 		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
-		<widget name="menu" position="636,60" size="499,545" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" itemHeight="45" enableWrapAround="1" transparent="1" />
-		<!--widget name="menu" position="654,60" size="482,545" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" itemHeight="45" enableWrapAround="1" transparent="1" /-->
+		<widget name="menu" position="636,60" size="499,540" font="global_menu;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" itemHeight="45" enableWrapAround="1" transparent="1" />
 		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
 		<ePixmap position="305,80" size="256,256" pixmap="MetrixHD/icons/service_info.png" alphatest="blend" />
-		<eLabel text="Eventview menu" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" transparent="1" backgroundColor="text-background" foregroundColor="background-text" valign="top" zPosition="-50" />
+		<eLabel text="Eventview Menu" position="0,550" size="1273,296" font="global_large;150" noWrap="0" transparent="1" backgroundColor="text-background" foregroundColor="background-text" valign="top" zPosition="-50" />
 	</screen>
-	<screen name="ChannelContextMenu" position="0,0" size="1280,720" title="Channellist menu" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
+	<screen name="ChannelContextMenu" position="0,0" size="1280,720" title="Channellist Menu" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
 		<panel name="SkinDesign-m" />
 		<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" transparent="0"  />
 		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
-		<widget name="menu" position="636,60" size="499,545" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" itemHeight="45" enableWrapAround="1" transparent="1" />
+		<widget name="menu" position="636,60" size="499,540" font="global_menu;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" itemHeight="45" enableWrapAround="1" transparent="1" />
 		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
 		<ePixmap position="305,80" size="256,256" pixmap="MetrixHD/icons/service_info.png" alphatest="blend" />
-		<eLabel text="Channellist menu" position="0,550" size="1273,296" font="SetrixHD; 150" noWrap="0" transparent="1" backgroundColor="text-background" foregroundColor="background-text" valign="top" zPosition="-50" />
+		<eLabel text="Channellist Menu" position="0,550" size="1273,296" font="global_large;150" noWrap="0" transparent="1" backgroundColor="text-background" foregroundColor="background-text" valign="top" zPosition="-50" />
 	</screen>
 <!-- SKIN DESIGN - INFOBAR EXTENDED INFO -->
 	<screen name="INFOBAREXTENDEDINFO">

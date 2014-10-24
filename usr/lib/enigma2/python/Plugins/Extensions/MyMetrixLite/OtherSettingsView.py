@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, initOtherConfig, COLOR_IMAGE_PATH
+from . import _, initOtherConfig, OTHER_IMAGE_PATH, MAIN_IMAGE_PATH
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
@@ -101,8 +101,97 @@ class OtherSettingsView(ConfigListScreen, Screen):
         cur = self["config"].getCurrent()
         cur = cur and len(cur) > 2 and cur[2]
 
-        if cur == "ENABLED":
+        if cur == "PRESET":
+            self.getPreset()
+
+        if cur == "ENABLED" or cur == "PRESET":
             self["config"].setList(self.getMenuItemList())
+
+    def getPreset(self):
+        if config.plugins.MyMetrixLiteOther.SkinDesignExamples.value == "preset_0":
+            config.plugins.MyMetrixLiteOther.SkinDesignLUC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignLLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignRUC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignRLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLH.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLV.value = "no"
+        elif config.plugins.MyMetrixLiteOther.SkinDesignExamples.value == "preset_1":
+            config.plugins.MyMetrixLiteOther.SkinDesignLUC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignLLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignRUC.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignRLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLH.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLV.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCwidth.value = 1280
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCheight.value = 720
+            config.plugins.MyMetrixLiteOther.SkinDesignLUCposz.value = 0
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth.value = 3
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHheight.value = 720
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposx.value = 29
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposy.value = 0
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposz.value = 1
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth.value = 1280
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVheight.value = 3
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVposx.value = 0
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVposy.value = 696
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVposz.value = 1
+        elif config.plugins.MyMetrixLiteOther.SkinDesignExamples.value == "preset_2":
+            config.plugins.MyMetrixLiteOther.SkinDesignLUC.value = "menus"
+            config.plugins.MyMetrixLiteOther.SkinDesignLLC.value = "screens"
+            config.plugins.MyMetrixLiteOther.SkinDesignRUC.value = "screens"
+            config.plugins.MyMetrixLiteOther.SkinDesignRLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLH.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLV.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignLUCwidth.value = 1280
+            config.plugins.MyMetrixLiteOther.SkinDesignLUCheight.value = 720
+            config.plugins.MyMetrixLiteOther.SkinDesignLLCwidth.value = 795
+            config.plugins.MyMetrixLiteOther.SkinDesignLLCheight.value = 720
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCwidth.value = 1280
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCheight.value = 720
+            config.plugins.MyMetrixLiteOther.SkinDesignLLCposz.value = 1
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCposz.value = 0
+        elif config.plugins.MyMetrixLiteOther.SkinDesignExamples.value == "preset_3":
+            config.plugins.MyMetrixLiteOther.SkinDesignLUC.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignLLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignRUC.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignRLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLH.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLV.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignLUCwidth.value = 100
+            config.plugins.MyMetrixLiteOther.SkinDesignLUCheight.value = 720
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCwidth.value = 100
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCheight.value = 720
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth.value = 1280
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHheight.value = 5
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposx.value = 0
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposy.value = 10
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth.value = 1280
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVheight.value = 5
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVposx.value = 0
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVposy.value = 695
+            config.plugins.MyMetrixLiteOther.SkinDesignLUCposz.value = 1
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCposz.value = 1
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposz.value = 0
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVposz.value = 0
+        elif config.plugins.MyMetrixLiteOther.SkinDesignExamples.value == "preset_4":
+            config.plugins.MyMetrixLiteOther.SkinDesignLUC.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignLLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignRUC.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignRLC.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLH.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLV.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignLUCwidth.value = 200
+            config.plugins.MyMetrixLiteOther.SkinDesignLUCheight.value = 41
+            config.plugins.MyMetrixLiteOther.SkinDesignLLCwidth.value = 200
+            config.plugins.MyMetrixLiteOther.SkinDesignLLCheight.value = 101
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCwidth.value = 200
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCheight.value = 41
+            config.plugins.MyMetrixLiteOther.SkinDesignRLCwidth.value = 1280
+            config.plugins.MyMetrixLiteOther.SkinDesignRLCheight.value = 101
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth.value = 200
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHheight.value = 41
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposx.value = 540
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposy.value = 0
 
     def getCPUSensor(self):
         temp = ""
@@ -180,6 +269,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(_("Show Space between Layer A and B"),config.plugins.MyMetrixLiteOther.SkinDesignSpace))
         list.append(getConfigListEntry(_("Chose Extended-Info Style"), config.plugins.MyMetrixLiteOther.ExtendedinfoStyle))
         list.append(getConfigListEntry(_("Skin Design - additional Layers  ---------------------------------------------------------------------------"), ))
+        list.append(getConfigListEntry(_("Skin Design Examples"),config.plugins.MyMetrixLiteOther.SkinDesignExamples, "PRESET"))
         list.append(getConfigListEntry(_("Show upper left Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignLUC, "ENABLED"))
         if config.plugins.MyMetrixLiteOther.SkinDesignLUC.getValue() is not "no":
             list.append(getConfigListEntry(_("   width"), config.plugins.MyMetrixLiteOther.SkinDesignLUCwidth))
@@ -217,13 +307,22 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
         return list
 
+    def GetPicturePath(self):
+        try:
+            returnValue = self["config"].getCurrent()[1].value
+            path = OTHER_IMAGE_PATH % returnValue
+            return path
+        except:
+            pass
+
     def UpdatePicture(self):
         self.PicLoad.PictureData.get().append(self.DecodePicture)
         self.onLayoutFinish.append(self.ShowPicture)
 
     def ShowPicture(self):
         self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
-        self.PicLoad.startDecode(COLOR_IMAGE_PATH % "MyMetrixLiteOther")
+        self.PicLoad.startDecode(MAIN_IMAGE_PATH % "MyMetrixLiteOther")
+        #self.PicLoad.startDecode(self.GetPicturePath())
 
     def DecodePicture(self, PicInfo = ""):
         ptr = self.PicLoad.getData()
@@ -231,15 +330,19 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
     def keyLeft(self):
         ConfigListScreen.keyLeft(self)
+        self.ShowPicture()
 
     def keyRight(self):
         ConfigListScreen.keyRight(self)
+        self.ShowPicture()
 
     def keyDown(self):
         self["config"].instance.moveSelection(self["config"].instance.moveDown)
+        self.ShowPicture()
 
     def keyUp(self):
         self["config"].instance.moveSelection(self["config"].instance.moveUp)
+        self.ShowPicture()
 
     def showInfo(self):
         self.session.open(MessageBox, _("Information"), MessageBox.TYPE_INFO)
@@ -346,6 +449,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLVposx)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLVposy)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLVposz)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignExamples)
 
         self.save()
 
