@@ -18,12 +18,12 @@
 #
 #######################################################################
 
-from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, getTunerPositionList, appendSkinFile, \
-    SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, COLOR_IMAGE_PATH, SKIN_INFOBAR_TARGET, SKIN_INFOBAR_SOURCE, \
+from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, initFontsConfig, getTunerPositionList, appendSkinFile, \
+    SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, MAIN_IMAGE_PATH, SKIN_INFOBAR_TARGET, SKIN_INFOBAR_SOURCE, \
     SKIN_SECOND_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET_TMP, SKIN_SECOND_INFOBAR_TARGET, SKIN_SECOND_INFOBAR_TARGET_TMP, \
     SKIN_CHANNEL_SELECTION_SOURCE, SKIN_CHANNEL_SELECTION_TARGET, SKIN_CHANNEL_SELECTION_TARGET_TMP, \
     SKIN_MOVIEPLAYER_SOURCE, SKIN_MOVIEPLAYER_TARGET, SKIN_MOVIEPLAYER_TARGET_TMP, \
-	SKIN_EMC_SOURCE, SKIN_EMC_TARGET, SKIN_EMC_TARGET_TMP
+    SKIN_EMC_SOURCE, SKIN_EMC_TARGET, SKIN_EMC_TARGET_TMP
 
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -41,6 +41,7 @@ from enigma import ePicLoad, eListboxPythonMultiContent, gFont
 from ColorsSettingsView import ColorsSettingsView
 from WeatherSettingsView import WeatherSettingsView
 from OtherSettingsView import OtherSettingsView
+from FontsSettingsView import FontsSettingsView
 
 #############################################################
 
@@ -64,7 +65,7 @@ class MainSettingsView(Screen):
     skin = """
   <screen name="MyMetrixLiteMainSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
     <eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
-    <widget source="titleText" position="60,55" size="590,50" render="Label" font="Regular; 40" foregroundColor="00ffffff" backgroundColor="#00000000" valign="center" transparent="1" />
+    <widget source="titleText" position="60,55" size="590,50" render="Label" font="Regular; 40" foregroundColor="#00ffffff" backgroundColor="#00000000" valign="center" transparent="1" />
     <widget name="menuList" position="61,124" size="590,480" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
     <widget source="cancelBtn" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <widget source="applyBtn" position="257,640" size="360,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
@@ -93,6 +94,7 @@ class MainSettingsView(Screen):
         initColorsConfig()
         initWeatherConfig()
         initOtherConfig()
+        initFontsConfig()
 
         self.applyChangesFirst = args
         if self.applyChangesFirst:
@@ -113,6 +115,7 @@ class MainSettingsView(Screen):
             }, -1)
 
         list = []
+        list.append(MenuEntryItem(_("Font settings"), "FONT"))
         list.append(MenuEntryItem(_("Color settings"), "COLOR"))
         list.append(MenuEntryItem(_("Weather settings"), "WEATHER"))
         list.append(MenuEntryItem(_("Other settings"), "OTHER"))
@@ -140,17 +143,19 @@ class MainSettingsView(Screen):
 
         cur = self["menuList"].getCurrent()
 
-        imageUrl = COLOR_IMAGE_PATH % "FFFFFF"
+        imageUrl = MAIN_IMAGE_PATH % "FFFFFF"
 
         if cur:
             selectedKey = cur[0][1]
 
             if selectedKey == "COLOR":
-                imageUrl = COLOR_IMAGE_PATH % "MyMetrixLiteColor"
+                imageUrl = MAIN_IMAGE_PATH % "MyMetrixLiteColor"
             elif selectedKey == "WEATHER":
-                imageUrl = COLOR_IMAGE_PATH % "MyMetrixLiteWeather"
+                imageUrl = MAIN_IMAGE_PATH % "MyMetrixLiteWeather"
             elif selectedKey == "OTHER":
-                imageUrl = COLOR_IMAGE_PATH % "MyMetrixLiteOther"
+                imageUrl = MAIN_IMAGE_PATH % "MyMetrixLiteOther"
+            elif selectedKey == "FONT":
+                imageUrl = MAIN_IMAGE_PATH % "MyMetrixLiteFont"
 
         self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
         self.PicLoad.startDecode(imageUrl)
@@ -171,6 +176,8 @@ class MainSettingsView(Screen):
                 self.session.open(WeatherSettingsView)
             elif selectedKey == "OTHER":
                 self.session.open(OtherSettingsView)
+            elif selectedKey == "FONT":
+                self.session.open(FontsSettingsView)
 
     def reboot(self, message = None):
         if message is None:
@@ -593,6 +600,156 @@ class MainSettingsView(Screen):
 
             skinSearchAndReplace.append(['<panel name="INFOBAREXTENDEDINFO-1" />', '<panel name="INFOBAREXTENDEDINFO-' + config.plugins.MyMetrixLiteOther.ExtendedinfoStyle.value + '" />' ])
 
+            #fonts system
+
+            type = config.plugins.MyMetrixLiteFonts.Lcd_type.value
+            scale = config.plugins.MyMetrixLiteFonts.Lcd_scale.value
+            old = '<font filename="/usr/share/fonts/lcd.ttf" name="LCD" scale="100" />'
+            new = '<font filename="' + type + '" name="LCD" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            type = config.plugins.MyMetrixLiteFonts.Replacement_type.value
+            scale = config.plugins.MyMetrixLiteFonts.Replacement_scale.value
+            old = '<font filename="/usr/share/fonts/ae_AlMateen.ttf" name="Replacement" scale="100" replacement="1" />'
+            new = '<font filename="' + type + '" name="Replacement" scale="' + str(scale) + '" replacement="1" />'
+            skinSearchAndReplace.append([old, new ])
+
+            type = config.plugins.MyMetrixLiteFonts.Console_type.value
+            scale = config.plugins.MyMetrixLiteFonts.Console_scale.value
+            old = '<font filename="/usr/share/fonts/tuxtxt.ttf" name="Console" scale="100" />'
+            new = '<font filename="' + type + '" name="Console" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            type = config.plugins.MyMetrixLiteFonts.Fixed_type.value
+            scale = config.plugins.MyMetrixLiteFonts.Fixed_scale.value
+            old = '<font filename="/usr/share/fonts/andale.ttf" name="Fixed" scale="100" />'
+            new = '<font filename="' + type + '" name="Fixed" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            type = config.plugins.MyMetrixLiteFonts.Arial_type.value
+            scale = config.plugins.MyMetrixLiteFonts.Arial_scale.value
+            old = '<font filename="/usr/share/fonts/nmsbd.ttf" name="Arial" scale="100" />'
+            new = '<font filename="' + type + '" name="Arial" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            #fonts skin
+
+            type = config.plugins.MyMetrixLiteFonts.Regular_type.value
+            scale = config.plugins.MyMetrixLiteFonts.Regular_scale.value
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="Regular" scale="95" />'
+            new = '<font filename="' + type + '" name="Regular" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            type = config.plugins.MyMetrixLiteFonts.RegularLight_type.value
+            scale = config.plugins.MyMetrixLiteFonts.RegularLight_scale.value
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="RegularLight" scale="95" />'
+            new = '<font filename="' + type + '" name="RegularLight" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            type = config.plugins.MyMetrixLiteFonts.SetrixHD_type.value
+            scale = config.plugins.MyMetrixLiteFonts.SetrixHD_scale.value
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="SetrixHD" scale="100" />'
+            new = '<font filename="' + type + '" name="SetrixHD" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            scale = config.plugins.MyMetrixLiteFonts.Meteo_scale.value
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/meteocons.ttf" name="Meteo" scale="100" />'
+            new = '<font filename="/usr/share/enigma2/MetrixHD/fonts/meteocons.ttf" name="Meteo" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            #global
+
+            type = config.plugins.MyMetrixLiteFonts.globaltitle_type.value
+            scale = config.plugins.MyMetrixLiteFonts.globaltitle_scale.value
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_title" scale="100" />'
+            new = '<font filename="' + type + '" name="global_title" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            type = config.plugins.MyMetrixLiteFonts.globalbutton_type.value
+            scale = config.plugins.MyMetrixLiteFonts.globalbutton_scale.value
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_button" scale="100" />'
+            new = '<font filename="' + type + '" name="global_button" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            type = config.plugins.MyMetrixLiteFonts.globalclock_type.value
+            scale = config.plugins.MyMetrixLiteFonts.globalclock_scale.value
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_clock" scale="100" />'
+            new = '<font filename="' + type + '" name="global_clock" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            type = config.plugins.MyMetrixLiteFonts.globallarge_type.value
+            scale = config.plugins.MyMetrixLiteFonts.globallarge_scale.value
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large" scale="100" />'
+            new = '<font filename="' + type + '" name="global_large" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            type = config.plugins.MyMetrixLiteFonts.globalsmall_type.value
+            scale = config.plugins.MyMetrixLiteFonts.globalsmall_scale.value
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="global_small" scale="95" />'
+            new = '<font filename="' + type + '" name="global_small" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            type = config.plugins.MyMetrixLiteFonts.globalmenu_type.value
+            scale = config.plugins.MyMetrixLiteFonts.globalmenu_scale.value
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_menu" scale="100" />'
+            new = '<font filename="' + type + '" name="global_menu" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            #screens
+
+            type = config.plugins.MyMetrixLiteFonts.screenlabel_type.value
+            scale = config.plugins.MyMetrixLiteFonts.screenlabel_scale.value
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="screen_label" scale="95" />'
+            new = '<font filename="' + type + '" name="screen_label" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            type = config.plugins.MyMetrixLiteFonts.screentext_type.value
+            scale = config.plugins.MyMetrixLiteFonts.screentext_scale.value
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="screen_text" scale="95" />'
+            new = '<font filename="' + type + '" name="screen_text" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            type = config.plugins.MyMetrixLiteFonts.screeninfo_type.value
+            scale = config.plugins.MyMetrixLiteFonts.screeninfo_scale.value
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="screen_info" scale="100" />'
+            new = '<font filename="' + type + '" name="screen_info" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            #channellist
+
+            type = config.plugins.MyMetrixLiteFonts.epgevent_type.value
+            scale = config.plugins.MyMetrixLiteFonts.epgevent_scale.value
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="epg_event" scale="100" />'
+            new = '<font filename="' + type + '" name="epg_event" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            type = config.plugins.MyMetrixLiteFonts.epgtext_type.value
+            scale = config.plugins.MyMetrixLiteFonts.epgtext_scale.value
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_text" scale="95" />'
+            new = '<font filename="' + type + '" name="epg_text" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            type = config.plugins.MyMetrixLiteFonts.epginfo_type.value
+            scale = config.plugins.MyMetrixLiteFonts.epginfo_scale.value
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_info" scale="95" />'
+            new = '<font filename="' + type + '" name="epg_info" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            #infobar
+
+            type = config.plugins.MyMetrixLiteFonts.infobarevent_type.value
+            scale = config.plugins.MyMetrixLiteFonts.infobarevent_scale.value
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="infobar_event" scale="100" />'
+            new = '<font filename="' + type + '" name="infobar_event" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            type = config.plugins.MyMetrixLiteFonts.infobartext_type.value
+            scale = config.plugins.MyMetrixLiteFonts.infobartext_scale.value
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="infobar_text" scale="95" />'
+            new = '<font filename="' + type + '" name="infobar_text" scale="' + str(scale) + '" />'
+            skinSearchAndReplace.append([old, new ])
+
+            #make skin file
             skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
 
             xFile = open(SKIN_TARGET_TMP, "w")
@@ -649,7 +806,7 @@ class MainSettingsView(Screen):
             channelRenderer = None
 
         if channelRenderer is not None:
-            return '''<widget font="SetrixHD;''' + fontSize + '''" backgroundColor="text-background" foregroundColor="background-text" noWrap="1" position="''' \
+            return '''<widget font="global_large;''' + fontSize + '''" backgroundColor="text-background" foregroundColor="background-text" noWrap="1" position="''' \
                 + widgetPosition \
                 + '''" render="Label" size="1252,105" source="session.CurrentService" transparent="1" valign="bottom" zPosition="-30">
                 <convert type="MetrixHDExtServiceInfo">''' + channelRenderer + '''</convert>
