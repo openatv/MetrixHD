@@ -2536,7 +2536,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 			<convert type="ServiceName">Name</convert>
 		</widget>
 		<eLabel name="new eLabel" position="645,75" zPosition="-9" size="625,105" backgroundColor="epg-eventdescription-background" transparent="0" />
-		<widget source="Event" render="Label" position="650,77" size="615,105" font="Regular;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
+		<widget source="Event" render="Label" position="650,77" size="615,105" font="epg_info;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
 		<widget name="list" position="10,100" size="625,80" itemHeight="30" foregroundColor="epg-event-foreground" scrollbarMode="showNever" transparent="1" />
@@ -2562,7 +2562,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget name="more_text" position="370,117" size="150,30" zPosition="3" text="MORE" font="SetrixHD;25" halign="center" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="date" position="520,118" size="250,30" font="SetrixHD;22" backgroundColor="layer-a-background" valign="center" halign="right" transparent="1" />
 		<widget name="list" position="70,166" size="700,450" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Event" render="Label" position="825,90" size="385,505" font="Regular;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top">
+		<widget source="Event" render="Label" position="825,90" size="385,505" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top">
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
 		<panel name="rgyb-buttons_template1" />
@@ -2618,8 +2618,8 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget source="Service" render="Label" position="290,120" size="480,50" font="global_title; 35" halign="center" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="0">
 			<convert type="ServiceName">Name</convert>
 		</widget>
-		<widget name="list" position="70,200" size="700,420" font="SetrixHD;29" zPosition="3" itemHeight="35" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
-		<widget source="Event" render="Label" position="825,90" size="385,505" font="Regular;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" valign="top">
+		<widget name="list" position="70,200" size="700,420" font="epg_event;29" zPosition="3" itemHeight="35" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
+		<widget source="Event" render="Label" position="825,90" size="385,505" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" valign="top">
 			<convert type="EventName">FullDescription</convert>
 		</widget>
 		<panel name="template1_2layer" />
@@ -2645,7 +2645,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 	</screen>
 	<screen name="ExtensionsList" position="0,0" size="1280,720" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Please choose an extension..." position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,115" size="700,490" font="SetrixHD;29" zPosition="3" itemHeight="35" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
+		<widget name="list" position="70,115" size="700,490" font="epg_event;29" zPosition="3" itemHeight="35" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
 		<ePixmap position="890,175" size="256,256" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
 		<eLabel text="Extensionslist" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
 		<panel name="template1_2layer" />
@@ -2657,7 +2657,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 			<convert type="MetrixRefString">CurrentRef</convert>
 		</widget>
 		<widget name="epg_description" position="70,90" size="700,520" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="channel" position="852,247" size="320,50" font="SetrixHD;26" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="channel" position="832,212" size="370,70" font="SetrixHD;26" halign="center" valign="bottom" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
 		<eLabel position="859,310" size="315,1" backgroundColor="layer-b-progress" />
 		<widget source="session.Event_Now" render="Progress" position="859,308" size="315,5" borderWidth="0" backgroundColor="layer-b-background" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
@@ -2711,7 +2711,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 	<!-- EventViewSimple , optimized for MovieInfo (EMC)-->
 	<screen name="EventViewSimple" position="0,0" size="1280,720" title="EventviewSimple" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="epg_description" position="70,90" size="700,520" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="channel" position="852,247" size="320,50" font="SetrixHD;26" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="channel" position="832,212" size="370,70" font="SetrixHD;26" halign="center" valign="bottom" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
 		<widget source="Service" render="MetrixHDXPicon" position="907,80" size="220,132" zPosition="5" transparent="1" alphatest="blend">
 			<convert type="MovieInfo">RecordServiceRef</convert>
 		</widget>
