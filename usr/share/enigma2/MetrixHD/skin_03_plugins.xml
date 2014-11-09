@@ -952,22 +952,21 @@
 	    <panel name="__e-buttons_template1"/>	
 		<ePixmap pixmap="MetrixHD/icons/info.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
 	</screen>
-    <!-- VPS *-->
-     <!--* NumberZapExt -->
-	<screen name="NumberZapExt" position="293,243" size="700,165" title="Channel" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
-		<eLabel text="QuickZap" position="137,0" size="312,58" zPosition="3" font="SetrixHD; 40" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" halign="right" />
-		<widget name="chPicon" position="466,17" size="220,132" transparent="1" zPosition="1" alphatest="blend" />
-		<widget name="number" position="20,32" size="122,37" halign="left" font="Regular; 27" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="chNum" position="166,32" size="240,37" halign="left" font="Regular; 27" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="channel" position="20,72" size="122,36" halign="left" font="Regular; 27" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="chName" position="166,72" size="308,36" halign="left" font="Regular; 27" backgroundColor="layer-a-background" noWrap="1" transparent="1" />
-		<widget name="bouquet" position="20,112" size="122,36" halign="left" font="Regular; 27" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="chBouq" position="166,112" size="308,36" halign="left" font="Regular; 27" backgroundColor="layer-a-background" noWrap="1" transparent="1" />
-		<eLabel name="layer1" position="0,0" size="460,165" zPosition="-10" backgroundColor="layer-a-background" />
-		<eLabel name="layer2" position="460,7" size="230,150" zPosition="-10" backgroundColor="layer-b-background" />		
+		<!-- VPS *-->
+		<!--* NumberZapExt -->
+	<screen name="NumberZapExt" position="center,center" size="690,152" title="Channel" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel name="layer1" position="0,0" size="460,152" zPosition="-10" backgroundColor="layer-a-background" />
+		<eLabel name="layer2" position="460,5" size="230,142" zPosition="-10" backgroundColor="layer-b-background" />
+		<widget name="chPicon" position="465,10" size="220,132" transparent="1" zPosition="1" alphatest="blend" />
+		<widget name="chName" position="10,5" size="440,50" halign="center" font="global_title; 35" backgroundColor="layer-a-background" foregroundColor="title-foreground" noWrap="1" transparent="1" />
+		<eLabel position="20,60" zPosition="0" size="420,1" backgroundColor="layer-a-accent2" />
+		<widget name="number" position="75,70" size="120,40" halign="left" font="SetrixHD; 28" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+		<widget name="chNum" position="195,70" size="180,40" halign="right" font="SetrixHD; 28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="bouquet" position="75,105" size="120,40" halign="left" font="SetrixHD; 28" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
+		<widget name="chBouq" position="195,105" size="180,40" halign="right" font="SetrixHD; 28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" noWrap="1" transparent="1" />
 	</screen>
 	<!-- NumberZapExt *-->  
-    <!--* VirtualZap -->
+	<!--* VirtualZap -->
 	<screen name="VirtualZapConfig" position="0,0" size="1280,720" backgroundColor="transparent" >
 		<eLabel text="Virtual Zap Config" position="70,47" size="800,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,115" size="700,510" scrollbarMode="showOnDemand" transparent="1" />
