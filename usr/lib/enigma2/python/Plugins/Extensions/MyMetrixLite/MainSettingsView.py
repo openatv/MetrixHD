@@ -753,6 +753,15 @@ class MainSettingsView(Screen):
             new = '<font filename="' + type + '" name="infobar_text" scale="' + str(scale) + '" />'
             skinSearchAndReplace.append([old, new ])
 
+            # color gradient for ib,sib,mb
+            if config.plugins.MyMetrixLiteOther.SkinDesignInfobarColorGradient.value:
+                old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom.png" position="0,640" size="1280,80" zPosition="-1" /-->'
+                new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom.png" position="0,640" size="1280,80" zPosition="-1" />'
+                skinSearchAndReplace.append([old, new ])
+                old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top.png" position="0,0" size="1280,30" zPosition="-1" /-->'
+                new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top.png" position="0,0" size="1280,30" zPosition="-1" />'
+                skinSearchAndReplace.append([old, new ])
+
             #make skin file
             skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
 
