@@ -2066,7 +2066,7 @@
 	<!-- Timer Screens -->
 	<screen name="TimerEditList" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Timer Editor" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="timerlist" position="70,115" size="700,500" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="timerlist" position="70,115" size="700,500" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
 		<widget name="description" position="825,425" size="380,167" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
@@ -2079,10 +2079,9 @@
 		<widget name="HelpWindow" position="120,470" size="1,1" zPosition="1" transparent="1" alphatest="blend" />
 		<eLabel text="Timer entry" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,120" size="700,390" itemHeight="30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1" />
-		<widget name="cancel" pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
-		<widget name="ok" pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
-		<widget name="canceltext" position="105,637" size="240,30" zPosition="1" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="oktext" position="395,637" size="240,30" zPosition="1" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="canceltext" position="70,637" size="160,30" zPosition="1" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="oktext" position="257,637" size="160,30" zPosition="1" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="rg__-buttons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
@@ -2369,7 +2368,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 	</screen>
 	<screen name="Console" position="0,0" size="1280,720" title="Command execution..." flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="text" position="70,120" size="700,460" font="Console;16" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-a-background" />
+		<widget name="text" position="70,120" size="700,530" font="Console;16" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-a-background" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/console.png" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
@@ -2575,7 +2574,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget name="next_text" position="220,117" size="150,30" zPosition="3" text="NEXT" font="SetrixHD;25" halign="center" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="more_text" position="370,117" size="150,30" zPosition="3" text="MORE" font="SetrixHD;25" halign="center" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="date" position="520,118" size="250,30" font="SetrixHD;22" backgroundColor="layer-a-background" valign="center" halign="right" transparent="1" />
-		<widget name="list" position="70,166" size="700,450" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list" position="70,166" size="700,450" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" enableWrapAround="1" transparent="1" />
 		<widget source="Event" render="Label" position="825,90" size="385,505" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top">
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
@@ -2632,7 +2631,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget source="Service" render="Label" position="290,120" size="480,50" font="global_title; 35" halign="center" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="0">
 			<convert type="ServiceName">Name</convert>
 		</widget>
-		<widget name="list" position="70,200" size="700,420" font="epg_event;29" zPosition="3" itemHeight="35" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
+		<widget name="list" position="70,200" size="700,420" font="epg_event;29" zPosition="3" itemHeight="35" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
 		<widget source="Event" render="Label" position="825,90" size="385,505" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" valign="top">
 			<convert type="EventName">FullDescription</convert>
 		</widget>
@@ -2672,7 +2671,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		</widget>
 		<widget name="epg_description" position="70,90" size="700,520" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="channel" position="832,212" size="370,70" font="SetrixHD;26" halign="center" valign="bottom" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
-		<eLabel position="859,310" size="315,1" backgroundColor="layer-b-progress" />
+		<eLabel position="859,310" size="315,1" backgroundColor="layer-b-accent1" />
 		<widget source="session.Event_Now" render="Progress" position="859,308" size="315,5" borderWidth="0" backgroundColor="layer-b-background" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
@@ -2729,7 +2728,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget source="Service" render="MetrixHDXPicon" position="907,80" size="220,132" zPosition="5" transparent="1" alphatest="blend">
 			<convert type="MovieInfo">RecordServiceRef</convert>
 		</widget>
-		<eLabel position="859,310" size="315,1" backgroundColor="layer-b-progress" />
+		<eLabel position="859,310" size="315,1" backgroundColor="layer-b-accent1" />
 		<widget source="session.CurrentService" render="Progress" position="859,308" size="315,5" borderWidth="0" backgroundColor="layer-b-background" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
