@@ -2293,7 +2293,7 @@ from enigma import eSize,ePoint
 orgwidth = self.instance.size().width()
 orgpos = self.instance.position()
 textsize = self["text"].getSize()
-listhight = 0
+listheight = 0
 listwidth = 0
 if self.list:
 	try:
@@ -2301,7 +2301,7 @@ if self.list:
 			if len(i[0]) > listwidth:
 				listwidth = len(i[0])
 		listwidth = listwidth * 10
-		listhight = len(self.list)*30
+		listheight = len(self.list)*30
 	except:
 		pass
 textsize = (textsize[0] + 60,textsize[1] + 60)
@@ -2315,7 +2315,7 @@ if (280 &gt; wsizex):
 #if self.type == self.TYPE_YESNO:
 #	offset = 80
 #wsizey = textsize[1] + offset
-wsizey = listhight + 110
+wsizey = listheight + 110
 wsize = (wsizex,wsizey)
 
 # resize
@@ -2326,7 +2326,7 @@ self.instance.resize(eSize(*wsize))
 
 # move list
 #listsize = (wsizex - 20,64)
-listsize = (wsizex - 20,listhight)
+listsize = (wsizex - 20,listheight)
 #self["list"].instance.move(ePoint(10,textsize[1]))
 self["list"].instance.move(ePoint(10,100))
 self["list"].instance.resize(eSize(*listsize))
