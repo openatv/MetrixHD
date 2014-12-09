@@ -2278,10 +2278,10 @@
 		<widget name="help2" position="403,94" size="200,30" font="Console;22" halign="center" valign="center" />
 	</screen>
 	<screen name="MessageBox-template">
-		<widget name="text" position="110,10" size="680,70" font="SetrixHD;22" valign="center" backgroundColor="layer-a-background" foregroundColor="white" />
-		<widget name="ErrorPixmap" pixmap="MetrixHD/icons/message/attention-53.png" position="30,20" size="53,53" alphatest="blend" />
-		<widget name="QuestionPixmap" pixmap="MetrixHD/icons/message/question-53.png" position="30,20" size="53,53" alphatest="blend" />
-		<widget name="InfoPixmap" pixmap="MetrixHD/icons/message/info-53.png" position="30,20" size="53,53" alphatest="blend" />
+		<widget name="text" position="110,10" size="680,80" font="SetrixHD;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+		<widget name="ErrorPixmap" pixmap="MetrixHD/icons/message/attention-53.png" position="30,25" size="53,53" alphatest="blend" />
+		<widget name="QuestionPixmap" pixmap="MetrixHD/icons/message/question-53.png" position="30,25" size="53,53" alphatest="blend" />
+		<widget name="InfoPixmap" pixmap="MetrixHD/icons/message/info-53.png" position="30,25" size="53,53" alphatest="blend" />
 		<!--
 	<widget name="ErrorPixmap" pixmap="skin_default/icons/input_error.png" position="30,10" size="53,53" alphatest="blend" />
 	<widget name="QuestionPixmap" pixmap="skin_default/icons/input_question.png" position="30,10" size="53,53" alphatest="blend" />
@@ -2293,15 +2293,29 @@ from enigma import eSize,ePoint
 orgwidth = self.instance.size().width()
 orgpos = self.instance.position()
 textsize = self["text"].getSize()
-
+listheight = 0
+listwidth = 0
+if self.list:
+	try:
+		for i in self.list:
+			if len(i[0]) > listwidth:
+				listwidth = len(i[0])
+		listwidth = listwidth * 10
+		listheight = len(self.list)*30
+	except:
+		pass
 textsize = (textsize[0] + 60,textsize[1] + 60)
-offset = 30
-if self.type == self.TYPE_YESNO:
-	offset = 80
-wsizex = textsize[0] + 80
-wsizey = textsize[1] + offset
+if textsize[0] > listwidth:
+	wsizex = textsize[0] + 80
+else:
+	wsizex = listwidth + 10
 if (280 &gt; wsizex):
 	wsizex = 280
+#offset = 30
+#if self.type == self.TYPE_YESNO:
+#	offset = 80
+#wsizey = textsize[1] + offset
+wsizey = listheight + 110
 wsize = (wsizex,wsizey)
 
 # resize
@@ -2311,8 +2325,10 @@ self.instance.resize(eSize(*wsize))
 #self["text"].instance.resize(eSize(*textsize))
 
 # move list
-listsize = (wsizex - 20,64)
-self["list"].instance.move(ePoint(10,textsize[1]))
+#listsize = (wsizex - 20,64)
+listsize = (wsizex - 20,listheight)
+#self["list"].instance.move(ePoint(10,textsize[1]))
+self["list"].instance.move(ePoint(10,100))
 self["list"].instance.resize(eSize(*listsize))
 
 # center window
@@ -2392,13 +2408,13 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 			<convert type="ClockToText">Format:%e. %B</convert>
 		</widget>
 		<eLabel position="230,200" size="770,2" backgroundColor="layer-a-accent1" />
-		<widget source="job_name" render="Label" position="230,254" size="780,40" font="Regular;26" halign="center" />
-		<widget source="job_task" render="Label" position="230,312" size="780,40" font="Regular;22" />
-		<widget source="job_progress" render="Progress" position="230,348" size="780,36" borderWidth="2" foregroundColor="layer-a-progress" backgroundColor="layer-a-background" />
-		<widget source="job_progress" render="Label" position="480,348" size="280,32" font="Regular;26" foregroundColor="layer-a-accent1" backgroundColor="layer-a-accent1" zPosition="2" halign="center" transparent="1">
+		<widget source="job_name" render="Label" position="230,254" size="780,40" font="Regular;26" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
+		<widget source="job_task" render="Label" position="230,312" size="780,40" font="Regular;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
+		<widget source="job_progress" render="Progress" position="230,348" size="780,36" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
+		<widget source="job_progress" render="Label" position="480,348" size="280,32" font="Regular;26" foregroundColor="layer-a-foreground" backgroundColor="layer-a-progress" zPosition="2" halign="center" transparent="1">
 			<convert type="ProgressToText" />
 		</widget>
-		<widget source="job_status" render="Label" position="230,391" size="480,40" font="Regular;22" />
+		<widget source="job_status" render="Label" position="230,391" size="480,40" font="Regular;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
 		<widget name="config" position="230,425" size="480,20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" />
 		<widget source="cancelable" render="Pixmap" pixmap="MetrixHD/buttons/key_red.png" position="212,505" size="30,40" alphatest="blend">
 			<convert type="ConditionalShowHide" />
@@ -2820,13 +2836,13 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 	<screen name="PositionerSetup" position="0,0" size="1280,720" title="Positioner setup..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<eLabel text="Positioner setup..." position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="220,120" size="400,180" itemHeight="30" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list" position="220,120" size="400,180" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="snr_db" position="160,405" size="200,25" halign="center" valign="center" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="SNR:" position=" 70,440" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="snr_bar" position="160,440" size="200,25" borderWidth="1" transparent="1" />
+		<widget name="snr_bar" position="160,440" size="200,25" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
 		<widget name="snr_percentage" position="370,440" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="BER:" position=" 70,475" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="ber_bar" position="160,475" size="200,25" borderWidth="1" transparent="1" />
+		<widget name="ber_bar" position="160,475" size="200,25" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
 		<widget name="ber_value" position="370,475" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Lock:" position=" 70,510" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="lock_state" position="160,510" size="200,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
@@ -2851,14 +2867,14 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 			<convert type="FrontendInfo">SNRdB</convert>
 		</widget>
 		<eLabel name="snr" text="SNR:" position="120,150" size=" 80,25" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="Frontend" render="Progress" position="210,155" size="420,20" borderWidth="1" borderColor="layer-a-accent1" transparent="1">
+		<widget source="Frontend" render="Progress" position="210,155" size="420,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" >
 			<convert type="FrontendInfo">SNR</convert>
 		</widget>
 		<widget source="Frontend" render="Label" position="640,150" size=" 80,25" font="SetrixHD;21" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 			<convert type="FrontendInfo">SNR</convert>
 		</widget>
 		<eLabel name="ber" text="BER:" position="120,185" size=" 80,25" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="Frontend" render="Progress" position="210,190" size="420,20" borderWidth="1" borderColor="layer-a-accent1" transparent="1">
+		<widget source="Frontend" render="Progress" position="210,190" size="420,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" >
 			<convert type="FrontendInfo">BER</convert>
 		</widget>
 		<widget source="Frontend" render="Label" position="640,185" size=" 80,25" font="SetrixHD;21" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
@@ -2901,7 +2917,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget name="transponder" position="120,150" size="600,30" font="SetrixHD;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="scan_state" position="120,180" size="600,30" zPosition="2" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="pass" position="120,210" size="600,30" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="scan_progress" position="120,250" size="600,15" borderWidth="1" borderColor="layer-a-accent1" transparent="1" />
+		<widget name="scan_progress" position="120,250" size="600,15" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
 		<widget name="servicelist" position="120,300" size="600,300" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" selectionDisabled="1" transparent="1" />
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1" />
@@ -3055,10 +3071,10 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 	<screen name="UpdatePlugin" position="0,0" size="1280,720" title="Software Update..." flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Software Update" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
-		<widget name="activityslider" position="70,160" size="700,20" borderColor="layer-a-foreground" foregroundColor="layer-a-progress" borderWidth="1" transparent="1" />
+		<widget name="activityslider" position="70,160" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
 		<widget source="package" render="Label" position="70,190" size="700,30" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="status" render="Label" position="70,230" size="700,30" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="slider" position="70,400" size="700,20" borderColor="layer-a-foreground" foregroundColor="layer-a-progress" borderWidth="1" transparent="1" />
+		<widget name="slider" position="70,400" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
 		<ePixmap position="890,175" size="256,256" pixmap="MetrixHD/icons/swupdate.png" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
@@ -3084,10 +3100,10 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 	</screen>
 	<screen name="Ipkg" position="0,0" size="1280,720" title="Installing Software..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Installing Software..." position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="activityslider" position="70,160" size="680,15" borderWidth="1" transparent="1" />
+		<widget name="activityslider" position="70,160" size="680,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
 		<widget name="package" position="80,190" size="660,25" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="status" position="80,230" size="660,50" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="slider" position="70,320" size="680,20" borderWidth="1" transparent="1" />
+		<widget name="slider" position="70,320" size="680,20" borderWidth="2" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/paket.png" transparent="1" alphatest="blend" />
