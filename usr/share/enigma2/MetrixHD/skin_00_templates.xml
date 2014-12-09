@@ -328,7 +328,7 @@
 				<convert type="RemainingToText">InMinutes</convert>
 			</widget>
 			<eLabel backgroundColor="layer-a-accent1" name="new eLabel" position="287,615" size="951,1"/>
-			<widget render="Progress" position="287,614" size="951,3" source="session.Event_Now" foregroundColor="layer-a-progress" transparent="1" zPosition="7">
+			<widget render="Progress" position="287,613" size="951,5" source="session.Event_Now" foregroundColor="layer-a-progress" transparent="1" zPosition="7">
 				<convert type="EventTime">Progress</convert>
 			</widget>
 			<widget backgroundColor="layer-a-background" font="infobar_text; 18" foregroundColor="layer-a-accent1" halign="right" noWrap="1" position="1091,619" render="Label" size="75,28" source="session.Event_Next" transparent="1" valign="top">
@@ -1279,7 +1279,7 @@
 	<screen name="CHANNELSELECTION-1">
 		<eLabel text="Channel Selection" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
 		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title; 35" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-foreground" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="50" />
+		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="50" />
 		<widget source="ServiceEvent" render="Label" position="820,80" size="395,65" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center">
 			<convert type="EventName">Name</convert>
 		</widget>
@@ -1292,7 +1292,7 @@
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
 		<eLabel position="914,167" size="206,1" backgroundColor="layer-b-accent1" />
-		<widget source="ServiceEvent" render="Progress" position="914,165" size="206,5" borderWidth="0" backgroundColor="layer-b-background" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
+		<widget source="ServiceEvent" render="Progress" position="914,165" size="206,5" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
 		<widget source="ServiceEvent" render="Label" position="825,195" size="385,250" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
@@ -1308,7 +1308,7 @@
 	<screen name="CHANNELSELECTION-2">
 		<eLabel text="Channel Selection" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
 		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title; 35" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-foreground" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="50" />
+		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="50" />
 		<widget alphatest="blend" position="907,80" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="0" zPosition="1">
 			<convert type="MetrixRefString">ServicelistRef</convert>
 		</widget>
@@ -1324,7 +1324,7 @@
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
 		<eLabel position="914,287" size="206,1" backgroundColor="layer-b-accent1" />
-		<widget source="ServiceEvent" render="Progress" position="914,285" size="206,5" borderWidth="0" backgroundColor="layer-b-background" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
+		<widget source="ServiceEvent" render="Progress" position="914,285" size="206,5" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
 		<widget source="ServiceEvent" render="Label" position="825,310" size="385,230" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
@@ -1341,7 +1341,7 @@
 	<screen name="CHANNELSELECTION-3">
 		<panel name="SkinDesign-s" />
 		<eLabel text="Channel Selection" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
-		<widget name="list" position="423,107" size="787,510" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-foreground" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="50" />
+		<widget name="list" position="423,107" size="787,510" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="50" />
 		<widget alphatest="blend" position="112,61" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="1" zPosition="1">
 			<convert type="MetrixRefString">ServicelistRef</convert>
 		</widget>
@@ -1357,7 +1357,7 @@
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
 		<eLabel position="117,260" size="206,1" backgroundColor="layer-b-accent1" />
-		<widget source="ServiceEvent" render="Progress" position="117,258" size="206,5" borderWidth="0" backgroundColor="layer-b-background" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
+		<widget source="ServiceEvent" render="Progress" position="117,258" size="206,5" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
 		<widget source="ServiceEvent" render="Label" position="63,283" size="320,205" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
@@ -1374,7 +1374,7 @@
 	<screen name="CHANNELSELECTION-4">
 		<panel name="SkinDesign-s" />
 		<eLabel text="Channel Selection" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
-		<widget name="list" position="423,107" size="787,510" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-foreground" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="50" />
+		<widget name="list" position="423,107" size="787,510" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="50" />
 		<widget source="ServiceEvent" render="Label" position="62,66" size="320,65" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" valign="center" halign="center">
 			<convert type="EventName">Name</convert>
 		</widget>
@@ -1387,7 +1387,7 @@
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
 		<eLabel position="117,145" size="206,1" backgroundColor="layer-b-accent1" />
-		<widget source="ServiceEvent" render="Progress" position="117,143" size="206,5" borderWidth="0" backgroundColor="layer-b-background" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
+		<widget source="ServiceEvent" render="Progress" position="117,143" size="206,5" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
 		<widget source="ServiceEvent" render="Label" position="63,173" size="314,249" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
