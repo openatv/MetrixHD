@@ -2308,14 +2308,14 @@ if self.list:
 	except:
 		pass
 
-if (85 &gt; textheight):
-	textheight = 85
+if (82 &gt; textheight):
+	textheight = 82
 if (210 &gt; textwidth):
 	textwidth = 210
 if (listheight &gt; 0):
-	offset = 35
+	offset = 38
 else:
-	offset = 20
+	offset = 23
 if (textwidth &gt; listwidth):
 	wsizex = textwidth + 120
 else:
@@ -2334,7 +2334,7 @@ self["text"].instance.resize(eSize(*textsize))
 
 # move list
 listsize = (wsizex - 20,listheight)
-self["list"].instance.move(ePoint(10,textheight + 25))
+self["list"].instance.move(ePoint(10,textheight + 28))
 self["list"].instance.resize(eSize(*listsize))
 
 # center window
