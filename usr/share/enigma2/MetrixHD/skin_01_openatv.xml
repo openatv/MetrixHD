@@ -2279,9 +2279,9 @@
 	</screen>
 	<screen name="MessageBox-template">
 		<widget name="text" position="110,10" size="680,80" font="SetrixHD;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
-		<widget name="ErrorPixmap" pixmap="MetrixHD/icons/message/attention-53.png" position="30,25" size="53,53" alphatest="blend" />
-		<widget name="QuestionPixmap" pixmap="MetrixHD/icons/message/question-53.png" position="30,25" size="53,53" alphatest="blend" />
-		<widget name="InfoPixmap" pixmap="MetrixHD/icons/message/info-53.png" position="30,25" size="53,53" alphatest="blend" />
+		<widget name="ErrorPixmap" pixmap="MetrixHD/icons/message/attention-53.png" position="30,27" size="53,53" alphatest="blend" />
+		<widget name="QuestionPixmap" pixmap="MetrixHD/icons/message/question-53.png" position="30,27" size="53,53" alphatest="blend" />
+		<widget name="InfoPixmap" pixmap="MetrixHD/icons/message/info-53.png" position="30,27" size="53,53" alphatest="blend" />
 		<!--
 	<widget name="ErrorPixmap" pixmap="skin_default/icons/input_error.png" position="30,10" size="53,53" alphatest="blend" />
 	<widget name="QuestionPixmap" pixmap="skin_default/icons/input_question.png" position="30,10" size="53,53" alphatest="blend" />
@@ -2293,42 +2293,48 @@ from enigma import eSize,ePoint
 orgwidth = self.instance.size().width()
 orgpos = self.instance.position()
 textsize = self["text"].getSize()
-listheight = 0
+textwidth = textsize[0] + 20
+textheight = textsize[1] + 20
 listwidth = 0
+listheight = 0
+
 if self.list:
 	try:
 		for i in self.list:
 			if len(i[0]) > listwidth:
 				listwidth = len(i[0])
 		listwidth = listwidth * 10
-		listheight = len(self.list)*30
+		listheight = len(self.list) * 30
 	except:
 		pass
-textsize = (textsize[0] + 60,textsize[1] + 60)
-if textsize[0] > listwidth:
-	wsizex = textsize[0] + 80
+
+if (85 &gt; textheight):
+	textheight = 85
+if (210 &gt; textwidth):
+	textwidth = 210
+if (listheight &gt; 0):
+	offset = 35
 else:
+	offset = 20
+if (textwidth &gt; listwidth):
+	wsizex = textwidth + 120
+else:
+	textwidth = listwidth - 110
 	wsizex = listwidth + 10
-if (280 &gt; wsizex):
-	wsizex = 280
-#offset = 30
-#if self.type == self.TYPE_YESNO:
-#	offset = 80
-#wsizey = textsize[1] + offset
-wsizey = listheight + 110
+
+wsizey = textheight + listheight + offset
 wsize = (wsizex,wsizey)
 
 # resize
 self.instance.resize(eSize(*wsize))
 
 # resize label
-#self["text"].instance.resize(eSize(*textsize))
+textsize = (textwidth,textheight)
+self["text"].instance.resize(eSize(*textsize))
 
 # move list
-#listsize = (wsizex - 20,64)
 listsize = (wsizex - 20,listheight)
-#self["list"].instance.move(ePoint(10,textsize[1]))
-self["list"].instance.move(ePoint(10,100))
+self["list"].instance.move(ePoint(10,textheight + 25))
 self["list"].instance.resize(eSize(*listsize))
 
 # center window
