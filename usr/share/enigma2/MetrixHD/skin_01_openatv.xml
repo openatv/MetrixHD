@@ -1027,28 +1027,28 @@
 	<!--Quick Menu-->
 	<!-- templates -->
 	<screen name="QuickMenu_Layer-1">
-		<eLabel position="220,105" zPosition="-11" size="420,466" backgroundColor="layer-a-background"/>
-		<eLabel position="640,122" zPosition="-11" size="420,431" backgroundColor="layer-b-background"/>
+		<eLabel position="220,105" zPosition="-11" size="420,468" backgroundColor="layer-a-background"/>
+		<eLabel position="640,123" zPosition="-11" size="420,433" backgroundColor="layer-b-background"/>
 	</screen>
 	<screen name="QuickMenu_Layer-2">
-		<eLabel position="220,105" zPosition="-11" size="420,466" backgroundColor="layer-a-background"/>
-		<eLabel position="640,105" zPosition="-11" size="420,466" backgroundColor="layer-b-background"/>
+		<eLabel position="220,105" zPosition="-11" size="420,468" backgroundColor="layer-a-background"/>
+		<eLabel position="640,105" zPosition="-11" size="420,468" backgroundColor="layer-b-background"/>
 	</screen>
 	<screen name="QuickMenu_Layer-3">
-		<eLabel position="220,105" zPosition="-11" size="420,466" backgroundColor="layer-a-background"/>
-		<eLabel position="640,105" zPosition="-11" size="420,466" backgroundColor="layer-b-background"/>
+		<eLabel position="220,105" zPosition="-11" size="420,468" backgroundColor="layer-a-background"/>
+		<eLabel position="640,105" zPosition="-11" size="420,468" backgroundColor="layer-b-background"/>
 	</screen>
 	<screen name="QuickMenu_Layer-1s">
-		<eLabel position="220,105" zPosition="-11" size="415,466" backgroundColor="layer-a-background"/>
-		<eLabel position="645,122" zPosition="-11" size="415,431" backgroundColor="layer-b-background"/>
+		<eLabel position="220,105" zPosition="-11" size="415,468" backgroundColor="layer-a-background"/>
+		<eLabel position="645,123" zPosition="-11" size="415,433" backgroundColor="layer-b-background"/>
 	</screen>
 	<screen name="QuickMenu_Layer-2s">
-		<eLabel position="220,105" zPosition="-11" size="415,466" backgroundColor="layer-a-background"/>
-		<eLabel position="645,105" zPosition="-11" size="415,466" backgroundColor="layer-b-background"/>
+		<eLabel position="220,105" zPosition="-11" size="415,468" backgroundColor="layer-a-background"/>
+		<eLabel position="645,105" zPosition="-11" size="415,468" backgroundColor="layer-b-background"/>
 	</screen>
 	<screen name="QuickMenu_Layer-3s">
-		<eLabel position="220,105" zPosition="-11" size="415,466" backgroundColor="layer-a-background"/>
-		<eLabel position="645,105" zPosition="-11" size="415,466" backgroundColor="layer-b-background"/>
+		<eLabel position="220,105" zPosition="-11" size="415,468" backgroundColor="layer-a-background"/>
+		<eLabel position="645,105" zPosition="-11" size="415,468" backgroundColor="layer-b-background"/>
 	</screen>
 	<!-- templates -->
 	<screen name="QuickMenu" position="0,0" size="1280,720" title="Quick Launch Menu" flags="wfNoBorder" backgroundColor="transparent">
@@ -1062,7 +1062,7 @@
 		<widget name="key_yellow" position="675,3" size="160,30" zPosition="1" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground"  backgroundColor="layer-a-background" transparent="1" />
 		<!--widget name="key_blue" position="860,3" size="160,30" zPosition="1" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground"  backgroundColor="layer-a-background" transparent="1" /-->
 		<widget name="list" position="235,114" size="390,450" itemHeight="50" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" />
-		<widget name="sublist" position="655,135" size="390,408" itemHeight="50" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" backgroundColorSelected="layer-b-selection-background" foregroundColorSelected="layer-b-selection-foreground" />
+		<widget name="sublist" position="655,131" size="390,400" itemHeight="50" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" backgroundColorSelected="layer-b-selection-background" foregroundColorSelected="layer-b-selection-foreground" />
 		<widget name="description" position="42,42" size="1206,55" zPosition="1" font="screen_info;20" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Quick Launch Menu" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-50" />
 		<panel name="QuickMenu_Layer" />
@@ -2403,7 +2403,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 # this should be factored out into some helper code,but currently demonstrates applets.
 from enigma import eSize,ePoint
 textsize = self["text"].getSize()
-textwidth = textsize[0] + 30 
+textwidth = textsize[0] + 50 
 textheight = textsize[1] + 20
 listwidth = 0
 listheight = 0
@@ -2466,7 +2466,7 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 # this should be factored out into some helper code,but currently demonstrates applets.
 from enigma import eSize,ePoint
 textsize = self["text"].getSize()
-textwidth = textsize[0] + 150
+textwidth = textsize[0] + 170
 textheight = textsize[1] + 20
 listwidth = 0
 listheight = 0
@@ -3276,9 +3276,9 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Software Update" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
 		<widget name="activityslider" position="70,160" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
-		<widget source="package" render="Label" position="70,190" size="700,30" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="status" render="Label" position="70,230" size="700,30" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="slider" position="70,400" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
+		<widget source="package" render="Label" position="70,280" size="700,30" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="status" render="Label" position="70,330" size="700,30" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="slider" position="70,460" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
 		<ePixmap position="890,175" size="256,256" pixmap="MetrixHD/icons/swupdate.png" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
