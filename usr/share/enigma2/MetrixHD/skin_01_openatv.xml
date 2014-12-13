@@ -2277,23 +2277,71 @@
 		<widget name="key0" position="202,94" size="200,30" font="Console;17" halign="center" valign="center" />
 		<widget name="help2" position="403,94" size="200,30" font="Console;22" halign="center" valign="center" />
 	</screen>
-	<screen name="MessageBox-template-old">
-		<widget name="text" position="110,10" size="680,80" font="SetrixHD;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
-		<widget name="ErrorPixmap" pixmap="MetrixHD/icons/message/attention-53.png" position="30,27" size="53,53" alphatest="blend" />
-		<widget name="QuestionPixmap" pixmap="MetrixHD/icons/message/question-53.png" position="30,27" size="53,53" alphatest="blend" />
-		<widget name="InfoPixmap" pixmap="MetrixHD/icons/message/info-53.png" position="30,27" size="53,53" alphatest="blend" />
+	<screen name="MessageBox-template-0">
+		<!-- old version (without auto-resize "list") /-->
+		<widget name="text" position="110,8" size="680,0" font="SetrixHD;22" backgroundColor="layer-a-background" />
+		<widget name="ErrorPixmap" pixmap="MetrixHD/icons/message/attention-53.png" position="30,10" size="53,53" alphatest="blend" />
+		<widget name="QuestionPixmap" pixmap="MetrixHD/icons/message/question-53.png" position="30,10" size="53,53" alphatest="blend" />
+		<widget name="InfoPixmap" pixmap="MetrixHD/icons/message/info-53.png" position="30,10" size="53,53" alphatest="blend" />
 		<!--
 	<widget name="ErrorPixmap" pixmap="skin_default/icons/input_error.png" position="30,10" size="53,53" alphatest="blend" />
 	<widget name="QuestionPixmap" pixmap="skin_default/icons/input_question.png" position="30,10" size="53,53" alphatest="blend" />
 	<widget name="InfoPixmap" pixmap="skin_default/icons/input_info.png" position="30,10" size="53,53" alphatest="blend" />-->
-		<widget name="list" position="20,95" size="760,320" itemHeight="30" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="list" position="20,95" size="760,320" itemHeight="32" scrollbarMode="showOnDemand" transparent="1" />
 		<applet type="onLayoutFinish">
 # this should be factored out into some helper code,but currently demonstrates applets.
 from enigma import eSize,ePoint
 orgwidth = self.instance.size().width()
 orgpos = self.instance.position()
 textsize = self["text"].getSize()
-textwidth = textsize[0] + 20
+
+textsize = (textsize[0] + 60,textsize[1] + 60)
+offset = 30
+if self.type == self.TYPE_YESNO:
+	offset = 80
+wsizex = textsize[0] + 80
+wsizey = textsize[1] + offset
+if (280 &gt; wsizex):
+	wsizex = 280
+wsize = (wsizex,wsizey)
+
+# resize
+self.instance.resize(eSize(*wsize))
+
+# resize label
+self["text"].instance.resize(eSize(*textsize))
+
+# move list
+listsize = (wsizex - 20,64)
+self["list"].instance.move(ePoint(10,textsize[1]))
+self["list"].instance.resize(eSize(*listsize))
+
+# center window
+newwidth = wsize[0]
+self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
+		</applet>
+	</screen>
+	<screen name="MessageBox-template-1">
+		<!-- new version 1 - old style /-->
+		<widget name="text" position="110,10" size="680,93" font="screen_info;23" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+		<widget name="ErrorPixmap" pixmap="MetrixHD/icons/message/attention-53.png" position="30,30" size="53,53" alphatest="blend" />
+		<widget name="QuestionPixmap" pixmap="MetrixHD/icons/message/question-53.png" position="30,30" size="53,53" alphatest="blend" />
+		<widget name="InfoPixmap" pixmap="MetrixHD/icons/message/info-53.png" position="30,30" size="53,53" alphatest="blend" />
+		<!--
+	<widget name="ErrorPixmap" pixmap="skin_default/icons/input_error.png" position="30,10" size="53,53" alphatest="blend" />
+	<widget name="QuestionPixmap" pixmap="skin_default/icons/input_question.png" position="30,10" size="53,53" alphatest="blend" />
+	<widget name="InfoPixmap" pixmap="skin_default/icons/input_info.png" position="30,10" size="53,53" alphatest="blend" />-->
+		<widget name="list" position="10,113" size="780,277" font="screen_text;20" itemHeight="30" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<applet type="onLayoutFinish">
+# this should be factored out into some helper code,but currently demonstrates applets.
+from enigma import eSize,ePoint
+orgwidth = self.instance.size().width()
+#orgheight = self.instance.size().height()
+orgpos = self.instance.position()
+#textpos = self["text"].getPosition()
+#listpos = self["list"].getPosition()
+textsize = self["text"].getSize()
+textwidth = textsize[0] + 30
 textheight = textsize[1] + 20
 listwidth = 0
 listheight = 0
@@ -2308,14 +2356,14 @@ if self.list:
 	except:
 		pass
 
-if (82 &gt; textheight):
-	textheight = 82
-if (210 &gt; textwidth):
-	textwidth = 210
+if (93 &gt; textheight):
+	textheight = 93
+if (280 &gt; textwidth):
+	textwidth = 280
 if (listheight &gt; 0):
-	offset = 38
+	offset = 31
 else:
-	offset = 23
+	offset = 21
 if (textwidth &gt; listwidth):
 	wsizex = textwidth + 120
 else:
@@ -2334,28 +2382,91 @@ self["text"].instance.resize(eSize(*textsize))
 
 # move list
 listsize = (wsizex - 20,listheight)
-self["list"].instance.move(ePoint(10,textheight + 28))
+self["list"].instance.move(ePoint(10,textheight + 20))
 self["list"].instance.resize(eSize(*listsize))
 
 # center window
 newwidth = wsize[0]
-
 self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		</applet>
 	</screen>
-	<screen name="MessageBox-template">
-		<eLabel text="Message" position="67,10" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel name="line1" position="0,69" size="1000,1" backgroundColor="layer-a-accent2" zPosition="1" />
-		<widget name="text" position="10,80" size="780,50" font="screen_info;24" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
-		<widget name="ErrorPixmap" pixmap="MetrixHD/icons/message/attention-53.png" position="8,8" size="53,53" alphatest="blend" />
-		<widget name="QuestionPixmap" pixmap="MetrixHD/icons/message/question-53.png" position="8,8" size="53,53" alphatest="blend" />
-		<widget name="InfoPixmap" pixmap="MetrixHD/icons/message/info-53.png" position="8,8" size="53,53" alphatest="blend" />
-		<widget name="list" position="10,173" size="780,227" font="screen_text;20" itemHeight="30" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+	<screen name="MessageBox-template-2">
+		<!-- new version 2 /-->
+		<widget source="Title" render="Label" position="30,10" foregroundColor="layer-a-title-foreground" size="760,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel name="line1" position="0,69" size="1280,1" backgroundColor="layer-a-accent1" zPosition="1" />
+		<widget name="text" position="110,80" size="680,93" font="screen_info;23" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+		<widget name="ErrorPixmap" pixmap="MetrixHD/icons/message/attention-53.png" position="30,100" size="53,53" alphatest="blend" />
+		<widget name="QuestionPixmap" pixmap="MetrixHD/icons/message/question-53.png" position="30,100" size="53,53" alphatest="blend" />
+		<widget name="InfoPixmap" pixmap="MetrixHD/icons/message/info-53.png" position="30,100" size="53,53" alphatest="blend" />
+		<widget name="list" position="10,183" size="780,207" font="screen_text;20" itemHeight="30" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<applet type="onLayoutFinish">
 # this should be factored out into some helper code,but currently demonstrates applets.
 from enigma import eSize,ePoint
 textsize = self["text"].getSize()
-textwidth = textsize[0] + 20
+textwidth = textsize[0] + 30 
+textheight = textsize[1] + 20
+listwidth = 0
+listheight = 0
+
+if self.list:
+	try:
+		for i in self.list:
+			if len(i[0]) > listwidth:
+				listwidth = len(i[0])
+		listwidth = listwidth * 10
+		listheight = len(self.list) * 30
+	except:
+		pass
+
+if (93 &gt; textheight):
+	textheight = 93
+if (400 &gt; textwidth):
+	textwidth = 400
+if (listheight &gt; 0):
+	offset = 101
+else:
+	offset = 93
+if (textwidth &gt; listwidth):
+	wsizex = textwidth + 120
+else:
+	textwidth = listwidth - 110
+	wsizex = listwidth + 10
+
+wsizey = textheight + listheight + offset
+wsize = (wsizex,wsizey)
+
+# resize
+self.instance.resize(eSize(*wsize))
+
+# resize label
+textsize = (textwidth,textheight)
+self["text"].instance.resize(eSize(*textsize))
+
+# move list
+listsize = (wsizex - 20,listheight)
+self["list"].instance.move(ePoint(10,textheight + 90))
+self["list"].instance.resize(eSize(*listsize))
+
+# center window
+newwidth = wsize[0]
+newheight = wsize[1]
+self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
+		</applet>
+	</screen>
+	<screen name="MessageBox-template-3">
+		<!-- new version 3 /-->
+		<widget source="Title" render="Label" position="67,10" foregroundColor="layer-a-title-foreground" size="623,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1"/>
+		<eLabel name="line1" position="0,69" size="1280,1" backgroundColor="layer-a-accent1" zPosition="1" />
+		<widget name="text" position="10,80" size="780,50" font="screen_info;23" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+		<widget name="ErrorPixmap" pixmap="MetrixHD/icons/message/attention-53.png" position="8,8" size="53,53" alphatest="blend" />
+		<widget name="QuestionPixmap" pixmap="MetrixHD/icons/message/question-53.png" position="8,8" size="53,53" alphatest="blend" />
+		<widget name="InfoPixmap" pixmap="MetrixHD/icons/message/info-53.png" position="8,8" size="53,53" alphatest="blend" />
+		<widget name="list" position="10,140" size="780,250" font="screen_text;20" itemHeight="30" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<applet type="onLayoutFinish">
+# this should be factored out into some helper code,but currently demonstrates applets.
+from enigma import eSize,ePoint
+textsize = self["text"].getSize()
+textwidth = textsize[0] + 150
 textheight = textsize[1] + 20
 listwidth = 0
 listheight = 0
@@ -2375,13 +2486,13 @@ if (50 &gt; textheight):
 if (400 &gt; textwidth):
 	textwidth = 400
 if (listheight &gt; 0):
-	offset = 25
+	offset = 21
 else:
-	offset = 15
+	offset = 13
 if (textwidth &gt; listwidth):
 	wsizex = textwidth + 20
 else:
-	textwidth = listwidth
+	textwidth = listwidth - 10
 	wsizex = listwidth + 10
 
 wsizey = textheight + listheight + offset
@@ -2396,7 +2507,7 @@ self["text"].instance.resize(eSize(*textsize))
 
 # move list
 listsize = (wsizex - 20,listheight)
-self["list"].instance.move(ePoint(10,textheight + 95))
+self["list"].instance.move(ePoint(10,textheight + 90))
 self["list"].instance.resize(eSize(*listsize))
 
 # center window
@@ -2405,18 +2516,41 @@ newheight = wsize[1]
 self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 		</applet>
 	</screen>
+	<!--screen name="MessageBox" position="240,178" size="800,10" zPosition="1" title="Message" backgroundColor="layer-a-background">
+		<panel name="MessageBox-template-0" />
+	</screen-->
 	<screen name="MessageBox" position="240,160" size="800,400" zPosition="1" title="Message" flags="wfNoBorder" backgroundColor="layer-a-background">
-		<panel name="MessageBox-template" />
+		<panel name="MessageBox-template-3" />
 	</screen>
 	<screen name="MessageBoxSimple" position="240,160" size="800,400" zPosition="1" title="Message" flags="wfNoBorder" backgroundColor="layer-a-background">
-		<panel name="MessageBox-template" />
+		<panel name="MessageBox-template-3" />
+	</screen>
+	<screen name="MinuteInput" position="center,center" size="250,60" title="QuickZap" flags="wfNoBorder" backgroundColor="layer-a-background">
+		<eLabel text="Minutes:" position="25,8" size="100,40" font="screen_info;28" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" />
+		<widget name="minutes" position="125,8" size="100,40" halign="right" valign="center" font="screen_info;28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+	</screen>
+	<screen name="Seekbar" position="353,238" zPosition="2" size="574,230" backgroundColor="transparent" flags="wfNoBorder">
+		<widget name="cursor" position="0,0" size="16,230" pixmap="MetrixHD/epg/timeline-now_z.png" alphatest="blend" zPosition="6" />
+		<widget name="time" position="0,40" size="420,95" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="right" transparent="1" valign="top" />
+		<widget source="session.CurrentService" render="Label" position="32,175" size="80,27" font="infobar_text;20" halign="right" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="462,175" size="80,27" font="infobar_text;20" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background">
+			<convert type="ServicePosition">Length</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Progress" position="152,187" size="270,5" zPosition="5" foregroundColor="layer-a-progress" transparent="1">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
+		<eLabel name="new eLabel" position="152,189" size="270,1" backgroundColor="layer-a-accent1" zPosition="1" />
+		<eLabel name="new eLabel" position="0,160" size="574,59" zPosition="-1" backgroundColor="layer-a-background" />
+		<eLabel name="new eLabel" position="0,160" size="20,59" zPosition="7" backgroundColor="layer-a-background" />
 	</screen>
 	<screen name="TimeshiftState" position="190,238" zPosition="2" size="900,230" backgroundColor="transparent" flags="wfNoBorder">
 		<widget name="state" position="0,40" size="900,95" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="center" transparent="1" valign="top" />
-		<widget source="session.CurrentService" render="Label" position="5,175" size="80,27" font="Regular;20" halign="right" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background">
+		<widget source="session.CurrentService" render="Label" position="5,175" size="80,27" font="infobar_text;20" halign="right" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Label" position="815,175" size="80,27" font="Regular;20" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background">
+		<widget source="session.CurrentService" render="Label" position="815,175" size="80,27" font="infobar_text;20" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background">
 			<convert type="ServicePosition">Length</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Progress" position="100,187" size="700,5" zPosition="5" foregroundColor="layer-a-progress" transparent="1">
@@ -2431,7 +2565,7 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 	<screen name="Volume" position="46,40" size="318,71" title="Volume" flags="wfNoBorder" backgroundColor="transparent" zPosition="99">
 		<widget name="Volume" position="72,33" size="170,5" zPosition="3" foregroundColor="layer-a-progress" transparent="1" />
 		<ePixmap position="5,4" size="64,64" zPosition="1" pixmap="MetrixHD/icons/volume.png" transparent="0" alphatest="blend" />
-		<widget font="SetrixHD;40" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="left" valign="center" render="VVolumeText" source="global.CurrentTime" position="250,3" size="85,60" zPosition="20" transparent="1" />
+		<widget font="screen_info;40" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="left" valign="center" render="VVolumeText" source="global.CurrentTime" position="250,3" size="85,60" zPosition="20" transparent="1" />
 		<eLabel position="72,35" size="170,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" />
 		<eLabel position="1,1" size="316,69" backgroundColor="layer-a-background" zPosition="-1" transparent="0" />
 		<eLabel position="0,0" size="318,71" backgroundColor="layer-b-background" zPosition="-2" transparent="0" />
