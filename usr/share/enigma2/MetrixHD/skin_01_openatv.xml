@@ -1945,7 +1945,7 @@
 						MultiContentEntryPixmapAlphaTest(pos = (600, 15), size = (48, 48), png = 4), # index 4 is the activepng pixmap
 						MultiContentEntryPixmapAlphaTest(pos = (630, 6), size = (48, 48), png = 5), # index 4 is the mounttype pixmap
 					],
-				"fonts": [gFont("SetrixHD",22),gFont("SetrixHD",17)],
+				"fonts": [gFont("Regular",22),gFont("Regular",16)],
 				"itemHeight": 60
 				}
 			</convert>
@@ -2241,13 +2241,13 @@
 		<widget source="menu" render="Listbox" position="0,60" size="550,420" scrollbarMode="showNever" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
-						MultiContentEntryText(pos = (128, 22), size = (10, 22), font = 2, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 1), # Current Service
+						MultiContentEntryText(pos = (128, 22), size = (10, 22), font = 1, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 1), # Current Service
 						MultiContentEntryText(pos = (150, 2), size = (370, 25), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, text = 2), # Servicename
 						MultiContentEntryText(pos = (150, 24), size = (370, 22), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text = 3), # Eventname
-						MultiContentEntryText(pos = (150, 45), size = (370, 17), font = 3, flags = RT_HALIGN_LEFT, text = 5), # Eventtime
+						MultiContentEntryText(pos = (150, 46), size = (370, 21), font = 3, flags = RT_HALIGN_LEFT, text = 5), # Eventtime
 						MultiContentEntryPixmapAlphaBlend(pos=(30, 9), size=(85, 51), png=6, flags = BT_SCALE) # picon
 					],
-				 "fonts": [gFont("Regular",22), gFont("Regular",20), gFont("Regular",17), gFont("Regular",16)],
+				 "fonts": [gFont("Regular",22), gFont("Regular",20), gFont("Regular",18), gFont("Regular",16)],
 				 "itemHeight": 70
 				}
 			</convert>
@@ -2531,7 +2531,7 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 	</screen>
 	<screen name="Seekbar" position="353,238" zPosition="2" size="574,230" backgroundColor="transparent" flags="wfNoBorder">
 		<widget name="cursor" position="0,0" size="16,230" pixmap="MetrixHD/epg/timeline-now_z.png" alphatest="blend" zPosition="6" />
-		<widget name="time" position="0,40" size="420,95" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="right" transparent="1" valign="top" />
+		<widget name="time" position="0,40" size="574,95" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="center" transparent="1" valign="top" />
 		<widget source="session.CurrentService" render="Label" position="32,175" size="80,27" font="infobar_text;20" halign="right" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
@@ -2993,7 +2993,7 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 						MultiContentEntryText(pos = (10, 8), size = (680, 30), flags = RT_HALIGN_LEFT, text = 1), # index 1 is the nim name,
 						MultiContentEntryText(pos = (50, 43), size = (640, 60), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER | RT_WRAP, text = 2), # index 2 is a description of the nim settings,
 					],
-				 "fonts": [gFont("SetrixHD",23), gFont("SetrixHD",20)],
+				 "fonts": [gFont("Regular",22), gFont("Regular",20)],
 				 "itemHeight": 110
 				}
 			</convert>
@@ -3246,7 +3246,7 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 		<eLabel text="Software Update" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
 		<widget name="packagetext" position="70,115" size="250,35" zPosition="1" font="Regular;25" halign="right" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="packagenr" position="324,115" size="50,35" zPosition="1" font="Regular;25" halign="right" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="list" render="Listbox" position="70,175" size="700,420" itemHeight="55" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
+		<widget source="list" render="Listbox" position="70,175" size="700,416" itemHeight="55" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryText(pos = (5, 1), size = (590, 28), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
@@ -3254,7 +3254,7 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 						MultiContentEntryPixmapAlphaTest(pos = (605, 2), size = (48, 48), png = 4), # index 4 is the status pixmap
 						MultiContentEntryPixmapAlphaTest(pos = (0, 50), size = (700, 2), png = 5), # index 5 is the div pixmap
 					],
-				"fonts": [gFont("SetrixHD",22),gFont("SetrixHD",14)],
+				"fonts": [gFont("Regular",22),gFont("Regular",16)],
 				"itemHeight": 52
 				}
 			</convert>
@@ -3276,8 +3276,8 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Software Update" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
 		<widget name="activityslider" position="70,160" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
-		<widget source="package" render="Label" position="70,280" size="700,30" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="status" render="Label" position="70,330" size="700,30" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="package" render="Label" position="70,280" size="700,30" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="status" render="Label" position="70,330" size="700,30" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="slider" position="70,460" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
 		<ePixmap position="890,175" size="256,256" pixmap="MetrixHD/icons/swupdate.png" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
@@ -3350,7 +3350,7 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 						MultiContentEntryText(pos = (100, 35), size = (590, 20), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
 						MultiContentEntryPixmapAlphaTest(pos = (5, 58), size = (0, 0), png = 5), # index 4 is the div pixmap
 					],
-				"fonts": [gFont("SetrixHD",22),gFont("Regular",16)],
+				"fonts": [gFont("Regular",22),gFont("Regular",16)],
 				"itemHeight": 60
 				}
 			</convert>
@@ -3390,7 +3390,7 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 						MultiContentEntryText(pos = (15, 33), size = (565, 30), font=1, flags = RT_HALIGN_LEFT, text = 1), # index 1 is the description
 					])
 				},
-				"fonts": [gFont("SetrixHD",22),gFont("Regular",17)],
+				"fonts": [gFont("Regular",22),gFont("Regular",16)],
 				"itemHeight": 105
 			}
 			</convert>
@@ -3411,7 +3411,7 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 						MultiContentEntryText(pos = (90, 5), size = (565, 26), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
 						MultiContentEntryText(pos = (90, 33), size = (565, 38), font=1, flags = RT_HALIGN_LEFT, text = 1), # index 1 is the state
 					],
-				"fonts": [gFont("SetrixHD",22),gFont("Regular",17)],
+				"fonts": [gFont("Regular",22),gFont("Regular",16)],
 				"itemHeight": 75
 				}
 			</convert>
@@ -3432,7 +3432,7 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 						MultiContentEntryText(pos = (90, 33), size = (565, 38), font=1, flags = RT_HALIGN_LEFT, text = 1), # index 1 is the state
 						MultiContentEntryPixmapAlphaTest(pos = (15, 5), size = (48, 48), png = 2), # index 2 is the status pixmap
 					],
-				"fonts": [gFont("SetrixHD",22),gFont("Regular",17)],
+				"fonts": [gFont("Regular",22),gFont("Regular",16)],
 				"itemHeight": 75
 				}
 			</convert>
@@ -3494,13 +3494,13 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 		<panel name="template1_2layer" />
 		<eLabel text="Restore Plugins" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
-		<widget source="menu" render="Listbox" position="70,120" size="700,480" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1">
+		<widget source="menu" render="Listbox" position="70,110" size="700,480" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
-					MultiContentEntryText(pos = (50, 3), size = (650, 23), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 0),
+					MultiContentEntryText(pos = (50, 3), size = (650, 25), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 0),
 					MultiContentEntryPixmapAlphaTest(pos = (5, 1), size = (24, 24), png = 1),
 					],
-					"fonts": [gFont("Regular",19), gFont("Regular",16)],
+					"fonts": [gFont("Regular",20), gFont("Regular",16)],
 					"itemHeight": 30
 				}
 			</convert>
