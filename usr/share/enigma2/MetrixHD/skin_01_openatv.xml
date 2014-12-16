@@ -2809,27 +2809,28 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 		<panel name="__e-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
-	<screen name="SlimChannelSelection" position="center,center" size="560,600">
-		<widget name="list" position="0,0" size="560,420" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" colorServiceDescription="layer-a-selection-background" colorServiceDescriptionSelected="layer-a-foreground" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-foreground" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="SetrixHD;20" serviceNameFont="SetrixHD;20" serviceInfoFont="Regular;20" transparent="0" itemHeight="30" />
-		<widget source="ServiceEvent" render="Label" position="2,430" zPosition="2" size="60,25" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="right" noWrap="1" valign="top" transparent="0">
+	<screen name="SlimChannelSelection" position="center,center" flags="wfNoBorder" size="600,600">
+		<widget source="Title" render="Label" position="10,0" size="525,50" font="global_title; 35" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list" position="10,50" size="580,390" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="30" />
+		<widget source="ServiceEvent" render="Label" position="10,440" zPosition="2" size="60,25" font="epg_info;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left" noWrap="1" valign="top" transparent="1" >
 			<convert type="EventTime">StartTime</convert>
 			<convert type="ClockToText">Format:%H:%M </convert>
 		</widget>
-		<widget source="ServiceEvent" render="Label" position="62,430" zPosition="2" size="73,25" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" noWrap="1" valign="top" transparent="0">
+		<widget source="ServiceEvent" render="Label" position="60,440" zPosition="2" size="73,25" font="epg_info;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" noWrap="1" valign="top" transparent="1">
 			<convert type="EventTime">EndTime</convert>
 			<convert type="ClockToText">Format: - %H:%M</convert>
 		</widget>
-		<widget source="ServiceEvent" render="Label" position="15,455" size="533,93" font="Regular;18" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" valign="top" zPosition="2" transparent="0">
+		<widget source="ServiceEvent" render="Label" position="10,465" size="580,93" font="epg_info;18" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" valign="top" zPosition="2" transparent="1">
 			<convert type="EventName">FullDescription</convert>
 		</widget>
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,e-40" size="30,40" zPosition="2" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="140,e-40" size="30,40" zPosition="2" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="280,e-40" size="30,40" zPosition="2" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="420,e-40" size="30,40" zPosition="2" alphatest="blend" />
-		<widget name="key_red" position="35,e-37" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="0" />
-		<widget name="key_green" position="175,e-37" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="0" />
-		<widget name="key_yellow" position="315,e-37" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="0" />
-		<widget name="key_blue" position="455,e-37" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="0" />
+		<widget name="key_red" position="35,e-37" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="key_green" position="175,e-37" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="key_yellow" position="315,e-37" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="key_blue" position="455,e-37" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 	</screen>
 	<screen name="SoftwareManagerSetup" position="0,0" size="1280,720" title="SoftwareManager Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Setup SoftwareManager" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
