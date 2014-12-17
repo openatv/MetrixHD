@@ -361,7 +361,7 @@ class MainSettingsView(Screen):
             elif config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "large":
                 EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionCover_no" />', '<panel name="EMCSelectionCover_large" />'])
                 if config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription.getValue() is False:
-                    EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenterCover_large_description_on" />', '<panel name="EMCMediaCenterCover_large_description_off" />'])
+                    EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionCover_large_description_on" />', '<panel name="EMCSelectionCover_large_description_off" />'])
 
             namepos = "35,465"
             if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
