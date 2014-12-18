@@ -2244,9 +2244,11 @@
 			</convert>
 		</widget>
 	</screen>
-	<screen name="NumberZap" position="center,center" size="250,60" title="QuickZap" flags="wfNoBorder" backgroundColor="layer-a-background">
-		<widget name="channel" position="25,8" size="100,40" font="SetrixHD;28" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" />
-		<widget name="number" position="125,8" size="100,40" halign="right" valign="center" font="SetrixHD;28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+	<screen name="NumberZap" position="center,center" size="250,60" title="QuickZap" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel name="b" position="0,0" size="250,60" backgroundColor="layer-b-background" zPosition="-10" />
+		<eLabel name="a" position="1,1" size="248,58" backgroundColor="layer-a-background" zPosition="-9" />
+		<widget name="channel" position="25,10" size="100,40" font="SetrixHD;28" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" />
+		<widget name="number" position="125,10" size="100,40" halign="right" valign="center" font="SetrixHD;28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
 	</screen>
 	<screen name="NumberZapWithName" position="200,21" size="1050,830" title="QuickZap" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="servicenumber" position="323,283" size="387,172" font="global_large; 150" noWrap="0" halign="right" backgroundColor="layer-a-background" transparent="1" valign="center" foregroundColor="layer-a-accent2" zPosition="-1" />
@@ -2516,9 +2518,33 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 	<screen name="MessageBoxSimple" position="240,160" size="800,400" zPosition="1" title="Message" flags="wfNoBorder" backgroundColor="layer-a-background">
 		<panel name="MessageBox-template-3" />
 	</screen>
-	<screen name="MinuteInput" position="center,center" size="250,60" title="QuickZap" flags="wfNoBorder" backgroundColor="layer-a-background">
-		<eLabel text="Minutes:" position="25,8" size="100,40" font="screen_info;28" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" />
-		<widget name="minutes" position="125,8" size="100,40" halign="right" valign="center" font="screen_info;28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+	<screen name="MinuteInput" position="center,center" size="250,60" title="Input" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel name="b" position="0,0" size="250,60" backgroundColor="layer-b-background" zPosition="-10" />
+		<eLabel name="a" position="1,1" size="248,58" backgroundColor="layer-a-background" zPosition="-9" />
+		<eLabel text="Minutes:" position="25,10" size="100,40" font="screen_info;28" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" />
+		<widget name="minutes" position="125,10" size="100,40" halign="right" valign="center" font="screen_info;28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+	</screen>
+	<screen name="InputBox" position="center,center" size="600,60" title="Input" flags="wfNoBorder" zPosition="1" backgroundColor="transparent">
+		<eLabel name="b" position="0,0" size="600,60" backgroundColor="layer-b-background" zPosition="-10" />
+		<eLabel name="a" position="1,1" size="598,58" backgroundColor="layer-a-background" zPosition="-9" />
+		<widget name="text" position="20,10" size="550,40" font="screen_info;28" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" noWrap="0" transparent="1"/>
+		<widget name="input" position="535,10" size="45,40" halign="right" valign="center" font="screen_info;28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
+	</screen>
+	<screen name="PinInputTemplate" >
+		<eLabel name="b" position="0,0" size="600,300" backgroundColor="layer-b-background" zPosition="-10" />
+		<eLabel name="a" position="1,1" size="598,298" backgroundColor="layer-a-background" zPosition="-9" />
+		<widget source="Title" render="Label" position="20,10" foregroundColor="layer-a-title-foreground" size="560,50" halign="center" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1"/>
+		<eLabel name="line1" position="20,69" size="560,1" backgroundColor="layer-a-accent1" zPosition="1" />
+		<widget name="text" position="10,75" size="580,70" font="screen_info;23" valign="bottom" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+		<widget name="service" position="10,150" size="580,40" font="screen_info;30" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" />
+		<widget name="tries" position="20,200" size="560,30" font="screen_info;23" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+		<widget name="input" position="20,245" size="560,40" font="screen_info;30" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+	</screen>
+	<screen name="PinInput" position="center,center" size="600,300" title="PIN code needed" flags="wfNoBorder" zPosition="1" backgroundColor="transparent">
+		<panel name="PinInputTemplate" />
+	</screen>
+	<screen name="PinInputPopup" position="center,center" size="600,300" title="PIN code needed" flags="wfNoBorder" zPosition="1" backgroundColor="transparent">
+		<panel name="PinInputTemplate" />
 	</screen>
 	<screen name="Seekbar" position="353,238" zPosition="2" size="574,230" backgroundColor="transparent" flags="wfNoBorder">
 		<widget name="cursor" position="0,0" size="16,230" pixmap="MetrixHD/epg/timeline-now_z.png" alphatest="blend" zPosition="6" />
