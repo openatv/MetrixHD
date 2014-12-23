@@ -156,8 +156,8 @@
 		<widget source="list" render="Listbox" position="70,120" size="700,450" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
-					MultiContentEntryPixmapAlphaTest(pos = (10, 10), size = (54, 54), png = 3), # index 3 is the interface pixmap
-					MultiContentEntryPixmapAlphaTest(pos = (71, 46), size = (15, 16), png = 4), # index 4 is the default pixmap
+					MultiContentEntryPixmapAlphaBlend(pos = (10, 10), size = (54, 54), png = 3), # index 3 is the interface pixmap
+					MultiContentEntryPixmapAlphaBlend(pos = (71, 46), size = (15, 16), png = 4), # index 4 is the default pixmap
 					MultiContentEntryText(pos = (100, 2), size = (520, 35), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1), # index 1 is the interfacename
 					MultiContentEntryText(pos = (100, 42), size = (520, 25), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_BOTTOM, text = 2), # index 2 is the description
 				],
@@ -700,8 +700,8 @@
 			<convert type="MenuEntryCompare">skin_setup</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_VFD_Giga.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">VFD_Giga</convert>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_LED_Giga.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">LED_Giga</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_VFD_INI.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
@@ -1125,10 +1125,10 @@
 		<widget source="list" render="Listbox" position="70,130" size="700,480" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
-						MultiContentEntryPixmapAlphaTest(pos = (18, 5), size = (48, 48), png = 4), # index 4 is the status pixmap
+						MultiContentEntryPixmapAlphaBlend(pos = (18, 5), size = (48, 48), png = 4), # index 4 is the status pixmap
 						MultiContentEntryText(pos = (90, 5), size = (650, 28), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
 						MultiContentEntryText(pos = (100, 35), size = (650, 20), font=1, flags = RT_HALIGN_LEFT, text = 2, color=0x8A8787, color_sel=0x8A8787), # index 2 is the description
-						MultiContentEntryPixmapAlphaTest(pos = (5, 58), size = (0, 0), png = 5), # index 4 is the div pixmap
+						MultiContentEntryPixmapAlphaBlend(pos = (5, 58), size = (0, 0), png = 5), # index 4 is the div pixmap
 					],
 				"fonts": [gFont("Regular",22),gFont("Regular",16)],
 				"itemHeight": 60
@@ -1662,8 +1662,8 @@
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_system_videoenhancement_setup.png" transparent="1" alphatest="blend" />
 	</screen>
-	<screen name="VFD_GigaSetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Setup VFD Gigablue" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
+	<screen name="LED_GigaSetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Setup LED Gigablue" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,100" size="700,515" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="description" position="825,420" size="380,175" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -1697,7 +1697,7 @@
 		<widget source="list" render="Listbox" position="70,100" size="700,350" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" scrollbarMode="showOnDemand" enableWrapAround="1">
 			<convert type="TemplatedMultiContent">
 							{"template": [
-									MultiContentEntryPixmapAlphaTest(pos = (2, 8), size = (54, 54), png = 2), # index 3 is the interface pixmap
+									MultiContentEntryPixmapAlphaBlend(pos = (2, 8), size = (54, 54), png = 2), # index 3 is the interface pixmap
 									MultiContentEntryText(pos = (65, 6), size = (450, 54), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_WRAP, text = 1), # index 1 is the interfacename
 								],
 							"fonts": [gFont("Regular",20),gFont("Regular",20)],
@@ -1895,7 +1895,7 @@
 				{"template": [
 						MultiContentEntryText(pos = (60, 5), size = (620, 28), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 2 is the Menu Titel
 						MultiContentEntryText(pos = (70, 35), size = (610, 20), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 3 is the Description
-						MultiContentEntryPixmapAlphaTest(pos = (10, 6), size = (48, 48), png = 3), # index 4 is the pixmap
+						MultiContentEntryPixmapAlphaBlend(pos = (10, 6), size = (48, 48), png = 3), # index 4 is the pixmap
 					],
 				"fonts": [gFont("Regular",22),gFont("Regular",16)],
 				"itemHeight": 60
@@ -1929,12 +1929,12 @@
 		<widget source="config" render="Listbox" position="70,220" size="700,360" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
-						MultiContentEntryPixmapAlphaTest(pos = (40, 6), size = (48, 48), png = 0), # index 0 is the isMounted pixmap
+						MultiContentEntryPixmapAlphaBlend(pos = (40, 6), size = (48, 48), png = 0), # index 0 is the isMounted pixmap
 						MultiContentEntryText(pos = (210, 5), size = (200, 28), font=0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is the sharename
 						MultiContentEntryText(pos = (390, 8), size = (250, 20), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the IPdescription
 						MultiContentEntryText(pos = (210, 35), size = (350, 20), font=1, flags = RT_HALIGN_LEFT, text = 3), # index 3 is the DIRdescription
-						MultiContentEntryPixmapAlphaTest(pos = (600, 15), size = (48, 48), png = 4), # index 4 is the activepng pixmap
-						MultiContentEntryPixmapAlphaTest(pos = (630, 6), size = (48, 48), png = 5), # index 4 is the mounttype pixmap
+						MultiContentEntryPixmapAlphaBlend(pos = (600, 15), size = (48, 48), png = 4), # index 4 is the activepng pixmap
+						MultiContentEntryPixmapAlphaBlend(pos = (630, 6), size = (48, 48), png = 5), # index 4 is the mounttype pixmap
 					],
 				"fonts": [gFont("Regular",22),gFont("Regular",16)],
 				"itemHeight": 60
@@ -1953,12 +1953,12 @@
 		<widget source="list" render="Listbox" position="70,120" size="700,480" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
-						MultiContentEntryPixmapAlphaTest(pos = (10, 6), size = (48, 48), png = 1), # index 1 is the expandable/expanded/verticalline icon
+						MultiContentEntryPixmapAlphaBlend(pos = (10, 6), size = (48, 48), png = 1), # index 1 is the expandable/expanded/verticalline icon
 						MultiContentEntryText(pos = (70, 4), size = (600, 26), font=2, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the Hostname
 						MultiContentEntryText(pos = (160, 5), size = (510, 25), font=0, flags = RT_HALIGN_LEFT, text = 3), # index 3 is the sharename
 						MultiContentEntryText(pos = (160, 32), size = (510, 17), font=1, flags = RT_HALIGN_LEFT, text = 4), # index 4 is the sharedescription
-						MultiContentEntryPixmapAlphaTest(pos = (65, 6), size = (48, 48), png = 5), # index 5 is the nfs/cifs icon
-						MultiContentEntryPixmapAlphaTest(pos = (110, 6), size = (48, 48), png = 6), # index 6 is the isMounted icon
+						MultiContentEntryPixmapAlphaBlend(pos = (65, 6), size = (48, 48), png = 5), # index 5 is the nfs/cifs icon
+						MultiContentEntryPixmapAlphaBlend(pos = (110, 6), size = (48, 48), png = 6), # index 6 is the isMounted icon
 					],
 				"fonts": [gFont("SetrixHD",22),gFont("SetrixHD",17),gFont("SetrixHD",24)],
 				"itemHeight": 60
@@ -1990,7 +1990,7 @@
 			<convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryText(pos = (80, 4), size = (590, 50), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
-						MultiContentEntryPixmapAlphaTest(pos = (10, 6), size = (48, 48), png = 3), # index 4 is the status pixmap
+						MultiContentEntryPixmapAlphaBlend(pos = (10, 6), size = (48, 48), png = 3), # index 4 is the status pixmap
 					],
 				"fonts": [gFont("SetrixHD",40)],
 				"itemHeight": 60
@@ -3269,8 +3269,8 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 				{"template": [
 						MultiContentEntryText(pos = (5, 1), size = (590, 28), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
 						MultiContentEntryText(pos = (5, 26), size = (590, 20), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
-						MultiContentEntryPixmapAlphaTest(pos = (605, 2), size = (48, 48), png = 4), # index 4 is the status pixmap
-						MultiContentEntryPixmapAlphaTest(pos = (0, 50), size = (700, 2), png = 5), # index 5 is the div pixmap
+						MultiContentEntryPixmapAlphaBlend(pos = (605, 2), size = (48, 48), png = 4), # index 4 is the status pixmap
+						MultiContentEntryPixmapAlphaBlend(pos = (0, 50), size = (700, 2), png = 5), # index 5 is the div pixmap
 					],
 				"fonts": [gFont("Regular",22),gFont("Regular",16)],
 				"itemHeight": 52
@@ -3363,10 +3363,10 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 		<widget source="list" render="Listbox" position="70,110" size="700,480" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
-						MultiContentEntryPixmapAlphaTest(pos = (18, 5), size = (48, 48), png = 4), # index 4 is the status pixmap
+						MultiContentEntryPixmapAlphaBlend(pos = (18, 5), size = (48, 48), png = 4), # index 4 is the status pixmap
 						MultiContentEntryText(pos = (90, 5), size = (590, 28), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
 						MultiContentEntryText(pos = (100, 35), size = (590, 20), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
-						MultiContentEntryPixmapAlphaTest(pos = (5, 58), size = (0, 0), png = 5), # index 4 is the div pixmap
+						MultiContentEntryPixmapAlphaBlend(pos = (5, 58), size = (0, 0), png = 5), # index 4 is the div pixmap
 					],
 				"fonts": [gFont("Regular",22),gFont("Regular",16)],
 				"itemHeight": 60
@@ -3399,7 +3399,7 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 			<convert type="TemplatedMultiContent">
 			{"templates":
 				{"default": (105,[
-						MultiContentEntryPixmapAlphaTest(pos = (18, 14), size = (48, 48), png = 5), # index 5 is the status pixmap
+						MultiContentEntryPixmapAlphaBlend(pos = (18, 14), size = (48, 48), png = 5), # index 5 is the status pixmap
 						MultiContentEntryText(pos = (90, 5), size = (565, 36), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
 						MultiContentEntryText(pos = (100, 33), size = (555, 38), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
 					]),
@@ -3425,7 +3425,7 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 		<widget source="list" render="Listbox" position="70,110" size="700,480" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
-						MultiContentEntryPixmapAlphaTest(pos = (18, 14), size = (48, 48), png = 2), # index 2 is the status pixmap
+						MultiContentEntryPixmapAlphaBlend(pos = (18, 14), size = (48, 48), png = 2), # index 2 is the status pixmap
 						MultiContentEntryText(pos = (90, 5), size = (565, 26), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
 						MultiContentEntryText(pos = (90, 33), size = (565, 38), font=1, flags = RT_HALIGN_LEFT, text = 1), # index 1 is the state
 					],
@@ -3448,7 +3448,7 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 				{"template": [
 						MultiContentEntryText(pos = (90, 5), size = (565, 26), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
 						MultiContentEntryText(pos = (90, 33), size = (565, 38), font=1, flags = RT_HALIGN_LEFT, text = 1), # index 1 is the state
-						MultiContentEntryPixmapAlphaTest(pos = (15, 5), size = (48, 48), png = 2), # index 2 is the status pixmap
+						MultiContentEntryPixmapAlphaBlend(pos = (15, 5), size = (48, 48), png = 2), # index 2 is the status pixmap
 					],
 				"fonts": [gFont("Regular",22),gFont("Regular",16)],
 				"itemHeight": 75
@@ -3516,7 +3516,7 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 			<convert type="TemplatedMultiContent">
 				{"template": [
 					MultiContentEntryText(pos = (50, 3), size = (650, 25), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 0),
-					MultiContentEntryPixmapAlphaTest(pos = (5, 1), size = (24, 24), png = 1),
+					MultiContentEntryPixmapAlphaBlend(pos = (5, 1), size = (24, 24), png = 1),
 					],
 					"fonts": [gFont("Regular",20), gFont("Regular",16)],
 					"itemHeight": 30
