@@ -1228,7 +1228,7 @@
 							MultiContentEntryText(pos = (480, 1), size = (70, 24), font=0, flags = RT_HALIGN_LEFT, text = 7), # index 7 is sum of cards for caid
 							MultiContentEntryText(pos = (550, 1), size = (80, 24), font=0, flags = RT_HALIGN_LEFT, text = 8), # index 8 is reshare
 							MultiContentEntryText(pos = (0, 25), size = (700, 24), font=1, flags = RT_HALIGN_LEFT, text = 9), # index 9 is providers
-													]),
+							]),
 					"HD": (55,[
 							MultiContentEntryText(pos = (0, 1), size = (80, 24), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is caid
 							MultiContentEntryText(pos = (90, 1), size = (150, 24), font=0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is csystem
@@ -1958,13 +1958,13 @@
 			<convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryPixmapAlphaBlend(pos = (10, 6), size = (48, 48), png = 1), # index 1 is the expandable/expanded/verticalline icon
-						MultiContentEntryText(pos = (70, 4), size = (600, 26), font=2, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the Hostname
-						MultiContentEntryText(pos = (160, 5), size = (510, 25), font=0, flags = RT_HALIGN_LEFT, text = 3), # index 3 is the sharename
-						MultiContentEntryText(pos = (160, 32), size = (510, 17), font=1, flags = RT_HALIGN_LEFT, text = 4), # index 4 is the sharedescription
+						MultiContentEntryText(pos = (70, 14), size = (600, 32), font=2, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the Hostname
+						MultiContentEntryText(pos = (160, 5), size = (510, 30), font=0, flags = RT_HALIGN_LEFT, text = 3), # index 3 is the sharename
+						MultiContentEntryText(pos = (160, 32), size = (510, 22), font=1, flags = RT_HALIGN_LEFT, text = 4), # index 4 is the sharedescription
 						MultiContentEntryPixmapAlphaBlend(pos = (65, 6), size = (48, 48), png = 5), # index 5 is the nfs/cifs icon
 						MultiContentEntryPixmapAlphaBlend(pos = (110, 6), size = (48, 48), png = 6), # index 6 is the isMounted icon
 					],
-				"fonts": [gFont("SetrixHD",22),gFont("SetrixHD",17),gFont("SetrixHD",24)],
+				"fonts": [gFont("screen_text",22),gFont("screen_info",17),gFont("screen_info",24)],
 				"itemHeight": 60
 				}
 			</convert>
