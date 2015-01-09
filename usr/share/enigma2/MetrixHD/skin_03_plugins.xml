@@ -967,13 +967,14 @@
 	</screen>
 	<screen name="DirectoryBrowser" position="0,0" size="1280,720" title="Directorybrowser" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="curdir" render="Label" position="70,100" size="700,30"  font="Regular;20" halign="left" valign="center" backgroundColor="background" foregroundColor="layer-a-foreground" transparent="1" noWrap="1" />
-		<widget name="filelist" position="70,140" size="700,480" zPosition="3" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget source="curdir" render="Label" position="70,115" size="700,33" font="screen_info;23" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
+		<widget name="filelist" position="70,165" size="700,450" zPosition="3" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
-		<panel name="rg__-keys_template1-source"/>		
+		<panel name="rg__-keys_template1-source"/>
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/search.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- NumberZapExt *-->  
 	<!--* VirtualZap -->
@@ -986,14 +987,15 @@
 	    <ePixmap pixmap="MetrixHD/icons/setup.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
 	</screen>	
 	<screen name="DirectoryBrowserVZ" position="0,0" size="1280,720" title=" " backgroundColor="transparent" flags="wfNoBorder">
-		<eLabel text="Directory Browser" position="70,47" size="800,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="curdir" render="Label" position="70,115" size="700,28" font="SetrixHD;23" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel text="Directory Browser" position="70,47" size="525,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="curdir" render="Label" position="70,115" size="700,33" font="screen_info;23" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="filelist" position="70,165" size="700,450" zPosition="3" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer"/>
 		<panel name="rg__-keys_template1-source"/>
-		<panel name="rg__-buttons_template1"/>		
-	    <ePixmap pixmap="MetrixHD/icons/search.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+		<panel name="rg__-buttons_template1"/>
+		<panel name="_oe-buttons_template1" />
+		<ePixmap pixmap="MetrixHD/icons/search.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
 	</screen>	
 	<screen name="VirtualZapPiconNoPiP" position="0,0" size="1280,720" title="Virtual Zap" backgroundColor="transparent" flags="wfNoBorder">
 		<eLabel name="InfoBar" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" position="-1,560" size="1283,160" zPosition="-10"/>
@@ -1224,8 +1226,8 @@
 		<panel name="template1_2layer" />
 		<panel name="rgy_-buttons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<eLabel name="up" position="40,271" zPosition="2" size="755,55" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<eLabel name="down" position="40,478" zPosition="2" size="755,55" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel position="40,271" zPosition="2" size="755,55" backgroundColor="layer-a-background" />
+		<eLabel position="40,478" zPosition="2" size="755,55" backgroundColor="layer-a-background" />
 		<widget name="previewImage" position="130,275" size="256,256" backgroundColor="layer-a-background" zPosition="1" transparent="1" alphatest="blend" />
 		<widget name="backgroundImage" position="430,275" size="256,256" backgroundColor="layer-a-background" zPosition="1" transparent="1" alphatest="blend" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/skin_selector.png" transparent="1" alphatest="blend" />
@@ -1668,7 +1670,7 @@
 		<widget source="Title" render="Label" position="70,47" size="900,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" noWrap="0" transparent="1" />
 		<widget source="playtext" render="Label" position="70,553" zPosition="2" size="1145,63" font="screen_info;20" valign="center" halign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="0" /> 
 		<widget name="rec_txt" position="70,100" size="700,35" font="screen_text;22" halign="center" valign="center" foregroundColor="#00f47d19" zPosition="2" backgroundColor="layer-a-background" transparent="1"/> 
-		<widget name="config" position="70,145" size="700,385" zPosition="3" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" scrollbarMode="showOnDemand" enableWrapAround="1"/>
+		<widget name="config" position="70,145" size="700,385" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" scrollbarMode="showOnDemand" enableWrapAround="1"/>
 		<eLabel position="60,618"  size="1165,2" backgroundColor="layer-a-accent2"/>
 		<eLabel position="800,100"  size="2,450" backgroundColor="layer-a-accent2"/>
 		<eLabel position="60,548"  size="1165,2" backgroundColor="layer-a-accent2"/>
@@ -1694,9 +1696,9 @@
 		<widget name="buttons_abdeck" position="220,635" zPosition="12" size="825,40" valign="center" font="global_button;20" halign="center" foregroundColor="layer-a-background" backgroundColor="layer-a-background" />           
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
-		<ePixmap position="855,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_help.png" alphatest="blend" />
-		<ePixmap position="950,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
-		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="on" />
+		<ePixmap position="855,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_help.png" transparent="1" alphatest="blend" />
+		<ePixmap position="950,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="genre_anzeige_12" position="0,0" backgroundColor="transparent" flags="wfNoBorder" size="1280,720" title="webradioFS" >
 		<panel name="WebradioFSScreen_template" />
@@ -1778,5 +1780,40 @@
 		<panel name="wbrScreenSaver_template" />
 	</screen>
 	<!--WebradioFS -->
+	<!-- PiconManager -->
+	<screen name="PiconManagerScreen" title="PiconManager" position="0,0" size="1280,720" backgroundColor="transparent" flags="wfNoBorder">
+		<widget source="Title" render="Label" position="70,47" size="900,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" noWrap="0" transparent="1" />
+		<widget name="piconpath" position="70,110" size="690,60" font="screen_label;20" foregroundColor="#00fba207"  backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="piconpath2" position="375,110" size="500,60" font="screen_text;20" foregroundColor="layer-a-foreground"  backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="piconspace" position="70,140" size="690,60" font="screen_label;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="piconcount" position="70,170" size="690,60" font="screen_text;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="picondownload" position="70,200" size="690,60" font="screen_label;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="piconerror" position="70,230" size="690,60" font="screen_label;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="piconslidername" position="70,260" size="690,60" font="screen_label;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="selectedname" position="70,290" size="690,40" font="screen_label;20" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="selected" position="375,290" size="690,40" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="spiconname" position="70,320" size="690,40" font="screen_label;20" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="spicon" position="375,320" size="690,40" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="piconslider" position="375,264" size="350,20" zPosition="2" borderWidth="2" foregroundColor="layer-a-progress" borderColor="layer-a-accent1"  />
+		<widget name="picon" position="815,105" size="400,240" zPosition="4" transparent="1" borderWidth="0" borderColor="layer-a-background" alphatest="blend" />
+		<widget name="list" position="70,365" size="1145,250" font="screen_text;20" zPosition="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" scrollbarMode="showOnDemand" enableWrapAround="1"/>
+		<panel name="template1_1layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_help.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="PiconManagerFolderScreen" position="0,0" size="1280,720" title="" backgroundColor="transparent" flags="wfNoBorder">
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="media" position="70,115" size="700,33" font="screen_info;23" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
+		<widget name="folderlist" position="70,165" size="700,450" font="screen_text;20" zPosition="3" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source"/>
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/search.png" transparent="1" alphatest="blend" />
+	</screen>	
+	<!-- PiconManager -->
 <!-- PLUGINS */-->
 </skin>
