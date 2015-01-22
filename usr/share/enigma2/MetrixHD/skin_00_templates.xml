@@ -1249,7 +1249,6 @@
 		<screen name="MENU_template-1">
 			<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" transparent="0"  />
 			<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
-			<widget source="title" render="Label" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" transparent="1" backgroundColor="text-background" foregroundColor="background-text" valign="top" zPosition="-50" />
 			<widget source="menu" render="Listbox" position="636,60" size="499,545" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
 				<convert type="TemplatedMultiContent">
 					{"template": [ MultiContentEntryText(pos = (30, 5), size = (490, 50), flags = RT_HALIGN_LEFT, text = 0) ],
@@ -1259,11 +1258,11 @@
 				</convert>
 			</widget>
 			<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
+			<widget source="Title" render="Label" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" transparent="1" backgroundColor="text-background" foregroundColor="background-text" valign="top" zPosition="-50" />
 		</screen>
 	<screen name="CONTEXTMENU_template-1" >
 		<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" transparent="0" />
 		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
-		<!--widget source="title" render="Label" position="264,51" size="340,30" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" noWrap="0"/-->
 		<widget source="menu" render="Listbox"  position="636,60" size="499,540" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [ MultiContentEntryText(pos = (40, 5), size = (500, 45), flags = RT_HALIGN_LEFT, text = 0) ],
@@ -1272,6 +1271,13 @@
 				}
 			</convert>
 		</widget>
+		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
+		<widget source="Title" render="Label" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-50" />
+	</screen>
+	<screen name="CONTEXTMENU2_template-1">
+		<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" transparent="0"  />
+		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
+		<widget name="menu" position="636,60" size="499,540" font="global_menu;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" itemHeight="45" enableWrapAround="1" transparent="1" />
 		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
 		<widget source="Title" render="Label" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-50" />
 	</screen>

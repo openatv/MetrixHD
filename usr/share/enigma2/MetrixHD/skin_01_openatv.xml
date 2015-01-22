@@ -2945,7 +2945,7 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 		<panel name="__e-buttons_template1" />
 	</screen>
 	<screen name="EventView" position="0,0" size="1280,720" title="Eventview" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Eventview" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
+		<eLabel text="Event view" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
 		<widget source="Title" render="MetrixHDXPicon" position="907,80" size="220,132" zPosition="5" transparent="1" alphatest="blend">
 			<convert type="MetrixRefString">CurrentRef</convert>
 		</widget>
@@ -3036,7 +3036,19 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 		</widget>
 		<panel name="template1_2layer" />
 		<panel name="ime-buttons_template1" />
-		<eLabel text="EventviewSimple" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
+		<eLabel text="Event view Simple" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
+	</screen>
+	<!-- Eventview Contextmenu -->
+	<screen name="EventViewContextMenu" position="0,0" size="1280,720" title="Eventview Menu" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="CONTEXTMENU2_template" />
+		<ePixmap position="305,80" size="256,256" pixmap="MetrixHD/icons/service_info.png" alphatest="blend" />
+		<!--eLabel text="Event view Menu" position="0,550" size="1273,296" font="global_large;150" noWrap="0" transparent="1" backgroundColor="text-background" foregroundColor="background-text" valign="top" zPosition="-50" /-->
+	</screen>
+	<!-- Channellist Contextmenu -->
+	<screen name="ChannelContextMenu" position="0,0" size="1280,720" title="Channellist Menu" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="CONTEXTMENU2_template" />
+		<ePixmap position="305,80" size="256,256" pixmap="MetrixHD/icons/service_info.png" alphatest="blend" />
+		<!--eLabel text="Channel list Menu" position="0,550" size="1273,296" font="global_large;150" noWrap="0" transparent="1" backgroundColor="text-background" foregroundColor="background-text" valign="top" zPosition="-50" /-->
 	</screen>
 	<!-- Service Scan Screens -->
 	<screen name="NimSelection" position="0,0" size="1280,720" title="Choose Tuner" flags="wfNoBorder" backgroundColor="transparent">
@@ -3051,7 +3063,7 @@ self.instance.move(ePoint(640 - (newwidth/2),360 - (newheight/2)-40))
 				 "itemHeight": 110
 				}
 			</convert>
-		</widget>		
+		</widget>
 		<panel name="template1_2layer" />
 	    <panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_tuner_setup.png" transparent="1" alphatest="blend" />	
