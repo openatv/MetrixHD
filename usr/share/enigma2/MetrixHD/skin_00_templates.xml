@@ -1,3 +1,8 @@
+<!-- run_mod -->
+	<!-- changing next lines -->
+<!-- stop_mod -->
+	<!-- no changing next lines -->
+<!-- run_mod -->
 <skin>
 	<!--/* TEMPLATES -->
 		<!--/* BUTTONS /> -->
@@ -298,7 +303,7 @@
 		</screen>
 		<screen name="MOVIENAME">
 			<!--/* MOVIE NAME -->
-			<widget font="global_large; 80"  backgroundColor="text-background" foregroundColor="background-text" noWrap="1" position="35,465" render="Label" size="1252,105" source="session.CurrentService" transparent="1" valign="bottom" zPosition="-30">
+			<widget font="global_large; 80" backgroundColor="text-background" foregroundColor="background-text" noWrap="1" position="35,465" render="Label" size="1252,105" source="session.CurrentService" transparent="1" valign="bottom" zPosition="-30">
 				<convert type="MetrixHDExtServiceInfo">ServiceNumberAndName</convert>
 			</widget>
 			<!-- MOVIE NAME */-->
@@ -760,7 +765,7 @@
 				<convert type="ConditionalShowHide" />
 			</widget>
 			<!-- CRYPT */ -->
-			<widget source="session.CurrentService" position="535,697" size="702,20"  render="Label" font="global_small; 16" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" transparent="1" noWrap="1">
+			<widget source="session.CurrentService" position="535,697" size="702,20" render="Label" font="global_small; 16" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" transparent="1" noWrap="1">
 				<convert type="MetrixHDCaidDisplay">Default</convert>
 			</widget>
 		</screen>
@@ -1247,23 +1252,24 @@
 			<!--ClockWidget */-->
 		</screen>
 		<screen name="MENU_template-1">
-			<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" transparent="0"  />
+			<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" transparent="0" />
 			<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
-			<widget source="menu" render="Listbox" position="636,60" size="499,545" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
+			<widget source="menu" render="Listbox" position="636,60" size="499,540" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
 				<convert type="TemplatedMultiContent">
-					{"template": [ MultiContentEntryText(pos = (30, 5), size = (490, 50), flags = RT_HALIGN_LEFT, text = 0) ],
+					{"template": [ MultiContentEntryText(pos = (30, 5), size = (490, 60), flags = RT_HALIGN_LEFT, text = 0) ],
 					"fonts": [gFont("global_menu", 30)],
 					"itemHeight": 60
 					}
 				</convert>
 			</widget>
 			<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
-			<widget source="Title" render="Label" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" transparent="1" backgroundColor="text-background" foregroundColor="background-text" valign="top" zPosition="-50" />
+			<!--widget source="Title" render="Label" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" transparent="1" backgroundColor="text-background" foregroundColor="background-text" valign="top" zPosition="-50" /-->
+			<widget source="Title" render="Label" position="5,535" size="1280,200" font="global_large; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		</screen>
 	<screen name="CONTEXTMENU_template-1" >
 		<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" transparent="0" />
 		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
-		<widget source="menu" render="Listbox"  position="636,60" size="499,540" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
+		<widget source="menu" render="Listbox" position="636,60" size="499,540" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [ MultiContentEntryText(pos = (40, 5), size = (500, 45), flags = RT_HALIGN_LEFT, text = 0) ],
 				"fonts": [gFont("global_menu", 22)],
@@ -1272,20 +1278,20 @@
 			</convert>
 		</widget>
 		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
-		<widget source="Title" render="Label" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-50" />
+		<widget source="Title" render="Label" position="5,535" size="1280,200" font="global_large; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 	</screen>
 	<screen name="CONTEXTMENU2_template-1">
-		<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" transparent="0"  />
+		<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="layer-a-background" transparent="0" />
 		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="layer-a-background" transparent="0" />
 		<widget name="menu" position="636,60" size="499,540" font="global_menu;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" itemHeight="45" enableWrapAround="1" transparent="1" />
 		<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
-		<widget source="Title" render="Label" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-50" />
+		<widget source="Title" render="Label" position="5,535" size="1280,200" font="global_large; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 	</screen>
 	<!-- CHANNELSELECTION 1 FOCUS LEFT NO PICON 5 NEXT EVENTS */ -->
 	<screen name="CHANNELSELECTION-1">
-		<eLabel text="Channel Selection" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
+		<eLabel text="Channel Selection" position="5,535" size="1280,200" font="global_large; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title; 35" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="50" />
+		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="40" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="40" />
 		<widget source="ServiceEvent" render="Label" position="820,80" size="395,65" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center">
 			<convert type="EventName">Name</convert>
 		</widget>
@@ -1312,9 +1318,9 @@
 	</screen>
 	<!-- CHANNELSELECTION 2 FOCUS LEFT PICON 1 NEXT EVENT */ -->
 	<screen name="CHANNELSELECTION-2">
-		<eLabel text="Channel Selection" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
+		<eLabel text="Channel Selection" position="5,535" size="1280,200" font="global_large; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title; 35" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="50" />
+		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="40" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="40" />
 		<widget alphatest="blend" position="907,80" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="0" zPosition="1">
 			<convert type="MetrixRefString">ServicelistRef</convert>
 		</widget>
@@ -1346,8 +1352,8 @@
 	<!-- CHANNELSELECTION 3 FOCUS RIGHT 1 BIG PICON 1 NEXT EVENT */ -->
 	<screen name="CHANNELSELECTION-3">
 		<panel name="SkinDesign-s" />
-		<eLabel text="Channel Selection" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
-		<widget name="list" position="423,107" size="787,510" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="50" />
+		<eLabel text="Channel Selection" position="5,535" size="1280,200" font="global_large; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<widget name="list" position="423,107" size="787,510" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="30" />
 		<widget alphatest="blend" position="112,61" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="1" zPosition="1">
 			<convert type="MetrixRefString">ServicelistRef</convert>
 		</widget>
@@ -1379,8 +1385,8 @@
 	<!-- CHANNELSELECTION 4 FOCUS RIGHT NO PICON 5 NEXT EVENT */ -->
 	<screen name="CHANNELSELECTION-4">
 		<panel name="SkinDesign-s" />
-		<eLabel text="Channel Selection" position="0,550" size="1273,296" font="global_large; 150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-20" />
-		<widget name="list" position="423,107" size="787,510" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="50" />
+		<eLabel text="Channel Selection" position="5,535" size="1280,200" font="global_large; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<widget name="list" position="423,107" size="787,510" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="30" />
 		<widget source="ServiceEvent" render="Label" position="62,66" size="320,65" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" valign="center" halign="center">
 			<convert type="EventName">Name</convert>
 		</widget>

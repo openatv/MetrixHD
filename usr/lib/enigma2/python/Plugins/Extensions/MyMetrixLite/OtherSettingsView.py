@@ -30,6 +30,7 @@ from Components.Sources.StaticText import StaticText
 from Components.Pixmap import Pixmap
 from enigma import ePicLoad
 from os import path
+from enigma import gMainDC, getDesktop
 
 #############################################################
 
@@ -104,7 +105,26 @@ class OtherSettingsView(ConfigListScreen, Screen):
         if cur == "PRESET":
             self.getPreset()
 
-        if cur == "ENABLED" or cur == "PRESET":
+        if cur == "ENABLED" or cur == "ENABLED_FHD" or cur == "PRESET":
+            self["config"].setList(self.getMenuItemList())
+
+        self.x = getDesktop(0).size().width()
+        self.y = getDesktop(0).size().height()
+        if cur == "ENABLED_FHD" and config.plugins.MyMetrixLiteOther.FHDenabled.value and self.x < 1920 and self.y < 1080:
+            self.session.openWithCallback(self.resolutionTest, MessageBox, _("If you chose 'yes', then starts the resolution test.\n\nCan't you see the next message,\nthe old resolution will automatically after 10 seconds restored."), default = False)
+
+    def resolutionTest(self, result):
+        if not result:
+            config.plugins.MyMetrixLiteOther.FHDenabled.setValue(False)
+            self["config"].setList(self.getMenuItemList())
+            return
+        gMainDC.getInstance().setResolution(1920, 1080)
+        self.session.openWithCallback(self.resolutionCheck, MessageBox, _("Can you see this, then is the receiver ready for FHD - skin.\n\nDo you want to change from HD to FHD - skin?"), default = False, timeout = 10)
+
+    def resolutionCheck(self, result):
+        gMainDC.getInstance().setResolution(self.x, self.y)
+        if not result:
+            config.plugins.MyMetrixLiteOther.FHDenabled.setValue(False)
             self["config"].setList(self.getMenuItemList())
 
     def getPreset(self):
@@ -222,7 +242,13 @@ class OtherSettingsView(ConfigListScreen, Screen):
     def getMenuItemList(self):
         
         list = []
-
+        list.append(getConfigListEntry(_("FHD-Option   ------------------------------------------------------------------------------------------------"), ))
+        list.append(getConfigListEntry(_("Enable FHD"), config.plugins.MyMetrixLiteOther.FHDenabled, "ENABLED_FHD"))
+        if config.plugins.MyMetrixLiteOther.FHDenabled.getValue() is True:
+            list.append(getConfigListEntry(_("All calculated values round down"), config.plugins.MyMetrixLiteOther.FHDrounddown))
+            list.append(getConfigListEntry(_("Method of font scaling"), config.plugins.MyMetrixLiteOther.FHDfontsize))
+            list.append(getConfigListEntry(_("Additional offset for font scaling"), config.plugins.MyMetrixLiteOther.FHDfontoffset))
+            list.append(getConfigListEntry(_("Calculating additional files"), config.plugins.MyMetrixLiteOther.FHDadditionalfiles))
         list.append(getConfigListEntry(_("STB-Info   ------------------------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Distance between the STB-Infos"), config.plugins.MyMetrixLiteOther.STBDistance))
         list.append(getConfigListEntry(_("Show CPU-Load"), config.plugins.MyMetrixLiteOther.showCPULoad))
@@ -391,6 +417,11 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
     def defaults(self):
 
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDenabled)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDrounddown)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDfontsize)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDfontoffset)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDadditionalfiles)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.STBDistance)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showCPULoad)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showRAMfree)

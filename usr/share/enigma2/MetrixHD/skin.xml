@@ -1,3 +1,8 @@
+<!-- run_mod -->
+	<!-- changing next lines -->
+<!-- stop_mod -->
+	<!-- no changing next lines -->
+<!-- run_mod -->
 <skin>
 	<!-- MetrixHD v2.5 by iMaxxx | optimized for openATV 4.0 -->
 	<!-- recommended to use with XPicons -->
@@ -113,6 +118,10 @@
 	<!-- infobar, movieplayer -->
 		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="infobar_event" scale="100" />				<!--Event/Service Name-->
 		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="infobar_text" scale="95" />		<!--Other Text-->
+		<!-- Aliases that should be present -->
+		<alias name="Body" font="screen_text" size="20" height="25" />
+		<alias name="ChoiceList" font="screen_text" size="20" height="25" />
+		<alias name="TextNormal" font="screen_text" size="20" height="25" />
 	</fonts>
 	<subtitles>
 		<sub name="Subtitle_TTX" font="Regular;30" shadowColor="#40101010" shadowOffset="3,3" />
@@ -121,7 +130,7 @@
 		<sub name="Subtitle_Italic" font="Regular;30" foregroundColor="undcaaaa" shadowColor="#40101010" shadowOffset="3,3" />
 	</subtitles>
 	<windowstyle type="skinned" id="0">
-		<title offset="0,0" font="SetrixHD;40" />
+		<title offset="0,0" font="global_title;35" />
 		<color name="Background" color="layer-a-background" />
 		<color name="LabelForeground" color="layer-a-foreground" />
 		<color name="ListboxBackground" color="layer-a-background" />
