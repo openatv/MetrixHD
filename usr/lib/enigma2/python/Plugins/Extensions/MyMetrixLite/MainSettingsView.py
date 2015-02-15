@@ -18,12 +18,21 @@
 #
 #######################################################################
 
-from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, initFontsConfig, getTunerPositionList, appendSkinFile, \
-    SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, MAIN_IMAGE_PATH, SKIN_INFOBAR_TARGET, SKIN_INFOBAR_SOURCE, \
-    SKIN_SECOND_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET_TMP, SKIN_SECOND_INFOBAR_TARGET, SKIN_SECOND_INFOBAR_TARGET_TMP, \
+from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, initFontsConfig, getTunerPositionList, appendSkinFile, MAIN_IMAGE_PATH, \
+    SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, \
+    SKIN_TEMPLATES_SOURCE, SKIN_TEMPLATES_TARGET, SKIN_TEMPLATES_TARGET_TMP, \
+    SKIN_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET, SKIN_INFOBAR_TARGET_TMP, \
+    SKIN_SECOND_INFOBAR_SOURCE, SKIN_SECOND_INFOBAR_TARGET, SKIN_SECOND_INFOBAR_TARGET_TMP, \
+    SKIN_SECOND_INFOBAR_ECM_SOURCE, SKIN_SECOND_INFOBAR_ECM_TARGET, SKIN_SECOND_INFOBAR_ECM_TARGET_TMP, \
+    SKIN_INFOBAR_LITE_SOURCE, SKIN_INFOBAR_LITE_TARGET, SKIN_INFOBAR_LITE_TARGET_TMP, \
     SKIN_CHANNEL_SELECTION_SOURCE, SKIN_CHANNEL_SELECTION_TARGET, SKIN_CHANNEL_SELECTION_TARGET_TMP, \
     SKIN_MOVIEPLAYER_SOURCE, SKIN_MOVIEPLAYER_TARGET, SKIN_MOVIEPLAYER_TARGET_TMP, \
-    SKIN_EMC_SOURCE, SKIN_EMC_TARGET, SKIN_EMC_TARGET_TMP
+    SKIN_EMC_SOURCE, SKIN_EMC_TARGET, SKIN_EMC_TARGET_TMP, \
+    SKIN_OPENATV_SOURCE, SKIN_OPENATV_TARGET, SKIN_OPENATV_TARGET_TMP, \
+    SKIN_DISPLAY_SOURCE, SKIN_DISPLAY_TARGET, SKIN_DISPLAY_TARGET_TMP, \
+    SKIN_PLUGINS_SOURCE, SKIN_PLUGINS_TARGET, SKIN_PLUGINS_TARGET_TMP, \
+    SKIN_CHECK_SOURCE, SKIN_CHECK_TARGET, SKIN_CHECK_TARGET_TMP, \
+    SKIN_UNCHECKED_SOURCE, SKIN_UNCHECKED_TARGET, SKIN_UNCHECKED_TARGET_TMP
 
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -36,27 +45,38 @@ from Components.MultiContent import MultiContentEntryText
 from Components.Pixmap import Pixmap
 from Components.NimManager import nimmanager
 from Components.Sources.StaticText import StaticText
-from shutil import move
-from enigma import ePicLoad, eListboxPythonMultiContent, gFont
+from shutil import move, copy
+from enigma import ePicLoad, eListboxPythonMultiContent, gFont, getDesktop
 from ColorsSettingsView import ColorsSettingsView
 from WeatherSettingsView import WeatherSettingsView
 from OtherSettingsView import OtherSettingsView
 from FontsSettingsView import FontsSettingsView
+from os import path, remove, statvfs
 
 #############################################################
 
 class MainMenuList(MenuList):
     def __init__(self, list, font0 = 24, font1 = 16, itemHeight = 50, enableWrapAround = True):
         MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
-        self.l.setFont(0, gFont("Regular", font0))
-        self.l.setFont(1, gFont("Regular", font1))
-        self.l.setItemHeight(itemHeight)
+        screenwidth = getDesktop(0).size().width()
+        if screenwidth and screenwidth == 1920:
+            self.l.setFont(0, gFont("Regular", int(font0*1.5)))
+            self.l.setFont(1, gFont("Regular", int(font1*1.5)))
+            self.l.setItemHeight(int(itemHeight*1.5))
+        else:
+            self.l.setFont(0, gFont("Regular", font0))
+            self.l.setFont(1, gFont("Regular", font1))
+            self.l.setItemHeight(itemHeight)
 
 #############################################################
 
 def MenuEntryItem(itemDescription, key):
     res = [(itemDescription, key)]
-    res.append(MultiContentEntryText(pos=(10, 5), size=(440, 40), font=0, text=itemDescription))
+    screenwidth = getDesktop(0).size().width()
+    if screenwidth and screenwidth == 1920:
+        res.append(MultiContentEntryText(pos=(15, 8), size=(660, 68), font=0, text=itemDescription))
+    else:
+        res.append(MultiContentEntryText(pos=(10, 5), size=(440, 45), font=0, text=itemDescription))
     return res
 
 #############################################################
@@ -120,7 +140,7 @@ class MainSettingsView(Screen):
         list.append(MenuEntryItem(_("Weather settings"), "WEATHER"))
         list.append(MenuEntryItem(_("Other settings"), "OTHER"))
 
-        self["menuList"] = MainMenuList([], font0=24, font1=15, itemHeight=50)
+        self["menuList"] = MainMenuList([], font0=24, font1=16, itemHeight=50)
         self["menuList"].l.setList(list)
 
         if not self.__selectionChanged in self["menuList"].onSelectionChanged:
@@ -189,6 +209,63 @@ class MainSettingsView(Screen):
     def applyChanges(self):
         print"MyMetrixLite apply Changes"
         try:
+            skinfiles_HD = [(SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP),
+                        #(SKIN_TEMPLATES_SOURCE, SKIN_TEMPLATES_TARGET, SKIN_TEMPLATES_TARGET_TMP),
+                        (SKIN_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET, SKIN_INFOBAR_TARGET_TMP),
+                        (SKIN_SECOND_INFOBAR_SOURCE, SKIN_SECOND_INFOBAR_TARGET, SKIN_SECOND_INFOBAR_TARGET_TMP),
+                        #(SKIN_SECOND_INFOBAR_ECM_SOURCE, SKIN_SECOND_INFOBAR_ECM_TARGET, SKIN_SECOND_INFOBAR_ECM_TARGET_TMP),
+                        #(SKIN_INFOBAR_LITE_SOURCE, SKIN_INFOBAR_LITE_TARGET, SKIN_INFOBAR_LITE_TARGET_TMP),
+                        (SKIN_CHANNEL_SELECTION_SOURCE, SKIN_CHANNEL_SELECTION_TARGET, SKIN_CHANNEL_SELECTION_TARGET_TMP),
+                        (SKIN_MOVIEPLAYER_SOURCE, SKIN_MOVIEPLAYER_TARGET, SKIN_MOVIEPLAYER_TARGET_TMP),
+                        (SKIN_EMC_SOURCE, SKIN_EMC_TARGET, SKIN_EMC_TARGET_TMP)]
+                        #(SKIN_OPENATV_SOURCE, SKIN_OPENATV_TARGET, SKIN_OPENATV_TARGET_TMP),
+                        #(SKIN_DISPLAY_SOURCE, SKIN_DISPLAY_TARGET, SKIN_DISPLAY_TARGET_TMP),
+                        #(SKIN_PLUGINS_SOURCE, SKIN_PLUGINS_TARGET, SKIN_PLUGINS_TARGET_TMP),
+                        #(SKIN_CHECK_SOURCE, SKIN_CHECK_TARGET, SKIN_CHECK_TARGET_TMP),
+                        #(SKIN_UNCHECKED_SOURCE, SKIN_UNCHECKED_TARGET, SKIN_UNCHECKED_TARGET_TMP)]
+
+            skinfiles_FHD = [(SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP),
+                        (SKIN_TEMPLATES_SOURCE, SKIN_TEMPLATES_TARGET, SKIN_TEMPLATES_TARGET_TMP),
+                        (SKIN_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET, SKIN_INFOBAR_TARGET_TMP),
+                        (SKIN_SECOND_INFOBAR_SOURCE, SKIN_SECOND_INFOBAR_TARGET, SKIN_SECOND_INFOBAR_TARGET_TMP),
+                        (SKIN_SECOND_INFOBAR_ECM_SOURCE, SKIN_SECOND_INFOBAR_ECM_TARGET, SKIN_SECOND_INFOBAR_ECM_TARGET_TMP),
+                        (SKIN_INFOBAR_LITE_SOURCE, SKIN_INFOBAR_LITE_TARGET, SKIN_INFOBAR_LITE_TARGET_TMP),
+                        (SKIN_CHANNEL_SELECTION_SOURCE, SKIN_CHANNEL_SELECTION_TARGET, SKIN_CHANNEL_SELECTION_TARGET_TMP),
+                        (SKIN_MOVIEPLAYER_SOURCE, SKIN_MOVIEPLAYER_TARGET, SKIN_MOVIEPLAYER_TARGET_TMP),
+                        (SKIN_EMC_SOURCE, SKIN_EMC_TARGET, SKIN_EMC_TARGET_TMP),
+                        (SKIN_OPENATV_SOURCE, SKIN_OPENATV_TARGET, SKIN_OPENATV_TARGET_TMP),
+                        #(SKIN_DISPLAY_SOURCE, SKIN_DISPLAY_TARGET, SKIN_DISPLAY_TARGET_TMP),
+                        (SKIN_PLUGINS_SOURCE, SKIN_PLUGINS_TARGET, SKIN_PLUGINS_TARGET_TMP),
+                        #(SKIN_CHECK_SOURCE, SKIN_CHECK_TARGET, SKIN_CHECK_TARGET_TMP),
+                        (SKIN_UNCHECKED_SOURCE, SKIN_UNCHECKED_TARGET, SKIN_UNCHECKED_TARGET_TMP)]
+
+            ################
+            # check free flash for _TARGET and _TMP files 
+            ################
+
+            stat = statvfs("/usr/share/enigma2/MetrixHD/")
+            freeflash = stat.f_bavail * stat.f_bsize / 1024
+
+            filesize = 0
+            if config.plugins.MyMetrixLiteOther.FHDenabled.value:
+                for file in skinfiles_FHD:
+                    if path.exists(file[1]):
+                        filesize += path.getsize(file[1])
+                    else:
+                        filesize += path.getsize(file[0]) * 2
+            else:
+                for file in skinfiles_HD:
+                    if path.exists(file[1]):
+                        filesize += path.getsize(file[1])
+                    else:
+                        filesize += path.getsize(file[0]) * 2
+            reserve = 256
+            filesize = filesize/1024 + reserve 
+
+            if freeflash < filesize:
+                self.session.open(MessageBox, _("Your flash space is to small.\n%d kb is not enough for creating new skin files. ( %d kb is required )") % (freeflash, filesize), MessageBox.TYPE_ERROR)
+                return
+
             ################
             # InfoBar
             ################
@@ -255,8 +332,6 @@ class MainSettingsView(Screen):
                 xFile.writelines(xx)
             xFile.close()
 
-            move(SKIN_SECOND_INFOBAR_TARGET_TMP, SKIN_SECOND_INFOBAR_TARGET)
-
             # InfoBar
             if config.plugins.MyMetrixLiteOther.showExtendedinfo.getValue() is True:
                 infobarSkinSearchAndReplace.append(['<!--panel name="INFOBAREXTENDEDINFO" /-->', '<panel name="INFOBAREXTENDEDINFO" />']) 
@@ -267,8 +342,6 @@ class MainSettingsView(Screen):
             for xx in skin_lines:
                 xFile.writelines(xx)
             xFile.close()
-
-            move(SKIN_INFOBAR_TARGET_TMP, SKIN_INFOBAR_TARGET)
 
             ################
             # ChannelSelection
@@ -284,8 +357,6 @@ class MainSettingsView(Screen):
             for xx in skin_lines:
                 xFile.writelines(xx)
             xFile.close()
-
-            move(SKIN_CHANNEL_SELECTION_TARGET_TMP, SKIN_CHANNEL_SELECTION_TARGET)
 
             ################
             # MoviePlayer
@@ -327,8 +398,6 @@ class MainSettingsView(Screen):
             for xx in skin_lines:
                 xFile.writelines(xx)
             xFile.close()
-
-            move(SKIN_MOVIEPLAYER_TARGET_TMP, SKIN_MOVIEPLAYER_TARGET)
 
             ################
             # EMC
@@ -385,8 +454,6 @@ class MainSettingsView(Screen):
             for xx in skin_lines:
                 xFile.writelines(xx)
             xFile.close()
-
-            move(SKIN_EMC_TARGET_TMP, SKIN_EMC_TARGET)
 
             ################
             # Skin
@@ -469,12 +536,6 @@ class MainSettingsView(Screen):
             skinSearchAndReplace.append(['name="layer-a-button-foreground" value="#00FFFFFF"', layerabuttonforeground ])
             skinSearchAndReplace.append(['name="layer-a-clock-foreground" value="#00FFFFFF"', layeraclockforeground ])
             skinSearchAndReplace.append(['name="layer-b-clock-foreground" value="#00FFFFFF"', layerbclockforeground ])
-
-            skinSearchAndReplace.append(['skin_00a_InfoBar.xml', 'skin_00a_InfoBar.MySkin.xml'])
-            skinSearchAndReplace.append(['skin_00b_SecondInfoBar.xml', 'skin_00b_SecondInfoBar.MySkin.xml'])
-            skinSearchAndReplace.append(['skin_00e_ChannelSelection.xml', 'skin_00e_ChannelSelection.MySkin.xml'])
-            skinSearchAndReplace.append(['skin_00f_MoviePlayer.xml', 'skin_00f_MoviePlayer.MySkin.xml'])
-            skinSearchAndReplace.append(['skin_00g_EMC.xml', 'skin_00g_EMC.MySkin.xml'])
 
             #SkinDesign
             confvalue = config.plugins.MyMetrixLiteOther.SkinDesignLUC.getValue()
@@ -765,6 +826,35 @@ class MainSettingsView(Screen):
                 new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top.png" position="0,0" size="1280,30" zPosition="-1" />'
                 skinSearchAndReplace.append([old, new ])
 
+            if config.plugins.MyMetrixLiteOther.FHDenabled.value:
+                skinSearchAndReplace.append(['skin_00_templates.xml', 'skin_00_templates.MySkin.xml'])
+                skinSearchAndReplace.append(['skin_00a_InfoBar.xml', 'skin_00a_InfoBar.MySkin.xml'])
+                skinSearchAndReplace.append(['skin_00b_SecondInfoBar.xml', 'skin_00b_SecondInfoBar.MySkin.xml'])
+                skinSearchAndReplace.append(['skin_00c_SecondInfoBarECM.xml', 'skin_00c_SecondInfoBarECM.MySkin.xml'])
+                skinSearchAndReplace.append(['skin_00d_InfoBarLite.xml', 'skin_00d_InfoBarLite.MySkin.xml'])
+                skinSearchAndReplace.append(['skin_00e_ChannelSelection.xml', 'skin_00e_ChannelSelection.MySkin.xml'])
+                skinSearchAndReplace.append(['skin_00f_MoviePlayer.xml', 'skin_00f_MoviePlayer.MySkin.xml'])
+                skinSearchAndReplace.append(['skin_00g_EMC.xml', 'skin_00g_EMC.MySkin.xml'])
+                skinSearchAndReplace.append(['skin_01_openatv.xml', 'skin_01_openatv.MySkin.xml'])
+                #skinSearchAndReplace.append(['skin_02_display.xml', 'skin_02_display.MySkin.xml'])
+                skinSearchAndReplace.append(['skin_03_plugins.xml', 'skin_03_plugins.MySkin.xml'])
+                #skinSearchAndReplace.append(['skin_04_check.xml', 'skin_04_check.MySkin.xml'])
+                skinSearchAndReplace.append(['skin_05_screens_unchecked.xml', 'skin_05_screens_unchecked.MySkin.xml'])
+            else:
+                #skinSearchAndReplace.append(['skin_00_templates.xml', 'skin_00_templates.MySkin.xml'])
+                skinSearchAndReplace.append(['skin_00a_InfoBar.xml', 'skin_00a_InfoBar.MySkin.xml'])
+                skinSearchAndReplace.append(['skin_00b_SecondInfoBar.xml', 'skin_00b_SecondInfoBar.MySkin.xml'])
+                #skinSearchAndReplace.append(['skin_00c_SecondInfoBarECM.xml', 'skin_00c_SecondInfoBarECM.MySkin.xml'])
+                #skinSearchAndReplace.append(['skin_00d_InfoBarLite.xml', 'skin_00d_InfoBarLite.MySkin.xml'])
+                skinSearchAndReplace.append(['skin_00e_ChannelSelection.xml', 'skin_00e_ChannelSelection.MySkin.xml'])
+                skinSearchAndReplace.append(['skin_00f_MoviePlayer.xml', 'skin_00f_MoviePlayer.MySkin.xml'])
+                skinSearchAndReplace.append(['skin_00g_EMC.xml', 'skin_00g_EMC.MySkin.xml'])
+                #skinSearchAndReplace.append(['skin_01_openatv.xml', 'skin_01_openatv.MySkin.xml'])
+                #skinSearchAndReplace.append(['skin_02_display.xml', 'skin_02_display.MySkin.xml'])
+                #skinSearchAndReplace.append(['skin_03_plugins.xml', 'skin_03_plugins.MySkin.xml'])
+                #skinSearchAndReplace.append(['skin_04_check.xml', 'skin_04_check.MySkin.xml'])
+                #skinSearchAndReplace.append(['skin_05_screens_unchecked.xml', 'skin_05_screens_unchecked.MySkin.xml'])
+
             #make skin file
             skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
 
@@ -773,13 +863,94 @@ class MainSettingsView(Screen):
                 xFile.writelines(xx)
             xFile.close()
 
-            move(SKIN_TARGET_TMP, SKIN_TARGET)
+            ################
+            # FHD-skin
+            ################
+
+            #function "optionFHD" variables
+            self.skinline_error = False
+            self.pixmap_error = False
+            self.round_par = int(config.plugins.MyMetrixLiteOther.FHDrounddown.value)
+            self.font_size = int(config.plugins.MyMetrixLiteOther.FHDfontsize.value)
+            self.font_offset = config.plugins.MyMetrixLiteOther.FHDfontoffset.value
+            self.FHD_addfiles = config.plugins.MyMetrixLiteOther.FHDadditionalfiles.value
+            #variables end
+
+            plustext = ""
+
+            #FHD-option
+            if config.plugins.MyMetrixLiteOther.FHDenabled.value:
+                print "--------   optionFHD   --------"
+                for file in skinfiles_FHD:
+                    if self.skinline_error:
+                        break
+                    if path.exists(file[2]):
+                        self.optionFHD(file[2],file[1])
+                    else:
+                        self.optionFHD(file[0],file[1])
+                #additional files
+                if self.FHD_addfiles:
+                    plustext = _("--- additional files start ---\n")
+                    #antilogo.xml
+                    file_a = "/etc/enigma2/antilogo.xml"
+                    file_b = "/etc/enigma2/antilogo_HD.xml"
+                    file_c = "/etc/enigma2/antilogo_FHD.xml"
+                    if path.exists(file_a) and not path.exists(file_b) and not path.exists(file_c) and not self.skinline_error:
+                        copy(file_a, file_b)
+                        self.optionFHD(file_a,file_c)
+                        plustext = plustext + _("Backup ") + file_a + " ---> " + file_b + _("\nNew calculated file is ") + file_c
+
+                    if len(plustext) < 100:
+                        plustext = plustext + _("No files found or files already exist.")
+                    plustext = plustext + _("\n--- additional files end ---\n\n")
+
+            #HD-standard
+            if not config.plugins.MyMetrixLiteOther.FHDenabled.value or self.skinline_error:
+                if self.skinline_error:
+                    for file in skinfiles_FHD:
+                        if path.exists(file[2]):
+                            move(file[2],file[1])
+                        else:
+                            copy(file[0],file[1])
+                else:
+                    #remove old MySkin files from FHD-option
+                    for file in skinfiles_FHD:
+                        if path.exists(file[1]):
+                            remove(file[1])
+                    for file in skinfiles_HD:
+                        if path.exists(file[2]):
+                            move(file[2],file[1])
+
+            #remove old _TMP files
+            for file in skinfiles_FHD:
+                if path.exists(file[2]):
+                    remove(file[2])
+
+            #move(SKIN_TARGET_TMP, SKIN_TARGET)
+            #move(SKIN_INFOBAR_TARGET_TMP, SKIN_INFOBAR_TARGET)
+            #move(SKIN_SECOND_INFOBAR_TARGET_TMP, SKIN_SECOND_INFOBAR_TARGET)
+            #move(SKIN_CHANNEL_SELECTION_TARGET_TMP, SKIN_CHANNEL_SELECTION_TARGET)
+            #move(SKIN_MOVIEPLAYER_TARGET_TMP, SKIN_MOVIEPLAYER_TARGET)
+            #move(SKIN_EMC_TARGET_TMP, SKIN_EMC_TARGET)
 
             if not self.applyChangesFirst:
                 config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")
                 config.skin.save()
                 configfile.save()
-                self.reboot(_("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?"))
+                if self.skinline_error:
+                    #self.reboot(_("Error creating FHD-Skin. HD-Skin is used!\n\nGUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?"))
+                    plustext =  plustext + _("Error creating FHD-Skin. HD-Skin is used!\n\n")
+                    text =  plustext + _("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?")
+                    self.reboot(text)
+                elif not self.skinline_error and self.pixmap_error:
+                    #self.reboot(_("One or more FHD-Pixmaps are missing. Using HD-Pixmaps for this.\n\nGUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?"))
+                    plustext =  plustext + _("One or more FHD-Pixmaps are missing. Using HD-Pixmaps for this.\n\n")
+                    text =  plustext + _("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?")
+                    self.reboot(text)
+                else:
+                    #self.reboot(_("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?"))
+                    text =  plustext + _("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?")
+                    self.reboot(text)
 
         except Exception as error:
             print error
@@ -858,3 +1029,855 @@ class MainSettingsView(Screen):
     def __selectionChanged(self):
         self.ShowPicture()
 
+    def optionFHD(self, sourceFile, targetFile):
+
+		run_mod = False
+		FACT = 1.5
+		FFACT = FACT
+
+		print "starting   " + sourceFile + "   --->   " + targetFile
+
+		fontsize = self.font_size
+		if fontsize > 2:
+			FFACT = 1.25
+
+		r_par = self.round_par
+		f_offset = self.font_offset
+
+		f = open(sourceFile, "r")
+		f1 = open(targetFile, "w")
+
+		i = 0
+		for line in f.readlines(): 
+			try: 
+#start additional files
+				if self.FHD_addfiles:
+#file 'antilogo.xml'
+					if sourceFile == "/etc/enigma2/antilogo.xml":
+#height="88"
+						if 'height="' in line and not 'alias name="' in line:
+							s = 0
+							n2 = 0
+							for s in range(0,line.count('height="')):
+								n1 = line.find('height=', n2)
+								n2 = line.find('"', n1)
+								n3 = line.find('"', n2+1)
+								y = line[(n2+1):n3]
+								ynew = str(int(round(float(int(y)*FACT),r_par)))
+								strnew = line[n1:n2+1] + ynew
+								line = line[:n1] + strnew + line[n3:]
+#y="586"
+						if 'y="' in line:
+							s = 0
+							n2 = 0
+							for s in range(0,line.count('y="')):
+								n1 = line.find('y=', n2)
+								n2 = line.find('"', n1)
+								n3 = line.find('"', n2+1)
+								y = line[(n2+1):n3]
+								ynew = str(int(round(float(int(y)*FACT),r_par)))
+								strnew = line[n1:n2+1] + ynew
+								line = line[:n1] + strnew + line[n3:]
+#width="95"
+						if 'width="' in line:
+							s = 0
+							n2 = 0
+							for s in range(0,line.count('width="')):
+								n1 = line.find('width=', n2)
+								n2 = line.find('"', n1)
+								n3 = line.find('"', n2+1)
+								x = line[(n2+1):n3]
+								ynew = str(int(round(float(int(x)*FACT),r_par)))
+								strnew = line[n1:n2+1] + ynew
+								line = line[:n1] + strnew + line[n3:]
+#x="1088" 
+						if 'x="' in line:
+							s = 0
+							n2 = 0
+							for s in range(0,line.count('x="')):
+								n1 = line.find('x=', n2)
+								n2 = line.find('"', n1)
+								n3 = line.find('"', n2+1)
+								x = line[(n2+1):n3]
+								ynew = str(int(round(float(int(x)*FACT),r_par)))
+								strnew = line[n1:n2+1] + ynew
+								line = line[:n1] + strnew + line[n3:]
+#additional files end
+#start skin files
+#workaround for large Text - removing!
+				#if 'font="global_large;' in line:
+				#	n1 = line.find('font="global_large', 0)
+				#	n2 = line.find(';', n1)
+				#	n3 = line.find('"', (n2+1))
+				#	n4 = line.find('/>', (n2+1))
+				#	x = line[(n2+1):n3]
+				#	if int(x) == 150 and n4 != -1:
+				#		line = line.replace(line, "")
+#control marks
+				if '<!-- run_mod -->' in line:
+					run_mod = True
+				if '<!-- stop_mod -->' in line:
+					run_mod = False
+				if run_mod:
+#<resolution xres="1280" yres="720"
+					if '<resolution ' in line:
+						n1 = line.find('xres', 0)
+						n2 = line.find('"', n1)
+						n3 = line.find('"', (n2+1))
+						line = line[:(n2+1)] + "1920" + line[(n3):]
+
+						n1 = line.find('yres', 0)
+						n2 = line.find('"', n1)
+						n3 = line.find('"', (n2+1))
+						line = line[:(n2+1)] + "1080" + line[(n3):]
+#position="423,460"
+					if 'position="' in line:
+						n1 = line.find('position="', 0)
+						n2 = line.find('"', n1) 
+						n3 = line.find(',', n2) 
+						n4 = line.find('"', n3) 
+						x = line[(n2+1):n3]
+						y = line[(n3+1):n4]
+						if "c+" in x:
+							x1 = x.replace("c+", "")
+							x1new = str(int(round(float(int(x1)*FACT),r_par)))
+							xnew = "c+" + x1new
+						elif "c-" in x:
+							x1 = x.replace("c-", "")
+							x1new = str(int(round(float(int(x1)*FACT),r_par)))
+							xnew = "c-" + x1new
+						elif "e-" in x:
+							x1 = x.replace("e-", "")
+							x1new = str(int(round(float(int(x1)*FACT),r_par)))
+							xnew = "e-" + x1new      
+						elif 'ente' in x:
+							xnew = 'center'
+						else:
+							xnew = str(int(round(float(int(x)*FACT),r_par)))
+
+						if "c+" in y:
+							y1 = y.replace("c+", "")
+							y1new = str(int(round(float(int(y1)*FACT),r_par)))
+							ynew = "c+" + y1new
+						elif "c-" in y:
+							y1 = y.replace("c-", "")
+							y1new = str(int(round(float(int(y1)*FACT),r_par)))
+							ynew = "c-" + y1new
+						elif "e-" in y:
+							y1 = y.replace("e-", "")
+							y1new = str(int(round(float(int(y1)*FACT),r_par)))
+							ynew = "e-" + y1new
+						elif 'ente' in y:
+							ynew = 'center'
+						else:
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+
+						strnew = 'position="' + xnew + ',' + ynew + '"'
+						line = line[:n1] + strnew + line[(n4+1):]
+#size="200,100"
+					if 'size="' in line and not 'alias name="' in line:
+						n1 = line.find('size="', 0)
+						n2 = line.find('"', n1) 
+						n3 = line.find(',', n2) 
+						n4 = line.find('"', n3) 
+						x = line[(n2+1):n3]
+						y = line[(n3+1):n4]
+						if "c+" in x:
+							x1 = x.replace("c+", "")
+							x1new = str(int(round(float(int(x1)*FACT),r_par)))
+							xnew = "c+" + x1new
+						elif "c-" in x:
+							x1 = x.replace("c-", "")
+							x1new = str(int(round(float(int(x1)*FACT),r_par)))
+							xnew = "c-" + x1new
+						elif "e-" in x:
+							x1 = x.replace("e-", "")
+							x1new = str(int(round(float(int(x1)*FACT),r_par)))
+							xnew = "e-" + x1new      
+						else:                      
+							xnew = str(int(round(float(int(x)*FACT),r_par)))
+
+						if "c+" in y:
+							y1 = y.replace("c+", "")
+							y1new = str(int(round(float(int(y1)*FACT),r_par)))
+							ynew = "c+" + y1new
+						elif "c-" in y:
+							y1 = y.replace("c-", "")
+							y1new = str(int(round(float(int(y1)*FACT),r_par)))
+							ynew = "c-" + y1new
+						elif "e-" in y:
+							y1 = y.replace("e-", "")
+							y1new = str(int(round(float(int(y1)*FACT),r_par)))
+							ynew = "e-" + y1new
+						else:
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+
+						strnew = 'size="' + xnew + ',' + ynew + '"'
+						line = line[:n1] + strnew + line[(n4+1):]
+#font="Regular;20"
+					if 'font="' in line and not 'alias name="' in line and fontsize >= 2:
+						n1 = line.find('font="', 0)
+						n2 = line.find(';', n1) 
+						n3 = line.find('"', n2) 
+						y = line[(n2+1):n3]
+						ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+						strnew = line[n1:(n2+1)] + ynew + '"'
+						line = line[:n1] + strnew + line[(n3+1):]
+#Font="Regular;20"
+					if 'Font="' in line and not ' Cool' in line and fontsize >= 2:
+						n1 = line.find('Font="', 0)
+						n2 = line.find(';', n1) 
+						n3 = line.find('"', n2) 
+						y = line[(n2+1):n3]
+						ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+						strnew = line[n1:(n2+1)] + ynew + '"'
+						line = line[:n1] + strnew + line[(n3+1):]
+#<alias name="Body" font="screen_text" size="20" height="25" />
+					if 'font="' in line and 'alias name="' in line and 'size="' in line and fontsize >= 2:
+						print "#1"
+						n1 = line.find('size="', 0)
+						n2 = line.find('"', n1) 
+						n3 = line.find('"', n2+1) 
+						print line, n1,n2,n3
+						y = line[(n2+1):n3]
+						print y
+						ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+						strnew = line[n1:(n2+1)] + ynew + '"'
+						line = line[:n1] + strnew + line[(n3+1):]
+#<alias name="Body" font="screen_text" size="20" height="25" />
+					if 'font="' in line and 'alias name="' in line and 'height="' in line:
+						print "#2"
+						n1 = line.find('height="', 0)
+						n2 = line.find('"', n1) 
+						n3 = line.find('"', n2+1) 
+						y = line[(n2+1):n3]
+						print y
+						ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+						strnew = line[n1:(n2+1)] + ynew + '"'
+						line = line[:n1] + strnew + line[(n3+1):]
+#"fonts": [gFont("Regular",18),gFont("Regular",14),gFont("Regular",24),gFont("Regular",20)]
+					if '"fonts":' in line and 'gFont' in line and fontsize >= 2:
+						s = 0
+						n3 = 0
+						for s in range(0,line.count('gFont(')):
+							n1 = line.find('gFont(', n3)
+							n2 = line.find(',', n1)
+							n3 = line.find(')', n2) 
+							y = line[(n2+1):n3]
+							ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+							strnew = line[n1:n2+1] + " " + ynew
+							line = line[:n1] + strnew + line[n3:]
+#scale="100"
+					if 'scale="' in line and fontsize != 2:
+						n1 = line.find('scale="', 0)
+						n2 = line.find('"', n1)
+						n3 = line.find('"', n2+1) 
+						y = line[(n2+1):n3]
+						ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+						strnew = line[n1:n2+1] + ynew + '"'
+						line = line[:n1] + strnew + line[(n3+1):]
+#(pos = (40, 5)
+					if '(pos' in line and ')' in line:
+						n1 = line.find('(pos', 0)
+						n2 = line.find('(', n1+1) 
+						n3 = line.find(',', n2) 
+						n4 = line.find(')', n3) 
+						x = line[(n2+1):n3]
+						y = line[(n3+1):n4]
+						if "c+" in x:
+							x1 = x.replace("c+", "")
+							x1new = str(int(round(float(int(x1)*FACT),r_par)))
+							xnew = "c+" + x1new
+						elif "c-" in x:
+							x1 = x.replace("c-", "")
+							x1new = str(int(round(float(int(x1)*FACT),r_par)))
+							xnew = "c-" + x1new
+						elif "e-" in x:
+							x1 = x.replace("e-", "")
+							x1new = str(int(round(float(int(x1)*FACT),r_par)))
+							xnew = "e-" + x1new      
+						elif 'ente' in x:
+							xnew = 'center'
+						else:
+							xnew = str(int(round(float(int(x)*FACT),r_par)))
+
+						if "c+" in y:
+							y1 = y.replace("c+", "")
+							y1new = str(int(round(float(int(y1)*FACT),r_par)))
+							ynew = "c+" + y1new
+						elif "c-" in y:
+							y1 = y.replace("c-", "")
+							y1new = str(int(round(float(int(y1)*FACT),r_par)))
+							ynew = "c-" + y1new
+						elif "e-" in y:
+							y1 = y.replace("e-", "")
+							y1new = str(int(round(float(int(y1)*FACT),r_par)))
+							ynew = "e-" + y1new
+						elif 'ente' in y:
+							ynew = 'center'
+						else:
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+
+						strnew = '(pos = (' + xnew + ', ' + ynew + ')'
+						line = line[:n1] + strnew + line[(n4+1):]
+#size = (500, 45)
+						if 'size' in line and '(' in line and ')' in line:
+							n1 = line.find('size', 0)
+							n2 = line.find('(', n1) 
+							n3 = line.find(',', n2) 
+							n4 = line.find(')', n3) 
+							x = line[(n2+1):n3]
+							y = line[(n3+1):n4]
+							if "c+" in x:
+								x1 = x.replace("c+", "")
+								x1new = str(int(round(float(int(x1)*FACT),r_par)))
+								xnew = "c+" + x1new
+							elif "c-" in x:
+								x1 = x.replace("c-", "")
+								x1new = str(int(round(float(int(x1)*FACT),r_par)))
+								xnew = "c-" + x1new
+							elif "e-" in x:
+								x1 = x.replace("e-", "")
+								x1new = str(int(round(float(int(x1)*FACT),r_par)))
+								xnew = "e-" + x1new      
+							elif 'ente' in x:
+								xnew = 'center'
+							else:
+								xnew = str(int(round(float(int(x)*FACT),r_par)))
+
+							if "c+" in y:
+								y1 = y.replace("c+", "")
+								y1new = str(int(round(float(int(y1)*FACT),r_par)))
+								ynew = "c+" + y1new
+							elif "c-" in y:
+								y1 = y.replace("c-", "")
+								y1new = str(int(round(float(int(y1)*FACT),r_par)))
+								ynew = "c-" + y1new
+							elif "e-" in y:
+								y1 = y.replace("e-", "")
+								y1new = str(int(round(float(int(y1)*FACT),r_par)))
+								ynew = "e-" + y1new
+							elif 'ente' in y:
+								ynew = 'center'
+							else:
+								ynew = str(int(round(float(int(y)*FACT),r_par)))
+
+							strnew = 'size = (' + xnew + ', ' + ynew + ')'
+							line = line[:n1] + strnew + line[(n4+1):]
+#itemHeight="25"
+					if 'itemHeight="' in line:
+						n1 = line.find('itemHeight="', 0)
+						n2 = line.find('"', n1)
+						n3 = line.find('"', n2+1) 
+						y = line[(n2+1):n3]
+
+						ynew = str(int(round(float(int(y)*FACT),r_par)))
+						strnew = line[n1:n2+1] + ynew + '"'
+						line = line[:n1] + strnew + line[(n3+1):]
+#"itemHeight": 45
+					if '"itemHeight":' in line:
+						n1 = line.find('"itemHeight":', 0)
+						n2 = line.find(':', n1)
+						n3 = line.find(',', n2) 
+						if n3 == -1:
+							n3 = line.find(')', n2)
+							if n3 == -1:
+								n3 = line.find('}', n2)
+						y = line[(n2+1):n3]
+
+						ynew = str(int(round(float(int(y)*FACT),r_par)))
+						strnew = line[n1:n2+1] + " " + ynew
+						line = line[:n1] + strnew + line[n3:]
+#": (90,[
+					if '": (' in line and '[' in line:
+						n1 = line.find('":', 0)
+						n2 = line.find('(', n1)
+						n3 = line.find(',', n2+1) 
+						y = line[(n2+1):n3]
+
+						ynew = str(int(round(float(int(y)*FACT),r_par)))
+						strnew = line[n1:n2+1] + ynew
+						line = line[:n1] + strnew + line[n3:]
+
+#messagebox <applet type="onLayoutFinish">
+#offset_listposx = 10
+#offset_listposy = 10
+#offset_listwidth = 10
+#offset_listheight = 30
+#offset_textwidth = 20
+#offset_textheight = 90
+#min_width = 400
+#min_height = 50
+#offset = 21
+					if 'offset_listposx =' in line:
+						n1 = line.find('offset_listposx', 0)
+						n2 = line.find('=', n1)
+						n3 = line.find(',', n2) 
+						if n3 == -1:
+							n3 = line.find(')', n2)
+							if n3 == -1:
+								n3 = line.find('}', n2)
+						x = line[(n2+1):n3]
+						xnew = str(int(round(float(int(x)*FACT),r_par)))
+						strnew = line[n1:n2+1] + " " + xnew
+						line = line[:n1] + strnew + line[n3:]
+					elif 'offset_listposy =' in line:
+						n1 = line.find('offset_listposy', 0)
+						n2 = line.find('=', n1)
+						n3 = line.find(',', n2) 
+						if n3 == -1:
+							n3 = line.find(')', n2)
+							if n3 == -1:
+								n3 = line.find('}', n2)
+						y = line[(n2+1):n3]
+						xnew = str(int(round(float(int(y)*FACT),r_par)))
+						strnew = line[n1:n2+1] + " " + xnew
+						line = line[:n1] + strnew + line[n3:]
+					elif 'offset_listwidth =' in line:
+						n1 = line.find('offset_listwidth', 0)
+						n2 = line.find('=', n1)
+						n3 = line.find(',', n2) 
+						if n3 == -1:
+							n3 = line.find(')', n2)
+							if n3 == -1:
+								n3 = line.find('}', n2)
+						x = line[(n2+1):n3]
+						xnew = str(int(round(float(int(x)*FACT),r_par)))
+						strnew = line[n1:n2+1] + " " + xnew
+						line = line[:n1] + strnew + line[n3:]
+					elif 'offset_listheight =' in line:
+						n1 = line.find('offset_listheight', 0)
+						n2 = line.find('=', n1)
+						n3 = line.find(',', n2) 
+						if n3 == -1:
+							n3 = line.find(')', n2)
+							if n3 == -1:
+								n3 = line.find('}', n2)
+						y = line[(n2+1):n3]
+						xnew = str(int(round(float(int(y)*FACT),r_par)))
+						strnew = line[n1:n2+1] + " " + xnew
+						line = line[:n1] + strnew + line[n3:]
+					elif 'offset_textwidth =' in line:
+						n1 = line.find('offset_textwidth', 0)
+						n2 = line.find('=', n1)
+						n3 = line.find(',', n2) 
+						if n3 == -1:
+							n3 = line.find(')', n2)
+							if n3 == -1:
+								n3 = line.find('}', n2)
+						x = line[(n2+1):n3]
+						xnew = str(int(round(float(int(x)*FACT),r_par)))
+						strnew = line[n1:n2+1] + " " + xnew
+						line = line[:n1] + strnew + line[n3:]
+					elif 'offset_textheight =' in line:
+						n1 = line.find('offset_textheight', 0)
+						n2 = line.find('=', n1)
+						n3 = line.find(',', n2) 
+						if n3 == -1:
+							n3 = line.find(')', n2)
+							if n3 == -1:
+								n3 = line.find('}', n2)
+						y = line[(n2+1):n3]
+						xnew = str(int(round(float(int(y)*FACT),r_par)))
+						strnew = line[n1:n2+1] + " " + xnew
+						line = line[:n1] + strnew + line[n3:]
+					elif 'min_width =' in line:
+						n1 = line.find('min_width', 0)
+						n2 = line.find('=', n1)
+						n3 = line.find(',', n2) 
+						if n3 == -1:
+							n3 = line.find(')', n2)
+							if n3 == -1:
+								n3 = line.find('}', n2)
+						x = line[(n2+1):n3]
+						xnew = str(int(round(float(int(x)*FACT),r_par)))
+						strnew = line[n1:n2+1] + " " + xnew
+						line = line[:n1] + strnew + line[n3:]
+					elif 'min_height =' in line:
+						n1 = line.find('min_height', 0)
+						n2 = line.find('=', n1)
+						n3 = line.find(',', n2) 
+						if n3 == -1:
+							n3 = line.find(')', n2)
+							if n3 == -1:
+								n3 = line.find('}', n2)
+						y = line[(n2+1):n3]
+						xnew = str(int(round(float(int(y)*FACT),r_par)))
+						strnew = line[n1:n2+1] + " " + xnew
+						line = line[:n1] + strnew + line[n3:]
+					elif 'offset =' in line:
+						n1 = line.find('offset', 0)
+						n2 = line.find('=', n1)
+						n3 = line.find(',', n2) 
+						if n3 == -1:
+							n3 = line.find(')', n2)
+							if n3 == -1:
+								n3 = line.find('}', n2)
+						y = line[(n2+1):n3]
+						xnew = str(int(round(float(int(y)*FACT),r_par)))
+						strnew = line[n1:n2+1] + " " + xnew
+						line = line[:n1] + strnew + line[n3:]
+#change pixmap path
+					if 'pixmap="' in line or "pixmaps=" in line or '<pixmap pos="bp' in line or 'render="EMCPositionGauge"' in line:
+						if 'MetrixHD/' in line and '.png' in line:
+							s = 0
+							n2 = 0
+							for s in range(0,line.count('MetrixHD/')):
+								n1 = line.find('MetrixHD/', n2)
+								n2 = line.find('.png', n1)
+								file = "/usr/share/enigma2/MetrixHD/FHD" + line[(n1+8):(n2+4)]
+								if path.exists(file):
+									strnew = "MetrixHD/FHD" + line[(n1+8):n2]
+									line = line[:n1] + strnew + line[n2:]
+								else:
+									print "pixmap missing - line", i+1 , file
+									self.pixmap_error = True
+						if 'skin_default/' in line and not '/skin_default/' in line and '.png"' in line:
+							s = 0
+							n2 = 0
+							for s in range(0,line.count('skin_default/')):
+								n1 = line.find('skin_default/', n2)
+								n2 = line.find('.png', n1)
+								file = "/usr/share/enigma2/MetrixHD/FHD/skin_default" + line[(n1+12):(n2+4)]
+								if path.exists(file):
+									strnew = "MetrixHD/FHD/skin_default" + line[(n1+12):n2]
+									line = line[:n1] + strnew + line[n2:]
+								else:
+									print "pixmap missing - line", i+1, file
+									self.pixmap_error = True
+#emc special start
+					if 'widget name="list"' in line and ' Cool' in line and not ' CoolEvent' in line or 'render="EMCPositionGauge"' in line:
+#CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;30" 
+						if fontsize >= 2:
+							if 'CoolFont="' in line:
+								n1 = line.find('CoolFont=', 0)
+								n2 = line.find(';', n1)
+								n3 = line.find('"', n2)
+								y = line[(n2+1):n3]
+								ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+								strnew = line[n1:n2+1] + ynew + '"'
+								line = line[:n1] + strnew + line[(n3+1):]
+							if 'CoolSelectFont="' in line:
+								n1 = line.find('CoolSelectFont=', 0)
+								n2 = line.find(';', n1)
+								n3 = line.find('"', n2)
+								y = line[(n2+1):n3]
+								ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+								strnew = line[n1:n2+1] + ynew + '"'
+								line = line[:n1] + strnew + line[(n3+1):]
+							if 'CoolDateFont=' in line:
+								n1 = line.find('CoolDateFont=', 0)
+								n2 = line.find(';', n1)
+								n3 = line.find('"', n2)
+								y = line[(n2+1):n3]
+								ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+								strnew = line[n1:n2+1] + ynew + '"'
+								line = line[:n1] + strnew + line[(n3+1):]
+#CoolProgressPos="35" 
+						if 'CoolProgressPos="' in line:
+							n1 = line.find('CoolProgressPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolBarPos="35"
+						if 'CoolBarPos="' in line:
+							n1 = line.find('CoolBarPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolBarHPos="10"
+						if 'CoolBarHPos="' in line:
+							n1 = line.find('CoolBarHPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolMoviePos="110"
+						if 'CoolMoviePos="' in line:
+							n1 = line.find('CoolMoviePos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolDatePos="590"
+						if 'CoolDatePos="' in line:
+							n1 = line.find('CoolDatePos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolMovieSize="490"
+						if 'CoolMovieSize="' in line:
+							n1 = line.find('CoolMovieSize=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolFolderSize="490"
+						if 'CoolFolderSize="' in line:
+							n1 = line.find('CoolFolderSize="', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolDateWidth="110"
+						if 'CoolDateWidth="' in line:
+							n1 = line.find('CoolDateWidth=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolBarSize="65,10"
+						if 'CoolBarSize="' in line:
+							n1 = line.find('CoolBarSize=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find(',', n2+1)
+							n4 = line.find('"', n3) 
+							x = line[(n2+1):n3]
+							y = line[(n3+1):n4]
+							xnew = str(int(round(float(int(x)*FACT),r_par)))
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = 'CoolBarSize="' + xnew + ',' + ynew + '"'
+							line = line[:n1] + strnew + line[(n4+1):]
+#CoolBarSizeSa="65,10"
+						if 'CoolBarSizeSa="' in line:
+							n1 = line.find('CoolBarSizeSa=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find(',', n2+1)
+							n4 = line.find('"', n3) 
+							x = line[(n2+1):n3]
+							y = line[(n3+1):n4]
+							xnew = str(int(round(float(int(x)*FACT),r_par)))
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = 'CoolBarSizeSa="' + xnew + ',' + ynew + '"'
+							line = line[:n1] + strnew + line[(n4+1):]
+#/CoolPointerRec.png:980,0"
+						if '/CoolPointerRec.png:' in line:
+							n1 = line.find('/CoolPointerRec.png', 0)
+							n2 = line.find(':', n1)
+							n3 = line.find(',', n2+1)
+							n4 = line.find('"', n3) 
+							x = line[(n2+1):n3]
+							y = line[(n3+1):n4]
+							xnew = str(int(round(float(int(x)*FACT),r_par)))
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = '/CoolPointerRec.png:' + xnew + ',' + ynew + '"'
+							line = line[:n1] + strnew + line[(n4+1):]
+#/CoolPointerRec2.png:1080,0"
+						if '/CoolPointerRec2.png:' in line:
+							n1 = line.find('/CoolPointerRec2.png', 0)
+							n2 = line.find(':', n1)
+							n3 = line.find(',', n2+1)
+							n4 = line.find('"', n3) 
+							x = line[(n2+1):n3]
+							y = line[(n3+1):n4]
+							xnew = str(int(round(float(int(x)*FACT),r_par)))
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = '/CoolPointerRec2.png:' + xnew + ',' + ynew + '"'
+							line = line[:n1] + strnew + line[(n4+1):]
+
+#emc special end
+#cool tv guide special start
+					if ('widget name="list"' in line or 'widget name="CoolEvent"' in line) and ' CoolEvent' in line:
+#CoolFont="Regular;19" CoolServiceFont="Regular;19" CoolEventFont="Regular;19" 
+						if fontsize >= 2:
+							if 'CoolFont="' in line:
+								n1 = line.find('CoolFont=', 0)
+								n2 = line.find(';', n1)
+								n3 = line.find('"', n2)
+								y = line[(n2+1):n3]
+								ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+								strnew = line[n1:n2+1] + ynew + '"'
+								line = line[:n1] + strnew + line[(n3+1):]
+							if 'CoolServiceFont="' in line:
+								n1 = line.find('CoolServiceFont=', 0)
+								n2 = line.find(';', n1)
+								n3 = line.find('"', n2)
+								y = line[(n2+1):n3]
+								ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+								strnew = line[n1:n2+1] + ynew + '"'
+								line = line[:n1] + strnew + line[(n3+1):]
+							if 'CoolEventFont="' in line:
+								n1 = line.find('CoolEventFont=', 0)
+								n2 = line.find(';', n1)
+								n3 = line.find('"', n2)
+								y = line[(n2+1):n3]
+								ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+								strnew = line[n1:n2+1] + ynew + '"'
+								line = line[:n1] + strnew + line[(n3+1):]
+#CoolServiceSize="220"
+						if 'CoolServiceSize="' in line:
+							n1 = line.find('CoolServiceSize=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolEventSize="720"
+						if 'CoolEventSize="' in line:
+							n1 = line.find('CoolEventSize=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolServicePos="4"
+						if 'CoolServicePos="' in line:
+							n1 = line.find('CoolServicePos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolServiceHPos="1"
+						if 'CoolServiceHPos="' in line:
+							n1 = line.find('CoolServiceHPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolEventPos="355"
+						if 'CoolEventPos="' in line:
+							n1 = line.find('CoolEventPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolEventHPos="1"
+						if 'CoolEventHPos="' in line:
+							n1 = line.find('CoolEventHPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolBarPos="240"
+						if 'CoolBarPos="' in line:
+							n1 = line.find('CoolBarPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolBarHPos="10"
+						if 'CoolBarHPos="' in line:
+							n1 = line.find('CoolBarHPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolBarSize="100"
+						if 'CoolBarSize="' in line:
+							n1 = line.find('CoolBarSize=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolBarHigh="10"
+						if 'CoolBarHigh="' in line:
+							n1 = line.find('CoolBarHigh=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolTimePos="225"
+						if 'CoolTimePos="' in line:
+							n1 = line.find('CoolTimePos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolTimeHPos="2"
+						if 'CoolTimeHPos="' in line:
+							n1 = line.find('CoolTimeHPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolTimeSize="120"
+						if 'CoolTimeSize="' in line:
+							n1 = line.find('CoolTimeSize=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolDurationPos="1055"
+						if 'CoolDurationPos="' in line:
+							n1 = line.find('CoolDurationPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolDurationSize="100"
+						if 'CoolDurationSize="' in line:
+							n1 = line.find('CoolDurationSize=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolPico="35"
+						if 'CoolPico="' in line:
+							n1 = line.find('CoolPico=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#cool tv guide special end
+			except:
+				self.skinline_error = True
+				print "error in line: ", i+1, line
+				print "--------"
+			f1.write(line)
+			i = i+1
+			if self.skinline_error:
+				break
+
+		f.close()
+		f1.close()
+		print "complete"
+		print "--------"

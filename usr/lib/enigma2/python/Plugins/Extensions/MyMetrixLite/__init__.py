@@ -48,10 +48,13 @@ language.addCallback(localeInit())
 
 #############################################################
 
+SKIN_SOURCE = "/usr/share/enigma2/MetrixHD/skin.xml"
 SKIN_TARGET = "/usr/share/enigma2/MetrixHD/skin.MySkin.xml"
 SKIN_TARGET_TMP = SKIN_TARGET + ".tmp"
 
-SKIN_SOURCE = "/usr/share/enigma2/MetrixHD/skin.xml"
+SKIN_TEMPLATES_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00_templates.xml"
+SKIN_TEMPLATES_TARGET = "/usr/share/enigma2/MetrixHD/skin_00_templates.MySkin.xml"
+SKIN_TEMPLATES_TARGET_TMP = SKIN_TEMPLATES_TARGET + ".tmp"
 
 SKIN_INFOBAR_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00a_InfoBar.xml"
 SKIN_INFOBAR_TARGET = "/usr/share/enigma2/MetrixHD/skin_00a_InfoBar.MySkin.xml"
@@ -60,6 +63,14 @@ SKIN_INFOBAR_TARGET_TMP = SKIN_INFOBAR_TARGET + ".tmp"
 SKIN_SECOND_INFOBAR_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00b_SecondInfoBar.xml"
 SKIN_SECOND_INFOBAR_TARGET = "/usr/share/enigma2/MetrixHD/skin_00b_SecondInfoBar.MySkin.xml"
 SKIN_SECOND_INFOBAR_TARGET_TMP = SKIN_SECOND_INFOBAR_TARGET + ".tmp"
+
+SKIN_SECOND_INFOBAR_ECM_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00c_SecondInfoBarECM.xml"
+SKIN_SECOND_INFOBAR_ECM_TARGET = "/usr/share/enigma2/MetrixHD/skin_00c_SecondInfoBarECM.MySkin.xml"
+SKIN_SECOND_INFOBAR_ECM_TARGET_TMP = SKIN_SECOND_INFOBAR_ECM_TARGET + ".tmp"
+
+SKIN_INFOBAR_LITE_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00d_InfoBarLite.xml"
+SKIN_INFOBAR_LITE_TARGET = "/usr/share/enigma2/MetrixHD/skin_00d_InfoBarLite.MySkin.xml"
+SKIN_INFOBAR_LITE_TARGET_TMP = SKIN_INFOBAR_LITE_TARGET + ".tmp"
 
 SKIN_CHANNEL_SELECTION_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00e_ChannelSelection.xml"
 SKIN_CHANNEL_SELECTION_TARGET = "/usr/share/enigma2/MetrixHD/skin_00e_ChannelSelection.MySkin.xml"
@@ -72,6 +83,26 @@ SKIN_MOVIEPLAYER_TARGET_TMP = SKIN_MOVIEPLAYER_TARGET + ".tmp"
 SKIN_EMC_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00g_EMC.xml"
 SKIN_EMC_TARGET = "/usr/share/enigma2/MetrixHD/skin_00g_EMC.MySkin.xml"
 SKIN_EMC_TARGET_TMP = SKIN_EMC_TARGET + ".tmp"
+
+SKIN_OPENATV_SOURCE = "/usr/share/enigma2/MetrixHD/skin_01_openatv.xml"
+SKIN_OPENATV_TARGET = "/usr/share/enigma2/MetrixHD/skin_01_openatv.MySkin.xml"
+SKIN_OPENATV_TARGET_TMP = SKIN_OPENATV_TARGET + ".tmp"
+
+SKIN_DISPLAY_SOURCE = "/usr/share/enigma2/MetrixHD/skin_02_display.xml"
+SKIN_DISPLAY_TARGET = "/usr/share/enigma2/MetrixHD/skin_02_display.MySkin.xml"
+SKIN_DISPLAY_TARGET_TMP = SKIN_DISPLAY_TARGET + ".tmp"
+
+SKIN_PLUGINS_SOURCE = "/usr/share/enigma2/MetrixHD/skin_03_plugins.xml"
+SKIN_PLUGINS_TARGET = "/usr/share/enigma2/MetrixHD/skin_03_plugins.MySkin.xml"
+SKIN_PLUGINS_TARGET_TMP = SKIN_PLUGINS_TARGET + ".tmp"
+
+SKIN_CHECK_SOURCE = "/usr/share/enigma2/MetrixHD/skin_04_check.xml"
+SKIN_CHECK_TARGET = "/usr/share/enigma2/MetrixHD/skin_04_check.MySkin.xml"
+SKIN_CHECK_TARGET_TMP = SKIN_CHECK_TARGET + ".tmp"
+
+SKIN_UNCHECKED_SOURCE = "/usr/share/enigma2/MetrixHD/skin_05_screens_unchecked.xml"
+SKIN_UNCHECKED_TARGET = "/usr/share/enigma2/MetrixHD/skin_05_screens_unchecked.MySkin.xml"
+SKIN_UNCHECKED_TARGET_TMP = SKIN_UNCHECKED_TARGET + ".tmp"
 
 #############################################################
 
@@ -392,6 +423,12 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther = ConfigSubsection()
 
     #OtherSettings
+	#FHD-Option
+    config.plugins.MyMetrixLiteOther.FHDenabled = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.FHDrounddown = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.FHDfontsize = ConfigSelection(default = "2", choices = [("1", _("scale")), ("2", _("size")), ("3", _("50/50"))])
+    config.plugins.MyMetrixLiteOther.FHDfontoffset = ConfigSelectionNumber(-20, 20, 1, default = 0)
+    config.plugins.MyMetrixLiteOther.FHDadditionalfiles = ConfigYesNo(default=False)
 	#STB-Info
     config.plugins.MyMetrixLiteOther.STBDistance = ConfigSelectionNumber(1, 50, 1, default = 10)
     config.plugins.MyMetrixLiteOther.showCPULoad = ConfigYesNo(default=True)
