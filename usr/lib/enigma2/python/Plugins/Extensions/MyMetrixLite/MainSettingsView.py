@@ -748,6 +748,35 @@ class MainSettingsView(Screen):
             new = '<font filename="' + type + '" name="global_large" scale="' + str(scale) + '" />'
             skinSearchAndReplace.append([old, new ])
 
+            if config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText.value == "both":
+                old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_menu" scale="100" />'
+                new = '<font filename="' + type + '" name="global_large_menu" scale="' + str(scale) + '" />'
+                skinSearchAndReplace.append([old, new ])
+                old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_screen" scale="100" />'
+                new = '<font filename="' + type + '" name="global_large_screen" scale="' + str(scale) + '" />'
+                skinSearchAndReplace.append([old, new ])
+            elif config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText.value == "menus":
+                old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_menu" scale="100" />'
+                new = '<font filename="' + type + '" name="global_large_menu" scale="' + str(scale) + '" />'
+                skinSearchAndReplace.append([old, new ])
+                old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_screen" scale="100" />'
+                new = '<font filename="' + type + '" name="global_large_screen" scale="-1" />'
+                skinSearchAndReplace.append([old, new ])
+            elif config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText.value == "screens":
+                old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_menu" scale="100" />'
+                new = '<font filename="' + type + '" name="global_large_menu" scale="-1" />'
+                skinSearchAndReplace.append([old, new ])
+                old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_screen" scale="100" />'
+                new = '<font filename="' + type + '" name="global_large_screen" scale="' + str(scale) + '" />'
+                skinSearchAndReplace.append([old, new ])
+            else:
+                old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_menu" scale="100" />'
+                new = '<font filename="' + type + '" name="global_large_menu" scale="-1" />'
+                skinSearchAndReplace.append([old, new ])
+                old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_screen" scale="100" />'
+                new = '<font filename="' + type + '" name="global_large_screen" scale="-1" />'
+                skinSearchAndReplace.append([old, new ])
+
             type = config.plugins.MyMetrixLiteFonts.globalsmall_type.value
             scale = config.plugins.MyMetrixLiteFonts.globalsmall_scale.value
             old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="global_small" scale="95" />'

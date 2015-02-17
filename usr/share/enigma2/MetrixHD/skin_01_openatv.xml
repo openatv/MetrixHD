@@ -1099,7 +1099,7 @@
 		<widget name="list" position="235,114" size="390,450" itemHeight="50" font="screen_text; 20" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" />
 		<widget name="sublist" position="655,131" size="390,400" itemHeight="50" font="screen_text; 20" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" backgroundColorSelected="layer-b-selection-background" foregroundColorSelected="layer-b-selection-foreground" />
 		<widget name="description" position="42,42" size="1206,55" zPosition="1" font="screen_info;20" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="Quick Launch Menu" position="5,535" size="1280,200" font="global_large; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<eLabel text="Quick Launch Menu" position="5,535" size="1280,200" font="global_large_menu; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<panel name="QuickMenu_Layer" />
 		<panel name="COLORGRADIENT_Top" />
 	</screen>
@@ -2299,7 +2299,7 @@
 		<widget name="number" position="125,10" size="100,40" halign="right" valign="center" font="SetrixHD;28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
 	</screen>
 	<screen name="NumberZapWithName" position="200,21" size="1050,830" title="QuickZap" flags="wfNoBorder" backgroundColor="transparent">
-		<widget name="servicenumber" position="323,283" size="387,172" font="global_large; 100" noWrap="0" halign="right" backgroundColor="layer-a-background" transparent="1" valign="center" foregroundColor="layer-a-accent2" zPosition="-1" />
+		<widget name="servicenumber" position="323,283" size="387,172" font="global_large_screen; 100" noWrap="0" halign="right" backgroundColor="layer-a-background" transparent="1" valign="center" foregroundColor="layer-a-accent2" zPosition="-1" />
 		<widget name="servicename" position="186,267" size="500,80" font="SetrixHD;50" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="servicebouquet" position="185,358" size="396,53" font="SetrixHD;28" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="161,244" size="550,181" backgroundColor="layer-a-background" zPosition="-5" />
@@ -2970,7 +2970,7 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/swm.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="EPGSelection" position="0,0" size="1280,720" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="EPG Selection" position="5,535" size="1280,200" font="global_large; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<eLabel text="EPG Selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget alphatest="blend" position="70,60" render="MetrixHDXPicon" size="220,132" source="Service" transparent="1" zPosition="1">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
@@ -3006,12 +3006,12 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 		<eLabel text="Please choose an extension..." position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,110" size="700,490" font="epg_event;29" zPosition="3" itemHeight="35" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
 		<ePixmap position="890,175" size="256,256" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
-		<eLabel text="Extensionslist" position="5,535" size="1280,200" font="global_large; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<eLabel text="Extensionslist" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
 	</screen>
 	<screen name="EventView" position="0,0" size="1280,720" title="Eventview" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Event view" position="5,535" size="1280,200" font="global_large; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<eLabel text="Event view" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget source="Title" render="MetrixHDXPicon" position="907,80" size="220,132" zPosition="5" transparent="1" alphatest="blend">
 			<convert type="MetrixRefString">CurrentRef</convert>
 		</widget>
@@ -3102,19 +3102,19 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 		</widget>
 		<panel name="template1_2layer" />
 		<panel name="ime-buttons_template1" />
-		<eLabel text="Event view Simple" position="5,535" size="1280,200" font="global_large; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<eLabel text="Event view Simple" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 	</screen>
 	<!-- Eventview Contextmenu -->
 	<screen name="EventViewContextMenu" position="0,0" size="1280,720" title="Eventview Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="CONTEXTMENU2_template" />
 		<ePixmap position="305,80" size="256,256" pixmap="MetrixHD/icons/service_info.png" alphatest="blend" />
-		<!--eLabel text="Event view Menu" position="5,535" size="1280,200" font="global_large; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" /-->
+		<!--eLabel text="Event view Menu" position="5,535" size="1280,200" font="global_large_menu; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" /-->
 	</screen>
 	<!-- Channellist Contextmenu -->
 	<screen name="ChannelContextMenu" position="0,0" size="1280,720" title="Channellist Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="CONTEXTMENU2_template" />
 		<ePixmap position="305,80" size="256,256" pixmap="MetrixHD/icons/service_info.png" alphatest="blend" />
-		<!--eLabel text="Channel list Menu" position="5,535" size="1280,200" font="global_large; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" /-->
+		<!--eLabel text="Channel list Menu" position="5,535" size="1280,200" font="global_large_menu; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" /-->
 	</screen>
 	<!-- Service Scan Screens -->
 	<screen name="NimSelection" position="0,0" size="1280,720" title="Choose Tuner" flags="wfNoBorder" backgroundColor="transparent">
@@ -3375,7 +3375,7 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 	</screen>
 	<screen name="SoftwarePanel" position="0,0" size="1280,720" title="SoftwarePanel" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="700,43" zPosition="1" halign="left" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="Software Update" position="5,535" size="1280,200" font="global_large; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<eLabel text="Software Update" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget name="packagetext" position="70,115" size="250,35" zPosition="1" font="Regular;24" halign="right" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="packagenr" position="324,115" size="50,35" zPosition="1" font="Regular;24" halign="right" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="list" render="Listbox" position="70,170" size="700,450" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
@@ -3406,7 +3406,7 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 	</screen>
 	<screen name="UpdatePlugin" position="0,0" size="1280,720" title="Software Update..." flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="Software Update" position="5,535" size="1280,200" font="global_large; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<eLabel text="Software Update" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget name="activityslider" position="70,160" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
 		<widget source="package" render="Label" position="70,280" size="700,30" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="status" render="Label" position="70,330" size="700,30" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
