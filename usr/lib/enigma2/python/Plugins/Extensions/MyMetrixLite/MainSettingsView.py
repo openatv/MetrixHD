@@ -1299,7 +1299,7 @@ class MainSettingsView(Screen):
 							strnew = line[n1:n2+1] + " " + ynew
 							line = line[:n1] + strnew + line[n3:]
 #scale="100"
-					if 'scale="' in line and fontsize != 2:
+					if 'scale="' in line and not 'scale="-1"' in line and fontsize != 2:
 						n1 = line.find('scale="', 0)
 						n2 = line.find('"', n1)
 						n3 = line.find('"', n2+1) 
