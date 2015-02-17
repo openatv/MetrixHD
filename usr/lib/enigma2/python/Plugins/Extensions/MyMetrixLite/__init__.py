@@ -467,6 +467,7 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.SkinDesign = ConfigSelection(default = "1", choices = [("1", _("Standard")), ("2", _("Layer A and B same height, Clock in Layer A")), ("3", _("Layer A and B same height, Clock in Layer B"))])
     config.plugins.MyMetrixLiteOther.SkinDesignSpace = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.SkinDesignInfobarColorGradient = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText = ConfigSelection(default = "both", choices = skinDesignShowLayerList)
     config.plugins.MyMetrixLiteOther.SkinDesignLUC = ConfigSelection(default = "no", choices = skinDesignShowLayerList)
     config.plugins.MyMetrixLiteOther.SkinDesignLLC = ConfigSelection(default = "no", choices = skinDesignShowLayerList)
     config.plugins.MyMetrixLiteOther.SkinDesignRUC = ConfigSelection(default = "no", choices = skinDesignShowLayerList)
