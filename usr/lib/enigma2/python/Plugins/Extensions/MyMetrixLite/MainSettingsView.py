@@ -1032,6 +1032,7 @@ class MainSettingsView(Screen):
     def optionFHD(self, sourceFile, targetFile):
 
 		run_mod = False
+		next_rename = False
 		FACT = 1.5
 		FFACT = FACT
 
@@ -1104,15 +1105,21 @@ class MainSettingsView(Screen):
 								line = line[:n1] + strnew + line[n3:]
 #additional files end
 #start skin files
-#workaround for large Text - removing!
-				#if 'font="global_large;' in line:
-				#	n1 = line.find('font="global_large', 0)
-				#	n2 = line.find(';', n1)
-				#	n3 = line.find('"', (n2+1))
-				#	n4 = line.find('/>', (n2+1))
-				#	x = line[(n2+1):n3]
-				#	if int(x) == 150 and n4 != -1:
-				#		line = line.replace(line, "")
+#rename marks
+				if '<!-- next_screen_rename_and_stop_mod -->' in line:
+					next_rename = True
+					run_mod = False
+				else:
+					if next_rename:
+						if '_is_FHD' in line:
+							line = line.replace('_is_FHD', "")
+						else:
+							if 'name="' in line:
+								n1 = line.find('name=', 0)
+								n2 = line.find('"', n1)
+								n3 = line.find('"', n2+1)
+								line = line[:(n3)] + '_is_HD' + line[(n3):]
+						next_rename = False
 #control marks
 				if '<!-- run_mod -->' in line:
 					run_mod = True
@@ -1234,24 +1241,19 @@ class MainSettingsView(Screen):
 						line = line[:n1] + strnew + line[(n3+1):]
 #<alias name="Body" font="screen_text" size="20" height="25" />
 					if 'font="' in line and 'alias name="' in line and 'size="' in line and fontsize >= 2:
-						print "#1"
 						n1 = line.find('size="', 0)
 						n2 = line.find('"', n1) 
 						n3 = line.find('"', n2+1) 
-						print line, n1,n2,n3
 						y = line[(n2+1):n3]
-						print y
 						ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
 						strnew = line[n1:(n2+1)] + ynew + '"'
 						line = line[:n1] + strnew + line[(n3+1):]
 #<alias name="Body" font="screen_text" size="20" height="25" />
 					if 'font="' in line and 'alias name="' in line and 'height="' in line:
-						print "#2"
 						n1 = line.find('height="', 0)
 						n2 = line.find('"', n1) 
 						n3 = line.find('"', n2+1) 
 						y = line[(n2+1):n3]
-						print y
 						ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
 						strnew = line[n1:(n2+1)] + ynew + '"'
 						line = line[:n1] + strnew + line[(n3+1):]

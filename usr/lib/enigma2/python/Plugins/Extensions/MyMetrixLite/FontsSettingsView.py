@@ -377,10 +377,10 @@ class FontsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteFonts.globaltitle_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf"
             config.plugins.MyMetrixLiteFonts.globaltitle_scale.value = 115
             config.plugins.MyMetrixLiteFonts.globalbutton_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf"
-            config.plugins.MyMetrixLiteFonts.globalbutton_scale.value = 105
-            config.plugins.MyMetrixLiteFonts.globalclock_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
+            config.plugins.MyMetrixLiteFonts.globalbutton_scale.value = 85
+            config.plugins.MyMetrixLiteFonts.globalclock_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf"
             config.plugins.MyMetrixLiteFonts.globalclock_scale.value = 100
-            config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
+            config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Channel.ttf"
             config.plugins.MyMetrixLiteFonts.globallarge_scale.value = 100
             config.plugins.MyMetrixLiteFonts.globalsmall_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
             config.plugins.MyMetrixLiteFonts.globalsmall_scale.value = 95
@@ -399,10 +399,10 @@ class FontsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteFonts.epgtext_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
             config.plugins.MyMetrixLiteFonts.epgtext_scale.value = 105
             config.plugins.MyMetrixLiteFonts.epginfo_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
-            config.plugins.MyMetrixLiteFonts.epginfo_scale.value = 115
+            config.plugins.MyMetrixLiteFonts.epginfo_scale.value = 110
             #infobar
             config.plugins.MyMetrixLiteFonts.infobarevent_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf"
-            config.plugins.MyMetrixLiteFonts.infobarevent_scale.value = 115
+            config.plugins.MyMetrixLiteFonts.infobarevent_scale.value = 110
             config.plugins.MyMetrixLiteFonts.infobartext_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
             config.plugins.MyMetrixLiteFonts.infobartext_scale.value = 105
         elif config.plugins.MyMetrixLiteFonts.SkinFontExamples.value == "preset_4":
