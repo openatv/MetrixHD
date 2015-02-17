@@ -282,7 +282,8 @@ def initFontsConfig():
         ("preset_1", _("Standard Fonts greater")),
         ("preset_2", _("Bold and greater Fonts")),
         ("preset_3", _("Raleway Fonts")),
-        ("preset_4", _("Digital Fonts"))
+        ("preset_4", _("Digital Fonts")),
+        ("preset_5", _("Analog Fonts"))
         ]
 
     FontTypeList = []
@@ -346,7 +347,7 @@ def initFontsConfig():
     config.plugins.MyMetrixLiteFonts.epgtext_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
     config.plugins.MyMetrixLiteFonts.epgtext_scale = ConfigSelectionNumber(75, 125, 1, default = 95)
     config.plugins.MyMetrixLiteFonts.epginfo_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
-    config.plugins.MyMetrixLiteFonts.epginfo_scale = ConfigSelectionNumber(75, 125, 1, default = 95)
+    config.plugins.MyMetrixLiteFonts.epginfo_scale = ConfigSelectionNumber(75, 150, 1, default = 95)
 #infobar, movieplayer
     config.plugins.MyMetrixLiteFonts.infobarevent_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices = FontTypeList)
     config.plugins.MyMetrixLiteFonts.infobarevent_scale = ConfigSelectionNumber(75, 125, 1, default = 100)
