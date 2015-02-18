@@ -367,13 +367,13 @@
 		<eLabel name="new eLabel" position="60,173" size="323,1" backgroundColor="layer-a-foreground" />
 		<eLabel position="416,52" zPosition="-10" size="810,619" backgroundColor="layer-a-background" />
 		<!-- /*ClockWidget-->
-		<widget source="global.CurrentTime" render="Label" position="236,604" size="170,70" font="global_clock; 60" halign="left" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
+		<widget source="global.CurrentTime" render="Label" position="201,603" size="190,70" font="global_clock; 60" noWrap="1" halign="center" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="56,634" size="150,30" font="global_clock; 20" halign="right" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
+		<widget source="global.CurrentTime" render="Label" position="51,634" size="150,30" font="global_clock; 20" noWrap="1" halign="right" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
 			<convert type="ClockToText">Format:%e. %B</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="56,604" size="150,30" font="global_clock; 20" halign="right" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
+		<widget source="global.CurrentTime" render="Label" position="51,604" size="150,30" font="global_clock; 20" noWrap="1" halign="right" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
 			<convert type="ClockToText">Format:%A</convert>
 		</widget>
 		<eLabel position="51,600" zPosition="-1" size="340,70" backgroundColor="layer-a-background" transparent="0" />
@@ -548,16 +548,16 @@
 		</widget>
 		<ePixmap position="1130,631" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
 		<!-- /*ClockWidget-->
-			<widget source="global.CurrentTime" render="Label" position="236,604" size="170,70" font="global_clock; 60" halign="left" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
-				<convert type="ClockToText">Default</convert>
-			</widget>
-			<widget source="global.CurrentTime" render="Label" position="56,634" size="150,30" font="global_clock; 20" halign="right" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
-				<convert type="ClockToText">Format:%e. %B</convert>
-			</widget>
-			<widget source="global.CurrentTime" render="Label" position="56,604" size="150,30" font="global_clock; 20" halign="right" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
-				<convert type="ClockToText">Format:%A</convert>
-			</widget>
-			<eLabel position="51,600" zPosition="-1" size="340,70" backgroundColor="layer-a-background" transparent="0" />
+		<widget source="global.CurrentTime" render="Label" position="201,603" size="190,70" font="global_clock; 60" noWrap="1" halign="center" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="51,634" size="150,30" font="global_clock; 20" noWrap="1" halign="right" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
+			<convert type="ClockToText">Format:%e. %B</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="51,604" size="150,30" font="global_clock; 20" noWrap="1" halign="right" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
+			<convert type="ClockToText">Format:%A</convert>
+		</widget>
+		<eLabel position="51,600" zPosition="-1" size="340,70" backgroundColor="layer-a-background" transparent="0" />
 		<!--ClockWidget */-->
 		<eLabel position="432,60" size="500,40" text="Media Player" font="SetrixHD; 26" backgroundColor="layer-a-background" transparent="1" />
 	</screen>
@@ -911,13 +911,13 @@
 		</widget>		
 		<eLabel text="Next:" position="390,695" size="60,25" font="Regular;18" backgroundColor="black" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="nextTitle" position="440,695" size="600,26" font="Regular;18" foregroundColor="#6a6965" backgroundColor="black" transparent="1" />
-		<widget source="global.CurrentTime" render="Label" position="1139,10" size="140,60" font="global_clock; 50" halign="left" valign="bottom" backgroundColor="black" foregroundColor="layer-a-clock-foreground" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="1128,11" size="140,60" font="global_clock; 50" noWrap="1" halign="center" valign="bottom" backgroundColor="black" foregroundColor="layer-a-clock-foreground" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="968,10" size="161,27" font="global_clock; 16" backgroundColor="black" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="968,10" size="160,27" font="global_clock; 16" noWrap="1" backgroundColor="black" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" transparent="1">
 			<convert type="ClockToText">Format:%A</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="968,35" size="161,27" font="global_clock; 16" backgroundColor="black" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="968,35" size="160,27" font="global_clock; 16" noWrap="1" backgroundColor="black" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" transparent="1">
 			<convert type="ClockToText">Format:%e. %b</convert>
 		</widget>
 	</screen>	
@@ -1172,13 +1172,13 @@
 		<widget source="session.MSNWeather" render="Label" font="Regular;24" position="955,655" size="240,40" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center" >
 			<convert type="MSNWeather">temperature_text,day5</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" font="global_clock; 50" position="1139,10" size="140,60" zPosition="2" halign="left" valign="bottom" backgroundColor="transpBlack" foregroundColor="layer-a-clock-foreground" transparent="1">
+		<widget source="global.CurrentTime" render="Label" font="global_clock; 50" position="1128,11" size="140,60" noWrap="1" zPosition="2" halign="center" valign="bottom" backgroundColor="transpBlack" foregroundColor="layer-a-clock-foreground" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" font="global_clock; 16" position="968,10" size="161,27" zPosition="2" halign="right" valign="bottom" backgroundColor="transpBlack" foregroundColor="layer-a-clock-foreground" transparent="1">
+		<widget source="global.CurrentTime" render="Label" font="global_clock; 16" position="968,10" size="160,27" noWrap="1" zPosition="2" halign="right" valign="bottom" backgroundColor="transpBlack" foregroundColor="layer-a-clock-foreground" transparent="1">
 			<convert type="ClockToText">Format:%A</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" font="global_clock; 16" position="968,35" size="161,27" zPosition="2" halign="right" valign="bottom" backgroundColor="transpBlack" foregroundColor="layer-a-clock-foreground" transparent="1">
+		<widget source="global.CurrentTime" render="Label" font="global_clock; 16" position="968,35" size="160,27" noWrap="1" zPosition="2" halign="right" valign="bottom" backgroundColor="transpBlack" foregroundColor="layer-a-clock-foreground" transparent="1">
 			<convert type="ClockToText">Format:%e. %B</convert>
 		</widget>
 	</screen>
