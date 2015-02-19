@@ -246,8 +246,12 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(_("Enable FHD"), config.plugins.MyMetrixLiteOther.FHDenabled, "ENABLED_FHD"))
         if config.plugins.MyMetrixLiteOther.FHDenabled.getValue() is True:
             list.append(getConfigListEntry(_("All calculated values round down"), config.plugins.MyMetrixLiteOther.FHDrounddown))
-            list.append(getConfigListEntry(_("Method of font scaling"), config.plugins.MyMetrixLiteOther.FHDfontsize))
+            #list.append(getConfigListEntry(_("Method of font scaling"), config.plugins.MyMetrixLiteOther.FHDfontsize))
+            # FHDfontsize deactivated
+            if config.plugins.MyMetrixLiteOther.FHDfontsize.value != "2":
+                self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDfontsize)
             list.append(getConfigListEntry(_("Additional offset for font scaling"), config.plugins.MyMetrixLiteOther.FHDfontoffset))
+            list.append(getConfigListEntry(_("Show picons zoomed ?"), config.plugins.MyMetrixLiteOther.FHDpiconzoom))
             list.append(getConfigListEntry(_("Calculating additional files"), config.plugins.MyMetrixLiteOther.FHDadditionalfiles))
         list.append(getConfigListEntry(_("STB-Info   ------------------------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Distance between the STB-Infos"), config.plugins.MyMetrixLiteOther.STBDistance))
@@ -422,6 +426,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDrounddown)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDfontsize)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDfontoffset)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDpiconzoom)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDadditionalfiles)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.STBDistance)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showCPULoad)

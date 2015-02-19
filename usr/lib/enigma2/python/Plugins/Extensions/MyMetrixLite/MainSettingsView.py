@@ -902,6 +902,7 @@ class MainSettingsView(Screen):
             self.round_par = int(config.plugins.MyMetrixLiteOther.FHDrounddown.value)
             self.font_size = int(config.plugins.MyMetrixLiteOther.FHDfontsize.value)
             self.font_offset = config.plugins.MyMetrixLiteOther.FHDfontoffset.value
+            self.picon_zoom = float(config.plugins.MyMetrixLiteOther.FHDpiconzoom.value)
             self.FHD_addfiles = config.plugins.MyMetrixLiteOther.FHDadditionalfiles.value
             #variables end
 
@@ -1062,8 +1063,10 @@ class MainSettingsView(Screen):
 
 		run_mod = False
 		next_rename = False
+		next_picon_zoom = False
 		FACT = 1.5
 		FFACT = FACT
+		PFACT = FACT
 
 		print "starting   " + sourceFile + "   --->   " + targetFile
 
@@ -1078,7 +1081,9 @@ class MainSettingsView(Screen):
 		f1 = open(targetFile, "w")
 
 		i = 0
+		i_save = i
 		for line in f.readlines(): 
+			i = i+1
 			try: 
 #start additional files
 				if self.FHD_addfiles:
@@ -1155,6 +1160,17 @@ class MainSettingsView(Screen):
 				if '<!-- stop_mod -->' in line:
 					run_mod = False
 				if run_mod:
+#picon zoom
+					if '<!-- next_line_is_picon -->' in line:
+						#only for next line!
+						i_save = i+1
+						next_picon_zoom = True
+						PFACT = self.picon_zoom
+					else:
+						if i > i_save:
+							i_save = i+10000 
+							next_picon_zoom = False
+							PFACT = FACT
 #<resolution xres="1280" yres="720"
 					if '<resolution ' in line:
 						n1 = line.find('xres', 0)
@@ -1166,51 +1182,9 @@ class MainSettingsView(Screen):
 						n2 = line.find('"', n1)
 						n3 = line.find('"', (n2+1))
 						line = line[:(n2+1)] + "1080" + line[(n3):]
-#position="423,460"
-					if 'position="' in line:
-						n1 = line.find('position="', 0)
-						n2 = line.find('"', n1) 
-						n3 = line.find(',', n2) 
-						n4 = line.find('"', n3) 
-						x = line[(n2+1):n3]
-						y = line[(n3+1):n4]
-						if "c+" in x:
-							x1 = x.replace("c+", "")
-							x1new = str(int(round(float(int(x1)*FACT),r_par)))
-							xnew = "c+" + x1new
-						elif "c-" in x:
-							x1 = x.replace("c-", "")
-							x1new = str(int(round(float(int(x1)*FACT),r_par)))
-							xnew = "c-" + x1new
-						elif "e-" in x:
-							x1 = x.replace("e-", "")
-							x1new = str(int(round(float(int(x1)*FACT),r_par)))
-							xnew = "e-" + x1new      
-						elif 'ente' in x:
-							xnew = 'center'
-						else:
-							xnew = str(int(round(float(int(x)*FACT),r_par)))
-
-						if "c+" in y:
-							y1 = y.replace("c+", "")
-							y1new = str(int(round(float(int(y1)*FACT),r_par)))
-							ynew = "c+" + y1new
-						elif "c-" in y:
-							y1 = y.replace("c-", "")
-							y1new = str(int(round(float(int(y1)*FACT),r_par)))
-							ynew = "c-" + y1new
-						elif "e-" in y:
-							y1 = y.replace("e-", "")
-							y1new = str(int(round(float(int(y1)*FACT),r_par)))
-							ynew = "e-" + y1new
-						elif 'ente' in y:
-							ynew = 'center'
-						else:
-							ynew = str(int(round(float(int(y)*FACT),r_par)))
-
-						strnew = 'position="' + xnew + ',' + ynew + '"'
-						line = line[:n1] + strnew + line[(n4+1):]
 #size="200,100"
+					xpos = 0
+					ypos = 0
 					if 'size="' in line and not 'alias name="' in line:
 						n1 = line.find('size="', 0)
 						n2 = line.find('"', n1) 
@@ -1220,35 +1194,91 @@ class MainSettingsView(Screen):
 						y = line[(n3+1):n4]
 						if "c+" in x:
 							x1 = x.replace("c+", "")
-							x1new = str(int(round(float(int(x1)*FACT),r_par)))
+							xpos = int(round(float((int(x1)*FACT - int(x1)*PFACT)/2),r_par))
+							x1new = str(int(round(float(int(x1)*PFACT),r_par)))
 							xnew = "c+" + x1new
 						elif "c-" in x:
 							x1 = x.replace("c-", "")
-							x1new = str(int(round(float(int(x1)*FACT),r_par)))
+							xpos = int(round(float((int(x1)*FACT - int(x1)*PFACT)/2),r_par))
+							x1new = str(int(round(float(int(x1)*PFACT),r_par)))
 							xnew = "c-" + x1new
 						elif "e-" in x:
 							x1 = x.replace("e-", "")
-							x1new = str(int(round(float(int(x1)*FACT),r_par)))
+							xpos = int(round(float((int(x1)*FACT - int(x1)*PFACT)/2),r_par))
+							x1new = str(int(round(float(int(x1)*PFACT),r_par)))
 							xnew = "e-" + x1new      
 						else:                      
-							xnew = str(int(round(float(int(x)*FACT),r_par)))
+							xpos = int(round(float((int(x)*FACT - int(x)*PFACT)/2),r_par))
+							xnew = str(int(round(float(int(x)*PFACT),r_par)))
 
 						if "c+" in y:
 							y1 = y.replace("c+", "")
-							y1new = str(int(round(float(int(y1)*FACT),r_par)))
+							ypos = int(round(float((int(y1)*FACT - int(y1)*PFACT)/2),r_par))
+							y1new = str(int(round(float(int(y1)*PFACT),r_par)))
 							ynew = "c+" + y1new
 						elif "c-" in y:
 							y1 = y.replace("c-", "")
-							y1new = str(int(round(float(int(y1)*FACT),r_par)))
+							ypos = int(round(float((int(y1)*FACT - int(y1)*PFACT)/2),r_par))
+							y1new = str(int(round(float(int(y1)*PFACT),r_par)))
 							ynew = "c-" + y1new
 						elif "e-" in y:
 							y1 = y.replace("e-", "")
-							y1new = str(int(round(float(int(y1)*FACT),r_par)))
+							ypos = int(round(float((int(y1)*FACT - int(y1)*PFACT)/2),r_par))
+							y1new = str(int(round(float(int(y1)*PFACT),r_par)))
 							ynew = "e-" + y1new
 						else:
-							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							ypos = int(round(float((int(y)*FACT - int(y)*PFACT)/2),r_par))
+							ynew = str(int(round(float(int(y)*PFACT),r_par)))
 
 						strnew = 'size="' + xnew + ',' + ynew + '"'
+						line = line[:n1] + strnew + line[(n4+1):]
+#position="423,460"
+					if not next_picon_zoom:
+						xpos = 0
+						ypos = 0
+
+					if 'position="' in line:
+						n1 = line.find('position="', 0)
+						n2 = line.find('"', n1) 
+						n3 = line.find(',', n2) 
+						n4 = line.find('"', n3) 
+						x = line[(n2+1):n3]
+						y = line[(n3+1):n4]
+						if "c+" in x:
+							x1 = x.replace("c+", "")
+							x1new = str(int(round(float(int(x1)*FACT+xpos),r_par)))
+							xnew = "c+" + x1new
+						elif "c-" in x:
+							x1 = x.replace("c-", "")
+							x1new = str(int(round(float(int(x1)*FACT+xpos),r_par)))
+							xnew = "c-" + x1new
+						elif "e-" in x:
+							x1 = x.replace("e-", "")
+							x1new = str(int(round(float(int(x1)*FACT+xpos),r_par)))
+							xnew = "e-" + x1new      
+						elif 'ente' in x:
+							xnew = 'center'
+						else:
+							xnew = str(int(round(float(int(x)*FACT+xpos),r_par)))
+
+						if "c+" in y:
+							y1 = y.replace("c+", "")
+							y1new = str(int(round(float(int(y1)*FACT+ypos),r_par)))
+							ynew = "c+" + y1new
+						elif "c-" in y:
+							y1 = y.replace("c-", "")
+							y1new = str(int(round(float(int(y1)*FACT+ypos),r_par)))
+							ynew = "c-" + y1new
+						elif "e-" in y:
+							y1 = y.replace("e-", "")
+							y1new = str(int(round(float(int(y1)*FACT+ypos),r_par)))
+							ynew = "e-" + y1new
+						elif 'ente' in y:
+							ynew = 'center'
+						else:
+							ynew = str(int(round(float(int(y)*FACT+ypos),r_par)))
+
+						strnew = 'position="' + xnew + ',' + ynew + '"'
 						line = line[:n1] + strnew + line[(n4+1):]
 #font="Regular;20"
 					if 'font="' in line and not 'alias name="' in line and fontsize >= 2:
@@ -1561,7 +1591,7 @@ class MainSettingsView(Screen):
 									strnew = "MetrixHD/FHD" + line[(n1+8):n2]
 									line = line[:n1] + strnew + line[n2:]
 								else:
-									print "pixmap missing - line", i+1 , file
+									print "pixmap missing - line", i , file
 									self.pixmap_error = True
 						if 'skin_default/' in line and not '/skin_default/' in line and '.png"' in line:
 							s = 0
@@ -1574,7 +1604,7 @@ class MainSettingsView(Screen):
 									strnew = "MetrixHD/FHD/skin_default" + line[(n1+12):n2]
 									line = line[:n1] + strnew + line[n2:]
 								else:
-									print "pixmap missing - line", i+1, file
+									print "pixmap missing - line", i, file
 									self.pixmap_error = True
 #emc special start
 					if 'widget name="list"' in line and ' Cool' in line and not ' CoolEvent' in line or 'render="EMCPositionGauge"' in line:
@@ -1901,10 +1931,9 @@ class MainSettingsView(Screen):
 #cool tv guide special end
 			except:
 				self.skinline_error = True
-				print "error in line: ", i+1, line
+				print "error in line: ", i, line
 				print "--------"
 			f1.write(line)
-			i = i+1
 			if self.skinline_error:
 				break
 
