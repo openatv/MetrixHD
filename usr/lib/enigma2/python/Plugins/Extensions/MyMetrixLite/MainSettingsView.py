@@ -1206,8 +1206,8 @@ class MainSettingsView(Screen):
 							x1 = x.replace("e-", "")
 							xpos = int(round(float((int(x1)*FACT - int(x1)*PFACT)/2),r_par))
 							x1new = str(int(round(float(int(x1)*PFACT),r_par)))
-							xnew = "e-" + x1new      
-						else:                      
+							xnew = "e-" + x1new
+						else:
 							xpos = int(round(float((int(x)*FACT - int(x)*PFACT)/2),r_par))
 							xnew = str(int(round(float(int(x)*PFACT),r_par)))
 
@@ -1255,7 +1255,7 @@ class MainSettingsView(Screen):
 						elif "e-" in x:
 							x1 = x.replace("e-", "")
 							x1new = str(int(round(float(int(x1)*FACT+xpos),r_par)))
-							xnew = "e-" + x1new      
+							xnew = "e-" + x1new
 						elif 'ente' in x:
 							xnew = 'center'
 						else:
@@ -1400,7 +1400,7 @@ class MainSettingsView(Screen):
 							elif "e-" in x:
 								x1 = x.replace("e-", "")
 								x1new = str(int(round(float(int(x1)*FACT),r_par)))
-								xnew = "e-" + x1new      
+								xnew = "e-" + x1new
 							elif 'ente' in x:
 								xnew = 'center'
 							else:
