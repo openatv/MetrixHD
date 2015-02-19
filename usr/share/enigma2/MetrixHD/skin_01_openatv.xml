@@ -2971,6 +2971,7 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 	</screen>
 	<screen name="EPGSelection" position="0,0" size="1280,720" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="EPG Selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+<!-- next_line_is_picon -->
 		<widget alphatest="blend" position="70,60" render="MetrixHDXPicon" size="220,132" source="Service" transparent="1" zPosition="1">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
@@ -3012,6 +3013,7 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 	</screen>
 	<screen name="EventView" position="0,0" size="1280,720" title="Eventview" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Event view" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+<!-- next_line_is_picon -->
 		<widget source="Title" render="MetrixHDXPicon" position="907,80" size="220,132" zPosition="5" transparent="1" alphatest="blend">
 			<convert type="MetrixRefString">CurrentRef</convert>
 		</widget>
@@ -3071,6 +3073,7 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 	<screen name="EventViewSimple" position="0,0" size="1280,720" title="EventviewSimple" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="epg_description" position="70,90" size="700,520" font="SetrixHD;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="channel" position="832,212" size="370,70" font="SetrixHD;26" halign="center" valign="bottom" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+<!-- next_line_is_picon -->
 		<widget source="Service" render="MetrixHDXPicon" position="907,80" size="220,132" zPosition="5" transparent="1" alphatest="blend">
 			<convert type="MovieInfo">RecordServiceRef</convert>
 		</widget>

@@ -429,6 +429,7 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.FHDrounddown = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.FHDfontsize = ConfigSelection(default = "2", choices = [("1", _("scale")), ("2", _("size")), ("3", _("50/50"))])
     config.plugins.MyMetrixLiteOther.FHDfontoffset = ConfigSelectionNumber(-20, 20, 1, default = 0)
+    config.plugins.MyMetrixLiteOther.FHDpiconzoom =  ConfigSelection(default = "1.5", choices = [("1", _("No")), ("1.1", _("x 1.1")), ("1.2", _("x 1.2")), ("1.3", _("x 1.3")), ("1.4", _("x 1.4")), ("1.5", _("Yes"))])
     config.plugins.MyMetrixLiteOther.FHDadditionalfiles = ConfigYesNo(default=False)
 	#STB-Info
     config.plugins.MyMetrixLiteOther.STBDistance = ConfigSelectionNumber(1, 50, 1, default = 10)
