@@ -1814,12 +1814,18 @@
 		<widget name="piconerror" position="70,230" size="690,60" font="screen_label;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
 		<widget name="piconslidername" position="70,260" size="690,60" font="screen_label;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
 		<widget name="selectedname" position="70,290" size="690,40" font="screen_label;20" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="selected" position="375,290" size="690,40" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="spiconname" position="70,320" size="690,40" font="screen_label;20" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="spicon" position="375,320" size="690,40" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="selected" position="220,290" size="690,40" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="creatorname" position="70,320" size="160,40" font="screen_label;20" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="creator" position="220,320" size="200,40" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="sizename" position="375,290" size="160,40" font="screen_label;20" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="size" position="525,290" size="160,40" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="bitname" position="375,320" size="160,40" font="screen_label;20" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="bit" position="525,320" size="160,40" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="spiconname" position="70,350" size="690,40" font="screen_label;20" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="spicon" position="375,350" size="690,40" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
 		<widget name="piconslider" position="375,264" size="350,20" zPosition="2" borderWidth="2" foregroundColor="layer-a-progress" borderColor="layer-a-accent1" />
 		<widget name="picon" position="815,105" size="400,240" zPosition="4" transparent="1" borderWidth="0" borderColor="layer-a-background" alphatest="blend" />
-		<widget name="list" position="70,365" size="1145,240" zPosition="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1"/>
+		<widget name="list" position="70,395" size="1145,210" zPosition="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1"/>
 		<panel name="template1_1layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
@@ -1878,5 +1884,57 @@
 		<widget name="stepvalue" position="10,365" size="150,30" halign="center" zPosition="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" itemHeight="30" font="screen_text; 20"/>
 	</screen>	
 	<!-- AntiLogo -->
+	<!-- VTI Dateimanager -->
+	<screen name="FilebrowserConfigScreenVTi" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent" title="" >
+		<widget source="Title" render="Label" position="70,47" size="550,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="help" position="825,420" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<ePixmap pixmap="MetrixHD/icons/setup.png" position="890,175" size="256,256" alphatest="blend" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
+	<screen name="FilebrowserScreenVTi" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent" title="" >
+		<widget source="Title" render="Label" position="70,47" size="550,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list_left_head" position="70,95" size="570,60" font="screen_text;18" valign="top" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background"  transparent="1"/>
+		<widget name="list_right_head" position="650,95" size="570,60" font="screen_text;18" valign="top" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background"  transparent="1"/>
+		<widget name="list_left" position="70,140" size="565,480" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="list_right" position="650,140" size="565,480" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="help" position="420,115" size="440,440" zPosition="5" font="screen_text;20" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background"/>
+		<widget name="helpBack" position="400,95" size="480,480" zPosition="4" font="screen_text;20" backgroundColor="layer-b-background" transparent="0"/>
+		<widget name="helpShadow" position="398,93" size="484,484" zPosition="3" font="screen_text;20" backgroundColor="layer-a-accent1"/>
+		<panel name="template1_1layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_help.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
+	</screen>
+		<screen name="FilebrowserScreenFileSelectVTi" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent" title="" >
+		<widget source="Title" render="Label" position="70,47" size="550,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list_left_head" position="70,95" size="570,60" font="screen_text;18" valign="top" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background"  transparent="1"/>
+		<widget name="list_right_head" position="650,95" size="570,60" font="screen_text;18" valign="top" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background"  transparent="1"/>
+		<widget name="list_left" position="70,140" size="565,480" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="list_right" position="650,140" size="565,480" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_1layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_help.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- VTI Dateimanager -->
+	<!--Elektro Plugin -->
+	<screen name="Elektro" position="0,0" size="1280,720" flags="wfNoBorder" title="Elektro Power Save" backgroundColor="transparent" >
+		<widget source="Title" render="Label" position="70,47" size="550,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rgy_-buttons_template1" />
+		<panel name="rgy_-keys_template1" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap pixmap="MetrixHD/icons/setup.png" position="890,175" size="256,256" alphatest="blend" transparent="1" />
+	</screen>
+	<!--Elektro Plugin -->
 <!-- PLUGINS */-->
 </skin>

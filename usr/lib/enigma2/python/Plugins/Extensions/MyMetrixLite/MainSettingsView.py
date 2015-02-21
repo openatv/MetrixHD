@@ -910,29 +910,34 @@ class MainSettingsView(Screen):
 
             #FHD-option
             if config.plugins.MyMetrixLiteOther.FHDenabled.value:
-                print "--------   optionFHD   --------"
-                for file in skinfiles_FHD:
-                    if self.skinline_error:
-                        break
-                    if path.exists(file[2]):
-                        self.optionFHD(file[2],file[1])
-                    else:
-                        self.optionFHD(file[0],file[1])
-                #additional files
-                if self.FHD_addfiles:
-                    plustext = _("--- additional files start ---\n")
-                    #antilogo.xml
-                    file_a = "/etc/enigma2/antilogo.xml"
-                    file_b = "/etc/enigma2/antilogo_HD.xml"
-                    file_c = "/etc/enigma2/antilogo_FHD.xml"
-                    if path.exists(file_a) and not path.exists(file_b) and not path.exists(file_c) and not self.skinline_error:
-                        copy(file_a, file_b)
-                        self.optionFHD(file_a,file_c)
-                        plustext = plustext + _("Backup ") + file_a + " ---> " + file_b + _("\nNew calculated file is ") + file_c
+                #check hbbtv plugin - is not compatible with FHD-skin!
+                if path.exists("/usr/lib/enigma2/python/Plugins/Extensions/HbbTV/plugin.pyo"):
+                    self.skinline_error = True
+                    plustext = _("The installed 'HbbTV Plugin' is not compatible with the FHD-Skin.\n\n")
+                if not self.skinline_error:
+                    print "--------   optionFHD   --------"
+                    for file in skinfiles_FHD:
+                        if self.skinline_error:
+                            break
+                        if path.exists(file[2]):
+                            self.optionFHD(file[2],file[1])
+                        else:
+                            self.optionFHD(file[0],file[1])
+                    #additional files
+                    if self.FHD_addfiles:
+                        plustext = _("--- additional files start ---\n")
+                        #antilogo.xml
+                        file_a = "/etc/enigma2/antilogo.xml"
+                        file_b = "/etc/enigma2/antilogo_HD.xml"
+                        file_c = "/etc/enigma2/antilogo_FHD.xml"
+                        if path.exists(file_a) and not path.exists(file_b) and not path.exists(file_c) and not self.skinline_error:
+                            copy(file_a, file_b)
+                            self.optionFHD(file_a,file_c)
+                            plustext = plustext + _("Backup ") + file_a + " ---> " + file_b + _("\nNew calculated file is ") + file_c
 
-                    if len(plustext) < 100:
-                        plustext = plustext + _("No files found or files already exist.")
-                    plustext = plustext + _("\n--- additional files end ---\n\n")
+                        if len(plustext) < 100:
+                            plustext = plustext + _("No files found or files already exist.")
+                        plustext = plustext + _("\n--- additional files end ---\n\n")
 
             #HD-standard
             if not config.plugins.MyMetrixLiteOther.FHDenabled.value or self.skinline_error:
