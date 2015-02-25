@@ -3018,16 +3018,16 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 		<widget source="Title" render="MetrixHDXPicon" position="907,80" size="220,132" zPosition="5" transparent="1" alphatest="blend">
 			<convert type="MetrixRefString">CurrentRef</convert>
 		</widget>
-		<widget name="epg_description" position="70,90" size="700,520" font="SetrixHD;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="channel" position="832,212" size="370,70" font="SetrixHD;26" halign="center" valign="bottom" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="epg_description" position="70,110" size="700,520" font="epg_text;22" scrollbarMode="showNever" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="channel" position="832,212" size="370,70" font="epg_event;26" halign="center" valign="bottom" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
 		<eLabel position="859,310" size="315,1" backgroundColor="layer-b-accent1" />
 		<widget source="session.Event_Now" render="Progress" position="859,308" size="315,5" borderWidth="0" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget name="datetime" position="882,337" size="270,40" font="SetrixHD;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="datetime" position="882,337" size="270,40" font="epg_event;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
 		<ePixmap position="825,336" size="36,36" zPosition="10" pixmap="MetrixHD/left.png" transparent="1" alphatest="blend" />
 		<ePixmap position="1174,336" size="36,36" zPosition="10" pixmap="MetrixHD/right.png" transparent="1" alphatest="blend" />
-		<widget name="duration" position="882,392" size="270,40" font="SetrixHD;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="duration" position="882,392" size="270,40" font="epg_event;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
 		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/subtitle_off.png" position="829,490" size="31,23"/>
 		<widget alphatest="blend" pixmap="MetrixHD/icons/subtitle_on.png" position="829,490" render="Pixmap" size="31,23" source="session.CurrentService" zPosition="1">
 			<convert type="ServiceInfo">SubservicesAvailable</convert>
@@ -3072,8 +3072,8 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 	</screen>
 	<!-- EventViewSimple , optimized for MovieInfo (EMC)-->
 	<screen name="EventViewSimple" position="0,0" size="1280,720" title="EventviewSimple" flags="wfNoBorder" backgroundColor="transparent">
-		<widget name="epg_description" position="70,90" size="700,520" font="SetrixHD;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="channel" position="832,212" size="370,70" font="SetrixHD;26" halign="center" valign="bottom" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="epg_description" position="70,110" size="700,520" font="epg_text;22" scrollbarMode="showNever" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="channel" position="832,212" size="370,70" font="epg_event;26" halign="center" valign="bottom" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
 <!-- next_line_is_picon -->
 		<widget source="Service" render="MetrixHDXPicon" position="907,80" size="220,132" zPosition="5" transparent="1" alphatest="blend">
 			<convert type="MovieInfo">RecordServiceRef</convert>
@@ -3082,9 +3082,9 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 		<widget source="session.CurrentService" render="Progress" position="859,308" size="315,5" borderWidth="0" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
-		<widget name="datetime" position="882,337" size="270,40" font="SetrixHD;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
-		<widget name="duration" position="882,377" size="270,40" font="SetrixHD;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
-		<widget source="Service" render="Label" position="882,417" size="270,40" font="SetrixHD;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" >
+		<widget name="datetime" position="882,337" size="270,40" font="epg_event;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="duration" position="882,377" size="270,40" font="epg_event;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget source="Service" render="Label" position="882,417" size="270,40" font="epg_event;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" >
 			<convert type="MovieInfo">FileSize</convert>
 		</widget>
 		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_dolby_off.png" position="942,490" size="34,23" zPosition="1"/>
