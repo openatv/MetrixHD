@@ -2304,19 +2304,21 @@
 		<widget name="servicebouquet" position="185,358" size="396,53" font="SetrixHD;28" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="161,244" size="550,181" backgroundColor="layer-a-background" zPosition="-5" />
 	</screen>
-	<screen name="NumericalTextInputHelpDialog" position="120,490" size="604,125" backgroundColor="layer-a-background" flags="wfNoBorder" zPosition="8">
-		<widget name="key1" position="1,1" size="200,30" font="Console;21" halign="center" valign="center" />
-		<widget name="key2" position="202,1" size="200,30" font="Console;21" halign="center" valign="center" />
-		<widget name="key3" position="403,1" size="200,30" font="Console;21" halign="center" valign="center" />
-		<widget name="key4" position="1,32" size="200,30" font="Console;21" halign="center" valign="center" />
-		<widget name="key5" position="202,32" size="200,30" font="Console;21" halign="center" valign="center" />
-		<widget name="key6" position="403,32" size="200,30" font="Console;21" halign="center" valign="center" />
-		<widget name="key7" position="1,63" size="200,30" font="Console;21" halign="center" valign="center" />
-		<widget name="key8" position="202,63" size="200,30" font="Console;21" halign="center" valign="center" />
-		<widget name="key9" position="403,63" size="200,30" font="Console;21" halign="center" valign="center" />
-		<widget name="help1" position="1,94" size="200,30" font="Console;22" halign="center" valign="center" />
-		<widget name="key0" position="202,94" size="200,30" font="Console;17" halign="center" valign="center" />
-		<widget name="help2" position="403,94" size="200,30" font="Console;22" halign="center" valign="center" />
+	<screen name="NumericalTextInputHelpDialog" position="338,594" size="604,126" backgroundColor="transparent" flags="wfNoBorder" zPosition="8">
+		<eLabel name="b" position="0,0" size="604,126" backgroundColor="layer-b-background" zPosition="-10" /> 
+		<eLabel name="a" position="1,1" size="602,124" backgroundColor="layer-a-background" zPosition="-9" /> 
+		<widget name="key1" position="1,15" size="200,25" font="Console;18" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="key2" position="202,15" size="200,25" font="Console;18" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="key3" position="403,15" size="200,25" font="Console;18" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="key4" position="1,43" size="200,25" font="Console;18" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="key5" position="202,43" size="200,25" font="Console;18" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="key6" position="403,43" size="200,25" font="Console;18" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="key7" position="1,71" size="200,25" font="Console;18" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="key8" position="202,71" size="200,25" font="Console;18" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="key9" position="403,71" size="200,25" font="Console;18" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="help1" position="1,99" size="200,25" font="Console;22" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="key0" position="202,99" size="200,25" font="Console;18" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="help2" position="403,99" size="200,25" font="Console;22" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
 	</screen>
 	<screen name="MessageBox-template-0">
 		<!-- old version (without auto-resize "list") /-->
@@ -3018,7 +3020,7 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 		<widget source="Title" render="MetrixHDXPicon" position="907,80" size="220,132" zPosition="5" transparent="1" alphatest="blend">
 			<convert type="MetrixRefString">CurrentRef</convert>
 		</widget>
-		<widget name="epg_description" position="70,110" size="700,520" font="epg_text;22" scrollbarMode="showNever" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="epg_description" position="70,110" size="700,520" font="epg_info;22" scrollbarMode="showNever" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="channel" position="832,212" size="370,70" font="epg_event;26" halign="center" valign="bottom" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
 		<eLabel position="859,310" size="315,1" backgroundColor="layer-b-accent1" />
 		<widget source="session.Event_Now" render="Progress" position="859,308" size="315,5" borderWidth="0" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
@@ -3072,7 +3074,7 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 	</screen>
 	<!-- EventViewSimple , optimized for MovieInfo (EMC)-->
 	<screen name="EventViewSimple" position="0,0" size="1280,720" title="EventviewSimple" flags="wfNoBorder" backgroundColor="transparent">
-		<widget name="epg_description" position="70,110" size="700,520" font="epg_text;22" scrollbarMode="showNever" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="epg_description" position="70,110" size="700,520" font="epg_info;22" scrollbarMode="showNever" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="channel" position="832,212" size="370,70" font="epg_event;26" halign="center" valign="bottom" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
 <!-- next_line_is_picon -->
 		<widget source="Service" render="MetrixHDXPicon" position="907,80" size="220,132" zPosition="5" transparent="1" alphatest="blend">
