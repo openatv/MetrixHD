@@ -2975,7 +2975,7 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 	<screen name="EPGSelection" position="0,0" size="1280,720" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="EPG Selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 <!-- next_line_is_picon -->
-		<widget alphatest="blend" position="70,60" render="MetrixHDXPicon" size="220,132" source="Service" transparent="1" zPosition="1">
+		<widget alphatest="blend" position="70,50" render="MetrixHDXPicon" size="220,132" source="Service" transparent="1" zPosition="1">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
 		<widget source="Service" render="Label" position="290,120" size="480,50" font="global_title; 35" halign="center" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="0">
@@ -2987,7 +2987,8 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 		</widget>
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
-		<panel name="rgyb-keys_template1" />
+		<panel name="rgy_-keys_template1" />
+		<widget name="key_blue" position="619,639" size="132,30" zPosition="1" valign="top" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<panel name="ime-buttons_template1" />
 	</screen>
 	<screen name="BouquetSelector" position="0,0" size="1280,720" title="Choose bouquet" flags="wfNoBorder" backgroundColor="transparent">
