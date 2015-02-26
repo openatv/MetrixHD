@@ -963,22 +963,10 @@
 	</screen>
 		<!-- VPS *-->
 		<!--* NumberZapExt -->
-<!-- next_screen_rename_and_stop_mod -->
-	<screen name="NumberZapExt_is_FHD" position="center,center" size="1035,228" title="Channel" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel name="layer1" position="0,0" size="690,228" zPosition="-10" backgroundColor="layer-a-background" />
-		<eLabel name="layer2" position="690,8" size="345,213" zPosition="-10" backgroundColor="layer-b-background" />
-		<widget name="chPicon" position="753,48" size="220,198" transparent="1" zPosition="1" alphatest="blend" />
-		<widget name="chName" position="15,8" size="660,75" halign="center" font="global_title;53" backgroundColor="layer-a-background" foregroundColor="title-foreground" noWrap="1" transparent="1" />
-		<eLabel position="30,90" zPosition="0" size="630,2" backgroundColor="layer-a-accent2" />
-		<widget name="number" position="113,105" size="180,60" halign="left" font="SetrixHD;42" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
-		<widget name="chNum" position="293,105" size="270,60" halign="right" font="SetrixHD;42" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="bouquet" position="113,158" size="180,60" halign="left" font="SetrixHD;42" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
-		<widget name="chBouq" position="293,158" size="270,60" halign="right" font="SetrixHD;42" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" noWrap="1" transparent="1" />
-	</screen>
-<!-- next_screen_rename_and_stop_mod -->
 	<screen name="NumberZapExt" position="center,center" size="690,152" title="Channel" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel name="layer1" position="0,0" size="460,152" zPosition="-10" backgroundColor="layer-a-background" />
 		<eLabel name="layer2" position="460,5" size="230,142" zPosition="-10" backgroundColor="layer-b-background" />
+<!-- next_line_is_picon -->
 		<widget name="chPicon" position="465,10" size="220,132" transparent="1" zPosition="1" alphatest="blend" />
 		<widget name="chName" position="10,5" size="440,50" halign="center" font="global_title; 35" backgroundColor="layer-a-background" foregroundColor="title-foreground" noWrap="1" transparent="1" />
 		<eLabel position="20,60" zPosition="0" size="420,1" backgroundColor="layer-a-accent2" />
@@ -1942,15 +1930,50 @@
 	</screen>
 	<!-- VTI Dateimanager -->
 	<!--Elektro Plugin -->
-	<screen name="Elektro" position="0,0" size="1280,720" flags="wfNoBorder" title="Elektro Power Save" backgroundColor="transparent" >
-		<widget source="Title" render="Label" position="70,47" size="550,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<panel name="template1_2layer" />
-		<panel name="rgy_-buttons_template1" />
-		<panel name="rgy_-keys_template1" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap pixmap="MetrixHD/icons/setup.png" position="890,175" size="256,256" alphatest="blend" transparent="1" />
-	</screen>
+	<screen name="Elektro" position="0,0" size="1280,720" flags="wfNoBorder" title="Elektro Power Save" backgroundColor="transparent" > 
+		<widget source="Title" render="Label" position="70,47" size="550,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /> 
+		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" /> 
+		<widget source="help" render="Label" position="825,420" size="380,175" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/> 
+		<panel name="template1_2layer" /> 
+		<panel name="rgyb-buttons_template1" /> 
+		<panel name="rgyb-keys_template1" /> 
+		<panel name="_oe-buttons_template1" /> 
+		<ePixmap pixmap="MetrixHD/icons/shout.png" position="890,175" size="256,256" alphatest="blend" transparent="1" /> 
+	</screen> 
+	<screen name="ElektroProfile" position="0,0" size="1280,720" flags="wfNoBorder" title="Elektro Power Save Profile Times" backgroundColor="transparent" > 
+		<widget source="Title" render="Label" position="70,47" size="550,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /> 
+		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" /> 
+		<panel name="template1_2layer" /> 
+		<panel name="rg__-buttons_template1" /> 
+		<panel name="rg__-keys_template1" /> 
+		<panel name="_oe-buttons_template1" /> 
+		<ePixmap pixmap="MetrixHD/icons/menu_timermenu_powertimers.png" position="890,175" size="256,256" alphatest="blend" transparent="1" /> 
+	</screen> 
+	<screen name="ElektroIP" position="0,0" size="1280,720" flags="wfNoBorder" title="Elektro Power Save IP Addresses to wait" backgroundColor="transparent" > 
+		<widget source="Title" render="Label" position="70,47" size="550,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /> 
+		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" /> 
+		<panel name="template1_2layer" /> 
+		<panel name="rg__-buttons_template1" /> 
+		<panel name="rg__-keys_template1" /> 
+		<panel name="_oe-buttons_template1" /> 
+		<ePixmap pixmap="MetrixHD/icons/shout.png" position="890,175" size="256,256" alphatest="blend" transparent="1" /> 
+	</screen> 
+	<screen name="ElektroNAS" position="0,0" size="1280,720" flags="wfNoBorder" title="Elektro Power Save IP Telnet - Poweroff" backgroundColor="transparent" > 
+		<widget source="Title" render="Label" position="70,47" size="550,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /> 
+		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" /> 
+		<panel name="template1_2layer" /> 
+		<panel name="rgy_-buttons_template1" /> 
+		<panel name="rgy_-keys_template1" /> 
+		<panel name="_oe-buttons_template1" /> 
+		<ePixmap pixmap="MetrixHD/icons/shout.png" position="890,175" size="256,256" alphatest="blend" transparent="1" /> 
+	</screen> 
+	<screen name="ElektroNASrun" position="center,center" size="600,100" title="Powerdown..." flags="wfNoBorder" zPosition="1" backgroundColor="transparent"> 
+		<eLabel name="b" position="0,0" size="600,100" backgroundColor="layer-b-background" zPosition="-10" /> 
+		<eLabel name="a" position="1,1" size="598,98" backgroundColor="layer-a-background" zPosition="-9" /> 
+		<eLabel name="c" position="20,60" size="560,1" backgroundColor="layer-a-accent2" zPosition="-8" /> 
+		<widget source="Title" render="Label" position="25,10" size="550,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /> 
+		<widget source="TextTest" render="Label" position="25,65" size="550,30" halign="center" valign="center" font="screen_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/> 
+	</screen> 
 	<!--Elektro Plugin -->
 <!-- PLUGINS */-->
 </skin>
