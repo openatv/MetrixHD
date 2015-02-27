@@ -283,4 +283,22 @@
 	<screen name="COLORGRADIENT_Top">
 		<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top.png" position="0,0" size="1280,30" zPosition="-1" /-->
 	</screen>
+<!-- SKIN DESIGN - Infobar ZZZPicon -->
+	<screen name="IB_ZZZPicon">
+		<widget alphatest="blend" position="0,560" size="267,160" render="MetrixHDXPicon" source="session.CurrentService" transparent="1" zPosition="4">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+	</screen>
+<!-- SKIN DESIGN - Infobar XPicon -->
+	<screen name="IB_XPicon">
+<!-- next_line_is_picon -->
+		<widget alphatest="blend" position="33,574" size="220,132" render="MetrixHDXPicon" source="session.CurrentService" transparent="1" zPosition="4">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+	</screen>
+<!-- SKIN DESIGN - Infobar Picon -->
+	<screen name="InfoBar_Picon">
+		<panel name="IB_XPicon" />
+	</screen>
+
 </skin>

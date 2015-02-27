@@ -855,6 +855,22 @@ class MainSettingsView(Screen):
                 new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top.png" position="0,0" size="1280,30" zPosition="-1" />'
                 skinSearchAndReplace.append([old, new ])
 
+            #picon
+            if config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon.value == "1":
+                posx = 33 + config.plugins.MyMetrixLiteOther.SkinDesignInfobarXPiconPosX.value
+                posy = 574 + config.plugins.MyMetrixLiteOther.SkinDesignInfobarXPiconPosY.value
+                old = '<widget alphatest="blend" position="33,574" size="220,132" render="MetrixHDXPicon" source="session.CurrentService" transparent="1" zPosition="4">'
+                new = '<widget alphatest="blend" position="' + str(posx) + ',' + str(posy) + '" size="220,132" render="MetrixHDXPicon" source="session.CurrentService" transparent="1" zPosition="4">'
+            else:
+                sizex = 267 + int(config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconSize.value * 1.66)
+                sizey = 160 + int(config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconSize.value)
+                posx = 0 + config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconPosX.value
+                posy = 560 + config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconPosY.value
+                old = '<widget alphatest="blend" position="0,560" size="267,160" render="MetrixHDXPicon" source="session.CurrentService" transparent="1" zPosition="4">'
+                new = '<widget alphatest="blend" position="' + str(posx) + ',' + str(posy) + '" size="' + str(sizex) + ',' + str(sizey) + '" render="MetrixHDXPicon" source="session.CurrentService" transparent="1" zPosition="4">'
+                skinSearchAndReplace.append(['<panel name="IB_XPicon" />', '<panel name="IB_ZZZPicon" />' ])
+            skinSearchAndReplace.append([old, new ])
+
             if config.plugins.MyMetrixLiteOther.FHDenabled.value:
                 skinSearchAndReplace.append(['skin_00_templates.xml', 'skin_00_templates.MySkin.xml'])
                 skinSearchAndReplace.append(['skin_00a_InfoBar.xml', 'skin_00a_InfoBar.MySkin.xml'])
@@ -902,7 +918,10 @@ class MainSettingsView(Screen):
             self.round_par = int(config.plugins.MyMetrixLiteOther.FHDrounddown.value)
             self.font_size = int(config.plugins.MyMetrixLiteOther.FHDfontsize.value)
             self.font_offset = config.plugins.MyMetrixLiteOther.FHDfontoffset.value
-            self.picon_zoom = float(config.plugins.MyMetrixLiteOther.FHDpiconzoom.value)
+            if config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon.value == "1":
+                self.picon_zoom = float(config.plugins.MyMetrixLiteOther.FHDpiconzoom.value)
+            else:
+                self.picon_zoom = 1.5
             self.FHD_addfiles = config.plugins.MyMetrixLiteOther.FHDadditionalfiles.value
             #variables end
 
