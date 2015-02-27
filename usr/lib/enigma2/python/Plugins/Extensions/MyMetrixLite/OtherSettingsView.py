@@ -251,7 +251,6 @@ class OtherSettingsView(ConfigListScreen, Screen):
             if config.plugins.MyMetrixLiteOther.FHDfontsize.value != "2":
                 self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDfontsize)
             list.append(getConfigListEntry(_("Additional offset for font scaling"), config.plugins.MyMetrixLiteOther.FHDfontoffset))
-            list.append(getConfigListEntry(_("Show picons zoomed ?"), config.plugins.MyMetrixLiteOther.FHDpiconzoom))
             list.append(getConfigListEntry(_("Calculating additional files"), config.plugins.MyMetrixLiteOther.FHDadditionalfiles))
         list.append(getConfigListEntry(_("STB-Info   ------------------------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Distance between the STB-Infos"), config.plugins.MyMetrixLiteOther.STBDistance))
@@ -281,6 +280,16 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(_("InfoBar   -------------------------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Show Extended-Info"), config.plugins.MyMetrixLiteOther.showExtendedinfo))
         list.append(getConfigListEntry(_("Enable Color Gradient"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarColorGradient))
+        list.append(getConfigListEntry(_("Choose Picon Type"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon, "ENABLED"))
+        if config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon.value == "1":
+            if config.plugins.MyMetrixLiteOther.FHDenabled.value:
+                list.append(getConfigListEntry(_("Show picons zoomed ?"), config.plugins.MyMetrixLiteOther.FHDpiconzoom))
+            list.append(getConfigListEntry(_("Offset picon position x"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarXPiconPosX))
+            list.append(getConfigListEntry(_("Offset picon position y"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarXPiconPosY))
+        else:
+            list.append(getConfigListEntry(_("Offset picon size"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconSize))
+            list.append(getConfigListEntry(_("Offset picon position x"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconPosX))
+            list.append(getConfigListEntry(_("Offset picon position y"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconPosY))
         list.append(getConfigListEntry(_("EMC/MoviePlayer   ------------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Style"), config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign, "ENABLED"))
         list.append(getConfigListEntry(_("Show Clock"), config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer))
@@ -458,6 +467,12 @@ class OtherSettingsView(ConfigListScreen, Screen):
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showEMCSelectionCover)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesign)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignInfobarXPiconPosX)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignInfobarXPiconPosY)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconPosX)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconPosY)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconSize)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignSpace)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignInfobarColorGradient)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText)
