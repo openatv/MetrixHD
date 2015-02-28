@@ -1903,12 +1903,12 @@
 	</screen>
 	<screen name="AudioSelection" title="Audio" position="center,center" size="1280,720" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="700,43" zPosition="1" halign="left" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" zPosition="2" position="100,200" size="660,220" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="55,200" size="30,24" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="55,225" size="30,24" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="55,250" size="30,24" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="55,275" size="30,24" alphatest="blend" />
-		<widget source="streams" render="Listbox" scrollbarMode="showOnDemand" position="100,480" size="660,200" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
+		<widget name="config" zPosition="2" position="180,200" size="555,220" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="40" font="screen_text; 20" scrollbarMode="showOnDemand" transparent="1" />
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="95,200" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="95,240" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="95,280" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="95,320" size="30,40" alphatest="blend" />
+		<widget source="streams" render="Listbox" scrollbarMode="showOnDemand" position="70,480" size="700,210" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
 									{"templates":
 											{"default": (30,[
@@ -1916,14 +1916,14 @@
 													MultiContentEntryText(pos = (45, 0), size = (65, 25), font = 0, flags = RT_HALIGN_LEFT, text = 2), # number,
 													MultiContentEntryText(pos = (115, 0), size = (130, 25), font = 0, flags = RT_HALIGN_LEFT, text = 3), # description,
 													MultiContentEntryText(pos = (250, 0), size = (300, 25), font = 0, flags = RT_HALIGN_LEFT, text = 4), # language,
-													MultiContentEntryText(pos = (630, 4), size = (20, 25), font = 1, flags = RT_HALIGN_RIGHT, text = 5), # selection,
+													MultiContentEntryText(pos = (640, 4), size = (20, 25), font = 1, flags = RT_HALIGN_RIGHT, text = 5), # selection,
 											], True, "showNever"),
 											"notselected": (30,[
 													MultiContentEntryText(pos = (0, 0), size = (40, 25), font = 0, flags = RT_HALIGN_LEFT, text = 1), # key,
 													MultiContentEntryText(pos = (45, 0), size = (65, 25), font = 0, flags = RT_HALIGN_LEFT, text = 2), # number,
 													MultiContentEntryText(pos = (115, 0), size = (130, 25), font = 0, flags = RT_HALIGN_LEFT, text = 3), # description,
 													MultiContentEntryText(pos = (250, 0), size = (300, 25), font = 0, flags = RT_HALIGN_LEFT, text = 4), # language,
-													MultiContentEntryText(pos = (630, 4), size = (20, 25), font = 1, flags = RT_HALIGN_RIGHT, text = 5), # selection,
+													MultiContentEntryText(pos = (640, 4), size = (20, 25), font = 1, flags = RT_HALIGN_RIGHT, text = 5), # selection,
 											], False, "showNever")
 											},
 									"fonts": [gFont("Regular",20), gFont("Regular",16)],
