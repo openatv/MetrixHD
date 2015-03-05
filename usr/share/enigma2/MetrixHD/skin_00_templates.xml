@@ -1106,16 +1106,16 @@
 		</screen>
 		<screen name="INFOBAREPGWIDGET">
 			<!--/* EPGWidget -->
-			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="epg_event; 24" halign="right" noWrap="1" position="75,491" render="Label" size="550,33" source="session.Event_Now" transparent="0" valign="bottom" zPosition="2">
+			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" font="epg_event; 24" halign="right" noWrap="1" position="75,491" render="Label" size="550,33" source="session.Event_Now" transparent="1" valign="bottom" zPosition="2">
 				<convert type="EventName">Name</convert>
 			</widget>
-			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_event; 23" halign="left" position="655,470" render="Label" size="550,33" source="session.Event_Next" transparent="0" valign="bottom" zPosition="2">
+			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" font="epg_event; 23" halign="left" noWrap="1" position="655,470" render="Label" size="550,33" source="session.Event_Next" transparent="1" valign="bottom" zPosition="2">
 				<convert type="EventName">Name</convert>
 			</widget>
-			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="epg_info; 21" halign="right" position="75,159" render="Label" size="550,317" source="session.Event_Now" transparent="0" zPosition="1">
+			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="epg_info; 21" halign="right" position="75,159" render="Label" size="550,327" source="session.Event_Now" transparent="1" zPosition="1">
 				<convert type="EventName">FullDescription</convert>
 			</widget>
-			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_info; 20" halign="left" position="655,187" render="Label" size="550,264" source="session.Event_Next" transparent="0" zPosition="1">
+			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_info; 20" halign="left" position="655,187" render="Label" size="550,285" source="session.Event_Next" transparent="1" zPosition="1">
 				<convert type="EventName">FullDescription</convert>
 			</widget>
 			<panel name="INFOBAREPGWIDGET_Layer" />
@@ -1148,7 +1148,7 @@
 			<widget source="global.CurrentTime" render="Label" position="938,30" size="160,27" font="global_clock; 16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Format:%A</convert>
 			</widget>
-			<widget source="global.CurrentTime" render="Label" position="938,55" size="160,27" font="global_clock; 16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1">
+			<widget source="global.CurrentTime" render="Label" position="938,54" size="160,27" font="global_clock; 16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Format:%e. %B</convert>
 			</widget>
 		</screen>
@@ -1159,7 +1159,7 @@
 			<widget source="global.CurrentTime" render="Label" position="512,30" size="140,27" font="global_clock; 16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Format:%A</convert>
 			</widget>
-			<widget source="global.CurrentTime" render="Label" position="512,55" size="140,27" font="global_clock; 16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1">
+			<widget source="global.CurrentTime" render="Label" position="512,54" size="140,27" font="global_clock; 16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Format:%e. %b.</convert>
 			</widget>
 		</screen>
@@ -1170,7 +1170,7 @@
 			<widget source="global.CurrentTime" render="Label" position="938,30" size="160,27" font="global_clock; 16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-b-clock-foreground" backgroundColor="layer-b-background" transparent="1">
 				<convert type="ClockToText">Format:%A</convert>
 			</widget>
-			<widget source="global.CurrentTime" render="Label" position="938,55" size="160,27" font="global_clock; 16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-b-clock-foreground" backgroundColor="layer-b-background" transparent="1">
+			<widget source="global.CurrentTime" render="Label" position="938,54" size="160,27" font="global_clock; 16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-b-clock-foreground" backgroundColor="layer-b-background" transparent="1">
 				<convert type="ClockToText">Format:%e. %B</convert>
 			</widget>
 		</screen>
