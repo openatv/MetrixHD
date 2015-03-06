@@ -1082,7 +1082,7 @@
 		</screen>
 		<screen name="INFOBAREPGWIDGET_Layer-1">
 			<eLabel backgroundColor="layer-a-background" name="NowBG" position="60,148" size="580,376" zPosition="-1"/>
-			<eLabel backgroundColor="layer-b-background" name="NextBG" position="640,174" size="580,329" zPosition="-1"/>
+			<eLabel backgroundColor="layer-b-background" name="NextBG" position="640,174" size="580,328" zPosition="-1"/>
 		</screen>
 		<screen name="INFOBAREPGWIDGET_Layer-2">
 			<eLabel backgroundColor="layer-a-background" name="NowBG" position="60,148" size="580,376" zPosition="-1"/>
@@ -1094,7 +1094,7 @@
 		</screen>
 		<screen name="INFOBAREPGWIDGET_Layer-1s">
 			<eLabel backgroundColor="layer-a-background" name="NowBG" position="60,148" size="575,376" zPosition="-1"/>
-			<eLabel backgroundColor="layer-b-background" name="NextBG" position="645,174" size="575,329" zPosition="-1"/>
+			<eLabel backgroundColor="layer-b-background" name="NextBG" position="645,174" size="575,328" zPosition="-1"/>
 		</screen>
 		<screen name="INFOBAREPGWIDGET_Layer-2s">
 			<eLabel backgroundColor="layer-a-background" name="NowBG" position="60,148" size="575,376" zPosition="-1"/>
@@ -1104,25 +1104,43 @@
 			<eLabel backgroundColor="layer-a-background" name="NowBG" position="60,148" size="575,376" zPosition="-1"/>
 			<eLabel backgroundColor="layer-b-background" name="NextBG" position="645,148" size="575,376" zPosition="-1"/>
 		</screen>
+<!-- next_screen_rename_and_stop_mod -->
 		<screen name="INFOBAREPGWIDGET">
 			<!--/* EPGWidget -->
-			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" font="epg_event; 24" halign="right" noWrap="1" position="75,491" render="Label" size="550,33" source="session.Event_Now" transparent="1" valign="bottom" zPosition="2">
+			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" font="epg_event; 26" halign="right" noWrap="1" position="70,480" render="Label" size="555,35" source="session.Event_Now" transparent="1" valign="bottom" zPosition="2">
 				<convert type="EventName">Name</convert>
 			</widget>
-			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" font="epg_event; 23" halign="left" noWrap="1" position="655,470" render="Label" size="550,33" source="session.Event_Next" transparent="1" valign="bottom" zPosition="2">
+			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" font="epg_event; 26" halign="left" noWrap="1" position="655,458" render="Label" size="555,35" source="session.Event_Next" transparent="1" valign="bottom" zPosition="2">
 				<convert type="EventName">Name</convert>
 			</widget>
-			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="epg_info; 21" halign="right" position="75,159" render="Label" size="550,327" source="session.Event_Now" transparent="1" zPosition="1">
+			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="epg_info; 20" halign="right" position="70,158" render="Label" size="555,315" source="session.Event_Now" transparent="1" zPosition="1">
 				<convert type="EventName">FullDescription</convert>
 			</widget>
-			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_info; 20" halign="left" position="655,187" render="Label" size="550,285" source="session.Event_Next" transparent="1" zPosition="1">
+			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_info; 20" halign="left" position="655,184" render="Label" size="555,265" source="session.Event_Next" transparent="1" zPosition="1">
 				<convert type="EventName">FullDescription</convert>
 			</widget>
 			<panel name="INFOBAREPGWIDGET_Layer" />
-			<!--eLabel backgroundColor="layer-a-background" name="NowBG" position="65,148" size="565,376" zPosition="-1"/>
-			<eLabel backgroundColor="layer-b-background" name="NextBG" position="630,148" size="585,329" zPosition="-1"/-->
 			<!-- EPGWidget */-->
 		</screen>
+<!-- next_screen_rename_and_stop_mod -->
+		<screen name="INFOBAREPGWIDGET_is_FHD">
+			<!--/* EPGWidget FHD -->
+			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" font="epg_event;40" halign="right" noWrap="1" position="105,720" render="Label" size="832,53" source="session.Event_Now" transparent="1" valign="bottom" zPosition="2">
+				<convert type="EventName">Name</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" font="epg_event;40" halign="left" noWrap="1" position="982,687" render="Label" size="832,53" source="session.Event_Next" transparent="1" valign="bottom" zPosition="2">
+				<convert type="EventName">Name</convert>
+			</widget>
+			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="epg_info;30" halign="right" position="105,235" render="Label" size="832,464" source="session.Event_Now" transparent="1" zPosition="1">
+				<convert type="EventName">FullDescription</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_info;30" halign="left" position="982,275" render="Label" size="832,388" source="session.Event_Next" transparent="1" zPosition="1">
+				<convert type="EventName">FullDescription</convert>
+			</widget>
+			<panel name="INFOBAREPGWIDGET_Layer" />
+			<!-- EPGWidget FHD */-->
+		</screen>
+<!-- run_mod -->
 		<screen name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720">
 			<eLabel position="51,51" zPosition="-10" size="340,525" backgroundColor="layer-b-background" />
 			<eLabel position="416,51" zPosition="-1" size="810,619" backgroundColor="layer-a-background" />
