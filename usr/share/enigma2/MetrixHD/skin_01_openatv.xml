@@ -1903,11 +1903,12 @@
 	</screen>
 	<screen name="AudioSelection" title="Audio" position="center,center" size="1280,720" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" zPosition="2" position="180,240" size="555,120" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text; 20" scrollbarMode="showNever" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="95,240" size="30,30" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="95,270" size="30,30" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="95,300" size="30,30" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="95,330" size="30,30" alphatest="blend" />
+		<widget name="config" zPosition="2" position="180,200" size="555,210" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" transparent="1" />
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="95,200" size="30,30" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="95,230" size="30,30" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="95,260" size="30,30" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="95,290" size="30,30" alphatest="blend" />
+		<eLabel position="70,430" size="700,1" backgroundColor="layer-a-accent2" />
 		<widget source="streams" render="Listbox" scrollbarMode="showOnDemand" position="70,450" size="700,210" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
 									{"templates":
@@ -2979,7 +2980,7 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 		<widget alphatest="blend" position="70,50" render="MetrixHDXPicon" size="220,132" source="Service" transparent="1" zPosition="1">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
-		<widget source="Service" render="Label" position="290,120" size="525,50" font="global_title; 35" halign="center" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1">
+		<widget source="Service" render="Label" position="290,120" size="500,50" font="global_title; 35" halign="center" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ServiceName">Name</convert>
 		</widget>
 		<widget name="list" position="70,200" size="700,420" font="epg_event;29" zPosition="3" itemHeight="35" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
@@ -2990,6 +2991,7 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgy_-keys_template1" />
 		<widget name="key_blue" position="619,639" size="132,30" zPosition="1" valign="top" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<eLabel position="619,665" size="132,10" zPosition="2" backgroundColor="layer-a-background" />
 		<panel name="ime-buttons_template1" />
 	</screen>
 	<screen name="BouquetSelector" position="0,0" size="1280,720" title="Choose bouquet" flags="wfNoBorder" backgroundColor="transparent">
@@ -3124,6 +3126,14 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 		<ePixmap position="305,80" size="256,256" pixmap="MetrixHD/icons/service_info.png" alphatest="blend" />
 		<!--eLabel text="Channel list Menu" position="5,535" size="1280,200" font="global_large_menu; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" /-->
 	</screen>
+	<!-- Subtitle -->
+	<screen name="SubtitleDisplay" position="0,0" size="1280,720" zPosition="-1" flags="wfNoBorder" backgroundColor="transparent" />
+	<screen name="QuickSubtitlesConfigMenu" position="265,150" size="750,350" title="Subtitle settings" backgroundColor="transparent" flags="wfNoBorder">
+		<eLabel position="0,0" size="750,350" zPosition="-11" backgroundColor="layer-b-background" />
+		<eLabel position="1,1" size="748,348" zPosition="-10" backgroundColor="layer-a-background" />
+		<widget name="config" position="5,5" size="740,300" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="videofps" position="5,300" size="740,50" backgroundColor="layer-a-background" transparent="1" zPosition="1" font="screen_text;20" valign="center" halign="center" foregroundColor="layer-a-accent1"/>
+	</screen>
 	<!-- Service Scan Screens -->
 	<screen name="NimSelection" position="0,0" size="1280,720" title="Choose Tuner" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Choose Tuner" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
@@ -3139,6 +3149,8 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 			</convert>
 		</widget>
 		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_tuner_setup.png" transparent="1" alphatest="blend" />	
 	</screen>
@@ -3146,6 +3158,8 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 		<eLabel text="Reception Settings" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_tuner_setup.png" transparent="1" alphatest="blend" />
 	</screen>
@@ -3154,6 +3168,8 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="introduction" render="Label" position="825,425" size="380,175" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_manual_scan.png" transparent="1" alphatest="blend" />
 	</screen>
@@ -3164,6 +3180,8 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 		<widget name="config" position="70,160" size="700,480" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="footer" position="825,425" size="380,175" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_auto_scan.png" transparent="1" alphatest="blend" />
 	</screen>
@@ -3237,6 +3255,8 @@ self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newhe
 		<widget name="config" position="120,290" size="600,360" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="introduction" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<ePixmap pixmap="MetrixHD/icons/menu_scan_satfinder.png" position="890,175" size="256,256" zPosition="4" alphatest="blend" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
