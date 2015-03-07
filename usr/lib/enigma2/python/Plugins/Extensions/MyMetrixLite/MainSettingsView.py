@@ -432,6 +432,13 @@ class MainSettingsView(Screen):
                 if config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription.getValue() is False:
                     EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionCover_large_description_on" />', '<panel name="EMCSelectionCover_large_description_off" />'])
 
+            try:
+                if config.EMC.movie_picons_pos.getValue() == "nr":
+                    EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenterCover_picon_right" />', '<panel name="EMCMediaCenterCover_picon_left" />'])
+                    EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenterCover_large_description_picon_right" />', '<panel name="EMCMediaCenterCover_large_description_picon_left" />'])
+            except:
+                print "Error: find emc config - it's not installed ?" 
+
             namepos = "30,465"
             if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
                 EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_1" />', '<panel name="EMCMediaCenter_2" />' ])
@@ -1178,7 +1185,7 @@ class MainSettingsView(Screen):
 								n3 = line.find('"', n2+1)
 								line = line[:(n3)] + '_is_HD' + line[(n3):]
 						next_rename = False
-#control marks
+#control marker
 				if '<!-- run_mod -->' in line:
 					run_mod = True
 				if '<!-- stop_mod -->' in line:
@@ -1659,23 +1666,23 @@ class MainSettingsView(Screen):
 								strnew = line[n1:n2+1] + ynew + '"'
 								line = line[:n1] + strnew + line[(n3+1):]
 #CoolProgressPos="35" 
-						if 'CoolProgressPos="' in line:
-							n1 = line.find('CoolProgressPos=', 0)
-							n2 = line.find('"', n1)
-							n3 = line.find('"', n2+1)
-							y = line[(n2+1):n3]
-							ynew = str(int(round(float(int(y)*FACT),r_par)))
-							strnew = line[n1:n2+1] + ynew + '"'
-							line = line[:n1] + strnew + line[(n3+1):]
+						#if 'CoolProgressPos="' in line:
+						#	n1 = line.find('CoolProgressPos=', 0)
+						#	n2 = line.find('"', n1)
+						#	n3 = line.find('"', n2+1)
+						#	y = line[(n2+1):n3]
+						#	ynew = str(int(round(float(int(y)*FACT),r_par)))
+						#	strnew = line[n1:n2+1] + ynew + '"'
+						#	line = line[:n1] + strnew + line[(n3+1):]
 #CoolBarPos="35"
-						if 'CoolBarPos="' in line:
-							n1 = line.find('CoolBarPos=', 0)
-							n2 = line.find('"', n1)
-							n3 = line.find('"', n2+1)
-							y = line[(n2+1):n3]
-							ynew = str(int(round(float(int(y)*FACT),r_par)))
-							strnew = line[n1:n2+1] + ynew + '"'
-							line = line[:n1] + strnew + line[(n3+1):]
+						#if 'CoolBarPos="' in line:
+						#	n1 = line.find('CoolBarPos=', 0)
+						#	n2 = line.find('"', n1)
+						#	n3 = line.find('"', n2+1)
+						#	y = line[(n2+1):n3]
+						#	ynew = str(int(round(float(int(y)*FACT),r_par)))
+						#	strnew = line[n1:n2+1] + ynew + '"'
+						#	line = line[:n1] + strnew + line[(n3+1):]
 #CoolBarHPos="10"
 						if 'CoolBarHPos="' in line:
 							n1 = line.find('CoolBarHPos=', 0)
@@ -1730,6 +1737,60 @@ class MainSettingsView(Screen):
 							ynew = str(int(round(float(int(y)*FACT),r_par)))
 							strnew = line[n1:n2+1] + ynew + '"'
 							line = line[:n1] + strnew + line[(n3+1):]
+#CoolPiconPos="100" 
+						if 'CoolPiconPos="' in line: 
+							n1 = line.find('CoolPiconPos=', 0) 
+							n2 = line.find('"', n1) 
+							n3 = line.find('"', n2+1) 
+							y = line[(n2+1):n3] 
+							ynew = str(int(round(float(int(y)*FACT),r_par))) 
+							strnew = line[n1:n2+1] + ynew + '"' 
+							line = line[:n1] + strnew + line[(n3+1):] 
+#CoolPiconHPos="2" 
+						if 'CoolPiconHPos="' in line: 
+							n1 = line.find('CoolPiconHPos=', 0) 
+							n2 = line.find('"', n1) 
+							n3 = line.find('"', n2+1) 
+							y = line[(n2+1):n3] 
+							ynew = str(int(round(float(int(y)*FACT),r_par))) 
+							strnew = line[n1:n2+1] + ynew + '"' 
+							line = line[:n1] + strnew + line[(n3+1):] 
+#CoolPiconWidth="60" 
+						if 'CoolPiconWidth="' in line: 
+							n1 = line.find('CoolPiconWidth=', 0) 
+							n2 = line.find('"', n1) 
+							n3 = line.find('"', n2+1) 
+							y = line[(n2+1):n3] 
+							ynew = str(int(round(float(int(y)*FACT),r_par))) 
+							strnew = line[n1:n2+1] + ynew + '"' 
+							line = line[:n1] + strnew + line[(n3+1):] 
+#CoolPiconHeight="26" 
+						if 'CoolPiconHeight="' in line: 
+							n1 = line.find('CoolPiconHeight=', 0) 
+							n2 = line.find('"', n1) 
+							n3 = line.find('"', n2+1) 
+							y = line[(n2+1):n3] 
+							ynew = str(int(round(float(int(y)*FACT),r_par))) 
+							strnew = line[n1:n2+1] + ynew + '"' 
+							line = line[:n1] + strnew + line[(n3+1):] 
+#CoolMoviePiconPos="160" 
+						if 'CoolMoviePiconPos="' in line: 
+							n1 = line.find('CoolMoviePiconPos=', 0) 
+							n2 = line.find('"', n1) 
+							n3 = line.find('"', n2+1) 
+							y = line[(n2+1):n3] 
+							ynew = str(int(round(float(int(y)*FACT),r_par))) 
+							strnew = line[n1:n2+1] + ynew + '"' 
+							line = line[:n1] + strnew + line[(n3+1):] 
+#CoolMoviePiconSize="425" 
+						if 'CoolMoviePiconSize="' in line: 
+							n1 = line.find('CoolMoviePiconSize=', 0) 
+							n2 = line.find('"', n1) 
+							n3 = line.find('"', n2+1) 
+							y = line[(n2+1):n3] 
+							ynew = str(int(round(float(int(y)*FACT),r_par))) 
+							strnew = line[n1:n2+1] + ynew + '"' 
+							line = line[:n1] + strnew + line[(n3+1):] 
 #CoolBarSize="65,10"
 						if 'CoolBarSize="' in line:
 							n1 = line.find('CoolBarSize=', 0)
@@ -1738,7 +1799,8 @@ class MainSettingsView(Screen):
 							n4 = line.find('"', n3) 
 							x = line[(n2+1):n3]
 							y = line[(n3+1):n4]
-							xnew = str(int(round(float(int(x)*FACT),r_par)))
+							#xnew = str(int(round(float(int(x)*FACT),r_par)))
+							xnew = str(int(round(float(int(x)*1.75),r_par)))
 							ynew = str(int(round(float(int(y)*FACT),r_par)))
 							strnew = 'CoolBarSize="' + xnew + ',' + ynew + '"'
 							line = line[:n1] + strnew + line[(n4+1):]
@@ -1750,7 +1812,8 @@ class MainSettingsView(Screen):
 							n4 = line.find('"', n3) 
 							x = line[(n2+1):n3]
 							y = line[(n3+1):n4]
-							xnew = str(int(round(float(int(x)*FACT),r_par)))
+							#xnew = str(int(round(float(int(x)*FACT),r_par)))
+							xnew = str(int(round(float(int(x)*1.75),r_par)))
 							ynew = str(int(round(float(int(y)*FACT),r_par)))
 							strnew = 'CoolBarSizeSa="' + xnew + ',' + ynew + '"'
 							line = line[:n1] + strnew + line[(n4+1):]
