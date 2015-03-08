@@ -1,8 +1,4 @@
 <!-- run_mod -->
-	<!-- changing next lines -->
-<!-- stop_mod -->
-	<!-- no changing next lines -->
-<!-- run_mod -->
 <skin>
 	<!--About/Info Screens-->
 	<screen name="AboutOE" position="center,center" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
@@ -2009,7 +2005,7 @@
 						MultiContentEntryPixmapAlphaBlend(pos = (65, 6), size = (48, 48), png = 5), # index 5 is the nfs/cifs icon
 						MultiContentEntryPixmapAlphaBlend(pos = (110, 6), size = (48, 48), png = 6), # index 6 is the isMounted icon
 					],
-				"fonts": [gFont("screen_text",22),gFont("screen_info",17),gFont("screen_info",24)],
+				"fonts": [gFont("Regular",22),gFont("SetrixHD",17),gFont("SetrixHD",24)],
 				"itemHeight": 60
 				}
 			</convert>
@@ -2296,13 +2292,13 @@
 	<screen name="NumberZap" position="center,center" size="250,60" title="QuickZap" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel name="b" position="0,0" size="250,60" backgroundColor="layer-b-background" zPosition="-10" />
 		<eLabel name="a" position="1,1" size="248,58" backgroundColor="layer-a-background" zPosition="-9" />
-		<widget name="channel" position="25,10" size="100,40" font="SetrixHD;28" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" />
-		<widget name="number" position="125,10" size="100,40" halign="right" valign="center" font="SetrixHD;28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+		<widget name="channel" position="25,10" size="100,40" font="screen_info;28" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" />
+		<widget name="number" position="125,10" size="100,40" halign="right" valign="center" font="screen_info;28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
 	</screen>
 	<screen name="NumberZapWithName" position="200,21" size="1050,830" title="QuickZap" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="servicenumber" position="323,283" size="387,172" font="global_large_screen; 100" noWrap="0" halign="right" backgroundColor="layer-a-background" transparent="1" valign="center" foregroundColor="layer-a-accent2" zPosition="-1" />
-		<widget name="servicename" position="186,267" size="500,80" font="SetrixHD;50" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="servicebouquet" position="185,358" size="396,53" font="SetrixHD;28" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="servicename" position="186,267" size="500,80" font="screen_info;50" halign="left" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="servicebouquet" position="185,358" size="396,53" font="screen_info;28" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="161,244" size="550,181" backgroundColor="layer-a-background" zPosition="-5" />
 	</screen>
 	<screen name="NumericalTextInputHelpDialog" position="338,594" size="604,126" backgroundColor="transparent" flags="wfNoBorder" zPosition="8">
@@ -2371,10 +2367,6 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget name="ErrorPixmap" pixmap="MetrixHD/icons/message/attention-53.png" position="30,30" size="53,53" alphatest="blend" />
 		<widget name="QuestionPixmap" pixmap="MetrixHD/icons/message/question-53.png" position="30,30" size="53,53" alphatest="blend" />
 		<widget name="InfoPixmap" pixmap="MetrixHD/icons/message/info-53.png" position="30,30" size="53,53" alphatest="blend" />
-		<!--
-	<widget name="ErrorPixmap" pixmap="skin_default/icons/input_error.png" position="30,10" size="53,53" alphatest="blend" />
-	<widget name="QuestionPixmap" pixmap="skin_default/icons/input_question.png" position="30,10" size="53,53" alphatest="blend" />
-	<widget name="InfoPixmap" pixmap="skin_default/icons/input_info.png" position="30,10" size="53,53" alphatest="blend" />-->
 		<widget name="list" position="10,113" size="780,260" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<applet type="onLayoutFinish">
 # this should be factored out into some helper code,but currently demonstrates applets.
@@ -2425,6 +2417,15 @@ else:
 	wsizex = listwidth + offset_listposx
 
 wsizey = textheight + listheight + offset
+
+if (wsizey &gt; deskheight):
+	textheight = deskheight - listheight - offset
+	wsizey = textheight + listheight + offset
+
+if (wsizex &gt; deskwidth):
+	textwidth = deskwidth - offset_listposx * 12
+	listwidth = wsizex = deskwidth
+
 wsize = (wsizex,wsizey)
 
 # resize
@@ -2442,7 +2443,7 @@ self["list"].instance.resize(eSize(*listsize))
 # center window
 newwidth = wsize[0]
 newheight = wsize[1]
-self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newheight)/2)-40)))
+self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight)/2))
 		</applet>
 	</screen>
 	<screen name="MessageBox-template-2">
@@ -2503,6 +2504,15 @@ else:
 	wsizex = listwidth + offset_listposx
 
 wsizey = textheight + listheight + offset
+
+if (wsizey &gt; deskheight):
+	textheight = deskheight - listheight - offset
+	wsizey = textheight + listheight + offset
+
+if (wsizex &gt; deskwidth):
+	textwidth = deskwidth - offset_listposx * 12
+	listwidth = wsizex = deskwidth
+
 wsize = (wsizex,wsizey)
 
 # resize
@@ -2520,7 +2530,7 @@ self["list"].instance.resize(eSize(*listsize))
 # center window
 newwidth = wsize[0]
 newheight = wsize[1]
-self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newheight)/2)-40)))
+self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight)/2))
 		</applet>
 	</screen>
 	<screen name="MessageBox-template-3">
@@ -2581,6 +2591,15 @@ else:
 	wsizex = listwidth + offset_listposx
 
 wsizey = textheight + listheight + offset
+
+if ((wsizey + offset_listposy - offset_listposx) &gt; deskheight):
+	textheight = deskheight - listheight - offset - offset_listposy + offset_listposx
+	wsizey = textheight + listheight + offset
+
+if (wsizex &gt; deskwidth):
+	textwidth = deskwidth - offset_listposx * 2
+	listwidth = wsizex = deskwidth
+
 wsize = (wsizex,wsizey + offset_listposy - offset_listposx)
 
 # resize
@@ -2598,16 +2617,16 @@ self["list"].instance.resize(eSize(*listsize))
 # center window
 newwidth = wsize[0]
 newheight = wsize[1]
-self.instance.move(ePoint(int((deskwidth - newwidth)/2),int(((deskheight - newheight)/2)-40)))
+self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight)/2))
 		</applet>
 	</screen>
 	<!--screen name="MessageBox" position="240,178" size="800,10" zPosition="1" title="Message" backgroundColor="layer-a-background">
 		<panel name="MessageBox-template-0" />
 	</screen-->
-	<screen name="MessageBox" position="240,160" size="800,400" zPosition="1" title="Message" flags="wfNoBorder" backgroundColor="layer-a-background">
+	<screen name="MessageBox" position="240,160" size="800,400" zPosition="10" title="Message" flags="wfNoBorder" backgroundColor="layer-a-background">
 		<panel name="MessageBox-template-3" />
 	</screen>
-	<screen name="MessageBoxSimple" position="240,160" size="800,400" zPosition="1" title="Message" flags="wfNoBorder" backgroundColor="layer-a-background">
+	<screen name="MessageBoxSimple" position="240,160" size="800,400" zPosition="10" title="Message" flags="wfNoBorder" backgroundColor="layer-a-background">
 		<panel name="MessageBox-template-3" />
 	</screen>
 	<screen name="MinuteInput" position="center,center" size="250,60" title="Input" flags="wfNoBorder" backgroundColor="transparent">

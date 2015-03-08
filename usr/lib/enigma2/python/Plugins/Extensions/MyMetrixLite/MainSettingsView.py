@@ -311,7 +311,7 @@ class MainSettingsView(Screen):
                 infobarSkinSearchAndReplace.append(['<!--panel name="STBINFO" /-->', '<panel name="STBINFO" />'])
 
             channelNameXML = self.getChannelNameXML(
-                "35,455",
+                "30,455",
                 config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize.getValue(),
                 config.plugins.MyMetrixLiteOther.showChannelNumber.getValue(),
                 config.plugins.MyMetrixLiteOther.showChannelName.getValue()
@@ -434,8 +434,8 @@ class MainSettingsView(Screen):
 
             try:
                 if config.EMC.movie_picons_pos.getValue() == "nr":
-                    EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenterCover_picon_right" />', '<panel name="EMCMediaCenterCover_picon_left" />'])
-                    EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenterCover_large_description_picon_right" />', '<panel name="EMCMediaCenterCover_large_description_picon_left" />'])
+                    EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionList_picon_right" />', '<panel name="EMCSelectionList_picon_left" />'])
+                    EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionList_large_description_picon_right" />', '<panel name="EMCSelectionList_large_description_picon_left" />'])
             except:
                 print "Error: find emc config - it's not installed ?" 
 
@@ -1114,7 +1114,7 @@ class MainSettingsView(Screen):
 		i = 0
 		i_save = i
 		for line in f.readlines(): 
-			i = i+1
+			i += 1
 			try: 
 #start additional files
 				if self.FHD_addfiles:
@@ -1170,7 +1170,7 @@ class MainSettingsView(Screen):
 								line = line[:n1] + strnew + line[n3:]
 #additional files end
 #start skin files
-#rename marks
+#rename marker
 				if '<!-- next_screen_rename_and_stop_mod -->' in line:
 					next_rename = True
 					run_mod = False
