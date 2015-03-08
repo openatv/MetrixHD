@@ -1,8 +1,4 @@
 <!-- run_mod -->
-	<!-- changing next lines -->
-<!-- stop_mod -->
-	<!-- no changing next lines -->
-<!-- run_mod -->
 <skin>
 	<!-- Templates -->
 	<!-- EMCMediaCenterCover_no -->
@@ -21,22 +17,22 @@
 		<widget name="Cover" position="40,210" size="183,256" zPosition="4" alphatest="blend" />
 	</screen>
 	<!-- EMCSelection_Picon_left -->
-	<screen name="EMCMediaCenterCover_picon_left">
+	<screen name="EMCSelectionList_picon_left">
 		<widget name="list" position="70,130" size="700,480" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;15" CoolDateFont="epg_text;20" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="11" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90" CoolMovieSize="495" CoolFolderSize="585" CoolDatePos="590" CoolDateWidth="110" CoolPiconPos="542" CoolPiconHPos="2" CoolPiconWidth="50" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="440" CoolTitleColor="0" CoolDateColor="0" CoolHighlightColor="1" DefaultColor="layer-a-foreground" UnwatchedColor="layer-a-selection-foreground" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" BackColorSel="layer-a-selection-background" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarMode="showNever" transparent="1" />
 	</screen>
-	<screen name="EMCMediaCenterCover_large_description_picon_left">
+	<screen name="EMCSelectionList_large_description_picon_left">
 		<widget name="list" position="70,130" size="700,240" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;15" CoolDateFont="epg_text;20" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="11" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90" CoolMovieSize="495" CoolFolderSize="585" CoolDatePos="590" CoolDateWidth="110" CoolPiconPos="542" CoolPiconHPos="2" CoolPiconWidth="50" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="440" CoolTitleColor="0" CoolDateColor="0" CoolHighlightColor="1" DefaultColor="layer-a-foreground" UnwatchedColor="layer-a-selection-foreground" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" BackColorSel="layer-a-selection-background" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarMode="showNever" transparent="1" />
 	</screen>
 	<!-- EMCSelection_Picon_right -->
-	<screen name="EMCMediaCenterCover_picon_right">
+	<screen name="EMCSelectionList_picon_right">
 		<widget name="list" position="70,130" size="700,480" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;15" CoolDateFont="epg_text;20" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="11" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90" CoolMovieSize="495" CoolFolderSize="585" CoolDatePos="590" CoolDateWidth="110" CoolPiconPos="93" CoolPiconHPos="2" CoolPiconWidth="50" CoolPiconHeight="26" CoolMoviePiconPos="145" CoolMoviePiconSize="440" CoolTitleColor="0" CoolDateColor="0" CoolHighlightColor="1" DefaultColor="layer-a-foreground" UnwatchedColor="layer-a-selection-foreground" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" BackColorSel="layer-a-selection-background" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarMode="showNever" transparent="1" />
 	</screen>
-	<screen name="EMCMediaCenterCover_large_description_picon_right">
+	<screen name="EMCSelectionList_large_description_picon_right">
 		<widget name="list" position="70,130" size="700,240" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;15" CoolDateFont="epg_text;20" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="11" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90" CoolMovieSize="495" CoolFolderSize="585" CoolDatePos="590" CoolDateWidth="110" CoolPiconPos="93" CoolPiconHPos="2" CoolPiconWidth="50" CoolPiconHeight="26" CoolMoviePiconPos="145" CoolMoviePiconSize="440" CoolTitleColor="0" CoolDateColor="0" CoolHighlightColor="1" DefaultColor="layer-a-foreground" UnwatchedColor="layer-a-selection-foreground" WatchingColor="#D8C100" FinishedColor="#5FA816" RecordingColor="#E51400" BackColorSel="layer-a-selection-background" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarMode="showNever" transparent="1" />
 	</screen>
 	<!-- EMCSelectionCover_no -->
 	<screen name="EMCSelectionCover_no">
-		<panel name="EMCMediaCenterCover_picon_right" />
+		<panel name="EMCSelectionList_picon_right" />
 		<widget source="Service" render="Label" position="825,90" size="385,55" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCEventName">Name</convert>
 		</widget>
@@ -61,7 +57,7 @@
 	</screen>
 	<!-- EMCSelectionCover_small -->
 	<screen name="EMCSelectionCover_small">
-		<panel name="EMCMediaCenterCover_picon_right" />
+		<panel name="EMCSelectionList_picon_right" />
 		<widget source="Service" render="Label" position="825,90" size="300,55" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCEventName">Name</convert>
 		</widget>
@@ -89,14 +85,14 @@
 	</screen>
 	<!-- EMCSelectionCover_large -->
 	<screen name="EMCSelectionCover_large_description_on">
-		<panel name="EMCMediaCenterCover_large_description_picon_right" />
+		<panel name="EMCSelectionList_large_description_picon_right" />
 		<eLabel position="70,369" size="700,1" backgroundColor="layer-a-accent2" />
 		<widget source="Service" render="Label" position="70,372" size="700,250" font="epg_info;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left" valign="top">
 			<convert type="EMCEventName">FullDescription</convert>
 		</widget>
 	</screen>
 	<screen name="EMCSelectionCover_large_description_off">
-		<panel name="EMCMediaCenterCover_picon_right" />
+		<panel name="EMCSelectionList_picon_right" />
 	</screen>
 	<screen name="EMCSelectionCover_large">
 		<panel name="EMCSelectionCover_large_description_on" />

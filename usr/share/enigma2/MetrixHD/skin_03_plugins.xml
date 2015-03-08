@@ -1,8 +1,4 @@
 <!-- run_mod -->
-	<!-- changing next lines -->
-<!-- stop_mod -->
-	<!-- no changing next lines -->
-<!-- run_mod -->
 <skin>
 <!--/* PLUGINS -->
 	<!-- CoolTV -->
@@ -1975,5 +1971,61 @@
 		<widget source="TextTest" render="Label" position="25,65" size="550,30" halign="center" valign="center" font="screen_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/> 
 	</screen> 
 	<!--Elektro Plugin -->
+	<!--SpecialJump Plugin -->
+	<screen name="SpecialJump_SpecialJumpConfiguration" position="0,0" size="1280,720" flags="wfNoBorder" title="SpecialJump Configuration" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /> 
+		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 18" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" /> 
+		<panel name="template1_2layer" /> 
+		<panel name="rg__-buttons_template1" /> 
+		<panel name="rg__-keys_template1-source" /> 
+		<panel name="_oe-buttons_template1" /> 
+		<ePixmap pixmap="MetrixHD/icons/mqb.png" position="890,175" size="256,256" alphatest="blend" transparent="1" /> 
+	</screen>
+	<screen name="SpecialJump_AudioSubsInfobox_Audio" title="SpecialJump AudioSubsInfobox Audio" flags="wfNoBorder" position="center,center" size="350,20" zPosition="1" backgroundColor="layer-b-background">
+		<widget name="number" position="1,1" size="39,18"  zPosition="1" font="screen_text;16" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="description" position="40,1" size="309,18" zPosition="1" font="screen_text;16" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="language" position="120,1" size="190,18" zPosition="2" font="screen_text;16" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="selected" position="310,1" size="39,18" zPosition="2" font="screen_text;16" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+	</screen>
+	<screen name="SpecialJump_AudioSubsInfobox_Volume" title="SpecialJump AudioSubsInfobox Volume" flags="wfNoBorder" position="center,center" size="350,20" zPosition="1" backgroundColor="layer-b-background">
+		<widget name="number" position="1,1" size="39,18"  zPosition="1" font="screen_text;16" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="description" position="40,1" size="309,18" zPosition="1" font="screen_text;16" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="language" position="120,1" size="190,18" zPosition="2" font="screen_text;16" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="selected" position="310,1" size="39,18" zPosition="2" font="screen_text;16" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+	</screen>
+	<screen name="SpecialJump_AudioSubsInfobox_Subs" title="SpecialJump AudioSubsInfobox Subs" flags="wfNoBorder" position="center,center" size="350,20" zPosition="1" backgroundColor="layer-b-background">
+		<widget name="number" position="1,1" size="39,18"  zPosition="1" font="screen_text;16" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="description" position="40,1" size="309,18" zPosition="1" font="screen_text;16" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="language" position="120,1" size="190,18" zPosition="2" font="screen_text;16" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="selected" position="310,1" size="39,18" zPosition="2" font="screen_text;16" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+	</screen>
+	<screen name="SpecialJump_AudioSubsInfobox_Zapspeed" title="SpecialJump AudioSubsInfobox Zapspeed" flags="wfNoBorder" position="center,center" size="350,20" zPosition="1" backgroundColor="layer-b-background">
+		<widget name="number" position="1,1" size="39,18"  zPosition="1" font="screen_text;16" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="description" position="40,1" size="309,18" zPosition="1" font="screen_text;16" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="language" position="120,1" size="100,18" zPosition="2" font="screen_text;16" valign="center" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="selected" position="290,1" size="39,18" zPosition="2" font="screen_text;16" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+	</screen>
+	<screen name="SpecialJump_ZapMessage" title="SpecialJump" flags="wfNoBorder" position="440,330" size="400,60" zPosition="1" backgroundColor="transparent">
+		<eLabel name="b" position="0,0" size="400,60" backgroundColor="layer-b-background" zPosition="-10" /> 
+		<eLabel name="a" position="1,1" size="498,58" backgroundColor="layer-a-background" zPosition="-9" /> 
+		<widget name="ZapMessageText" font="screen_info; 28" position="25,10" size="380,40" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" halign="center" valign="center" transparent="1" />
+	</screen>
+	<!--__PLUGIN SETTINGS FOR SpecialJumpInfoBar=TimshiftState POSITION__ position="190,398" -->
+	<screen name="SpecialJump_SpecialJumpInfoBar" title="SpecialJump InfoBar" position="190,238" zPosition="2" size="900,59" backgroundColor="transparent" flags="wfNoBorder">
+		<eLabel name="new eLabel" position="374,15" size="152,29" backgroundColor="layer-b-background" zPosition="6" />
+		<widget name="SJJumpTime" position="375,16" size="150,27" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" zPosition="7" font="infobar_text; 20" halign="center" transparent="0" valign="bottom" />
+		<widget source="session.CurrentService" render="Label" position="5,16" size="80,27" font="infobar_text;20" halign="right" valign="bottom" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="815,16" size="80,27" font="infobar_text;20" halign="left" valign="bottom" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background">
+			<convert type="ServicePosition">Length</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Progress" position="100,27" size="700,5" zPosition="5" foregroundColor="layer-a-progress" transparent="1">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
+		<eLabel name="new eLabel" position="100,29" size="700,1" backgroundColor="layer-a-accent1" zPosition="1" />
+		<eLabel name="new eLabel" position="0,0" size="900,59" zPosition="-1" backgroundColor="layer-a-background" />
+	</screen>
+	<!--SpecialJump Plugin -->
 <!-- PLUGINS */-->
 </skin>
