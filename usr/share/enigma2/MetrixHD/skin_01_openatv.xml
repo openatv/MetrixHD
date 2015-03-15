@@ -735,10 +735,6 @@
 			<convert type="MenuEntryCompare">VFD_INI</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<!--widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_videoenhancement_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">videoenhancement_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget-->
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_autores_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">autores_setup</convert>
 			<convert type="ConditionalShowHide" />
@@ -765,6 +761,10 @@
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_numzapext_setup.png" position="305,80" size="256,256" alphatest="blend">
 			<convert type="MenuEntryCompare">numzapext_setup</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_display_LED_Giga.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">LED_Giga</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 	</screen>
@@ -839,10 +839,6 @@
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_display_lcd_skin_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">lcd_skin_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_display_LED_Giga.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">LED_Giga</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 	</screen>
@@ -1711,11 +1707,8 @@
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
 		<panel name="__e-buttons_template1" />
-<!-- stop_mod -->
-<!-- pixmap missing -->
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_system_VFD_Giga.png" transparent="1" alphatest="blend" />
-<!-- run_mod -->
-		</screen>
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_display_LED_Giga.png" transparent="1" alphatest="blend" />
+	</screen>
 	<screen name="LanguageSelection" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Setup Language" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="languages" render="Listbox" position="70,110" size="700,480" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1">
@@ -2715,9 +2708,9 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<screen name="ChoiceBox" position="0,0" size="1308,720" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Choice Box" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
 		<!--widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="0" font="global_title; 35" transparent="1" backgroundColor="layer-a-background"/-->
-		<widget source="Title" render="Label" position="70,100" size="700,30" noWrap="0" font="screen_text;24" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background"/>
+		<widget source="Title" render="Label" position="70,105" size="700,30" noWrap="0" font="screen_text;24" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background"/>
 		<!--widget name="list" position="70,110" size="700,525" itemHeight="35" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" /-->
-		<widget name="list" position="70,150" size="700,490" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="list" position="70,150" size="700,450" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="text" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
