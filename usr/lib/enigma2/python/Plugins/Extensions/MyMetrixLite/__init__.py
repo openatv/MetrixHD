@@ -459,6 +459,7 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.showMovieName = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.showMovieTime = ConfigSelection(default = "2", choices = [("1", _("No")), ("2", _("In Moviebar")), ("3", _("Side by PVR-Symbol"))])
 	#EMC
     config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover = ConfigSelection(default = "no", choices = [("no", _("No")), ("small", _("Small")), ("large", _("Large"))])
     config.plugins.MyMetrixLiteOther.showEMCMediaCenterCoverInfobar = ConfigYesNo(default=True)

@@ -392,6 +392,11 @@ class MainSettingsView(Screen):
             )
             moviePlayerSkinSearchAndReplace.append(['<panel name="MOVIENAME" />', channelNameXML])
 
+            if config.plugins.MyMetrixLiteOther.showMovieTime.getValue() == "2":
+                moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_1_time" />', '<panel name="MoviePlayer_' + config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() + '_time" />' ])
+            else:
+                moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_1_time" />', '' ])
+
             skin_lines = appendSkinFile(SKIN_MOVIEPLAYER_SOURCE, moviePlayerSkinSearchAndReplace)
 
             xFile = open(SKIN_MOVIEPLAYER_TARGET_TMP, "w")
@@ -434,8 +439,8 @@ class MainSettingsView(Screen):
 
             try:
                 if config.EMC.movie_picons_pos.getValue() == "nr":
-                    EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionList_picon_right" />', '<panel name="EMCSelectionList_picon_left" />'])
-                    EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionList_large_description_picon_right" />', '<panel name="EMCSelectionList_large_description_picon_left" />'])
+                    EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionList_picon_left" />', '<panel name="EMCSelectionList_picon_right" />'])
+                    EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionList_large_description_picon_left" />', '<panel name="EMCSelectionList_large_description_picon_right" />'])
             except:
                 print "Error: find emc config - it's not installed ?" 
 
@@ -454,6 +459,11 @@ class MainSettingsView(Screen):
                 config.plugins.MyMetrixLiteOther.showMovieName.getValue()
             )
             EMCSkinSearchAndReplace.append(['<panel name="MOVIENAME" />', channelNameXML])
+
+            if config.plugins.MyMetrixLiteOther.showMovieTime.getValue() == "2":
+                EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_1_time" />', '<panel name="EMCMediaCenter_' + config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() + '_time" />' ])
+            else:
+                EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_1_time" />', '' ])
 
             skin_lines = appendSkinFile(SKIN_EMC_SOURCE, EMCSkinSearchAndReplace)
 
@@ -906,6 +916,9 @@ class MainSettingsView(Screen):
                 #skinSearchAndReplace.append(['skin_03_plugins.xml', 'skin_03_plugins.MySkin.xml'])
                 #skinSearchAndReplace.append(['skin_04_check.xml', 'skin_04_check.MySkin.xml'])
                 #skinSearchAndReplace.append(['skin_05_screens_unchecked.xml', 'skin_05_screens_unchecked.MySkin.xml'])
+
+            if config.plugins.MyMetrixLiteOther.showMovieTime.getValue() == "3":
+                skinSearchAndReplace.append(['<panel name="PVRState_1" />', '<panel name="PVRState_2" />' ])
 
             #make skin file
             skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)

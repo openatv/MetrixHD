@@ -750,7 +750,7 @@
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_fansetup_config.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">tempfancontrol</convert>
 			<convert type="ConditionalShowHide" />
-		</widget>		
+		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_AutomaticVolumeAdjustment.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">AutomaticVolumeAdjustment</convert>
 			<convert type="ConditionalShowHide" />
@@ -851,6 +851,10 @@
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_display_lcd_skin_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">lcd_skin_setup</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_display_lcd_skin_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">lcd4linux</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 	</screen>
@@ -1870,7 +1874,8 @@
 		<widget source="introduction" render="Label" position="825,425" size="380,175" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/skin_selector.png" transparent="1" alphatest="blend" />
+		<!--ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/skin_selector.png" transparent="1" alphatest="blend" /-->
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_osd_menu_skin_setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="SundtekControlCenter" title="SundtekControlCenter" position="center,center" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
@@ -2671,7 +2676,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	</screen>
 	<screen name="Seekbar" position="353,238" zPosition="2" size="574,230" backgroundColor="transparent" flags="wfNoBorder">
 		<widget name="cursor" position="0,0" size="16,230" pixmap="MetrixHD/epg/timeline-now_z.png" alphatest="blend" zPosition="6" />
-		<widget name="time" position="0,40" size="574,95" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="center" transparent="1" valign="top" />
+		<widget name="time" position="0,40" size="574,100" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="center" transparent="1" valign="center" />
 		<widget source="session.CurrentService" render="Label" position="32,176" size="80,27" font="infobar_text;20" halign="right" valign="bottom" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
@@ -2686,7 +2691,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<eLabel name="new eLabel" position="0,160" size="20,59" zPosition="7" backgroundColor="layer-a-background" />
 	</screen>
 	<screen name="TimeshiftState" position="190,238" zPosition="2" size="900,230" backgroundColor="transparent" flags="wfNoBorder">
-		<widget name="state" position="0,40" size="900,95" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="center" transparent="1" valign="top" />
+		<widget name="state" position="0,40" size="900,100" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="center" transparent="1" valign="center" />
 		<widget source="session.CurrentService" render="Label" position="5,176" size="80,27" font="infobar_text;20" halign="right" valign="bottom" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
@@ -2699,8 +2704,18 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<eLabel name="new eLabel" position="100,189" size="700,1" backgroundColor="layer-a-accent1" zPosition="1" />
 		<eLabel name="new eLabel" position="0,160" size="900,59" zPosition="-1" backgroundColor="layer-a-background" />
 	</screen>
-	<screen name="PVRState" position="300,238" zPosition="2" size="680,230" backgroundColor="transparent" flags="wfNoBorder">
-		<widget name="state" position="0,40" size="680,95" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="center" transparent="1" valign="top" />
+	<!-- templates PVRState -->
+	<screen name="PVRState_1">
+		<widget name="state" position="0,40" size="820,100" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="center" transparent="1" valign="center" />
+	</screen>
+	<screen name="PVRState_2">
+		<widget source="session.CurrentService" render="Label" position="410,40" size="370,100" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="left" transparent="1" valign="center">
+			<convert type="MetrixHDServiceTime">EndTime</convert>
+		</widget>
+		<widget name="state" position="0,40" size="370,100" noWrap="1" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="right" transparent="1" valign="center" />
+	</screen>
+	<screen name="PVRState" position="230,238" zPosition="2" size="820,230" backgroundColor="transparent" flags="wfNoBorder" >
+		<panel name="PVRState_0" />
 	</screen>
 	<screen name="Volume" position="40,40" size="335,71" title="Volume" flags="wfNoBorder" backgroundColor="transparent" zPosition="99">
 		<widget name="Volume" position="78,33" size="178,5" zPosition="3" foregroundColor="layer-a-progress" transparent="1" />
@@ -3112,6 +3127,14 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<screen name="EventViewSimple" position="0,0" size="1280,720" title="EventviewSimple" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="epg_description" position="70,110" size="700,520" font="epg_info;22" scrollbarMode="showNever" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="channel" position="832,212" size="370,70" font="epg_event;26" halign="center" valign="bottom" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<eLabel text="Playback Time:" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_event; 24" halign="left" position="870,275" size="150,30" transparent="1" />
+		<widget source="session.CurrentService" render="Label" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_event; 24" halign="right" position="1012,275" size="75,30" transparent="1">
+			<convert type="MetrixHDServiceTime">StartTime</convert>
+		</widget>
+		<eLabel backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_event; 24" halign="center" position="1092,275" size="15,30" text="-" transparent="1"/>
+		<widget source="session.CurrentService" render="Label" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_event; 24" halign="right" position="1100,275" size="60,30" transparent="1">
+			<convert type="MetrixHDServiceTime">EndTime</convert>
+		</widget>
 <!-- next_line_is_picon -->
 		<widget source="Service" render="MetrixHDXPicon" position="907,80" size="220,132" zPosition="5" transparent="1" alphatest="blend">
 			<convert type="MovieInfo">RecordServiceRef</convert>

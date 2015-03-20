@@ -71,28 +71,6 @@
 		<!--ClockWidget */-->
 		<eLabel position="950,423" zPosition="-1" size="270,50" backgroundColor="layer-a-background" transparent="0" />
 	</screen>
-	<screen name="ChannelSelectionRadio" position="0,0" size="1280,520" title="Radio Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="0,0" zPosition="-10" size="1280,505" backgroundColor="layer-a-background" />
-		<eLabel text="Radio Channel Selection" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="global.CurrentTime" render="Label" position="1120,37" size="100,33" font="global_clock;26" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="870,72" size="350,25" font="global_clock;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
-		</widget>
-		<widget source="Title" render="Label" position="70,101" size="1110,28" font="SetrixHD;23" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel position="70,132" size="1110,2" backgroundColor="layer-a-accent1" />
-		<widget name="list" position="70,138" size="1110,330" scrollbarMode="showOnDemand" colorServiceDescription="layer-a-accent1" colorServiceDescriptionSelected="yellow" colorEventProgressbarBorder="layer-a-accent1" colorEventProgressbarBorderSelected="layer-a-accent1" foregroundColorServiceNotAvail="#777777" serviceItemHeight="30" serviceNumberFont="SetrixHD;23" serviceNameFont="SetrixHD;23" serviceInfoFont="SetrixHD;21" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,465" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="255,465" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="440,465" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="center,465" size="30,40" alphatest="blend" />
-		<widget name="key_red" position="105,468" size="150,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_green" position="290,468" size="150,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_yellow" position="475,468" size="150,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_blue" position="660,468" size="150,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="1130,465" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
-	</screen>
 	<screen name="CrashlogAutoSubmitConfiguration" position="0,0" size="1280,720" title="CrashlogAutoSubmit settings" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<eLabel text="CrashlogAutoSubmit settings" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -180,6 +158,28 @@
 		<eLabel text="Select a movie" position="12,44" size="800,43" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Movielist menu" position="31,115" size="700,28" font="SetrixHD;23" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="menu" position="14,196" size="350,450" zPosition="3" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
+	</screen>
+	<screen name="ChannelSelectionRadio" position="0,0" size="1280,520" title="Radio Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="0,0" zPosition="-10" size="1280,505" backgroundColor="layer-a-background" />
+		<eLabel text="Radio Channel Selection" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="global.CurrentTime" render="Label" position="1120,37" size="100,33" font="global_clock;26" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="global.CurrentTime" render="Label" position="870,72" size="350,25" font="global_clock;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
+			<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
+		</widget>
+		<widget source="Title" render="Label" position="70,101" size="1110,28" font="SetrixHD;23" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel position="70,132" size="1110,2" backgroundColor="layer-a-accent1" />
+		<widget name="list" position="70,138" size="1110,330" scrollbarMode="showOnDemand" colorServiceDescription="layer-a-accent1" colorServiceDescriptionSelected="yellow" colorEventProgressbarBorder="layer-a-accent1" colorEventProgressbarBorderSelected="layer-a-accent1" foregroundColorServiceNotAvail="#777777" serviceItemHeight="30" serviceNumberFont="SetrixHD;23" serviceNameFont="SetrixHD;23" serviceInfoFont="SetrixHD;21" transparent="1" />
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,465" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="255,465" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="440,465" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="center,465" size="30,40" alphatest="blend" />
+		<widget name="key_red" position="105,468" size="150,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="key_green" position="290,468" size="150,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="key_yellow" position="475,468" size="150,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="key_blue" position="660,468" size="150,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<ePixmap position="1130,465" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="RadioInfoBar" position="0,515" size="1280,200" title="Radio" zPosition="-9" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="0,0" zPosition="-10" size="1280,200" backgroundColor="layer-a-background" transparent="1" />
