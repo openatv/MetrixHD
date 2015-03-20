@@ -4,7 +4,7 @@
 	<!-- MoviePlayer_1 - standard version -->
 	<screen name="MoviePlayer_1">
 		<eLabel position="0,570" zPosition="-2" size="1281,150" backgroundColor="layer-a-background" />
-		<widget source="session.CurrentService" render="Label" position="150,581" size="892,56" font="infobar_event;40" valign="top" noWrap="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
+		<widget source="session.CurrentService" render="Label" position="150,588" size="892,56" font="infobar_event;40" valign="top" noWrap="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 		<convert type="ServiceName">Name</convert>
 		</widget>
 		<ePixmap pixmap="MetrixHD/icons/ico_dolby_off.png" position="1060,616" size="34,23" zPosition="1" alphatest="blend" />
@@ -44,7 +44,7 @@
 		<widget source="session.CurrentService" render="Label" position="1138,658" size="100,28" font="infobar_event;24" halign="left" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 			<convert type="ServicePosition">Remaining</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Label" position="3,581" size="137,56" font="infobar_event;40" halign="right" valign="top" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent2">
+		<widget source="session.CurrentService" render="Label" position="3,588" size="137,56" font="infobar_event;40" halign="right" valign="top" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-accent2">
 			<convert type="ServicePosition">Length</convert>
 		</widget>
 		<eLabel name="new eLabel" position="151,670" size="980,1" backgroundColor="layer-a-accent1" zPosition="3" />
@@ -103,6 +103,34 @@
 		</widget>
 		<panel name="SERVICEICONSMOVIEPLAYER" />
 	</screen>
+	<!-- MoviePlayer_1-3 - start - endtime -->
+	<screen name="MoviePlayer_1_time">
+		<widget source="session.CurrentService" render="Label" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" font="infobar_text; 22" halign="right" position="550,675" size="75,30" transparent="1">
+			<convert type="MetrixHDServiceTime">StartTime</convert>
+		</widget>
+		<eLabel backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" font="infobar_text; 22" halign="center" position="631,675" size="15,30" text="-" transparent="1"/>
+		<widget source="session.CurrentService" render="Label" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" font="infobar_text; 22" halign="right" position="642,675" size="60,30" transparent="1">
+			<convert type="MetrixHDServiceTime">EndTime</convert>
+		</widget>
+	</screen>
+	<screen name="MoviePlayer_2_time">
+		<widget source="session.CurrentService" render="Label" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" font="infobar_text; 20" halign="right" position="628,630" size="75,30" transparent="1">
+			<convert type="MetrixHDServiceTime">StartTime</convert>
+		</widget>
+		<eLabel backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" font="infobar_text; 20" halign="center" position="709,630" size="15,30" text="-" transparent="1"/>
+		<widget source="session.CurrentService" render="Label" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" font="infobar_text; 20" halign="right" position="716,630" size="60,30" transparent="1">
+			<convert type="MetrixHDServiceTime">EndTime</convert>
+		</widget>
+	</screen>
+	<screen name="MoviePlayer_3_time">
+		<widget source="session.CurrentService" render="Label" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" font="infobar_text; 20" halign="right" position="423,686" size="75,30" transparent="1">
+			<convert type="MetrixHDServiceTime">StartTime</convert>
+		</widget>
+		<eLabel backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" font="infobar_text; 20" halign="center" position="504,686" size="15,30" text="-" transparent="1"/>
+		<widget source="session.CurrentService" render="Label" backgroundColor="layer-a-background" foregroundColor="layer-a-accent2" font="infobar_text; 20" halign="right" position="511,686" size="60,30" transparent="1">
+			<convert type="MetrixHDServiceTime">EndTime</convert>
+		</widget>
+	</screen>
 	<!-- Templates -->
 	<!-- Default Movie Center -->
 	<screen name="MovieSelection" position="0,0" size="1280,720" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
@@ -134,6 +162,7 @@
 	<!-- MoviePlayer -->
 	<screen name="MoviePlayer" position="0,0" size="1280,720" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MoviePlayer_1" />
+		<panel name="MoviePlayer_1_time" />
 		<panel name="CLOCKWIDGET" />
 		<panel name="INFOBARWEATHERWIDGET" />
 		<panel name="MOVIENAME" />
