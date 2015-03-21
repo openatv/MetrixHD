@@ -2714,8 +2714,26 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		</widget>
 		<widget name="state" position="0,40" size="370,100" noWrap="1" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="right" transparent="1" valign="center" />
 	</screen>
-	<screen name="PVRState" position="230,238" zPosition="2" size="820,230" backgroundColor="transparent" flags="wfNoBorder" >
-		<panel name="PVRState_0" />
+	<screen name="PVRState_3">
+		<eLabel backgroundColor="layer-a-background" position="0,0" size="1280,30" transparent="0" zPosition="-99"/>
+		<widget name="state" position="0,4" size="1280,21" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" font="global_small; 16" halign="center" transparent="1" valign="center" />
+		<panel name="COLORGRADIENT_Top" />
+	</screen>
+	<screen name="PVRState_3_mt">
+		<eLabel text="Playback Time:" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo2" font="global_small; 16" halign="left" position="960,4" size="150,30" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="1130,4" size="50,21" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" font="global_small; 16" halign="left" transparent="1" valign="center">
+			<convert type="MetrixHDServiceTime">StartTime</convert>
+		</widget>
+		<eLabel text="-" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo2" font="global_small; 16" halign="center" valign="center" position="1180,4" size="10,21" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="1190,4" size="50,21" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" font="global_small; 16" halign="right" transparent="1" valign="center">
+			<convert type="MetrixHDServiceTime">EndTime</convert>
+		</widget>
+	</screen>
+	<screen name="PVRState_3_ct">
+		<eLabel text="Current Time:" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo2" font="global_small; 16" halign="left" position="40,4" size="150,30" transparent="1" />
+		<widget source="global.CurrentTime" render="Label" position="175,4" size="200,21" font="global_small; 16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" transparent="1">
+			<convert type="ClockToText">Format:%A, %d.%m.%Y, %H:%M</convert>
+		</widget>
 	</screen>
 	<screen name="Volume" position="40,40" size="335,71" title="Volume" flags="wfNoBorder" backgroundColor="transparent" zPosition="99">
 		<widget name="Volume" position="78,33" size="178,5" zPosition="3" foregroundColor="layer-a-progress" transparent="1" />
