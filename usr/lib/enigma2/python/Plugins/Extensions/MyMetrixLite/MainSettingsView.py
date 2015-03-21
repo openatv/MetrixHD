@@ -917,8 +917,16 @@ class MainSettingsView(Screen):
                 #skinSearchAndReplace.append(['skin_04_check.xml', 'skin_04_check.MySkin.xml'])
                 #skinSearchAndReplace.append(['skin_05_screens_unchecked.xml', 'skin_05_screens_unchecked.MySkin.xml'])
 
-            if config.plugins.MyMetrixLiteOther.showMovieTime.getValue() == "3":
-                skinSearchAndReplace.append(['<panel name="PVRState_1" />', '<panel name="PVRState_2" />' ])
+            if config.plugins.MyMetrixLiteOther.showPVRState.getValue() > "1":
+                skinSearchAndReplace.append(['<screen name="PVRState" position="230,238"', '<screen name="PVRState_Standard" position="230,238"' ])
+                skinSearchAndReplace.append(['<screen name="PVRState_Top" position="0,0"', '<screen name="PVRState" position="0,0"' ])
+                if config.plugins.MyMetrixLiteOther.showPVRState.getValue() == "3":
+                    skinSearchAndReplace.append(['<!--panel name="PVRState_3_ct" /-->', '<panel name="PVRState_3_ct" />' ])
+                if config.plugins.MyMetrixLiteOther.showMovieTime.getValue() == "3":
+                    skinSearchAndReplace.append(['<!--panel name="PVRState_3_mt" /-->', '<panel name="PVRState_3_mt" />' ])
+            else:
+                if config.plugins.MyMetrixLiteOther.showMovieTime.getValue() == "3":
+                    skinSearchAndReplace.append(['<panel name="PVRState_1" />', '<panel name="PVRState_2" />' ])
 
             #make skin file
             skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
