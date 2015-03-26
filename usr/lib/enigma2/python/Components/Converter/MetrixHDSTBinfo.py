@@ -8,7 +8,7 @@ import Screens.Standby
 
 initOtherConfig()
 
-class MetrixSTBinfo(Converter, object):
+class MetrixHDSTBinfo(Converter, object):
 
 	def __init__(self, type):
 		Converter.__init__(self, type)

@@ -1,11 +1,12 @@
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 
-class vhdConvEventName(Converter, object):
+class MetrixHDEventName(Converter, object):
 	NAME = 0
 	SHORT_DESCRIPTION = 1
 	EXTENDED_DESCRIPTION = 2
 	ID = 3
+	COMPLETE = 4
 	
 	def __init__(self, type):
 		Converter.__init__(self, type)
@@ -15,6 +16,8 @@ class vhdConvEventName(Converter, object):
 			self.type = self.EXTENDED_DESCRIPTION
 		elif type == "ID":
 			self.type = self.ID
+		elif type == "Complete":
+			self.type = self.COMPLETE
 		else:
 			self.type = self.NAME
 
@@ -25,21 +28,23 @@ class vhdConvEventName(Converter, object):
 			return ""
 			
 		if self.type == self.NAME:
-			ret_str = event.getEventName()
+			return event.getEventName()
 		elif self.type == self.SHORT_DESCRIPTION:
-			ret_str = event.getShortDescription()
+		    if event.getEventName() == event.getShortDescription():
+		       return ""
+		    else:
+			   return event.getShortDescription()
 		elif self.type == self.EXTENDED_DESCRIPTION:
-			short_desc = event.getShortDescription()
-			exten_desc = event.getExtendedDescription()
-			if short_desc == "":
-				ret_str = exten_desc
-			elif exten_desc == "":
-				ret_str = short_desc
-			else:
-				ret_str = short_desc +"\n\n"+ exten_desc
+			return event.getExtendedDescription()
 		elif self.type == self.ID:
-			ret_str = str(event.getEventId())
-
-		return ret_str
-
+			return str(event.getEventId())
+		elif self.type == self.COMPLETE:
+			if event.getEventName() == event.getShortDescription():
+			   return_str = event.getEventName()
+			elif event.getShortDescription() == "":
+			   return_str = event.getEventName()
+			else:
+			   return_str = event.getEventName() + ": " + event.getShortDescription()
+			return return_str
+		
 	text = property(getText)

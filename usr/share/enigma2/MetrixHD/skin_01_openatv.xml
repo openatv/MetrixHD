@@ -2741,7 +2741,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<screen name="Volume" position="40,40" size="335,71" title="Volume" flags="wfNoBorder" backgroundColor="transparent" zPosition="99">
 		<widget name="Volume" position="78,33" size="178,5" zPosition="3" foregroundColor="layer-a-progress" transparent="1" />
 		<ePixmap position="8,4" size="64,64" zPosition="1" pixmap="MetrixHD/icons/volume.png" transparent="0" alphatest="blend" />
-		<widget font="screen_info;40" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="bottom" render="VVolumeText" source="global.CurrentTime" position="250,12" size="85,50" zPosition="20" transparent="1" />
+		<widget font="screen_info;40" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="bottom" render="MetrixHDVolumeText" source="global.CurrentTime" position="250,12" size="85,50" zPosition="20" transparent="1" />
 		<eLabel position="78,35" size="178,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" />
 		<eLabel position="1,1" size="333,69" backgroundColor="layer-a-background" zPosition="-1" transparent="0" />
 		<eLabel position="0,0" size="335,71" backgroundColor="layer-b-background" zPosition="-2" transparent="0" />
@@ -3090,7 +3090,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<eLabel text="Eventview" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 <!-- next_line_is_picon -->
 		<widget source="Title" render="MetrixHDXPicon" position="907,80" size="220,132" zPosition="5" transparent="1" alphatest="blend">
-			<convert type="MetrixRefString">CurrentRef</convert>
+			<convert type="MetrixHDRefString">CurrentRef</convert>
 		</widget>
 		<widget name="epg_description" position="70,110" size="700,520" font="epg_info;22" scrollbarMode="showNever" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="channel" position="832,212" size="370,70" font="epg_event;26" halign="center" valign="bottom" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
@@ -3476,7 +3476,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<eLabel text="Plugin browser" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,110" size="700,500" itemHeight="50" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1" />
 		<!--widget source="global.CurrentTime" render="Label" position="825,100" size="380,30" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1">
-			<convert type="MetrixSTBinfo">FLASHfree</convert>
+			<convert type="MetrixHDSTBinfo">FLASHfree</convert>
 		</widget-->
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
@@ -3490,7 +3490,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="list" position="60,110" size="700,500" zPosition="4" itemHeight="50" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="text" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<widget source="global.CurrentTime" render="Label" position="825,100" size="380,30" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1">
-			<convert type="MetrixSTBinfo">FLASHfree</convert>
+			<convert type="MetrixHDSTBinfo">FLASHfree</convert>
 		</widget>
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
