@@ -24,7 +24,7 @@ from Components.Converter.Converter import Converter
 from Components.config import config, ConfigText, ConfigNumber, ConfigDateTime
 from Components.Element import cached
 
-class MetrixWeather(Converter, object):
+class MetrixHDWeather(Converter, object):
 	
 	def __init__(self, type):
 		Converter.__init__(self, type)

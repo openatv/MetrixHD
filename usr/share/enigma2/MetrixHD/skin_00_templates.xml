@@ -294,7 +294,7 @@
 		</screen>
 		<screen name="STBINFOMOVIEPLAYER">
 			<widget backgroundColor="layer-a-background" position="247,697" size="940,21" font="global_small;16" halign="right" foregroundColor="layer-a-extendedinfo1" transparent="1" zPosition="10" render="Label" source="global.CurrentTime">
-				<convert type="MetrixSTBinfo">MyMetrixConfig</convert>
+				<convert type="MetrixHDSTBinfo">MyMetrixConfig</convert>
 			</widget>
 		</screen>
 		<screen name="MOVIENAME">
@@ -351,7 +351,7 @@
 		</screen>
 		<screen name="STBINFO">
 			<widget backgroundColor="layer-a-background" position="297,697" size="940,21" font="global_small;16" halign="right" foregroundColor="layer-a-extendedinfo1" transparent="1" zPosition="10" render="Label" source="global.CurrentTime">
-				<convert type="MetrixSTBinfo">MyMetrixConfig</convert>
+				<convert type="MetrixHDSTBinfo">MyMetrixConfig</convert>
 			</widget>
 		</screen>
 		<screen name="CLOCKWIDGET">
@@ -376,29 +376,29 @@
 			<!-- NEEDED WITHOUT OPENSTORE INSTALLED */ -->
 			<eLabel backgroundColor="layer-a-background" position="40,40" size="219,71"/>
 			<widget backgroundColor="layer-a-background" font="global_clock; 60" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="40,44" render="Label" size="84,70" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
-				<convert type="MetrixWeather">currentWeatherTemp</convert>
+				<convert type="MetrixHDWeather">currentWeatherTemp</convert>
 			</widget>
 			<widget backgroundColor="layer-a-background" font="global_clock; 16" foregroundColor="layer-a-clock-foreground" halign="left" noWrap="1" position="127,42" render="Label" size="30,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
-				<convert type="MetrixWeather">CF</convert>
+				<convert type="MetrixHDWeather">CF</convert>
 			</widget>
 			<widget backgroundColor="layer-a-background" font="global_clock; 16" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="210,42" render="Label" size="39,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
-				<convert type="MetrixWeather">forecastTodayTempMax</convert>
+				<convert type="MetrixHDWeather">forecastTodayTempMax</convert>
 			</widget>
 			<widget backgroundColor="layer-a-background" font="global_clock; 16" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="210,72" render="Label" size="39,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
-				<convert type="MetrixWeather">forecastTodayTempMin</convert>
+				<convert type="MetrixHDWeather">forecastTodayTempMin</convert>
 			</widget>
 			<widget backgroundColor="layer-b-background" font="Meteo; 45" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="270,50" render="Label" size="50,50" source="session.CurrentService" transparent="1" valign="center" zPosition="9">
-				<convert type="MetrixWeather">forecastTomorrowCode</convert>
+				<convert type="MetrixHDWeather">forecastTomorrowCode</convert>
 			</widget>
 			<widget backgroundColor="layer-b-background" font="global_clock; 16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="327,42" render="Label" size="39,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
-				<convert type="MetrixWeather">forecastTomorrowTempMax</convert>
+				<convert type="MetrixHDWeather">forecastTomorrowTempMax</convert>
 			</widget>
 			<widget backgroundColor="layer-b-background" font="global_clock; 16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="327,72" render="Label" size="39,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
-				<convert type="MetrixWeather">forecastTomorrowTempMin</convert>
+				<convert type="MetrixHDWeather">forecastTomorrowTempMin</convert>
 			</widget>
 			<eLabel backgroundColor="layer-b-background" position="259,43" size="116,65"/>
 			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" font="Meteo; 45" halign="left" noWrap="1" position="156,50" render="Label" size="50,50" source="session.CurrentService" transparent="1" valign="center" zPosition="9">
-				<convert type="MetrixWeather">forecastTodayCode</convert>
+				<convert type="MetrixHDWeather">forecastTodayCode</convert>
 			</widget>
 			<!-- WEATHER WIDGET */ -->
 		</screen>
@@ -1308,7 +1308,7 @@
 		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="40" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="40" />
 <!-- next_line_is_picon -->
 		<widget alphatest="blend" position="907,80" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="0" zPosition="1">
-			<convert type="MetrixRefString">ServicelistRef</convert>
+			<convert type="MetrixHDRefString">ServicelistRef</convert>
 		</widget>
 		<widget source="ServiceEvent" render="Label" position="820,212" size="395,65" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center" >
 			<convert type="EventName">Name</convert>
@@ -1328,7 +1328,7 @@
 		<widget source="ServiceEvent" render="Label" position="825,310" size="385,230" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
 			<convert type="EventName">FullDescription</convert>
 		</widget>
-		<widget source="ServiceEvent" render="NextEvent" position="825,543" size="385,53" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0">
+		<widget source="ServiceEvent" render="MetrixHDNextEvent" position="825,543" size="385,53" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0">
 		</widget>
 		<panel name="template1_2layer" />
 		<panel name="ime-buttons_template1" />
@@ -1342,7 +1342,7 @@
 		<widget name="list" position="423,107" size="787,510" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="30" />
 <!-- next_line_is_picon -->
 		<widget alphatest="blend" position="112,61" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="1" zPosition="1">
-			<convert type="MetrixRefString">ServicelistRef</convert>
+			<convert type="MetrixHDRefString">ServicelistRef</convert>
 		</widget>
 		<widget source="ServiceEvent" render="Label" position="60,197" size="320,50" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="bottom" noWrap="1">
 			<convert type="EventName">Name</convert>
@@ -1362,7 +1362,7 @@
 		<widget source="ServiceEvent" render="Label" position="63,283" size="320,205" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
 			<convert type="EventName">FullDescription</convert>
 		</widget>
-		<widget source="ServiceEvent" render="NextEvent" position="63,517" size="320,53" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0">
+		<widget source="ServiceEvent" render="MetrixHDNextEvent" position="63,517" size="320,53" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0">
 		</widget>
 		<panel name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720" />
 		<panel name="rgyb-buttons_screen_pos416_51_size_810_619" />
