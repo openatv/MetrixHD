@@ -20,6 +20,7 @@
 #######################################################################
 
 from . import _, initOtherConfig, OTHER_IMAGE_PATH, MAIN_IMAGE_PATH
+from boxbranding import getBoxType, getMachineBrand, getMachineName
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
@@ -28,6 +29,7 @@ from Components.config import config, configfile, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
 from Components.Sources.StaticText import StaticText
 from Components.Pixmap import Pixmap
+from Components.Console import Console
 from enigma import ePicLoad
 from os import path
 from enigma import gMainDC, getDesktop
@@ -108,15 +110,21 @@ class OtherSettingsView(ConfigListScreen, Screen):
         if cur == "ENABLED" or cur == "ENABLED_FHD" or cur == "PRESET":
             self["config"].setList(self.getMenuItemList())
 
+        self.Console = Console()
+        self.service_name = 'enigma2-plugin-skins-metrix-atv-fhd-icons'
+
         self.x = getDesktop(0).size().width()
         self.y = getDesktop(0).size().height()
         if cur == "ENABLED_FHD" and config.plugins.MyMetrixLiteOther.FHDenabled.value and self.x < 1920 and self.y < 1080:
             self.session.openWithCallback(self.resolutionTest, MessageBox, _("If you chose 'yes', then starts the resolution test.\n\nCan't you see the next message,\nthe old resolution will automatically after 10 seconds restored."), default = False)
+        elif cur == "ENABLED_FHD" and not config.plugins.MyMetrixLiteOther.FHDenabled.value:
+            self.UninstallCheck()
+        elif cur == "ENABLED_FHD" and config.plugins.MyMetrixLiteOther.FHDenabled.value:
+            self.InstallCheck()
 
     def resolutionTest(self, result):
         if not result:
-            config.plugins.MyMetrixLiteOther.FHDenabled.setValue(False)
-            self["config"].setList(self.getMenuItemList())
+            self.resetFHD()
             return
         gMainDC.getInstance().setResolution(1920, 1080)
         self.session.openWithCallback(self.resolutionCheck, MessageBox, _("Can you see this, then is the receiver ready for FHD - skin.\n\nDo you want to change from HD to FHD - skin?"), default = False, timeout = 10)
@@ -124,8 +132,76 @@ class OtherSettingsView(ConfigListScreen, Screen):
     def resolutionCheck(self, result):
         gMainDC.getInstance().setResolution(self.x, self.y)
         if not result:
-            config.plugins.MyMetrixLiteOther.FHDenabled.setValue(False)
-            self["config"].setList(self.getMenuItemList())
+            self.resetFHD()
+        else:
+            self.InstallCheck()
+
+    def resetFHD(self):
+        config.plugins.MyMetrixLiteOther.FHDenabled.setValue(False)
+        self["config"].setList(self.getMenuItemList())
+
+    def InstallCheck(self):
+        self.Console.ePopen('/usr/bin/opkg list_installed ' + self.service_name, self.checkNetworkState)
+
+    def checkNetworkState(self, str, retval, extra_args):
+        if 'Collected errors' in str:
+            self.session.openWithCallback(self.close, MessageBox, _("A background update check is in progress, please wait a few minutes and try again."), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
+        elif not str:
+            self.feedscheck = self.session.open(MessageBox,_('Please wait whilst feeds state is checked.'), MessageBox.TYPE_INFO, enable_input = False)
+            self.feedscheck.setTitle(_('Checking Feeds'))
+            cmd1 = "opkg update"
+            self.CheckConsole = Console()
+            self.CheckConsole.ePopen(cmd1, self.checkNetworkStateFinished)
+
+    def checkNetworkStateFinished(self, result, retval,extra_args=None):
+        if 'bad address' in result:
+            self.session.openWithCallback(self.InstallPackageFailed, MessageBox, _("Your %s %s is not connected to the internet, please check your network settings and try again.") % (getMachineBrand(), getMachineName()), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
+        elif ('wget returned 1' or 'wget returned 255' or '404 Not Found') in result:
+            self.session.openWithCallback(self.InstallPackageFailed, MessageBox, _("Sorry feeds are down for maintenance, please try again later."), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
+        else:
+            self.session.openWithCallback(self.InstallPackage, MessageBox, _('Ready to install %s ?') % self.service_name, MessageBox.TYPE_YESNO)
+
+    def InstallPackage(self, val):
+        if val:
+            self.doInstall(self.installComplete, self.service_name)
+        else:
+            self.feedscheck.close()
+            self.resetFHD()
+
+    def InstallPackageFailed(self, val):
+        self.feedscheck.close()
+        self.resetFHD()
+
+    def doInstall(self, callback, pkgname):
+        self.message = self.session.open(MessageBox,_("please wait..."), MessageBox.TYPE_INFO, enable_input = False)
+        self.message.setTitle(_('Installing ...'))
+        self.Console.ePopen('/usr/bin/opkg install ' + pkgname, callback)
+
+    def installComplete(self, result, retval, extra_args = None):
+        if result.startswith('Unknown') or retval == "255":
+            self.session.open(MessageBox,_("Install Package not found!"), MessageBox.TYPE_ERROR, timeout=10)
+            self.resetFHD()
+        self.feedscheck.close()
+        self.message.close()
+
+    def UninstallCheck(self):
+        self.Console.ePopen('/usr/bin/opkg list_installed ' + self.service_name, self.RemovedataAvail)
+
+    def RemovedataAvail(self, str, retval, extra_args):
+        if str:
+            self.session.openWithCallback(self.RemovePackage, MessageBox, _('Ready to remove %s ?') % self.service_name, MessageBox.TYPE_YESNO)
+
+    def RemovePackage(self, val):
+        if val:
+            self.doRemove(self.removeComplete, self.service_name)
+
+    def doRemove(self, callback, pkgname):
+        self.message = self.session.open(MessageBox,_("please wait..."), MessageBox.TYPE_INFO, enable_input = False)
+        self.message.setTitle(_('Removing ...'))
+        self.Console.ePopen('/usr/bin/opkg remove ' + pkgname + ' --force-remove --autoremove', callback)
+
+    def removeComplete(self,result = None, retval = None, extra_args = None):
+        self.message.close()
 
     def getPreset(self):
         if config.plugins.MyMetrixLiteOther.SkinDesignExamples.value == "preset_0":
