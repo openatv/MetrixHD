@@ -31,7 +31,7 @@ from Components.Sources.StaticText import StaticText
 from Components.Pixmap import Pixmap
 from Components.Console import Console
 from enigma import ePicLoad
-from os import path
+from os import path, statvfs
 from enigma import gMainDC, getDesktop
 
 #############################################################
@@ -136,12 +136,24 @@ class OtherSettingsView(ConfigListScreen, Screen):
         else:
             self.InstallCheck()
 
+    def freeFlashCheck(self):
+        stat = statvfs("/usr/share/enigma2/MetrixHD/")
+        freeflash = stat.f_bavail * stat.f_bsize / 1024 / 1024
+        filesize = 5
+        if freeflash < filesize:
+            self.session.open(MessageBox, _("Your free flash space is to small.\n%d MB is not enough to install the full-hd icons. ( %d MB is required )") % (freeflash, filesize), MessageBox.TYPE_ERROR)
+            return False
+        return True
+
     def resetFHD(self):
         config.plugins.MyMetrixLiteOther.FHDenabled.setValue(False)
         self["config"].setList(self.getMenuItemList())
 
     def InstallCheck(self):
-        self.Console.ePopen('/usr/bin/opkg list_installed ' + self.service_name, self.checkNetworkState)
+        if self.freeFlashCheck():
+            self.Console.ePopen('/usr/bin/opkg list_installed ' + self.service_name, self.checkNetworkState)
+        else:
+            self.resetFHD()
 
     def checkNetworkState(self, str, retval, extra_args):
         if 'Collected errors' in str:
