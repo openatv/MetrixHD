@@ -45,6 +45,7 @@ from Components.MultiContent import MultiContentEntryText
 from Components.Pixmap import Pixmap
 from Components.NimManager import nimmanager
 from Components.Sources.StaticText import StaticText
+from Components.Console import Console
 from shutil import move, copy
 from enigma import ePicLoad, eListboxPythonMultiContent, gFont, getDesktop
 from ColorsSettingsView import ColorsSettingsView
@@ -149,6 +150,20 @@ class MainSettingsView(Screen):
         self.onChangedEntry = []
 
         self.onLayoutFinish.append(self.UpdatePicture)
+
+        #first check fhd-settings and available fhd-icons
+        if config.plugins.MyMetrixLiteOther.FHDenabled.value:
+            self.Console = Console()
+            self.service_name = 'enigma2-plugin-skins-metrix-atv-fhd-icons'
+            self.Console.ePopen('/usr/bin/opkg list_installed ' + self.service_name, self.checkFHDicons)
+
+    def checkFHDicons(self, str, retval, extra_args):
+        if 'Collected errors' in str or not str:
+            config.plugins.MyMetrixLiteOther.FHDenabled.setValue(False)
+            config.plugins.MyMetrixLiteOther.save()
+            configfile.save()
+            self.session.open(OtherSettingsView)
+            self.session.open(MessageBox,_("Your full-hd settings are inconsistent. Please check this."), MessageBox.TYPE_INFO, timeout=10)
 
     def __del__(self):
         self["menuList"].onSelectionChanged.remove(self.__selectionChanged)

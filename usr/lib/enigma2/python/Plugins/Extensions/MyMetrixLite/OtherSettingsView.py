@@ -157,7 +157,8 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
     def checkNetworkState(self, str, retval, extra_args):
         if 'Collected errors' in str:
-            self.session.openWithCallback(self.close, MessageBox, _("A background update check is in progress, please wait a few minutes and try again."), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
+            self.session.open(MessageBox, _("A background update check is in progress, please wait a few minutes and try again."), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
+            self.resetFHD()
         elif not str:
             self.feedscheck = self.session.open(MessageBox,_('Please wait whilst feeds state is checked.'), MessageBox.TYPE_INFO, enable_input = False)
             self.feedscheck.setTitle(_('Checking Feeds'))
@@ -201,10 +202,13 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
     def RemovedataAvail(self, str, retval, extra_args):
         if str:
-            self.session.openWithCallback(self.RemovePackage, MessageBox, _('Ready to remove %s ?') % self.service_name, MessageBox.TYPE_YESNO)
+            self.session.openWithCallback(self.RemovePackage, MessageBox, _('Ready to remove %s ?') % self.service_name, MessageBox.TYPE_YESNO, default = False)
 
     def RemovePackage(self, val):
         if val:
+            config.skin.primary_skin.setValue("MetrixHD/skin.xml")
+            config.skin.save()
+            configfile.save()
             self.doRemove(self.removeComplete, self.service_name)
 
     def doRemove(self, callback, pkgname):
