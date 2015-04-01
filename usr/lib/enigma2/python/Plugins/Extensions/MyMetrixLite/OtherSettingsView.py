@@ -139,7 +139,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
     def freeFlashCheck(self):
         stat = statvfs("/usr/share/enigma2/MetrixHD/")
         freeflash = stat.f_bavail * stat.f_bsize / 1024 / 1024
-        filesize = 5
+        filesize = 10
         if freeflash < filesize:
             self.session.open(MessageBox, _("Your free flash space is to small.\n%d MB is not enough to install the full-hd icons. ( %d MB is required )") % (freeflash, filesize), MessageBox.TYPE_ERROR)
             return False
@@ -190,9 +190,12 @@ class OtherSettingsView(ConfigListScreen, Screen):
         self.message.setTitle(_('Installing ...'))
         self.Console.ePopen('/usr/bin/opkg install ' + pkgname, callback)
 
-    def installComplete(self, result, retval, extra_args = None):
-        if result.startswith('Unknown') or retval == "255":
+    def installComplete(self, result, retval = None, extra_args = None):
+        if 'Unknown package' in result:
             self.session.open(MessageBox,_("Install Package not found!"), MessageBox.TYPE_ERROR, timeout=10)
+            self.resetFHD()
+        elif "Collected errors" in result:
+            self.session.open(MessageBox,_("Installation error!\n\n%s") % result, MessageBox.TYPE_ERROR, timeout=10)
             self.resetFHD()
         self.feedscheck.close()
         self.message.close()
@@ -343,7 +346,9 @@ class OtherSettingsView(ConfigListScreen, Screen):
             if config.plugins.MyMetrixLiteOther.FHDfontsize.value != "2":
                 self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDfontsize)
             list.append(getConfigListEntry(_("Additional offset for font scaling"), config.plugins.MyMetrixLiteOther.FHDfontoffset))
-            list.append(getConfigListEntry(_("Calculating additional files"), config.plugins.MyMetrixLiteOther.FHDadditionalfiles))
+            list.append(getConfigListEntry(_("Calculating additional files"), config.plugins.MyMetrixLiteOther.FHDadditionalfiles, "ENABLED"))
+            if config.plugins.MyMetrixLiteOther.FHDadditionalfiles.getValue() is True:
+                list.append(getConfigListEntry(_("   File list: %s") % '"/etc/enigma2/antilogo.xml"', ))
         list.append(getConfigListEntry(_("STB-Info   ------------------------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Distance between the STB-Infos"), config.plugins.MyMetrixLiteOther.STBDistance))
         list.append(getConfigListEntry(_("Show CPU-Load"), config.plugins.MyMetrixLiteOther.showCPULoad))

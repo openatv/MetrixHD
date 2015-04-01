@@ -46,13 +46,13 @@ from Components.Pixmap import Pixmap
 from Components.NimManager import nimmanager
 from Components.Sources.StaticText import StaticText
 from Components.Console import Console
-from shutil import move, copy
+from shutil import move, copy, rmtree, copytree
 from enigma import ePicLoad, eListboxPythonMultiContent, gFont, getDesktop
 from ColorsSettingsView import ColorsSettingsView
 from WeatherSettingsView import WeatherSettingsView
 from OtherSettingsView import OtherSettingsView
 from FontsSettingsView import FontsSettingsView
-from os import path, remove, statvfs
+from os import path, remove, statvfs, listdir
 
 #############################################################
 
@@ -1001,6 +1001,14 @@ class MainSettingsView(Screen):
                             plustext = plustext + _("No files found or files already exist.")
                         plustext = plustext + _("\n--- additional files end ---\n\n")
 
+            #last step to fhd-mode - copy icon files for fixed paths in py-files
+            if config.plugins.MyMetrixLiteOther.FHDenabled.value and not self.skinline_error:
+                self.iconFileCopy("FHD")
+                self.iconFolderCopy("FHD")
+            else:
+                self.iconFileCopy("HD")
+                self.iconFolderCopy("HD")
+
             #HD-standard
             if not config.plugins.MyMetrixLiteOther.FHDenabled.value or self.skinline_error:
                 if self.skinline_error:
@@ -1053,6 +1061,68 @@ class MainSettingsView(Screen):
             print error
             if not self.applyChangesFirst:
                 self.session.open(MessageBox, _("Error creating Skin!"), MessageBox.TYPE_ERROR)
+
+    def iconFileCopy(self, target):
+
+        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/icons/"
+        dpath = "/usr/share/enigma2/MetrixHD/icons/"
+
+        if target == "FHD" and path.exists(spath):
+            for file in listdir(spath):
+                if path.exists(dpath + file):
+                    if not path.exists(dpath + file + ".hd"):
+                        move(dpath + file,dpath + file + ".hd")
+                    copy(spath + file,dpath + file)
+                else:
+                    copy(spath + file,dpath + file)
+                    f = open(dpath + file + ".del", "w")
+                    f.write("1")
+                    f.close()
+
+        if target == "HD" and path.exists(dpath):
+            for file in listdir(dpath):
+                if file.endswith('.png.hd'):
+                    move(dpath + file,dpath + file[:-3])
+                if file.endswith('.png.del'):
+                    remove(dpath + file)
+                    if path.exists(dpath + file[:-4]):
+                        remove(dpath + file[:-4])
+
+    def iconFolderCopy(self, target):
+
+        #MyMetrixLite
+        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/Extensions/MyMetrixLite/images/"
+        dpath = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/"
+        npath = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images_hd/"
+        self.FolderCopy(target,spath,dpath,npath)
+
+        #Infopanel
+        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/Extensions/Infopanel/icons/"
+        dpath = "/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/icons/"
+        npath = "/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/icons_hd/"
+        self.FolderCopy(target,spath,dpath,npath)
+
+        #EnhancedMovieCenter
+        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/Extensions/EnhancedMovieCenter/img/"
+        dpath = "/usr/lib/enigma2/python/Plugins/Extensions/EnhancedMovieCenter/img/"
+        npath = "/usr/lib/enigma2/python/Plugins/Extensions/EnhancedMovieCenter/img_hd/"
+        self.FolderCopy(target,spath,dpath,npath)
+
+        #AutoBouquetsMaker
+        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/Extensions/AutoBouquetsMaker/images/"
+        dpath = "/usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/images/"
+        npath = "/usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/images_hd/"
+        self.FolderCopy(target,spath,dpath,npath)
+
+
+    def FolderCopy(self, target, spath, dpath, npath):
+        if target == "FHD" and path.exists(spath) and path.exists(dpath) and not path.exists(npath):
+            move(dpath,npath)
+            copytree(spath,dpath)
+
+        if target == "HD" and path.exists(dpath) and path.exists(npath):
+            rmtree(dpath)
+            move(npath,dpath)
 
     @staticmethod
     def getTunerCount():
