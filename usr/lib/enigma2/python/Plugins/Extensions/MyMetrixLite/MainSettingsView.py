@@ -1070,14 +1070,14 @@ class MainSettingsView(Screen):
         if target == "FHD" and path.exists(spath):
             for file in listdir(spath):
                 if path.exists(dpath + file):
-                    if not path.exists(dpath + file + ".hd"):
+                    if not path.exists(dpath + file + ".hd") and not path.exists(dpath + file + ".del"):
                         move(dpath + file,dpath + file + ".hd")
-                    copy(spath + file,dpath + file)
+                        copy(spath + file,dpath + file)
                 else:
-                    copy(spath + file,dpath + file)
-                    f = open(dpath + file + ".del", "w")
-                    f.write("1")
-                    f.close()
+                    if not path.exists(dpath + file + ".del"):
+                        f = open(dpath + file + ".del", "w")
+                        f.close()
+                        copy(spath + file,dpath + file)
 
         if target == "HD" and path.exists(dpath):
             for file in listdir(dpath):
