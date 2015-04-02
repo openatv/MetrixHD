@@ -1064,9 +1064,17 @@ class MainSettingsView(Screen):
 
     def iconFileCopy(self, target):
 
+        #icons
         spath = "/usr/share/enigma2/MetrixHD/FHD/copy/icons/"
         dpath = "/usr/share/enigma2/MetrixHD/icons/"
+        self.FileCopy(target, spath, dpath)
+        
+        #extensions
+        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/extensions/"
+        dpath = "/usr/share/enigma2/MetrixHD/extensions/"
+        self.FileCopy(target, spath, dpath)
 
+    def FileCopy(self, target, spath, dpath):
         if target == "FHD" and path.exists(spath):
             for file in listdir(spath):
                 if path.exists(dpath + file):
