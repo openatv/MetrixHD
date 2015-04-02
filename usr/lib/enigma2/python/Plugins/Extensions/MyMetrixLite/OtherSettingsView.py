@@ -139,7 +139,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
     def freeFlashCheck(self):
         stat = statvfs("/usr/share/enigma2/MetrixHD/")
         freeflash = stat.f_bavail * stat.f_bsize / 1024 / 1024
-        filesize = 10
+        filesize = 15
         if freeflash < filesize:
             self.session.open(MessageBox, _("Your free flash space is to small.\n%d MB is not enough to install the full-hd icons. ( %d MB is required )") % (freeflash, filesize), MessageBox.TYPE_ERROR)
             return False
