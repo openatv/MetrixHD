@@ -903,6 +903,18 @@ class MainSettingsView(Screen):
                 skinSearchAndReplace.append(['<panel name="IB_XPicon" />', '<panel name="IB_ZZZPicon" />' ])
             skinSearchAndReplace.append([old, new ])
 
+            #pvr state
+            if config.plugins.MyMetrixLiteOther.showPVRState.getValue() > "1":
+                skinSearchAndReplace.append(['<screen name="PVRState" position="230,238"', '<screen name="PVRState_Standard" position="230,238"' ])
+                skinSearchAndReplace.append(['<screen name="PVRState_Top" position="0,0"', '<screen name="PVRState" position="0,0"' ])
+                if config.plugins.MyMetrixLiteOther.showPVRState.getValue() == "3":
+                    skinSearchAndReplace.append(['<!--panel name="PVRState_3_ct" /-->', '<panel name="PVRState_3_ct" />' ])
+                if config.plugins.MyMetrixLiteOther.showMovieTime.getValue() == "3":
+                    skinSearchAndReplace.append(['<!--panel name="PVRState_3_mt" /-->', '<panel name="PVRState_3_mt" />' ])
+            else:
+                if config.plugins.MyMetrixLiteOther.showMovieTime.getValue() == "3":
+                    skinSearchAndReplace.append(['<panel name="PVRState_1" />', '<panel name="PVRState_2" />' ])
+
             if config.plugins.MyMetrixLiteOther.FHDenabled.value:
                 skinSearchAndReplace.append(['skin_00_templates.xml', 'skin_00_templates.MySkin.xml'])
                 skinSearchAndReplace.append(['skin_00a_InfoBar.xml', 'skin_00a_InfoBar.MySkin.xml'])
@@ -931,17 +943,6 @@ class MainSettingsView(Screen):
                 #skinSearchAndReplace.append(['skin_03_plugins.xml', 'skin_03_plugins.MySkin.xml'])
                 #skinSearchAndReplace.append(['skin_04_check.xml', 'skin_04_check.MySkin.xml'])
                 #skinSearchAndReplace.append(['skin_05_screens_unchecked.xml', 'skin_05_screens_unchecked.MySkin.xml'])
-
-            if config.plugins.MyMetrixLiteOther.showPVRState.getValue() > "1":
-                skinSearchAndReplace.append(['<screen name="PVRState" position="230,238"', '<screen name="PVRState_Standard" position="230,238"' ])
-                skinSearchAndReplace.append(['<screen name="PVRState_Top" position="0,0"', '<screen name="PVRState" position="0,0"' ])
-                if config.plugins.MyMetrixLiteOther.showPVRState.getValue() == "3":
-                    skinSearchAndReplace.append(['<!--panel name="PVRState_3_ct" /-->', '<panel name="PVRState_3_ct" />' ])
-                if config.plugins.MyMetrixLiteOther.showMovieTime.getValue() == "3":
-                    skinSearchAndReplace.append(['<!--panel name="PVRState_3_mt" /-->', '<panel name="PVRState_3_mt" />' ])
-            else:
-                if config.plugins.MyMetrixLiteOther.showMovieTime.getValue() == "3":
-                    skinSearchAndReplace.append(['<panel name="PVRState_1" />', '<panel name="PVRState_2" />' ])
 
             #make skin file
             skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
@@ -1003,6 +1004,11 @@ class MainSettingsView(Screen):
 
             #last step to fhd-mode - copy icon files for fixed paths in py-files
             if config.plugins.MyMetrixLiteOther.FHDenabled.value and not self.skinline_error:
+                screenwidth = getDesktop(0).size().width()
+                if screenwidth and screenwidth != 1920:
+                    #set standard icons after software update before copy new fhd icons
+                    self.iconFileCopy("HD")
+                    self.iconFolderCopy("HD")
                 self.iconFileCopy("FHD")
                 self.iconFolderCopy("FHD")
             else:
