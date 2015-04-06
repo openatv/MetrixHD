@@ -1080,6 +1080,39 @@ class MainSettingsView(Screen):
         dpath = "/usr/share/enigma2/MetrixHD/extensions/"
         self.FileCopy(target, spath, dpath)
 
+        #SoftwareManager
+        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/SystemPlugins/SoftwareManager/"
+        dpath = "/usr/lib/enigma2/python/Plugins/SystemPlugins/SoftwareManager/"
+        self.FileCopy(target, spath, dpath)
+
+        #AutoBouquetsMaker
+        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/SystemPlugins/AutoBouquetsMaker/images/"
+        dpath = "/usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/images/"
+        self.FileCopy(target, spath, dpath)
+
+        #NetworkBrowser
+        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/SystemPlugins/NetworkBrowser/icons/"
+        dpath = "/usr/lib/enigma2/python/Plugins/SystemPlugins/NetworkBrowser/icons/"
+        self.FileCopy(target, spath, dpath)
+
+        #EnhancedMovieCenter
+        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/Extensions/EnhancedMovieCenter/img/"
+        dpath = "/usr/lib/enigma2/python/Plugins/Extensions/EnhancedMovieCenter/img/"
+        npath = "/usr/lib/enigma2/python/Plugins/Extensions/EnhancedMovieCenter/img_hd/"
+        #EnhancedMovieCenter previous proceeding was iconFolderCopy - workaround for this
+        if path.exists(npath):
+            self.FolderCopy("HD",spath,dpath,npath)
+        self.FileCopy(target, spath, dpath)
+
+        #Infopanel
+        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/Extensions/Infopanel/icons/"
+        dpath = "/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/icons/"
+        npath = "/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/icons_hd/"
+        #Infopanel previous proceeding was iconFolderCopy - workaround for this
+        if path.exists(npath):
+            self.FolderCopy("HD",spath,dpath,npath)
+        self.FileCopy(target, spath, dpath)
+
     def FileCopy(self, target, spath, dpath):
         if target == "FHD" and path.exists(spath):
             for file in listdir(spath):
@@ -1110,33 +1143,31 @@ class MainSettingsView(Screen):
         npath = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images_hd/"
         self.FolderCopy(target,spath,dpath,npath)
 
-        #Infopanel
-        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/Extensions/Infopanel/icons/"
-        dpath = "/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/icons/"
-        npath = "/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/icons_hd/"
-        self.FolderCopy(target,spath,dpath,npath)
-
-        #EnhancedMovieCenter
-        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/Extensions/EnhancedMovieCenter/img/"
-        dpath = "/usr/lib/enigma2/python/Plugins/Extensions/EnhancedMovieCenter/img/"
-        npath = "/usr/lib/enigma2/python/Plugins/Extensions/EnhancedMovieCenter/img_hd/"
-        self.FolderCopy(target,spath,dpath,npath)
-
-        #AutoBouquetsMaker
-        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/Extensions/AutoBouquetsMaker/images/"
-        dpath = "/usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/images/"
-        npath = "/usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/images_hd/"
-        self.FolderCopy(target,spath,dpath,npath)
-
-
     def FolderCopy(self, target, spath, dpath, npath):
         if target == "FHD" and path.exists(spath) and path.exists(dpath) and not path.exists(npath):
             move(dpath,npath)
             copytree(spath,dpath)
 
         if target == "HD" and path.exists(dpath) and path.exists(npath):
+            #save new files in backup folder(*_hd) before remove image folder
+            subdirlist = []
+            self.compFolder(dpath,npath,subdirlist)
+            for subdir in subdirlist:
+                self.compFolder(subdir[0] + subdir[2] + "/", subdir[1] + subdir[2] + "/", subdirlist)
+            #---
             rmtree(dpath)
             move(npath,dpath)
+
+    def compFolder(self, dpath, npath, subdirlist):
+        for file in listdir(dpath):
+            if path.isfile(dpath + file):
+                if not path.exists(npath + file):
+                    if not path.exists(npath):
+                        copytree(dpath,npath)
+                    else:
+                        copy(dpath + file, npath + file)
+            else:
+                subdirlist.append((dpath,npath,file))
 
     @staticmethod
     def getTunerCount():
