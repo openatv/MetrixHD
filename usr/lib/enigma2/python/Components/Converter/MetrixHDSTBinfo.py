@@ -59,7 +59,9 @@ class MetrixHDSTBinfo(Converter, object):
 			f = open('/proc/loadavg', 'r')
 			temp = f.readline(4)
 			f.close()
-			info = "CPU-Load: " + temp
+			#info = "CPU-Load: " + temp
+			info = temp.replace('\n', '').replace(' ','')
+			info = _("CPU-Load: %s") % info
 		return info
 
 	def getCPUtemp(self):
@@ -70,7 +72,9 @@ class MetrixHDSTBinfo(Converter, object):
 			temp = f.readline()
 			f.close()
 		if temp and int(temp.replace('\n', '')) > 0:
-			info ="CPU-Temp: " + temp.replace('\n', '')  + str('\xc2\xb0') + "C"
+			#info ="CPU-Temp: " + temp.replace('\n', '')  + str('\xc2\xb0') + "C"
+			info = temp.replace('\n', '').replace(' ','') + str('\xc2\xb0') + "C"
+			info = _("CPU-Temp: %s") % info
 		return info
 
 	def getSYStemp(self):
@@ -85,7 +89,9 @@ class MetrixHDSTBinfo(Converter, object):
 			temp = f.readline()
 			f.close()
 		if temp and int(temp.replace('\n', '')) > 0:
-			info ="SYS-Temp: " + temp.replace('\n', '') + str('\xc2\xb0') + "C"
+			#info ="SYS-Temp: " + temp.replace('\n', '') + str('\xc2\xb0') + "C"
+			info = temp.replace('\n', '').replace(' ','') + str('\xc2\xb0') + "C"
+			info = _("SYS-Temp: %s") % info
 		return info
 
 	def getRAMfree(self):
@@ -98,7 +104,9 @@ class MetrixHDSTBinfo(Converter, object):
 				for lines in temp:
 					lisp = lines.split()
 					if lisp[0] == "MemFree:":
-						info = "RAM-Free: " + str(int(lisp[1]) / 1024) + " MB"
+						#info = "RAM-Free: " + str(int(lisp[1]) / 1024) + " MB"
+						info = str(int(lisp[1]) / 1024)
+						info = _("RAM-Free: %s MB") % info
 						break
 			except:
 				pass
@@ -112,7 +120,9 @@ class MetrixHDSTBinfo(Converter, object):
 			for lines in temp:
 				lisp = lines.split()
 				if lisp[5] == "/":
-					info = "Flash Memory free: " + lisp[3] + " MByte"
+					#info = "Flash Memory free: " + lisp[3] + " MByte"
+					info = lisp[3].replace(' ','')
+					info = _("Flash Memory free: %s MByte") % info
 					break
 		except:
 			pass
@@ -128,7 +138,9 @@ class MetrixHDSTBinfo(Converter, object):
 				for lines in temp:
 					lisp = lines.split(': ')
 					if lisp[0].startswith('cpu MHz'):
-						info = "CPU-Speed: " +  str(int(float(lisp[1].replace('\n', '')))) + " MHz"
+						#info = "CPU-Speed: " +  str(int(float(lisp[1].replace('\n', '')))) + " MHz"
+						info = str(int(float(lisp[1].replace('\n', ''))))
+						info = _("CPU-Speed: %s MHz") % info
 						break
 			except:
 				pass

@@ -1007,7 +1007,7 @@ class MainSettingsView(Screen):
                 screenwidth = getDesktop(0).size().width()
                 if screenwidth and screenwidth != 1920:
                     #set standard icons after software update before copy new fhd icons
-                    self.iconFileCopy("HD")
+                    #self.iconFileCopy("HD")
                     self.iconFolderCopy("HD")
                 self.iconFileCopy("FHD")
                 self.iconFolderCopy("FHD")
@@ -1119,12 +1119,12 @@ class MainSettingsView(Screen):
                 if path.exists(dpath + file):
                     if not path.exists(dpath + file + ".hd") and not path.exists(dpath + file + ".del"):
                         move(dpath + file,dpath + file + ".hd")
-                        copy(spath + file,dpath + file)
+                    copy(spath + file,dpath + file)
                 else:
                     if not path.exists(dpath + file + ".del"):
                         f = open(dpath + file + ".del", "w")
                         f.close()
-                        copy(spath + file,dpath + file)
+                    copy(spath + file,dpath + file)
 
         if target == "HD" and path.exists(dpath):
             for file in listdir(dpath):
