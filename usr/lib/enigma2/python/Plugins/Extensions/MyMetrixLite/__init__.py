@@ -182,10 +182,20 @@ def initColorsConfig():
         ("FF", _("100%"))
     ]
 
+    SkinColorPresetList = [
+        ("preset_0", _("Standard Colors")),
+        ("preset_1", _("Bright Colors")),
+        ("preset_2", _("Dark Colors")),
+        ("preset_3", _("Red Colors")),
+        ("preset_4", _("Yellow Colors")),
+        ("preset_5", _("Green Colors"))
+        ]
+
     config.plugins.MyMetrixLiteColors = ConfigSubsection()
 
+    #preset
+    config.plugins.MyMetrixLiteColors.SkinColorExamples = ConfigSelection(default = "preset_0", choices = SkinColorPresetList)
     #MetrixColors
-
     config.plugins.MyMetrixLiteColors.channelselectionservice = ConfigSelection(default="FFFFFF", choices = ColorList)
     config.plugins.MyMetrixLiteColors.channelselectionserviceselected = ConfigSelection(default="FFFFFF", choices = ColorList)
     config.plugins.MyMetrixLiteColors.channelselectionservicedescription = ConfigSelection(default="BDBDBD", choices = ColorList)
