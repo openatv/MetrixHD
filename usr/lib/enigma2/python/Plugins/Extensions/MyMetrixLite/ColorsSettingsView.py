@@ -459,13 +459,13 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         elif config.plugins.MyMetrixLiteColors.SkinColorExamples.value == "preset_4":
         #yellow colors
             config.plugins.MyMetrixLiteColors.channelselectionservice.value = "FFFFFF"
-            config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "000000"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "BDBDBD"
-            config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "1C1C1C"
 
-            config.plugins.MyMetrixLiteColors.windowtitletext.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.windowtitletext.value = "BF9217"
             config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "34"
-            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "BF9217"
             config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "67"
             config.plugins.MyMetrixLiteColors.backgroundtext.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value = "9A"
@@ -474,14 +474,14 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 
             config.plugins.MyMetrixLiteColors.layeraclockforeground.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.layerbclockforeground.value = "000000"
-            config.plugins.MyMetrixLiteColors.buttonforeground.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.buttonforeground.value = "BF9217"
 
             config.plugins.MyMetrixLiteColors.layerabackground.value = "000000"
             config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value = "1A"
             config.plugins.MyMetrixLiteColors.layeraforeground.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.layeraselectionbackground.value = "BF9217"
             config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency.value = "1A"
-            config.plugins.MyMetrixLiteColors.layeraselectionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layeraselectionforeground.value = "000000"
             config.plugins.MyMetrixLiteColors.layeraprogress.value = "BF9217"
             config.plugins.MyMetrixLiteColors.layeraprogresstransparency.value = "1A"
             config.plugins.MyMetrixLiteColors.layeraaccent1.value = "BDBDBD"
@@ -494,7 +494,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layerbforeground.value = "000000"
             config.plugins.MyMetrixLiteColors.layerbselectionbackground.value = "000000"
             config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency.value = "1A"
-            config.plugins.MyMetrixLiteColors.layerbselectionforeground.value = "000000"
+            config.plugins.MyMetrixLiteColors.layerbselectionforeground.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.layerbprogress.value = "000000"
             config.plugins.MyMetrixLiteColors.layerbprogresstransparency.value = "1A"
             config.plugins.MyMetrixLiteColors.layerbaccent1.value = "000000"
@@ -504,7 +504,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value = "1A"
             config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.epgeventforeground.value = "FFFFFF"
-            config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "F0A30A"
+            config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "BF9217"
 
             config.plugins.MyMetrixLiteColors.upperleftcornerbackground.value = "BF9217"
             config.plugins.MyMetrixLiteColors.upperleftcornertransparency.value = "1A"
