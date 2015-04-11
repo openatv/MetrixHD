@@ -3238,7 +3238,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_tuner_setup.png" transparent="1" alphatest="blend" />	
 	</screen>
 	<screen name="NimSetup" position="0,0" size="1280,720" title="Reception Settings" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Reception Settings" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="header" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
@@ -3247,7 +3247,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_tuner_setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="ScanSetup" position="0,0" size="1280,720" title="Service scan" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Service scan" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="header" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="introduction" render="Label" position="825,425" size="380,175" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -3257,8 +3257,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_manual_scan.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="ScanSimple" position="0,0" size="1280,720" title="Service scan" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Service scan" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="header" position="70,110" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="header" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,150" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,160" size="700,480" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="footer" position="825,425" size="380,175" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
