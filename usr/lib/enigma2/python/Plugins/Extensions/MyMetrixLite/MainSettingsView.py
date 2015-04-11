@@ -1116,6 +1116,8 @@ class MainSettingsView(Screen):
     def FileCopy(self, target, spath, dpath):
         if target == "FHD" and path.exists(spath):
             for file in listdir(spath):
+                if not path.isfile(spath + file):
+                    continue
                 if path.exists(dpath + file):
                     if not path.exists(dpath + file + ".hd") and not path.exists(dpath + file + ".del"):
                         move(dpath + file,dpath + file + ".hd")
