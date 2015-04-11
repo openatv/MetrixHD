@@ -72,7 +72,36 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 
         initColorsConfig()
 
+        ConfigListScreen.__init__(
+            self,
+            self.getMenuItemList(),
+            session = session,
+            on_change = self.__selectionChanged
+        )
+
+        self["actions"] = ActionMap(
+        [
+            "OkCancelActions",
+            "DirectionActions",
+            "InputActions",
+            "ColorActions"
+        ],
+        {
+            "left": self.keyLeft,
+            "down": self.keyDown,
+            "up": self.keyUp,
+            "right": self.keyRight,
+            "red": self.exit,
+            "yellow": self.defaults,
+            "green": self.save,
+            "cancel": self.exit
+        }, -1)
+
+        self.onLayoutFinish.append(self.UpdatePicture)
+
+    def getMenuItemList(self):
         list = []
+        list.append(getConfigListEntry(_("Color Examples"),config.plugins.MyMetrixLiteColors.SkinColorExamples, "PRESET"))
         list.append(getConfigListEntry(_("Channelselection  -----------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("    Service"), ))
         list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.channelselectionservice))
@@ -166,27 +195,391 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.optionallayerverticalbackground))
         list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency))
 
-        ConfigListScreen.__init__(self, list)
+        return list
 
-        self["actions"] = ActionMap(
-        [
-            "OkCancelActions",
-            "DirectionActions",
-            "InputActions",
-            "ColorActions"
-        ],
-        {
-            "left": self.keyLeft,
-            "down": self.keyDown,
-            "up": self.keyUp,
-            "right": self.keyRight,
-            "red": self.exit,
-            "yellow": self.defaults,
-            "green": self.save,
-            "cancel": self.exit
-        }, -1)
+    def __selectionChanged(self):
+        cur = self["config"].getCurrent()
+        cur = cur and len(cur) > 2 and cur[2]
 
-        self.onLayoutFinish.append(self.UpdatePicture)
+        if cur == "PRESET":
+            self.getPreset()
+
+        if cur == "ENABLED" or cur == "PRESET":
+            self["config"].setList(self.getMenuItemList())
+
+    def getPreset(self):
+        if config.plugins.MyMetrixLiteColors.SkinColorExamples.value == "preset_0":
+        #standard colors
+            config.plugins.MyMetrixLiteColors.channelselectionservice.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "FFFFFF"
+
+            config.plugins.MyMetrixLiteColors.windowtitletext.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "34"
+            config.plugins.MyMetrixLiteColors.backgroundtext.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value = "34"
+            config.plugins.MyMetrixLiteColors.backgroundtextback.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.backgroundtextbacktransparency.value = "67"
+
+            config.plugins.MyMetrixLiteColors.layeraclockforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layerbclockforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.buttonforeground.value = "FFFFFF"
+
+            config.plugins.MyMetrixLiteColors.layerabackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layeraforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layeraselectionbackground.value = "27408B"
+            config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layeraselectionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layeraprogress.value = "27408B"
+            config.plugins.MyMetrixLiteColors.layeraprogresstransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layeraaccent1.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layeraaccent2.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value = "6E6E6E"
+
+            config.plugins.MyMetrixLiteColors.layerbbackground.value = "27408B"
+            config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layerbforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layerbselectionbackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layerbselectionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layerbprogress.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layerbprogresstransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layerbaccent1.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layerbaccent2.value = "6E6E6E"
+
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value = "27408B"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "F0A30A"
+
+            config.plugins.MyMetrixLiteColors.upperleftcornerbackground.value = "27408B"
+            config.plugins.MyMetrixLiteColors.upperleftcornertransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.lowerleftcornerbackground.value = "27408B"
+            config.plugins.MyMetrixLiteColors.lowerleftcornertransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.upperrightcornerbackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.upperrightcornertransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.lowerrightcornerbackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.lowerrightcornertransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.optionallayerhorizontalbackground.value = "27408B"
+            config.plugins.MyMetrixLiteColors.optionallayerhorizontaltransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.optionallayerverticalbackground.value = "27408B"
+            config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency.value = "1A"
+        elif config.plugins.MyMetrixLiteColors.SkinColorExamples.value == "preset_1":
+        #bright colors
+            config.plugins.MyMetrixLiteColors.channelselectionservice.value = "1C1C1C"
+            config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "424242"
+            config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "FFFFFF"
+
+            config.plugins.MyMetrixLiteColors.windowtitletext.value = "424242"
+            config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "424242"
+            config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "34"
+            config.plugins.MyMetrixLiteColors.backgroundtext.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value = "34"
+            config.plugins.MyMetrixLiteColors.backgroundtextback.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.backgroundtextbacktransparency.value = "67"
+
+            config.plugins.MyMetrixLiteColors.layeraclockforeground.value = "1C1C1C"
+            config.plugins.MyMetrixLiteColors.layerbclockforeground.value = "D8D8D8"
+            config.plugins.MyMetrixLiteColors.buttonforeground.value = "424242"
+
+            config.plugins.MyMetrixLiteColors.layerabackground.value = "D8D8D8"
+            config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layeraforeground.value = "1C1C1C"
+            config.plugins.MyMetrixLiteColors.layeraselectionbackground.value = "27408B"
+            config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layeraselectionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layeraprogress.value = "27408B"
+            config.plugins.MyMetrixLiteColors.layeraprogresstransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layeraaccent1.value = "1C1C1C"
+            config.plugins.MyMetrixLiteColors.layeraaccent2.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value = "1C1C1C"
+            config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value = "6E6E6E"
+
+            config.plugins.MyMetrixLiteColors.layerbbackground.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layerbforeground.value = "F2F2F2"
+            config.plugins.MyMetrixLiteColors.layerbselectionbackground.value = "27408B"
+            config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layerbselectionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layerbprogress.value = "27408B"
+            config.plugins.MyMetrixLiteColors.layerbprogresstransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layerbaccent1.value = "D8D8D8"
+            config.plugins.MyMetrixLiteColors.layerbaccent2.value = "6E6E6E"
+
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value = "D8D8D8"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value = "1C1C1C"
+            config.plugins.MyMetrixLiteColors.epgeventforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "F0A30A"
+
+            config.plugins.MyMetrixLiteColors.upperleftcornerbackground.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.upperleftcornertransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.lowerleftcornerbackground.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.lowerleftcornertransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.upperrightcornerbackground.value = "D8D8D8"
+            config.plugins.MyMetrixLiteColors.upperrightcornertransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.lowerrightcornerbackground.value = "D8D8D8"
+            config.plugins.MyMetrixLiteColors.lowerrightcornertransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.optionallayerhorizontalbackground.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.optionallayerhorizontaltransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.optionallayerverticalbackground.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency.value = "1A"
+        elif config.plugins.MyMetrixLiteColors.SkinColorExamples.value == "preset_2":
+        #dark colors
+            config.plugins.MyMetrixLiteColors.channelselectionservice.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "FFFFFF"
+
+            config.plugins.MyMetrixLiteColors.windowtitletext.value = "F0A30A"
+            config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "34"
+            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "F0A30A"
+            config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "67"
+            config.plugins.MyMetrixLiteColors.backgroundtext.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value = "9A"
+            config.plugins.MyMetrixLiteColors.backgroundtextback.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.backgroundtextbacktransparency.value = "CD"
+
+            config.plugins.MyMetrixLiteColors.layeraclockforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layerbclockforeground.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.buttonforeground.value = "F0A30A"
+
+            config.plugins.MyMetrixLiteColors.layerabackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.layeraforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layeraselectionbackground.value = "27408B"
+            config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.layeraselectionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layeraprogress.value = "27408B"
+            config.plugins.MyMetrixLiteColors.layeraprogresstransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.layeraaccent1.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layeraaccent2.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value = "F0A30A"
+            config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value = "6E6E6E"
+
+            config.plugins.MyMetrixLiteColors.layerbbackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.layerbforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layerbselectionbackground.value = "27408B"
+            config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.layerbselectionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layerbprogress.value = "27408B"
+            config.plugins.MyMetrixLiteColors.layerbprogresstransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.layerbaccent1.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layerbaccent2.value = "6E6E6E"
+
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "F0A30A"
+
+            config.plugins.MyMetrixLiteColors.upperleftcornerbackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.upperleftcornertransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.lowerleftcornerbackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.lowerleftcornertransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.upperrightcornerbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.upperrightcornertransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.lowerrightcornerbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.lowerrightcornertransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.optionallayerhorizontalbackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.optionallayerhorizontaltransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.optionallayerverticalbackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency.value = "4D"
+        elif config.plugins.MyMetrixLiteColors.SkinColorExamples.value == "preset_3":
+        #red colors
+            config.plugins.MyMetrixLiteColors.channelselectionservice.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "FFFFFF"
+
+            config.plugins.MyMetrixLiteColors.windowtitletext.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "34"
+            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "67"
+            config.plugins.MyMetrixLiteColors.backgroundtext.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value = "9A"
+            config.plugins.MyMetrixLiteColors.backgroundtextback.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.backgroundtextbacktransparency.value = "CD"
+
+            config.plugins.MyMetrixLiteColors.layeraclockforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layerbclockforeground.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.buttonforeground.value = "BDBDBD"
+
+            config.plugins.MyMetrixLiteColors.layerabackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.layeraforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layeraselectionbackground.value = "911D10"
+            config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.layeraselectionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layeraprogress.value = "911D10"
+            config.plugins.MyMetrixLiteColors.layeraprogresstransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.layeraaccent1.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layeraaccent2.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value = "6E6E6E"
+
+            config.plugins.MyMetrixLiteColors.layerbbackground.value = "911D10"
+            config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.layerbforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layerbselectionbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.layerbselectionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layerbprogress.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layerbprogresstransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.layerbaccent1.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layerbaccent2.value = "6E6E6E"
+
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "F0A30A"
+
+            config.plugins.MyMetrixLiteColors.upperleftcornerbackground.value = "911D10"
+            config.plugins.MyMetrixLiteColors.upperleftcornertransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.lowerleftcornerbackground.value = "911D10"
+            config.plugins.MyMetrixLiteColors.lowerleftcornertransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.upperrightcornerbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.upperrightcornertransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.lowerrightcornerbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.lowerrightcornertransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.optionallayerhorizontalbackground.value = "911D10"
+            config.plugins.MyMetrixLiteColors.optionallayerhorizontaltransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.optionallayerverticalbackground.value = "911D10"
+            config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency.value = "4D"
+        elif config.plugins.MyMetrixLiteColors.SkinColorExamples.value == "preset_4":
+        #yellow colors
+            config.plugins.MyMetrixLiteColors.channelselectionservice.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "FFFFFF"
+
+            config.plugins.MyMetrixLiteColors.windowtitletext.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "34"
+            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "67"
+            config.plugins.MyMetrixLiteColors.backgroundtext.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value = "9A"
+            config.plugins.MyMetrixLiteColors.backgroundtextback.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.backgroundtextbacktransparency.value = "CD"
+
+            config.plugins.MyMetrixLiteColors.layeraclockforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layerbclockforeground.value = "000000"
+            config.plugins.MyMetrixLiteColors.buttonforeground.value = "BDBDBD"
+
+            config.plugins.MyMetrixLiteColors.layerabackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layeraforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layeraselectionbackground.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layeraselectionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layeraprogress.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.layeraprogresstransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layeraaccent1.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layeraaccent2.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value = "6E6E6E"
+
+            config.plugins.MyMetrixLiteColors.layerbbackground.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layerbforeground.value = "000000"
+            config.plugins.MyMetrixLiteColors.layerbselectionbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layerbselectionforeground.value = "000000"
+            config.plugins.MyMetrixLiteColors.layerbprogress.value = "000000"
+            config.plugins.MyMetrixLiteColors.layerbprogresstransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layerbaccent1.value = "000000"
+            config.plugins.MyMetrixLiteColors.layerbaccent2.value = "6E6E6E"
+
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "F0A30A"
+
+            config.plugins.MyMetrixLiteColors.upperleftcornerbackground.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.upperleftcornertransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.lowerleftcornerbackground.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.lowerleftcornertransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.upperrightcornerbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.upperrightcornertransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.lowerrightcornerbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.lowerrightcornertransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.optionallayerhorizontalbackground.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.optionallayerhorizontaltransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.optionallayerverticalbackground.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency.value = "1A"
+        elif config.plugins.MyMetrixLiteColors.SkinColorExamples.value == "preset_5":
+        #green colors
+            config.plugins.MyMetrixLiteColors.channelselectionservice.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "70AD11"
+            config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "FFFFFF"
+
+            config.plugins.MyMetrixLiteColors.windowtitletext.value = "70AD11"
+            config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "34"
+            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "70AD11"
+            config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "67"
+            config.plugins.MyMetrixLiteColors.backgroundtext.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value = "9A"
+            config.plugins.MyMetrixLiteColors.backgroundtextback.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.backgroundtextbacktransparency.value = "CD"
+
+            config.plugins.MyMetrixLiteColors.layeraclockforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layerbclockforeground.value = "F2F2F2"
+            config.plugins.MyMetrixLiteColors.buttonforeground.value = "70AD11"
+
+            config.plugins.MyMetrixLiteColors.layerabackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layeraforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layeraselectionbackground.value = "70AD11"
+            config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layeraselectionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layeraprogress.value = "70AD11"
+            config.plugins.MyMetrixLiteColors.layeraprogresstransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layeraaccent1.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layeraaccent2.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value = "70AD11"
+            config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value = "6E6E6E"
+
+            config.plugins.MyMetrixLiteColors.layerbbackground.value = "70AD11"
+            config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layerbforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layerbselectionbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layerbselectionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layerbprogress.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.layerbprogresstransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.layerbaccent1.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layerbaccent2.value = "6E6E6E"
+
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "70AD11"
+
+            config.plugins.MyMetrixLiteColors.upperleftcornerbackground.value = "00008B"
+            config.plugins.MyMetrixLiteColors.upperleftcornertransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.lowerleftcornerbackground.value = "00008B"
+            config.plugins.MyMetrixLiteColors.lowerleftcornertransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.upperrightcornerbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.upperrightcornertransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.lowerrightcornerbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.lowerrightcornertransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.optionallayerhorizontalbackground.value = "00008B"
+            config.plugins.MyMetrixLiteColors.optionallayerhorizontaltransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.optionallayerverticalbackground.value = "00008B"
+            config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency.value = "1A"
 
     def GetPicturePath(self):
         try:
