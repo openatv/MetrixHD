@@ -2,6 +2,14 @@
 <skin>
 	<!-- CHECK/OPTIMIZE FURTHER -->
 
+	<!-- AutoVideoModeLabel -->
+	<screen name="AutoVideoModeLabel" position="0,0" size="1280,723" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="40,120" size="370,30" backgroundColor="layer-a-background" zPosition="-1" />
+		<widget name="content" position="50,120" size="350,25" font="global_clock; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" noWrap="1" />
+		<eLabel position="40,150" size="370,30" backgroundColor="layer-b-background" zPosition="-1" />
+		<widget name="restxt" position="50,150" size="350,25" font="global_clock; 20" backgroundColor="layer-b-background" foregroundColor="layer-a-clock-foreground" noWrap="1" />
+	</screen>
+
 	<screen name="AutoDiseqc" position="64,62" size="1280,720" title="AutoDiseqc" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="250,27" zPosition="-10" size="631,540" backgroundColor="layer-a-background" />
 		<widget source="global.CurrentTime" render="Label" position="713,26" size="140,60" font="global_clock;50" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
