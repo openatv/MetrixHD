@@ -109,6 +109,13 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(_("    Service Description"), ))
         list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.channelselectionservicedescription))
         list.append(getConfigListEntry(_("        Font color selected"), config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected))
+        list.append(getConfigListEntry(_("EMC Movie List  -------------------------------------------------------------------------------------"), ))
+        list.append(getConfigListEntry(_("    Change event colors"), config.plugins.MyMetrixLiteColors.emcChangeEventColor, "ENABLED"))
+        if config.plugins.MyMetrixLiteColors.emcChangeEventColor.getValue() is True:
+            list.append(getConfigListEntry(_("        Watched color"), config.plugins.MyMetrixLiteColors.emcWatchingColor))
+            list.append(getConfigListEntry(_("        Finished color"), config.plugins.MyMetrixLiteColors.emcFinishedColor))
+            list.append(getConfigListEntry(_("        Recording color"), config.plugins.MyMetrixLiteColors.emcRecordingColor))
+        list.append(getConfigListEntry(_("    Show event colors if entry selected"), config.plugins.MyMetrixLiteColors.emcCoolHighlightColor))
         list.append(getConfigListEntry(_("Text Windowtitle  ------------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("    Foreground"), ))
         list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.windowtitletext))
@@ -215,6 +222,12 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "BDBDBD"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "FFFFFF"
 
+            config.plugins.MyMetrixLiteColors.emcChangeEventColor.value = False
+            config.plugins.MyMetrixLiteColors.emcWatchingColor.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.emcFinishedColor.value = "70AD11"
+            config.plugins.MyMetrixLiteColors.emcRecordingColor.value = "E51400"
+            config.plugins.MyMetrixLiteColors.emcCoolHighlightColor.value = True
+
             config.plugins.MyMetrixLiteColors.windowtitletext.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "1A"
             config.plugins.MyMetrixLiteColors.windowtitletextback.value = "FFFFFF"
@@ -276,6 +289,12 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "424242"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "FFFFFF"
+
+            config.plugins.MyMetrixLiteColors.emcChangeEventColor.value = True
+            config.plugins.MyMetrixLiteColors.emcWatchingColor.value = "F0A30A"
+            config.plugins.MyMetrixLiteColors.emcFinishedColor.value = "008A00"
+            config.plugins.MyMetrixLiteColors.emcRecordingColor.value = "E51400"
+            config.plugins.MyMetrixLiteColors.emcCoolHighlightColor.value = True
 
             config.plugins.MyMetrixLiteColors.windowtitletext.value = "424242"
             config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "1A"
@@ -339,6 +358,12 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "BDBDBD"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "FFFFFF"
 
+            config.plugins.MyMetrixLiteColors.emcChangeEventColor.value = False
+            config.plugins.MyMetrixLiteColors.emcWatchingColor.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.emcFinishedColor.value = "70AD11"
+            config.plugins.MyMetrixLiteColors.emcRecordingColor.value = "E51400"
+            config.plugins.MyMetrixLiteColors.emcCoolHighlightColor.value = True
+
             config.plugins.MyMetrixLiteColors.windowtitletext.value = "F0A30A"
             config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "34"
             config.plugins.MyMetrixLiteColors.windowtitletextback.value = "F0A30A"
@@ -400,6 +425,12 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "BDBDBD"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "FFFFFF"
+
+            config.plugins.MyMetrixLiteColors.emcChangeEventColor.value = False
+            config.plugins.MyMetrixLiteColors.emcWatchingColor.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.emcFinishedColor.value = "70AD11"
+            config.plugins.MyMetrixLiteColors.emcRecordingColor.value = "E51400"
+            config.plugins.MyMetrixLiteColors.emcCoolHighlightColor.value = False
 
             config.plugins.MyMetrixLiteColors.windowtitletext.value = "BDBDBD"
             config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "34"
@@ -463,6 +494,12 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "BDBDBD"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "1C1C1C"
 
+            config.plugins.MyMetrixLiteColors.emcChangeEventColor.value = False
+            config.plugins.MyMetrixLiteColors.emcWatchingColor.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.emcFinishedColor.value = "70AD11"
+            config.plugins.MyMetrixLiteColors.emcRecordingColor.value = "E51400"
+            config.plugins.MyMetrixLiteColors.emcCoolHighlightColor.value = False
+
             config.plugins.MyMetrixLiteColors.windowtitletext.value = "BF9217"
             config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "34"
             config.plugins.MyMetrixLiteColors.windowtitletextback.value = "BF9217"
@@ -524,6 +561,12 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "70AD11"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "FFFFFF"
+
+            config.plugins.MyMetrixLiteColors.emcChangeEventColor.value = False
+            config.plugins.MyMetrixLiteColors.emcWatchingColor.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.emcFinishedColor.value = "70AD11"
+            config.plugins.MyMetrixLiteColors.emcRecordingColor.value = "E51400"
+            config.plugins.MyMetrixLiteColors.emcCoolHighlightColor.value = False
 
             config.plugins.MyMetrixLiteColors.windowtitletext.value = "70AD11"
             config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "34"
@@ -623,6 +666,12 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectionservicedescription)
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected)
 
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.emcChangeEventColor)
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.emcWatchingColor)
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.emcFinishedColor)
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.emcRecordingColor)
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.emcCoolHighlightColor)
+
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.windowtitletext)
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.windowtitletexttransparency)
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.windowtitletextback)
@@ -678,6 +727,8 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.optionallayerhorizontaltransparency)
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.optionallayerverticalbackground)
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency)
+
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.SkinColorExamples)
 
         self.save()
 

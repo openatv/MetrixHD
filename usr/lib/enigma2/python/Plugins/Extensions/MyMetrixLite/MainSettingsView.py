@@ -480,6 +480,14 @@ class MainSettingsView(Screen):
             else:
                 EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_1_time" />', '' ])
 
+            if config.plugins.MyMetrixLiteColors.emcChangeEventColor.getValue() is True:
+                EMCSkinSearchAndReplace.append(['WatchingColor="#D8C100"', 'WatchingColor="#' + config.plugins.MyMetrixLiteColors.emcWatchingColor.value + '"' ])
+                EMCSkinSearchAndReplace.append(['FinishedColor="#5FA816"', 'FinishedColor="#' + config.plugins.MyMetrixLiteColors.emcFinishedColor.value + '"' ])
+                EMCSkinSearchAndReplace.append(['RecordingColor="#E51400"', 'RecordingColor="#' + config.plugins.MyMetrixLiteColors.emcRecordingColor.value + '"' ])
+
+            if config.plugins.MyMetrixLiteColors.emcCoolHighlightColor.getValue() is False:
+                EMCSkinSearchAndReplace.append(['CoolHighlightColor="1"', 'CoolHighlightColor="0"' ])
+
             skin_lines = appendSkinFile(SKIN_EMC_SOURCE, EMCSkinSearchAndReplace)
 
             xFile = open(SKIN_EMC_TARGET_TMP, "w")
