@@ -126,6 +126,7 @@ def initColorsConfig():
         ("A61D4D", _("Magenta")),
         ("A4C400", _("Lime")),
         ("6A00FF", _("Indigo")),
+        ("5FA816", _("Brightgreen")),
         ("70AD11", _("Green")),
         ("008A00", _("Emerald")),
         ("76608A", _("Mauve")),
@@ -140,6 +141,7 @@ def initColorsConfig():
         ("647687", _("Steel")),
         ("149BAF", _("Teal")),
         ("6C0AAB", _("Violet")),
+        ("D8C100", _("Brightyellow")),
         ("BF9217", _("Yellow")),
         ("000000", _("Black")),
         ("151515", _("Greyscale 1")),
@@ -201,9 +203,8 @@ def initColorsConfig():
     config.plugins.MyMetrixLiteColors.channelselectionservicedescription = ConfigSelection(default="BDBDBD", choices = ColorList)
     config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected = ConfigSelection(default="FFFFFF", choices = ColorList)
 
-    config.plugins.MyMetrixLiteColors.emcChangeEventColor = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteColors.emcWatchingColor = ConfigSelection(default="BF9217", choices = ColorList)
-    config.plugins.MyMetrixLiteColors.emcFinishedColor = ConfigSelection(default="70AD11", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.emcWatchingColor = ConfigSelection(default="D8C100", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.emcFinishedColor = ConfigSelection(default="5FA816", choices = ColorList)
     config.plugins.MyMetrixLiteColors.emcRecordingColor = ConfigSelection(default="E51400", choices = ColorList)
     config.plugins.MyMetrixLiteColors.emcCoolHighlightColor = ConfigYesNo(default=True)
 
