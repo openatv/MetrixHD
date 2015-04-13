@@ -106,6 +106,9 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(_("    Service"), ))
         list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.channelselectionservice))
         list.append(getConfigListEntry(_("        Font color selected"), config.plugins.MyMetrixLiteColors.channelselectionserviceselected))
+        list.append(getConfigListEntry(_("        Font color recording"), config.plugins.MyMetrixLiteColors.channelselectioncolorServiceRecorded))
+        list.append(getConfigListEntry(_("        Font color pseudo recording"), config.plugins.MyMetrixLiteColors.channelselectioncolorServicePseudoRecorded))
+        list.append(getConfigListEntry(_("        Font color streaming"), config.plugins.MyMetrixLiteColors.channelselectioncolorServiceStreamed))
         list.append(getConfigListEntry(_("    Service Description"), ))
         list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.channelselectionservicedescription))
         list.append(getConfigListEntry(_("        Font color selected"), config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected))
@@ -219,6 +222,9 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "BDBDBD"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.channelselectioncolorServiceRecorded.value = "E51400"
+            config.plugins.MyMetrixLiteColors.channelselectioncolorServicePseudoRecorded.value = "0000CD"
+            config.plugins.MyMetrixLiteColors.channelselectioncolorServiceStreamed.value = "C3461B"
 
             config.plugins.MyMetrixLiteColors.emcWatchingColor.value = "D8C100"
             config.plugins.MyMetrixLiteColors.emcFinishedColor.value = "5FA816"
@@ -286,6 +292,9 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "424242"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.channelselectioncolorServiceRecorded.value = "E51400"
+            config.plugins.MyMetrixLiteColors.channelselectioncolorServicePseudoRecorded.value = "0000CD"
+            config.plugins.MyMetrixLiteColors.channelselectioncolorServiceStreamed.value = "C3461B"
 
             config.plugins.MyMetrixLiteColors.emcWatchingColor.value = "F0A30A"
             config.plugins.MyMetrixLiteColors.emcFinishedColor.value = "008A00"
@@ -353,6 +362,9 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "BDBDBD"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.channelselectioncolorServiceRecorded.value = "E51400"
+            config.plugins.MyMetrixLiteColors.channelselectioncolorServicePseudoRecorded.value = "0000CD"
+            config.plugins.MyMetrixLiteColors.channelselectioncolorServiceStreamed.value = "C3461B"
 
             config.plugins.MyMetrixLiteColors.emcWatchingColor.value = "D8C100"
             config.plugins.MyMetrixLiteColors.emcFinishedColor.value = "5FA816"
@@ -420,6 +432,9 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "BDBDBD"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.channelselectioncolorServiceRecorded.value = "E51400"
+            config.plugins.MyMetrixLiteColors.channelselectioncolorServicePseudoRecorded.value = "0000CD"
+            config.plugins.MyMetrixLiteColors.channelselectioncolorServiceStreamed.value = "C3461B"
 
             config.plugins.MyMetrixLiteColors.emcWatchingColor.value = "D8C100"
             config.plugins.MyMetrixLiteColors.emcFinishedColor.value = "5FA816"
@@ -487,6 +502,9 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "000000"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "BDBDBD"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "1C1C1C"
+            config.plugins.MyMetrixLiteColors.channelselectioncolorServiceRecorded.value = "E51400"
+            config.plugins.MyMetrixLiteColors.channelselectioncolorServicePseudoRecorded.value = "0000CD"
+            config.plugins.MyMetrixLiteColors.channelselectioncolorServiceStreamed.value = "C3461B"
 
             config.plugins.MyMetrixLiteColors.emcWatchingColor.value = "D8C100"
             config.plugins.MyMetrixLiteColors.emcFinishedColor.value = "5FA816"
@@ -554,6 +572,9 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "70AD11"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.channelselectioncolorServiceRecorded.value = "E51400"
+            config.plugins.MyMetrixLiteColors.channelselectioncolorServicePseudoRecorded.value = "0000CD"
+            config.plugins.MyMetrixLiteColors.channelselectioncolorServiceStreamed.value = "C3461B"
 
             config.plugins.MyMetrixLiteColors.emcWatchingColor.value = "D8C100"
             config.plugins.MyMetrixLiteColors.emcFinishedColor.value = "5FA816"
@@ -657,6 +678,9 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectionserviceselected)
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectionservicedescription)
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected)
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectioncolorServiceRecorded)
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectioncolorServicePseudoRecorded)
+        self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectioncolorServiceStreamed)
 
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.emcWatchingColor)
         self.setInputToDefault(config.plugins.MyMetrixLiteColors.emcFinishedColor)
