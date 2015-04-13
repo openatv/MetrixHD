@@ -202,6 +202,9 @@ def initColorsConfig():
     config.plugins.MyMetrixLiteColors.channelselectionserviceselected = ConfigSelection(default="FFFFFF", choices = ColorList)
     config.plugins.MyMetrixLiteColors.channelselectionservicedescription = ConfigSelection(default="BDBDBD", choices = ColorList)
     config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected = ConfigSelection(default="FFFFFF", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.channelselectioncolorServiceRecorded = ConfigSelection(default="E51400", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.channelselectioncolorServicePseudoRecorded = ConfigSelection(default="0000CD", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.channelselectioncolorServiceStreamed = ConfigSelection(default="C3461B", choices = ColorList)
 
     config.plugins.MyMetrixLiteColors.emcWatchingColor = ConfigSelection(default="D8C100", choices = ColorList)
     config.plugins.MyMetrixLiteColors.emcFinishedColor = ConfigSelection(default="5FA816", choices = ColorList)
