@@ -1083,9 +1083,19 @@ class MainSettingsView(Screen):
 
     def iconFileCopy(self, target):
 
+        #MetrixHD
+        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/"
+        dpath = "/usr/share/enigma2/MetrixHD/"
+        self.FileCopy(target, spath, dpath)
+
         #icons
         spath = "/usr/share/enigma2/MetrixHD/FHD/copy/icons/"
         dpath = "/usr/share/enigma2/MetrixHD/icons/"
+        self.FileCopy(target, spath, dpath)
+        
+        #buttons
+        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/buttons/"
+        dpath = "/usr/share/enigma2/MetrixHD/buttons/"
         self.FileCopy(target, spath, dpath)
         
         #extensions
