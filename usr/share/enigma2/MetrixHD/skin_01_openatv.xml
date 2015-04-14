@@ -1212,23 +1212,33 @@
 		<panel name="__e-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/softcam.png" transparent="1" alphatest="blend" />
 	</screen>
-	<!--screen name="oscInfo" position="0,0" size="1280,720" title="Client Info" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="oscInfo" position="0,0" size="1280,720" title="Client Info" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="900,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="output" font="Regular;20" position="70,130" size="1100,540" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" zPosition="1" transparent="1" />
+		<widget name="output" position="70,110" size="1145,503" scrollbarMode="showNever" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_1layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1-source" />
-	</screen-->
+		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="on" />
+		<applet type="onLayoutFinish">
+from enigma import eSize,ePoint, getDesktop
+deskwidth = getDesktop(0).size().width()
+deskheight = getDesktop(0).size().height()
+# resize
+self.instance.resize(eSize(*(deskwidth,deskheight)))
+# center
+self.instance.move(ePoint(0,0))
+		</applet>
+	</screen>
 	<screen name="oscECMInfo" position="0,0" size="1280,720" title="OscamECM Info" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="output" font="Regular;20" position="70,130" size="700,510" itemHeight="30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" zPosition="1" transparent="1" />
+		<widget name="output" font="screen_info;20" position="70,130" size="700,510" itemHeight="30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/softcam.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="oscReaderStats" position="0,0" size="1280,720" title="OscamReader Stats" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="900,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="output" render="Listbox" position="70,130" size="1140,540" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarMode="showOnDemand" zPosition="1" transparent="1" >
+		<widget source="output" render="Listbox" position="70,130" size="1145,540" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarMode="showOnDemand" zPosition="1" transparent="1" >
 				<convert type="TemplatedMultiContent">
 				{"templates":
 					{"default": (30,[
@@ -1258,10 +1268,11 @@
 				</convert>
 		</widget>
 		<panel name="template1_1layer" />
+		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="on" />
 	</screen>
 	<screen name="oscEntitlements" position="0,0" size="1280,720" title="OscamReader Stats" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="900,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="output" render="Listbox" position="70,130" size="1140,540" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" zPosition="1" transparent="1" >
+		<widget source="output" render="Listbox" position="70,130" size="1145,540" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" zPosition="1" transparent="1" >
 				<convert type="TemplatedMultiContent">
 				{"templates":
 					{"default": (60,[
@@ -1295,6 +1306,7 @@
 				</convert>
 		</widget>
 		<panel name="template1_1layer" />
+		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="on" />
 	</screen>
 	<!--CCcaminfo-->
 	<screen name="CCcamInfoMain" position="0,0" size="1280,720" title="CCcam Info" flags="wfNoBorder" backgroundColor="transparent">
