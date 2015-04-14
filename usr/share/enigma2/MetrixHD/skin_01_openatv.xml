@@ -1035,6 +1035,14 @@
 			<convert type="MenuEntryCompare">Sundtek Control Center</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/search.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">cablescan</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="skin_default/icons/scan-c.png" position="405,290" size="64,64" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">cablescan</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
 	</screen>
 	<screen name="menu_shutdown" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MENU_template" />
@@ -1791,69 +1799,69 @@
 	<screen name="TempFanControl" position="0,0" size="1280,720" title="Fan Control" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<eLabel text="Fan Control" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="60,125" size="550,120" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
-		<widget source="SensorTempText0" render="Label" position="60,255" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="SensorTemp0" render="Label" position="150,255" zPosition="1" size="100,20" font="Regular;19" halign="right">
+		<widget name="config" position="70,110" size="700,180" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
+		<widget source="SensorTempText0" render="Label" position="70,300" zPosition="1" size="150,30" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="SensorTemp0" render="Label" position="220,300" zPosition="1" size="150,30" font="screen_text;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" >
 			<convert type="SensorToText"></convert>
 		</widget>
-		<widget source="SensorTempText1" render="Label" position="60,274" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="SensorTemp1" render="Label" position="150,275" zPosition="1" size="100,20" font="Regular;19" halign="right">
+		<widget source="SensorTempText1" render="Label" position="70,330" zPosition="1" size="150,30" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="SensorTemp1" render="Label" position="220,330" zPosition="1" size="150,30" font="screen_text;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" >
 			<convert type="SensorToText"></convert>
 		</widget>
-		<widget source="SensorTempText2" render="Label" position="60,295" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="SensorTemp2" render="Label" position="150,294" zPosition="1" size="100,20" font="Regular;19" halign="right">
+		<widget source="SensorTempText2" render="Label" position="70,360" zPosition="1" size="150,30" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="SensorTemp2" render="Label" position="220,360" zPosition="1" size="150,30" font="screen_text;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" >
 			<convert type="SensorToText"></convert>
 		</widget>
-		<widget source="SensorTempText3" render="Label" position="61,315" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="SensorTemp3" render="Label" position="150,314" zPosition="1" size="100,20" font="Regular;19" halign="right">
+		<widget source="SensorTempText3" render="Label" position="70,390" zPosition="1" size="150,30" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="SensorTemp3" render="Label" position="220,390" zPosition="1" size="150,30" font="screen_text;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" >
 			<convert type="SensorToText"></convert>
 		</widget>
-		<widget source="SensorTempText4" render="Label" position="60,333" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="SensorTemp4" render="Label" position="150,335" zPosition="1" size="100,20" font="Regular;19" halign="right">
+		<widget source="SensorTempText4" render="Label" position="70,420" zPosition="1" size="150,30" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="SensorTemp4" render="Label" position="220,420" zPosition="1" size="150,30" font="screen_text;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" >
 			<convert type="SensorToText"></convert>
 		</widget>
-		<widget source="SensorTempText5" render="Label" position="60,354" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="SensorTemp5" render="Label" position="150,355" zPosition="1" size="100,20" font="Regular;19" halign="right">
+		<widget source="SensorTempText5" render="Label" position="70,450" zPosition="1" size="150,30" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="SensorTemp5" render="Label" position="220,450" zPosition="1" size="150,30" font="screen_text;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" >
 			<convert type="SensorToText"></convert>
 		</widget>
-		<widget source="SensorTempText6" render="Label" position="60,375" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="SensorTemp6" render="Label" position="150,374" zPosition="1" size="100,20" font="Regular;19" halign="right">
+		<widget source="SensorTempText6" render="Label" position="70,480" zPosition="1" size="150,30" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="SensorTemp6" render="Label" position="220,480" zPosition="1" size="150,30" font="screen_text;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" >
 			<convert type="SensorToText"></convert>
 		</widget>
-		<widget source="SensorTempText7" render="Label" position="60,393" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="SensorTemp7" render="Label" position="150,395" zPosition="1" size="100,20" font="Regular;19" halign="right">
+		<widget source="SensorTempText7" render="Label" position="70,510" zPosition="1" size="150,30" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="SensorTemp7" render="Label" position="220,510" zPosition="1" size="150,30" font="screen_text;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" >
 			<convert type="SensorToText"></convert>
 		</widget>
-		<widget source="SensorFanText0" render="Label" position="340,254" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="SensorFan0" render="Label" position="430,250" zPosition="1" size="150,23" font="Regular;19" halign="right">
+		<widget source="SensorFanText0" render="Label" position="470,250" zPosition="1" size="150,30" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="SensorFan0" render="Label" position="620,490" zPosition="1" size="150,30" font="screen_text;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" >
 			<convert type="SensorToText"></convert>
 		</widget>
-		<widget source="SensorFanText1" render="Label" position="340,273" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="SensorFan1" render="Label" position="430,274" zPosition="1" size="150,20" font="Regular;19" halign="right">
+		<widget source="SensorFanText1" render="Label" position="470,273" zPosition="1" size="150,30" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="SensorFan1" render="Label" position="620,274" zPosition="1" size="150,30" font="screen_text;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" >
 			<convert type="SensorToText"></convert>
 		</widget>
-		<widget source="SensorFanText2" render="Label" position="340,295" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="SensorFan2" render="Label" position="430,292" zPosition="1" size="150,20" font="Regular;19" halign="right">
+		<widget source="SensorFanText2" render="Label" position="470,295" zPosition="1" size="150,30" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="SensorFan2" render="Label" position="620,292" zPosition="1" size="150,30" font="screen_text;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" >
 			<convert type="SensorToText"></convert>
 		</widget>
-		<widget source="SensorFanText3" render="Label" position="341,314" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="SensorFan3" render="Label" position="430,315" zPosition="1" size="150,20" font="Regular;19" halign="right">
+		<widget source="SensorFanText3" render="Label" position="470,314" zPosition="1" size="150,30" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="SensorFan3" render="Label" position="620,315" zPosition="1" size="150,30" font="screen_text;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" >
 			<convert type="SensorToText"></convert>
 		</widget>
-		<widget source="SensorFanText4" render="Label" position="340,334" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="SensorFan4" render="Label" position="430,335" zPosition="1" size="150,20" font="Regular;19" halign="right">
+		<widget source="SensorFanText4" render="Label" position="470,334" zPosition="1" size="150,30" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="SensorFan4" render="Label" position="620,335" zPosition="1" size="150,30" font="screen_text;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" >
 			<convert type="SensorToText"></convert>
 		</widget>
-		<widget source="SensorFanText5" render="Label" position="341,355" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="SensorFan5" render="Label" position="430,354" zPosition="1" size="150,20" font="Regular;19" halign="right">
+		<widget source="SensorFanText5" render="Label" position="470,355" zPosition="1" size="150,30" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="SensorFan5" render="Label" position="620,354" zPosition="1" size="150,30" font="screen_text;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" >
 			<convert type="SensorToText"></convert>
 		</widget>
-		<widget source="SensorFanText6" render="Label" position="340,374" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="SensorFan6" render="Label" position="430,375" zPosition="1" size="150,20" font="Regular;19" halign="right">
+		<widget source="SensorFanText6" render="Label" position="470,374" zPosition="1" size="150,30" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="SensorFan6" render="Label" position="620,375" zPosition="1" size="150,30" font="screen_text;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" >
 			<convert type="SensorToText"></convert>
 		</widget>
-		<widget source="SensorFanText7" render="Label" position="340,395" zPosition="1" size="90,40" font="Regular;20" halign="left" valign="top" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="SensorFan7" render="Label" position="431,395" zPosition="1" size="150,20" font="Regular;19" halign="right">
+		<widget source="SensorFanText7" render="Label" position="470,395" zPosition="1" size="150,30" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="SensorFan7" render="Label" position="620,395" zPosition="1" size="150,30" font="screen_text;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" >
 			<convert type="SensorToText"></convert>
 		</widget>
 		<widget source="red" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -3916,6 +3924,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="_oe-buttons_template1" /> 
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_autobouquetsmakermaker.png" transparent="1" alphatest="blend" /> 
 	</screen> 
+	<!--CI+-Helper /-->
 	<screen name="CIHelper" title="CIHelper Setup" position="center,center" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="autostart" position="70,130" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -3944,5 +3953,54 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="rg__-keys_template1" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_ci_cihelper_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!--UserInterfacePositioner2 /-->
+	<screen name="UserInterfacePositioner2" position="0,0" size="1280,720" backgroundColor="layer-a-background" flags="wfNoBorder" title="OSD Adjustment" >
+		<widget source="text" render="Label" position="200,110" zPosition="1" size="880,120" font="global_title;22" halign="center" valign="center" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="150,250" zPosition="1" size="980,210" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" /> 
+		<widget source="status" render="Label" position="200,475" zPosition="1" size="880,80" font="screen_info;20" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel backgroundColor="red" position="0,0" size="1280,1" zPosition="0" />
+		<eLabel backgroundColor="red" position="0,719" size="1280,1" zPosition="0" />
+		<eLabel backgroundColor="red" position="0,0" size="1,720" zPosition="0" />
+		<eLabel backgroundColor="red" position="1279,0" size="1,720" zPosition="0" />
+		<eLabel backgroundColor="green" position="25,25" size="1230,1" zPosition="0" />
+		<eLabel backgroundColor="green" position="25,694" size="1230,1" zPosition="0" />
+		<eLabel backgroundColor="green" position="25,25" size="1,670" zPosition="0" />
+		<eLabel backgroundColor="green" position="1254,25" size="1,670" zPosition="0" />
+		<eLabel backgroundColor="yellow" position="50,50" size="1180,1" zPosition="0" />
+		<eLabel backgroundColor="yellow" position="50,669" size="1180,1" zPosition="0" />
+		<eLabel backgroundColor="yellow" position="50,50" size="1,620" zPosition="0" />
+		<eLabel backgroundColor="yellow" position="1229,50" size="1,620" zPosition="0" />
+		<eLabel backgroundColor="blue" position="75,75" size="1130,1" zPosition="0" />
+		<eLabel backgroundColor="blue" position="75,644" size="1130,1" zPosition="0" />
+		<eLabel backgroundColor="blue" position="75,75" size="1,570" zPosition="0" />
+		<eLabel backgroundColor="blue" position="1204,75" size="1,570" zPosition="0" />
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="333,580" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="516,580" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="699,580" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="882,580" size="30,40" alphatest="blend" />
+		<widget source="key_red" render="Label" position="368,583" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget source="key_green" render="Label" position="551,583" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget source="key_yellow" render="Label" position="734,583" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget source="key_blue" render="Label" position="917,583" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+	</screen>
+	<!--CableScanScreen /-->
+	<screen name="CableScanScreen" title="Cable Scan" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,110" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="introduction" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="template1_2layer" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/search.png" transparent="1" alphatest="blend" />
+		<ePixmap position="995,420" size="64,64" zPosition="3" pixmap="skin_default/icons/scan-c.png"  transparent="1" alphatest="blend" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
+	<screen name="CableScanStatus" title="Cable Scan" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="scan_state" position="70,110" zPosition="2" size="700,30" font="screen_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
+		<widget name="scan_progress" position="70,150" size="700,30" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
+		<widget name="frontend" position="995,420" size="64,64" zPosition="3" pixmap="skin_default/icons/scan-c.png"  transparent="1" alphatest="blend" />
+		<panel name="template1_2layer" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/search.png" transparent="1" alphatest="blend" />
+		<panel name="_oe-buttons_template1" />
 	</screen>
 </skin>
