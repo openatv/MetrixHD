@@ -89,7 +89,7 @@ class MetrixHDVideoInfo(Converter, object):
 				else:
 					text = "16:9"
 		else:
-			print "type must be {VideoMode, VideoSize, VideoSizeShort, VideoCodec, VideoFormat} for MetrixHDVideoInfo converter"
+			print "type must be {VideoMode, VideoSize, VideoSizeWidth, VideoSizeHight, VideoSizeShort, VideoCodec, VideoFormat} for MetrixHDVideoInfo converter"
 			text = "type-error"
 
 		return text

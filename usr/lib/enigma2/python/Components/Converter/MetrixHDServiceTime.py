@@ -19,7 +19,7 @@ class MetrixHDServiceTime(Poll, Converter, object):
 		elif type == "EndTime":
 			self.type = self.TYPE_ENDTIME
 		else:
-			raise ElementError("type must be {StartTime, EndTime} for MetrixHDServiceEndTime converter")
+			raise ElementError("type must be {StartTime, EndTime} for MetrixHDServiceTime converter")
 		self.poll_enabled = True
 
 	def getSeek(self):
