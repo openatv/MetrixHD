@@ -307,6 +307,9 @@ class MainSettingsView(Screen):
             else:
                     infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-2" />', '']) 
 
+            if config.plugins.MyMetrixLiteOther.showInfoBarClock.getValue() is False:
+                infobarSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
+
             if config.plugins.MetrixWeather.enabled.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
 
@@ -318,9 +321,21 @@ class MainSettingsView(Screen):
 
             if config.plugins.MyMetrixLiteOther.showSnr.getValue() is False: 
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARSNR" />', '']) 
+            else:
+                if (config.plugins.MyMetrixLiteOther.showOrbitalposition.getValue() and config.plugins.MyMetrixLiteOther.showInfoBarResolution.getValue() and config.plugins.MyMetrixLiteOther.showInfoBarResolutionExtended.getValue()) is True:
+                    infobarSkinSearchAndReplace.append(['<panel name="INFOBARSNR" />', '<panel name="INFOBARSNR-2" />' ])
 
             if config.plugins.MyMetrixLiteOther.showOrbitalposition.getValue() is False: 
                 infobarSkinSearchAndReplace.append(['<panel name="INFOBARORBITALPOSITION" />', '']) 
+            else:
+                if (config.plugins.MyMetrixLiteOther.showInfoBarResolution.getValue() and config.plugins.MyMetrixLiteOther.showInfoBarResolutionExtended.getValue()) is True:
+                    infobarSkinSearchAndReplace.append(['<panel name="INFOBARORBITALPOSITION" />', '<panel name="INFOBARORBITALPOSITION-2" />' ])
+
+            if config.plugins.MyMetrixLiteOther.showInfoBarResolution.getValue() is False:
+                infobarSkinSearchAndReplace.append(['<panel name="INFOBARRESOLUTION" />', ''])
+            else:
+                if config.plugins.MyMetrixLiteOther.showInfoBarResolutionExtended.getValue() is True:
+                    infobarSkinSearchAndReplace.append(['<panel name="INFOBARRESOLUTION" />', '<panel name="INFOBARRESOLUTION-2" />' ])
 
             if config.plugins.MyMetrixLiteOther.showSTBinfo.getValue() is True:
                 infobarSkinSearchAndReplace.append(['<!--panel name="STBINFO" /-->', '<panel name="STBINFO" />'])
@@ -333,11 +348,6 @@ class MainSettingsView(Screen):
             )
             infobarSkinSearchAndReplace.append(['<panel name="CHANNELNAME" />', channelNameXML])
 
-            if config.plugins.MyMetrixLiteOther.showInfoBarResolution.getValue() is False:
-                infobarSkinSearchAndReplace.append(['<panel name="INFOBARRESOLUTION" />', ''])
-
-            if config.plugins.MyMetrixLiteOther.showInfoBarClock.getValue() is False:
-                infobarSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
 
             # SecondInfoBar
             skin_lines = appendSkinFile(SKIN_SECOND_INFOBAR_SOURCE, infobarSkinSearchAndReplace)
@@ -393,6 +403,8 @@ class MainSettingsView(Screen):
 
             namepos = "30,465"
             if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
+                if config.plugins.MyMetrixLiteOther.showMoviePlayerResolutionExtended.getValue() is True:
+                    moviePlayerSkinSearchAndReplace.append(['<panel name="RESOLUTIONMOVIEPLAYER" />', '<panel name="RESOLUTIONMOVIEPLAYER-2" />' ])
                 moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_1" />', '<panel name="MoviePlayer_2" />' ])
             elif config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "3":
                 moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_1" />', '<panel name="MoviePlayer_3" />' ])
@@ -461,6 +473,8 @@ class MainSettingsView(Screen):
 
             namepos = "30,465"
             if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
+                if config.plugins.MyMetrixLiteOther.showMoviePlayerResolutionExtended.getValue() is True:
+                    EMCSkinSearchAndReplace.append(['<panel name="RESOLUTIONMOVIEPLAYER" />', '<panel name="RESOLUTIONMOVIEPLAYER-2" />' ])
                 EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_1" />', '<panel name="EMCMediaCenter_2" />' ])
             elif config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "3":
                 EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_1" />', '<panel name="EMCMediaCenter_3" />' ])
