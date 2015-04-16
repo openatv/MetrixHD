@@ -419,11 +419,11 @@ def initOtherConfig():
         ]
 
     infoBarChannelNameFontSizeList = [
-        ("INFOBARCHANNELNAME-1", _("80")),
-        ("INFOBARCHANNELNAME-2", _("70")),
-        ("INFOBARCHANNELNAME-3", _("60")),
+        ("INFOBARCHANNELNAME-5", _("40")),
         ("INFOBARCHANNELNAME-4", _("50")),
-        ("INFOBARCHANNELNAME-5", _("40"))
+        ("INFOBARCHANNELNAME-3", _("60")),
+        ("INFOBARCHANNELNAME-2", _("70")),
+        ("INFOBARCHANNELNAME-1", _("80"))
         ]
 
     skinDesignShowLayerList = [
