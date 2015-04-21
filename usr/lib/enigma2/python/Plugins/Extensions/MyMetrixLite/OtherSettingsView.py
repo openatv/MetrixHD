@@ -405,7 +405,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(_("Show Cover in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionCover, "ENABLED"))
         if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "large":
             list.append(getConfigListEntry(_("Show Movie Description"), config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription))
-        list.append(getConfigListEntry(_("Show more Rows in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionMaxRows))
+        list.append(getConfigListEntry(_("Show more Rows in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionRows))
         list.append(getConfigListEntry(_("ChannelSelection   -----------------------------------------------------------------------------------"), ))
         list.append(getConfigListEntry(_("Channel selection style"), config.plugins.MyMetrixLiteOther.channelSelectionStyle))
         list.append(getConfigListEntry(_("Skin Design   ----------------------------------------------------------------------------------------------"), ))
@@ -574,7 +574,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showEMCMediaCenterCoverInfobar)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showEMCSelectionCover)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showEMCSelectionMaxRows)
+        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showEMCSelectionRows)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesign)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon)
         self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignInfobarXPiconPosX)
