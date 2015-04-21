@@ -464,6 +464,12 @@ class MainSettingsView(Screen):
                 if config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription.getValue() is False:
                     EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionCover_large_description_on" />', '<panel name="EMCSelectionCover_large_description_off" />'])
 
+            if config.plugins.MyMetrixLiteOther.showEMCSelectionMaxRows.getValue() is True:
+                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="10" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90" CoolMovieSize="500" CoolFolderSize="575" CoolDatePos="595" CoolDateWidth="105" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="450"'\
+                                               ,'itemHeight="20" CoolFont="epg_text;13" CoolSelectFont="epg_text;12" CoolDateFont="epg_text;13" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="6" CoolBarSize="50,7" CoolBarSizeSa="50,7" CoolMoviePos="90" CoolMovieSize="535" CoolFolderSize="630" CoolDatePos="630" CoolDateWidth="70" CoolPiconPos="90" CoolPiconHPos="1" CoolPiconWidth="30" CoolPiconHeight="17" CoolMoviePiconPos="125" CoolMoviePiconSize="500"'])
+                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="10" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90" CoolMovieSize="500" CoolFolderSize="575" CoolDatePos="595" CoolDateWidth="105" CoolPiconPos="547" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="450"'\
+                                               ,'itemHeight="20" CoolFont="epg_text;13" CoolSelectFont="epg_text;12" CoolDateFont="epg_text;13" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="6" CoolBarSize="50,7" CoolBarSizeSa="50,7" CoolMoviePos="90" CoolMovieSize="535" CoolFolderSize="625" CoolDatePos="630" CoolDateWidth="70" CoolPiconPos="595" CoolPiconHPos="1" CoolPiconWidth="30" CoolPiconHeight="17" CoolMoviePiconPos="90" CoolMoviePiconSize="500"'])
+
             try:
                 if config.EMC.movie_picons_pos.getValue() == "nr":
                     EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionList_picon_left" />', '<panel name="EMCSelectionList_picon_right" />'])
