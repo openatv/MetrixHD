@@ -140,6 +140,46 @@
 			<widget source="key_yellow" render="Label" position="436,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 			<widget source="key_blue" render="Label" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		</screen>
+		<!--template2-1layer -> screen position="center,center" size="710,360" -->
+		<screen name="template2_1layer">
+			<eLabel name="layer" position="5,5" size="700,350" backgroundColor="layer-a-background" zPosition="-10" />
+		</screen>
+		<screen name="r___-buttons_template2">
+			<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,315" size="30,40" alphatest="blend" />
+		</screen>
+		<screen name="r___-keys_template2">
+			<widget name="key_red" position="35,318" size="155,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		</screen>
+		<screen name="rg__-buttons_template2">
+			<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,315" size="30,40" alphatest="blend" />
+			<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="170,315" size="30,40" alphatest="blend" />
+		</screen>
+		<screen name="rg__-keys_template2">
+			<widget name="key_red" position="35,318" size="155,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+			<widget name="key_green" position="205,318" size="155,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		</screen>
+		<screen name="rgy_-buttons_template2">
+			<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,315" size="30,40" alphatest="blend" />
+			<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="170,315" size="30,40" alphatest="blend" />
+			<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="340,315" size="30,40" alphatest="blend" />
+		</screen>
+		<screen name="rgy_-keys_template2">
+			<widget name="key_red" position="35,318" size="155,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+			<widget name="key_green" position="205,318" size="155,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+			<widget name="key_yellow" position="375,318" size="155,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		</screen>
+		<screen name="rgyb-buttons_template2">
+			<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,315" size="30,40" alphatest="blend" />
+			<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="170,315" size="30,40" alphatest="blend" />
+			<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="340,315" size="30,40" alphatest="blend" />
+			<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="510,315" size="30,40" alphatest="blend" />
+		</screen>
+		<screen name="rgyb-keys_template2">
+			<widget name="key_red" position="35,318" size="155,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+			<widget name="key_green" position="205,318" size="155,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+			<widget name="key_yellow" position="375,318" size="155,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+			<widget name="key_blue" position="545,318" size="155,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		</screen>
 		<!--
 		Buttons:
 
@@ -326,7 +366,7 @@
 			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" font="global_clock; 60" noWrap="1" valign="bottom" halign="center" position="1075,44" render="Label" size="164,70" source="global.CurrentTime" transparent="1" >
 				<convert type="ClockToText">Default</convert>
 			</widget>
-			<eLabel backgroundColor="layer-b-background" position="960,43" size="116,65" transparent="0" zPosition="-2"/>
+			<eLabel backgroundColor="layer-b-background" position="960,45" size="116,61" transparent="0" zPosition="-2"/>
 			<widget backgroundColor="layer-b-background" font="global_clock; 16" foregroundColor="layer-b-clock-foreground" noWrap="1" valign="bottom" halign="right" position="963,72" render="Label" size="104,30" source="global.CurrentTime" transparent="1">
 				<convert type="ClockToText">Format:%e. %B</convert>
 			</widget>
@@ -341,6 +381,7 @@
 			<widget render="MetrixHDWeatherUpdaterStandalone" source="global.CurrentTime" position="0,0" size="0,0" transparent="1" />
 			<!-- NEEDED WITHOUT OPENSTORE INSTALLED */ -->
 			<eLabel backgroundColor="layer-a-background" position="40,40" size="219,71"/>
+			<eLabel backgroundColor="layer-b-background" position="259,45" size="116,61"/>
 			<widget backgroundColor="layer-a-background" font="global_clock; 60" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="40,44" render="Label" size="84,70" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
 				<convert type="MetrixHDWeather">currentWeatherTemp</convert>
 			</widget>
@@ -362,7 +403,6 @@
 			<widget backgroundColor="layer-b-background" font="global_clock; 16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="327,72" render="Label" size="39,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
 				<convert type="MetrixHDWeather">forecastTomorrowTempMin</convert>
 			</widget>
-			<eLabel backgroundColor="layer-b-background" position="259,43" size="116,65"/>
 			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" font="Meteo; 45" halign="left" noWrap="1" position="156,50" render="Label" size="50,50" source="session.CurrentService" transparent="1" valign="center" zPosition="9">
 				<convert type="MetrixHDWeather">forecastTodayCode</convert>
 			</widget>
@@ -1227,13 +1267,13 @@
 		</screen>
 	<!-- template_layer_clock widgets -->
 		<screen name="CLOCKWIDGET_1layer-1">
-			<widget source="global.CurrentTime" render="Label" position="1098,30" size="140,60" font="global_clock; 50" noWrap="1" halign="center" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1">
+			<widget source="global.CurrentTime" render="Label" position="1093,30" size="140,60" font="global_clock; 50" noWrap="1" halign="center" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Default</convert>
 			</widget>
-			<widget source="global.CurrentTime" render="Label" position="938,30" size="160,27" font="global_clock; 16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1">
+			<widget source="global.CurrentTime" render="Label" position="933,30" size="160,27" font="global_clock; 16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Format:%A</convert>
 			</widget>
-			<widget source="global.CurrentTime" render="Label" position="938,54" size="160,27" font="global_clock; 16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1">
+			<widget source="global.CurrentTime" render="Label" position="933,54" size="160,27" font="global_clock; 16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1">
 				<convert type="ClockToText">Format:%e. %B</convert>
 			</widget>
 		</screen>
@@ -1261,7 +1301,7 @@
 		</screen>
 		<!-- template1_1layer -->
 		<screen name="template1_1layer-1">
-			<eLabel name="layer1" position="40,25" zPosition="-10" size="1205,650" backgroundColor="layer-a-background" />
+			<eLabel name="layer1" position="40,25" zPosition="-10" size="1200,650" backgroundColor="layer-a-background" />
 			<panel name="CLOCKWIDGET_1layer-1" />
 		</screen>
 		<!-- template1_2layer -->

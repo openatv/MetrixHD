@@ -167,65 +167,6 @@
 		<eLabel text="Movielist menu" position="31,115" size="700,28" font="SetrixHD;23" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="menu" position="14,196" size="350,450" zPosition="3" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
 	</screen>
-	<screen name="ChannelSelectionRadio" position="0,0" size="1280,520" title="Radio Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="0,0" zPosition="-10" size="1280,505" backgroundColor="layer-a-background" />
-		<eLabel text="Radio Channel Selection" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="global.CurrentTime" render="Label" position="1120,37" size="100,33" font="global_clock;26" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="870,72" size="350,25" font="global_clock;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
-		</widget>
-		<widget source="Title" render="Label" position="70,101" size="1110,28" font="SetrixHD;23" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel position="70,132" size="1110,2" backgroundColor="layer-a-accent1" />
-		<widget name="list" position="70,138" size="1110,330" scrollbarMode="showOnDemand" colorServiceDescription="layer-a-accent1" colorServiceDescriptionSelected="yellow" colorEventProgressbarBorder="layer-a-accent1" colorEventProgressbarBorderSelected="layer-a-accent1" foregroundColorServiceNotAvail="#777777" serviceItemHeight="30" serviceNumberFont="SetrixHD;23" serviceNameFont="SetrixHD;23" serviceInfoFont="SetrixHD;21" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,465" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="255,465" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="440,465" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="center,465" size="30,40" alphatest="blend" />
-		<widget name="key_red" position="105,468" size="150,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_green" position="290,468" size="150,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_yellow" position="475,468" size="150,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_blue" position="660,468" size="150,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="1130,465" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="RadioInfoBar" position="0,515" size="1280,200" title="Radio" zPosition="-9" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="0,0" zPosition="-10" size="1280,200" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="MetrixHD/colors/00ffffff.png" position="450,160" size="448,16" zPosition="7" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/colors/00ffffff.png" position="470,161" size="400,14" zPosition="2" alphatest="blend" />
-		<widget source="global.CurrentTime" render="Label" position="1140,155" size="80,28" font="global_clock;26" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="880,23" size="275,28" font="global_clock;26" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
-		</widget>
-		<widget source="session.CurrentService" render="Label" position="268,63" size="665,40" font="LCD; 38" valign="top" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ServiceName">Name</convert>
-		</widget>
-		<widget source="session.Event_Now" render="Label" position="935,63" size="150,40" font="LCD; 38" halign="right" backgroundColor="layer-a-background" transparent="1">
-			<convert type="EventTime">Remaining</convert>
-			<convert type="RemainingToText">InMinutes</convert>
-		</widget>
-		<widget source="RdsDecoder" render="Label" position="268,106" size="720,40" font="LCD; 38" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1">
-			<convert type="RdsInfo">RadioText</convert>
-		</widget>
-		<widget source="session.Event_Now" render="Progress" position="487,163" size="370,13" zPosition="5" pixmap="MetrixHD/colors/000F6EB2.png" transparent="1">
-			<convert type="EventTime">Progress</convert>
-		</widget>
-		<widget source="session.CurrentService" render="Label" position="230,23" size="240,28" font="SetrixHD;26" noWrap="1" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ServiceName">Provider</convert>
-		</widget>
-		<eLabel position="257,56" size="840,98" zPosition="10" backgroundColor="layer-b-background" />
-		<widget source="RdsDecoder" render="FixedLabel" text="Rass" position="985,108" size="100,40" font="LCD; 38" backgroundColor="layer-a-background" transparent="1">
-			<convert type="RdsInfo">RasInteractiveAvailable</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-	</screen>
-	<screen name="RdsInfoDisplay" position="0,0" size="1280,720" zPosition="-2" flags="wfNoBorder" backgroundColor="transparent">
-		<widget name="RassLogo" pixmap="skin_default/icons/rass_logo.png" position="100,585" size="50,21" />
-		<widget name="RadioText" position="100,620" size="1080,32" font="SetrixHD;24" noWrap="1" backgroundColor="rds_text_bg" shadowOffset="-2,-2" shadowColor="transpBlack" />
-		<widget name="RtpText" position="100,650" size="1080,32" font="SetrixHD;24" halign="right" noWrap="1" backgroundColor="rds_text_bg" shadowOffset="-2,-2" shadowColor="transpBlack" />
-	</screen>
 	<screen name="RecordPathsSettings" position="0,0" size="1280,720" title="Recording paths..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<eLabel text="Recording paths" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -1284,35 +1225,6 @@
 			</convert>
 		</widget>
 		<widget name="config" position="700,430" size="510,150" itemHeight="30" zPosition="14" scrollbarMode="showOnDemand" transparent="1" />
-	</screen>
-
-	<screen name="BitrateViewer" position="0,0" size="1280,720" title="VTI Bitrate Viewer" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
-<!-- stop_mod -->
-<!-- pixmap missing -->
-		<ePixmap position="869,265" size="330,204" pixmap="MetrixHD/menu/vti.png" alphatest="blend" transparent="1" />
-<!-- run_mod -->
-		<widget source="title" render="Label" position="70,47" size="800,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="video" render="Label" position="85,120" zPosition="1" size="80,20" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="min" render="Label" position="85,150" zPosition="1" size="80,20" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="vmin" position="85,170" size="80,20" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="max" render="Label" position="155,150" zPosition="1" size="80,20" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="vmax" position="155,170" size="80,20" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="avg" render="Label" position="235,150" zPosition="1" size="80,20" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="vavg" position="235,170" size="80,20" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="cur" render="Label" position="335,150" zPosition="1" size="80,20" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="vcur" position="335,170" size="80,20" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="audio" render="Label" position="85,200" zPosition="1" size="80,20" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="min" render="Label" position="85,220" zPosition="1" size="80,20" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="amin" position="85,240" size="80,20" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="max" render="Label" position="155,220" zPosition="1" size="80,20" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="amax" position="155,240" size="80,20" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="avg" render="Label" position="235,220" zPosition="1" size="80,20" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="aavg" position="235,240" size="80,20" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="cur" render="Label" position="335,220" zPosition="1" size="80,20" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="acur" position="335,240" size="80,20" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
-		<widget name="cancel" position="105,638" size="240,30" zPosition="1" valign="center" font="global_button;20" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 	</screen>
 	<screen name="BackupSuite" position="0,0" size="1280,720" title="VTI Sub Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
