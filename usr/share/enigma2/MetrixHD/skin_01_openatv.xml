@@ -2218,7 +2218,8 @@ self.instance.move(ePoint(0,0))
 	<!-- AutoTimer -->
 	<screen name="AutoTimerOverview" position="0,0" size="1280,720" title="AutoTimer Overview" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="entries" position="70,110" size="700,500" itemHeight="50" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<!--widget name="entries" position="70,110" size="700,500" itemHeight="50" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" /-->
+		<widget name="entries" position="70,110" size="700,510" itemHeight="70" rowSplit1="25" rowSplit2="45" rowHeight="25" iconMargin="5" EventNameFont="screen_text;18" ServiceNameFont="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1-source" />
@@ -2851,7 +2852,15 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<eLabel text="Radio Channel Selection" position="70,47" size="900,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="Title" render="Label" position="70,90" size="1110,30" font="screen_text;22" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,122" size="1140,1" backgroundColor="layer-a-accent2" />
-		<widget name="list" position="70,132" size="1140,380" scrollbarMode="showNever" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="40" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="40" />
+		<widget name="list" position="70,132" size="700,380" scrollbarMode="showNever" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="40" serviceNumberFont="epg_event;26" serviceNameFont="epg_event;26" serviceInfoFont="epg_info;22" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" itemHeight="40" />
+		<widget source="ServiceEvent" render="Label" position="810,125" size="395,65" font="epg_event; 24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" halign="center" valign="center">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="815,190" size="385,250" font="epg_info; 19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" halign="left" valign="top">
+			<convert type="EventName">FullDescription</convert>
+		</widget>
+		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="815,460" size="385,50" font="epg_info; 19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" noWrap="1" transparent="0" />
+		<eLabel position="780,122" size="1,393" backgroundColor="layer-a-accent2" />
 		<eLabel position="70,515" size="1140,1" backgroundColor="layer-a-accent2" />
 		<panel name="template1_1layer" />
 		<panel name="rgyb-buttons_template1" />
@@ -2865,8 +2874,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget alphatest="blend" position="1,1" size="166,100" render="MetrixHDXPicon" source="session.CurrentService" transparent="1" zPosition="1">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
-		<eLabel backgroundColor="layer-a-accent1" position="200,61" size="900,1" zPosition="1"/>
-		<widget render="Progress" position="200,59" size="900,5" source="session.Event_Now" foregroundColor="layer-a-progress" transparent="1" zPosition="2">
+		<eLabel backgroundColor="layer-a-accent1" position="200,61" size="941,1" zPosition="1"/>
+		<widget render="Progress" position="200,59" size="941,5" source="session.Event_Now" foregroundColor="layer-a-progress" transparent="1" zPosition="2">
 			<convert type="EventTime">Progress</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="200,0" size="800,35" font="infobar_event; 25" noWrap="1" backgroundColor="layer-a-background" transparent="1" zPosition="1">
@@ -2875,14 +2884,14 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="infobar_event; 25" halign="left" noWrap="1" position="200,24" render="Label" size="800,35" source="session.Event_Now" transparent="1" zPosition="1">
 			<convert type="EventName">Name</convert>
 		</widget>
-		<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="infobar_event; 25" halign="right" noWrap="1" position="1000,24" render="Label" size="100,35" source="session.Event_Now" transparent="1" zPosition="1">
+		<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="infobar_event; 25" halign="right" noWrap="1" position="1041,24" render="Label" size="100,35" source="session.Event_Now" transparent="1" zPosition="1">
 			<convert type="EventTime">Remaining</convert>
 			<convert type="RemainingToText">InMinutes</convert>
 		</widget>
-		<widget source="RdsDecoder" render="Label" position="200,60" size="900,40" font="LCD; 35" halign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1">
+		<widget source="RdsDecoder" render="Label" position="200,60" size="941,40" font="LCD; 35" halign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1">
 			<convert type="RdsInfo">RadioText</convert>
 		</widget>
-		<widget source="RdsDecoder" render="Pixmap" alphatest="blend" pixmap="skin_default/icons/rass_logo.png" position="1050,5" size="50,21" backgroundColor="layer-b-background" zPosition="1">
+		<widget source="RdsDecoder" render="Pixmap" alphatest="blend" pixmap="skin_default/icons/rass_logo.png" position="1091,5" size="50,21" backgroundColor="layer-b-background" zPosition="1">
 			<convert type="RdsInfo">RasInteractiveAvailable</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>

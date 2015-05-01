@@ -1414,6 +1414,52 @@ class MainSettingsView(Screen):
 						n2 = line.find('"', n1)
 						n3 = line.find('"', (n2+1))
 						line = line[:(n2+1)] + "1080" + line[(n3):]
+#<parameter name="AutotimerEnabledIcon" value="6,2,24,25"
+					if '<parameter name="' in line and 'value="' in line:
+						n1 = line.find('value="', 0)
+						n2 = line.find('"', n1) 
+						n3 = line.find(',', n2) 
+						n4 = line.find(',', n3+1) 
+						n5 = line.find(',', n4+1) 
+						n6 = line.find('"', n5) 
+						p1 = int(round(float(int(line[(n2+1):n3])*FACT),r_par))
+						p2 = int(round(float(int(line[(n3+1):n4])*FACT),r_par))
+						p3 = int(round(float(int(line[(n4+1):n5])*FACT),r_par))
+						p4 = int(round(float(int(line[(n5+1):n6])*FACT),r_par))
+						strnew = 'value="%d,%d,%d,%d"' %(p1,p2,p3,p4)
+						line = line[:n1] + strnew + line[(n6+1):]
+#rowSplit1="25"
+					if 'rowSplit' in line:
+						s = 0
+						n3 = 0
+						for s in range(0,line.count('rowSplit')):
+							n1 = line.find('rowSplit', n3)
+							n2 = line.find('="', n1)
+							n3 = line.find('"', n2+2) 
+							y = line[(n2+2):n3]
+							ynew = str(int(f_offset + round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+2] + ynew
+							line = line[:n1] + strnew + line[n3:]
+#rowHeight="25"
+					if 'rowHeight="' in line:
+						n1 = line.find('rowHeight="', 0)
+						n2 = line.find('"', n1)
+						n3 = line.find('"', n2+1) 
+						y = line[(n2+1):n3]
+
+						ynew = str(int(round(float(int(y)*FACT),r_par)))
+						strnew = line[n1:n2+1] + ynew + '"'
+						line = line[:n1] + strnew + line[(n3+1):]
+#iconMargin="5"
+					if 'iconMargin="' in line:
+						n1 = line.find('iconMargin="', 0)
+						n2 = line.find('"', n1)
+						n3 = line.find('"', n2+1) 
+						y = line[(n2+1):n3]
+
+						ynew = str(int(round(float(int(y)*FACT),r_par)))
+						strnew = line[n1:n2+1] + ynew + '"'
+						line = line[:n1] + strnew + line[(n3+1):]
 #size="200,100"
 					xpos = 0
 					ypos = 0
@@ -1523,13 +1569,23 @@ class MainSettingsView(Screen):
 						line = line[:n1] + strnew + line[(n3+1):]
 #Font="Regular;20"
 					if 'Font="' in line and not ' Cool' in line and fontsize >= 2:
-						n1 = line.find('Font="', 0)
-						n2 = line.find(';', n1) 
-						n3 = line.find('"', n2) 
-						y = line[(n2+1):n3]
-						ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
-						strnew = line[n1:(n2+1)] + ynew + '"'
-						line = line[:n1] + strnew + line[(n3+1):]
+						#n1 = line.find('Font="', 0)
+						#n2 = line.find(';', n1) 
+						#n3 = line.find('"', n2) 
+						#y = line[(n2+1):n3]
+						#ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+						#strnew = line[n1:(n2+1)] + ynew + '"'
+						#line = line[:n1] + strnew + line[(n3+1):]
+						s = 0
+						n3 = 0
+						for s in range(0,line.count('Font="')):
+							n1 = line.find('Font="', n3)
+							n2 = line.find(';', n1)
+							n3 = line.find('"', n2) 
+							y = line[(n2+1):n3]
+							ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+							strnew = line[n1:n2+1] + ynew
+							line = line[:n1] + strnew + line[n3:]
 #<alias name="Body" font="screen_text" size="20" height="25" />
 					if 'font="' in line and 'alias name="' in line and 'size="' in line and fontsize >= 2:
 						n1 = line.find('size="', 0)
