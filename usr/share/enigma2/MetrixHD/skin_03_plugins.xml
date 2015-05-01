@@ -559,7 +559,7 @@
 	</screen>
 	<screen name="MediaPlayerSettings" position="0,0" size="1280,720" title="Edit Settings" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="70,47" size="800,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,120" size="710,490" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="3" itemHeight="30" font="screen_text; 20" scrollbarMode="showNever" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
@@ -2031,31 +2031,31 @@
 	<!--SpecialJump Plugin -->
 	<!--Bitrate Viewer -->
 	<screen name="BitrateViewer" position="center,center" size="710,360" flags="wfNoBorder" title="Bitrate Viewer" backgroundColor="transparent" >
-		<eLabel name="line" position="5,55" size="700,0" backgroundColor="layer-a-accent1" zPosition="-9" />
 		<widget source="Title" render="Label" position="5,10" size="690,50" font="global_title; 35" halign="center" valign="bottom" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /> 
-		<eLabel text="video" position="50,70" size="180,30" font="screen_info;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel name="line" position="25,105" size="660,1" backgroundColor="layer-a-accent2" zPosition="-9" />
-		<eLabel text="min" position="50,110" size="100,30" font="screen_label;18" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="vmin" position="50,140" size="100,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="max" position="220,110" size="100,30" font="screen_label;18" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="vmax" position="220,140" size="100,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="average" position="390,110" size="100,30" font="screen_label;18" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="vavg" position="390,140" size="100,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="current" position="560,110" size="100,30" font="screen_label;18" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="vcur" position="560,140" size="100,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="audio" position="50,180" size="180,30" font="screen_info;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel name="line" position="25,215" size="660,1" backgroundColor="layer-a-accent2" zPosition="-9" />
-		<eLabel text="min" position="50,220" size="100,30" font="screen_label;18" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="amin" position="50,250" size="100,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="max" position="220,220" size="100,30" font="screen_label;18" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="amax" position="220,250" size="100,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="average" position="390,220" size="100,30" font="screen_label;18" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="aavg" position="390,250" size="100,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="current" position="560,220" size="100,30" font="screen_label;18" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="acur" position="560,250" size="100,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="video" position="50,90" size="180,30" font="screen_info;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel name="line" position="50,125" size="610,1" backgroundColor="layer-a-accent2" zPosition="-9" />
+		<eLabel text="min" position="50,130" size="100,30" font="screen_label;18" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="vmin" position="50,160" size="100,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="max" position="220,130" size="100,30" font="screen_label;18" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="vmax" position="220,160" size="100,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="average" position="390,130" size="100,30" font="screen_label;18" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="vavg" position="390,160" size="100,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="current" position="560,130" size="100,30" font="screen_label;18" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="vcur" position="560,160" size="100,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="audio" position="50,200" size="180,30" font="screen_info;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel name="line" position="50,235" size="610,1" backgroundColor="layer-a-accent2" zPosition="-9" />
+		<eLabel text="min" position="50,240" size="100,30" font="screen_label;18" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="amin" position="50,270" size="100,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="max" position="220,240" size="100,30" font="screen_label;18" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="amax" position="220,270" size="100,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="average" position="390,240" size="100,30" font="screen_label;18" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="aavg" position="390,270" size="100,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="current" position="560,240" size="100,30" font="screen_label;18" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="acur" position="560,270" size="100,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="template2_1layer" />
 		<panel name="r___-buttons_template2" />
 		<widget name="cancel" position="35,318" size="155,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		</screen>
+	</screen>
+	<!--Bitrate Viewer -->
 <!-- PLUGINS */-->
 </skin>
