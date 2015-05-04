@@ -383,7 +383,7 @@ def initWeatherConfig():
 
     config.plugins.MetrixWeather.enabled = ConfigYesNo(default=True)
     config.plugins.MetrixWeather.MoviePlayer = ConfigYesNo(default=True)
-    config.plugins.MetrixWeather.refreshInterval = ConfigNumber(default=10)
+    config.plugins.MetrixWeather.refreshInterval = ConfigNumber(default=60)
     config.plugins.MetrixWeather.woeid = ConfigNumber(default=676757) #Location (visit metrixhd.info)
     config.plugins.MetrixWeather.tempUnit = ConfigSelection(default="Celsius", choices = [
         ("Celsius", _("Celsius")),

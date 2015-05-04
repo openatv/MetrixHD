@@ -1437,7 +1437,7 @@ class MainSettingsView(Screen):
 							n2 = line.find('="', n1)
 							n3 = line.find('"', n2+2) 
 							y = line[(n2+2):n3]
-							ynew = str(int(f_offset + round(float(int(y)*FACT),r_par)))
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
 							strnew = line[n1:n2+2] + ynew
 							line = line[:n1] + strnew + line[n3:]
 #rowHeight="25"
