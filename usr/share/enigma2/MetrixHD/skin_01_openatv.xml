@@ -631,6 +631,14 @@
 			<convert type="MenuEntryCompare">audio_menu</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_extended_recording_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">rec_setup</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_epg_epg_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">epg_menu</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>		
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_setup_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">system_selection</convert>
 			<convert type="ConditionalShowHide" />
@@ -695,6 +703,17 @@
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_extended_subtitle_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">subtitle_setup</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+	</screen>
+	<screen name="menu_rec" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="MENU_template" />
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_extended_timshift_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">timshift_setup</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_extended_recording_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">recording_setup</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 	</screen>
@@ -790,14 +809,6 @@
 			<convert type="MenuEntryCompare">specialfeatures_menu</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_extended_timshift_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">timshift_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_extended_recording_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">recording_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_extended_input_device_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">input_device_setup</convert>
 			<convert type="ConditionalShowHide" />
@@ -820,10 +831,6 @@
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_extended_hardisk_selection.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">hardisk_selection</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_extended_epg_menu.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">epg_menu</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_extended_hdmicec.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
