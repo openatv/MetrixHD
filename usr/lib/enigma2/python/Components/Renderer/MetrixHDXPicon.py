@@ -7,6 +7,10 @@ from enigma import ePixmap
 from enigma import iServiceInformation, iPlayableService, iPlayableServicePtr
 from Tools.Directories import fileExists, SCOPE_SKIN_IMAGE, SCOPE_CURRENT_SKIN, resolveFilename
 
+# For SNP
+from ServiceReference import ServiceReference
+import re, unicodedata
+
 class MetrixHDXPicon(Renderer):
 	searchPaths = ('/media/usb/XPicons/%s/','/media/usb/%s/','/%s/','/%sx/','/usr/share/enigma2/XPicons/%s/','/usr/share/enigma2/%s/','/usr/%s/','/media/hdd/XPicons/%s/','/media/hdd/%s/')
 
@@ -47,6 +51,14 @@ class MetrixHDXPicon(Renderer):
 						if fields[0] == '4097': #fallback to 1 for IPTV streams
 							fields[0] = '1'
 						pngname = self.findPicon('_'.join(fields))
+					if not pngname: # picon by channel name
+						name = ServiceReference(self.source.text).getServiceName()
+						name = unicodedata.normalize('NFKD', unicode(name, 'utf_8', errors='ignore')).encode('ASCII', 'ignore')
+						name = re.sub('[^a-z0-9]', '', name.replace('&', 'and').replace('+', 'plus').replace('*', 'star').lower())
+						if len(name) > 0:
+							pngname = self.findPicon(name)
+							if not pngname and len(name) > 2 and name.endswith('hd'):
+								pngname = self.findPicon(name[:-2])					
 					if pngname != "":
 						self.nameCache[sname] = pngname
 			if pngname == "": # no picon for service found
