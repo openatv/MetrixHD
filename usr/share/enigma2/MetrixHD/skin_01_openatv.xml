@@ -772,10 +772,7 @@
 		</widget>
 		
 		#######################################################################
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_display_lcd_skin_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">lcd_skin_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
+		
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_av_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">av_setup</convert>
 			<convert type="ConditionalShowHide" />
@@ -845,14 +842,6 @@
 		</widget>
 #############################################################################################################################################################################		
 		
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_extended_input_device_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">input_device_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_extended_keyboard.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">keyboard</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_extended_rfmod_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">rfmod_setup</convert>
 			<convert type="ConditionalShowHide" />
@@ -870,7 +859,10 @@
 			<convert type="MenuEntryCompare">display_setup</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_display_lcd_skin_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">lcd_skin_setup</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_display_lcd_skin_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">lcd4linux</convert>
 			<convert type="ConditionalShowHide" />
@@ -880,6 +872,14 @@
 		<panel name="MENU_template" />
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_osd_menu_osdsetup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">osdsetup</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_extended_input_device_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">input_device_setup</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_extended_keyboard.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">keyboard</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_osd_menu_osd3dsetup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
