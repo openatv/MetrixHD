@@ -682,19 +682,19 @@
 	<screen name="menu_audio_menu" position="0,0" size="1280,720" title="Audio menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MENU_template" />
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_setup_audio.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">Volume_Adjust</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_setup_audio.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">audio_setup</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_autolanguage_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">autolanguage_setup</convert>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_AutomaticVolumeAdjustment.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">Volume_Adjust</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_extended_subtitle_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">subtitle_setup</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_autolanguage_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">autolanguage_setup</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 	</screen>
@@ -754,6 +754,10 @@
 			<convert type="MenuEntryCompare">osd_setup</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_display_LED_Giga.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">LED_Giga</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_numzapext_setup.png" position="305,80" size="256,256" alphatest="blend">
 			<convert type="MenuEntryCompare">numzapext_setup</convert>
 			<convert type="ConditionalShowHide" />
@@ -768,6 +772,10 @@
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_extended_dvdplayer_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">dvdplayer_setup</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/usage_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">animation_setup</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 		
@@ -789,10 +797,6 @@
 			<convert type="MenuEntryCompare">tempfancontrol</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_AutomaticVolumeAdjustment.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">AutomaticVolumeAdjustment</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_mainmenu_pluginhider.png" position="305,80" size="256,256" alphatest="blend">
 			<convert type="MenuEntryCompare">pluginhider_setup</convert>
 			<convert type="ConditionalShowHide" />
@@ -801,16 +805,8 @@
 			<convert type="MenuEntryCompare">vps</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_display_LED_Giga.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">LED_Giga</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/remotecontrol.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">remotecontrolcode</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/usage_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">animation_setup</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 	</screen>
