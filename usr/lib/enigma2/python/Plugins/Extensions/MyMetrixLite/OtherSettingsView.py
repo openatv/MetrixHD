@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, initOtherConfig, OTHER_IMAGE_PATH, MAIN_IMAGE_PATH
+from . import _, initOtherConfig, getHelperText, OTHER_IMAGE_PATH, MAIN_IMAGE_PATH
 from boxbranding import getBoxType, getMachineBrand, getMachineName
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -30,6 +30,7 @@ from Components.ConfigList import ConfigListScreen
 from Components.Sources.StaticText import StaticText
 from Components.Pixmap import Pixmap
 from Components.Console import Console
+from Components.Label import Label
 from enigma import ePicLoad
 from os import path, statvfs
 from enigma import gMainDC, getDesktop
@@ -40,15 +41,16 @@ class OtherSettingsView(ConfigListScreen, Screen):
     skin = """
  <screen name="MyMetrixLiteOtherView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
     <eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
-    <widget source="titleText" position="60,55" size="590,50" render="Label" font="Regular; 40" foregroundColor="00ffffff" backgroundColor="#00000000" valign="center" transparent="1" />
+    <widget source="titleText" position="60,55" size="590,50" render="Label" font="Regular; 40" foregroundColor="#00ffffff" backgroundColor="#00000000" valign="center" transparent="1" />
     <widget name="config" position="61,124" size="590,480" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
-    <widget source="cancelBtn" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
-    <widget source="saveBtn" position="257,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
-    <widget source="defaultsBtn" position="445,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+    <widget source="cancelBtn" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+    <widget source="saveBtn" position="257,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+    <widget source="defaultsBtn" position="445,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
     <eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
     <eLabel position="430,635" size="5,40" backgroundColor="#00e5dd00" />
     <widget name="helperimage" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
+    <widget name="helpertext" position="800,490" size="336,160" font="Regular; 18" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center" valign="center" transparent="1"/>
   </screen>
 """
 
@@ -58,6 +60,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         self.Scale = AVSwitch().getFramebufferScale()
         self.PicLoad = ePicLoad()
         self["helperimage"] = Pixmap()
+        self["helpertext"] = Label()
 
         self["titleText"] = StaticText("")
         self["titleText"].setText(_("Other settings"))
@@ -307,6 +310,21 @@ class OtherSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteOther.SkinDesignOLHheight.value = 41
             config.plugins.MyMetrixLiteOther.SkinDesignOLHposx.value = 540
             config.plugins.MyMetrixLiteOther.SkinDesignOLHposy.value = 0
+        elif config.plugins.MyMetrixLiteOther.SkinDesignExamples.value == "preset_5":
+            config.plugins.MyMetrixLiteOther.SkinDesignLUC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignLLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignRUC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignRLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLH.value = "screens"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLV.value = "menus"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth.value = 1220
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHheight.value = 670
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposx.value = 30
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposy.value = 15
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth.value = 883
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVheight.value = 578
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVposx.value = 254
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVposy.value = 41
 
     def getCPUSensor(self):
         temp = ""
@@ -455,10 +473,12 @@ class OtherSettingsView(ConfigListScreen, Screen):
     def GetPicturePath(self):
         try:
             returnValue = self["config"].getCurrent()[1].value
-            path = OTHER_IMAGE_PATH % returnValue
-            return path
+            picturepath = OTHER_IMAGE_PATH % returnValue
+            if not path.exists(picturepath):
+                picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteOther"
         except:
-            pass
+            picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteOther"
+        return picturepath
 
     def UpdatePicture(self):
         self.PicLoad.PictureData.get().append(self.DecodePicture)
@@ -466,8 +486,8 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
     def ShowPicture(self):
         self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
-        self.PicLoad.startDecode(MAIN_IMAGE_PATH % "MyMetrixLiteOther")
-        #self.PicLoad.startDecode(self.GetPicturePath())
+        self.PicLoad.startDecode(self.GetPicturePath())
+        self.showHelperText()
 
     def DecodePicture(self, PicInfo = ""):
         ptr = self.PicLoad.getData()
@@ -519,8 +539,6 @@ class OtherSettingsView(ConfigListScreen, Screen):
         for x in self["config"].list:
             if len(x) > 1:
                 x[1].save()
-            else:
-                pass
 
         configfile.save()
         self.exit()
@@ -529,93 +547,20 @@ class OtherSettingsView(ConfigListScreen, Screen):
         for x in self["config"].list:
             if len(x) > 1:
                     x[1].cancel()
-            else:
-                    pass
+
         self.close()
 
     def defaults(self):
-
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDenabled)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDrounddown)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDfontsize)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDfontoffset)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDpiconzoom)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDadditionalfiles)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.STBDistance)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showCPULoad)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showRAMfree)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showCPUTemp)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showSYSTemp)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showChannelNumber)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showChannelName)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showInfoBarResolution)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showInfoBarResolutionExtended)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showExtendedinfo)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.ExtendedinfoStyle)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showSnr)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showRecordstate)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showOrbitalposition)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showInfoBarClock)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showSTBinfo)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showMovieTime)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showPVRState)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showTunerinfo)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.setTunerAuto)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.setTunerManual)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.channelSelectionStyle)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showMoviePlayerResolutionExtended)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showMovieName)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showEMCMediaCenterCoverInfobar)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showEMCSelectionCover)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.showEMCSelectionRows)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesign)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignInfobarXPiconPosX)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignInfobarXPiconPosY)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconPosX)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconPosY)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconSize)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignSpace)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignInfobarColorGradient)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignLUC)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignLLC)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignRUC)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignRLC)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLH)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLV)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignLUCwidth)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignLUCheight)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignLUCposz)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignLLCwidth)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignLLCheight)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignLLCposz)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignRUCwidth)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignRUCheight)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignRUCposz)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignRLCwidth)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignRLCheight)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignRLCposz) 
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLHheight)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLHposx)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLHposy)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLHposz)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLVheight)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLVposx)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLVposy)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignOLVposz)
-        self.setInputToDefault(config.plugins.MyMetrixLiteOther.SkinDesignExamples)
-
-        self.save()
+        for x in self["config"].list:
+            if len(x) > 1:
+                self.setInputToDefault(x[1])
+        self["config"].setList(self.getMenuItemList())
+        self.ShowPicture()
+        #self.save()
 
     def setInputToDefault(self, configItem):
         configItem.setValue(configItem.default)
+
+    def showHelperText(self):
+		text = getHelperText(self["config"].getCurrent()[1])
+		self["helpertext"].setText(text)
