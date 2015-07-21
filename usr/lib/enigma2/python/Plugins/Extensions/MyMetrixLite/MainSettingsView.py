@@ -1418,23 +1418,23 @@ class MainSettingsView(Screen):
 					if '<parameter name="' in line and 'value="' in line:
 						n1 = line.find('value="', 0)
 						n2 = line.find('"', n1) 
-						n6 = line.find('"', n2+1) 
-						parcount = len(line[n2:n6+1].split(','))
-
+						n12 = line.find('"', n2+1) 
+						parcount = len(line[n2:n12+1].split(','))
+						strnew = ""
 						if parcount == 1:
-							p1 = int(round(float(int(line[(n2+1):n6])*FACT),r_par))
+							p1 = int(round(float(int(line[(n2+1):n12])*FACT),r_par))
 							strnew = 'value="%d"' %(p1)
 						elif parcount == 2:
 							n3 = line.find(',', n2) 
 							p1 = int(round(float(int(line[(n2+1):n3])*FACT),r_par))
-							p2 = int(round(float(int(line[(n3+1):n6])*FACT),r_par))
+							p2 = int(round(float(int(line[(n3+1):n12])*FACT),r_par))
 							strnew = 'value="%d,%d"' %(p1,p2)
 						elif parcount == 3:
 							n3 = line.find(',', n2) 
 							n4 = line.find(',', n3+1) 
 							p1 = int(round(float(int(line[(n2+1):n3])*FACT),r_par))
 							p2 = int(round(float(int(line[(n3+1):n4])*FACT),r_par))
-							p3 = int(round(float(int(line[(n4+1):n6])*FACT),r_par))
+							p3 = int(round(float(int(line[(n4+1):n12])*FACT),r_par))
 							strnew = 'value="%d,%d,%d"' %(p1,p2,p3)
 						elif parcount == 4:
 							n3 = line.find(',', n2) 
@@ -1443,10 +1443,67 @@ class MainSettingsView(Screen):
 							p1 = int(round(float(int(line[(n2+1):n3])*FACT),r_par))
 							p2 = int(round(float(int(line[(n3+1):n4])*FACT),r_par))
 							p3 = int(round(float(int(line[(n4+1):n5])*FACT),r_par))
-							p4 = int(round(float(int(line[(n5+1):n6])*FACT),r_par))
+							p4 = int(round(float(int(line[(n5+1):n12])*FACT),r_par))
 							strnew = 'value="%d,%d,%d,%d"' %(p1,p2,p3,p4)
+						elif parcount == 5:
+							n3 = line.find(',', n2) 
+							n4 = line.find(',', n3+1) 
+							n5 = line.find(',', n4+1) 
+							n6 = line.find(',', n5+1) 
+							p1 = int(round(float(int(line[(n2+1):n3])*FACT),r_par))
+							p2 = int(round(float(int(line[(n3+1):n4])*FACT),r_par))
+							p3 = int(round(float(int(line[(n4+1):n5])*FACT),r_par))
+							p4 = int(round(float(int(line[(n5+1):n6])*FACT),r_par))
+							p5 = int(round(float(int(line[(n6+1):n12])*FACT),r_par))
+							strnew = 'value="%d,%d,%d,%d,%d"' %(p1,p2,p3,p4,p5)
+						elif parcount == 6:
+							n3 = line.find(',', n2) 
+							n4 = line.find(',', n3+1) 
+							n5 = line.find(',', n4+1) 
+							n6 = line.find(',', n5+1) 
+							n7 = line.find(',', n6+1) 
+							p1 = int(round(float(int(line[(n2+1):n3])*FACT),r_par))
+							p2 = int(round(float(int(line[(n3+1):n4])*FACT),r_par))
+							p3 = int(round(float(int(line[(n4+1):n5])*FACT),r_par))
+							p4 = int(round(float(int(line[(n5+1):n6])*FACT),r_par))
+							p5 = int(round(float(int(line[(n6+1):n7])*FACT),r_par))
+							p6 = int(round(float(int(line[(n7+1):n12])*FACT),r_par))
+							strnew = 'value="%d,%d,%d,%d,%d,%d"' %(p1,p2,p3,p4,p5,p6)
+						elif parcount == 7:
+							n3 = line.find(',', n2) 
+							n4 = line.find(',', n3+1) 
+							n5 = line.find(',', n4+1) 
+							n6 = line.find(',', n5+1) 
+							n7 = line.find(',', n6+1) 
+							n8 = line.find(',', n7+1) 
+							p1 = int(round(float(int(line[(n2+1):n3])*FACT),r_par))
+							p2 = int(round(float(int(line[(n3+1):n4])*FACT),r_par))
+							p3 = int(round(float(int(line[(n4+1):n5])*FACT),r_par))
+							p4 = int(round(float(int(line[(n5+1):n6])*FACT),r_par))
+							p5 = int(round(float(int(line[(n6+1):n7])*FACT),r_par))
+							p6 = int(round(float(int(line[(n7+1):n8])*FACT),r_par))
+							p7 = int(round(float(int(line[(n8+1):n12])*FACT),r_par))
+							strnew = 'value="%d,%d,%d,%d,%d,%d,%d"' %(p1,p2,p3,p4,p5,p6,p7)
+						elif parcount == 8:
+							n3 = line.find(',', n2) 
+							n4 = line.find(',', n3+1) 
+							n5 = line.find(',', n4+1) 
+							n6 = line.find(',', n5+1) 
+							n7 = line.find(',', n6+1) 
+							n8 = line.find(',', n7+1) 
+							n9 = line.find(',', n8+1) 
+							p1 = int(round(float(int(line[(n2+1):n3])*FACT),r_par))
+							p2 = int(round(float(int(line[(n3+1):n4])*FACT),r_par))
+							p3 = int(round(float(int(line[(n4+1):n5])*FACT),r_par))
+							p4 = int(round(float(int(line[(n5+1):n6])*FACT),r_par))
+							p5 = int(round(float(int(line[(n6+1):n7])*FACT),r_par))
+							p6 = int(round(float(int(line[(n7+1):n8])*FACT),r_par))
+							p7 = int(round(float(int(line[(n8+1):n9])*FACT),r_par))
+							p8 = int(round(float(int(line[(n9+1):n12])*FACT),r_par))
+							strnew = 'value="%d,%d,%d,%d,%d,%d,%d,%d"' %(p1,p2,p3,p4,p5,p6,p7,p8)
 
-						line = line[:n1] + strnew + line[(n6+1):]
+						if strnew:
+							line = line[:n1] + strnew + line[(n12+1):]
 #rowSplit="25"
 					if 'rowSplit' in line:
 						s = 0
