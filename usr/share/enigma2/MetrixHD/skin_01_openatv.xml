@@ -1759,6 +1759,17 @@ self.instance.move(ePoint(0,0))
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_system_videoenhancement_setup.png" transparent="1" alphatest="blend" />
 	</screen>
+	<screen name="VideoEnhancementPreview" position="center,550" size="600,170" title="VideoEnhancementPreview" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel name="b" position="0,0" size="600,170" zPosition="0" backgroundColor="layer-b-background" />
+		<eLabel name="a" position="1,1" size="598,168" zPosition="1" backgroundColor="layer-a-background" />
+		<widget name="config" position="10,10" size="580,60" zPosition="2" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel position="10,75" size="580,1" backgroundColor="layer-a-accent1" zPosition="2"/>
+		<widget source="introduction" render="Label" position="10,80" size="580,30" font="SetrixHD;22" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" zPosition="2"/>
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 10,130" size="30,40" zPosition="2" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="193,130" size="30,40" zPosition="2" alphatest="blend" />
+		<widget source="key_red" render="Label" position="45,133" size="170,30" zPosition="2" valign="center" font="global_button;20" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="key_green" render="Label" position="228,133" size="170,30" zPosition="2" valign="center" font="global_button;20" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+	</screen>
 	<screen name="LED_GigaSetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Giga LED Setup" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
