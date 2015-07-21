@@ -19,16 +19,18 @@
 #
 #######################################################################
 
-from . import _, initWeatherConfig, WEATHER_IMAGE_PATH, MAIN_IMAGE_PATH
+from . import _, initWeatherConfig, getHelperText, WEATHER_IMAGE_PATH, MAIN_IMAGE_PATH
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
 from Components.AVSwitch import AVSwitch
 from Components.config import config, configfile, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
+from Components.Label import Label
 from Components.Sources.StaticText import StaticText
 from Components.Pixmap import Pixmap
 from enigma import ePicLoad
+from os import path
 
 #############################################################
 
@@ -36,14 +38,14 @@ class WeatherSettingsView(ConfigListScreen, Screen):
     skin = """
  <screen name="MyMetrixLiteWeatherView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
     <eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
-    <widget source="titleText" position="60,55" size="590,50" render="Label" font="Regular; 40" foregroundColor="00ffffff" backgroundColor="#00000000" valign="center" transparent="1" />
+    <widget source="titleText" position="60,55" size="590,50" render="Label" font="Regular; 40" foregroundColor="#00ffffff" backgroundColor="#00000000" valign="center" transparent="1" />
     <widget name="config" position="61,124" size="590,480" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
-    <widget source="info" position="61,590" size="590,66" render="Label" font="Regular; 18" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <widget source="cancelBtn" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <widget source="saveBtn" position="257,640" size="360,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
     <eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
     <widget name="helperimage" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
+    <widget name="helpertext" position="800,490" size="336,160" font="Regular; 18" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center" valign="center" transparent="1"/>
   </screen>
 """
 
@@ -53,12 +55,10 @@ class WeatherSettingsView(ConfigListScreen, Screen):
         self.Scale = AVSwitch().getFramebufferScale()
         self.PicLoad = ePicLoad()
         self["helperimage"] = Pixmap()
+        self["helpertext"] = Label()
 
         self["titleText"] = StaticText("")
         self["titleText"].setText(_("Weather settings"))
-
-        self["info"] = StaticText("")
-        self["info"].setText(_("Get your local MetrixWeather ID from www.mymetrix.de"))
 
         self["cancelBtn"] = StaticText("")
         self["cancelBtn"].setText(_("Cancel"))
@@ -110,18 +110,21 @@ class WeatherSettingsView(ConfigListScreen, Screen):
     def GetPicturePath(self):
         try:
             returnValue = self["config"].getCurrent()[1].value
-            path = WEATHER_IMAGE_PATH % returnValue
-            return path
+            picturepath = WEATHER_IMAGE_PATH % returnValue
+            if not path.exists(picturepath):
+                picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteWeather"
         except:
-            pass
+            picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteWeather"
+        return picturepath
+
     def UpdatePicture(self):
         self.PicLoad.PictureData.get().append(self.DecodePicture)
         self.onLayoutFinish.append(self.ShowPicture)
 
     def ShowPicture(self):
         self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
-        self.PicLoad.startDecode(MAIN_IMAGE_PATH % "MyMetrixLiteWeather")
-        #self.PicLoad.startDecode(self.GetPicturePath())
+        self.PicLoad.startDecode(self.GetPicturePath())
+        self.showHelperText()
 
     def DecodePicture(self, PicInfo = ""):
         ptr = self.PicLoad.getData()
@@ -150,8 +153,6 @@ class WeatherSettingsView(ConfigListScreen, Screen):
         for x in self["config"].list:
             if len(x) > 1:
                 x[1].save()
-            else:
-                pass
 
         configfile.save()
         self.exit()
@@ -160,8 +161,6 @@ class WeatherSettingsView(ConfigListScreen, Screen):
         for x in self["config"].list:
             if len(x) > 1:
                     x[1].cancel()
-            else:
-                    pass
         self.close()
 
     def __changedEntry(self):
@@ -171,3 +170,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
         # change if type is BACKUP
         if cur == "WEATHER_ENABLED":
             self["config"].setList(self.getMenuItemList())
+
+    def showHelperText(self):
+		text = getHelperText(self["config"].getCurrent()[1])
+		self["helpertext"].setText(text)

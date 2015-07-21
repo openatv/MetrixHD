@@ -132,10 +132,15 @@
 	<!-- infobar, movieplayer -->
 		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="infobar_event" scale="100" />				<!--Event/Service Name-->
 		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="infobar_text" scale="95" />		<!--Other Text-->
-		<!-- Aliases that should be present -->
-		<alias name="Body" font="screen_text" size="20" height="25" />
-		<alias name="ChoiceList" font="screen_text" size="20" height="25" />
-		<alias name="TextNormal" font="screen_text" size="20" height="25" />
+	<!-- aliases -->
+		<alias name="Body" font="screen_text" size="20" height="30" />
+		<alias name="ChoiceList" font="screen_text" size="20" height="30" />
+		<alias name="SelectionList" font="screen_text" size="18" height="30" />
+		<alias name="FileList" font="screen_text" size="18" height="30" />
+		<alias name="FileListMulti" font="screen_text" size="18" height="30" />
+		<alias name="TextNormal" font="screen_text" size="20" height="30" />
+		<alias name="PluginBrowser0" font="screen_text" size="20" height="30" />
+		<alias name="PluginBrowser1" font="screen_text" size="18" />
 	</fonts>
 	<subtitles>
 		<sub name="Subtitle_TTX" font="Regular;30" shadowColor="#40101010" shadowOffset="3,3" />
@@ -185,6 +190,15 @@
 	<parameters>
 		<parameter name="AutotimerEnabledIcon" value="6,2,24,25"/>
 		<parameter name="AutotimerRecordIcon" value="34,5,20,20"/>
+		<parameter name="PluginBrowserName" value="120,2,30"/>
+		<parameter name="PluginBrowserDescr" value="120,24,26"/>
+		<parameter name="PluginBrowserIcon" value="10,5,100,40"/>
+		<parameter name="PluginBrowserDownloadName" value="80,2,30"/>
+		<parameter name="PluginBrowserDownloadDescr" value="80,24,26"/>
+		<parameter name="PluginBrowserDownloadIcon" value="10,0,60,50"/>
+		<parameter name="ChoicelistDash" value="0,2,650,30"/>
+		<parameter name="ChoicelistName" value="48,2,650,30"/>
+		<parameter name="ChoicelistIcon" value="10,2,30,30"/>
 	</parameters>
 
 	<include filename="/usr/share/enigma2/MetrixHD/skin_00_templates.xml" />

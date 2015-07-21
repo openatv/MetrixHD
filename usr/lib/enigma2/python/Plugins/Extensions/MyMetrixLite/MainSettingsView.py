@@ -1418,17 +1418,36 @@ class MainSettingsView(Screen):
 					if '<parameter name="' in line and 'value="' in line:
 						n1 = line.find('value="', 0)
 						n2 = line.find('"', n1) 
-						n3 = line.find(',', n2) 
-						n4 = line.find(',', n3+1) 
-						n5 = line.find(',', n4+1) 
-						n6 = line.find('"', n5) 
-						p1 = int(round(float(int(line[(n2+1):n3])*FACT),r_par))
-						p2 = int(round(float(int(line[(n3+1):n4])*FACT),r_par))
-						p3 = int(round(float(int(line[(n4+1):n5])*FACT),r_par))
-						p4 = int(round(float(int(line[(n5+1):n6])*FACT),r_par))
-						strnew = 'value="%d,%d,%d,%d"' %(p1,p2,p3,p4)
+						n6 = line.find('"', n2+1) 
+						parcount = len(line[n2:n6+1].split(','))
+
+						if parcount == 1:
+							p1 = int(round(float(int(line[(n2+1):n6])*FACT),r_par))
+							strnew = 'value="%d"' %(p1)
+						elif parcount == 2:
+							n3 = line.find(',', n2) 
+							p1 = int(round(float(int(line[(n2+1):n3])*FACT),r_par))
+							p2 = int(round(float(int(line[(n3+1):n6])*FACT),r_par))
+							strnew = 'value="%d,%d"' %(p1,p2)
+						elif parcount == 3:
+							n3 = line.find(',', n2) 
+							n4 = line.find(',', n3+1) 
+							p1 = int(round(float(int(line[(n2+1):n3])*FACT),r_par))
+							p2 = int(round(float(int(line[(n3+1):n4])*FACT),r_par))
+							p3 = int(round(float(int(line[(n4+1):n6])*FACT),r_par))
+							strnew = 'value="%d,%d,%d"' %(p1,p2,p3)
+						elif parcount == 4:
+							n3 = line.find(',', n2) 
+							n4 = line.find(',', n3+1) 
+							n5 = line.find(',', n4+1) 
+							p1 = int(round(float(int(line[(n2+1):n3])*FACT),r_par))
+							p2 = int(round(float(int(line[(n3+1):n4])*FACT),r_par))
+							p3 = int(round(float(int(line[(n4+1):n5])*FACT),r_par))
+							p4 = int(round(float(int(line[(n5+1):n6])*FACT),r_par))
+							strnew = 'value="%d,%d,%d,%d"' %(p1,p2,p3,p4)
+
 						line = line[:n1] + strnew + line[(n6+1):]
-#rowSplit1="25"
+#rowSplit="25"
 					if 'rowSplit' in line:
 						s = 0
 						n3 = 0
@@ -1450,6 +1469,17 @@ class MainSettingsView(Screen):
 						ynew = str(int(round(float(int(y)*FACT),r_par)))
 						strnew = line[n1:n2+1] + ynew + '"'
 						line = line[:n1] + strnew + line[(n3+1):]
+#satPosLeft="160" 
+					if 'satPosLeft="' in line:
+						n1 = line.find('satPosLeft="', 0)
+						n2 = line.find('"', n1)
+						n3 = line.find('"', n2+1) 
+						y = line[(n2+1):n3]
+
+						ynew = str(int(round(float(int(y)*FACT),r_par)))
+						strnew = line[n1:n2+1] + ynew + '"'
+						line = line[:n1] + strnew + line[(n3+1):]
+
 #iconMargin="5"
 					if 'iconMargin="' in line:
 						n1 = line.find('iconMargin="', 0)
