@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, initFontsConfig, appendSkinFile, SKIN_TARGET_TMP, SKIN_SOURCE, FONT_IMAGE_PATH, MAIN_IMAGE_PATH
+from . import _, initFontsConfig, getHelperText, appendSkinFile, SKIN_TARGET_TMP, SKIN_SOURCE, FONT_IMAGE_PATH, MAIN_IMAGE_PATH
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
@@ -27,6 +27,7 @@ from Components.AVSwitch import AVSwitch
 from Components.config import config, configfile, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
 from Components.Sources.StaticText import StaticText
+from Components.Label import Label
 from skin import parseColor
 from Components.Pixmap import Pixmap
 from enigma import ePicLoad
@@ -48,6 +49,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
     <eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
     <eLabel position="430,635" size="5,40" backgroundColor="#00e5dd00" />
     <widget name="helperimage" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
+    <widget name="helpertext" position="800,490" size="336,160" font="Regular; 18" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center" valign="center" transparent="1"/>
   </screen>
 """
 
@@ -58,6 +60,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
         self.Scale = AVSwitch().getFramebufferScale()
         self.PicLoad = ePicLoad()
         self["helperimage"] = Pixmap()
+        self["helpertext"] = Label()
 
         self["titleText"] = StaticText("")
         self["titleText"].setText(_("Font settings"))
@@ -519,10 +522,12 @@ class FontsSettingsView(ConfigListScreen, Screen):
             returnValue = str(self["config"].getCurrent()[1].value).split('/')[-1]
             if len(returnValue) <= 3:
                 returnValue = "scale_75-100-125"
-            path = FONT_IMAGE_PATH % returnValue
-            return path
+            picturepath = FONT_IMAGE_PATH % returnValue
+            if not path.exists(picturepath):
+                picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteFont"
         except:
-            pass
+            picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteFont"
+        return picturepath
 
     def UpdatePicture(self):
         self.PicLoad.PictureData.get().append(self.DecodePicture)
@@ -531,6 +536,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
     def ShowPicture(self):
         self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
         self.PicLoad.startDecode(self.GetPicturePath())
+        self.showHelperText()
 
     def DecodePicture(self, PicInfo = ""):
         ptr = self.PicLoad.getData()
@@ -553,60 +559,12 @@ class FontsSettingsView(ConfigListScreen, Screen):
         self.ShowPicture()
 
     def defaults(self):
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.SkinFontExamples)
-#system fonts
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.Lcd_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.Lcd_scale)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.Replacement_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.Replacement_scale)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.Console_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.Console_scale)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.Fixed_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.Fixed_scale)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.Arial_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.Arial_scale)
-#skin fonts
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.Regular_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.Regular_scale)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.RegularLight_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.RegularLight_scale)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.SetrixHD_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.SetrixHD_scale)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.Meteo_scale)
-#global
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.globaltitle_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.globaltitle_scale)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.globalbutton_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.globalbutton_scale)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.globalclock_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.globalclock_scale)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.globallarge_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.globallarge_scale)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.globalsmall_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.globalsmall_scale)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.globalmenu_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.globalmenu_scale)
-#screens
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.screenlabel_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.screenlabel_scale)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.screentext_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.screentext_scale)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.screeninfo_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.screeninfo_scale)
-#channellist
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.epgevent_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.epgevent_scale)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.epgtext_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.epgtext_scale)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.epginfo_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.epginfo_scale)
-#infobar
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.infobarevent_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.infobarevent_scale)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.infobartext_type)
-        self.setInputToDefault(config.plugins.MyMetrixLiteFonts.infobartext_scale)
-
-        self.save()
+        for x in self["config"].list:
+            if len(x) > 1:
+                self.setInputToDefault(x[1])
+        self["config"].setList(self.getMenuItemList())
+        self.ShowPicture()
+        #self.save()
 
     def setInputToDefault(self, configItem):
         configItem.setValue(configItem.default)
@@ -621,8 +579,6 @@ class FontsSettingsView(ConfigListScreen, Screen):
         for x in self["config"].list:
             if len(x) > 1:
                 x[1].save()
-            else:
-                pass
 
         configfile.save()
         self.exit()
@@ -631,6 +587,8 @@ class FontsSettingsView(ConfigListScreen, Screen):
         for x in self["config"].list:
             if len(x) > 1:
                     x[1].cancel()
-            else:
-                    pass
         self.close()
+
+    def showHelperText(self):
+		text = getHelperText(self["config"].getCurrent()[1])
+		self["helpertext"].setText(text)

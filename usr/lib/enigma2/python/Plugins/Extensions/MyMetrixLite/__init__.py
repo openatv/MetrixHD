@@ -438,7 +438,8 @@ def initOtherConfig():
         ("preset_1", _("One Layer Design")),
         ("preset_2", _("Contrast Layer Design")),
         ("preset_3", _("Stripe Layer Design")),
-        ("preset_4", _("Block Layer Design"))
+        ("preset_4", _("Block Layer Design")),
+        ("preset_5", _("Frame Layer Design"))
         ]
 
     config.plugins.MyMetrixLiteOther = ConfigSubsection()
@@ -569,3 +570,14 @@ def appendSkinFile(appendFileName, skinPartSearchAndReplace):
         rsSkinLines.append(skinLine)
 
     return rsSkinLines
+
+def getHelperText(configEntry):
+	HelperText = {
+		config.plugins.MetrixWeather.woeid:							_("Get your local MetrixWeather ID from www.mymetrix.de")
+	}
+
+	try:
+		text = HelperText[configEntry]
+	except:
+		text = _(" ")
+	return text

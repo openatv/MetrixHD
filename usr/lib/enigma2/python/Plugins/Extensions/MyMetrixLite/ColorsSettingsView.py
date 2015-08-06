@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, initColorsConfig, appendSkinFile, SKIN_TARGET_TMP, SKIN_SOURCE, COLOR_IMAGE_PATH, MAIN_IMAGE_PATH
+from . import _, initColorsConfig, getHelperText, appendSkinFile, SKIN_TARGET_TMP, SKIN_SOURCE, COLOR_IMAGE_PATH, MAIN_IMAGE_PATH
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
@@ -27,10 +27,11 @@ from Components.AVSwitch import AVSwitch
 from Components.config import config, configfile, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
 from Components.Sources.StaticText import StaticText
+from Components.Label import Label
 from skin import parseColor
 from Components.Pixmap import Pixmap
 from enigma import ePicLoad
-
+from os import path
 
 #######################################################################
 
@@ -47,6 +48,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
     <eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
     <eLabel position="430,635" size="5,40" backgroundColor="#00e5dd00" />
     <widget name="helperimage" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
+    <widget name="helpertext" position="800,490" size="336,160" font="Regular; 18" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center" valign="center" transparent="1"/>
   </screen>
 """
 
@@ -57,6 +59,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         self.Scale = AVSwitch().getFramebufferScale()
         self.PicLoad = ePicLoad()
         self["helperimage"] = Pixmap()
+        self["helpertext"] = Label()
 
         self["titleText"] = StaticText("")
         self["titleText"].setText(_("Color settings"))
@@ -640,10 +643,12 @@ class ColorsSettingsView(ConfigListScreen, Screen):
     def GetPicturePath(self):
         try:
             returnValue = self["config"].getCurrent()[1].value
-            path = COLOR_IMAGE_PATH % returnValue
-            return path
+            picturepath = COLOR_IMAGE_PATH % returnValue
+            if not path.exists(picturepath):
+                picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteColor"
         except:
-            pass
+            picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteColor"
+        return picturepath
 
     def UpdatePicture(self):
         self.PicLoad.PictureData.get().append(self.DecodePicture)
@@ -652,6 +657,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
     def ShowPicture(self):
         self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
         self.PicLoad.startDecode(self.GetPicturePath())
+        self.showHelperText()
 
     def DecodePicture(self, PicInfo = ""):
         ptr = self.PicLoad.getData()
@@ -674,78 +680,12 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         self.ShowPicture()
 
     def defaults(self):
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectionservice)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectionserviceselected)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectionservicedescription)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectioncolorServiceRecorded)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectioncolorServicePseudoRecorded)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.channelselectioncolorServiceStreamed)
-
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.emcWatchingColor)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.emcFinishedColor)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.emcRecordingColor)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.emcCoolHighlightColor)
-
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.windowtitletext)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.windowtitletexttransparency)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.windowtitletextback)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.backgroundtext)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.backgroundtexttransparency)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.backgroundtextback)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.backgroundtextbacktransparency)
-
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layerabackground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layerabackgroundtransparency)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layeraforeground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layeraselectionbackground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layeraselectionforeground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layeraprogress)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layeraprogresstransparency)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layeraaccent1)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layeraaccent2)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layeraextendedinfo1)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layeraextendedinfo2)
-
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layerbbackground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layerbforeground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layerbselectionbackground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layerbselectionforeground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layerbprogress)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layerbprogresstransparency)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layerbaccent1)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layerbaccent2)
-
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.epgeventforeground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.epgtimelineforeground)
-
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.buttonforeground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layeraclockforeground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.layerbclockforeground)
-
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.upperleftcornerbackground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.upperleftcornertransparency)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.lowerleftcornerbackground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.lowerleftcornertransparency)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.upperrightcornerbackground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.upperrightcornertransparency)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.lowerrightcornerbackground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.lowerrightcornertransparency)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.optionallayerhorizontalbackground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.optionallayerhorizontaltransparency)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.optionallayerverticalbackground)
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency)
-
-        self.setInputToDefault(config.plugins.MyMetrixLiteColors.SkinColorExamples)
-
-        self.save()
+        for x in self["config"].list:
+            if len(x) > 1:
+                self.setInputToDefault(x[1])
+        self["config"].setList(self.getMenuItemList())
+        self.ShowPicture()
+        #self.save()
 
     def setInputToDefault(self, configItem):
         configItem.setValue(configItem.default)
@@ -757,8 +697,6 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         for x in self["config"].list:
             if len(x) > 1:
                 x[1].save()
-            else:
-                pass
 
         configfile.save()
         self.exit()
@@ -767,6 +705,8 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         for x in self["config"].list:
             if len(x) > 1:
                     x[1].cancel()
-            else:
-                    pass
         self.close()
+    
+    def showHelperText(self):
+		text = getHelperText(self["config"].getCurrent()[1])
+		self["helpertext"].setText(text)

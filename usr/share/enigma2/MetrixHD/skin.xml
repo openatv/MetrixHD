@@ -132,10 +132,21 @@
 	<!-- infobar, movieplayer -->
 		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="infobar_event" scale="100" />				<!--Event/Service Name-->
 		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="infobar_text" scale="95" />		<!--Other Text-->
-		<!-- Aliases that should be present -->
-		<alias name="Body" font="screen_text" size="20" height="25" />
-		<alias name="ChoiceList" font="screen_text" size="20" height="25" />
-		<alias name="TextNormal" font="screen_text" size="20" height="25" />
+	<!-- aliases -->
+		<alias name="Body" font="screen_text" size="20" height="30" />
+		<alias name="ChoiceList" font="screen_text" size="20" height="30" />
+		<alias name="SelectionList" font="screen_text" size="20" height="30" />
+		<alias name="FileList" font="screen_text" size="18" height="30" />
+		<alias name="FileListMulti" font="screen_text" size="18" height="30" />
+		<alias name="TextNormal" font="screen_text" size="20" height="30" />
+		<alias name="PluginBrowser0" font="screen_text" size="20" height="30" />
+		<alias name="PluginBrowser1" font="screen_text" size="18" />
+		<alias name="HelpMenuListExt0" font="screen_text" size="24" height="50" />
+		<alias name="HelpMenuListExt1" font="screen_text" size="18"/>
+		<alias name="HelpMenuList" font="screen_text" size="24" height="38" />
+		<alias name="FileListMulti" font="screen_text" size="20" height="25" />
+		<alias name="FileList" font="screen_text" size="18" height="23" />
+		<alias name="VirtualKeyboard" font="screen_text" size="28" height="45" />
 	</fonts>
 	<subtitles>
 		<sub name="Subtitle_TTX" font="Regular;30" shadowColor="#40101010" shadowOffset="3,3" />
@@ -185,6 +196,32 @@
 	<parameters>
 		<parameter name="AutotimerEnabledIcon" value="6,2,24,25"/>
 		<parameter name="AutotimerRecordIcon" value="34,5,20,20"/>
+		<parameter name="PluginBrowserName" value="120,2,30"/>
+		<parameter name="PluginBrowserDescr" value="120,24,26"/>
+		<parameter name="PluginBrowserIcon" value="10,5,100,40"/>
+		<parameter name="PluginBrowserDownloadName" value="80,2,30"/>
+		<parameter name="PluginBrowserDownloadDescr" value="80,24,26"/>
+		<parameter name="PluginBrowserDownloadIcon" value="10,0,60,50"/>
+		<parameter name="ChoicelistDash" value="0,2,650,30"/>
+		<parameter name="ChoicelistName" value="48,2,650,30"/>
+		<parameter name="ChoicelistIcon" value="10,2,30,30"/>
+		<parameter name="ConfigListSeperator" value="350"/>
+		<parameter name="FileListName" value="35,1,470,20"/>
+		<parameter name="FileListIcon" value="10,2,20,20"/>
+		<parameter name="FileListMultiName" value="55,0,470,25"/>
+		<parameter name="FileListMultiIcon" value="30,2,20,20"/>
+		<parameter name="FileListMultiLock" value="2,0,25,25"/>
+		<parameter name="HelpMenuListExtHlp0" value="0,0,600,26"/>
+		<parameter name="HelpMenuListExtHlp1" value="0,28,600,20"/>
+		<parameter name="HelpMenuListHlp" value="0,0,600,28"/>
+		<parameter name="SelectionListDescr" value="25,3,650,30"/>
+		<parameter name="SelectionListLock" value="0,2,25,24"/>
+		<parameter name="SelectionListLockOff" value="0,2,25,24"/>
+		<parameter name="PicturePlayerThumb" value="35,190,30,200,20,14"/>
+		<parameter name="ServiceInfo" value="0,0,300,30"/>
+		<parameter name="ServiceInfoLeft" value="0,0,300,25"/>
+		<parameter name="ServiceInfoRight" value="300,0,600,25"/>
+		<parameter name="VirtualKeyboard" value="45,45"/>
 	</parameters>
 
 	<include filename="/usr/share/enigma2/MetrixHD/skin_00_templates.xml" />
