@@ -2082,6 +2082,18 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_satip.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!--Satip Client -->
+	<!-- RCU Select -->
+	<screen name="RCUSelect" position="0,0" size="1280,720" title="RCU Select" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="RCU Select" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/mqb.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- RCU Select -->
 	<!--Animation Setup -->
 	<screen name="AnimationSetupConfig" position="center,center" size="1280,720" title="Animation Settings" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
