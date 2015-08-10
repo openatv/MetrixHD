@@ -2333,7 +2333,11 @@ self.instance.move(ePoint(0,0))
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- General Screens -->
-	<screen name="Standby" position="0,0" size="1280,720" title="Standby" flags="wfNoBorder" />
+	<screen name="Standby" position="0,0" size="1280,720" title="Standby" flags="wfNoBorder" backgroundColor="black"/>
+	<screen name="QuitMainloopScreen" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="black">
+		<ePixmap pixmap="MetrixHD/icons/message/info-53.png" position="c-27,c-60" size="53,53" alphatest="blend" />
+		<widget name="text" position="center,c+10" size="720,100" font="screen_text;20" halign="center" backgroundColor="black" foregroundColor="white"/>
+	</screen>
 	<screen name="HelpMenu" position="0,0" size="1280,720" title="Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<eLabel text="help..." position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
@@ -2392,6 +2396,17 @@ self.instance.move(ePoint(0,0))
 		<widget name="key0" position="202,99" size="200,25" font="Console;18" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
 		<widget name="help2" position="403,99" size="200,25" font="Console;22" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
 	</screen>
+	<screen name="VirtualKeyBoard" position="0,0" size="1280,720" zPosition="99" title="Virtual KeyBoard" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<eLabel text="Virtual KeyBoard" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="header" position="70,110" size="700,30" font="SetrixHD;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" transparent="1" noWrap="1" />
+		<eLabel position="70,170" size="700,46" zPosition="1" backgroundColor="layer-a-accent1" />
+		<widget name="text" position="72,172" size="696,42" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" zPosition="3" font="SetrixHD;30" noWrap="1" valign="center" halign="right" />
+		<widget name="list" position="150,320" size="540,225" selectionDisabled="1" transparent="1" />
+		<widget name="country" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/keyb.png" transparent="1" alphatest="blend" />
+	</screen>
 	<screen name="MessageBox-template-0">
 		<!-- old version (without auto-resize "list") /-->
 		<widget name="text" position="110,8" size="680,0" font="SetrixHD;22" backgroundColor="layer-a-background" />
@@ -2399,9 +2414,9 @@ self.instance.move(ePoint(0,0))
 		<widget name="QuestionPixmap" pixmap="MetrixHD/icons/message/question-53.png" position="30,10" size="53,53" alphatest="blend" />
 		<widget name="InfoPixmap" pixmap="MetrixHD/icons/message/info-53.png" position="30,10" size="53,53" alphatest="blend" />
 		<!--
-	<widget name="ErrorPixmap" pixmap="skin_default/icons/input_error.png" position="30,10" size="53,53" alphatest="blend" />
-	<widget name="QuestionPixmap" pixmap="skin_default/icons/input_question.png" position="30,10" size="53,53" alphatest="blend" />
-	<widget name="InfoPixmap" pixmap="skin_default/icons/input_info.png" position="30,10" size="53,53" alphatest="blend" />-->
+		<widget name="ErrorPixmap" pixmap="skin_default/icons/input_error.png" position="30,10" size="53,53" alphatest="blend" />
+		<widget name="QuestionPixmap" pixmap="skin_default/icons/input_question.png" position="30,10" size="53,53" alphatest="blend" />
+		<widget name="InfoPixmap" pixmap="skin_default/icons/input_info.png" position="30,10" size="53,53" alphatest="blend" />-->
 		<widget name="list" position="20,95" size="760,330" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" transparent="1" />
 		<applet type="onLayoutFinish">
 # this should be factored out into some helper code,but currently demonstrates applets.
