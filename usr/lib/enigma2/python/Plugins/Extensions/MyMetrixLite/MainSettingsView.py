@@ -564,6 +564,17 @@ class MainSettingsView(Screen):
             layeraclockforeground = ('name="layer-a-clock-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layeraclockforeground.value + '"')
             layerbclockforeground = ('name="layer-b-clock-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layerbclockforeground.value + '"')
 
+            menufont = ('name="menufont" value="#00' + config.plugins.MyMetrixLiteColors.menufont.value + '"')
+            menufontselected = ('name="menufontselected" value="#00' + config.plugins.MyMetrixLiteColors.menufontselected.value + '"')
+            menubackground = ('name="menubackground" value="#' + config.plugins.MyMetrixLiteColors.menubackgroundtransparency.value + config.plugins.MyMetrixLiteColors.menubackground.value  + '"')
+            menusymbolbackground = ('name="menusymbolbackground" value="#' + config.plugins.MyMetrixLiteColors.menusymbolbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.menusymbolbackground.value  + '"')
+            infobarbackground = ('name="infobarbackground" value="#' + config.plugins.MyMetrixLiteColors.infobarbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.infobarbackground.value + '"')
+            infobarprogress = ('name="infobarprogress" value="#' + config.plugins.MyMetrixLiteColors.infobarprogresstransparency.value + config.plugins.MyMetrixLiteColors.infobarprogress.value + '"')
+            infobarfont1 = ('name="infobarfont1" value="#00' + config.plugins.MyMetrixLiteColors.infobarfont1.value + '"')
+            infobarfont2 = ('name="infobarfont2" value="#00' + config.plugins.MyMetrixLiteColors.infobarfont2.value + '"')
+            infobaraccent1 = ('name="infobaraccent1" value="#00' + config.plugins.MyMetrixLiteColors.infobaraccent1.value + '"')
+            infobaraccent2 = ('name="infobaraccent2" value="#00' + config.plugins.MyMetrixLiteColors.infobaraccent2.value + '"')
+
             skinSearchAndReplace = []
 
             skinSearchAndReplace.append(['name="layer-a-channelselection-foreground" value="#00FFFFFF"', channelselectionservice ])
@@ -606,6 +617,43 @@ class MainSettingsView(Screen):
             skinSearchAndReplace.append(['name="layer-a-button-foreground" value="#00FFFFFF"', layerabuttonforeground ])
             skinSearchAndReplace.append(['name="layer-a-clock-foreground" value="#00FFFFFF"', layeraclockforeground ])
             skinSearchAndReplace.append(['name="layer-b-clock-foreground" value="#00FFFFFF"', layerbclockforeground ])
+
+            skinSearchAndReplace.append(['name="menufont" value="#00FFFFFF"', menufont ])
+            skinSearchAndReplace.append(['name="menufontselected" value="#00FFFFFF"', menufontselected ])
+            skinSearchAndReplace.append(['name="menubackground" value="#1A0F0F0F"', menubackground ])
+            skinSearchAndReplace.append(['name="menusymbolbackground" value="#1A0F0F0F"', menusymbolbackground ])
+            skinSearchAndReplace.append(['name="infobarbackground" value="#1A0F0F0F"', infobarbackground ])
+            skinSearchAndReplace.append(['name="infobarprogress" value="#1A27408B"', infobarprogress ])
+            skinSearchAndReplace.append(['name="infobarfont1" value="#00FFFFFF"', infobarfont1 ])
+            skinSearchAndReplace.append(['name="infobarfont2" value="#00BDBDBD"', infobarfont2 ])
+            skinSearchAndReplace.append(['name="infobaraccent1" value="#00BDBDBD"', infobaraccent1 ])
+            skinSearchAndReplace.append(['name="infobaraccent2" value="#006E6E6E"', infobaraccent2 ])
+
+            #Border listbox
+            width = config.plugins.MyMetrixLiteColors.listboxborder_topwidth.value
+            if width != "no":
+                color = config.plugins.MyMetrixLiteColors.listboxborder_top.value
+                if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
+                    newline = (('<pixmap pos="bpTop" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
+                    skinSearchAndReplace.append(['<!--lb pixmap pos="bpTop" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
+            width = config.plugins.MyMetrixLiteColors.listboxborder_bottomwidth.value
+            if width != "no":
+                color = config.plugins.MyMetrixLiteColors.listboxborder_bottom.value
+                if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
+                    newline = (('<pixmap pos="bpBottom" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
+                    skinSearchAndReplace.append(['<!--lb pixmap pos="bpBottom" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
+            width = config.plugins.MyMetrixLiteColors.listboxborder_leftwidth.value
+            if width != "no":
+                color = config.plugins.MyMetrixLiteColors.listboxborder_left.value
+                if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
+                    newline = (('<pixmap pos="bpLeft" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
+                    skinSearchAndReplace.append(['<!--lb pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
+            width = config.plugins.MyMetrixLiteColors.listboxborder_rightwidth.value
+            if width != "no":
+                color = config.plugins.MyMetrixLiteColors.listboxborder_right.value
+                if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
+                    newline = (('<pixmap pos="bpRight" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
+                    skinSearchAndReplace.append(['<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
 
             #SkinDesign
             confvalue = config.plugins.MyMetrixLiteOther.SkinDesignLUC.getValue()
