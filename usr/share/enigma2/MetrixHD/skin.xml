@@ -71,6 +71,16 @@
 		<color name="layer-a-button-foreground" value="#00FFFFFF" />				<!-- MetrixColors - Foreground color for button description in layer a -->
 		<color name="layer-a-clock-foreground" value="#00FFFFFF" />					<!-- MetrixColors - Foreground color for clock in layer a -->
 		<color name="layer-b-clock-foreground" value="#00FFFFFF" />					<!-- MetrixColors - Foreground color for clock in layer b -->
+		<color name="menubackground" value="#1A0F0F0F" />							<!-- MetrixColors - Background color for menu -->
+		<color name="menusymbolbackground" value="#1A0F0F0F" />						<!-- MetrixColors - Background color for menu symbol -->
+		<color name="menufont" value="#00FFFFFF" />									<!-- MetrixColors - Font color for menu item  -->
+		<color name="menufontselected" value="#00FFFFFF" />							<!-- MetrixColors - Font color for selected menu item -->
+		<color name="infobarbackground" value="#1A0F0F0F" />						<!-- MetrixColors - Background color for infobar,moviebar -->
+		<color name="infobarprogress" value="#1A27408B" />							<!-- MetrixColors - Progressbar color for infobar,moviebar -->
+		<color name="infobarfont1" value="#00FFFFFF" />								<!-- MetrixColors - Font 1 color for infobar,moviebar -->
+		<color name="infobarfont2" value="#00BDBDBD" />								<!-- MetrixColors - Font 2 color for infobar,moviebar -->
+		<color name="infobaraccent1" value="#00BDBDBD" />							<!-- MetrixColors - AccentFont 1 color for infobar,moviebar -->
+		<color name="infobaraccent2" value="#006E6E6E" />							<!-- MetrixColors - AccentFont 2 color for infobar,moviebar -->
 		<color name="un18080911" value="#18080911" />
 		<color name="un1c202b" value="#001c202b" />
 		<color name="un1f771f" value="#001f771f" />
@@ -116,8 +126,8 @@
 		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_clock" scale="100" />				<!--Clock text-->
 		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large" scale="100" />				<!--Text in background or large text-->
 		<!-- large font for menus and screens start--> 
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_screen" scale="100" />				<!--Text in background or large text-->
-		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_menu" scale="100" />				<!--Text in background or large text-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_screen" scale="100" />		<!--Text in background or large text-->
+		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_menu" scale="100" />			<!--Text in background or large text-->
 		<!-- large font for menus and screens end --> 
 		<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="global_small" scale="95" />		<!--Small text in Infobar, Screens ...-->
 		<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_menu" scale="100" />				<!--Menu items-->
@@ -168,7 +178,7 @@
 		<color name="ListboxMarkedAndSelectedForeground" color="layer-a-foreground" />
 		<color name="WindowTitleForeground" color="title-foreground" />
 		<color name="WindowTitleBackground" color="title-background"/>
-		<borderset name="bsWindow">
+		<!--borderset name="bsWindow">
 			<pixmap pos="bpTopLeft" filename="MetrixHD/bs_tl.png" />
 			<pixmap pos="bpTop" filename="MetrixHD/bs_t.png" />
 			<pixmap pos="bpTopRight" filename="MetrixHD/bs_tr.png" />
@@ -177,7 +187,21 @@
 			<pixmap pos="bpBottomLeft" filename="MetrixHD/bs_bl.png" />
 			<pixmap pos="bpBottom" filename="MetrixHD/bs_b.png" />
 			<pixmap pos="bpBottomRight" filename="MetrixHD/bs_br.png" />
+		</borderset-->
+<!-- stop_mod -->
+		<borderset name="bsListboxEntry">
+			<!--lb pixmap pos="bpTop" filename="MetrixHD/border/1px/FFFFFF.png" /-->
+			<!--lb pixmap pos="bpBottom" filename="MetrixHD/border/1px/FFFFFF.png" /-->
+			<!--lb pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->
+			<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->
 		</borderset>
+		<!--borderset name="bsButton"-->
+			<!--bu pixmap pos="bpTop" filename="MetrixHD/border/1px/FFFFFF.png" /-->
+			<!--bu pixmap pos="bpBottom" filename="MetrixHD/border/1px/FFFFFF.png" /-->
+			<!--bu pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->
+			<!--bu pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->
+		<!--/borderset-->
+<!-- run_mod -->
 	</windowstyle>
 	<windowstyle type="skinned" id="1">
 		<color name="Background" color="layer-a-background" />

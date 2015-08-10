@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, initColorsConfig, getHelperText, appendSkinFile, SKIN_TARGET_TMP, SKIN_SOURCE, COLOR_IMAGE_PATH, MAIN_IMAGE_PATH
+from . import _, initColorsConfig, initOtherConfig, getHelperText, appendSkinFile, SKIN_TARGET_TMP, SKIN_SOURCE, COLOR_IMAGE_PATH, MAIN_IMAGE_PATH
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
@@ -74,6 +74,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         self["defaultsBtn"].setText(_("Defaults"))
 
         initColorsConfig()
+        initOtherConfig()
 
         ConfigListScreen.__init__(
             self,
@@ -103,108 +104,187 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         self.onLayoutFinish.append(self.UpdatePicture)
 
     def getMenuItemList(self):
+        char = 150
+        tab = " "*10
+        sep = "-"
         list = []
         list.append(getConfigListEntry(_("Color Examples"),config.plugins.MyMetrixLiteColors.SkinColorExamples, "PRESET"))
-        list.append(getConfigListEntry(_("Channelselection  -----------------------------------------------------------------------------------"), ))
-        list.append(getConfigListEntry(_("    Service"), ))
-        list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.channelselectionservice))
-        list.append(getConfigListEntry(_("        Font color selected"), config.plugins.MyMetrixLiteColors.channelselectionserviceselected))
-        list.append(getConfigListEntry(_("        Font color recording"), config.plugins.MyMetrixLiteColors.channelselectioncolorServiceRecorded))
-        list.append(getConfigListEntry(_("        Font color pseudo recording"), config.plugins.MyMetrixLiteColors.channelselectioncolorServicePseudoRecorded))
-        list.append(getConfigListEntry(_("        Font color streaming"), config.plugins.MyMetrixLiteColors.channelselectioncolorServiceStreamed))
-        list.append(getConfigListEntry(_("    Service Description"), ))
-        list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.channelselectionservicedescription))
-        list.append(getConfigListEntry(_("        Font color selected"), config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected))
-        list.append(getConfigListEntry(_("EMC Movie List  -------------------------------------------------------------------------------------"), ))
-        list.append(getConfigListEntry(_("    Watched color"), config.plugins.MyMetrixLiteColors.emcWatchingColor))
-        list.append(getConfigListEntry(_("    Finished color"), config.plugins.MyMetrixLiteColors.emcFinishedColor))
-        list.append(getConfigListEntry(_("    Recording color"), config.plugins.MyMetrixLiteColors.emcRecordingColor))
-        list.append(getConfigListEntry(_("    Show event colors if entry selected"), config.plugins.MyMetrixLiteColors.emcCoolHighlightColor))
-        list.append(getConfigListEntry(_("Text Windowtitle  ------------------------------------------------------------------------------------"), ))
-        list.append(getConfigListEntry(_("    Foreground"), ))
-        list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.windowtitletext))
-        list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.windowtitletexttransparency))
-        list.append(getConfigListEntry(_("    Background"), ))
-        list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.windowtitletextback))
-        list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency))
-        list.append(getConfigListEntry(_("Text in background  ----------------------------------------------------------------------------------"), ))
-        list.append(getConfigListEntry(_("    Foreground"), ))
-        list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.backgroundtext))
-        list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.backgroundtexttransparency))
-        list.append(getConfigListEntry(_("    Background"), ))
-        list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.backgroundtextback))
-        list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.backgroundtextbacktransparency))
-        list.append(getConfigListEntry(_("Clock and Weather, Buttons  ---------------------------------------------------------------------------"), ))
-        list.append(getConfigListEntry(_("    Clock in Layer A"), ))
-        list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.layeraclockforeground))
-        list.append(getConfigListEntry(_("    Clock in Layer B"), ))
-        list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.layerbclockforeground))
-        list.append(getConfigListEntry(_("    Buttons"), ))
-        list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.buttonforeground))
-        list.append(getConfigListEntry(_("Layer A (main layer)  --------------------------------------------------------------------------------"), ))
-        list.append(getConfigListEntry(_("    Background"), ))
-        list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.layerabackground))
-        list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.layerabackgroundtransparency))
-        list.append(getConfigListEntry(_("    Font color"), config.plugins.MyMetrixLiteColors.layeraforeground))
-        list.append(getConfigListEntry(_("    Selection bar"), ))
-        list.append(getConfigListEntry(_("        Background"), ))
-        list.append(getConfigListEntry(_("            Color"), config.plugins.MyMetrixLiteColors.layeraselectionbackground))
-        list.append(getConfigListEntry(_("            Transparency"), config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency))
-        list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.layeraselectionforeground))
-        list.append(getConfigListEntry(_("    Progress bar"), ))
-        list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.layeraprogress))
-        list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.layeraprogresstransparency))
-        list.append(getConfigListEntry(_("    Accent colors"), ))
-        list.append(getConfigListEntry(_("        Color 1"), config.plugins.MyMetrixLiteColors.layeraaccent1))
-        list.append(getConfigListEntry(_("        Color 2"), config.plugins.MyMetrixLiteColors.layeraaccent2))
-        list.append(getConfigListEntry(_("    Extended Info colors"), ))
-        list.append(getConfigListEntry(_("        Color 1"), config.plugins.MyMetrixLiteColors.layeraextendedinfo1))
-        list.append(getConfigListEntry(_("        Color 2"), config.plugins.MyMetrixLiteColors.layeraextendedinfo2))
-        list.append(getConfigListEntry(_("Layer B (secondary layer)  ---------------------------------------------------------------------------"), ))
-        list.append(getConfigListEntry(_("    Background"), ))
-        list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.layerbbackground))
-        list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency))
-        list.append(getConfigListEntry(_("    Font color"), config.plugins.MyMetrixLiteColors.layerbforeground))
-        list.append(getConfigListEntry(_("    Selection bar"), ))
-        list.append(getConfigListEntry(_("        Background"), ))
-        list.append(getConfigListEntry(_("            Color"), config.plugins.MyMetrixLiteColors.layerbselectionbackground))
-        list.append(getConfigListEntry(_("            Transparency"), config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency))
-        list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.layerbselectionforeground))
-        list.append(getConfigListEntry(_("    Progress bar"), ))
-        list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.layerbprogress))
-        list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.layerbprogresstransparency))
-        list.append(getConfigListEntry(_("    Accent colors"), ))
-        list.append(getConfigListEntry(_("        Color 1"), config.plugins.MyMetrixLiteColors.layerbaccent1))
-        list.append(getConfigListEntry(_("        Color 2"), config.plugins.MyMetrixLiteColors.layerbaccent2))
-        list.append(getConfigListEntry(_("Graphical EPG  ---------------------------------------------------------------------------------------"), ))
-        list.append(getConfigListEntry(_("  Event Description"), ))
-        list.append(getConfigListEntry(_("        Background"), ))
-        list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground))
-        list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency))
-        list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground))
-        list.append(getConfigListEntry(_("  Event List"), ))
-        list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.epgeventforeground))
-        list.append(getConfigListEntry(_("  Time Line"), ))
-        list.append(getConfigListEntry(_("        Font color"), config.plugins.MyMetrixLiteColors.epgtimelineforeground))
-        list.append(getConfigListEntry(_("Skin Design   ---------------------------------------------------------------------------------------"), ))
-        list.append(getConfigListEntry(_("     upper left Corner Layer"), ))
-        list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.upperleftcornerbackground))
-        list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.upperleftcornertransparency))
-        list.append(getConfigListEntry(_("    lower left Corner Layer"), ))
-        list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.lowerleftcornerbackground))
-        list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.lowerleftcornertransparency))
-        list.append(getConfigListEntry(_("    upper right Corner Layer"), ))
-        list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.upperrightcornerbackground))
-        list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.upperrightcornertransparency))
-        list.append(getConfigListEntry(_("    lower right Corner Layer"), ))
-        list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.lowerrightcornerbackground))
-        list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.lowerrightcornertransparency))
-        list.append(getConfigListEntry(_("    optional horizontal Layer"), ))
-        list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.optionallayerhorizontalbackground))
-        list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.optionallayerhorizontaltransparency))
-        list.append(getConfigListEntry(_("    optional vertical Layer"), ))
-        list.append(getConfigListEntry(_("        Color"), config.plugins.MyMetrixLiteColors.optionallayerverticalbackground))
-        list.append(getConfigListEntry(_("        Transparency"), config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency))
+        section = _("Text Windowtitle")
+        list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        list.append(getConfigListEntry(tab + _("Foreground"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.windowtitletext))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.windowtitletexttransparency))
+        list.append(getConfigListEntry(tab + _("Background"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.windowtitletextback))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency))
+        section = _("Text in background")
+        list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        list.append(getConfigListEntry(tab + _("Foreground"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.backgroundtext))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.backgroundtexttransparency))
+        list.append(getConfigListEntry(tab + _("Background"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.backgroundtextback))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.backgroundtextbacktransparency))
+        section = _("Menu")
+        list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        list.append(getConfigListEntry(tab + _("Background"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.menubackground))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.menubackgroundtransparency))
+        list.append(getConfigListEntry(tab*2 + _("Font color"), config.plugins.MyMetrixLiteColors.menufont))
+        list.append(getConfigListEntry(tab*2 + _("Font color selected"), config.plugins.MyMetrixLiteColors.menufontselected))
+        list.append(getConfigListEntry(tab + _("Menu Symbol"), ))
+        list.append(getConfigListEntry(tab*2 + _("Background"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.menusymbolbackground))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.menusymbolbackgroundtransparency))
+        section = _("Infobar, Moviebar")
+        list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        list.append(getConfigListEntry(tab + _("Background"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.infobarbackground))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.infobarbackgroundtransparency))
+        list.append(getConfigListEntry(tab + _("Progress bar"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.infobarprogress))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.infobarprogresstransparency))
+        list.append(getConfigListEntry(tab + _("Font color"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color 1"), config.plugins.MyMetrixLiteColors.infobarfont1))
+        list.append(getConfigListEntry(tab*2 + _("Color 2"), config.plugins.MyMetrixLiteColors.infobarfont2))
+        list.append(getConfigListEntry(tab + _("Accent colors"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color 1"), config.plugins.MyMetrixLiteColors.infobaraccent1))
+        list.append(getConfigListEntry(tab*2 + _("Color 2"), config.plugins.MyMetrixLiteColors.infobaraccent2))
+        section = _("Clock, Weather and Buttons")
+        list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        list.append(getConfigListEntry(tab + _("Clock in Layer A"), ))
+        list.append(getConfigListEntry(tab*2 + _("Font color"), config.plugins.MyMetrixLiteColors.layeraclockforeground))
+        list.append(getConfigListEntry(tab + _("Clock in Layer B"), ))
+        list.append(getConfigListEntry(tab*2 + _("Font color"), config.plugins.MyMetrixLiteColors.layerbclockforeground))
+        list.append(getConfigListEntry(tab + _("Buttons"), ))
+        list.append(getConfigListEntry(tab*2 + _("Font color"), config.plugins.MyMetrixLiteColors.buttonforeground))
+        section = _("Layer A (main layer)")
+        list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        list.append(getConfigListEntry(tab + _("Background"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.layerabackground))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.layerabackgroundtransparency))
+        list.append(getConfigListEntry(tab*2 + _("Font color"), config.plugins.MyMetrixLiteColors.layeraforeground))
+        list.append(getConfigListEntry(tab + _("Selection bar"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.layeraselectionbackground))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency))
+        list.append(getConfigListEntry(tab*2 + _("Font color"), config.plugins.MyMetrixLiteColors.layeraselectionforeground))
+        list.append(getConfigListEntry(tab + _("Progress bar"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.layeraprogress))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.layeraprogresstransparency))
+        list.append(getConfigListEntry(tab + _("Accent colors"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color 1"), config.plugins.MyMetrixLiteColors.layeraaccent1))
+        list.append(getConfigListEntry(tab*2 + _("Color 2"), config.plugins.MyMetrixLiteColors.layeraaccent2))
+        list.append(getConfigListEntry(tab + _("Extended Info colors"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color 1"), config.plugins.MyMetrixLiteColors.layeraextendedinfo1))
+        list.append(getConfigListEntry(tab*2 + _("Color 2"), config.plugins.MyMetrixLiteColors.layeraextendedinfo2))
+        section = _("Layer B (secondary layer)")
+        list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        list.append(getConfigListEntry(tab + _("Background"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.layerbbackground))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency))
+        list.append(getConfigListEntry(tab*2 + _("Font color"), config.plugins.MyMetrixLiteColors.layerbforeground))
+        list.append(getConfigListEntry(tab + _("Selection bar"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.layerbselectionbackground))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency))
+        list.append(getConfigListEntry(tab*2 + _("Font color"), config.plugins.MyMetrixLiteColors.layerbselectionforeground))
+        list.append(getConfigListEntry(tab + _("Progress bar"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.layerbprogress))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.layerbprogresstransparency))
+        list.append(getConfigListEntry(tab + _("Accent colors"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color 1"), config.plugins.MyMetrixLiteColors.layerbaccent1))
+        list.append(getConfigListEntry(tab*2 + _("Color 2"), config.plugins.MyMetrixLiteColors.layerbaccent2))
+        section = _("Graphical EPG")
+        list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        list.append(getConfigListEntry(tab + _("Event Description"), ))
+        list.append(getConfigListEntry(tab*2 + _("Background"), ))
+        list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground))
+        list.append(getConfigListEntry(tab*3 + _("Transparency"), config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency))
+        list.append(getConfigListEntry(tab*3 + _("Font color"), config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground))
+        list.append(getConfigListEntry(tab + _("Event List"), ))
+        list.append(getConfigListEntry(tab*2 + _("Font color"), config.plugins.MyMetrixLiteColors.epgeventforeground))
+        list.append(getConfigListEntry(tab + _("Time Line"), ))
+        list.append(getConfigListEntry(tab*2 + _("Font color"), config.plugins.MyMetrixLiteColors.epgtimelineforeground))
+        section = _("Channelselection")
+        list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        list.append(getConfigListEntry(tab + _("Service"), ))
+        list.append(getConfigListEntry(tab*2 + _("Font color"), config.plugins.MyMetrixLiteColors.channelselectionservice))
+        list.append(getConfigListEntry(tab*2 + _("Font color selected"), config.plugins.MyMetrixLiteColors.channelselectionserviceselected))
+        list.append(getConfigListEntry(tab*2 + _("Font color recording"), config.plugins.MyMetrixLiteColors.channelselectioncolorServiceRecorded))
+        list.append(getConfigListEntry(tab*2 + _("Font color pseudo recording"), config.plugins.MyMetrixLiteColors.channelselectioncolorServicePseudoRecorded))
+        list.append(getConfigListEntry(tab*2 + _("Font color streaming"), config.plugins.MyMetrixLiteColors.channelselectioncolorServiceStreamed))
+        list.append(getConfigListEntry(tab + _("Service Description"), ))
+        list.append(getConfigListEntry(tab*2 + _("Font color"), config.plugins.MyMetrixLiteColors.channelselectionservicedescription))
+        list.append(getConfigListEntry(tab*2 + _("Font color selected"), config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected))
+        section = _("EMC Movie List")
+        list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        list.append(getConfigListEntry(tab + _("Watched color"), config.plugins.MyMetrixLiteColors.emcWatchingColor))
+        list.append(getConfigListEntry(tab + _("Finished color"), config.plugins.MyMetrixLiteColors.emcFinishedColor))
+        list.append(getConfigListEntry(tab + _("Recording color"), config.plugins.MyMetrixLiteColors.emcRecordingColor))
+        list.append(getConfigListEntry(tab + _("Show event colors if entry selected"), config.plugins.MyMetrixLiteColors.emcCoolHighlightColor))
+        section = _("Skin Design")
+        list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        list.append(getConfigListEntry(tab + _("Border lines"), ))
+        list.append(getConfigListEntry(tab*2 + _("Selection bar"), ))
+        list.append(getConfigListEntry(tab*3 + _("Top"), config.plugins.MyMetrixLiteColors.listboxborder_topwidth, "ENABLED"))
+        if config.plugins.MyMetrixLiteColors.listboxborder_topwidth.value != "no":
+            list.append(getConfigListEntry(tab*4 + _("Color"), config.plugins.MyMetrixLiteColors.listboxborder_top))
+        list.append(getConfigListEntry(tab*3 + _("Bottom"), config.plugins.MyMetrixLiteColors.listboxborder_bottomwidth, "ENABLED"))
+        if config.plugins.MyMetrixLiteColors.listboxborder_bottomwidth.value != "no":
+            list.append(getConfigListEntry(tab*4 + _("Color"), config.plugins.MyMetrixLiteColors.listboxborder_bottom))
+        list.append(getConfigListEntry(tab*3 + _("Left"), config.plugins.MyMetrixLiteColors.listboxborder_leftwidth, "ENABLED"))
+        if config.plugins.MyMetrixLiteColors.listboxborder_leftwidth.value != "no":
+            list.append(getConfigListEntry(tab*4 + _("Color"), config.plugins.MyMetrixLiteColors.listboxborder_left))
+        list.append(getConfigListEntry(tab*3 + _("Right"), config.plugins.MyMetrixLiteColors.listboxborder_rightwidth, "ENABLED"))
+        if config.plugins.MyMetrixLiteColors.listboxborder_rightwidth.value != "no":
+            list.append(getConfigListEntry(tab*4 + _("Color"), config.plugins.MyMetrixLiteColors.listboxborder_right))
+        list.append(getConfigListEntry(tab + _("Additional Layer"),))
+        list.append(getConfigListEntry(tab*2 + _("Skin Design Examples"),config.plugins.MyMetrixLiteOther.SkinDesignExamples, "PRESET2"))
+        list.append(getConfigListEntry(tab*2 + _("Show upper left Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignLUC, "ENABLED"))
+        if config.plugins.MyMetrixLiteOther.SkinDesignLUC.getValue() is not "no":
+            list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.upperleftcornerbackground))
+            list.append(getConfigListEntry(tab*3 + _("Transparency"), config.plugins.MyMetrixLiteColors.upperleftcornertransparency))
+            list.append(getConfigListEntry(tab*3 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignLUCwidth))
+            list.append(getConfigListEntry(tab*3 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignLUCheight))
+            list.append(getConfigListEntry(tab*3 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignLUCposz))
+        list.append(getConfigListEntry(tab*2 + _("Show lower left Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignLLC, "ENABLED"))
+        if config.plugins.MyMetrixLiteOther.SkinDesignLLC.getValue() is not "no":
+            list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.lowerleftcornerbackground))
+            list.append(getConfigListEntry(tab*3 + _("Transparency"), config.plugins.MyMetrixLiteColors.lowerleftcornertransparency))
+            list.append(getConfigListEntry(tab*3 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignLLCwidth))
+            list.append(getConfigListEntry(tab*3 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignLLCheight))
+            list.append(getConfigListEntry(tab*3 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignLLCposz))
+        list.append(getConfigListEntry(tab*2 + _("Show upper right Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignRUC, "ENABLED"))
+        if config.plugins.MyMetrixLiteOther.SkinDesignRUC.getValue() is not "no":
+            list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.upperrightcornerbackground))
+            list.append(getConfigListEntry(tab*3 + _("Transparency"), config.plugins.MyMetrixLiteColors.upperrightcornertransparency))
+            list.append(getConfigListEntry(tab*3 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignRUCwidth))
+            list.append(getConfigListEntry(tab*3 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignRUCheight))
+            list.append(getConfigListEntry(tab*3 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignRUCposz))
+        list.append(getConfigListEntry(tab*2 + _("Show lower right Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignRLC, "ENABLED"))
+        if config.plugins.MyMetrixLiteOther.SkinDesignRLC.getValue() is not "no":
+            list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.lowerrightcornerbackground))
+            list.append(getConfigListEntry(tab*3 + _("Transparency"), config.plugins.MyMetrixLiteColors.lowerrightcornertransparency))
+            list.append(getConfigListEntry(tab*3 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignRLCwidth))
+            list.append(getConfigListEntry(tab*3 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignRLCheight))
+            list.append(getConfigListEntry(tab*3 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignRLCposz))
+        list.append(getConfigListEntry(tab*2 + _("Show optional horizontal Layer"),config.plugins.MyMetrixLiteOther.SkinDesignOLH, "ENABLED"))
+        if config.plugins.MyMetrixLiteOther.SkinDesignOLH.getValue() is not "no":
+            list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.optionallayerhorizontalbackground))
+            list.append(getConfigListEntry(tab*3 + _("Transparency"), config.plugins.MyMetrixLiteColors.optionallayerhorizontaltransparency))
+            list.append(getConfigListEntry(tab*3 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth))
+            list.append(getConfigListEntry(tab*3 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignOLHheight))
+            list.append(getConfigListEntry(tab*3 + _("pos x"), config.plugins.MyMetrixLiteOther.SkinDesignOLHposx))
+            list.append(getConfigListEntry(tab*3 + _("pos y"), config.plugins.MyMetrixLiteOther.SkinDesignOLHposy))
+            list.append(getConfigListEntry(tab*3 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignOLHposz))
+        list.append(getConfigListEntry(tab*2 + _("Show optional vertical Layer"),config.plugins.MyMetrixLiteOther.SkinDesignOLV, "ENABLED"))
+        if config.plugins.MyMetrixLiteOther.SkinDesignOLV.getValue() is not "no":
+            list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.optionallayerverticalbackground))
+            list.append(getConfigListEntry(tab*3 + _("Transparency"), config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency))
+            list.append(getConfigListEntry(tab*3 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth))
+            list.append(getConfigListEntry(tab*3 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignOLVheight))
+            list.append(getConfigListEntry(tab*3 + _("pos x"), config.plugins.MyMetrixLiteOther.SkinDesignOLVposx))
+            list.append(getConfigListEntry(tab*3 + _("pos y"), config.plugins.MyMetrixLiteOther.SkinDesignOLVposy))
+            list.append(getConfigListEntry(tab*3 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignOLVposz))
 
         return list
 
@@ -214,13 +294,30 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 
         if cur == "PRESET":
             self.getPreset()
+        elif cur == "PRESET2":
+            self.getPreset2()
 
-        if cur == "ENABLED" or cur == "PRESET":
+        if cur == "ENABLED" or cur == "PRESET" or cur == "PRESET2":
             self["config"].setList(self.getMenuItemList())
 
     def getPreset(self):
         if config.plugins.MyMetrixLiteColors.SkinColorExamples.value == "preset_0":
         #standard colors
+            config.plugins.MyMetrixLiteColors.menufont.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.menufontselected.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.menubackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.menubackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.menusymbolbackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.menusymbolbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.infobarbackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.infobarbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.infobarprogress.value = "27408B"
+            config.plugins.MyMetrixLiteColors.infobarprogresstransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.infobarfont1.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.infobarfont2.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.infobaraccent1.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.infobaraccent2.value = "6E6E6E"
+
             config.plugins.MyMetrixLiteColors.channelselectionservice.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "BDBDBD"
@@ -291,6 +388,21 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency.value = "1A"
         elif config.plugins.MyMetrixLiteColors.SkinColorExamples.value == "preset_1":
         #bright colors
+            config.plugins.MyMetrixLiteColors.menufont.value = "D8D8D8"
+            config.plugins.MyMetrixLiteColors.menufontselected.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.menubackground.value = "D8D8D8"
+            config.plugins.MyMetrixLiteColors.menubackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.menusymbolbackground.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.menusymbolbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.infobarbackground.value = "D8D8D8"
+            config.plugins.MyMetrixLiteColors.infobarbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.infobarprogress.value = "27408B"
+            config.plugins.MyMetrixLiteColors.infobarprogresstransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.infobarfont1.value = "1C1C1C"
+            config.plugins.MyMetrixLiteColors.infobarfont2.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.infobaraccent1.value = "1C1C1C"
+            config.plugins.MyMetrixLiteColors.infobaraccent2.value = "6E6E6E"
+
             config.plugins.MyMetrixLiteColors.channelselectionservice.value = "1C1C1C"
             config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "424242"
@@ -361,6 +473,21 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency.value = "1A"
         elif config.plugins.MyMetrixLiteColors.SkinColorExamples.value == "preset_2":
         #dark colors
+            config.plugins.MyMetrixLiteColors.menufont.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.menufontselected.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.menubackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.menubackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.menusymbolbackground.value = "27408B"
+            config.plugins.MyMetrixLiteColors.menusymbolbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.infobarbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.infobarbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.infobarprogress.value = "27408B"
+            config.plugins.MyMetrixLiteColors.infobarprogresstransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.infobarfont1.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.infobarfont2.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.infobaraccent1.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.infobaraccent2.value = "6E6E6E"
+
             config.plugins.MyMetrixLiteColors.channelselectionservice.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "BDBDBD"
@@ -431,6 +558,21 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency.value = "4D"
         elif config.plugins.MyMetrixLiteColors.SkinColorExamples.value == "preset_3":
         #red colors
+            config.plugins.MyMetrixLiteColors.menufont.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.menufontselected.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.menubackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.menubackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.menusymbolbackground.value = "911D10"
+            config.plugins.MyMetrixLiteColors.menusymbolbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.infobarbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.infobarbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.infobarprogress.value = "911D10"
+            config.plugins.MyMetrixLiteColors.infobarprogresstransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.infobarfont1.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.infobarfont2.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.infobaraccent1.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.infobaraccent2.value = "6E6E6E"
+
             config.plugins.MyMetrixLiteColors.channelselectionservice.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "BDBDBD"
@@ -501,6 +643,21 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency.value = "4D"
         elif config.plugins.MyMetrixLiteColors.SkinColorExamples.value == "preset_4":
         #yellow colors
+            config.plugins.MyMetrixLiteColors.menufont.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.menufontselected.value = "000000"
+            config.plugins.MyMetrixLiteColors.menubackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.menubackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.menusymbolbackground.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.menusymbolbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.infobarbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.infobarbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.infobarprogress.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.infobarprogresstransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.infobarfont1.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.infobarfont2.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.infobaraccent1.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.infobaraccent2.value = "6E6E6E"
+
             config.plugins.MyMetrixLiteColors.channelselectionservice.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "000000"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "BDBDBD"
@@ -571,6 +728,21 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency.value = "1A"
         elif config.plugins.MyMetrixLiteColors.SkinColorExamples.value == "preset_5":
         #green colors
+            config.plugins.MyMetrixLiteColors.menufont.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.menufontselected.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.menubackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.menubackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.menusymbolbackground.value = "70AD11"
+            config.plugins.MyMetrixLiteColors.menusymbolbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.infobarbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.infobarbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.infobarprogress.value = "70AD11"
+            config.plugins.MyMetrixLiteColors.infobarprogresstransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.infobarfont1.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.infobarfont2.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.infobaraccent1.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.infobaraccent2.value = "6E6E6E"
+
             config.plugins.MyMetrixLiteColors.channelselectionservice.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value = "70AD11"
@@ -639,6 +811,108 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.optionallayerhorizontaltransparency.value = "1A"
             config.plugins.MyMetrixLiteColors.optionallayerverticalbackground.value = "00008B"
             config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency.value = "1A"
+
+    def getPreset2(self):
+        # skin design preset (additional layer)
+        if config.plugins.MyMetrixLiteOther.SkinDesignExamples.value == "preset_0":
+            config.plugins.MyMetrixLiteOther.SkinDesignLUC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignLLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignRUC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignRLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLH.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLV.value = "no"
+        elif config.plugins.MyMetrixLiteOther.SkinDesignExamples.value == "preset_1":
+            config.plugins.MyMetrixLiteOther.SkinDesignLUC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignLLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignRUC.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignRLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLH.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLV.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCwidth.value = 1280
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCheight.value = 720
+            config.plugins.MyMetrixLiteOther.SkinDesignLUCposz.value = 0
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth.value = 3
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHheight.value = 720
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposx.value = 29
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposy.value = 0
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposz.value = 1
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth.value = 1280
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVheight.value = 3
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVposx.value = 0
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVposy.value = 696
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVposz.value = 1
+        elif config.plugins.MyMetrixLiteOther.SkinDesignExamples.value == "preset_2":
+            config.plugins.MyMetrixLiteOther.SkinDesignLUC.value = "menus"
+            config.plugins.MyMetrixLiteOther.SkinDesignLLC.value = "screens"
+            config.plugins.MyMetrixLiteOther.SkinDesignRUC.value = "screens"
+            config.plugins.MyMetrixLiteOther.SkinDesignRLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLH.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLV.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignLUCwidth.value = 1280
+            config.plugins.MyMetrixLiteOther.SkinDesignLUCheight.value = 720
+            config.plugins.MyMetrixLiteOther.SkinDesignLLCwidth.value = 795
+            config.plugins.MyMetrixLiteOther.SkinDesignLLCheight.value = 720
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCwidth.value = 1280
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCheight.value = 720
+            config.plugins.MyMetrixLiteOther.SkinDesignLLCposz.value = 1
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCposz.value = 0
+        elif config.plugins.MyMetrixLiteOther.SkinDesignExamples.value == "preset_3":
+            config.plugins.MyMetrixLiteOther.SkinDesignLUC.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignLLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignRUC.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignRLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLH.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLV.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignLUCwidth.value = 100
+            config.plugins.MyMetrixLiteOther.SkinDesignLUCheight.value = 720
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCwidth.value = 100
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCheight.value = 720
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth.value = 1280
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHheight.value = 5
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposx.value = 0
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposy.value = 10
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth.value = 1280
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVheight.value = 5
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVposx.value = 0
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVposy.value = 695
+            config.plugins.MyMetrixLiteOther.SkinDesignLUCposz.value = 1
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCposz.value = 1
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposz.value = 0
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVposz.value = 0
+        elif config.plugins.MyMetrixLiteOther.SkinDesignExamples.value == "preset_4":
+            config.plugins.MyMetrixLiteOther.SkinDesignLUC.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignLLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignRUC.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignRLC.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLH.value = "both"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLV.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignLUCwidth.value = 200
+            config.plugins.MyMetrixLiteOther.SkinDesignLUCheight.value = 41
+            config.plugins.MyMetrixLiteOther.SkinDesignLLCwidth.value = 200
+            config.plugins.MyMetrixLiteOther.SkinDesignLLCheight.value = 101
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCwidth.value = 200
+            config.plugins.MyMetrixLiteOther.SkinDesignRUCheight.value = 41
+            config.plugins.MyMetrixLiteOther.SkinDesignRLCwidth.value = 1280
+            config.plugins.MyMetrixLiteOther.SkinDesignRLCheight.value = 101
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth.value = 200
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHheight.value = 41
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposx.value = 540
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposy.value = 0
+        elif config.plugins.MyMetrixLiteOther.SkinDesignExamples.value == "preset_5":
+            config.plugins.MyMetrixLiteOther.SkinDesignLUC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignLLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignRUC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignRLC.value = "no"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLH.value = "screens"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLV.value = "menus"
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth.value = 1220
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHheight.value = 670
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposx.value = 30
+            config.plugins.MyMetrixLiteOther.SkinDesignOLHposy.value = 15
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth.value = 883
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVheight.value = 578
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVposx.value = 254
+            config.plugins.MyMetrixLiteOther.SkinDesignOLVposy.value = 41
 
     def GetPicturePath(self):
         try:

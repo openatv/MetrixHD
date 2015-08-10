@@ -97,7 +97,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
     def getMenuItemList(self):
         list = []
 
-        list.append(getConfigListEntry(_("Enabled"), config.plugins.MetrixWeather.enabled, "WEATHER_ENABLED"))
+        list.append(getConfigListEntry(_("Enabled"), config.plugins.MetrixWeather.enabled, "ENABLED"))
 
         if config.plugins.MetrixWeather.enabled.getValue() is True:
             list.append(getConfigListEntry(_("Show in MoviePlayer"), config.plugins.MetrixWeather.MoviePlayer))
@@ -167,8 +167,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
         cur = self["config"].getCurrent()
         cur = cur and len(cur) > 2 and cur[2]
 
-        # change if type is BACKUP
-        if cur == "WEATHER_ENABLED":
+        if cur == "ENABLED":
             self["config"].setList(self.getMenuItemList())
 
     def showHelperText(self):
