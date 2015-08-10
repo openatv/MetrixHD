@@ -3902,8 +3902,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 				}
 			</convert>
 		</widget>
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="70,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="r___-buttons_template1" />
+		<panel name="r___-keys_template1-source" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/swm.png" transparent="1" alphatest="blend" />
 		<panel name="_me-buttons_template1" />
 	</screen>
@@ -3922,10 +3922,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 				}
 			</convert>
 		</widget>
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 35,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="401,635" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="70,638" size="240,30" zPosition="1" valign="center" font="global_button;20" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_green" render="Label" position="436,638" size="240,30" zPosition="1" valign="center" font="global_button;20" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
 		<panel name="__e-buttons_template1" />
 	</screen>
 	<screen name="FlashOnline" position="0,0" size="1280,720" title="Flash Online" flags="wfNoBorder" backgroundColor="transparent">
@@ -3963,6 +3961,18 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="rg__-keys_template1-source" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/infopanel.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="RestartNetwork" position="center,center" size="580,140" title="Restart Network Adapter" flags="wfNoBorder" backgroundColor="layer-a-background">
+		<ePixmap name="InfoPixmap" pixmap="MetrixHD/icons/message/info-53.png" position="8,8" size="53,53" alphatest="blend" />
+		<widget source="Title" render="Label" position="67,10" foregroundColor="layer-a-title-foreground" size="505,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1"/>
+		<eLabel name="line1" position="0,69" size="580,1" backgroundColor="layer-a-accent1" zPosition="1" />
+		<widget name="label" position="5,80" size="570,50" font="screen_info;23" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+	</screen>
+	<screen name="installedPlugins" position="center,center" size="580,140" title="Install Plugins" flags="wfNoBorder" backgroundColor="layer-a-background">
+		<ePixmap name="InfoPixmap" pixmap="MetrixHD/icons/message/info-53.png" position="8,8" size="53,53" alphatest="blend" />
+		<widget source="Title" render="Label" position="67,10" foregroundColor="layer-a-title-foreground" size="505,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1"/>
+		<eLabel name="line1" position="0,69" size="580,1" backgroundColor="layer-a-accent1" zPosition="1" />
+		<widget name="label" position="5,80" size="570,50" font="screen_info;23" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
 	</screen>
 	<!-- OpenWebif Configuration by Maggy -->
 	<screen name="OpenWebifConfig" position="0,0" size="1280,720" title="OpenWebif Configuration" flags="wfNoBorder" backgroundColor="transparent">
