@@ -177,8 +177,8 @@
 				{"template": [
 					MultiContentEntryPixmapAlphaBlend(pos = (10, 10), size = (54, 54), png = 3), # index 3 is the interface pixmap
 					MultiContentEntryPixmapAlphaBlend(pos = (71, 46), size = (15, 16), png = 4), # index 4 is the default pixmap
-					MultiContentEntryText(pos = (100, 2), size = (520, 35), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1), # index 1 is the interfacename
-					MultiContentEntryText(pos = (100, 42), size = (520, 25), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_BOTTOM, text = 2), # index 2 is the description
+					MultiContentEntryText(pos = (100, 2), size = (600, 40), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1), # index 1 is the interfacename
+					MultiContentEntryText(pos = (100, 42), size = (600, 25), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_BOTTOM, text = 2), # index 2 is the description
 				],
 				"fonts": [gFont("SetrixHD",28),gFont("SetrixHD",20)],
 				"itemHeight": 75
@@ -264,11 +264,11 @@
 		<widget source="list" render="Listbox" position="70,165" size="700,450" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
-						MultiContentEntryText(pos = (10, 8), size = (650, 35), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the essid
-						MultiContentEntryText(pos = (10, 43), size = (210, 25), font=1, flags = RT_HALIGN_LEFT, text = 5), # index 5 is the interface
-						MultiContentEntryText(pos = (230, 43), size = (210, 25), font=1, flags = RT_HALIGN_LEFT, text = 4), # index 0 is the encryption
-						MultiContentEntryText(pos = (450, 8), size = (220, 25), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 0 is the signal
-						MultiContentEntryText(pos = (450, 43), size = (220, 25), font=1, flags = RT_HALIGN_LEFT, text = 3), # index 0 is the maxrate
+						MultiContentEntryText(pos = (10, 2), size = (650, 40), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the essid
+						MultiContentEntryText(pos = (10, 42), size = (210, 30), font=1, flags = RT_HALIGN_LEFT, text = 5), # index 5 is the interface
+						MultiContentEntryText(pos = (230, 42), size = (210, 30), font=1, flags = RT_HALIGN_LEFT, text = 4), # index 0 is the encryption
+						MultiContentEntryText(pos = (450, 8), size = (220, 30), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 0 is the signal
+						MultiContentEntryText(pos = (450, 42), size = (220, 30), font=1, flags = RT_HALIGN_LEFT, text = 3), # index 0 is the maxrate
 					],
 				"fonts": [gFont("SetrixHD",28),gFont("SetrixHD",20)],
 				"itemHeight": 75
@@ -1806,7 +1806,7 @@ self.instance.move(ePoint(0,0))
 		<widget source="languages" render="Listbox" position="70,110" size="700,480" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
-				MultiContentEntryText(pos = (130, 17), size = (550, 60), flags = RT_HALIGN_LEFT, text = 1), # index 1 is the language name,
+				MultiContentEntryText(pos = (130, 14), size = (570, 60), flags = RT_HALIGN_LEFT, text = 1), # index 1 is the language name,
 				MultiContentEntryPixmap(pos = (20, 10), size = (60, 40), png = 2), # index 2 is the pixmap
 				],
 				"fonts": [gFont("SetrixHD",24)],
@@ -2354,17 +2354,6 @@ self.instance.move(ePoint(0,0))
 	<screen name="QuitMainloopScreen" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="black">
 		<ePixmap pixmap="MetrixHD/icons/message/info-53.png" position="c-27,c-60" size="53,53" alphatest="blend" />
 		<widget name="text" position="center,c+10" size="720,100" font="screen_text;20" halign="center" backgroundColor="black" foregroundColor="white"/>
-	</screen>
-	<screen name="HelpMenu" position="0,0" size="1280,720" title="Menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
-		<eLabel text="help..." position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="rc" position="160,115" size="154,500" pixmaps="skin_default/rc.png,skin_default/rcold.png" zPosition="10" alphatest="blend" />
-		<widget name="long_key" position=" 90,632" size="300,32" font="SetrixHD;24" halign="center" foregroundColor="yellow" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="500,120" size="720,480" itemHeight="40" font="screen_text; 20" scrollbarMode="showOnDemand" transparent="1" />
-		<widget name="arrowdown" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />
-		<widget name="arrowdown2" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />
-		<widget name="arrowup" position="-100,-100" size="37,70" pixmap="skin_default/arrowup.png" zPosition="11" alphatest="blend" />
-		<widget name="arrowup2" position="-100,-100" size="37,70" pixmap="skin_default/arrowup.png" zPosition="11" alphatest="blend" />
 	</screen>
 	<screen name="HistoryZapSelector" position="center,center" size="550,490" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="History Zap..." position="0,-32" size="550,50" halign="center" font="global_title; 35" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" transparent="1" />
@@ -4162,4 +4151,119 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/search.png" transparent="1" alphatest="blend" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
+	<!-- Wizard Screens -->
+	<screen name="wizard_template">
+		<widget name="text" position="70,110" size="700,240" font="screen_text;23" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel position="70,360" size="700,1" backgroundColor="layer-a-accent1" />
+		<widget source="list" render="Listbox" position="70,370" size="700,240" zPosition="13" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+			<convert type="TemplatedMultiContent">
+				{"template": [ MultiContentEntryText(pos = (20, 0), size = (680, 30), flags = RT_HALIGN_LEFT, text = 0) ],
+				"fonts": [gFont("screen_text",22)],
+				"itemHeight": 30
+				}
+			</convert>
+		</widget>
+		<widget name="config" position="70,370" size="700,240" itemHeight="30" zPosition="14" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="HelpWindow" position="110,130" size="604,126" zPosition="1" transparent="1" alphatest="blend" />
+		<panel name="r___-buttons_template1" />
+		<widget name="languagetext" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<panel name="__e-buttons_template1" />
+		<panel name="template1_2layer" />
+	</screen>
+<!-- next_screen_rename_and_stop_mod -->
+	<screen name="wizard_rc_template">
+		<widget name="rc" position="955,100" size="154,500" pixmaps="skin_default/rc.png,skin_default/rcold.png" zPosition="10" alphatest="blend" />
+		<widget name="arrowdown" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />
+		<widget name="arrowdown2" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />
+		<widget name="arrowup" position="-100,-100" size="37,70" pixmap="skin_default/arrowup.png" zPosition="11" alphatest="blend" />
+		<widget name="arrowup2" position="-100,-100" size="37,70" pixmap="skin_default/arrowup.png" zPosition="11" alphatest="blend" />
+	</screen>
+<!-- next_screen_rename_and_stop_mod -->
+	<screen name="wizard_rc_template_is_FHD">
+		<widget name="rc" position="1475,250" size="154,500" pixmaps="skin_default/rc.png,skin_default/rcold.png" zPosition="10" alphatest="blend" />
+		<widget name="arrowdown" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />
+		<widget name="arrowdown2" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />
+		<widget name="arrowup" position="-100,-100" size="37,70" pixmap="skin_default/arrowup.png" zPosition="11" alphatest="blend" />
+		<widget name="arrowup2" position="-100,-100" size="37,70" pixmap="skin_default/arrowup.png" zPosition="11" alphatest="blend" />
+	</screen>
+<!-- run_mod -->
+	<screen name="HelpMenu" position="0,0" size="1280,720" title="Menu" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="help..." position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="long_key" position=" 70,630" size="700,34" font="SetrixHD;25" halign="center" zPosition="2" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="0" />
+		<panel name="wizard_rc_template" />
+		<panel name="__e-buttons_template1" />
+		<panel name="template1_2layer" />
+	</screen>
+	<screen name="NetworkWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="NetworkWizard" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="wizard_template" />
+		<panel name="wizard_rc_template" />
+	</screen>
+	<screen name="DefaultSatLists" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="DefaultSatLists" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="wizard_template" />
+		<panel name="wizard_rc_template" />
+	</screen>
+	<screen name="DefaultWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="DefaultWizard" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="wizard_template" />
+		<panel name="wizard_rc_template" />
+	</screen>
+	<screen name="DreamPackageWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="DreamPackageWizard" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="wizard_template" />
+		<panel name="wizard_rc_template" />
+	</screen>
+	<screen name="ImageWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="ImageWizard" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="wizard_template" />
+		<panel name="wizard_rc_template" />
+	</screen>
+	<screen name="LanguageWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="LanguageWizard" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="text" position="70,110" size="700,240" font="screen_text;23" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel position="70,360" size="700,1" backgroundColor="layer-a-accent1" />
+		<widget source="languages" render="Listbox" position="70,370" size="700,240" zPosition="13" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+			<convert type="TemplatedMultiContent">
+				{"template": [
+				MultiContentEntryText(pos = (130, 14), size = (570, 60), flags = RT_HALIGN_LEFT, text = 1), # index 1 is the language name,
+				MultiContentEntryPixmap(pos = (20, 10), size = (60, 40), png = 2), # index 2 is the pixmap
+				],
+				"fonts": [gFont("SetrixHD",24)],
+				"itemHeight": 60
+				}
+			</convert>
+		</widget>
+		<panel name="wizard_rc_template" />
+		<panel name="__e-buttons_template1" />
+		<panel name="template1_2layer" />
+	</screen>
+	<screen name="StartWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="StartWizard" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="wizard_template" />
+		<panel name="wizard_rc_template" />
+	</screen>
+	<screen name="VideoWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="VideoWizard" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="wizard_template" />
+		<panel name="wizard_rc_template" />
+	</screen>
+	<!-- CleanupWizard -->
+	<screen name="CleanupWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="CleanupWizard" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="wizard_template" />
+		<panel name="wizard_rc_template" />
+	</screen>
+	<screen name="CleanupWizardConfiguration" position="0,0" size="1280,720" title="CleanupWizard settings" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,110" size="700,450" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget source="status" render="Label" position="70,590" size="700,30" font="SetrixHD;22" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1" />
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- Wizard Screens -->
 </skin>
