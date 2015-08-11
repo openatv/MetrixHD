@@ -2070,14 +2070,39 @@
 	</screen>
 	<!--Bitrate Viewer -->
 	<!--Satip Client -->
-	<screen name="SatIPclientSetup" position="center,center" size="1280,720" backgroundColor="transparent">
+	<screen name="SATIPClient" position="center,center" size="1280,720" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" zPosition="2" position="70,110" size="700,350" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" transparent="1" />
-		<widget name="text" position="70,470" size="700,30" font="Regular;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" valign="center" />
-		<widget name="description" position="825,425" size="380,175" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<widget source="vtunerList" render="Listbox" position="70,165" size="710,450" zPosition="3" scrollbarMode="showNever" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"templates":
+					{"default": (68,[
+							MultiContentEntryText(pos = (20, 0), size = (180, 28), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0),
+							MultiContentEntryText(pos = (50, 28), size = (140, 20), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),
+							MultiContentEntryText(pos = (210, 28), size = (140, 20), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2),
+							MultiContentEntryText(pos = (370, 28), size = (140, 20), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 3),
+							MultiContentEntryText(pos = (50, 48), size = (490, 20), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 4),
+					]),
+					},
+					"fonts": [gFont("Regular", 24),gFont("Regular", 16)],
+					"itemHeight": 68
+				}
+				</convert>
+		</widget>
+		<widget source="description" render="Label" position="810,415" size="415,190" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
-		<panel name="rgy_-buttons_template1" />
-		<panel name="rgy_-keys_template1" />
+		<panel name="rgyb-buttons_template1" /> 
+		<panel name="rgyb-keys_template1-source" /> 
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_satip.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="SATIPTuner" position="center,center" size="1280,720" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" zPosition="2" position="70,110" size="700,100" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" transparent="1" />
+		<widget source="choices" render="Label"  position="810,415" size="415,190" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<widget source="description" render="Label" position="70,270" size="700,210" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rgy_-buttons_template1" /> 
+		<panel name="rgy_-keys_template1-source" /> 
 		<panel name="__e-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_satip.png" transparent="1" alphatest="blend" />
 	</screen>
