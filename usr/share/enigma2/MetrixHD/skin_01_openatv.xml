@@ -2877,7 +2877,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<screen name="JobView" position="0,0" size="1280,720" title="JobView" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="290,160" zPosition="-10" size="700,400" backgroundColor="layer-a-background" />
 		<eLabel position="289,159" zPosition="-11" size="702,402" backgroundColor="layer-b-background" />
-		<eLabel text="JobView" position="310,170" size="660,50" halign="center" valign="center" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Job View" position="310,170" size="660,50" halign="center" valign="center" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<!--widget source="global.CurrentTime" render="Label" position="840,165" size="140,60" font="global_clock;50" noWrap="1" halign="center" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
@@ -2887,7 +2887,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="global.CurrentTime" render="Label" position="680,190" size="160,27" font="global_clock;16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Format:%e. %B</convert>
 		</widget-->
-		<eLabel position="300,225" size="680,1" backgroundColor="layer-a-accent2" />
+		<eLabel position="300,225" size="680,1" backgroundColor="layer-a-accent1" />
 		<widget source="job_name" render="Label" position="310,240" size="660,90" font="screen_info;22" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
 		<widget source="job_task" render="Label" position="310,333" size="660,30" font="screen_text;18" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1"/>
 		<widget source="job_progress" render="Progress" position="310,360" size="660,30" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
@@ -3424,26 +3424,27 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<screen name="PositionerSetup" position="0,0" size="1280,720" title="Positioner setup..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<eLabel text="Positioner setup..." position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="220,120" size="400,180" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget name="snr_db" position="160,405" size="200,25" halign="center" valign="center" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list" position="220,120" size="400,210" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<eLabel position="70,370" size="700,1" backgroundColor="layer-a-accent1" transparent="0" />
+		<widget name="snr_db" position="160,405" size="200,25" halign="center" valign="center" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<eLabel text="SNR:" position=" 70,440" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="snr_bar" position="160,440" size="200,25" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
-		<widget name="snr_percentage" position="370,440" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="BER:" position=" 70,475" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="snr_percentage" position="370,440" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel text="BER:" position=" 70,475" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="ber_bar" position="160,475" size="200,25" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
-		<widget name="ber_value" position="370,475" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="Lock:" position=" 70,510" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="lock_state" position="160,510" size="200,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="Status:" position=" 70,545" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="status_bar" position="160,545" size="300,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="Frequency:" position="490,440" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="frequency_value" position="650,440" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="Symbolrate:" position="490,475" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="symbolrate_value" position="650,475" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="FEC:" position="490,510" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="fec_value" position="650,510" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="Polarisation:" position="490,545" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="polarisation" position="650,545" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="ber_value" position="370,475" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel text="Lock:" position=" 70,510" size="80,25" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="lock_state" position="160,510" size="200,25" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground"  transparent="1" />
+		<eLabel text="Status:" position=" 70,545" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="status_bar" position="160,545" size="300,25" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel text="Frequency:" position="490,440" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="frequency_value" position="650,440" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel text="Symbolrate:" position="490,475" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="symbolrate_value" position="650,475" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel text="FEC:" position="490,510" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="fec_value" position="650,510" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel text="Polarisation:" position="490,545" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="polarisation" position="650,545" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_positioner_setup.png" transparent="1" alphatest="blend" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
@@ -4151,6 +4152,21 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/search.png" transparent="1" alphatest="blend" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
+	<!--AutoDiseqc /-->
+	<screen name="AutoDiseqc" position="0,0" size="1280,720" title="AutoDiseqc" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="290,160" zPosition="-10" size="700,400" backgroundColor="layer-a-background" />
+		<eLabel position="289,159" zPosition="-11" size="702,402" backgroundColor="layer-b-background" />
+		<widget source="Title" render="Label" position="310,170" size="660,50" halign="center" valign="center" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel position="300,225" size="680,1" backgroundColor="layer-a-accent1" />
+		<widget source="statusbar" render="Label" position="310,240" zPosition="10" size="660,60" halign="center" valign="center" font="screen_text;20" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+		<widget source="tunerstatusbar" render="Label" position="310,310" zPosition="10" size="660,30" halign="center" valign="center" font="screen_info;24" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+		<eLabel position="300,360" size="680,1" backgroundColor="layer-a-accent1" />
+		<widget name="config" position="310,380" size="660,120" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget source="key_red" render="Label" position="320,523" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<!--widget source="key_green" render="Label" position="503,523" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1"/-->
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="285,520" size="30,40" alphatest="blend"/>
+		<!--ePixmap pixmap="MetrixHD/buttons/key_green.png" position="468,520" size="30,40" alphatest="blend"/-->
+	</screen>
 	<!-- Wizard Screens -->
 	<screen name="wizard_template">
 		<widget name="text" position="70,110" size="700,240" font="screen_text;23" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -4216,12 +4232,14 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="wizard_rc_template" />
 	</screen>
 	<screen name="ImageWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="ImageWizard" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<!--eLabel text="ImageWizard" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /-->
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="wizard_template" />
 		<panel name="wizard_rc_template" />
 	</screen>
 	<screen name="LanguageWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="LanguageWizard" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<!--eLabel text="LanguageWizard" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /-->
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="text" position="70,110" size="700,240" font="screen_text;23" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<eLabel position="70,360" size="700,1" backgroundColor="layer-a-accent1" />
 		<widget source="languages" render="Listbox" position="70,370" size="700,240" zPosition="13" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
@@ -4240,12 +4258,14 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="template1_2layer" />
 	</screen>
 	<screen name="StartWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="StartWizard" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<!--eLabel text="StartWizard" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /-->
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="wizard_template" />
 		<panel name="wizard_rc_template" />
 	</screen>
 	<screen name="VideoWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="VideoWizard" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<!--eLabel text="VideoWizard" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /-->
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="wizard_template" />
 		<panel name="wizard_rc_template" />
 	</screen>

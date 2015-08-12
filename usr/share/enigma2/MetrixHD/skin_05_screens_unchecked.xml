@@ -9,29 +9,6 @@
 		<eLabel position="40,150" size="370,30" backgroundColor="layer-b-background" zPosition="-1" />
 		<widget name="restxt" position="50,150" size="350,25" font="global_clock; 20" backgroundColor="layer-b-background" foregroundColor="layer-a-clock-foreground" noWrap="1" />
 	</screen>
-
-	<screen name="AutoDiseqc" position="64,62" size="1280,720" title="AutoDiseqc" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="250,27" zPosition="-10" size="631,540" backgroundColor="layer-a-background" />
-		<widget source="global.CurrentTime" render="Label" position="713,26" size="140,60" font="global_clock;50" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="598,41" size="104,27" font="global_clock;16" halign="right" backgroundColor="layer-a-background" transparent="1" foregroundColor="layer-a-clock-foreground">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="598,64" size="104,29" font="global_clock;16" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<eLabel position="280,100" size="575,2" backgroundColor="layer-a-accent1" />
-		<widget source="Title" render="Label" position="280,43" size="290,43" font="SetrixHD;25" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="252,520" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="468,520" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="290,523" size="180,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_green" render="Label" position="508,523" size="180,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="280,center" size="575,249" zPosition="10" scrollbarMode="showOnDemand" transparent="1" backgroundColorSelected="layer-a-selection-background" />
-		<eLabel position="280,225" size="575,2" backgroundColor="layer-a-accent1" />
-		<widget source="statusbar" render="Label" position="280,115" zPosition="10" size="575,60" halign="center" valign="center" font="Regular;22" transparent="1" shadowColor="layer-a-background" shadowOffset="-1,-1" />
-		<widget source="tunerstatusbar" render="Label" position="280,182" zPosition="10" size="575,30" halign="center" valign="center" font="Regular;22" transparent="1" shadowColor="layer-a-background" shadowOffset="-1,-1" />
-	</screen>
 	<!-- Ecm Info -->
 	<screen name="EcmInfoScreen" flags="wfNoBorder" position="600,150" size="600, 80" zPosition="1" backgroundColor="transparent">
 		<eLabel backgroundColor="layer-a-background" position="0,5" size="600,80" zPosition="0" />
