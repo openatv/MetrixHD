@@ -1633,7 +1633,10 @@
 	<!-- openMultiboot Manager -->
 	<screen name="OMBManagerList" position="0,0" size="1280,720" title="OMBManagerList" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" size="525,50" noWrap="0" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="list" render="Listbox" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+		<widget name="label1" position="70,110" size="300,30" font="screen_label;22" foregroundColor="layer-a-foreground" halign="left" backgroundColor="layer-a-background" valign="center" transparent="1"/> 
+		<widget name="label2" position="370,110" size="400,30" font="screen_text;22" foregroundColor="layer-a-foreground" halign="right" backgroundColor="layer-a-background" valign="center" transparent="1"/> 
+		<eLabel position="70,160" size="700,1" backgroundColor="layer-a-accent1" />
+		<widget source="list" render="Listbox" position="70,180" size="700,450" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="StringList" />
 		</widget>
 		<panel name="template1_2layer" />
@@ -1644,7 +1647,9 @@
 	</screen>
 	<screen name="OMBManagerInstall" position="0,0" size="1280,720" title="OMBManagerInstall" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" size="525,50" noWrap="0" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="list" render="Listbox" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+		<widget name="info" position="70,110" size="700,30" font="screen_text;22" foregroundColor="layer-a-foreground" halign="left" backgroundColor="layer-a-background" valign="center" transparent="1"/> 
+		<eLabel position="70,160" size="700,1" backgroundColor="layer-a-accent1" />
+		<widget source="list" render="Listbox" position="70,180" size="700,450" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="StringList" />
 		</widget>
 		<panel name="template1_2layer" />
