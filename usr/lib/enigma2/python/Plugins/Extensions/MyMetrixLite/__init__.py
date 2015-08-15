@@ -302,9 +302,9 @@ def initColorsConfig():
     config.plugins.MyMetrixLiteColors.emcCoolHighlightColor = ConfigYesNo(default=True)
 
     config.plugins.MyMetrixLiteColors.windowtitletext = ConfigSelection(default="FFFFFF", choices = ColorList)
-    config.plugins.MyMetrixLiteColors.windowtitletexttransparency = ConfigSelection(default="1A", choices = TransparencyList)
-    config.plugins.MyMetrixLiteColors.windowtitletextback = ConfigSelection(default="FFFFFF", choices = ColorList)
-    config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency = ConfigSelection(default="34", choices = TransparencyList)
+    config.plugins.MyMetrixLiteColors.windowtitletexttransparency = ConfigSelection(default="00", choices = TransparencyList)
+    config.plugins.MyMetrixLiteColors.windowtitletextback = ConfigSelection(default="0F0F0F", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency = ConfigSelection(default="00", choices = TransparencyList)
     config.plugins.MyMetrixLiteColors.backgroundtext = ConfigSelection(default="FFFFFF", choices = ColorList)
     config.plugins.MyMetrixLiteColors.backgroundtexttransparency = ConfigSelection(default="34", choices = TransparencyList)
     config.plugins.MyMetrixLiteColors.backgroundtextback = ConfigSelection(default="FFFFFF", choices = ColorList)
