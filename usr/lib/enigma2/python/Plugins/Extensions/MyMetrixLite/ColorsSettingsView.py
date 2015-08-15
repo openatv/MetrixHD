@@ -224,6 +224,11 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         section = _("Skin Design")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         list.append(getConfigListEntry(tab + _("Border lines"), ))
+        list.append(getConfigListEntry(tab*2 + _("Screens"), ))
+        list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.windowborder_top))
+        list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.windowborder_bottom))
+        list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.windowborder_left))
+        list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.windowborder_right))
         list.append(getConfigListEntry(tab*2 + _("Selection bar"), ))
         list.append(getConfigListEntry(tab*3 + _("Top"), config.plugins.MyMetrixLiteColors.listboxborder_topwidth, "ENABLED"))
         if config.plugins.MyMetrixLiteColors.listboxborder_topwidth.value != "no":

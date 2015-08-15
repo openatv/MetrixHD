@@ -268,6 +268,11 @@ def initColorsConfig():
     config.plugins.MyMetrixLiteColors.listboxborder_left = ConfigSelection(default="FFFFFF", choices = BorderList)
     config.plugins.MyMetrixLiteColors.listboxborder_leftwidth = ConfigSelection(default="no", choices = BorderWidth)
 
+    config.plugins.MyMetrixLiteColors.windowborder_top = ConfigSelection(default="0F0F0F", choices = BorderList)
+    config.plugins.MyMetrixLiteColors.windowborder_bottom = ConfigSelection(default="0F0F0F", choices = BorderList)
+    config.plugins.MyMetrixLiteColors.windowborder_right = ConfigSelection(default="0F0F0F", choices = BorderList)
+    config.plugins.MyMetrixLiteColors.windowborder_left = ConfigSelection(default="0F0F0F", choices = BorderList)
+
     config.plugins.MyMetrixLiteColors.menufont = ConfigSelection(default="FFFFFF", choices = ColorList)
     config.plugins.MyMetrixLiteColors.menufontselected = ConfigSelection(default="FFFFFF", choices = ColorList)
     config.plugins.MyMetrixLiteColors.menubackground = ConfigSelection(default="0F0F0F", choices = ColorList)
