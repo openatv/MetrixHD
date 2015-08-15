@@ -4169,18 +4169,18 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	</screen>
 	<!-- Wizard Screens -->
 	<screen name="wizard_template">
-		<widget name="text" position="70,110" size="700,240" font="screen_text;23" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<eLabel position="70,360" size="700,1" backgroundColor="layer-a-accent1" />
-		<widget source="list" render="Listbox" position="70,370" size="700,240" zPosition="13" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+		<widget name="text" position="70,110" size="700,300" font="screen_text;20" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel position="70,420" size="700,1" backgroundColor="layer-a-accent1" />
+		<widget source="list" render="Listbox" position="70,435" size="700,180" zPosition="13" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="TemplatedMultiContent">
-				{"template": [ MultiContentEntryText(pos = (20, 0), size = (680, 30), flags = RT_HALIGN_LEFT, text = 0) ],
-				"fonts": [gFont("screen_text",22)],
+				{"template": [ MultiContentEntryText(pos = (5, 0), size = (680, 30), flags = RT_HALIGN_LEFT, text = 0) ],
+				"fonts": [gFont("screen_text",20)],
 				"itemHeight": 30
 				}
 			</convert>
 		</widget>
-		<widget name="config" position="70,370" size="700,240" itemHeight="30" zPosition="14" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget name="HelpWindow" position="110,130" size="604,126" zPosition="1" transparent="1" alphatest="blend" />
+		<widget name="config" position="70,435" size="700,180" itemHeight="30" zPosition="14" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="HelpWindow" position="110,115" size="604,126" zPosition="1" transparent="1" alphatest="blend" />
 		<panel name="r___-buttons_template1" />
 		<widget name="languagetext" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<panel name="__e-buttons_template1" />
@@ -4240,15 +4240,15 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<screen name="LanguageWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
 		<!--eLabel text="LanguageWizard" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /-->
 		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="text" position="70,110" size="700,240" font="screen_text;23" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<eLabel position="70,360" size="700,1" backgroundColor="layer-a-accent1" />
-		<widget source="languages" render="Listbox" position="70,370" size="700,240" zPosition="13" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+		<widget name="text" position="70,110" size="700,300" font="screen_text;20" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel position="70,420" size="700,1" backgroundColor="layer-a-accent1" />
+		<widget source="languages" render="Listbox" position="70,435" size="700,180" zPosition="13" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="TemplatedMultiContent">
 				{"template": [
-				MultiContentEntryText(pos = (130, 14), size = (570, 60), flags = RT_HALIGN_LEFT, text = 1), # index 1 is the language name,
-				MultiContentEntryPixmap(pos = (20, 10), size = (60, 40), png = 2), # index 2 is the pixmap
+				MultiContentEntryText(pos = (90, 16), size = (570, 30), flags = RT_HALIGN_LEFT, text = 1), # index 1 is the language name,
+				MultiContentEntryPixmap(pos = (10, 10), size = (60, 40), png = 2), # index 2 is the pixmap
 				],
-				"fonts": [gFont("SetrixHD",24)],
+				"fonts": [gFont("screen_text",20)],
 				"itemHeight": 60
 				}
 			</convert>
@@ -4278,7 +4278,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<screen name="CleanupWizardConfiguration" position="0,0" size="1280,720" title="CleanupWizard settings" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,110" size="700,450" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget source="status" render="Label" position="70,590" size="700,30" font="SetrixHD;22" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="status" render="Label" position="70,590" size="700,30" font="screen_info;22" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1" />
 		<panel name="template1_2layer" />
