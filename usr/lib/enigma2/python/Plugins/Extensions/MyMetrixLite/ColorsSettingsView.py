@@ -337,9 +337,9 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.emcCoolHighlightColor.value = True
 
             config.plugins.MyMetrixLiteColors.windowtitletext.value = "FFFFFF"
-            config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "1A"
-            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "FFFFFF"
-            config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "34"
+            config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "00"
+            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "00"
             config.plugins.MyMetrixLiteColors.backgroundtext.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value = "34"
             config.plugins.MyMetrixLiteColors.backgroundtextback.value = "FFFFFF"
@@ -422,9 +422,9 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.emcCoolHighlightColor.value = True
 
             config.plugins.MyMetrixLiteColors.windowtitletext.value = "424242"
-            config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "1A"
-            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "424242"
-            config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "34"
+            config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "00"
+            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "00"
             config.plugins.MyMetrixLiteColors.backgroundtext.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value = "34"
             config.plugins.MyMetrixLiteColors.backgroundtextback.value = "FFFFFF"
@@ -507,9 +507,9 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.emcCoolHighlightColor.value = True
 
             config.plugins.MyMetrixLiteColors.windowtitletext.value = "F0A30A"
-            config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "34"
-            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "F0A30A"
-            config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "67"
+            config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "00"
+            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "00"
             config.plugins.MyMetrixLiteColors.backgroundtext.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value = "9A"
             config.plugins.MyMetrixLiteColors.backgroundtextback.value = "FFFFFF"
@@ -592,9 +592,9 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.emcCoolHighlightColor.value = False
 
             config.plugins.MyMetrixLiteColors.windowtitletext.value = "BDBDBD"
-            config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "34"
-            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "BDBDBD"
-            config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "67"
+            config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "00"
+            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "00"
             config.plugins.MyMetrixLiteColors.backgroundtext.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value = "9A"
             config.plugins.MyMetrixLiteColors.backgroundtextback.value = "FFFFFF"
@@ -677,9 +677,9 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.emcCoolHighlightColor.value = False
 
             config.plugins.MyMetrixLiteColors.windowtitletext.value = "BF9217"
-            config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "34"
-            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "BF9217"
-            config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "67"
+            config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "00"
+            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "00"
             config.plugins.MyMetrixLiteColors.backgroundtext.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value = "9A"
             config.plugins.MyMetrixLiteColors.backgroundtextback.value = "FFFFFF"
@@ -762,9 +762,9 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.emcCoolHighlightColor.value = False
 
             config.plugins.MyMetrixLiteColors.windowtitletext.value = "70AD11"
-            config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "34"
-            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "70AD11"
-            config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "67"
+            config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value = "00"
+            config.plugins.MyMetrixLiteColors.windowtitletextback.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value = "00"
             config.plugins.MyMetrixLiteColors.backgroundtext.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value = "9A"
             config.plugins.MyMetrixLiteColors.backgroundtextback.value = "FFFFFF"
