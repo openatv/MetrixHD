@@ -629,6 +629,31 @@ class MainSettingsView(Screen):
             skinSearchAndReplace.append(['name="infobaraccent1" value="#00BDBDBD"', infobaraccent1 ])
             skinSearchAndReplace.append(['name="infobaraccent2" value="#006E6E6E"', infobaraccent2 ])
 
+            #Border screens
+            if config.plugins.MyMetrixLiteOther.FHDenabled.value:
+                width = "8px"
+                width_top = "75px"
+            else:
+                width = "5px"
+                width_top = "50px"
+
+            color = config.plugins.MyMetrixLiteColors.windowborder_top.value
+            if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width_top, color)):
+                newline = (('<pixmap pos="bpTop" filename="MetrixHD/border/%s/%s.png" />') % (width_top, color))
+                skinSearchAndReplace.append(['<pixmap pos="bpTop" filename="MetrixHD/border/50px/0F0F0F.png" />', newline ])
+            color = config.plugins.MyMetrixLiteColors.windowborder_bottom.value
+            if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
+                newline = (('<pixmap pos="bpBottom" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
+                skinSearchAndReplace.append(['<pixmap pos="bpBottom" filename="MetrixHD/border/5px/0F0F0F.png" />', newline ])
+            color = config.plugins.MyMetrixLiteColors.windowborder_left.value
+            if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
+                newline = (('<pixmap pos="bpLeft" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
+                skinSearchAndReplace.append(['<pixmap pos="bpLeft" filename="MetrixHD/border/5px/0F0F0F.png" />', newline ])
+            color = config.plugins.MyMetrixLiteColors.windowborder_right.value
+            if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
+                newline = (('<pixmap pos="bpRight" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
+                skinSearchAndReplace.append(['<pixmap pos="bpRight" filename="MetrixHD/border/5px/0F0F0F.png" />', newline ])
+
             #Border listbox
             width = config.plugins.MyMetrixLiteColors.listboxborder_topwidth.value
             if width != "no":
@@ -1848,6 +1873,20 @@ class MainSettingsView(Screen):
 
 							strnew = 'size = (' + xnew + ', ' + ynew + ')'
 							line = line[:n1] + strnew + line[(n4+1):]
+#offset="5,0"
+					if ' offset="' in line:
+						n1 = line.find(' offset', 0)
+						n2 = line.find('"', n1) 
+						n3 = line.find(',', n2) 
+						n4 = line.find('"', n3) 
+						x = line[(n2+1):n3]
+						y = line[(n3+1):n4]
+						xnew = str(int(round(float(int(x)*FACT),r_par)))
+						ynew = str(int(round(float(int(y)*FACT),r_par)))
+
+						strnew = ' offset="' + xnew + ',' + ynew + '"'
+						line = line[:n1] + strnew + line[(n4+1):]
+
 #itemHeight="25"
 					if 'itemHeight="' in line:
 						n1 = line.find('itemHeight="', 0)
