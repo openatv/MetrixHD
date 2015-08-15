@@ -603,8 +603,8 @@ class MainSettingsView(Screen):
             skinSearchAndReplace.append(['name="layer-b-accent2" value="#006E6E6E"', layerbaccent2 ])
             skinSearchAndReplace.append(['name="layer-b-progress" value="#1AFFFFFF"', layerbprogress ])
 
-            skinSearchAndReplace.append(['name="title-foreground" value="#1AFFFFFF"', windowtitletext ])
-            skinSearchAndReplace.append(['name="title-background" value="#34FFFFFF"', windowtitletextback ])
+            skinSearchAndReplace.append(['name="title-foreground" value="#00FFFFFF"', windowtitletext ])
+            skinSearchAndReplace.append(['name="title-background" value="#000F0F0F"', windowtitletextback ])
             skinSearchAndReplace.append(['name="background-text" value="#34FFFFFF"', backgroundtext ])
             skinSearchAndReplace.append(['name="text-background" value="#67FFFFFF"', backgroundtextback ])
 
