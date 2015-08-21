@@ -62,7 +62,16 @@ class MetrixHDExtServiceInfo(Converter, object):
 
 		text = ""
 		name = info.getName().replace('\xc2\x86', '').replace('\xc2\x87', '')
-		number = self.getServiceNumber(name, info.getInfoString(iServiceInformation.sServiceref))
+		try:
+			service = self.source.serviceref
+			num = service and service.getChannelNum() or None
+		except:
+			num = None
+		if num:
+			number = str(num)
+		else:
+			num = self.getServiceNumber(name, info.getInfoString(iServiceInformation.sServiceref))
+			number = num and str(num) or ''
 		orbital = self.getOrbitalPosition(info)
 		satName = self.satNames.get(orbital, orbital)
 
