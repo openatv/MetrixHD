@@ -397,7 +397,7 @@
 		<eLabel text="EMC Playlist" position="70,47" size="525,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" /> 
 		<widget source="Title" render="Label" position="70,95" size="700,35" font="screen_text;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left" transparent="1" />
 		<eLabel position="70,135" size="700,1" backgroundColor="layer-a-accent2" />
-		<widget name="playlist" position="70,150" size="700,450" font="screen_text;20" itemHeight="30" scrollbarMode="showOnDemand" posColor="layer-a-foreground" posColorSel="layer-a-selection-foreground" nameColor="layer-a-foreground" nameColorSel="layer-a-selection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" /> 
+		<widget name="playlist" position="70,150" size="700,450" posFont="screen_text;20" nameFont="screen_text;20" itemHeight="30" posWidth="50" nameWidth="650" scrollbarMode="showOnDemand" posColor="layer-a-foreground" posColorSel="layer-a-selection-foreground" nameColor="layer-a-foreground" nameColorSel="layer-a-selection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" /> 
 		<widget name="cancel" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="save" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="delete" position="436,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
@@ -407,6 +407,16 @@
 		<panel name="_oe-buttons_template1" /> 
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/movie.png" transparent="1" alphatest="blend" /> 
 	</screen> 
+	<screen name="EMCPlaylistSetup" position="0,0" size="1280,720" title="EMC Playlist Setup" flags="wfNoBorder" backgroundColor="transparent"> 
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" halign="left" transparent="1" />
+		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="cancel" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="save" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<panel name="template1_2layer"/> 
+		<panel name="rg__-buttons_template1"/> 
+		<panel name="_oe-buttons_template1" /> 
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/movie.png" transparent="1" alphatest="blend" /> 
+	</screen>
 	<!-- EMC : Enhanced Movie Center -->
 	<screen name="EMCSelection" position="0,0" size="1280,720" title="Enhanced Movie Center" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Enhanced Movie Center" position="70,47" size="525,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
