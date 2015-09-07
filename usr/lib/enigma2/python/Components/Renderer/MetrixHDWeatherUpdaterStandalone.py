@@ -32,8 +32,9 @@ from enigma import eLabel
 from xml.dom.minidom import parseString
 from Components.config import config, configfile
 from Plugins.Extensions.MyMetrixLite.__init__ import initWeatherConfig
-from threading import Timer
+from threading import Timer, Thread
 
+g_updateRunning = False
 
 initWeatherConfig()
 
@@ -79,6 +80,14 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
         if config.plugins.MetrixWeather.enabled.getValue() is False:
             return
 
+        global g_updateRunning
+        if g_updateRunning:
+            print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " skipped, allready running..."
+            return
+        g_updateRunning = True
+        Thread(target = self.getWeatherThread).start()
+
+    def getWeatherThread(self):
         print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid)
         url = "http://query.yahooapis.com/v1/public/yql?q=select%20item%20from%20weather.forecast%20where%20woeid%3D%22"+str(self.woeid)+"%22&format=xml"
         #url = "http://query.yahooapis.com/v1/public/yql?q=select%20item%20from%20weather.forecast%20where%20woeid%3D%22"+str(self.woeid)+"%22%20u%3Dc&format=xml"
@@ -92,6 +101,8 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
             print "Cant get weather data: %r" % error
 
             # cancel weather function
+            global g_updateRunning
+            g_updateRunning = False
             return
 
 
@@ -126,6 +137,8 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
         config.plugins.MetrixWeather.forecastTomorrowTempMin.value = self.getTemp(currentWeatherTemp.nodeValue)
         currentWeatherText = currentWeather.getAttributeNode('text')
         config.plugins.MetrixWeather.forecastTomorrowText.value = currentWeatherText.nodeValue
+        global g_updateRunning
+        g_updateRunning = False
 
     def getText(self,nodelist):
         rc = []
