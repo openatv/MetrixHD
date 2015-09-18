@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, initOtherConfig, getHelperText, OTHER_IMAGE_PATH, MAIN_IMAGE_PATH
+from . import _, initOtherConfig, OTHER_IMAGE_PATH, MAIN_IMAGE_PATH
 from boxbranding import getBoxType, getMachineBrand, getMachineName
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -97,7 +97,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
             "right": self.keyRight,
             "red": self.exit,
             "green": self.save,
-            "yellow": self.defaults,
+            "yellow": self.__defaults,
             "cancel": self.exit
         }, -1)
 
@@ -105,7 +105,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
     def __selectionChanged(self):
         cur = self["config"].getCurrent()
-        cur = cur and len(cur) > 2 and cur[2]
+        cur = cur and len(cur) > 3 and cur[3]
 
         if cur == "PRESET":
             self.getPreset()
@@ -359,125 +359,125 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list = []
         section = _("FHD-Option")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-        list.append(getConfigListEntry(tab + _("Enable FHD"), config.plugins.MyMetrixLiteOther.FHDenabled, "ENABLED_FHD"))
+        list.append(getConfigListEntry(tab + _("Enable FHD"), config.plugins.MyMetrixLiteOther.FHDenabled, _("helptext"),"ENABLED_FHD"))
         if config.plugins.MyMetrixLiteOther.FHDenabled.getValue() is True:
-            list.append(getConfigListEntry(tab + _("All calculated values round down"), config.plugins.MyMetrixLiteOther.FHDrounddown))
+            list.append(getConfigListEntry(tab + _("All calculated values round down"), config.plugins.MyMetrixLiteOther.FHDrounddown, _("helptext")))
             #list.append(getConfigListEntry(_("Method of font scaling"), config.plugins.MyMetrixLiteOther.FHDfontsize))
             # FHDfontsize deactivated
             if config.plugins.MyMetrixLiteOther.FHDfontsize.value != "2":
                 self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDfontsize)
-            list.append(getConfigListEntry(tab + _("Additional offset for font scaling"), config.plugins.MyMetrixLiteOther.FHDfontoffset))
-            list.append(getConfigListEntry(tab + _("Calculating additional files"), config.plugins.MyMetrixLiteOther.FHDadditionalfiles, "ENABLED"))
+            list.append(getConfigListEntry(tab + _("Additional offset for font scaling"), config.plugins.MyMetrixLiteOther.FHDfontoffset, _("helptext")))
+            list.append(getConfigListEntry(tab + _("Calculating additional files"), config.plugins.MyMetrixLiteOther.FHDadditionalfiles, _("File list:\n\n%s") % '"/etc/enigma2/antilogo.xml"', "ENABLED"))
         section = _("STB-Info")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-        list.append(getConfigListEntry(tab + _("Distance between the STB-Infos"), config.plugins.MyMetrixLiteOther.STBDistance))
-        list.append(getConfigListEntry(tab + _("Show CPU-Load"), config.plugins.MyMetrixLiteOther.showCPULoad))
-        list.append(getConfigListEntry(tab + _("Show free RAM"), config.plugins.MyMetrixLiteOther.showRAMfree))
+        list.append(getConfigListEntry(tab + _("Distance between the STB-Infos"), config.plugins.MyMetrixLiteOther.STBDistance, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show CPU-Load"), config.plugins.MyMetrixLiteOther.showCPULoad, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show free RAM"), config.plugins.MyMetrixLiteOther.showRAMfree, _("helptext")))
         if self.getCPUSensor() or config.plugins.MyMetrixLiteOther.showCPUTemp.getValue() is not False:
-            list.append(getConfigListEntry(tab + _("Show CPU-Temp"), config.plugins.MyMetrixLiteOther.showCPUTemp))
+            list.append(getConfigListEntry(tab + _("Show CPU-Temp"), config.plugins.MyMetrixLiteOther.showCPUTemp, _("helptext")))
         if self.getSYSSensor() or config.plugins.MyMetrixLiteOther.showSYSTemp.getValue() is not False:
-            list.append(getConfigListEntry(tab + _("Show SYS-Temp"), config.plugins.MyMetrixLiteOther.showSYSTemp))
+            list.append(getConfigListEntry(tab + _("Show SYS-Temp"), config.plugins.MyMetrixLiteOther.showSYSTemp, _("helptext")))
         section = _("InfoBar")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-        list.append(getConfigListEntry(tab + _("Show Extended-Info"), config.plugins.MyMetrixLiteOther.showExtendedinfo))
-        list.append(getConfigListEntry(tab + _("Enable Color Gradient"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarColorGradient))
-        list.append(getConfigListEntry(tab + _("Choose Picon Type"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon, "ENABLED"))
+        list.append(getConfigListEntry(tab + _("Show Extended-Info"), config.plugins.MyMetrixLiteOther.showExtendedinfo, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Enable Color Gradient"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarColorGradient, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Choose Picon Type"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon, _("helptext"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon.value == "1":
             if config.plugins.MyMetrixLiteOther.FHDenabled.value:
-                list.append(getConfigListEntry(tab + _("Show picons zoomed ?"), config.plugins.MyMetrixLiteOther.FHDpiconzoom))
-            list.append(getConfigListEntry(tab + _("Offset picon position x"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarXPiconPosX))
-            list.append(getConfigListEntry(tab + _("Offset picon position y"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarXPiconPosY))
+                list.append(getConfigListEntry(tab + _("Show picons zoomed ?"), config.plugins.MyMetrixLiteOther.FHDpiconzoom, _("helptext")))
+            list.append(getConfigListEntry(tab + _("Offset picon position x"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarXPiconPosX, _("helptext")))
+            list.append(getConfigListEntry(tab + _("Offset picon position y"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarXPiconPosY, _("helptext")))
         else:
-            list.append(getConfigListEntry(tab + _("Offset picon size"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconSize))
-            list.append(getConfigListEntry(tab + _("Offset picon position x"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconPosX))
-            list.append(getConfigListEntry(tab + _("Offset picon position y"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconPosY))
+            list.append(getConfigListEntry(tab + _("Offset picon size"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconSize, _("helptext")))
+            list.append(getConfigListEntry(tab + _("Offset picon position x"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconPosX, _("helptext")))
+            list.append(getConfigListEntry(tab + _("Offset picon position y"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconPosY, _("helptext")))
         section = _("InfoBar/SecondInfobar")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-        list.append(getConfigListEntry(tab + _("Show Clock"), config.plugins.MyMetrixLiteOther.showInfoBarClock))
-        list.append(getConfigListEntry(tab + _("Show ChannelName"), config.plugins.MyMetrixLiteOther.showChannelName))
-        list.append(getConfigListEntry(tab + _("Show ChannelNumber"), config.plugins.MyMetrixLiteOther.showChannelNumber))
-        list.append(getConfigListEntry(tab + _("Show ServiceIcons"), config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons))
-        list.append(getConfigListEntry(tab + _("Show Record-State"), config.plugins.MyMetrixLiteOther.showRecordstate))
-        list.append(getConfigListEntry(tab + _("Show Screen-Resolution"), config.plugins.MyMetrixLiteOther.showInfoBarResolution, "ENABLED"))
+        list.append(getConfigListEntry(tab + _("Show Clock"), config.plugins.MyMetrixLiteOther.showInfoBarClock, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show ChannelName"), config.plugins.MyMetrixLiteOther.showChannelName, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show ChannelNumber"), config.plugins.MyMetrixLiteOther.showChannelNumber, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show ServiceIcons"), config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show Record-State"), config.plugins.MyMetrixLiteOther.showRecordstate, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show Screen-Resolution"), config.plugins.MyMetrixLiteOther.showInfoBarResolution, _("helptext"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.showInfoBarResolution.getValue() is True:
-            list.append(getConfigListEntry(tab + _("Show extended Screen-Resolution"), config.plugins.MyMetrixLiteOther.showInfoBarResolutionExtended,))
-        list.append(getConfigListEntry(tab + _("Show Orbital-Position"), config.plugins.MyMetrixLiteOther.showOrbitalposition))
-        list.append(getConfigListEntry(tab + _("Show SNR-Info"), config.plugins.MyMetrixLiteOther.showSnr))
-        list.append(getConfigListEntry(tab + _("Show Tuner-Info"), config.plugins.MyMetrixLiteOther.showTunerinfo, "ENABLED"))
+            list.append(getConfigListEntry(tab + _("Show extended Screen-Resolution"), config.plugins.MyMetrixLiteOther.showInfoBarResolutionExtended, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show Orbital-Position"), config.plugins.MyMetrixLiteOther.showOrbitalposition, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show SNR-Info"), config.plugins.MyMetrixLiteOther.showSnr, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show Tuner-Info"), config.plugins.MyMetrixLiteOther.showTunerinfo, _("helptext"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.showTunerinfo.getValue() is True:
-            list.append(getConfigListEntry(tab + _("Set number of tuner automatically"), config.plugins.MyMetrixLiteOther.setTunerAuto, "ENABLED"))
+            list.append(getConfigListEntry(tab + _("Set number of tuner automatically"), config.plugins.MyMetrixLiteOther.setTunerAuto, _("helptext"), "ENABLED"))
             if config.plugins.MyMetrixLiteOther.setTunerAuto.getValue() is False:
-                list.append(getConfigListEntry(tab + _("Set number of tuner manually"), config.plugins.MyMetrixLiteOther.setTunerManual))
-        list.append(getConfigListEntry(tab + _("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfo))
+                list.append(getConfigListEntry(tab + _("Set number of tuner manually"), config.plugins.MyMetrixLiteOther.setTunerManual, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfo, _("helptext")))
         section = _("InfoBar/SecondInfobar/Moviebar")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-        list.append(getConfigListEntry(tab + _("ChannelName/Number FontSize"), config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize))
+        list.append(getConfigListEntry(tab + _("ChannelName/Number FontSize"), config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize, _("helptext")))
         section = _("EMC")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-        list.append(getConfigListEntry(tab + _("Show Cover in Media Center"),config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover, "ENABLED"))
+        list.append(getConfigListEntry(tab + _("Show Cover in Media Center"),config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover, _("helptext"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover.getValue() == "small" and config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
-            list.append(getConfigListEntry(tab + _("Show Cover in Infobar"), config.plugins.MyMetrixLiteOther.showEMCMediaCenterCoverInfobar))
-        list.append(getConfigListEntry(tab + _("Show Cover in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionCover, "ENABLED"))
+            list.append(getConfigListEntry(tab + _("Show Cover in Infobar"), config.plugins.MyMetrixLiteOther.showEMCMediaCenterCoverInfobar, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show Cover in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionCover, _("helptext"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "large":
-            list.append(getConfigListEntry(tab + _("Show Movie Description"), config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription))
-        list.append(getConfigListEntry(tab + _("Show more Rows in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionRows))
+            list.append(getConfigListEntry(tab + _("Show Movie Description"), config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show more Rows in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionRows, _("helptext")))
         section = _("EMC/MoviePlayer")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-        list.append(getConfigListEntry(tab + _("Style"), config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign, "ENABLED"))
+        list.append(getConfigListEntry(tab + _("Style"), config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign, _("helptext"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
-            list.append(getConfigListEntry(tab + _("Show extended Screen-Resolution"), config.plugins.MyMetrixLiteOther.showMoviePlayerResolutionExtended,))
-        list.append(getConfigListEntry(tab + _("Show Clock"), config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer))
-        list.append(getConfigListEntry(tab + _("Show MovieName"), config.plugins.MyMetrixLiteOther.showMovieName))
-        list.append(getConfigListEntry(tab + _("Show Movie Playback Time"), config.plugins.MyMetrixLiteOther.showMovieTime))
-        list.append(getConfigListEntry(tab + _("Show PVR State"), config.plugins.MyMetrixLiteOther.showPVRState))
-        list.append(getConfigListEntry(tab + _("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer))
+            list.append(getConfigListEntry(tab + _("Show extended Screen-Resolution"), config.plugins.MyMetrixLiteOther.showMoviePlayerResolutionExtended, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show Clock"), config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show MovieName"), config.plugins.MyMetrixLiteOther.showMovieName, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show Movie Playback Time"), config.plugins.MyMetrixLiteOther.showMovieTime, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show PVR State"), config.plugins.MyMetrixLiteOther.showPVRState, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer, _("helptext")))
         section = _("ChannelSelection")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-        list.append(getConfigListEntry(tab + _("Channel selection style"), config.plugins.MyMetrixLiteOther.channelSelectionStyle))
+        list.append(getConfigListEntry(tab + _("Channel selection style"), config.plugins.MyMetrixLiteOther.channelSelectionStyle, _("helptext")))
         section = _("Skin Design")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-        list.append(getConfigListEntry(tab + _("Chose Skin Design"),config.plugins.MyMetrixLiteOther.SkinDesign))
-        list.append(getConfigListEntry(tab + _("Show Space between Layer A and B"),config.plugins.MyMetrixLiteOther.SkinDesignSpace))
-        list.append(getConfigListEntry(tab + _("Show large Text on bottom of the screen"),config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText))
-        list.append(getConfigListEntry(tab + _("Chose Extended-Info Style"), config.plugins.MyMetrixLiteOther.ExtendedinfoStyle))
+        list.append(getConfigListEntry(tab + _("Chose Skin Design"),config.plugins.MyMetrixLiteOther.SkinDesign, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show Space between Layer A and B"),config.plugins.MyMetrixLiteOther.SkinDesignSpace, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show large Text on bottom of the screen"),config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Chose Extended-Info Style"), config.plugins.MyMetrixLiteOther.ExtendedinfoStyle, _("helptext")))
         ''' moved to color settings
         section = _("Skin Design - additional Layers")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-        list.append(getConfigListEntry(tab + _("Skin Design Examples"),config.plugins.MyMetrixLiteOther.SkinDesignExamples, "PRESET"))
-        list.append(getConfigListEntry(tab + _("Show upper left Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignLUC, "ENABLED"))
+        list.append(getConfigListEntry(tab + _("Skin Design Examples"),config.plugins.MyMetrixLiteOther.SkinDesignExamples, _("helptext"), "PRESET"))
+        list.append(getConfigListEntry(tab + _("Show upper left Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignLUC, _("helptext"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.SkinDesignLUC.getValue() is not "no":
-            list.append(getConfigListEntry(tab*2 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignLUCwidth))
-            list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignLUCheight))
-            list.append(getConfigListEntry(tab*2 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignLUCposz))
-        list.append(getConfigListEntry(tab + _("Show lower left Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignLLC, "ENABLED"))
+            list.append(getConfigListEntry(tab*2 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignLUCwidth, _("helptext")))
+            list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignLUCheight, _("helptext")))
+            list.append(getConfigListEntry(tab*2 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignLUCposz, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show lower left Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignLLC, _("helptext"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.SkinDesignLLC.getValue() is not "no":
-            list.append(getConfigListEntry(tab*2 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignLLCwidth))
-            list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignLLCheight))
-            list.append(getConfigListEntry(tab*2 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignLLCposz))
-        list.append(getConfigListEntry(tab + _("Show upper right Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignRUC, "ENABLED"))
+            list.append(getConfigListEntry(tab*2 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignLLCwidth, _("helptext")))
+            list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignLLCheight, _("helptext")))
+            list.append(getConfigListEntry(tab*2 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignLLCposz, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show upper right Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignRUC, _("helptext"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.SkinDesignRUC.getValue() is not "no":
-            list.append(getConfigListEntry(tab*2 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignRUCwidth))
-            list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignRUCheight))
-            list.append(getConfigListEntry(tab*2 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignRUCposz))
-        list.append(getConfigListEntry(tab + _("Show lower right Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignRLC, "ENABLED"))
+            list.append(getConfigListEntry(tab*2 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignRUCwidth, _("helptext")))
+            list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignRUCheight, _("helptext")))
+            list.append(getConfigListEntry(tab*2 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignRUCposz, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show lower right Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignRLC, _("helptext"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.SkinDesignRLC.getValue() is not "no":
-            list.append(getConfigListEntry(tab*2 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignRLCwidth))
-            list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignRLCheight))
-            list.append(getConfigListEntry(tab*2 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignRLCposz))
-        list.append(getConfigListEntry(tab + _("Show optional horizontal Layer"),config.plugins.MyMetrixLiteOther.SkinDesignOLH, "ENABLED"))
+            list.append(getConfigListEntry(tab*2 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignRLCwidth, _("helptext")))
+            list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignRLCheight, _("helptext")))
+            list.append(getConfigListEntry(tab*2 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignRLCposz, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show optional horizontal Layer"),config.plugins.MyMetrixLiteOther.SkinDesignOLH, _("helptext"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.SkinDesignOLH.getValue() is not "no":
-            list.append(getConfigListEntry(tab*2 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth))
-            list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignOLHheight))
-            list.append(getConfigListEntry(tab*2 + _("pos x"), config.plugins.MyMetrixLiteOther.SkinDesignOLHposx))
-            list.append(getConfigListEntry(tab*2 + _("pos y"), config.plugins.MyMetrixLiteOther.SkinDesignOLHposy))
-            list.append(getConfigListEntry(tab*2 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignOLHposz))
-        list.append(getConfigListEntry(tab + _("Show optional vertical Layer"),config.plugins.MyMetrixLiteOther.SkinDesignOLV, "ENABLED"))
+            list.append(getConfigListEntry(tab*2 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth, _("helptext")))
+            list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignOLHheight, _("helptext")))
+            list.append(getConfigListEntry(tab*2 + _("pos x"), config.plugins.MyMetrixLiteOther.SkinDesignOLHposx, _("helptext")))
+            list.append(getConfigListEntry(tab*2 + _("pos y"), config.plugins.MyMetrixLiteOther.SkinDesignOLHposy, _("helptext")))
+            list.append(getConfigListEntry(tab*2 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignOLHposz, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show optional vertical Layer"),config.plugins.MyMetrixLiteOther.SkinDesignOLV, _("helptext"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.SkinDesignOLV.getValue() is not "no":
-            list.append(getConfigListEntry(tab*2 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth))
-            list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignOLVheight))
-            list.append(getConfigListEntry(tab*2 + _("pos x"), config.plugins.MyMetrixLiteOther.SkinDesignOLVposx))
-            list.append(getConfigListEntry(tab*2 + _("pos y"), config.plugins.MyMetrixLiteOther.SkinDesignOLVposy))
-            list.append(getConfigListEntry(tab*2 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignOLVposz))
+            list.append(getConfigListEntry(tab*2 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth, _("helptext")))
+            list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignOLVheight, _("helptext")))
+            list.append(getConfigListEntry(tab*2 + _("pos x"), config.plugins.MyMetrixLiteOther.SkinDesignOLVposx, _("helptext")))
+            list.append(getConfigListEntry(tab*2 + _("pos y"), config.plugins.MyMetrixLiteOther.SkinDesignOLVposy, _("helptext")))
+            list.append(getConfigListEntry(tab*2 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignOLVposz, _("helptext")))
         '''
         return list
 
@@ -524,7 +524,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         self.session.open(MessageBox, _("Information"), MessageBox.TYPE_INFO)
 
     def save(self):
-
+        ''' moved to color settings
         width = int(config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth.value)
         height = int(config.plugins.MyMetrixLiteOther.SkinDesignOLHheight.value)
         posx = int(config.plugins.MyMetrixLiteOther.SkinDesignOLHposx.value)
@@ -546,7 +546,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         if (posy + height) > 720:
             height = height - (posy + height - 720)
             config.plugins.MyMetrixLiteOther.SkinDesignOLVheight.setValue(height)
-
+        '''
         for x in self["config"].list:
             if len(x) > 1:
                 x[1].save()
@@ -565,13 +565,26 @@ class OtherSettingsView(ConfigListScreen, Screen):
         for x in self["config"].list:
             if len(x) > 1:
                 self.setInputToDefault(x[1])
+                x[1].save()
+        configfile.save()
+
+    def __defaults(self):
+        for x in self["config"].list:
+            if len(x) > 1:
+                self.setInputToDefault(x[1])
         self["config"].setList(self.getMenuItemList())
         self.ShowPicture()
         #self.save()
+
+    def setNewValue(self, configItem, newValue):
+        configItem.setValue(newValue)
 
     def setInputToDefault(self, configItem):
         configItem.setValue(configItem.default)
 
     def showHelperText(self):
-		text = getHelperText(self["config"].getCurrent()[1])
-		self["helpertext"].setText(text)
+        cur = self["config"].getCurrent()
+        if cur and len(cur) > 2 and cur[2] and cur[2] != "helptext":
+            self["helpertext"].setText(cur[2])
+        else:
+            self["helpertext"].setText(" ")

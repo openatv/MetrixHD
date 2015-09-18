@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, initWeatherConfig, getHelperText, WEATHER_IMAGE_PATH, MAIN_IMAGE_PATH
+from . import _, initWeatherConfig, WEATHER_IMAGE_PATH, MAIN_IMAGE_PATH
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
@@ -42,8 +42,10 @@ class WeatherSettingsView(ConfigListScreen, Screen):
     <widget name="config" position="61,124" size="590,480" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
     <widget source="cancelBtn" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <widget source="saveBtn" position="257,640" size="360,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+    <widget source="defaultsBtn" position="445,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
     <eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
+    <eLabel position="430,635" size="5,40" backgroundColor="#00e5dd00" />
     <widget name="helperimage" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
     <widget name="helpertext" position="800,490" size="336,160" font="Regular; 18" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center" valign="center" transparent="1"/>
   </screen>
@@ -65,6 +67,9 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 
         self["saveBtn"] = StaticText("")
         self["saveBtn"].setText(_("Save"))
+
+        self["defaultsBtn"] = StaticText("")
+        self["defaultsBtn"].setText(_("Defaults"))
 
         initWeatherConfig()
 
@@ -89,6 +94,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
             "right": self.keyRight,
             "red": self.exit,
             "green": self.save,
+            "yellow": self.__defaults,
             "cancel": self.exit
         }, -1)
 
@@ -97,13 +103,13 @@ class WeatherSettingsView(ConfigListScreen, Screen):
     def getMenuItemList(self):
         list = []
 
-        list.append(getConfigListEntry(_("Enabled"), config.plugins.MetrixWeather.enabled, "ENABLED"))
+        list.append(getConfigListEntry(_("Enabled"), config.plugins.MetrixWeather.enabled, _("helptext"), "ENABLED"))
 
         if config.plugins.MetrixWeather.enabled.getValue() is True:
-            list.append(getConfigListEntry(_("Show in MoviePlayer"), config.plugins.MetrixWeather.MoviePlayer))
-            list.append(getConfigListEntry(_("MetrixWeather ID"), config.plugins.MetrixWeather.woeid))
-            list.append(getConfigListEntry(_("Unit"), config.plugins.MetrixWeather.tempUnit))
-            list.append(getConfigListEntry(_("Refresh Interval (min)"), config.plugins.MetrixWeather.refreshInterval))
+            list.append(getConfigListEntry(_("Show in MoviePlayer"), config.plugins.MetrixWeather.MoviePlayer, _("helptext")))
+            list.append(getConfigListEntry(_("MetrixWeather ID"), config.plugins.MetrixWeather.woeid , _("Get your local MetrixWeather ID from www.mymetrix.de")))
+            list.append(getConfigListEntry(_("Unit"), config.plugins.MetrixWeather.tempUnit, _("helptext")))
+            list.append(getConfigListEntry(_("Refresh Interval (min)"), config.plugins.MetrixWeather.refreshInterval, _("helptext")))
 
         return list
 
@@ -132,11 +138,11 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 
     def keyLeft(self):
         ConfigListScreen.keyLeft(self)
-        self.ShowPicture()
+        #self.ShowPicture()
 
     def keyRight(self):
         ConfigListScreen.keyRight(self)
-        self.ShowPicture()
+        #self.ShowPicture()
 
     def keyDown(self):
         self["config"].instance.moveSelection(self["config"].instance.moveDown)
@@ -157,6 +163,24 @@ class WeatherSettingsView(ConfigListScreen, Screen):
         configfile.save()
         self.exit()
 
+    def defaults(self):
+        for x in self["config"].list:
+            if len(x) > 1:
+                self.setInputToDefault(x[1])
+                x[1].save()
+        configfile.save()
+
+    def setInputToDefault(self, configItem):
+        configItem.setValue(configItem.default)
+
+    def __defaults(self):
+        for x in self["config"].list:
+            if len(x) > 1:
+                self.setInputToDefault(x[1])
+        self["config"].setList(self.getMenuItemList())
+        self.ShowPicture()
+        #self.save()
+
     def exit(self):
         for x in self["config"].list:
             if len(x) > 1:
@@ -165,11 +189,14 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 
     def __changedEntry(self):
         cur = self["config"].getCurrent()
-        cur = cur and len(cur) > 2 and cur[2]
+        cur = cur and len(cur) > 3 and cur[3]
 
         if cur == "ENABLED":
             self["config"].setList(self.getMenuItemList())
 
     def showHelperText(self):
-		text = getHelperText(self["config"].getCurrent()[1])
-		self["helpertext"].setText(text)
+        cur = self["config"].getCurrent()
+        if cur and len(cur) > 2 and cur[2] and cur[2] != "helptext":
+            self["helpertext"].setText(cur[2])
+        else:
+            self["helpertext"].setText(" ")

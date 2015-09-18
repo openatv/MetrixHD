@@ -111,7 +111,9 @@ WEATHER_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/im
 COLOR_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/colors/%s.png"
 FONT_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/fonts/%s.png"
 OTHER_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/other/%s.png"
+BACKUP_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/backup/%s.png"
 
+BACKUP_FILE = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/MyMetrixLiteBackup.dat"
 #############################################################
 
 def initColorsConfig():
@@ -660,15 +662,3 @@ def appendSkinFile(appendFileName, skinPartSearchAndReplace):
         rsSkinLines.append(skinLine)
 
     return rsSkinLines
-
-def getHelperText(configEntry):
-	HelperText = {
-		config.plugins.MetrixWeather.woeid:							_("Get your local MetrixWeather ID from www.mymetrix.de"),
-		config.plugins.MyMetrixLiteOther.FHDadditionalfiles:		_("File list:\n\n%s") % '"/etc/enigma2/antilogo.xml"',
-		}
-
-	try:
-		text = HelperText[configEntry]
-	except:
-		text = _(" ")
-	return text

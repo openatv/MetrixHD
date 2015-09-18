@@ -46,12 +46,14 @@ from Components.Pixmap import Pixmap
 from Components.NimManager import nimmanager
 from Components.Sources.StaticText import StaticText
 from Components.Console import Console
+from Components.Label import Label
 from shutil import move, copy, rmtree, copytree
 from enigma import ePicLoad, eListboxPythonMultiContent, gFont, getDesktop
 from ColorsSettingsView import ColorsSettingsView
 from WeatherSettingsView import WeatherSettingsView
 from OtherSettingsView import OtherSettingsView
 from FontsSettingsView import FontsSettingsView
+from BackupSettingsView import BackupSettingsView
 from os import path, remove, statvfs, listdir
 
 #############################################################
@@ -71,11 +73,11 @@ class MainMenuList(MenuList):
 
 #############################################################
 
-def MenuEntryItem(itemDescription, key):
-    res = [(itemDescription, key)]
+def MenuEntryItem(itemDescription, key, helptext):
+    res = [(itemDescription, key, helptext)]
     screenwidth = getDesktop(0).size().width()
     if screenwidth and screenwidth == 1920:
-        res.append(MultiContentEntryText(pos=(15, 8), size=(660, 68), font=0, text=itemDescription))
+        res.append(MultiContentEntryText(pos=(15, 8), size=(660, 68), font=0, text=itemDescription, ))
     else:
         res.append(MultiContentEntryText(pos=(10, 5), size=(440, 45), font=0, text=itemDescription))
     return res
@@ -93,6 +95,7 @@ class MainSettingsView(Screen):
     <eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
     <eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
     <widget name="helperimage" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
+    <widget name="helpertext" position="800,490" size="336,160" font="Regular; 18" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center" valign="center" transparent="1"/>
   </screen>
 """
 
@@ -102,6 +105,7 @@ class MainSettingsView(Screen):
         self.Scale = AVSwitch().getFramebufferScale()
         self.PicLoad = ePicLoad()
         self["helperimage"] = Pixmap()
+        self["helpertext"] = Label()
 
         self["titleText"] = StaticText("")
         self["titleText"].setText(_("MyMetrixLite"))
@@ -112,14 +116,9 @@ class MainSettingsView(Screen):
         self["applyBtn"] = StaticText("")
         self["applyBtn"].setText(_("Apply changes"))
 
-        initColorsConfig()
-        initWeatherConfig()
-        initOtherConfig()
-        initFontsConfig()
-
         self.applyChangesFirst = args
         if self.applyChangesFirst:
-            self.applyChanges()
+            self.checkHFDinstalled()
 
         self["actions"] = ActionMap(
             [
@@ -131,15 +130,16 @@ class MainSettingsView(Screen):
             {
                 "ok": self.ok,
                 "red": self.exit,
-                "green": self.applyChanges,
+                "green": self.checkHFDinstalled,
                 "cancel": self.exit
             }, -1)
 
         list = []
-        list.append(MenuEntryItem(_("Font settings"), "FONT"))
-        list.append(MenuEntryItem(_("Color settings"), "COLOR"))
-        list.append(MenuEntryItem(_("Weather settings"), "WEATHER"))
-        list.append(MenuEntryItem(_("Other settings"), "OTHER"))
+        list.append(MenuEntryItem(_("Font settings"), "FONT", _("helptext")))
+        list.append(MenuEntryItem(_("Color settings"), "COLOR", _("helptext")))
+        list.append(MenuEntryItem(_("Weather settings"), "WEATHER", _("helptext")))
+        list.append(MenuEntryItem(_("Other settings"), "OTHER", _("helptext")))
+        list.append(MenuEntryItem(_("Backup & Restore my settings"), "BACKUP", _("helptext")))
 
         self["menuList"] = MainMenuList([], font0=24, font1=16, itemHeight=50)
         self["menuList"].l.setList(list)
@@ -151,11 +151,18 @@ class MainSettingsView(Screen):
 
         self.onLayoutFinish.append(self.UpdatePicture)
 
+    def checkHFDinstalled(self):
+        initColorsConfig()
+        initWeatherConfig()
+        initOtherConfig()
+        initFontsConfig()
         #first check fhd-settings and available fhd-icons
         if config.plugins.MyMetrixLiteOther.FHDenabled.value:
             self.Console = Console()
             self.service_name = 'enigma2-plugin-skins-metrix-atv-fhd-icons'
             self.Console.ePopen('/usr/bin/opkg list_installed ' + self.service_name, self.checkFHDicons)
+        else:
+            self.applyChanges()
 
     def checkFHDicons(self, str, retval, extra_args):
         if 'Collected errors' in str or not str:
@@ -164,6 +171,8 @@ class MainSettingsView(Screen):
             configfile.save()
             self.session.open(OtherSettingsView)
             self.session.open(MessageBox,_("Your full-hd settings are inconsistent. Please check this."), MessageBox.TYPE_INFO, timeout=10)
+        else:
+            self.applyChanges()
 
     def __del__(self):
         self["menuList"].onSelectionChanged.remove(self.__selectionChanged)
@@ -191,9 +200,12 @@ class MainSettingsView(Screen):
                 imageUrl = MAIN_IMAGE_PATH % "MyMetrixLiteOther"
             elif selectedKey == "FONT":
                 imageUrl = MAIN_IMAGE_PATH % "MyMetrixLiteFont"
+            elif selectedKey == "BACKUP":
+                imageUrl = MAIN_IMAGE_PATH % "MyMetrixLiteBackup"
 
         self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
         self.PicLoad.startDecode(imageUrl)
+        self.showHelperText()
 
     def DecodePicture(self, PicInfo = ""):
         ptr = self.PicLoad.getData()
@@ -213,6 +225,8 @@ class MainSettingsView(Screen):
                 self.session.open(OtherSettingsView)
             elif selectedKey == "FONT":
                 self.session.open(FontsSettingsView)
+            elif selectedKey == "BACKUP":
+                self.session.open(BackupSettingsView)
 
     def reboot(self, message = None):
         if message is None:
@@ -223,6 +237,7 @@ class MainSettingsView(Screen):
 
     def applyChanges(self):
         print"MyMetrixLite apply Changes"
+
         try:
             skinfiles_HD = [(SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP),
                         #(SKIN_TEMPLATES_SOURCE, SKIN_TEMPLATES_TARGET, SKIN_TEMPLATES_TARGET_TMP),
@@ -2464,3 +2479,10 @@ class MainSettingsView(Screen):
 		f1.close()
 		print "complete"
 		print "--------"
+
+    def showHelperText(self):
+        cur = self["menuList"].getCurrent()
+        if cur and len(cur[0]) > 2 and cur[0][2] and cur[0][2] != "helptext":
+            self["helpertext"].setText(cur[0][2])
+        else:
+            self["helpertext"].setText(" ")
