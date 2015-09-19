@@ -54,7 +54,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
     <eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
     <eLabel position="429,635" size="5,40" backgroundColor="#00e5dd00" />
     <eLabel position="616,635" size="5,40" backgroundColor="#000064c7" />
-    <widget name="HelpWindow" position="55,350" size="604,126" zPosition="1" transparent="1" alphatest="blend" />
+    <widget name="HelpWindow" position="55,400" size="604,126" zPosition="1" transparent="1" alphatest="blend" />
     <widget name="helperimage" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
     <widget name="helpertext" position="800,490" size="336,160" font="Regular; 18" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center" valign="center" transparent="1"/>
   </screen>
@@ -207,6 +207,8 @@ class BackupSettingsView(ConfigListScreen, Screen):
 
     def restore(self):
 
+		self["titleText"].setText(_("Backup & Restore my settings"))
+
 		if not self.readFile():
 			self.message(_("No Backup-File found!\n( %s )")% BACKUP_FILE, MessageBox.TYPE_ERROR)
 			return
@@ -256,7 +258,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 
 		configfile.save()
 
-		self.message(_("Settings successfully restored."), MessageBox.TYPE_INFO)
+		self.message(_("Settings successfully restored."), MessageBox.TYPE_INFO, False)
 
 		self.d.exit()
 		self.c.exit()
@@ -264,12 +266,12 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		self.a.exit()
 		self.exit()
 
-    def message(self, text, type):
+    def message(self, text, type, hwshow =  True):
 		self.hwhide = False
 		if isinstance(self["config"].getCurrent()[1], ConfigText):
 			if self["config"].getCurrent()[1].help_window.instance is not None:
 				self["config"].getCurrent()[1].help_window.hide()
-				self.hwhide = True
+				self.hwhide = hwshow
 
 		self.session.openWithCallback(self.showHelpWindow, MessageBox, text, type, timeout = 5)
 
@@ -291,12 +293,17 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		if self.hwhide:
 			self["config"].getCurrent()[1].help_window.show()
 		if result:
+			self.delay = eTimer() # delay for closing messagebox
 			if self.runnext == "delete":
-				self.delete()
+				self.delay.callback.append(self.delete)
+				self.delay.start(500, True)
 			elif self.runnext == "backup":
-				self.backup()
+				self.delay.callback.append(self.backup)
+				self.delay.start(500, True)
 			elif  self.runnext == "restore":
-				self.restore()
+				self["titleText"].setText(_("Restoring Backup-Set %d ...") %self.myset.value)
+				self.delay.callback.append(self.restore)
+				self.delay.start(500, True)
 
     def delete(self, writeFile = True, restore = False):
 
@@ -393,12 +400,16 @@ class BackupSettingsView(ConfigListScreen, Screen):
 
     def __defaults(self):
         self.a = self.session.open(ColorsSettingsView)
+        self.a.hide()
         self.a.defaults()
         self.b = self.session.open(FontsSettingsView)
+        self.b.hide()
         self.b.defaults()
         self.c = self.session.open(OtherSettingsView)
+        self.c.hide()
         self.c.defaults()
         self.d = self.session.open(WeatherSettingsView)
+        self.d.hide()
         self.d.defaults()
 
     def __changedEntry(self, refresh = False):
