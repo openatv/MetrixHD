@@ -1112,7 +1112,7 @@
 			<convert type="MenuEntryCompare">standby</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/shutdowntimer.png" position="305,80" size="256,256" alphatest="on" zPosition="1">
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/shutdowntimer.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">sleep</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
@@ -2196,6 +2196,19 @@ self.instance.move(ePoint(0,0))
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/hdd.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- Timer Screens -->
+	<screen name="SleepTimerEdit" position="center,center" size="500,250"  flags="wfNoBorder" title="Sleep Timer" backgroundColor="transparent" >
+		<eLabel name="b" position="0,0" size="500,250" backgroundColor="layer-b-background" zPosition="-2" />
+		<eLabel name="a" position="1,1" size="498,248" backgroundColor="layer-a-background" zPosition="-1" />
+		<widget source="Title" render="Label" position="10,10" foregroundColor="layer-a-title-foreground" size="480,50" noWrap="0" halign="center" font="global_title; 35" backgroundColor="layer-a-background" transparent="1"/>
+		<eLabel name="line" position="1,69" size="498,1" backgroundColor="layer-a-accent1" zPosition="1" />
+		<widget name="config" position="10,90" size="480,60" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="description" position="10,160" size="480,26" font="screen_info; 16" foregroundColor="layer-a-foreground" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
+		<widget source="key_red" render="Label" position="35,212" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget source="key_green" render="Label" position="218,212" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,209" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="183,209" size="30,40" alphatest="blend" />
+		<ePixmap position="398,209" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="blend" />
+	</screen>
 	<screen name="TimerEditList" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Timer List" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="timerlist" position="70,110" size="700,500" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="50" rowSplit="26" iconMargin="5" satPosLeft="160" setFont="screen_text; 18" setEventNameFont="screen_text; 20" setServiceNameFont="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
