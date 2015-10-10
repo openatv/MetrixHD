@@ -1223,7 +1223,7 @@ class MainSettingsView(Screen):
                     remove(file[2])
 
             config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")
-            config.skin.save()
+            config.skin.primary_skin.save()
             configfile.save()
 
             if self.skinline_error:
