@@ -581,7 +581,7 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.showEMCMediaCenterCoverInfobar = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showEMCSelectionCover = ConfigSelection(default = "no", choices = [("no", _("No")), ("small", _("Small")), ("large", _("Large"))])
     config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription = ConfigYesNo(default=True)
-    config.plugins.MyMetrixLiteOther.showEMCSelectionRows = ConfigSelection(default = "0", choices = [("0", _("No")), ("1", _("20")), ("2", _("24"))])
+    config.plugins.MyMetrixLiteOther.showEMCSelectionRows = ConfigSelection(default = "0", choices = [("-1", _("-4")), ("0", _("No")), ("1", _("+4")), ("2", _("+8"))])
 	#SkinDesign
     config.plugins.MyMetrixLiteOther.SkinDesign = ConfigSelection(default = "1", choices = [("1", _("Standard")), ("2", _("Layer A and B same height, Clock in Layer A")), ("3", _("Layer A and B same height, Clock in Layer B"))])
     config.plugins.MyMetrixLiteOther.SkinDesignSpace = ConfigYesNo(default=False)

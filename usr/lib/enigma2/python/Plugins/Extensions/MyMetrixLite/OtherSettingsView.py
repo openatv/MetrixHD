@@ -420,7 +420,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(tab + _("Show Cover in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionCover, _("helptext"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "large":
             list.append(getConfigListEntry(tab + _("Show Movie Description"), config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription, _("helptext")))
-        list.append(getConfigListEntry(tab + _("Show more Rows in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionRows, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Change Number of Lines in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionRows, _("helptext")))
         section = _("EMC/MoviePlayer")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         list.append(getConfigListEntry(tab + _("Style"), config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign, _("helptext"), "ENABLED"))
