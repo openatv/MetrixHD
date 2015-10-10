@@ -4316,4 +4316,53 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- Wizard Screens -->
+	<!-- DVDPlayer -->
+	<screen name="FileBrowser" position="0,0" size="1280,720" title="DVD File Browser" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<eLabel text="DVD File Browser" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="filelist" position="70,110" size="700,480" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/dvd.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="DVDPlayer" position="0,0" size="1280,720" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="0,640" zPosition="-2" size="1280,80" backgroundColor="infobarbackground" />
+		<eLabel backgroundColor="infobaraccent1" position="110,683" size="796,1" zPosition="3"/>
+		<widget source="global.CurrentTime" render="Label" position="1060,648" size="70,26" font="infobar_text;20" halign="center" valign="top" backgroundColor="infobarbackground" foregroundColor="layer-a-clock-foreground" transparent="1" >
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="session.CurrentService" render="PositionGauge" position="110,679" size="796,9" zPosition="6" transparent="1">
+			<convert type="ServicePosition">Gauge</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Progress" position="110,681" size="796,5" foregroundColor="infobarprogress" borderWidth="0" transparent="1" zPosition="5">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="110,644" size="796,30" font="infobar_event;24" halign="center" valign="top" backgroundColor="infobarbackground" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ServiceName">Name</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="15,669" size="75,28" font="infobar_text;20" halign="right" valign="bottom" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="15,648" size="75,28" font="infobar_text;20" halign="right" valign="bottom" backgroundColor="infobarbackground" transparent="1" foregroundColor="infobaraccent2">
+			<convert type="ServicePosition">Length</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="926,669" size="75,28" font="infobar_text;20" halign="left" valign="bottom" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
+			<convert type="ServicePosition">Remaining,Negate</convert>
+		</widget>
+		<eLabel text="..." position="1125,648" size="20,26" font="infobar_text;20" halign="center" valign="top" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" transparent="1" />
+		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text; 20" halign="center" position="1140,648" size="70,26" transparent="1">
+			<convert type="MetrixHDServiceTime">EndTime</convert>
+		</widget>
+		<widget name="chapterLabel" position="110,692" size="600,24" font="infobar_text;18" halign="left" foregroundColor="infobaraccent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="subtitleLabel" position="640,692" size="360,24" font="infobar_text;18" halign="right" foregroundColor="infobaraccent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="audioLabel" position="1000,692" size="240,24" font="infobar_text;18" halign="right" foregroundColor="infobaraccent1" backgroundColor="layer-a-background" transparent="1" />
+	</screen>
+	<screen name="ChapterZap" position="center,center" size="260,80" title="Chapter" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel name="a" position="5,5" size="150,70" backgroundColor="layer-a-background" zPosition="-10" />
+		<eLabel name="b" position="155,10" size="100,60" backgroundColor="layer-b-background" zPosition="-10" />
+		<widget name="chapter" position="5,20" size="150,40" font="screen_info;30" halign="center" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" />
+		<widget name="number" position="155,26" size="100,40" halign="center" valign="bottom" font="screen_info;40" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" />
+	</screen>
+	<!-- DVDPlayer -->
 </skin>

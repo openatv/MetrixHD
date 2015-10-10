@@ -439,55 +439,6 @@
 		<widget source="key_blue" render="Label" position="975,638" size="260,24" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
-	<!-- DVDPlayer -->
-	<screen name="FileBrowser" position="0,0" size="1280,720" title="DVD File Browser" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
-		<eLabel text="DVD File Browser" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="filelist" position="70,110" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="105,638" size="240,30" zPosition="1" valign="center" font="global_button;20" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_green" render="Label" position="395,638" size="240,30" zPosition="1" valign="center" font="global_button;20" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/dvd.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="DVDPlayer" position="0,0" size="1283,723" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="session.CurrentService" render="Label" position="152,571" size="720,36" font="SetrixHD;30" valign="top" noWrap="1" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ServiceName">Name</convert>
-		</widget>
-		<widget source="session.CurrentService" render="Label" position="35,657" size="100,32" font="SetrixHD;24" halign="center" valign="center" backgroundColor="layer-a-background" shadowColor="layer-a-background" shadowOffset="-1,-1" transparent="1">
-			<convert type="ServicePosition">Position</convert>
-		</widget>
-		<widget source="session.CurrentService" render="Progress" position="154,669" size="980,3" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ServicePosition">Position</convert>
-		</widget>
-		<widget source="session.CurrentService" render="Label" position="1175,645" size="100,32" font="SetrixHD;24" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ServicePosition">Remaining</convert>
-		</widget>
-		<widget source="session.CurrentService" render="Label" position="907,684" size="150,24" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ServicePosition">Length</convert>
-		</widget>
-		<widget name="chapterLabel" position="154,683" size="700,22" font="SetrixHD;18" foregroundColor="yellow" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="audioLabel" position="152,609" size="700,22" font="SetrixHD;18" foregroundColor="yellow" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="subtitleLabel" position="153,631" size="750,22" font="SetrixHD;18" foregroundColor="yellow" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel position="0,570" zPosition="-2" size="1281,150" backgroundColor="layer-a-background" />
-		<!-- /*ClockWidget-->
-		<widget source="global.CurrentTime" render="Label" position="1081,31" size="169,80" font="global_clock;60" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1" valign="top">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="921,73" size="148,29" font="global_clock;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="943,45" size="125,30" font="global_clock;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<eLabel name="new eLabel" position="154,666" size="980,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="-1" />
-		<eLabel position="913,40" zPosition="-1" size="320,70" backgroundColor="layer-a-background" transparent="0" />
-		<!--ClockWidget */-->
-	</screen>
-	<screen name="ChapterZap" position="500,600" size="280,60" title="Chapter" backgroundColor="layer-a-background">
-		<widget name="chapter" position="35,15" size="110,25" font="SetrixHD;23" />
-		<widget name="number" position="145,15" size="80,25" halign="right" font="SetrixHD;23" />
-	</screen>
 	<!-- Filebrowser -->
 	<screen name="FilebrowserConfigScreen" position="0,0" size="1280,720" title="" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
