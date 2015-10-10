@@ -84,6 +84,9 @@ def MenuEntryItem(itemDescription, key, helptext):
 
 #############################################################
 
+skinReady = False
+skinReadyCode = 0
+
 class MainSettingsView(Screen):
     skin = """
   <screen name="MyMetrixLiteMainSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
@@ -166,13 +169,35 @@ class MainSettingsView(Screen):
 
     def checkFHDicons(self, str, retval, extra_args):
         if 'Collected errors' in str or not str:
-            config.plugins.MyMetrixLiteOther.FHDenabled.setValue(False)
-            config.plugins.MyMetrixLiteOther.save()
-            configfile.save()
-            self.session.open(OtherSettingsView)
-            self.session.open(MessageBox,_("Your full-hd settings are inconsistent. Please check this."), MessageBox.TYPE_INFO, timeout=10)
+            if self.applyChangesFirst:
+                stat = statvfs("/usr/share/enigma2/MetrixHD/")
+                freeflash = stat.f_bavail * stat.f_bsize / 1024 / 1024
+                filesize = 15
+                if freeflash < filesize:
+                    global skinReadyCode
+                    skinReadyCode = 3
+                    self.installFHDcomplete("flash")
+                else:
+                    self.Console.ePopen('/usr/bin/opkg install ' + self.service_name, self.installFHDcomplete)
+            else:
+                self.resetFHD()
+                self.session.open(OtherSettingsView)
+                self.session.open(MessageBox,_("Your full-hd settings are inconsistent. Please check this."), MessageBox.TYPE_INFO, timeout=10)
         else:
             self.applyChanges()
+
+    def installFHDcomplete(self, result, retval = None, extra_args = None):
+        if 'Unknown package' in result or "Collected errors" in result or "flash" in result:
+            if not "flash" in result:
+                global skinReadyCode
+                skinReadyCode = 4
+            self.resetFHD()
+        self.applyChanges()
+
+    def resetFHD(self):
+        config.plugins.MyMetrixLiteOther.FHDenabled.setValue(False)
+        config.plugins.MyMetrixLiteOther.save()
+        configfile.save()
 
     def __del__(self):
         self["menuList"].onSelectionChanged.remove(self.__selectionChanged)
@@ -237,6 +262,7 @@ class MainSettingsView(Screen):
 
     def applyChanges(self):
         print"MyMetrixLite apply Changes"
+        global skinReady, skinReadyCode
 
         try:
             skinfiles_HD = [(SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP),
@@ -293,7 +319,10 @@ class MainSettingsView(Screen):
             filesize = filesize/1024 + reserve 
 
             if freeflash < filesize:
-                self.session.open(MessageBox, _("Your flash space is to small.\n%d kb is not enough for creating new skin files. ( %d kb is required )") % (freeflash, filesize), MessageBox.TYPE_ERROR)
+                skinReady = True
+                skinReadyCode = 2
+                if not self.applyChangesFirst:
+                    self.session.open(MessageBox, _("Your flash space is to small.\n%d kb is not enough for creating new skin files. ( %d kb is required )") % (freeflash, filesize), MessageBox.TYPE_ERROR)
                 return
 
             ################
@@ -1188,36 +1217,38 @@ class MainSettingsView(Screen):
                 if path.exists(file[2]):
                     remove(file[2])
 
-            #move(SKIN_TARGET_TMP, SKIN_TARGET)
-            #move(SKIN_INFOBAR_TARGET_TMP, SKIN_INFOBAR_TARGET)
-            #move(SKIN_SECOND_INFOBAR_TARGET_TMP, SKIN_SECOND_INFOBAR_TARGET)
-            #move(SKIN_CHANNEL_SELECTION_TARGET_TMP, SKIN_CHANNEL_SELECTION_TARGET)
-            #move(SKIN_MOVIEPLAYER_TARGET_TMP, SKIN_MOVIEPLAYER_TARGET)
-            #move(SKIN_EMC_TARGET_TMP, SKIN_EMC_TARGET)
+            config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")
+            config.skin.save()
+            configfile.save()
+
+            if self.skinline_error:
+                skinReadyCode = 5
+                plustext = plustext + _("Error creating FHD-Skin. HD-Skin is used!\n\n")
+            elif not self.skinline_error and self.pixmap_error:
+                skinReadyCode = 6
+                plustext = plustext + _("One or more FHD-Pixmaps are missing. Using HD-Pixmaps for this.\n\n")
+
+            text = plustext + _("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?")
 
             if not self.applyChangesFirst:
-                config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")
-                config.skin.save()
-                configfile.save()
-                if self.skinline_error:
-                    #self.reboot(_("Error creating FHD-Skin. HD-Skin is used!\n\nGUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?"))
-                    plustext =  plustext + _("Error creating FHD-Skin. HD-Skin is used!\n\n")
-                    text =  plustext + _("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?")
-                    self.reboot(text)
-                elif not self.skinline_error and self.pixmap_error:
-                    #self.reboot(_("One or more FHD-Pixmaps are missing. Using HD-Pixmaps for this.\n\nGUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?"))
-                    plustext =  plustext + _("One or more FHD-Pixmaps are missing. Using HD-Pixmaps for this.\n\n")
-                    text =  plustext + _("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?")
-                    self.reboot(text)
-                else:
-                    #self.reboot(_("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?"))
-                    text =  plustext + _("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?")
-                    self.reboot(text)
+                self.reboot(text)
 
         except Exception as error:
             print error
-            if not self.applyChangesFirst:
-                self.session.open(MessageBox, _("Error creating Skin!"), MessageBox.TYPE_ERROR)
+            skinReadyCode = 1
+            if not self.applyChangesFirst: 
+                self.session.open(MessageBox, _("Error creating Skin!"), MessageBox.TYPE_ERROR) 
+
+        skinReady = True
+
+    def getFHDiconRefresh(self):
+        # call from SystemPlugins/SoftwareManager/plugin.py after software update
+        screenwidth = getDesktop(0).size().width()
+        if screenwidth and screenwidth == 1920:
+            print "[MetrixHD] refreshing full-hd icons after software update..."
+            self.iconFileCopy("FHD")
+            self.iconFolderCopy("FHD")
+            print "[MetrixHD] ...done."
 
     def iconFileCopy(self, target):
 
