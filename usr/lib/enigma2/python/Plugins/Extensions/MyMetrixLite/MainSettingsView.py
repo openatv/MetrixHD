@@ -524,12 +524,21 @@ class MainSettingsView(Screen):
                 EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="10" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90" CoolMovieSize="500" CoolFolderSize="575" CoolDatePos="595" CoolDateWidth="105" CoolPiconPos="547" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="450"'\
                                                ,'itemHeight="40" CoolFont="epg_text;24" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;24" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,12" CoolBarSizeSa="50,12" CoolMoviePos="90" CoolMovieSize="480" CoolFolderSize="555" CoolDatePos="575" CoolDateWidth="125" CoolPiconPos="527" CoolPiconHPos="4" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="430"'])
 
-            try:
-                if config.EMC.movie_picons_pos.getValue() == "nr":
-                    EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionList_picon_left" />', '<panel name="EMCSelectionList_picon_right" />'])
-                    EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionList_large_description_picon_left" />', '<panel name="EMCSelectionList_large_description_picon_right" />'])
-            except:
-                print "Error: find emc config - it's not installed ?" 
+            posNR = False
+            if not self.applyChangesFirst:
+                try:
+                    posNR = config.EMC.movie_picons_pos.getValue() == "nr"
+                except:
+                    print "Error: find emc config - it's not installed ?" 
+            else:
+                f=open("/etc/enigma2/settings", "r")
+                s=f.read()
+                f.close()
+                posNR = "config.EMC.movie_picons_pos=nr" in s
+
+            if posNR:
+                EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionList_picon_left" />', '<panel name="EMCSelectionList_picon_right" />'])
+                EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionList_large_description_picon_left" />', '<panel name="EMCSelectionList_large_description_picon_right" />'])
 
             namepos = "30,465"
             if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
@@ -1241,8 +1250,8 @@ class MainSettingsView(Screen):
         except Exception as error:
             print error
             skinReadyCode = 1
-            if not self.applyChangesFirst: 
-                self.session.open(MessageBox, _("Error creating Skin!"), MessageBox.TYPE_ERROR) 
+            if not self.applyChangesFirst:
+                self.session.open(MessageBox, _("Error creating Skin!"), MessageBox.TYPE_ERROR)
 
         skinReady = True
 
