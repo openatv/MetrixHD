@@ -66,16 +66,22 @@ class MetrixHDVideoInfo(Poll, Converter, object):
 		elif self.type == self.VIDEOSIZE:
 			if width > 0 and height > 0:
 				text = "%dx%d" % (width,height)
-				text += ("i", "p", "")[info.getInfo(iServiceInformation.sProgressive)]
-				text += str((info.getInfo(iServiceInformation.sFrameRate) + 500) / 1000)
+				text += ("i", "p", " ")[info.getInfo(iServiceInformation.sProgressive)]
+				if info.getInfo(iServiceInformation.sProgressive):
+					text += str((info.getInfo(iServiceInformation.sFrameRate) + 499) / 1000)
+				else:
+					text += str((info.getInfo(iServiceInformation.sFrameRate) + 499) / 500)
 		elif self.type == self.VIDEOSIZEWIDTH:
 			if width > 0:
 				text = "%d" % (width)
 		elif self.type == self.VIDEOSIZEHEIGHT:
 			if height > 0:
 				text = "%d" % (height)
-				text += ("i", "p", "")[info.getInfo(iServiceInformation.sProgressive)]
-				text += str((info.getInfo(iServiceInformation.sFrameRate) + 500) / 1000)
+				text += ("i", "p", " ")[info.getInfo(iServiceInformation.sProgressive)]
+				if info.getInfo(iServiceInformation.sProgressive):
+					text += str((info.getInfo(iServiceInformation.sFrameRate) + 499) / 1000)
+				else:
+					text += str((info.getInfo(iServiceInformation.sFrameRate) + 499) / 500)
 		elif self.type == self.VIDEOSIZESHORT:
 			if width > 0 and height > 0:
 				text = "%dx%d" % (width,height)
