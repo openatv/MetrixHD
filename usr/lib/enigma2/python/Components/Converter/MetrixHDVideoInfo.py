@@ -8,10 +8,11 @@
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 from enigma import eServiceCenter, eServiceReference, iServiceInformation
+from Poll import Poll
 
 ##########################################################################
 
-class MetrixHDVideoInfo(Converter, object):
+class MetrixHDVideoInfo(Poll, Converter, object):
 
 	VIDEOMODE = 0
 	VIDEOSIZE = 1
@@ -25,6 +26,9 @@ class MetrixHDVideoInfo(Converter, object):
 
 	def __init__(self, type):
 		Converter.__init__(self, type)
+		Poll.__init__(self)
+		self.poll_interval = 2000
+		self.poll_enabled = True
 
 		if type == "VideoMode":
 			self.type = self.VIDEOMODE
