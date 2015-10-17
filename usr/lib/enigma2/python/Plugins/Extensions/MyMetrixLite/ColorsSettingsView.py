@@ -1017,7 +1017,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
     
     def showHelperText(self):
         cur = self["config"].getCurrent()
-        if cur and len(cur) > 2 and cur[2] and cur[2] != "helptext":
+        if cur and len(cur) > 2 and cur[2] and cur[2] != _("helptext"):
             self["helpertext"].setText(cur[2])
         else:
             self["helpertext"].setText(" ")

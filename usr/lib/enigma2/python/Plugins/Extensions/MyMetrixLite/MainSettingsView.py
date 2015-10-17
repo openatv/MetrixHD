@@ -2552,7 +2552,7 @@ class MainSettingsView(Screen):
 
     def showHelperText(self):
         cur = self["menuList"].getCurrent()
-        if cur and len(cur[0]) > 2 and cur[0][2] and cur[0][2] != "helptext":
+        if cur and len(cur[0]) > 2 and cur[0][2] and cur[0][2] != _("helptext"):
             self["helpertext"].setText(cur[0][2])
         else:
             self["helpertext"].setText(" ")
