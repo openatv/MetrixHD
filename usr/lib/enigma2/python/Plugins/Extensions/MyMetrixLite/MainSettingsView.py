@@ -1319,10 +1319,10 @@ class MainSettingsView(Screen):
             self.FolderCopy("HD",spath,dpath,npath)
         self.FileCopy(target, spath, dpath)
 
-        #SerienRecorder-disabled-
-        #spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/Extensions/serienrecorder/images/"
-        #dpath = "/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/"
-        #self.FileCopy(target, spath, dpath)
+        #SerienRecorder
+        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/Extensions/serienrecorder/images/"
+        dpath = "/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/"
+        self.FileCopy(target, spath, dpath)
 
     def FileCopy(self, target, spath, dpath):
         if target == "FHD" and path.exists(spath) and path.exists(dpath):
