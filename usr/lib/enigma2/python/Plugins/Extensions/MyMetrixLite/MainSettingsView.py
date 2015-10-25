@@ -1818,18 +1818,59 @@ class MainSettingsView(Screen):
 						strnew = line[n1:(n2+1)] + ynew + '"'
 						line = line[:n1] + strnew + line[(n3+1):]
 #Font="Regular;20"
-					if 'Font="' in line and not ' Cool' in line and fontsize >= 2:
-						#n1 = line.find('Font="', 0)
-						#n2 = line.find(';', n1) 
-						#n3 = line.find('"', n2) 
-						#y = line[(n2+1):n3]
-						#ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
-						#strnew = line[n1:(n2+1)] + ynew + '"'
-						#line = line[:n1] + strnew + line[(n3+1):]
+					if ('Font="' in line or '"ServiceFont' in line or '"EntryFont' in line) and not ' Cool' in line and fontsize >= 2:
 						s = 0
 						n3 = 0
 						for s in range(0,line.count('Font="')):
 							n1 = line.find('Font="', n3)
+							n2 = line.find(';', n1)
+							n3 = line.find('"', n2) 
+							y = line[(n2+1):n3]
+							ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+							strnew = line[n1:n2+1] + ynew
+							line = line[:n1] + strnew + line[n3:]
+#ServiceFontGraphical="epg_text;20"
+					if 'FontGraphical="' in line and not ' Cool' in line and fontsize >= 2:
+						s = 0
+						n3 = 0
+						for s in range(0,line.count('FontGraphical="')):
+							n1 = line.find('FontGraphical="', n3)
+							n2 = line.find(';', n1)
+							n3 = line.find('"', n2) 
+							y = line[(n2+1):n3]
+							ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+							strnew = line[n1:n2+1] + ynew
+							line = line[:n1] + strnew + line[n3:]
+#ServiceFontInfobar="epg_text;20"
+					if 'FontInfobar=' in line and not ' Cool' in line and fontsize >= 2:
+						s = 0
+						n3 = 0
+						for s in range(0,line.count('FontInfobar="')):
+							n1 = line.find('FontInfobar="', n3)
+							n2 = line.find(';', n1)
+							n3 = line.find('"', n2) 
+							y = line[(n2+1):n3]
+							ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+							strnew = line[n1:n2+1] + ynew
+							line = line[:n1] + strnew + line[n3:]
+#EventFontSingle="epg_event;22" EventFontMulti="epg_event;22"
+					if 'FontSingle=' in line and not ' Cool' in line and fontsize >= 2:
+						s = 0
+						n3 = 0
+						for s in range(0,line.count('FontSingle="')):
+							n1 = line.find('FontSingle="', n3)
+							n2 = line.find(';', n1)
+							n3 = line.find('"', n2) 
+							y = line[(n2+1):n3]
+							ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+							strnew = line[n1:n2+1] + ynew
+							line = line[:n1] + strnew + line[n3:]
+#EventFontMulti="epg_event;22"
+					if 'FontMulti=' in line and not ' Cool' in line and fontsize >= 2:
+						s = 0
+						n3 = 0
+						for s in range(0,line.count('FontMulti="')):
+							n1 = line.find('FontMulti="', n3)
 							n2 = line.find(';', n1)
 							n3 = line.find('"', n2) 
 							y = line[(n2+1):n3]
@@ -1976,7 +2017,56 @@ class MainSettingsView(Screen):
 
 						strnew = ' offset="' + xnew + ',' + ynew + '"'
 						line = line[:n1] + strnew + line[(n4+1):]
+#fieldMargins="10"
+					if 'fieldMargins="' in line:
+						n1 = line.find('fieldMargins="', 0)
+						n2 = line.find('"', n1)
+						n3 = line.find('"', n2+1) 
+						y = line[(n2+1):n3]
 
+						ynew = str(int(round(float(int(y)*FACT),r_par)))
+						strnew = line[n1:n2+1] + ynew + '"'
+						line = line[:n1] + strnew + line[(n3+1):]
+#itemsDistances="10"
+					if 'itemsDistances="' in line:
+						n1 = line.find('itemsDistances="', 0)
+						n2 = line.find('"', n1)
+						n3 = line.find('"', n2+1) 
+						y = line[(n2+1):n3]
+
+						ynew = str(int(round(float(int(y)*FACT),r_par)))
+						strnew = line[n1:n2+1] + ynew + '"'
+						line = line[:n1] + strnew + line[(n3+1):]
+#progressbarHeight="10"
+					if 'progressbarHeight="' in line:
+						n1 = line.find('progressbarHeight="', 0)
+						n2 = line.find('"', n1)
+						n3 = line.find('"', n2+1) 
+						y = line[(n2+1):n3]
+
+						ynew = str(int(round(float(int(y)*FACT),r_par)))
+						strnew = line[n1:n2+1] + ynew + '"'
+						line = line[:n1] + strnew + line[(n3+1):]
+#progressBarWidth="50" 
+					if 'progressBarWidth="' in line:
+						n1 = line.find('progressBarWidth="', 0)
+						n2 = line.find('"', n1)
+						n3 = line.find('"', n2+1) 
+						y = line[(n2+1):n3]
+
+						ynew = str(int(round(float(int(y)*FACT),r_par)))
+						strnew = line[n1:n2+1] + ynew + '"'
+						line = line[:n1] + strnew + line[(n3+1):]
+#progressbarBorderWidth="1" 
+					#if 'progressbarBorderWidth="' in line:
+					#	n1 = line.find('progressbarBorderWidth="', 0)
+					#	n2 = line.find('"', n1)
+					#	n3 = line.find('"', n2+1) 
+					#	y = line[(n2+1):n3]
+
+					#	ynew = str(int(round(float(int(y)*FACT),r_par)))
+					#	strnew = line[n1:n2+1] + ynew + '"'
+					#	line = line[:n1] + strnew + line[(n3+1):]
 #itemHeight="25"
 					if 'itemHeight="' in line:
 						n1 = line.find('itemHeight="', 0)
