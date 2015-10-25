@@ -1818,7 +1818,7 @@ class MainSettingsView(Screen):
 						strnew = line[n1:(n2+1)] + ynew + '"'
 						line = line[:n1] + strnew + line[(n3+1):]
 #Font="Regular;20"
-					if ('Font="' in line or '"ServiceFont' in line or '"EntryFont' in line) and not ' Cool' in line and fontsize >= 2:
+					if 'Font="' in line and not ' Cool' in line and fontsize >= 2:
 						s = 0
 						n3 = 0
 						for s in range(0,line.count('Font="')):
@@ -1829,7 +1829,7 @@ class MainSettingsView(Screen):
 							ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
 							strnew = line[n1:n2+1] + ynew
 							line = line[:n1] + strnew + line[n3:]
-#ServiceFontGraphical="epg_text;20"
+#ServiceFontGraphical="epg_text;20" EntryFontGraphical="epg_text;20"
 					if 'FontGraphical="' in line and not ' Cool' in line and fontsize >= 2:
 						s = 0
 						n3 = 0
@@ -1841,7 +1841,7 @@ class MainSettingsView(Screen):
 							ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
 							strnew = line[n1:n2+1] + ynew
 							line = line[:n1] + strnew + line[n3:]
-#ServiceFontInfobar="epg_text;20"
+#ServiceFontInfobar="epg_text;20" EntryFontInfobar="epg_text;20"
 					if 'FontInfobar=' in line and not ' Cool' in line and fontsize >= 2:
 						s = 0
 						n3 = 0
@@ -1853,7 +1853,7 @@ class MainSettingsView(Screen):
 							ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
 							strnew = line[n1:n2+1] + ynew
 							line = line[:n1] + strnew + line[n3:]
-#EventFontSingle="epg_event;22" EventFontMulti="epg_event;22"
+#EventFontSingle="epg_event;22"
 					if 'FontSingle=' in line and not ' Cool' in line and fontsize >= 2:
 						s = 0
 						n3 = 0
