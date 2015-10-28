@@ -195,15 +195,41 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(tab*2 + _("Color 2"), config.plugins.MyMetrixLiteColors.layerbaccent2, _("helptext")))
         section = _("Graphical EPG")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-        list.append(getConfigListEntry(tab + _("Event Description"), ))
-        list.append(getConfigListEntry(tab*2 + _("Background"), ))
-        list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground, _("helptext")))
-        list.append(getConfigListEntry(tab*3 + _("Transparency"), config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency, _("helptext")))
-        list.append(getConfigListEntry(tab*3 + _("Font color"), config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground, _("helptext")))
-        list.append(getConfigListEntry(tab + _("Event List"), ))
-        list.append(getConfigListEntry(tab*2 + _("Font color"), config.plugins.MyMetrixLiteColors.epgeventforeground, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Background"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.epgbackground, _("helptext")))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.epgbackgroundtransparency, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Borderlines"), ))
+        list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.epgborderlines, _("helptext")))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.epgborderlinestransparency, _("helptext")))
         list.append(getConfigListEntry(tab + _("Time Line"), ))
-        list.append(getConfigListEntry(tab*2 + _("Font color"), config.plugins.MyMetrixLiteColors.epgtimelineforeground, _("helptext")))
+        list.append(getConfigListEntry(tab*3 + _("Font color"), config.plugins.MyMetrixLiteColors.epgtimelineforeground, _("helptext")))
+        list.append(getConfigListEntry(tab*2 + _("Background") + " " + _("(Text-Mode)"), ))
+        list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.epgtimelinebackground, _("helptext")))
+        list.append(getConfigListEntry(tab*3 + _("Transparency"), config.plugins.MyMetrixLiteColors.epgtimelinebackgroundtransparency, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Service List"), ))
+        list.append(getConfigListEntry(tab*3 + _("Font color"), config.plugins.MyMetrixLiteColors.epgserviceforeground, _("helptext")))
+        list.append(getConfigListEntry(tab*3 + _("Font color") + " " + _("now"), config.plugins.MyMetrixLiteColors.epgservicenowforeground, _("helptext")))
+        list.append(getConfigListEntry(tab*2 + _("Background") + " " + _("(Text-Mode)"), ))
+        list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.epgservicebackground, _("helptext")))
+        list.append(getConfigListEntry(tab*3 + _("Transparency"), config.plugins.MyMetrixLiteColors.epgservicebackgroundtransparency, _("helptext")))
+        list.append(getConfigListEntry(tab*3 + _("Color") + " " + _("now"), config.plugins.MyMetrixLiteColors.epgservicenowbackground, _("helptext")))
+        list.append(getConfigListEntry(tab*3 + _("Transparency") + " " + _("now"), config.plugins.MyMetrixLiteColors.epgservicenowbackgroundtransparency, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Event List"), ))
+        list.append(getConfigListEntry(tab*3 + _("Font color"), config.plugins.MyMetrixLiteColors.epgeventforeground, _("helptext")))
+        list.append(getConfigListEntry(tab*3 + _("Font color") + " " + _("now"), config.plugins.MyMetrixLiteColors.epgeventnowforeground, _("helptext")))
+        list.append(getConfigListEntry(tab*3 + _("Font color selected"), config.plugins.MyMetrixLiteColors.epgeventselectedforeground, _("helptext")))
+        list.append(getConfigListEntry(tab*2 + _("Background") + " " + _("(Text-Mode)"), ))
+        list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.epgeventbackground, _("helptext")))
+        list.append(getConfigListEntry(tab*3 + _("Transparency"), config.plugins.MyMetrixLiteColors.epgeventbackgroundtransparency, _("helptext")))
+        list.append(getConfigListEntry(tab*3 + _("Color") + " " + _("now"), config.plugins.MyMetrixLiteColors.epgeventnowbackground, _("helptext")))
+        list.append(getConfigListEntry(tab*3 + _("Transparency") + " " + _("now"), config.plugins.MyMetrixLiteColors.epgeventnowbackgroundtransparency, _("helptext")))
+        list.append(getConfigListEntry(tab*3 + _("Color") + " " + _("selected"), config.plugins.MyMetrixLiteColors.epgeventselectedbackground, _("helptext")))
+        list.append(getConfigListEntry(tab*3 + _("Transparency") + " " + _("selected"), config.plugins.MyMetrixLiteColors.epgeventselectedbackgroundtransparency, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Event Description"), ))
+        list.append(getConfigListEntry(tab*2 + _("Font color"), config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground, _("helptext")))
+        list.append(getConfigListEntry(tab*3 + _("Background"), ))
+        list.append(getConfigListEntry(tab*4 + _("Color"), config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground, _("helptext")))
+        list.append(getConfigListEntry(tab*4 + _("Transparency"), config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency, _("helptext")))
         section = _("Channelselection")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         list.append(getConfigListEntry(tab + _("Service"), ))
@@ -373,11 +399,31 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layerbaccent1.value = "BDBDBD"
             config.plugins.MyMetrixLiteColors.layerbaccent2.value = "6E6E6E"
 
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value = "27408B"
             config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value = "1A"
-            config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgbackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.epgbackgroundtransparency.value = "1A"
             config.plugins.MyMetrixLiteColors.epgeventforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventbackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.epgeventbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgeventnowforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventnowbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgeventnowbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgeventselectedforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventselectedbackground.value = "27408B"
+            config.plugins.MyMetrixLiteColors.epgeventselectedbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgserviceforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgservicebackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.epgservicebackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgservicenowforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgservicenowbackground.value = "27408B"
+            config.plugins.MyMetrixLiteColors.epgservicenowbackgroundtransparency.value = "1A"
             config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "F0A30A"
+            config.plugins.MyMetrixLiteColors.epgtimelinebackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgtimelinebackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgborderlines.value = "#BDBDBD"
+            config.plugins.MyMetrixLiteColors.epgborderlinestransparency.value = "1A"
 
             config.plugins.MyMetrixLiteColors.upperleftcornerbackground.value = "27408B"
             config.plugins.MyMetrixLiteColors.upperleftcornertransparency.value = "1A"
@@ -391,6 +437,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.optionallayerhorizontaltransparency.value = "1A"
             config.plugins.MyMetrixLiteColors.optionallayerverticalbackground.value = "27408B"
             config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency.value = "1A"
+
         elif config.plugins.MyMetrixLiteColors.SkinColorExamples.value == "preset_1":
         #bright colors
             config.plugins.MyMetrixLiteColors.menufont.value = "1C1C1C"
@@ -458,11 +505,31 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layerbaccent1.value = "D8D8D8"
             config.plugins.MyMetrixLiteColors.layerbaccent2.value = "6E6E6E"
 
-            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value = "D8D8D8"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value = "F2F2F2"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value = "6E6E6E"
             config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value = "1A"
-            config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value = "1C1C1C"
-            config.plugins.MyMetrixLiteColors.epgeventforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgbackground.value = "D8D8D8"
+            config.plugins.MyMetrixLiteColors.epgbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgeventforeground.value = "1C1C1C"
+            config.plugins.MyMetrixLiteColors.epgeventbackground.value = "D8D8D8"
+            config.plugins.MyMetrixLiteColors.epgeventbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgeventnowforeground.value = "1C1C1C"
+            config.plugins.MyMetrixLiteColors.epgeventnowbackground.value = "D8D8D8"
+            config.plugins.MyMetrixLiteColors.epgeventnowbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgeventselectedforeground.value = "F2F2F2"
+            config.plugins.MyMetrixLiteColors.epgeventselectedbackground.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.epgeventselectedbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgserviceforeground.value = "1C1C1C"
+            config.plugins.MyMetrixLiteColors.epgservicebackground.value = "D8D8D8"
+            config.plugins.MyMetrixLiteColors.epgservicebackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgservicenowforeground.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.epgservicenowbackground.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.epgservicenowbackgroundtransparency.value = "1A"
             config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "F0A30A"
+            config.plugins.MyMetrixLiteColors.epgtimelinebackground.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.epgtimelinebackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgborderlines.value = "#6E6E6E"
+            config.plugins.MyMetrixLiteColors.epgborderlinestransparency.value = "1A"
 
             config.plugins.MyMetrixLiteColors.upperleftcornerbackground.value = "6E6E6E"
             config.plugins.MyMetrixLiteColors.upperleftcornertransparency.value = "1A"
@@ -476,13 +543,14 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.optionallayerhorizontaltransparency.value = "1A"
             config.plugins.MyMetrixLiteColors.optionallayerverticalbackground.value = "6E6E6E"
             config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency.value = "1A"
+
         elif config.plugins.MyMetrixLiteColors.SkinColorExamples.value == "preset_2":
         #dark colors
             config.plugins.MyMetrixLiteColors.menufont.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.menufontselected.value = "FFFFFF"
             config.plugins.MyMetrixLiteColors.menubackground.value = "000000"
             config.plugins.MyMetrixLiteColors.menubackgroundtransparency.value = "4D"
-            config.plugins.MyMetrixLiteColors.menusymbolbackground.value = "27408B"
+            config.plugins.MyMetrixLiteColors.menusymbolbackground.value = "0F0F0F"
             config.plugins.MyMetrixLiteColors.menusymbolbackgroundtransparency.value = "4D"
             config.plugins.MyMetrixLiteColors.infobarbackground.value = "000000"
             config.plugins.MyMetrixLiteColors.infobarbackgroundtransparency.value = "4D"
@@ -543,11 +611,31 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layerbaccent1.value = "BDBDBD"
             config.plugins.MyMetrixLiteColors.layerbaccent2.value = "6E6E6E"
 
-            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value = "000000"
-            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value = "4D"
             config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgbackgroundtransparency.value = "4D"
             config.plugins.MyMetrixLiteColors.epgeventforeground.value = "FFFFFF"
-            config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "F0A30A"
+            config.plugins.MyMetrixLiteColors.epgeventbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgeventbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgeventnowforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventnowbackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.epgeventnowbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgeventselectedforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventselectedbackground.value = "27408B"
+            config.plugins.MyMetrixLiteColors.epgeventselectedbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgserviceforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgservicebackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgservicebackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgservicenowforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgservicenowbackground.value = "27408B"
+            config.plugins.MyMetrixLiteColors.epgservicenowbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.epgtimelinebackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.epgtimelinebackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgborderlines.value = "#6E6E6E"
+            config.plugins.MyMetrixLiteColors.epgborderlinestransparency.value = "4D"
 
             config.plugins.MyMetrixLiteColors.upperleftcornerbackground.value = "0F0F0F"
             config.plugins.MyMetrixLiteColors.upperleftcornertransparency.value = "4D"
@@ -628,11 +716,31 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layerbaccent1.value = "BDBDBD"
             config.plugins.MyMetrixLiteColors.layerbaccent2.value = "6E6E6E"
 
-            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value = "000000"
-            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value = "4D"
             config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value = "911D10"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgbackgroundtransparency.value = "4D"
             config.plugins.MyMetrixLiteColors.epgeventforeground.value = "FFFFFF"
-            config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "F0A30A"
+            config.plugins.MyMetrixLiteColors.epgeventbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgeventbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgeventnowforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventnowbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgeventnowbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgeventselectedforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventselectedbackground.value = "911D10"
+            config.plugins.MyMetrixLiteColors.epgeventselectedbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgserviceforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgservicebackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgservicebackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgservicenowforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgservicenowbackground.value = "911D10"
+            config.plugins.MyMetrixLiteColors.epgservicenowbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.epgtimelinebackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.epgtimelinebackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgborderlines.value = "#6E6E6E"
+            config.plugins.MyMetrixLiteColors.epgborderlinestransparency.value = "4D"
 
             config.plugins.MyMetrixLiteColors.upperleftcornerbackground.value = "911D10"
             config.plugins.MyMetrixLiteColors.upperleftcornertransparency.value = "4D"
@@ -713,11 +821,31 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layerbaccent1.value = "000000"
             config.plugins.MyMetrixLiteColors.layerbaccent2.value = "6E6E6E"
 
-            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value = "000000"
-            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value = "1A"
-            config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgbackgroundtransparency.value = "4D"
             config.plugins.MyMetrixLiteColors.epgeventforeground.value = "FFFFFF"
-            config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.epgeventbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgeventbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgeventnowforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventnowbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgeventnowbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgeventselectedforeground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgeventselectedbackground.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.epgeventselectedbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgserviceforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgservicebackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgservicebackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgservicenowforeground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgservicenowbackground.value = "BF9217"
+            config.plugins.MyMetrixLiteColors.epgservicenowbackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.epgtimelinebackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.epgtimelinebackgroundtransparency.value = "4D"
+            config.plugins.MyMetrixLiteColors.epgborderlines.value = "#6E6E6E"
+            config.plugins.MyMetrixLiteColors.epgborderlinestransparency.value = "4D"
 
             config.plugins.MyMetrixLiteColors.upperleftcornerbackground.value = "BF9217"
             config.plugins.MyMetrixLiteColors.upperleftcornertransparency.value = "1A"
@@ -798,11 +926,31 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layerbaccent1.value = "BDBDBD"
             config.plugins.MyMetrixLiteColors.layerbaccent2.value = "6E6E6E"
 
-            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value = "000000"
-            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value = "1A"
             config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value = "70AD11"
+            config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgbackgroundtransparency.value = "1A"
             config.plugins.MyMetrixLiteColors.epgeventforeground.value = "FFFFFF"
-            config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "70AD11"
+            config.plugins.MyMetrixLiteColors.epgeventbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgeventbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgeventnowforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventnowbackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgeventnowbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgeventselectedforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgeventselectedbackground.value = "70AD11"
+            config.plugins.MyMetrixLiteColors.epgeventselectedbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgserviceforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgservicebackground.value = "000000"
+            config.plugins.MyMetrixLiteColors.epgservicebackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgservicenowforeground.value = "FFFFFF"
+            config.plugins.MyMetrixLiteColors.epgservicenowbackground.value = "70AD11"
+            config.plugins.MyMetrixLiteColors.epgservicenowbackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.epgtimelinebackground.value = "0F0F0F"
+            config.plugins.MyMetrixLiteColors.epgtimelinebackgroundtransparency.value = "1A"
+            config.plugins.MyMetrixLiteColors.epgborderlines.value = "#6E6E6E"
+            config.plugins.MyMetrixLiteColors.epgborderlinestransparency.value = "1A"
 
             config.plugins.MyMetrixLiteColors.upperleftcornerbackground.value = "00008B"
             config.plugins.MyMetrixLiteColors.upperleftcornertransparency.value = "1A"

@@ -509,27 +509,27 @@ class MainSettingsView(Screen):
                     EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionCover_large_description_on" />', '<panel name="EMCSelectionCover_large_description_off" />'])
 
             if config.plugins.MyMetrixLiteOther.showEMCSelectionRows.getValue() == "2":
-                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="10" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90" CoolMovieSize="500" CoolFolderSize="575" CoolDatePos="595" CoolDateWidth="105" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="450"'\
-                                               ,'itemHeight="20" CoolFont="epg_text;13" CoolSelectFont="epg_text;12" CoolDateFont="epg_text;13" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="6" CoolBarSize="50,7" CoolBarSizeSa="50,7" CoolMoviePos="90" CoolMovieSize="535" CoolFolderSize="625" CoolDatePos="630" CoolDateWidth="70" CoolPiconPos="90" CoolPiconHPos="1" CoolPiconWidth="30" CoolPiconHeight="17" CoolMoviePiconPos="125" CoolMoviePiconSize="500"'])
-                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="10" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90" CoolMovieSize="500" CoolFolderSize="575" CoolDatePos="595" CoolDateWidth="105" CoolPiconPos="547" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="450"'\
-                                               ,'itemHeight="20" CoolFont="epg_text;13" CoolSelectFont="epg_text;12" CoolDateFont="epg_text;13" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="6" CoolBarSize="50,7" CoolBarSizeSa="50,7" CoolMoviePos="90" CoolMovieSize="535" CoolFolderSize="625" CoolDatePos="630" CoolDateWidth="70" CoolPiconPos="595" CoolPiconHPos="1" CoolPiconWidth="30" CoolPiconHeight="17" CoolMoviePiconPos="90" CoolMoviePiconSize="500"'])
+                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="448" CoolCSWidth="115" CoolDirInfoWidth="115"'\
+                                               ,'itemHeight="20" CoolFont="epg_text;13" CoolSelectFont="epg_text;13" CoolDateFont="epg_text;13" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="1" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="8" CoolBarSize="50,7" CoolBarSizeSa="50,7" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="531" CoolFolderSize="546" CoolDatePos="625" CoolDateHPos="1" CoolDateWidth="80" CoolPiconPos="90" CoolPiconHPos="1" CoolPiconWidth="30" CoolPiconHeight="17" CoolMoviePiconPos="125" CoolMoviePiconSize="498" CoolCSWidth="80" CoolDirInfoWidth="80"'])
+                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="542" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="88" CoolMoviePiconSize="448" CoolCSWidth="115" CoolDirInfoWidth="115"'\
+                                               ,'itemHeight="20" CoolFont="epg_text;13" CoolSelectFont="epg_text;13" CoolDateFont="epg_text;13" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="1" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="8" CoolBarSize="50,7" CoolBarSizeSa="50,7" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="532" CoolFolderSize="546" CoolDatePos="625" CoolDateHPos="1" CoolDateWidth="80" CoolPiconPos="592" CoolPiconHPos="1" CoolPiconWidth="30" CoolPiconHeight="17" CoolMoviePiconPos="88" CoolMoviePiconSize="498" CoolCSWidth="80" CoolDirInfoWidth="80"'])
             elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.getValue() == "1":
-                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="10" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90" CoolMovieSize="500" CoolFolderSize="575" CoolDatePos="595" CoolDateWidth="105" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="450"'\
-                                               ,'itemHeight="24" CoolFont="epg_text;17" CoolSelectFont="epg_text;15" CoolDateFont="epg_text;17" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="9" CoolBarSize="50,8" CoolBarSizeSa="50,8" CoolMoviePos="90" CoolMovieSize="515" CoolFolderSize="605" CoolDatePos="610" CoolDateWidth="90" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="35" CoolPiconHeight="20" CoolMoviePiconPos="130" CoolMoviePiconSize="472"'])
-                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="10" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90" CoolMovieSize="500" CoolFolderSize="575" CoolDatePos="595" CoolDateWidth="105" CoolPiconPos="547" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="450"'\
-                                               ,'itemHeight="24" CoolFont="epg_text;17" CoolSelectFont="epg_text;15" CoolDateFont="epg_text;17" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="9" CoolBarSize="50,8" CoolBarSizeSa="50,8" CoolMoviePos="90" CoolMovieSize="515" CoolFolderSize="605" CoolDatePos="610" CoolDateWidth="90" CoolPiconPos="570" CoolPiconHPos="2" CoolPiconWidth="35" CoolPiconHeight="20" CoolMoviePiconPos="90" CoolMoviePiconSize="472"'])
+                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="448" CoolCSWidth="115" CoolDirInfoWidth="115"'\
+                                               ,'itemHeight="24" CoolFont="epg_text;17" CoolSelectFont="epg_text;17" CoolDateFont="epg_text;17" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="2" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="10" CoolBarSize="50,8" CoolBarSizeSa="50,8" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="516" CoolFolderSize="566" CoolDatePos="610" CoolDateHPos="1" CoolDateWidth="90" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="35" CoolPiconHeight="20" CoolMoviePiconPos="130" CoolMoviePiconSize="470" CoolCSWidth="90" CoolDirInfoWidth="90"'])
+                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="542" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="88" CoolMoviePiconSize="448" CoolCSWidth="115" CoolDirInfoWidth="115"'\
+                                               ,'itemHeight="24" CoolFont="epg_text;17" CoolSelectFont="epg_text;17" CoolDateFont="epg_text;17" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="2" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="10" CoolBarSize="50,8" CoolBarSizeSa="50,8" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="516" CoolFolderSize="566" CoolDatePos="610" CoolDateHPos="1" CoolDateWidth="90" CoolPiconPos="570" CoolPiconHPos="2" CoolPiconWidth="35" CoolPiconHeight="20" CoolMoviePiconPos="88" CoolMoviePiconSize="470" CoolCSWidth="90" CoolDirInfoWidth="90"'])
             elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.getValue() == "-1":
-                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="10" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90" CoolMovieSize="500" CoolFolderSize="575" CoolDatePos="595" CoolDateWidth="105" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="450"'\
-                                               ,'itemHeight="40" CoolFont="epg_text;24" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;24" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,12" CoolBarSizeSa="50,12" CoolMoviePos="90" CoolMovieSize="480" CoolFolderSize="555" CoolDatePos="575" CoolDateWidth="125" CoolPiconPos="90" CoolPiconHPos="4" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="130" CoolMoviePiconSize="430"'])
-                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="10" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90" CoolMovieSize="500" CoolFolderSize="575" CoolDatePos="595" CoolDateWidth="105" CoolPiconPos="547" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="450"'\
-                                               ,'itemHeight="40" CoolFont="epg_text;24" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;24" CoolProgressPos="50" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,12" CoolBarSizeSa="50,12" CoolMoviePos="90" CoolMovieSize="480" CoolFolderSize="555" CoolDatePos="575" CoolDateWidth="125" CoolPiconPos="527" CoolPiconHPos="4" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="430"'])
+                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="448" CoolCSWidth="115" CoolDirInfoWidth="115"'\
+                                               ,'itemHeight="40" CoolFont="epg_text;24" CoolSelectFont="epg_text;24" CoolDateFont="epg_text;24" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="7" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="16" CoolBarSize="50,12" CoolBarSizeSa="50,12" CoolMoviePos="88" CoolMovieHPos="3" CoolMovieSize="471" CoolFolderSize="524" CoolDatePos="565" CoolDateHPos="3" CoolDateWidth="135" CoolPiconPos="90" CoolPiconHPos="6" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="423" CoolCSWidth="135" CoolDirInfoWidth="135"'])
+                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="542" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="88" CoolMoviePiconSize="448" CoolCSWidth="115" CoolDirInfoWidth="115"'\
+                                               ,'itemHeight="40" CoolFont="epg_text;24" CoolSelectFont="epg_text;24" CoolDateFont="epg_text;24" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="7" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="16" CoolBarSize="50,12" CoolBarSizeSa="50,12" CoolMoviePos="88" CoolMovieHPos="3" CoolMovieSize="471" CoolFolderSize="524" CoolDatePos="565" CoolDateHPos="3" CoolDateWidth="135" CoolPiconPos="522" CoolPiconHPos="6" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="88" CoolMoviePiconSize="423" CoolCSWidth="135" CoolDirInfoWidth="135"'])
 
             posNR = False
             if not self.applyChangesFirst:
                 try:
                     posNR = config.EMC.movie_picons_pos.getValue() == "nr"
                 except:
-                    print "Error: find emc config - it's not installed ?" 
+                    print "Error: find emc config - it's not installed ?"
             else:
                 f=open("/etc/enigma2/settings", "r")
                 s=f.read()
@@ -614,8 +614,20 @@ class MainSettingsView(Screen):
 
             epgeventdescriptionbackground = ('name="epg-eventdescription-background" value="#' + config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value + '"')
             epgeventdescriptionforeground = ('name="epg-eventdescription-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value + '"')
+            epgbackground = ('name="epg-background" value="#' + config.plugins.MyMetrixLiteColors.epgbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgbackground.value + '"')
+            epgborderlines = ('name="epg-borderlines" value="#' + config.plugins.MyMetrixLiteColors.epgborderlinestransparency.value + config.plugins.MyMetrixLiteColors.epgborderlines.value + '"')
             epgeventforeground = ('name="epg-event-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgeventforeground.value + '"')
+            epgeventbackground = ('name="epg-event-background" value="#' + config.plugins.MyMetrixLiteColors.epgeventbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgeventbackground.value + '"')
+            epgeventnowforeground = ('name="epg-event-now-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgeventnowforeground.value + '"')
+            epgeventnowbackground = ('name="epg-event-now-background" value="#' + config.plugins.MyMetrixLiteColors.epgeventnowbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgeventnowbackground.value + '"')
+            epgeventselectedforeground = ('name="epg-event-selected-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgeventselectedforeground.value + '"')
+            epgeventselectedbackground = ('name="epg-event-selected-background" value="#' + config.plugins.MyMetrixLiteColors.epgeventselectedbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgeventselectedbackground.value + '"')
+            epgserviceforeground = ('name="epg-service-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgserviceforeground.value + '"')
+            epgservicebackground = ('name="epg-service-background" value="#' + config.plugins.MyMetrixLiteColors.epgservicebackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgservicebackground.value + '"')
+            epgservicenowforeground = ('name="epg-service-now-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgservicenowforeground.value + '"')
+            epgservicenowbackground = ('name="epg-service-now-background" value="#' + config.plugins.MyMetrixLiteColors.epgservicenowbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgservicenowbackground.value + '"')
             epgtimelineforeground = ('name="epg-timeline-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgtimelineforeground.value + '"')
+            epgtimelinebackground = ('name="epg-timeline-background" value="#' + config.plugins.MyMetrixLiteColors.epgtimelinebackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgtimelinebackground.value + '"')
 
             layeratitleforeground = ('name="layer-a-title-foreground" value="#00' + config.plugins.MyMetrixLiteColors.windowtitletext.value + '"')
             layerabuttonforeground = ('name="layer-a-button-foreground" value="#00' + config.plugins.MyMetrixLiteColors.buttonforeground.value + '"')
@@ -668,8 +680,20 @@ class MainSettingsView(Screen):
 
             skinSearchAndReplace.append(['name="epg-eventdescription-background" value="#1A27408B"', epgeventdescriptionbackground ])
             skinSearchAndReplace.append(['name="epg-eventdescription-foreground" value="#00FFFFFF"', epgeventdescriptionforeground ])
+            skinSearchAndReplace.append(['name="epg-background" value="#1A0F0F0F"', epgbackground ])
+            skinSearchAndReplace.append(['name="epg-borderlines" value="#1ABDBDBD"', epgborderlines ])
             skinSearchAndReplace.append(['name="epg-event-foreground" value="#00FFFFFF"', epgeventforeground ])
+            skinSearchAndReplace.append(['name="epg-event-background" value="#1A0F0F0F"', epgeventbackground ])
+            skinSearchAndReplace.append(['name="epg-event-now-foreground" value="#00FFFFFF"', epgeventnowforeground ])
+            skinSearchAndReplace.append(['name="epg-event-now-background" value="#1A000000"', epgeventnowbackground ])
+            skinSearchAndReplace.append(['name="epg-event-selected-foreground" value="#00FFFFFF"', epgeventselectedforeground ])
+            skinSearchAndReplace.append(['name="epg-event-selected-background" value="#1A27408B"', epgeventselectedbackground ])
+            skinSearchAndReplace.append(['name="epg-service-foreground" value="#00FFFFFF"', epgserviceforeground ])
+            skinSearchAndReplace.append(['name="epg-service-background" value="#1A0F0F0F"', epgservicebackground ])
+            skinSearchAndReplace.append(['name="epg-service-now-foreground" value="#00FFFFFF"', epgservicenowforeground ])
+            skinSearchAndReplace.append(['name="epg-service-now-background" value="#1A27408B"', epgservicenowbackground ])
             skinSearchAndReplace.append(['name="epg-timeline-foreground" value="#00F0A30A"', epgtimelineforeground ])
+            skinSearchAndReplace.append(['name="epg-timeline-background" value="#1A000000"', epgtimelinebackground ])
 
             skinSearchAndReplace.append(['name="layer-a-title-foreground" value="#00FFFFFF"', layeratitleforeground ])
             skinSearchAndReplace.append(['name="layer-a-button-foreground" value="#00FFFFFF"', layerabuttonforeground ])
@@ -687,7 +711,7 @@ class MainSettingsView(Screen):
             skinSearchAndReplace.append(['name="infobaraccent1" value="#00BDBDBD"', infobaraccent1 ])
             skinSearchAndReplace.append(['name="infobaraccent2" value="#006E6E6E"', infobaraccent2 ])
 
-            #Border screens
+            #Borderset screens
             if config.plugins.MyMetrixLiteOther.FHDenabled.value:
                 width = "8px"
                 width_top = "75px"
@@ -1108,6 +1132,11 @@ class MainSettingsView(Screen):
             else:
                 if config.plugins.MyMetrixLiteOther.showMovieTime.getValue() == "3":
                     skinSearchAndReplace.append(['<panel name="PVRState_1" />', '<panel name="PVRState_2" />' ])
+
+            #graphical epg style
+            if config.plugins.MyMetrixLiteOther.graphicalEpgStyle.getValue() == "2":
+                skinSearchAndReplace.append(['<panel name="GraphicalEPG_1" />', '<panel name="GraphicalEPG_2" />' ])
+                skinSearchAndReplace.append(['<panel name="GraphicalEPGPIG_1" />', '<panel name="GraphicalEPGPIG_2" />' ])
 
             if config.plugins.MyMetrixLiteOther.FHDenabled.value:
                 skinSearchAndReplace.append(['skin_00_templates.xml', 'skin_00_templates.MySkin.xml'])
@@ -2276,24 +2305,96 @@ class MainSettingsView(Screen):
 								ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
 								strnew = line[n1:n2+1] + ynew + '"'
 								line = line[:n1] + strnew + line[(n3+1):]
+#CoolSelNumTxtWidth="26" 
+						if 'CoolSelNumTxtWidth="' in line:
+							n1 = line.find('CoolSelNumTxtWidth=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolDateHPos="1" 
+						if 'CoolDateHPos="' in line:
+							n1 = line.find('CoolDateHPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolProgressHPos="1" 
+						if 'CoolProgressHPos="' in line:
+							n1 = line.find('CoolProgressHPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolMovieHPos="1" 
+						if 'CoolMovieHPos="' in line:
+							n1 = line.find('CoolMovieHPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolDirInfoWidth="110" 
+						if 'CoolDirInfoWidth="' in line:
+							n1 = line.find('CoolDirInfoWidth=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolCSWidth="110" 
+						if 'CoolCSWidth="' in line:
+							n1 = line.find('CoolCSWidth=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
 #CoolProgressPos="35" 
-						#if 'CoolProgressPos="' in line:
-						#	n1 = line.find('CoolProgressPos=', 0)
-						#	n2 = line.find('"', n1)
-						#	n3 = line.find('"', n2+1)
-						#	y = line[(n2+1):n3]
-						#	ynew = str(int(round(float(int(y)*FACT),r_par)))
-						#	strnew = line[n1:n2+1] + ynew + '"'
-						#	line = line[:n1] + strnew + line[(n3+1):]
+						if 'CoolProgressPos="' in line:
+							n1 = line.find('CoolProgressPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolIconPos="35"
+						if 'CoolIconPos="' in line:
+							n1 = line.find('CoolIconPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolIconHPos="35"
+						if 'CoolIconHPos="' in line:
+							n1 = line.find('CoolIconHPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
 #CoolBarPos="35"
-						#if 'CoolBarPos="' in line:
-						#	n1 = line.find('CoolBarPos=', 0)
-						#	n2 = line.find('"', n1)
-						#	n3 = line.find('"', n2+1)
-						#	y = line[(n2+1):n3]
-						#	ynew = str(int(round(float(int(y)*FACT),r_par)))
-						#	strnew = line[n1:n2+1] + ynew + '"'
-						#	line = line[:n1] + strnew + line[(n3+1):]
+						if 'CoolBarPos="' in line:
+							n1 = line.find('CoolBarPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
 #CoolBarHPos="10"
 						if 'CoolBarHPos="' in line:
 							n1 = line.find('CoolBarHPos=', 0)
@@ -2402,6 +2503,18 @@ class MainSettingsView(Screen):
 							ynew = str(int(round(float(int(y)*FACT),r_par))) 
 							strnew = line[n1:n2+1] + ynew + '"' 
 							line = line[:n1] + strnew + line[(n3+1):] 
+#CoolIconSize="24,24"
+						if 'CoolIconSize="' in line:
+							n1 = line.find('CoolIconSize=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find(',', n2+1)
+							n4 = line.find('"', n3) 
+							x = line[(n2+1):n3]
+							y = line[(n3+1):n4]
+							xnew = str(int(round(float(int(x)*FACT),r_par)))
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = 'CoolIconSize="' + xnew + ',' + ynew + '"'
+							line = line[:n1] + strnew + line[(n4+1):]
 #CoolBarSize="65,10"
 						if 'CoolBarSize="' in line:
 							n1 = line.find('CoolBarSize=', 0)
@@ -2410,8 +2523,7 @@ class MainSettingsView(Screen):
 							n4 = line.find('"', n3) 
 							x = line[(n2+1):n3]
 							y = line[(n3+1):n4]
-							#xnew = str(int(round(float(int(x)*FACT),r_par)))
-							xnew = str(int(round(float(int(x)*1.75),r_par)))
+							xnew = str(int(round(float(int(x)*FACT),r_par)))
 							ynew = str(int(round(float(int(y)*FACT),r_par)))
 							strnew = 'CoolBarSize="' + xnew + ',' + ynew + '"'
 							line = line[:n1] + strnew + line[(n4+1):]
@@ -2423,8 +2535,7 @@ class MainSettingsView(Screen):
 							n4 = line.find('"', n3) 
 							x = line[(n2+1):n3]
 							y = line[(n3+1):n4]
-							#xnew = str(int(round(float(int(x)*FACT),r_par)))
-							xnew = str(int(round(float(int(x)*1.75),r_par)))
+							xnew = str(int(round(float(int(x)*FACT),r_par)))
 							ynew = str(int(round(float(int(y)*FACT),r_par)))
 							strnew = 'CoolBarSizeSa="' + xnew + ',' + ynew + '"'
 							line = line[:n1] + strnew + line[(n4+1):]
