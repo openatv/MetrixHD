@@ -526,6 +526,10 @@
 	</screen>
 	<screen name="menu_mainmenu" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MENU_template" />
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_mainmenu_vmc.png" position="305,80" size="256,256" alphatest="blend">
+			<convert type="MenuEntryCompare">vmc_init_startvmc</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_mainmenu_infopanel.png" position="305,80" size="256,256" alphatest="blend">
 			<convert type="MenuEntryCompare">Infopanel</convert>
 			<convert type="ConditionalShowHide" />
@@ -681,6 +685,10 @@
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_setup_software_manager.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">software_manager</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_setup_vmc_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">vmc_init_setup</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_extended_selection.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
