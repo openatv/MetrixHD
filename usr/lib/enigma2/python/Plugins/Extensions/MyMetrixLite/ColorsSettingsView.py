@@ -522,7 +522,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.epgserviceforeground.value = "1C1C1C"
             config.plugins.MyMetrixLiteColors.epgservicebackground.value = "D8D8D8"
             config.plugins.MyMetrixLiteColors.epgservicebackgroundtransparency.value = "1A"
-            config.plugins.MyMetrixLiteColors.epgservicenowforeground.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.epgservicenowforeground.value = "F2F2F2"
             config.plugins.MyMetrixLiteColors.epgservicenowbackground.value = "6E6E6E"
             config.plugins.MyMetrixLiteColors.epgservicenowbackgroundtransparency.value = "1A"
             config.plugins.MyMetrixLiteColors.epgtimelineforeground.value = "F0A30A"
