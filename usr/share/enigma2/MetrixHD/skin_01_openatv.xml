@@ -2845,26 +2845,26 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="state" position="0,40" size="370,100" noWrap="1" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="right" transparent="1" valign="center" />
 	</screen>
 	<screen name="PVRState_3">
-		<eLabel backgroundColor="layer-a-background" position="0,0" size="1280,30" transparent="0" zPosition="-99"/>
-		<widget name="state" position="0,4" size="1280,21" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" font="global_small; 16" halign="center" transparent="1" valign="center" />
+		<eLabel backgroundColor="infobarbackground" position="0,0" size="1280,30" transparent="0" zPosition="-99"/>
+		<widget name="state" position="0,4" size="1280,21" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" font="global_small; 16" halign="center" transparent="1" valign="center" />
 		<panel name="COLORGRADIENT_Top" />
 	</screen>
 	<screen name="PVRState_3_mt">
-		<!--eLabel text="Playback Time:" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo2" font="global_small; 16" halign="left" position="960,4" size="150,30" transparent="1" /-->
-		<widget source="session.CurrentService" render="Label" position="1130,4" size="50,21" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo2" font="global_small; 16" halign="right" transparent="1" valign="center">
+		<!--eLabel text="Playback Time:" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" font="global_small; 16" halign="left" position="960,4" size="150,30" transparent="1" /-->
+		<widget source="session.CurrentService" render="Label" position="1130,4" size="50,21" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" font="global_small; 16" halign="right" transparent="1" valign="center">
 			<convert type="MetrixHDServiceTime">StartTime</convert>
 		</widget>
-		<eLabel text="-" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo2" font="global_small; 16" halign="center" valign="center" position="1185,4" size="10,21" transparent="1" />
-		<widget source="session.CurrentService" render="Label" position="1190,4" size="50,21" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" font="global_small; 16" halign="right" transparent="1" valign="center">
+		<eLabel text="-" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" font="global_small; 16" halign="center" valign="center" position="1185,4" size="10,21" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="1190,4" size="50,21" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" font="global_small; 16" halign="right" transparent="1" valign="center">
 			<convert type="MetrixHDServiceTime">EndTime</convert>
 		</widget>
 	</screen>
 	<screen name="PVRState_3_ct">
-		<!--eLabel text="Current Time:" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo2" font="global_small; 16" halign="left" position="40,4" size="150,30" transparent="1" /-->
-		<widget source="global.CurrentTime" render="Label" position="40,4" size="50,21" font="global_small; 16" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" transparent="1">
+		<!--eLabel text="Current Time:" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" font="global_small; 16" halign="left" position="40,4" size="150,30" transparent="1" /-->
+		<widget source="global.CurrentTime" render="Label" position="40,4" size="50,21" font="global_small; 16" halign="left" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="84,4" size="200,21" font="global_small; 16" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo2" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="84,4" size="200,21" font="global_small; 16" halign="left" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1">
 			<convert type="ClockToText">Format:, %A , %d.%m.%Y</convert>
 		</widget>
 	</screen>
@@ -3014,11 +3014,11 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="Event" render="Label" position="70,144" size="820,125" font="epg_info;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
-		<widget source="Event" render="Label" position="60,108" size="80,25" font="epg_event;20" halign="right" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1">
+		<widget source="Event" render="Label" position="60,108" size="80,25" font="epg_event;20" halign="right" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" valign="center">
 			<convert type="EventTime">StartTime</convert>
 			<convert type="ClockToText">Format:%H:%M </convert>
 		</widget>
-		<widget source="Event" render="Label" position="810,108" size="80,25" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="left">
+		<widget source="Event" render="Label" position="810,108" size="80,25" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="left" valign="center">
 			<convert type="EventTime">EndTime</convert>
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
@@ -3026,7 +3026,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="Event" render="Progress" position="160,121" size="630,5" borderWidth="0" foregroundColor="layer-a-progress" transparent="1" zPosition="2">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget source="Event" render="Label" position="950,638" size="80,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right">
+		<widget source="Event" render="Label" position="950,638" size="80,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right" valign="center" >
 			<convert type="EventTime">Remaining</convert>
 			<convert type="RemainingToText">InMinutes</convert>
 		</widget>
@@ -3034,7 +3034,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<eLabel name="timeline_background" position="60,282" size="1160,30" backgroundColor="epg-timeline-background" transparent="0" />
 		<widget name="timeline_text" position="60,282" size="1160,30" itemHeight="30" TimelineFont="epg_event;20" borderColor="epg-borderlines" borderWidth="1" foregroundColor="epg-timeline-foreground" backgroundColor="epg-timeline-background" TimelineAlignment="left" zPosition="1" transparent="1" />
 		<widget name="bouquetlist" position="60,282" size="1160,30" zPosition="2" itemHeight="30" font="epg_event;20" borderColor="epg-borderlines" borderWidth="1" backgroundColor="epg-event-background" foregroundColor="epg-event-foreground" backgroundColorSelected="epg-event-selected-background" foregroundColorSelected="epg-event-foreground" transparent="0" />
-		<widget name="list" position="60,316" size="1160,315" itemHeight="315" ServiceFontGraphical="epg_event;20" EntryFontGraphical="epg_text;19" EntryFontAlignment="left" EntryFontWrap="no" ServiceForegroundColor="epg-service-foreground" ServiceForegroundColorNow="epg-service-now-foreground" ServiceBackgroundColor="epg-service-background" ServiceBackgroundColorNow="epg-service-now-background" EntryForegroundColor="epg-event-foreground" EntryForegroundColorSelected="epg-event-selected-foreground" EntryBackgroundColor="epg-event-background" EntryBackgroundColorSelected="epg-event-selected-background" EntryBackgroundColorNow="epg-event-now-background" EntryBackgroundColorNowSelected="epg-event-selected-background" EntryForegroundColorNow="epg-event-now-foreground" EntryForegroundColorNowSelected="epg-event-selected-foreground" ServiceBorderColor="epg-borderlines" ServiceBorderWidth="1" ServiceNamePadding="3" EntryBorderColor="epg-borderlines" EventBorderWidth="1" EventNamePadding="3" RecordForegroundColor="epg-event-foreground" RecordForegroundColorSelected="epg-event-selected-foreground" RecordBackgroundColor="#00d13333" RecordBackgroundColorSelected="#009e2626" ZapForegroundColor="epg-event-foreground" ZapBackgroundColor="#00669466" ZapForegroundColorSelected="epg-event-selected-foreground" ZapBackgroundColorSelected="#00436143" enableWrapAround="1" scrollbarMode="showNever" transparent="0" /> 
+		<widget name="list" position="60,316" size="1160,315" itemHeight="315" ServiceFontGraphical="epg_event;20" EntryFontGraphical="epg_text;19" EntryFontAlignment="left" EntryFontWrap="no" ServiceForegroundColor="epg-service-foreground" ServiceForegroundColorNow="epg-service-now-foreground" ServiceBackgroundColor="epg-service-background" ServiceBackgroundColorNow="epg-service-now-background" EntryForegroundColor="epg-event-foreground" EntryForegroundColorSelected="epg-event-selected-foreground" EntryBackgroundColor="epg-event-background" EntryBackgroundColorSelected="epg-event-selected-background" EntryBackgroundColorNow="epg-event-now-background" EntryBackgroundColorNowSelected="epg-event-selected-background" EntryForegroundColorNow="epg-event-now-foreground" EntryForegroundColorNowSelected="epg-event-selected-foreground" ServiceBorderColor="epg-borderlines" ServiceBorderWidth="1" ServiceNamePadding="3" EntryBorderColor="epg-borderlines" EventBorderWidth="1" EventNamePadding="3" RecordForegroundColor="epg-event-foreground" RecordForegroundColorSelected="epg-event-selected-foreground" RecordBackgroundColor="#00d13333" RecordBackgroundColorSelected="#009e2626" ZapForegroundColor="epg-event-foreground" ZapBackgroundColor="#00669466" ZapForegroundColorSelected="epg-event-selected-foreground" ZapBackgroundColorSelected="#00436143" enableWrapAround="1" scrollbarMode="showNever" transparent="0" />
 		<widget name="timeline_now" position="60,311" zPosition="2" size="16,322" pixmap="MetrixHD/epg/timeline-now-l.png" alphatest="blend" />
 		<panel name="template1_1layer_graphicalepg" />
 		<panel name="rgyb-buttons_template1" />
@@ -3055,11 +3055,11 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="Event" render="Label" position="70,143" size="648,230" font="epg_info;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
-		<widget source="Event" render="Label" position="60,108" size="80,25" font="epg_event;20" halign="right" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1">
+		<widget source="Event" render="Label" position="60,108" size="80,25" font="epg_event;20" halign="right" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" valign="center">
 			<convert type="EventTime">StartTime</convert>
 			<convert type="ClockToText">Format:%H:%M </convert>
 		</widget>
-		<widget source="Event" render="Label" position="638,108" size="80,25" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="left">
+		<widget source="Event" render="Label" position="638,108" size="80,25" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="left" valign="center">
 			<convert type="EventTime">EndTime</convert>
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
@@ -3067,7 +3067,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="Event" render="Progress" position="160,121" size="458,5" borderWidth="0" foregroundColor="layer-a-progress" transparent="1" zPosition="2">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget source="Event" render="Label" position="950,638" size="80,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right">
+		<widget source="Event" render="Label" position="950,638" size="80,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right" valign="center">
 			<convert type="EventTime">Remaining</convert>
 			<convert type="RemainingToText">InMinutes</convert>
 		</widget>
@@ -3075,7 +3075,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<eLabel name="timeline_background" position="60,380" size="1160,30" backgroundColor="epg-timeline-background" transparent="0" />
 		<widget name="timeline_text" position="60,380" size="1160,30" itemHeight="30" TimelineFont="epg_event;20" borderColor="epg-borderlines" borderWidth="1" foregroundColor="epg-timeline-foreground" backgroundColor="epg-timeline-background" TimelineAlignment="left" zPosition="1" transparent="1" />
 		<widget name="bouquetlist" position="60,380" size="1160,30" zPosition="2" itemHeight="30" font="epg_event;20" borderColor="epg-borderlines" borderWidth="1" backgroundColor="epg-event-background" foregroundColor="epg-event-foreground" backgroundColorSelected="epg-event-selected-background" foregroundColorSelected="epg-event-foreground" transparent="0" />
-		<widget name="list" position="60,415" size="1160,215" itemHeight="215" ServiceFontGraphical="epg_event;20" EntryFontGraphical="epg_text;19" EntryFontAlignment="left" EntryFontWrap="no" ServiceForegroundColor="epg-service-foreground" ServiceForegroundColorNow="epg-service-now-foreground" ServiceBackgroundColor="epg-service-background" ServiceBackgroundColorNow="epg-service-now-background" EntryForegroundColor="epg-event-foreground" EntryForegroundColorSelected="epg-event-selected-foreground" EntryBackgroundColor="epg-event-background" EntryBackgroundColorSelected="epg-event-selected-background" EntryBackgroundColorNow="epg-event-now-background" EntryBackgroundColorNowSelected="epg-event-selected-background" EntryForegroundColorNow="epg-event-now-foreground" EntryForegroundColorNowSelected="epg-event-selected-foreground" ServiceBorderColor="epg-borderlines" ServiceBorderWidth="1" ServiceNamePadding="3" EntryBorderColor="epg-borderlines" EventBorderWidth="1" EventNamePadding="3" RecordForegroundColor="epg-event-foreground" RecordForegroundColorSelected="epg-event-selected-foreground" RecordBackgroundColor="#00d13333" RecordBackgroundColorSelected="#009e2626" ZapForegroundColor="epg-event-foreground" ZapBackgroundColor="#00669466" ZapForegroundColorSelected="epg-event-selected-foreground" ZapBackgroundColorSelected="#00436143" enableWrapAround="1" scrollbarMode="showNever" transparent="0" />   
+		<widget name="list" position="60,415" size="1160,215" itemHeight="215" ServiceFontGraphical="epg_event;20" EntryFontGraphical="epg_text;19" EntryFontAlignment="left" EntryFontWrap="no" ServiceForegroundColor="epg-service-foreground" ServiceForegroundColorNow="epg-service-now-foreground" ServiceBackgroundColor="epg-service-background" ServiceBackgroundColorNow="epg-service-now-background" EntryForegroundColor="epg-event-foreground" EntryForegroundColorSelected="epg-event-selected-foreground" EntryBackgroundColor="epg-event-background" EntryBackgroundColorSelected="epg-event-selected-background" EntryBackgroundColorNow="epg-event-now-background" EntryBackgroundColorNowSelected="epg-event-selected-background" EntryForegroundColorNow="epg-event-now-foreground" EntryForegroundColorNowSelected="epg-event-selected-foreground" ServiceBorderColor="epg-borderlines" ServiceBorderWidth="1" ServiceNamePadding="3" EntryBorderColor="epg-borderlines" EventBorderWidth="1" EventNamePadding="3" RecordForegroundColor="epg-event-foreground" RecordForegroundColorSelected="epg-event-selected-foreground" RecordBackgroundColor="#00d13333" RecordBackgroundColorSelected="#009e2626" ZapForegroundColor="epg-event-foreground" ZapBackgroundColor="#00669466" ZapForegroundColorSelected="epg-event-selected-foreground" ZapBackgroundColorSelected="#00436143" enableWrapAround="1" scrollbarMode="showNever" transparent="0" />
 		<widget name="timeline_now" position="60,410" zPosition="2" size="16,222" pixmap="MetrixHD/epg/timeline-now-m.png" alphatest="blend" />
 		<panel name="template1_1layer_graphicalepg" />
 		<panel name="rgyb-buttons_template1" />
@@ -3095,11 +3095,11 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="Event" render="Label" position="70,144" size="1150,125" font="epg_info;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
-		<widget source="Event" render="Label" position="60,108" size="80,25" font="epg_event;20" halign="right" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1">
+		<widget source="Event" render="Label" position="60,108" size="80,25" font="epg_event;20" halign="right" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" valign="center">
 			<convert type="EventTime">StartTime</convert>
 			<convert type="ClockToText">Format:%H:%M </convert>
 		</widget>
-		<widget source="Event" render="Label" position="1140,108" size="80,25" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="left">
+		<widget source="Event" render="Label" position="1140,108" size="80,25" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="left" valign="center">
 			<convert type="EventTime">EndTime</convert>
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
@@ -3107,7 +3107,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="Event" render="Progress" position="160,121" size="960,5" borderWidth="0" foregroundColor="layer-a-progress" transparent="1" zPosition="2">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget source="Event" render="Label" position="950,638" size="80,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right">
+		<widget source="Event" render="Label" position="950,638" size="80,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right" valign="center">
 			<convert type="EventTime">Remaining</convert>
 			<convert type="RemainingToText">InMinutes</convert>
 		</widget>
@@ -3115,7 +3115,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<eLabel name="timeline_background" position="60,282" size="1160,30" backgroundColor="epg-timeline-background" transparent="0" />
 		<widget name="timeline_text" position="60,282" size="1160,30" itemHeight="30" TimelineFont="epg_event;20" borderColor="epg-borderlines" borderWidth="1" foregroundColor="epg-timeline-foreground" backgroundColor="epg-timeline-background" TimelineAlignment="left" zPosition="1" transparent="1" />
 		<widget name="bouquetlist" position="60,282" size="1160,30" zPosition="2" itemHeight="30" font="epg_event;20" borderColor="epg-borderlines" borderWidth="1" backgroundColor="epg-event-background" foregroundColor="epg-event-foreground" backgroundColorSelected="epg-event-selected-background" foregroundColorSelected="epg-event-foreground" transparent="0" />
-		<widget name="list" position="60,316" size="1160,315" itemHeight="315" ServiceFontGraphical="epg_event;20" EntryFontGraphical="epg_text;19" EntryFontAlignment="left" EntryFontWrap="no" ServiceForegroundColor="epg-service-foreground" ServiceForegroundColorNow="epg-service-now-foreground" ServiceBackgroundColor="epg-service-background" ServiceBackgroundColorNow="epg-service-now-background" EntryForegroundColor="epg-event-foreground" EntryForegroundColorSelected="epg-event-selected-foreground" EntryBackgroundColor="epg-event-background" EntryBackgroundColorSelected="epg-event-selected-background" EntryBackgroundColorNow="epg-event-now-background" EntryBackgroundColorNowSelected="epg-event-selected-background" EntryForegroundColorNow="epg-event-now-foreground" EntryForegroundColorNowSelected="epg-event-selected-foreground" ServiceBorderColor="epg-borderlines" ServiceBorderWidth="1" ServiceNamePadding="3" EntryBorderColor="epg-borderlines" EventBorderWidth="1" EventNamePadding="3" RecordForegroundColor="epg-event-foreground" RecordForegroundColorSelected="epg-event-selected-foreground" RecordBackgroundColor="#00d13333" RecordBackgroundColorSelected="#009e2626" ZapForegroundColor="epg-event-foreground" ZapBackgroundColor="#00669466" ZapForegroundColorSelected="epg-event-selected-foreground" ZapBackgroundColorSelected="#00436143" enableWrapAround="1" scrollbarMode="showNever" transparent="0" />   
+		<widget name="list" position="60,316" size="1160,315" itemHeight="315" ServiceFontGraphical="epg_event;20" EntryFontGraphical="epg_text;19" EntryFontAlignment="left" EntryFontWrap="no" ServiceForegroundColor="epg-service-foreground" ServiceForegroundColorNow="epg-service-now-foreground" ServiceBackgroundColor="epg-service-background" ServiceBackgroundColorNow="epg-service-now-background" EntryForegroundColor="epg-event-foreground" EntryForegroundColorSelected="epg-event-selected-foreground" EntryBackgroundColor="epg-event-background" EntryBackgroundColorSelected="epg-event-selected-background" EntryBackgroundColorNow="epg-event-now-background" EntryBackgroundColorNowSelected="epg-event-selected-background" EntryForegroundColorNow="epg-event-now-foreground" EntryForegroundColorNowSelected="epg-event-selected-foreground" ServiceBorderColor="epg-borderlines" ServiceBorderWidth="1" ServiceNamePadding="3" EntryBorderColor="epg-borderlines" EventBorderWidth="1" EventNamePadding="3" RecordForegroundColor="epg-event-foreground" RecordForegroundColorSelected="epg-event-selected-foreground" RecordBackgroundColor="#00d13333" RecordBackgroundColorSelected="#009e2626" ZapForegroundColor="epg-event-foreground" ZapBackgroundColor="#00669466" ZapForegroundColorSelected="epg-event-selected-foreground" ZapBackgroundColorSelected="#00436143" enableWrapAround="1" scrollbarMode="showNever" transparent="0" />
 		<widget name="timeline_now" position="60,311" zPosition="2" size="16,322" pixmap="MetrixHD/epg/timeline-now-l.png" alphatest="blend" />
 		<panel name="template1_1layer_graphicalepg" />
 		<panel name="rgyb-buttons_template1" />
@@ -3135,11 +3135,11 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="Event" render="Label" position="70,144" size="1150,54" font="epg_info;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
-		<widget source="Event" render="Label" position="60,108" size="80,25" font="epg_event;20" halign="right" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1">
+		<widget source="Event" render="Label" position="60,108" size="80,25" font="epg_event;20" halign="right" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" valign="center">
 			<convert type="EventTime">StartTime</convert>
 			<convert type="ClockToText">Format:%H:%M </convert>
 		</widget>
-		<widget source="Event" render="Label" position="1140,108" size="80,25" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="left">
+		<widget source="Event" render="Label" position="1140,108" size="80,25" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="left" valign="center">
 			<convert type="EventTime">EndTime</convert>
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
@@ -3147,7 +3147,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="Event" render="Progress" position="160,121" size="960,5" borderWidth="0" foregroundColor="layer-a-progress" transparent="1" zPosition="2">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget source="Event" render="Label" position="950,638" size="80,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right">
+		<widget source="Event" render="Label" position="950,638" size="80,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right" valign="center">
 			<convert type="EventTime">Remaining</convert>
 			<convert type="RemainingToText">InMinutes</convert>
 		</widget>
@@ -3155,7 +3155,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<eLabel name="timeline_background" position="60,208" size="1160,30" backgroundColor="epg-timeline-background" transparent="0" />
 		<widget name="timeline_text" position="60,208" size="1160,30" itemHeight="30" TimelineFont="epg_event;20" borderColor="epg-borderlines" borderWidth="1" foregroundColor="epg-timeline-foreground" backgroundColor="epg-timeline-background" TimelineAlignment="left" zPosition="1" transparent="1" />
 		<widget name="bouquetlist" position="60,208" size="1160,30" zPosition="2" itemHeight="30" font="epg_event;20" borderColor="epg-borderlines" borderWidth="1" backgroundColor="epg-event-background" foregroundColor="epg-event-foreground" backgroundColorSelected="epg-event-selected-background" foregroundColorSelected="epg-event-foreground" transparent="0" />
-		<widget name="list" position="60,243" size="1160,388" itemHeight="315" ServiceFontGraphical="epg_event;20" EntryFontGraphical="epg_text;19" EntryFontAlignment="left" EntryFontWrap="no" ServiceForegroundColor="epg-service-foreground" ServiceForegroundColorNow="epg-service-now-foreground" ServiceBackgroundColor="epg-service-background" ServiceBackgroundColorNow="epg-service-now-background" EntryForegroundColor="epg-event-foreground" EntryForegroundColorSelected="epg-event-selected-foreground" EntryBackgroundColor="epg-event-background" EntryBackgroundColorSelected="epg-event-selected-background" EntryBackgroundColorNow="epg-event-now-background" EntryBackgroundColorNowSelected="epg-event-selected-background" EntryForegroundColorNow="epg-event-now-foreground" EntryForegroundColorNowSelected="epg-event-selected-foreground" ServiceBorderColor="epg-borderlines" ServiceBorderWidth="1" ServiceNamePadding="3" EntryBorderColor="epg-borderlines" EventBorderWidth="1" EventNamePadding="3" RecordForegroundColor="epg-event-foreground" RecordForegroundColorSelected="epg-event-selected-foreground" RecordBackgroundColor="#00d13333" RecordBackgroundColorSelected="#009e2626" ZapForegroundColor="epg-event-foreground" ZapBackgroundColor="#00669466" ZapForegroundColorSelected="epg-event-selected-foreground" ZapBackgroundColorSelected="#00436143" enableWrapAround="1" scrollbarMode="showNever" transparent="0" />   
+		<widget name="list" position="60,243" size="1160,388" itemHeight="315" ServiceFontGraphical="epg_event;20" EntryFontGraphical="epg_text;19" EntryFontAlignment="left" EntryFontWrap="no" ServiceForegroundColor="epg-service-foreground" ServiceForegroundColorNow="epg-service-now-foreground" ServiceBackgroundColor="epg-service-background" ServiceBackgroundColorNow="epg-service-now-background" EntryForegroundColor="epg-event-foreground" EntryForegroundColorSelected="epg-event-selected-foreground" EntryBackgroundColor="epg-event-background" EntryBackgroundColorSelected="epg-event-selected-background" EntryBackgroundColorNow="epg-event-now-background" EntryBackgroundColorNowSelected="epg-event-selected-background" EntryForegroundColorNow="epg-event-now-foreground" EntryForegroundColorNowSelected="epg-event-selected-foreground" ServiceBorderColor="epg-borderlines" ServiceBorderWidth="1" ServiceNamePadding="3" EntryBorderColor="epg-borderlines" EventBorderWidth="1" EventNamePadding="3" RecordForegroundColor="epg-event-foreground" RecordForegroundColorSelected="epg-event-selected-foreground" RecordBackgroundColor="#00d13333" RecordBackgroundColorSelected="#009e2626" ZapForegroundColor="epg-event-foreground" ZapBackgroundColor="#00669466" ZapForegroundColorSelected="epg-event-selected-foreground" ZapBackgroundColorSelected="#00436143" enableWrapAround="1" scrollbarMode="showNever" transparent="0" />
 		<widget name="timeline_now" position="60,238" zPosition="2" size="16,395" pixmap="MetrixHD/epg/timeline-now-xl.png" alphatest="blend" />
 		<panel name="template1_1layer_graphicalepg" />
 		<panel name="rgyb-buttons_template1" />
@@ -3167,75 +3167,79 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
 	</screen>
 	<screen name="GraphicalInfoBarEPG" title="InfoBar EPG" position="0,490" size="1280,230" backgroundColor="transparent" flags="wfNoBorder">
-		<eLabel name="new eLabel" position="0,10" zPosition="-10" size="1280,220" backgroundColor="infobarbackground" transparent="0" />
-		<widget source="global.CurrentTime" render="Label" position="1128,9" size="140,60" font="global_clock;50" noWrap="1" halign="center" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="infobarbackground" transparent="1">
+		<eLabel name="new eLabel" position="0,10" zPosition="-10" size="1280,220" backgroundColor="epg-background" transparent="0" />
+		<widget source="global.CurrentTime" render="Label" position="1128,9" size="140,60" font="global_clock;50" noWrap="1" halign="center" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="epg-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="968,9" size="160,27" font="global_clock;16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="infobarbackground" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="968,9" size="160,27" font="global_clock;16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="epg-background" transparent="1">
 			<convert type="ClockToText">Format:%A</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="968,33" size="160,27" font="global_clock;16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="infobarbackground" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="968,33" size="160,27" font="global_clock;16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="epg-background" transparent="1">
 			<convert type="ClockToText">Format:%e. %B</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Label" position="30,9" size="850,55" font="infobar_event; 40" valign="top" noWrap="1" backgroundColor="infobarbackground" transparent="1">
+		<widget source="session.CurrentService" render="Label" position="30,9" size="850,55" font="infobar_event; 40" valign="top" noWrap="1" backgroundColor="epg-background" foregroundColor="epg-event-foreground" transparent="1">
 			<convert type="ServiceName">Name</convert>
 		</widget>
-		<widget source="Event" render="Label" position="950,193" size="80,30" font="epg_event;20" backgroundColor="infobarbackground" foregroundColor="epg-timeline-foreground" transparent="1" halign="right">
+		<widget source="Event" render="Label" position="950,193" size="80,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right" valign="center">
 			<convert type="EventTime">Remaining</convert>
 			<convert type="RemainingToText">InMinutes</convert>
 		</widget>
-		<widget name="lab1" position="0,105" size="1280,35" font="screen_text;24" halign="center" valign="center" zPosition="20" backgroundColor="infobarbackground" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="timeline_text" position="0,65" size="1280,30" itemHeight="30" TimelineFont="epg_event;20" borderColor="epg-borderlines" borderWidth="1" foregroundColor="epg-timeline-foreground" backgroundColor="epg-timeline-background" TimelineAlignment="left" transparent="0" />
+		<widget name="lab1" position="0,105" size="1280,35" font="screen_text;24" halign="center" valign="center" zPosition="20" backgroundColor="epg-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="timeline_text" position="0,65" size="1280,30" itemHeight="30" TimelineFont="epg_event;20" borderColor="epg-borderlines" borderWidth="1" foregroundColor="epg-timeline-foreground" backgroundColor="epg-timeline-background" TimelineAlignment="left" zPosition="1" transparent="1"/>
+		<eLabel name="timeline_background" position="0,65" size="1280,30" backgroundColor="epg-timeline-background" transparent="0" />
 		<widget name="bouquetlist" position="0,65" size="1280,30" zPosition="2" itemHeight="30" font="epg_event;20" borderColor="epg-borderlines" borderWidth="1" backgroundColor="epg-event-background" foregroundColor="epg-event-foreground" backgroundColorSelected="epg-event-selected-background" foregroundColorSelected="epg-event-foreground" transparent="0" />
-		<widget name="list" position="0,100" size="1280,80" itemHeight="80" ServiceFontInfobar="epg_event;20" EventFontInfobar="epg_text;19" EntryFontAlignment="left" EntryFontWrap="no" ServiceForegroundColor="epg-service-foreground" ServiceForegroundColorNow="epg-service-now-foreground" ServiceBackgroundColor="epg-service-background" ServiceBackgroundColorNow="epg-service-now-background" EntryForegroundColor="epg-event-foreground" EntryForegroundColorSelected="epg-event-selected-foreground" EntryBackgroundColor="epg-event-background" EntryBackgroundColorSelected="epg-event-selected-background" EntryBackgroundColorNow="epg-event-now-background" EntryBackgroundColorNowSelected="epg-event-selected-background" EntryForegroundColorNow="epg-event-now-foreground" EntryForegroundColorNowSelected="epg-event-selected-foreground" ServiceBorderColor="epg-borderlines" ServiceBorderWidth="1" ServiceNamePadding="3" EntryBorderColor="epg-borderlines" EventBorderWidth="1" EventNamePadding="3" RecordForegroundColor="epg-event-foreground" RecordForegroundColorSelected="epg-event-selected-foreground" RecordBackgroundColor="#00d13333" RecordBackgroundColorSelected="#009e2626" ZapForegroundColor="epg-event-foreground" ZapBackgroundColor="#00669466" ZapForegroundColorSelected="epg-event-selected-foreground" ZapBackgroundColorSelected="#00436143" enableWrapAround="1" scrollbarMode="showNever" transparent="0" />   
+		<widget name="list" position="0,100" size="1280,80" itemHeight="80" ServiceFontInfobar="epg_event;20" EventFontInfobar="epg_text;19" EntryFontAlignment="left" EntryFontWrap="no" ServiceForegroundColor="epg-service-foreground" ServiceForegroundColorNow="epg-service-now-foreground" ServiceBackgroundColor="epg-service-background" ServiceBackgroundColorNow="epg-service-now-background" EntryForegroundColor="epg-event-foreground" EntryForegroundColorSelected="epg-event-selected-foreground" EntryBackgroundColor="epg-event-background" EntryBackgroundColorSelected="epg-event-selected-background" EntryBackgroundColorNow="epg-event-now-background" EntryBackgroundColorNowSelected="epg-event-selected-background" EntryForegroundColorNow="epg-event-now-foreground" EntryForegroundColorNowSelected="epg-event-selected-foreground" ServiceBorderColor="epg-borderlines" ServiceBorderWidth="1" ServiceNamePadding="3" EntryBorderColor="epg-borderlines" EventBorderWidth="1" EventNamePadding="3" RecordForegroundColor="epg-event-foreground" RecordForegroundColorSelected="epg-event-selected-foreground" RecordBackgroundColor="#00d13333" RecordBackgroundColorSelected="#009e2626" ZapForegroundColor="epg-event-foreground" ZapBackgroundColor="#00669466" ZapForegroundColorSelected="epg-event-selected-foreground" ZapBackgroundColorSelected="#00436143" enableWrapAround="1" scrollbarMode="showNever" transparent="0" />
 		<widget name="timeline_now" position="0,94" zPosition="1" size="16,90" pixmap="MetrixHD/epg/timeline-now_s.png" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="35,190" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="218,190" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="401,190" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="584,190" size="30,40" alphatest="blend" />
-		<widget name="key_red" position="70,193" size="170,30" foregroundColor="layer-a-button-foreground" backgroundColor="infobarbackground" transparent="1" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" />
-		<widget name="key_green" position="253,193" size="170,30" foregroundColor="layer-a-button-foreground" backgroundColor="infobarbackground" transparent="1" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" />
-		<widget name="key_yellow" position="436,193" size="170,30" foregroundColor="layer-a-button-foreground" backgroundColor="infobarbackground" transparent="1" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" />
-		<widget name="key_blue" position="619,193" size="220,30" foregroundColor="layer-a-button-foreground" backgroundColor="infobarbackground" transparent="1" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" />
+		<widget name="key_red" position="70,193" size="170,30" foregroundColor="layer-a-button-foreground" backgroundColor="epg-background" transparent="1" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" />
+		<widget name="key_green" position="253,193" size="170,30" foregroundColor="layer-a-button-foreground" backgroundColor="epg-background" transparent="1" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" />
+		<widget name="key_yellow" position="436,193" size="170,30" foregroundColor="layer-a-button-foreground" backgroundColor="epg-background" transparent="1" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" />
+		<widget name="key_blue" position="619,193" size="220,30" foregroundColor="layer-a-button-foreground" backgroundColor="epg-background" transparent="1" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" />
 		<ePixmap position="1045,190" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="on" />
 		<ePixmap position="1140,190" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
-		<panel name="COLORGRADIENT_Bottom_epg" />
+		<!--panel name="COLORGRADIENT_Bottom_epg" /-->
 	</screen>
 	<screen name="InfoBarEventView" position="0,0" size="1280,499" backgroundColor="transparent" flags="wfNoBorder" zPosition="1">
-		<eLabel name="new eLabel" position="30,30" zPosition="-10" size="1220,440" backgroundColor="layer-a-background" transparent="0" />
-		<widget name="channel" position="50,47" size="850,55" font="epg_event; 40" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" zPosition="2" />
-		<widget name="datetime" position="980,45" size="250,30" font="epg_text;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="0" noWrap="1" valign="top" halign="right" zPosition="2" />
-		<widget name="duration" position="1080,75" size="150,30" font="epg_text;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="0" noWrap="1" valign="top" halign="right" zPosition="2" />
+		<eLabel name="new eLabel" position="30,30" zPosition="-10" size="1220,440" backgroundColor="epg-background" transparent="0" />
+		<widget name="channel" position="50,47" size="850,55" font="epg_event; 40" transparent="1" foregroundColor="epg-event-foreground" backgroundColor="epg-background" zPosition="2" />
+		<widget name="datetime" position="980,45" size="250,30" font="epg_text;22" foregroundColor="layer-a-foreground" backgroundColor="epg-background" transparent="0" noWrap="1" valign="top" halign="right" zPosition="2" />
+		<widget name="duration" position="1080,75" size="150,30" font="epg_text;22" foregroundColor="layer-a-foreground" backgroundColor="epg-background" transparent="0" noWrap="1" valign="top" halign="right" zPosition="2" />
 		<eLabel name="new eLabel" position="50,120" zPosition="-9" size="1180,330" backgroundColor="epg-eventdescription-background" transparent="0" />
 		<widget name="epg_description" position="55,120" size="1170,330" font="epg_info;22" foregroundColor="epg-eventdescription-foreground" backgroundColor="epg-eventdescription-background" transparent="1" zPosition="1" />
 	</screen>
 	<screen name="QuickEPG" title="InfoBar QuickEPG" position="0,490" size="1280,230" backgroundColor="transparent" flags="wfNoBorder">
-		<eLabel name="new eLabel" position="0,10" zPosition="-10" size="1280,220" backgroundColor="infobarbackground" transparent="0" />
-		<widget source="global.CurrentTime" render="Label" position="1128,9" size="140,60" font="global_clock;50" noWrap="1" halign="center" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="infobarbackground" transparent="1">
+		<eLabel name="new eLabel" position="0,10" zPosition="-10" size="1280,220" backgroundColor="epg-background" transparent="0" />
+		<widget source="global.CurrentTime" render="Label" position="1128,9" size="140,60" font="global_clock;50" noWrap="1" halign="center" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="epg-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="968,9" size="160,27" font="global_clock;16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="infobarbackground" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="968,9" size="160,27" font="global_clock;16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="epg-background" transparent="1">
 			<convert type="ClockToText">Format:%A</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="968,33" size="160,27" font="global_clock;16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="infobarbackground" transparent="1">
+		<widget source="global.CurrentTime" render="Label" position="968,33" size="160,27" font="global_clock;16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="epg-background" transparent="1">
 			<convert type="ClockToText">Format:%e. %B</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Label" position="30,9" size="850,55" font="infobar_event; 40" valign="top" noWrap="1" backgroundColor="infobarbackground" transparent="1">
+		<widget source="session.CurrentService" render="Label" position="30,9" size="850,55" font="epg_event; 40" valign="top" noWrap="1" foregroundcolor="epg-event-foreground" backgroundColor="epg-background" transparent="1">
 			<convert type="ServiceName">Name</convert>
 		</widget>
-		<widget name="lab1" position="10,105" size="625,35" font="Regular;24" halign="center" valign="center" zPosition="20" foregroundColor="layer-a-foreground" backgroundColor="infobarbackground" transparent="1" />
-		<widget source="Service" render="Label" position="10,65" size="625,30" foregroundColor="epg-timeline-foreground" halign="left" font="Regular;24" noWrap="1" backgroundColor="infobarbackground" transparent="1">
+		<widget name="lab1" position="10,105" size="625,35" font="Regular;24" halign="center" valign="center" zPosition="20" foregroundColor="layer-a-foreground" backgroundColor="epg-background" transparent="1" />
+		<widget alphatest="blend" position="10,65" render="MetrixHDXPicon" size="50,30" source="Service" transparent="1" zPosition="1">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+		<widget source="Service" render="Label" position="65,64" size="575,40" foregroundColor="epg-service-foreground" halign="left" font="epg_event;24" noWrap="1" backgroundColor="epg-background" transparent="1">
 			<convert type="ServiceName">Name</convert>
 		</widget>
 		<eLabel name="new eLabel" position="645,75" zPosition="-9" size="625,105" backgroundColor="epg-eventdescription-background" transparent="0" />
 		<widget source="Event" render="Label" position="650,77" size="615,102" font="epg_info;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
-		<widget source="Event" render="Label" position="950,193" size="80,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right">
+		<widget source="Event" render="Label" position="950,193" size="80,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right" valign="center">
 			<convert type="EventTime">Remaining</convert>
 			<convert type="RemainingToText">InMinutes</convert>
 		</widget>
-		<widget name="list" position="10,100" size="625,80" itemHeight="40" EventFontInfobar="epg_text;20" backgroundColor="epg-event-background" foregroundColor="epg-event-foreground" backgroundColorSelected="epg-event-selected-background" foregroundColorSelected="epg-event-foreground" transparent="0" />
+		<widget name="list" position="10,100" size="630,80" itemHeight="40" EventFontInfobar="epg_text;20" backgroundColor="epg-event-background" foregroundColor="epg-event-foreground" backgroundColorSelected="epg-event-selected-background" foregroundColorSelected="epg-event-selected-foreground" transparent="0" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="35,190" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="218,190" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="401,190" size="30,40" alphatest="blend" />
@@ -3246,7 +3250,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="key_blue" position="619,193" size="220,30" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" />
 		<ePixmap position="1045,190" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="on" />
 		<ePixmap position="1140,190" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
-		<panel name="COLORGRADIENT_Bottom_epg" />
+		<!--panel name="COLORGRADIENT_Bottom_epg" /-->
 	</screen>
 	<screen name="EPGSelectionMulti" position="0,0" size="1280,720" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="EPG Selection" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
