@@ -265,6 +265,16 @@ class MainSettingsView(Screen):
         global skinReady, skinReadyCode
 
         try:
+            # make backup of skin.xml
+            bname = "_this_is_the_original_file_-_do_not_delete!"
+            f = open(SKIN_SOURCE, 'r')
+            firstline = f.readline()
+            f.close()
+            if '<!-- original file -->' in firstline:
+                copy(SKIN_SOURCE,SKIN_SOURCE + bname)
+            else:
+                copy(SKIN_SOURCE + bname, SKIN_SOURCE)
+
             skinfiles_HD = [(SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP),
                         #(SKIN_TEMPLATES_SOURCE, SKIN_TEMPLATES_TARGET, SKIN_TEMPLATES_TARGET_TMP),
                         (SKIN_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET, SKIN_INFOBAR_TARGET_TMP),
@@ -646,6 +656,9 @@ class MainSettingsView(Screen):
             infobaraccent2 = ('name="infobaraccent2" value="#00' + config.plugins.MyMetrixLiteColors.infobaraccent2.value + '"')
 
             skinSearchAndReplace = []
+            orgskinSearchAndReplace = [] # for some attributes (e.g. borderset)
+            skinSearchAndReplace.append(['<!-- original file -->',''])
+            orgskinSearchAndReplace.append(['<!-- original file -->','<!-- !!!copied and changed file!!! -->'])
 
             skinSearchAndReplace.append(['name="layer-a-channelselection-foreground" value="#00FFFFFF"', channelselectionservice ])
             skinSearchAndReplace.append(['name="layer-a-channelselection-foregroundColorSelected" value="#00FFFFFF"', channelselectionserviceselected ])
@@ -723,18 +736,22 @@ class MainSettingsView(Screen):
             if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width_top, color)):
                 newline = (('<pixmap pos="bpTop" filename="MetrixHD/border/%s/%s.png" />') % (width_top, color))
                 skinSearchAndReplace.append(['<pixmap pos="bpTop" filename="MetrixHD/border/50px/0F0F0F.png" />', newline ])
+                orgskinSearchAndReplace.append(['<pixmap pos="bpTop" filename="MetrixHD/border/50px/0F0F0F.png" />', newline ])
             color = config.plugins.MyMetrixLiteColors.windowborder_bottom.value
             if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
                 newline = (('<pixmap pos="bpBottom" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
                 skinSearchAndReplace.append(['<pixmap pos="bpBottom" filename="MetrixHD/border/5px/0F0F0F.png" />', newline ])
+                orgskinSearchAndReplace.append(['<pixmap pos="bpBottom" filename="MetrixHD/border/5px/0F0F0F.png" />', newline ])
             color = config.plugins.MyMetrixLiteColors.windowborder_left.value
             if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
                 newline = (('<pixmap pos="bpLeft" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
                 skinSearchAndReplace.append(['<pixmap pos="bpLeft" filename="MetrixHD/border/5px/0F0F0F.png" />', newline ])
+                orgskinSearchAndReplace.append(['<pixmap pos="bpLeft" filename="MetrixHD/border/5px/0F0F0F.png" />', newline ])
             color = config.plugins.MyMetrixLiteColors.windowborder_right.value
             if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
                 newline = (('<pixmap pos="bpRight" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
                 skinSearchAndReplace.append(['<pixmap pos="bpRight" filename="MetrixHD/border/5px/0F0F0F.png" />', newline ])
+                orgskinSearchAndReplace.append(['<pixmap pos="bpRight" filename="MetrixHD/border/5px/0F0F0F.png" />', newline ])
 
             #Border listbox
             width = config.plugins.MyMetrixLiteColors.listboxborder_topwidth.value
@@ -743,24 +760,28 @@ class MainSettingsView(Screen):
                 if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
                     newline = (('<pixmap pos="bpTop" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
                     skinSearchAndReplace.append(['<!--lb pixmap pos="bpTop" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
+                    orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpTop" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
             width = config.plugins.MyMetrixLiteColors.listboxborder_bottomwidth.value
             if width != "no":
                 color = config.plugins.MyMetrixLiteColors.listboxborder_bottom.value
                 if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
                     newline = (('<pixmap pos="bpBottom" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
                     skinSearchAndReplace.append(['<!--lb pixmap pos="bpBottom" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
+                    orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpBottom" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
             width = config.plugins.MyMetrixLiteColors.listboxborder_leftwidth.value
             if width != "no":
                 color = config.plugins.MyMetrixLiteColors.listboxborder_left.value
                 if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
                     newline = (('<pixmap pos="bpLeft" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
                     skinSearchAndReplace.append(['<!--lb pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
+                    orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
             width = config.plugins.MyMetrixLiteColors.listboxborder_rightwidth.value
             if width != "no":
                 color = config.plugins.MyMetrixLiteColors.listboxborder_right.value
                 if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
                     newline = (('<pixmap pos="bpRight" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
                     skinSearchAndReplace.append(['<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
+                    orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
 
             #SkinDesign
             confvalue = config.plugins.MyMetrixLiteOther.SkinDesignLUC.getValue()
@@ -1169,9 +1190,16 @@ class MainSettingsView(Screen):
 
             #make skin file
             skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
+            orgskin_lines = appendSkinFile(SKIN_SOURCE + bname, orgskinSearchAndReplace)
 
             xFile = open(SKIN_TARGET_TMP, "w")
             for xx in skin_lines:
+                xFile.writelines(xx)
+            xFile.close()
+
+            # write changed skin.xml
+            xFile = open(SKIN_SOURCE, "w")
+            for xx in orgskin_lines:
                 xFile.writelines(xx)
             xFile.close()
 
