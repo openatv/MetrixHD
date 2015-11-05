@@ -755,19 +755,19 @@
 			<!--/* STYLE MODERN -->
 			<eLabel backgroundColor="infobarbackground" name="InfoBar" position="-1,560" size="1283,160" zPosition="-10"/>
 			<panel name="InfoBar_Picon" />
-			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="infobar_text; 19" halign="right" position="1091,563" render="Label" size="75,30" source="session.Event_Now" transparent="1">
+			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1091,563" render="Label" size="75,30" source="session.Event_Now" transparent="1">
 				<convert type="EventTime">StartTime</convert>
 				<convert type="ClockToText">Default</convert>
 			</widget>
-			<eLabel backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="infobar_text; 19" halign="center" position="1173,563" size="15,30" text="-" transparent="1"/>
-			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="infobar_text; 19" halign="right" position="1178,563" render="Label" size="60,30" source="session.Event_Now" transparent="1">
+			<eLabel backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="center" position="1173,563" size="15,30" text="-" transparent="1"/>
+			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1178,563" render="Label" size="60,30" source="session.Event_Now" transparent="1">
 				<convert type="EventTime">EndTime</convert>
 				<convert type="ClockToText">Default</convert>
 			</widget>
 			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="infobar_event; 40" halign="left" noWrap="1" position="286,558" render="Label" size="805,56" source="session.Event_Now" transparent="1">
 				<convert type="EventName">Name</convert>
 			</widget>
-			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="infobar_text; 19" halign="right" position="1125,586" render="Label" size="113,30" source="session.Event_Now" transparent="1">
+			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1125,586" render="Label" size="113,30" source="session.Event_Now" transparent="1">
 				<convert type="EventTime">Remaining</convert>
 				<convert type="RemainingToText">InMinutes</convert>
 			</widget>
@@ -775,19 +775,19 @@
 			<widget render="Progress" position="287,613" size="951,5" source="session.Event_Now" foregroundColor="infobarprogress" transparent="1" zPosition="7">
 				<convert type="EventTime">Progress</convert>
 			</widget>
-			<widget backgroundColor="infobarbackground" font="infobar_text; 18" foregroundColor="infobarfont2" halign="right" noWrap="1" position="1091,619" render="Label" size="75,28" source="session.Event_Next" transparent="1" valign="top">
+			<widget backgroundColor="infobarbackground" font="global_small; 18" foregroundColor="infobarfont2" halign="right" noWrap="1" position="1091,619" render="Label" size="75,28" source="session.Event_Next" transparent="1" valign="top">
 				<convert type="EventTime">StartTime</convert>
 				<convert type="ClockToText">Default</convert>
 			</widget>
-			<eLabel backgroundColor="infobarbackground" font="infobar_text; 18" foregroundColor="infobarfont2" halign="center" noWrap="1" position="1173,619" size="15,28" text="-" transparent="1" valign="top"/>
-			<widget backgroundColor="infobarbackground" font="infobar_text; 18" foregroundColor="infobarfont2" halign="right" noWrap="1" position="1178,619" render="Label" size="60,28" source="session.Event_Next" transparent="1" valign="top">
+			<eLabel backgroundColor="infobarbackground" font="global_small; 18" foregroundColor="infobarfont2" halign="center" noWrap="1" position="1173,619" size="15,28" text="-" transparent="1" valign="top"/>
+			<widget backgroundColor="infobarbackground" font="global_small; 18" foregroundColor="infobarfont2" halign="right" noWrap="1" position="1178,619" render="Label" size="60,28" source="session.Event_Next" transparent="1" valign="top">
 				<convert type="EventTime">EndTime</convert>
 				<convert type="ClockToText">Default</convert>
 			</widget>
 			<widget backgroundColor="infobarbackground" font="infobar_event; 35" foregroundColor="infobarfont2" halign="left" position="286,617" render="Label" size="805,56" source="session.Event_Next" transparent="1" valign="top">
 				<convert type="EventName">Name</convert>
 			</widget>
-			<widget backgroundColor="infobarbackground" font="infobar_text; 18" foregroundColor="infobarfont2" halign="right" position="1124,640" render="Label" size="113,28" source="session.Event_Next" transparent="1">
+			<widget backgroundColor="infobarbackground" font="global_small; 18" foregroundColor="infobarfont2" halign="right" position="1124,640" render="Label" size="113,28" source="session.Event_Next" transparent="1">
 				<convert type="EventTime">Duration</convert>
 				<convert type="ClockToText">InMinutes</convert>
 			</widget>
