@@ -1956,9 +1956,11 @@ self.instance.move(ePoint(0,0))
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fan.png" transparent="1" alphatest="blend" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
-	<screen name="PiPSetup" position="240,250" size="800,220" title="PiPSetup" flags="wfNoBorder" backgroundColor="layer-a-background">
-		<eLabel text="PiPSetup" position="10,5" size="800,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="text" position="10,55" size="800,180" halign="left" itemHeight="30" font="screen_text; 20" scrollbarMode="showNever" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+	<screen name="PiPSetup" position="center,center" size="602,252" title="PiPSetup" flags="wfNoBorder" backgroundColor="layer-b-background">
+		<eLabel position="1,1" size="600,250" backgroundColor="layer-a-background" transparent="0" />
+		<eLabel text="PiPSetup" position="1,5" size="600,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" halign="center" backgroundColor="layer-a-background" zPosition="1" transparent="1" />
+		<eLabel position="1,60" size="600,1" backgroundColor="layer-a-accent1" zPosition="1" />
+		<widget name="text" position="51,90" size="550,150" halign="left" font="screen_text; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" zPosition="1" transparent="1" />
 	</screen>
 	<screen name="SkinSelector" position="0,0" size="1280,720" title="Skin Selector" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Skin Selector" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
@@ -2876,7 +2878,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<eLabel position="1,1" size="333,69" backgroundColor="layer-a-background" zPosition="-1" transparent="0" />
 		<eLabel position="0,0" size="335,71" backgroundColor="layer-b-background" zPosition="-2" transparent="0" />
 	</screen>
-	<screen name="UnhandledKey" position="40,40" size="71,71" title="UnhandledKey" zPosition="100" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="UnhandledKey" position="40,40" size="71,71" title="UnhandledKey" zPosition="101" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="0,0" size="71,71" zPosition="0" backgroundColor="layer-b-background" transparent="0" />
 		<eLabel position="1,1" size="69,69" zPosition="1" backgroundColor="layer-a-background" />
 		<widget name="UnhandledKeyPixmap" position="3,3" size="64,64" zPosition="2" pixmap="MetrixHD/icons/error.png" alphatest="blend" />
@@ -2885,6 +2887,11 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<eLabel position="0,0" size="71,71" zPosition="0" backgroundColor="layer-b-background" transparent="0" />
 		<eLabel position="1,1" size="69,69" zPosition="1" backgroundColor="layer-a-background" />
 		<ePixmap position="3,3" size="64,64" zPosition="2" pixmap="MetrixHD/icons/mute.png" borderWidth="0" borderColor="transparent" alphatest="blend" />
+	</screen>
+	<screen name="PictureInPictureZapping" flags="wfNoBorder" position="40,40" size="335,71" title="PiPZap" zPosition="100">
+		<eLabel position="1,1" size="333,69" backgroundColor="layer-a-background" zPosition="-1" transparent="0" />
+		<eLabel position="0,0" size="335,71" backgroundColor="layer-b-background" zPosition="-2" transparent="0" />
+		<eLabel text="PiP-Zap" position="1,1" zPosition="2" size="333,59" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="screen_info;40" halign="center" valign="bottom" />
 	</screen>
 	<screen name="ChoiceBox" position="0,0" size="1308,720" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Choice Box" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
