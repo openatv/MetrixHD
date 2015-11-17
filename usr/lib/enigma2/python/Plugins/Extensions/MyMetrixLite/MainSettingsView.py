@@ -302,7 +302,7 @@ class MainSettingsView(Screen):
                         (SKIN_OPENATV_SOURCE, SKIN_OPENATV_TARGET, SKIN_OPENATV_TARGET_TMP),
                         #(SKIN_DISPLAY_SOURCE, SKIN_DISPLAY_TARGET, SKIN_DISPLAY_TARGET_TMP),
                         (SKIN_PLUGINS_SOURCE, SKIN_PLUGINS_TARGET, SKIN_PLUGINS_TARGET_TMP),
-                        #(SKIN_CHECK_SOURCE, SKIN_CHECK_TARGET, SKIN_CHECK_TARGET_TMP),
+                        (SKIN_CHECK_SOURCE, SKIN_CHECK_TARGET, SKIN_CHECK_TARGET_TMP),
                         (SKIN_UNCHECKED_SOURCE, SKIN_UNCHECKED_TARGET, SKIN_UNCHECKED_TARGET_TMP)]
 
             ################
@@ -1171,7 +1171,7 @@ class MainSettingsView(Screen):
                 skinSearchAndReplace.append(['skin_01_openatv.xml', 'skin_01_openatv.MySkin.xml'])
                 #skinSearchAndReplace.append(['skin_02_display.xml', 'skin_02_display.MySkin.xml'])
                 skinSearchAndReplace.append(['skin_03_plugins.xml', 'skin_03_plugins.MySkin.xml'])
-                #skinSearchAndReplace.append(['skin_04_check.xml', 'skin_04_check.MySkin.xml'])
+                skinSearchAndReplace.append(['skin_04_check.xml', 'skin_04_check.MySkin.xml'])
                 skinSearchAndReplace.append(['skin_05_screens_unchecked.xml', 'skin_05_screens_unchecked.MySkin.xml'])
             else:
                 #skinSearchAndReplace.append(['skin_00_templates.xml', 'skin_00_templates.MySkin.xml'])
