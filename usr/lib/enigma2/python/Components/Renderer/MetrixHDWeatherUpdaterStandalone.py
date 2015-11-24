@@ -49,6 +49,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
         #configfile.save()
         self.woeid = config.plugins.MetrixWeather.woeid.value
         self.timer = None
+        self.refreshcnt = 0
         #self.startTimer()
         self.getWeather()
 
@@ -69,7 +70,11 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
             self.timer = None
 
         if refresh:
-            seconds=10
+            if self.refreshcnt >= 30:
+                self.refreshcnt = 0
+                seconds=300
+            else:
+                seconds=10
 
         self.timer = Timer(seconds, self.getWeather)
         self.timer.start()
@@ -126,6 +131,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
             # print "MetrixHDWeatherStandalone - get weather data failed. (current date = %s, returned date = %s)" %(currday, currentWeatherDate)
             config.plugins.MetrixWeather.currentWeatherDataValid.value = False
             g_updateRunning = False
+            self.refreshcnt += 1
             self.startTimer(True)
             return
         # print "MetrixHDWeatherStandalone - get weather data successful. (current date = %s, returned date = %s)" %(currday, currentWeatherDate)
@@ -159,6 +165,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 
         config.plugins.MetrixWeather.save()
         g_updateRunning = False
+        self.refreshcnt = 0
 
     def getText(self,nodelist):
         rc = []
