@@ -382,6 +382,10 @@
 			<!-- NEEDED WITHOUT OPENSTORE INSTALLED */ -->
 			<eLabel backgroundColor="layer-a-background" position="40,40" size="219,71"/>
 			<eLabel backgroundColor="layer-b-background" position="259,45" size="116,61"/>
+			<widget backgroundColor="red" position="41,41" size="2,69" source="session.CurrentService" render="FixedLabel" zPosition="10">
+				<convert type="MetrixHDWeather">currentDataValid</convert>
+				<convert type="ConditionalShowHide">Invert</convert>>
+			</widget>
 			<widget backgroundColor="layer-a-background" font="global_clock; 60" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="40,44" render="Label" size="84,70" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
 				<convert type="MetrixHDWeather">currentWeatherTemp</convert>
 			</widget>
