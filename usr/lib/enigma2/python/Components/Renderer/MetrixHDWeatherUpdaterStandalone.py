@@ -70,11 +70,11 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
             self.timer = None
 
         if refresh:
-            if self.refreshcnt >= 30:
+            if self.refreshcnt >= 6:
                 self.refreshcnt = 0
-                seconds=300
+                seconds = 300
             else:
-                seconds=10
+                seconds = 10
 
         self.timer = Timer(seconds, self.getWeather)
         self.timer.start()
@@ -143,7 +143,11 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
         currentWeatherText = currentWeather.getAttributeNode('text')
         config.plugins.MetrixWeather.currentWeatherText.value = currentWeatherText.nodeValue
 
-        currentWeather = dom.getElementsByTagName('yweather:forecast')[0]
+        n = 0
+        currentWeather = dom.getElementsByTagName('yweather:forecast')[n]
+        if lastday in currentWeather.getAttributeNode('date').nodeValue and currday in currentWeatherDate:
+            n = 1
+            currentWeather = dom.getElementsByTagName('yweather:forecast')[n]
         currentWeatherCode = currentWeather.getAttributeNode('code')
         config.plugins.MetrixWeather.forecastTodayCode.value = self.ConvertCondition(currentWeatherCode.nodeValue)
         currentWeatherTemp = currentWeather.getAttributeNode('high')
@@ -153,7 +157,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
         currentWeatherText = currentWeather.getAttributeNode('text')
         config.plugins.MetrixWeather.forecastTodayText.value = currentWeatherText.nodeValue
 
-        currentWeather = dom.getElementsByTagName('yweather:forecast')[1]
+        currentWeather = dom.getElementsByTagName('yweather:forecast')[n + 1]
         currentWeatherCode = currentWeather.getAttributeNode('code')
         config.plugins.MetrixWeather.forecastTomorrowCode.value = self.ConvertCondition(currentWeatherCode.nodeValue)
         currentWeatherTemp = currentWeather.getAttributeNode('high')
