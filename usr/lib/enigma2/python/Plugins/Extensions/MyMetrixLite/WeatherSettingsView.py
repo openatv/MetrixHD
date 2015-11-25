@@ -46,6 +46,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
     <eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
     <eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
     <eLabel position="430,635" size="5,40" backgroundColor="#00e5dd00" />
+    <ePixmap position="838,100" size="258,58" zPosition="2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/MyMetrixLiteWeatherLogo.png" alphatest="blend" />
     <widget name="helperimage" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
     <widget name="helpertext" position="800,490" size="336,160" font="Regular; 18" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center" valign="center" transparent="1"/>
   </screen>
@@ -196,7 +197,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 
     def showHelperText(self):
         cur = self["config"].getCurrent()
-        if cur and len(cur) > 2 and cur[2] and cur[2] != "helptext":
+        if cur and len(cur) > 2 and cur[2] and cur[2] != _("helptext"):
             self["helpertext"].setText(cur[2])
         else:
             self["helpertext"].setText(" ")
