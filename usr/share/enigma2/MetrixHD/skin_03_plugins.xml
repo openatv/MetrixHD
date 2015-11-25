@@ -514,58 +514,52 @@
 	</screen>
 	<!-- Fritz! */-->
 	<!-- MediaPlayer -->
-	<screen name="MediaPlayer" position="center,center" size="1280,720" title="MediaPlayer" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
+	<screen name="MediaPlayer" position="0,0" size="1280,720" title="MediaPlayer" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
+		<panel name="template1_2layer" />
 		<ePixmap position="0,0" zPosition="-20" size="1280,720" pixmap="MetrixHD/movie-back.png" />
-		<eLabel position="417,52" zPosition="-10" size="810,619" backgroundColor="layer-a-background" transparent="0" />
-		<eLabel position="432,280" size="500,40" text="Playlist" font="SetrixHD; 22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<eLabel name="new eLabel" position="71,412" size="300,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" zPosition="-1" />
-		<eLabel position="51,51" zPosition="-10" size="340,525" backgroundColor="layer-a-background" transparent="0" />
-		<widget name="filelist" position="430,107" size="782,180" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget name="coverArt" position="96,67" size="256,256" pixmap="MetrixHD/icons/media.png" transparent="1" alphatest="blend" />
-		<widget name="artist" position="58,371" size="329,30" font="SetrixHD;22" valign="top" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="albumtext" position="57,470" size="120,30" font="SetrixHD;22" valign="top" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" halign="left" />
-		<widget name="album" position="58,500" size="320,30" font="SetrixHD;22" valign="top" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="year" position="131,468" size="250,30" font="SetrixHD;22" valign="top" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
-		<widget name="genre" position="58,540" size="320,30" font="SetrixHD;22" valign="top" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="title" position="58,328" size="325,40" font="SetrixHD; 26" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="playlist" position="430,324" size="782,300" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget name="repeat" pixmaps="MetrixHD/repeat_off.png,MetrixHD/repeat_on.png" position="1035,633" size="70,30" transparent="1" alphatest="blend" />
-		<widget source="session.CurrentService" render="Label" position="58,425" size="119,32" zPosition="2" font="SetrixHD; 22" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" noWrap="1" transparent="1">
+		<eLabel text="Media Player" position="70,47" size="525,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="currenttext" position="70,95" size="700,30" font="screen_info;19" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="0" halign="center" />
+		<eLabel position="70,125" size="700,1" backgroundColor="layer-a-accent1" zPosition="1" />
+		<eLabel position="70,400" size="700,1" backgroundColor="layer-a-accent1" zPosition="1" />
+		<eLabel position="70,370" size="700,30" text="Playlist" halign="center" font="screen_info;20" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="0" />
+		<widget name="filelist" position="70,130" size="700,240" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="playlist" position="70,405" size="700,240" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="coverArt" position="890,175" size="256,256" pixmap="MetrixHD/icons/media.png" transparent="1" alphatest="blend" />
+		<widget name="titletext" position="810,433" size="75,25" font="screen_label;18" foregroundColor="layer-b-accent1" backgroundColor="layer-b-background" transparent="1"  />
+		<widget name="title" position="920,430" size="300,50" font="screen_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="artisttext" position="810,483" size="75,25" font="screen_label;18" foregroundColor="layer-b-accent1" backgroundColor="layer-b-background" transparent="1" />
+		<widget name="artist" position="920,480" size="300,50" font="screen_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="albumtext" position="810,513" size="75,25" font="screen_label;18" foregroundColor="layer-b-accent1" backgroundColor="layer-b-background" transparent="1" />
+		<widget name="album" position="920,510" size="300,50" font="screen_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="yeartext" position="810,543" size="75,25" font="screen_label;18" foregroundColor="layer-b-accent1" backgroundColor="layer-b-background" transparent="1" />
+		<widget name="year" position="920,540" size="300,30" font="screen_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="genretext" position="810,573" size="75,25" font="screen_label;18" foregroundColor="layer-b-accent1" backgroundColor="layer-b-background" transparent="1" halign="left" />
+		<widget name="genre" position="920,570" size="300,30" font="screen_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="810,112" size="80,30" zPosition="2" font="screen_text; 18" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="1">
 			<convert type="ServicePosition">Position,ShowHours</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Label" position="262,425" size="119,32" zPosition="2" font="SetrixHD; 22" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" noWrap="1" transparent="1">
+		<widget source="session.CurrentService" render="Label" position="1145,112" size="80,30" zPosition="2" font="screen_text; 18" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="1">
 			<convert type="ServicePosition">Length,ShowHours</convert>
 		</widget>
-		<!--widget source="session.CurrentService" render="Progress" pixmap="MetrixHD/colors/000F6EB2.png" position="71,410" size="300,5" zPosition="1" transparent="1">
-			<convert type="ServicePosition">Position</convert>
-		</widget-->
-		<widget source="session.CurrentService" render="Progress" position="70,410" size="300,3" foregroundColor="layer-a-progress" borderWidth="0" transparent="1" zPosition="1">
+		<eLabel position="900,125" size="235,1" backgroundColor="layer-b-accent1" zPosition="1" />
+		<widget source="session.CurrentService" render="Progress" position="900,123" size="235,5" foregroundColor="layer-b-progress" borderWidth="0" transparent="1" zPosition="2">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
-		<ePixmap position="1130,631" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
-		<!-- /*ClockWidget-->
-		<widget source="global.CurrentTime" render="Label" position="201,603" size="190,70" font="global_clock; 60" noWrap="1" halign="center" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
-			<convert type="ClockToText">Default</convert>
+		<widget source="session.CurrentService" render="PositionGauge" position="900,121" size="235,9" zPosition="3" transparent="1">
+			<convert type="ServicePosition">Gauge</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="51,634" size="150,30" font="global_clock; 20" noWrap="1" halign="right" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
-			<convert type="ClockToText">Format:%e. %B</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="51,604" size="150,30" font="global_clock; 20" noWrap="1" halign="right" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<eLabel position="51,600" zPosition="-1" size="340,70" backgroundColor="layer-a-background" transparent="0" />
-		<!--ClockWidget */-->
-		<eLabel position="432,60" size="500,40" text="Media Player" font="SetrixHD; 26" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="repeat" pixmaps="MetrixHD/repeat_off.png,MetrixHD/repeat_on.png" position="70,370" size="70,30" transparent="1" zPosition="2" alphatest="blend" />
+		<panel name="_me-buttons_template1" />
 	</screen>
 	<screen name="MediaPlayerSettings" position="0,0" size="1280,720" title="Edit Settings" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
+		<panel name="template1_2layer" />
 		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,120" size="710,490" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="3" itemHeight="30" font="screen_text; 20" scrollbarMode="showNever" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
+		<widget name="config" position="70,110" size="700,490" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="3" itemHeight="30" font="screen_text; 20" scrollbarMode="showNever" transparent="1" />
+		<panel name="rg__-buttons_template1" />
 		<eLabel text="Cancel" position="105,638" size="250,30" valign="center" font="global_button; 20" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
 		<eLabel text="Save" position="395,638" size="250,30" valign="center" font="global_button; 20" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+		<panel name="_oe-buttons_template1" />
 	</screen>
 	<!-- MediaPlayer -->
 	<!-- PluginHider -->
@@ -2238,5 +2232,37 @@
 		<panel name="rg__-buttons_template1" />
 	</screen>
 	<!-- ET8500LCD -->
+	<!-- PicturePlayer -->
+	<screen name="picshow" position="0,0" size="1280,720" title="PicturePlayer" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<eLabel text="PicturePlayer" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="filelist" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="thn" position="890,175" size="256,256" zPosition="4" alphatest="blend" />
+		<eLabel name="frame_a" position="888,173" size="260,260" zPosition="2" backgroundColor="layer-b-accent1" />
+		<eLabel name="frame_b" position="889,174" size="258,258" zPosition="3" backgroundColor="layer-b-background"  />
+		<widget source="label" render="Label" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="rgy_-buttons_template1" />
+		<panel name="rgy_-keys_template1-source" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
+	<screen name="Pic_Exif" position="0,0" size="1280,720" title="Info" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<eLabel text="Exif Info" position="70,47" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="menu" render="Listbox" position="70,120" size="700,490" scrollbarMode="showOnDemand" selectionDisabled="1" backgroundColor="layer-a-background" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					MultiContentEntryText(pos = (10, 5), size = (350, 30), flags = RT_HALIGN_LEFT, text = 0),
+					MultiContentEntryText(pos = (360, 7), size = (310, 30), flags = RT_HALIGN_LEFT, text = 1)],
+					"fonts": [gFont("screen_text",20)],
+					"itemHeight": 35
+				}
+			</convert>
+		</widget>
+		<panel name="r___-buttons_template1" />
+		<panel name="r___-keys_template1-source" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pplayer.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- PicturePlayer -->
 <!-- PLUGINS */-->
 </skin>
