@@ -1259,10 +1259,13 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/skin_selector.png" transparent="1" alphatest="blend" />
 		<eLabel text="coded by svox, idea by arn354" position="692,65" size="540,25" zPosition="1" font="Regular; 15" halign="right" valign="top" backgroundColor="layer-b-background" transparent="1" />
 	</screen>
-	<screen name="JobProgressView" position="390,178" size="500,210" zPosition="1" title="Job Progress" flags="wfNoBorder" backgroundColor="layer-a-background">
-		<widget source="titleText" position="0,30" size="500,40" render="Label" font="Regular; 24" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" halign="center" transparent="1" />
-		<widget name="downloadProgress" position="30,90" size="440,20" borderWidth="2" foregroundColor="layer-a-progress" borderColor="layer-a-accent1" />
-		<widget source="downloadProgressText" position="0,150" size="500,30" render="Label" font="Regular; 20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" transparent="1" />
+	<screen name="JobProgressView" position="905,40" size="335,71" title="Job Progress" flags="wfNoBorder" backgroundColor="transparent" zPosition="1">
+		<widget source="titleText" position="0,2" size="333,35" render="Label" font="global_title; 22" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" halign="center" transparent="1" />
+		<widget name="downloadProgress" position="10,33" size="315,5" borderWidth="0" foregroundColor="layer-a-progress" borderColor="layer-a-accent1" transparent="1" zPosition="1" />
+		<widget source="downloadProgressText" position="0,42" size="333,25" render="Label" font="screen_text; 18" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" halign="center" transparent="1" />
+		<eLabel position="10,35" size="315,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" />
+		<eLabel position="1,1" size="333,69" backgroundColor="layer-a-background" zPosition="-1" transparent="0" />
+		<eLabel position="0,0" size="335,71" backgroundColor="layer-b-background" zPosition="-2" transparent="0" />
 	</screen>
 	<!-- Picons Updater -->
 	<!-- EPGRefresh -->
