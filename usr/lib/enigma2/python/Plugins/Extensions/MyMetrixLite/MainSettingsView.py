@@ -1419,8 +1419,17 @@ class MainSettingsView(Screen):
         self.FolderCopy(target,spath,dpath,npath)
 
     def FolderCopy(self, target, spath, dpath, npath):
-        if target == "FHD" and path.exists(spath) and path.exists(dpath) and not path.exists(npath):
-            move(dpath,npath)
+        if target == "FHD" and path.exists(spath) and path.exists(dpath):
+            if not path.exists(npath):
+                move(dpath,npath)
+            if path.exists(dpath):
+                #save new files in backup folder(*_hd) before remove image folder
+                subdirlist = []
+                self.compFolder(dpath,npath,subdirlist)
+                for subdir in subdirlist:
+                    self.compFolder(subdir[0] + subdir[2] + "/", subdir[1] + subdir[2] + "/", subdirlist)
+                #---
+                rmtree(dpath)
             copytree(spath,dpath)
 
         if target == "HD" and path.exists(dpath) and path.exists(npath):
