@@ -1230,9 +1230,9 @@ class MainSettingsView(Screen):
             #FHD-option
             if config.plugins.MyMetrixLiteOther.FHDenabled.value:
                 #check hbbtv plugin - is not compatible with FHD-skin!
-                if path.exists("/usr/lib/enigma2/python/Plugins/Extensions/HbbTV/plugin.pyo"):
-                    self.skinline_error = True
-                    plustext = _("The installed 'HbbTV Plugin' is not compatible with the FHD-Skin.\n\n")
+                #if path.exists("/usr/lib/enigma2/python/Plugins/Extensions/HbbTV/plugin.pyo"):
+                #    self.skinline_error = True
+                #    plustext = _("The installed 'HbbTV Plugin' is not compatible with the FHD-Skin.\n\n")
                 if not self.skinline_error:
                     print "--------   optionFHD   --------"
                     for file in skinfiles_FHD:

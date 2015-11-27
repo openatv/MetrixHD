@@ -119,11 +119,28 @@ class OtherSettingsView(ConfigListScreen, Screen):
         self.x = getDesktop(0).size().width()
         self.y = getDesktop(0).size().height()
         if cur == "ENABLED_FHD" and config.plugins.MyMetrixLiteOther.FHDenabled.value and self.x < 1920 and self.y < 1080:
-            self.session.openWithCallback(self.resolutionTest, MessageBox, _("If you chose 'yes', then starts the resolution test.\n\nCan't you see the next message,\nthe old resolution will automatically after 10 seconds restored."), default = False)
+            self.PluginCheck()
         elif cur == "ENABLED_FHD" and not config.plugins.MyMetrixLiteOther.FHDenabled.value:
             self.UninstallCheck()
         elif cur == "ENABLED_FHD" and config.plugins.MyMetrixLiteOther.FHDenabled.value:
             self.InstallCheck()
+
+    def PluginCheck(self):
+        plustext=""
+        #check hbbtv plugin - is sometimes or with some boxes not compatible with FHD-skin!
+        if path.exists("/usr/lib/enigma2/python/Plugins/Extensions/HbbTV/plugin.pyo"):
+            plustext = _("You have the'HbbTV Plugin' installed.\n")
+        if plustext:
+            text = plustext + _("\nMaybe is a compatibility issue with full-hd resolution.\nAttention: The osd-error occurs first after gui or system restart!\n\nDo you want really change from HD to FHD - skin?")
+            self.session.openWithCallback(self.resolutionQuestion, MessageBox, text, default = False, timeout = 10)
+        else:
+            self.resolutionQuestion(True)
+
+    def resolutionQuestion(self, result):
+        if not result:
+            self.resetFHD()
+            return
+        self.session.openWithCallback(self.resolutionTest, MessageBox, _("If you chose 'yes', then starts the resolution test.\n\nCan't you see the next message,\nthe old resolution will automatically after 10 seconds restored."), default = False)
 
     def resolutionTest(self, result):
         if not result:
