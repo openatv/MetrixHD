@@ -127,13 +127,13 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
         lastday = strftime("%d %b %Y", localtime(t-3600*24)).strip("0")
         currday = strftime("%d %b %Y", localtime(t)).strip("0")
         currentWeatherDate = currentWeather.getAttributeNode('date').nodeValue
-        if not (currday in currentWeatherDate or lastday in currentWeatherDate):
+        #if not (currday in currentWeatherDate or lastday in currentWeatherDate):
             # print "MetrixHDWeatherStandalone - get weather data failed. (current date = %s, returned date = %s)" %(currday, currentWeatherDate)
-            config.plugins.MetrixWeather.currentWeatherDataValid.value = False
-            g_updateRunning = False
-            self.refreshcnt += 1
-            self.startTimer(True)
-            return
+        #    config.plugins.MetrixWeather.currentWeatherDataValid.value = False
+        #    g_updateRunning = False
+        #    self.refreshcnt += 1
+        #    self.startTimer(True)
+        #    return
         # print "MetrixHDWeatherStandalone - get weather data successful. (current date = %s, returned date = %s)" %(currday, currentWeatherDate)
         config.plugins.MetrixWeather.currentWeatherDataValid.value = True
         currentWeatherCode = currentWeather.getAttributeNode('code')
