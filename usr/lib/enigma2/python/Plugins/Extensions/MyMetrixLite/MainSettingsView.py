@@ -32,7 +32,8 @@ from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, initFonts
     SKIN_DISPLAY_SOURCE, SKIN_DISPLAY_TARGET, SKIN_DISPLAY_TARGET_TMP, \
     SKIN_PLUGINS_SOURCE, SKIN_PLUGINS_TARGET, SKIN_PLUGINS_TARGET_TMP, \
     SKIN_CHECK_SOURCE, SKIN_CHECK_TARGET, SKIN_CHECK_TARGET_TMP, \
-    SKIN_UNCHECKED_SOURCE, SKIN_UNCHECKED_TARGET, SKIN_UNCHECKED_TARGET_TMP
+    SKIN_UNCHECKED_SOURCE, SKIN_UNCHECKED_TARGET, SKIN_UNCHECKED_TARGET_TMP, \
+    SKIN_USER_SOURCE, SKIN_USER_TARGET, SKIN_USER_TARGET_TMP
 
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -54,7 +55,7 @@ from WeatherSettingsView import WeatherSettingsView
 from OtherSettingsView import OtherSettingsView
 from FontsSettingsView import FontsSettingsView
 from BackupSettingsView import BackupSettingsView
-from os import path, remove, statvfs, listdir
+from os import path, remove, statvfs, listdir, stat as statfile
 
 #############################################################
 
@@ -293,7 +294,8 @@ class MainSettingsView(Screen):
                         #(SKIN_DISPLAY_SOURCE, SKIN_DISPLAY_TARGET, SKIN_DISPLAY_TARGET_TMP),
                         #(SKIN_PLUGINS_SOURCE, SKIN_PLUGINS_TARGET, SKIN_PLUGINS_TARGET_TMP),
                         #(SKIN_CHECK_SOURCE, SKIN_CHECK_TARGET, SKIN_CHECK_TARGET_TMP),
-                        #(SKIN_UNCHECKED_SOURCE, SKIN_UNCHECKED_TARGET, SKIN_UNCHECKED_TARGET_TMP)]
+                        #(SKIN_UNCHECKED_SOURCE, SKIN_UNCHECKED_TARGET, SKIN_UNCHECKED_TARGET_TMP),
+                        #(SKIN_USER_SOURCE, SKIN_USER_TARGET, SKIN_USER_TARGET_TMP)]
 
             skinfiles_FHD = [(SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP),
                         (SKIN_TEMPLATES_SOURCE, SKIN_TEMPLATES_TARGET, SKIN_TEMPLATES_TARGET_TMP),
@@ -308,7 +310,8 @@ class MainSettingsView(Screen):
                         #(SKIN_DISPLAY_SOURCE, SKIN_DISPLAY_TARGET, SKIN_DISPLAY_TARGET_TMP),
                         (SKIN_PLUGINS_SOURCE, SKIN_PLUGINS_TARGET, SKIN_PLUGINS_TARGET_TMP),
                         (SKIN_CHECK_SOURCE, SKIN_CHECK_TARGET, SKIN_CHECK_TARGET_TMP),
-                        (SKIN_UNCHECKED_SOURCE, SKIN_UNCHECKED_TARGET, SKIN_UNCHECKED_TARGET_TMP)]
+                        (SKIN_UNCHECKED_SOURCE, SKIN_UNCHECKED_TARGET, SKIN_UNCHECKED_TARGET_TMP),
+                        (SKIN_USER_SOURCE, SKIN_USER_TARGET, SKIN_USER_TARGET_TMP)]
 
             ################
             # check free flash for _TARGET and _TMP files 
@@ -1178,6 +1181,7 @@ class MainSettingsView(Screen):
                 skinSearchAndReplace.append(['skin_03_plugins.xml', 'skin_03_plugins.MySkin.xml'])
                 skinSearchAndReplace.append(['skin_04_check.xml', 'skin_04_check.MySkin.xml'])
                 skinSearchAndReplace.append(['skin_05_screens_unchecked.xml', 'skin_05_screens_unchecked.MySkin.xml'])
+                skinSearchAndReplace.append(['skin_10_user.xml', 'skin_10_user.MySkin.xml'])
             else:
                 #skinSearchAndReplace.append(['skin_00_templates.xml', 'skin_00_templates.MySkin.xml'])
                 skinSearchAndReplace.append(['skin_00a_InfoBar.xml', 'skin_00a_InfoBar.MySkin.xml'])
@@ -1192,6 +1196,44 @@ class MainSettingsView(Screen):
                 #skinSearchAndReplace.append(['skin_03_plugins.xml', 'skin_03_plugins.MySkin.xml'])
                 #skinSearchAndReplace.append(['skin_04_check.xml', 'skin_04_check.MySkin.xml'])
                 #skinSearchAndReplace.append(['skin_05_screens_unchecked.xml', 'skin_05_screens_unchecked.MySkin.xml'])
+                #skinSearchAndReplace.append(['skin_10_user.xml', 'skin_10_user.MySkin.xml'])
+
+            #skinpart 'skin_10_user.xml' backup and restore
+            xmlfile = '/usr/share/enigma2/MetrixHD/skin_10_user.xml'
+            bakfile = '/usr/share/enigma2/MetrixHD/skin_10_user.bak'
+            mode = "backup"
+            if path.exists(xmlfile):
+                xmlstat = statfile(xmlfile)
+                if path.exists(bakfile):
+                    bakstat = statfile(bakfile)
+                    if xmlstat[6] < 150:# original file has 115 bytes
+                        mode = "recovery"
+                if xmlstat[6] < 150 and mode == "backup":
+                    mode = "no backup exist and no changed xml file"
+            if mode == "recovery":
+                copy(bakfile,xmlfile)
+            elif mode == "backup":
+                copy(xmlfile,bakfile)
+
+            #skinparts 'skin_11_user.xml'...'skin_19_user.xml'
+            if config.plugins.MyMetrixLiteOther.user11file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_11_user.xml'):
+                skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_11_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_11_user.xml" />'])
+            if config.plugins.MyMetrixLiteOther.user12file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_12_user.xml'):
+                skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_12_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_12_user.xml" />'])
+            if config.plugins.MyMetrixLiteOther.user13file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_13_user.xml'):
+                skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_13_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_13_user.xml" />'])
+            if config.plugins.MyMetrixLiteOther.user14file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_14_user.xml'):
+                skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_14_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_14_user.xml" />'])
+            if config.plugins.MyMetrixLiteOther.user15file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_15_user.xml'):
+                skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_15_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_15_user.xml" />'])
+            if config.plugins.MyMetrixLiteOther.user16file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_16_user.xml'):
+                skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_16_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_16_user.xml" />'])
+            if config.plugins.MyMetrixLiteOther.user17file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_17_user.xml'):
+                skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_17_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_17_user.xml" />'])
+            if config.plugins.MyMetrixLiteOther.user18file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_18_user.xml'):
+                skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_18_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_18_user.xml" />'])
+            if config.plugins.MyMetrixLiteOther.user19file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_19_user.xml'):
+                skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_19_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_19_user.xml" />'])
 
             #make skin file
             skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)

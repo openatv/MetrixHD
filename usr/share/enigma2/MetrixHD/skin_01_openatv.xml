@@ -99,7 +99,7 @@
 	<!-- Network Adapter -->
 	<screen name="AdapterSetup" position="0,0" size="1280,720" title="Network Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Network Setup" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Adapter" render="Label" position="70,110" size="495,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Adapter" render="Label" position="70,115" size="495,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,165" size="700,240" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="introduction2" render="Label" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
@@ -116,12 +116,9 @@
 		<widget source="DNS1" render="Label" position="420,530" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="DNS2" render="Label" position="420,560" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="VKeyIcon" text="Text" position="430,638" size="70,24" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" backgroundColor="layer-a-background" transparent="1" />
-		<!--widget name="HelpWindow" position="120,460" size="1,1" transparent="1" alphatest="blend" /-->
 		<widget name="HelpWindow" position="338,594" size="604,126" zPosition="1" transparent="1" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="584,635" size="30,40" alphatest="blend" />
-		<widget source="key_red" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_blue" render="Label" position="619,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="rg_b-buttons_template1" />
+		<panel name="rg_b-keys_template1-source" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/net.png" transparent="1" alphatest="blend" />

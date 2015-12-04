@@ -104,6 +104,9 @@ SKIN_UNCHECKED_SOURCE = "/usr/share/enigma2/MetrixHD/skin_05_screens_unchecked.x
 SKIN_UNCHECKED_TARGET = "/usr/share/enigma2/MetrixHD/skin_05_screens_unchecked.MySkin.xml"
 SKIN_UNCHECKED_TARGET_TMP = SKIN_UNCHECKED_TARGET + ".tmp"
 
+SKIN_USER_SOURCE = "/usr/share/enigma2/MetrixHD/skin_10_user.xml"
+SKIN_USER_TARGET = "/usr/share/enigma2/MetrixHD/skin_10_user.MySkin.xml"
+SKIN_USER_TARGET_TMP = SKIN_USER_TARGET + ".tmp"
 #############################################################
 
 MAIN_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/%s.png"
@@ -495,6 +498,7 @@ def initWeatherConfig():
 
     config.plugins.MetrixWeather.enabled = ConfigYesNo(default=True)
     config.plugins.MetrixWeather.MoviePlayer = ConfigYesNo(default=True)
+    config.plugins.MetrixWeather.verifyDate = ConfigYesNo(default=True)
     config.plugins.MetrixWeather.refreshInterval = ConfigNumber(default=60)
     config.plugins.MetrixWeather.woeid = ConfigNumber(default=676757) #Location (visit metrixhd.info)
     config.plugins.MetrixWeather.tempUnit = ConfigSelection(default="Celsius", choices = [
@@ -558,20 +562,20 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther = ConfigSubsection()
 
     #OtherSettings
-	#FHD-Option
+    #FHD-Option
     config.plugins.MyMetrixLiteOther.FHDenabled = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.FHDrounddown = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.FHDfontsize = ConfigSelection(default = "2", choices = [("1", _("scale")), ("2", _("size")), ("3", _("50/50"))])
     config.plugins.MyMetrixLiteOther.FHDfontoffset = ConfigSelectionNumber(-20, 20, 1, default = 0)
     config.plugins.MyMetrixLiteOther.FHDpiconzoom =  ConfigSelection(default = "1.5", choices = [("1", _("No")), ("1.1", _("20%")), ("1.2", _("40%")), ("1.3", _("60%")), ("1.4", _("80%")), ("1.5", _("100%"))])
     config.plugins.MyMetrixLiteOther.FHDadditionalfiles = ConfigYesNo(default=False)
-	#STB-Info
+    #STB-Info
     config.plugins.MyMetrixLiteOther.STBDistance = ConfigSelectionNumber(1, 50, 1, default = 10)
     config.plugins.MyMetrixLiteOther.showCPULoad = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showRAMfree = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.showSYSTemp = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.showCPUTemp = ConfigYesNo(default=False)
-	#Infobar/Secondinfobar
+    #Infobar/Secondinfobar
     config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showChannelNumber = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showChannelName = ConfigYesNo(default=True)
@@ -590,7 +594,7 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelectionNumber(1, 6, 1, default = 2)
     config.plugins.MyMetrixLiteOther.channelSelectionStyle = ConfigSelection(default="CHANNELSELECTION-1", choices = channelSelectionStyleList)
     config.plugins.MyMetrixLiteOther.graphicalEpgStyle = ConfigSelection(default = "1", choices = [("1", _("Standard")), ("2", _("more Events or 'mini TV' greater"))])
-	#EMC/MoviePlayer
+    #EMC/MoviePlayer
     config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign = ConfigSelection(default = "1", choices = [("1", _("Standard")), ("2", _("Infobar")), ("3", _("Small"))])
     config.plugins.MyMetrixLiteOther.showMovieName = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer = ConfigYesNo(default=True)
@@ -598,13 +602,13 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.showMovieTime = ConfigSelection(default = "2", choices = [("1", _("No")), ("2", _("In Moviebar")), ("3", _("Side by PVR-Symbol"))])
     config.plugins.MyMetrixLiteOther.showPVRState = ConfigSelection(default = "1", choices = [("1", _("Standard")), ("2", _("Top of the screen")), ("3", _("Top of the screen with current time"))])
-	#EMC
+    #EMC
     config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover = ConfigSelection(default = "no", choices = [("no", _("No")), ("small", _("Small")), ("large", _("Large"))])
     config.plugins.MyMetrixLiteOther.showEMCMediaCenterCoverInfobar = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showEMCSelectionCover = ConfigSelection(default = "no", choices = [("no", _("No")), ("small", _("Small")), ("large", _("Large"))])
     config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showEMCSelectionRows = ConfigSelection(default = "0", choices = [("-1", _("-4")), ("0", _("No")), ("1", _("+4")), ("2", _("+8"))])
-	#SkinDesign
+    #SkinDesign
     config.plugins.MyMetrixLiteOther.SkinDesign = ConfigSelection(default = "1", choices = [("1", _("Standard")), ("2", _("Layer A and B same height, Clock in Layer A")), ("3", _("Layer A and B same height, Clock in Layer B"))])
     config.plugins.MyMetrixLiteOther.SkinDesignSpace = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.SkinDesignInfobarColorGradient = ConfigYesNo(default=False)
@@ -643,8 +647,18 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.SkinDesignOLVposx = ConfigInteger(default=102, limits=(0, 1280))
     config.plugins.MyMetrixLiteOther.SkinDesignOLVposy = ConfigInteger(default=51, limits=(0, 720))
     config.plugins.MyMetrixLiteOther.SkinDesignOLVposz = ConfigInteger(default=0, limits=(0, 5))
-#preset
+    #preset
     config.plugins.MyMetrixLiteOther.SkinDesignExamples = ConfigSelection(default = "preset_0", choices = skinDesignPresetList)
+    #SkinParts
+    config.plugins.MyMetrixLiteOther.user11file = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.user12file = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.user13file = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.user14file = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.user15file = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.user16file = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.user17file = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.user18file = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.user19file = ConfigYesNo(default=False)
 
 #######################################################################
 

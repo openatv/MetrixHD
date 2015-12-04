@@ -41,16 +41,15 @@ initWeatherConfig()
 
 class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 
-    def __init__(self):
+    def __init__(self, once=False, check=False):
         Renderer.__init__(self)
         VariableText.__init__(self)
-        #self.test = "3"
-        #config.plugins.MetrixWeather.save()
-        #configfile.save()
         self.woeid = config.plugins.MetrixWeather.woeid.value
+        self.verify = config.plugins.MetrixWeather.verifyDate.value #check for valid date
         self.timer = None
         self.refreshcnt = 0
-        #self.startTimer()
+        self.once = once
+        self.check = check
         self.getWeather()
 
     GUI_WIDGET = eLabel
@@ -59,7 +58,9 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
         if self.timer is not None:
             self.timer.cancel()
 
-    def startTimer(self, refresh=False):
+    def startTimer(self, refresh=False, refreshtime=10):
+        if self.once or self.check:
+            return
         seconds = int(config.plugins.MetrixWeather.refreshInterval.value) * 60
 
         if seconds < 60:
@@ -70,11 +71,12 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
             self.timer = None
 
         if refresh:
+            self.refreshcnt += 1
             if self.refreshcnt >= 6:
                 self.refreshcnt = 0
                 seconds = 300
             else:
-                seconds = 10
+                seconds = refreshtime
 
         self.timer = Timer(seconds, self.getWeather)
         self.timer.start()
@@ -83,14 +85,14 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
         self.text = config.plugins.MetrixWeather.currentWeatherCode.value
 
     def getWeather(self):
-        self.startTimer()
-
         # skip if weather-widget is disabled
-        if config.plugins.MetrixWeather.enabled.getValue() is False:
+        if not self.check:
             config.plugins.MetrixWeather.currentWeatherDataValid.value = False
+        if config.plugins.MetrixWeather.enabled.getValue() is False:
             return
 
         global g_updateRunning
+        self.startTimer()
         if g_updateRunning:
             print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " skipped, allready running..."
             return
@@ -99,7 +101,11 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 
     def getWeatherThread(self):
         global g_updateRunning
-        print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid)
+        text = "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid)
+        if self.check:
+            self.writeCheckFile(text)
+        print text
+
         url = "http://query.yahooapis.com/v1/public/yql?q=select%20item%20from%20weather.forecast%20where%20woeid%3D%22"+str(self.woeid)+"%22&format=xml"
         #url = "http://query.yahooapis.com/v1/public/yql?q=select%20item%20from%20weather.forecast%20where%20woeid%3D%22"+str(self.woeid)+"%22%20u%3Dc&format=xml"
 
@@ -110,44 +116,66 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
             file.close()
         except Exception as error:
             print "Cant get weather data: %r" % error
-
             # cancel weather function
-            config.plugins.MetrixWeather.currentWeatherDataValid.value = False
             g_updateRunning = False
+            self.startTimer(True,30)
+            if self.check:
+                text = "%s|" % str(error)
+                self.writeCheckFile(text)
             return
-
 
         dom = parseString(data)
         title = self.getText(dom.getElementsByTagName('title')[0].childNodes)
-        config.plugins.MetrixWeather.currentLocation.value = str(title).split(',')[0].replace("Conditions for ","")
-
+        if 'not found' in title:
+            print "MetrixHDWeatherStandalone lookup for ID - " + title
+            g_updateRunning = False
+            if self.check:
+                text = "%s|" % title
+                self.writeCheckFile(text)
+            return
+        city = str(title).split(',')[0].replace("Conditions for ","")
         currentWeather = dom.getElementsByTagName('yweather:condition')[0]
-        #check returned date from weather values
-        t=time()
-        lastday = strftime("%d %b %Y", localtime(t-3600*24)).strip("0")
-        currday = strftime("%d %b %Y", localtime(t)).strip("0")
         currentWeatherDate = currentWeather.getAttributeNode('date').nodeValue
-        #if not (currday in currentWeatherDate or lastday in currentWeatherDate):
-            # print "MetrixHDWeatherStandalone - get weather data failed. (current date = %s, returned date = %s)" %(currday, currentWeatherDate)
-        #    config.plugins.MetrixWeather.currentWeatherDataValid.value = False
-        #    g_updateRunning = False
-        #    self.refreshcnt += 1
-        #    self.startTimer(True)
-        #    return
-        # print "MetrixHDWeatherStandalone - get weather data successful. (current date = %s, returned date = %s)" %(currday, currentWeatherDate)
-        config.plugins.MetrixWeather.currentWeatherDataValid.value = True
         currentWeatherCode = currentWeather.getAttributeNode('code')
-        config.plugins.MetrixWeather.currentWeatherCode.value = self.ConvertCondition(currentWeatherCode.nodeValue)
         currentWeatherTemp = currentWeather.getAttributeNode('temp')
-        config.plugins.MetrixWeather.currentWeatherTemp.value = self.getTemp(currentWeatherTemp.nodeValue)
         currentWeatherText = currentWeather.getAttributeNode('text')
+
+        #check returned date from weather values
+        datevalid = True
+        if self.verify:
+            t=time()
+            l=t-3600*24
+            month = ['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+            lastday = strftime("%d " + month[int(strftime('%m',localtime(l)))] + " %Y", localtime(l)).strip("0")
+            currday = strftime("%d " + month[int(strftime('%m',localtime(t)))] + " %Y", localtime(t)).strip("0")
+            if not (currday in currentWeatherDate or lastday in currentWeatherDate):
+                datevalid = False
+
+        if self.check:
+            text = "%s|%s|%s°%s|%s" %(currentWeatherDate,city,self.getTemp(currentWeatherTemp.nodeValue),config.plugins.MetrixWeather.tempUnit.value[0],datevalid)
+            self.writeCheckFile(text)
+            g_updateRunning = False
+            return
+
+        if not datevalid:
+            #print "MetrixHDWeatherStandalone - get weather data failed. (current date = %s, returned date = %s)" %(currday, currentWeatherDate)
+            g_updateRunning = False
+            self.startTimer(True)
+            return
+        #print "MetrixHDWeatherStandalone - get weather data successful. (current date = %s, returned date = %s)" %(currday, currentWeatherDate)
+
+        config.plugins.MetrixWeather.currentLocation.value = city
+        config.plugins.MetrixWeather.currentWeatherDataValid.value = True
+        config.plugins.MetrixWeather.currentWeatherCode.value = self.ConvertCondition(currentWeatherCode.nodeValue)
+        config.plugins.MetrixWeather.currentWeatherTemp.value = self.getTemp(currentWeatherTemp.nodeValue)
         config.plugins.MetrixWeather.currentWeatherText.value = currentWeatherText.nodeValue
 
         n = 0
         currentWeather = dom.getElementsByTagName('yweather:forecast')[n]
-        if lastday in currentWeather.getAttributeNode('date').nodeValue and currday in currentWeatherDate:
-            n = 1
-            currentWeather = dom.getElementsByTagName('yweather:forecast')[n]
+        if self.verify:
+            if lastday in currentWeather.getAttributeNode('date').nodeValue and currday in currentWeatherDate:
+                n = 1
+                currentWeather = dom.getElementsByTagName('yweather:forecast')[n]
         currentWeatherCode = currentWeather.getAttributeNode('code')
         config.plugins.MetrixWeather.forecastTodayCode.value = self.ConvertCondition(currentWeatherCode.nodeValue)
         currentWeatherTemp = currentWeather.getAttributeNode('high')
@@ -227,3 +255,8 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
         else:
             celsius = (float(temp) - 32 ) * 5 / 9
             return str(int(round(float(celsius),0)))
+
+    def writeCheckFile(self,text):
+        f = open('/tmp/weathercheck.txt', 'w')
+        f.write(text)
+        f.close()
