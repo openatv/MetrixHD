@@ -44,8 +44,8 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
     def __init__(self, once=False, check=False):
         Renderer.__init__(self)
         VariableText.__init__(self)
-        self.woeid = config.plugins.MetrixWeather.woeid.value
-        self.verify = config.plugins.MetrixWeather.verifyDate.value #check for valid date
+        #self.woeid = config.plugins.MetrixWeather.woeid.value
+        #self.verify = config.plugins.MetrixWeather.verifyDate.value #check for valid date
         self.timer = None
         self.refreshcnt = 0
         self.once = once
@@ -92,6 +92,8 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
             return
 
         global g_updateRunning
+        self.woeid = config.plugins.MetrixWeather.woeid.value
+        self.verify = config.plugins.MetrixWeather.verifyDate.value #check for valid date
         self.startTimer()
         if g_updateRunning:
             print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " skipped, allready running..."
@@ -152,7 +154,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
                 datevalid = False
 
         if self.check:
-            text = "%s|%s|%s°%s|%s" %(currentWeatherDate,city,self.getTemp(currentWeatherTemp.nodeValue),config.plugins.MetrixWeather.tempUnit.value[0],datevalid)
+            text = "%s|%s|%s°%s|%s" %(currentWeatherDate,city,self.getTemp(currentWeatherTemp.nodeValue),config.plugins.MetrixWeather.tempUnit.value[0],int(datevalid))
             self.writeCheckFile(text)
             g_updateRunning = False
             return
