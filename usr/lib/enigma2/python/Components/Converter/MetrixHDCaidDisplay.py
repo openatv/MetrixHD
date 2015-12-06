@@ -89,17 +89,23 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 						caid = caid.lstrip("0x")
 						caid = caid.upper()
 						caid = caid.zfill(4)
-						caid = "CAID: %s" % caid
+						caid = "IDENT:%s" % caid
+						# provider
+						prvd = ecm_info.get("prov", "")
+						prvd = prvd.lstrip("0x")                         
+                                                prvd = prvd.upper()                              
+                                                prvd = prvd.zfill(4)                             
+                                                prvd = "%s" % prvd
 						# hops
 						hops = ecm_info.get("hops", None)
-						hops = "HOPS: %s" % hops
+						hops = "HOPS:%s" % hops
 						# ecm time	
 						ecm_time = ecm_info.get("ecm time", None)
 						if ecm_time:
 							if "msec" in ecm_time:
-								ecm_time = "ECM: %s " % ecm_time
+								ecm_time = "ECM:%s " % ecm_time
 							else:
-								ecm_time = "ECM: %s s" % ecm_time
+								ecm_time = "ECM:%s s" % ecm_time
 						# address
 						address = ecm_info.get("address", "")
 						# source
@@ -120,9 +126,9 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 								else:
 									textvalue = "%s - %s - %s" % (caid, source, ecm_time)
 							# oscam
-							oscsource = ecm_info.get("from", None)
+							oscsource = ecm_info.get("reader", None)
 							if oscsource:
-								textvalue = "%s - %s - %s - %s" % (caid, oscsource, hops, ecm_time)
+								textvalue = "%s:%s - %s - %s - %s" % (caid, prvd, oscsource, hops, ecm_time)
 							# gbox
 							decode = ecm_info.get("decode", None)
 							if decode:
