@@ -593,6 +593,7 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.setTunerAuto = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelectionNumber(1, 6, 1, default = 2)
     config.plugins.MyMetrixLiteOther.channelSelectionStyle = ConfigSelection(default="CHANNELSELECTION-1", choices = channelSelectionStyleList)
+    config.plugins.MyMetrixLiteOther.channelSelectionShowPrimeTime = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.graphicalEpgStyle = ConfigSelection(default = "1", choices = [("1", _("Standard")), ("2", _("more Events or 'mini TV' greater"))])
     #EMC/MoviePlayer
     config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign = ConfigSelection(default = "1", choices = [("1", _("Standard")), ("2", _("Infobar")), ("3", _("Small"))])

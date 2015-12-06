@@ -1388,7 +1388,37 @@
 		<widget source="ServiceEvent" render="Label" position="825,195" size="385,250" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
 			<convert type="EventName">FullDescription</convert>
 		</widget>
-		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="825,460" size="385,125" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="0" />
+		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="825,460" size="385,125" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" noWrap="1" transparent="0" />
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+		<panel name="ime-buttons_template1" />
+	</screen>
+	<!-- CHANNELSELECTION 1 FOCUS LEFT NO PICON 5 NEXT EVENTS */ + Primetime-->
+	<screen name="CHANNELSELECTION-1P">
+		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title; 35" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
+		<widget source="ServiceEvent" render="Label" position="820,80" size="395,65" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="843,157" size="64,24" font="epg_event; 21" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="right" valign="bottom" >
+			<convert type="EventTime">StartTime</convert>
+			<convert type="ClockToText">Format:%H:%M</convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="1128,157" size="77,24" font="epg_event; 21" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" valign="bottom" >
+			<convert type="EventTime">EndTime</convert>
+			<convert type="ClockToText">Format:%H:%M</convert>
+		</widget>
+		<eLabel position="914,167" size="206,1" backgroundColor="layer-b-accent1" />
+		<widget source="ServiceEvent" render="Progress" position="914,165" size="206,5" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
+			<convert type="EventTime">Progress</convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="825,190" size="385,250" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
+			<convert type="EventName">FullDescription</convert>
+		</widget>
+		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="825,452" size="385,125" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" noWrap="1" transparent="0" />
+		<widget source="ServiceEvent" render="MetrixHDPrimeTime" position="825,588" size="385,30" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="0" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
@@ -1421,8 +1451,41 @@
 		<widget source="ServiceEvent" render="Label" position="825,310" size="385,226" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
 			<convert type="EventName">FullDescription</convert>
 		</widget>
-		<widget source="ServiceEvent" render="MetrixHDNextEvent" position="825,543" size="385,53" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0">
+		<widget source="ServiceEvent" render="MetrixHDNextEvent" position="825,542" size="385,53" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" noWrap="1" transparent="0" />
+		<panel name="template1_2layer" />
+		<panel name="ime-buttons_template1" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+	</screen>
+	<!-- CHANNELSELECTION 2 FOCUS LEFT PICON 1 NEXT EVENT */ + Primetime-->
+	<screen name="CHANNELSELECTION-2P">
+		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title; 35" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
+<!-- next_line_is_picon -->
+		<widget alphatest="blend" position="907,80" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="0" zPosition="1">
+			<convert type="MetrixHDRefString">ServicelistRef</convert>
 		</widget>
+		<widget source="ServiceEvent" render="Label" position="820,212" size="395,65" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center" >
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="843,277" size="64,24" font="epg_event; 21" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="right" valign="bottom" >
+			<convert type="EventTime">StartTime</convert>
+			<convert type="ClockToText">Format:%H:%M</convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="1128,277" size="77,24" font="epg_event; 21" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" valign="bottom" >
+			<convert type="EventTime">EndTime</convert>
+			<convert type="ClockToText">Format:%H:%M</convert>
+		</widget>
+		<eLabel position="914,287" size="206,1" backgroundColor="layer-b-accent1" />
+		<widget source="ServiceEvent" render="Progress" position="914,285" size="206,5" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
+			<convert type="EventTime">Progress</convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="825,302" size="385,226" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
+			<convert type="EventName">FullDescription</convert>
+		</widget>
+		<widget source="ServiceEvent" render="MetrixHDNextEvent" position="825,532" size="385,53" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" noWrap="1" transparent="0" />
+		<widget source="ServiceEvent" render="MetrixHDPrimeTime" position="825,588" size="385,30" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="0" />
 		<panel name="template1_2layer" />
 		<panel name="ime-buttons_template1" />
 		<panel name="rgyb-buttons_template1" />
@@ -1455,7 +1518,7 @@
 		<widget source="ServiceEvent" render="Label" position="63,283" size="320,226" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
 			<convert type="EventName">FullDescription</convert>
 		</widget>
-		<widget source="ServiceEvent" render="MetrixHDNextEvent" position="63,517" size="320,53" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0">
+		<widget source="ServiceEvent" render="MetrixHDNextEvent" position="63,517" size="320,53" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="0">
 		</widget>
 		<panel name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720" />
 		<panel name="rgyb-buttons_screen_pos416_51_size_810_619" />
