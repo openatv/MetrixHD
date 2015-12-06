@@ -186,8 +186,8 @@ class WeatherSettingsView(ConfigListScreen, Screen):
                 text = _("Current weather data:   %s\n") %tmp[0]
                 text += _("City:   %s,   ") %tmp[1]
                 text += _("Temperature:   %s") %tmp[2]
-                if config.plugins.MetrixWeather.verifyDate.value:
-                    text += _(",   Date is valid:   %s") %tmp[3]
+                if config.plugins.MetrixWeather.verifyDate.value and len(tmp) > 3:
+                    text += _(",   Date is valid:   %s") %[_("No"),_("Yes")][int(tmp[3])]
             elif tmp and len(tmp) > 1:
                 text = _("Cant get weather data:\n%s") %tmp[0]
 
