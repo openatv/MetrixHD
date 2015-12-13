@@ -311,7 +311,16 @@ class MainSettingsView(Screen):
                         (SKIN_PLUGINS_SOURCE, SKIN_PLUGINS_TARGET, SKIN_PLUGINS_TARGET_TMP),
                         (SKIN_CHECK_SOURCE, SKIN_CHECK_TARGET, SKIN_CHECK_TARGET_TMP),
                         (SKIN_UNCHECKED_SOURCE, SKIN_UNCHECKED_TARGET, SKIN_UNCHECKED_TARGET_TMP),
-                        (SKIN_USER_SOURCE, SKIN_USER_TARGET, SKIN_USER_TARGET_TMP)]
+                        (SKIN_USER_SOURCE, SKIN_USER_TARGET, SKIN_USER_TARGET_TMP),
+                        ]
+                        
+            #skinpart files 11...14
+            skinpart_FHD = [
+                        ("/usr/share/enigma2/MetrixHD/skin_11_user.xml","/usr/share/enigma2/MetrixHD/skin_11_user.MySkin.xml","/usr/share/enigma2/MetrixHD/skin_11_user.xml.tmp"),
+                        ("/usr/share/enigma2/MetrixHD/skin_12_user.xml","/usr/share/enigma2/MetrixHD/skin_12_user.MySkin.xml","/usr/share/enigma2/MetrixHD/skin_12_user.xml.tmp"),
+                        ("/usr/share/enigma2/MetrixHD/skin_13_user.xml","/usr/share/enigma2/MetrixHD/skin_13_user.MySkin.xml","/usr/share/enigma2/MetrixHD/skin_13_user.xml.tmp"),
+                        ("/usr/share/enigma2/MetrixHD/skin_14_user.xml","/usr/share/enigma2/MetrixHD/skin_14_user.MySkin.xml","/usr/share/enigma2/MetrixHD/skin_14_user.xml.tmp"),
+                        ]
 
             ################
             # check free flash for _TARGET and _TMP files 
@@ -322,11 +331,13 @@ class MainSettingsView(Screen):
 
             filesize = 0
             if config.plugins.MyMetrixLiteOther.FHDenabled.value:
-                for file in skinfiles_FHD:
+                tmp_FHD = skinfiles_FHD + skinpart_FHD
+                for file in tmp_FHD:
                     if path.exists(file[1]):
                         filesize += path.getsize(file[1])
                     else:
-                        filesize += path.getsize(file[0]) * 2
+                        if path.exists(file[0]):
+                            filesize += path.getsize(file[0]) * 2
             else:
                 for file in skinfiles_HD:
                     if path.exists(file[1]):
@@ -1218,15 +1229,35 @@ class MainSettingsView(Screen):
             elif mode == "backup":
                 copy(xmlfile,bakfile)
 
-            #skinparts 'skin_11_user.xml'...'skin_19_user.xml'
-            if config.plugins.MyMetrixLiteOther.user11file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_11_user.xml'):
-                skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_11_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_11_user.xml" />'])
-            if config.plugins.MyMetrixLiteOther.user12file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_12_user.xml'):
-                skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_12_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_12_user.xml" />'])
-            if config.plugins.MyMetrixLiteOther.user13file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_13_user.xml'):
-                skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_13_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_13_user.xml" />'])
-            if config.plugins.MyMetrixLiteOther.user14file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_14_user.xml'):
-                skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_14_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_14_user.xml" />'])
+            #skinparts 'skin_11_user.xml'...'skin_14_user.xml' -> enabled for hd -> fhd
+            #remove old MySkin files 11...14
+            for file in skinpart_FHD:
+                if path.exists(file[1]):
+                    remove(file[1])
+            if config.plugins.MyMetrixLiteOther.FHDenabled.value:
+                if config.plugins.MyMetrixLiteOther.user11file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_11_user.xml'):
+                    skinfiles_FHD.append(("/usr/share/enigma2/MetrixHD/skin_11_user.xml","/usr/share/enigma2/MetrixHD/skin_11_user.MySkin.xml","/usr/share/enigma2/MetrixHD/skin_11_user.xml.tmp"))
+                    skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_11_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_11_user.MySkin.xml" />'])
+                if config.plugins.MyMetrixLiteOther.user12file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_12_user.xml'):
+                    skinfiles_FHD.append(("/usr/share/enigma2/MetrixHD/skin_12_user.xml","/usr/share/enigma2/MetrixHD/skin_12_user.MySkin.xml","/usr/share/enigma2/MetrixHD/skin_12_user.xml.tmp"))
+                    skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_12_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_12_user.MySkin.xml" />'])
+                if config.plugins.MyMetrixLiteOther.user13file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_13_user.xml'):
+                    skinfiles_FHD.append(("/usr/share/enigma2/MetrixHD/skin_13_user.xml","/usr/share/enigma2/MetrixHD/skin_13_user.MySkin.xml","/usr/share/enigma2/MetrixHD/skin_13_user.xml.tmp"))
+                    skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_13_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_13_user.MySkin.xml" />'])
+                if config.plugins.MyMetrixLiteOther.user14file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_14_user.xml'):
+                    skinfiles_FHD.append(("/usr/share/enigma2/MetrixHD/skin_14_user.xml","/usr/share/enigma2/MetrixHD/skin_14_user.MySkin.xml","/usr/share/enigma2/MetrixHD/skin_14_user.xml.tmp"))
+                    skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_14_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_14_user.MySkin.xml" />'])
+            else:
+                if config.plugins.MyMetrixLiteOther.user11file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_11_user.xml'):
+                    skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_11_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_11_user.xml" />'])
+                if config.plugins.MyMetrixLiteOther.user12file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_12_user.xml'):
+                    skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_12_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_12_user.xml" />'])
+                if config.plugins.MyMetrixLiteOther.user13file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_13_user.xml'):
+                    skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_13_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_13_user.xml" />'])
+                if config.plugins.MyMetrixLiteOther.user14file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_14_user.xml'):
+                    skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_14_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_14_user.xml" />'])
+
+            #skinparts 'skin_15_user.xml'...'skin_19_user.xml'
             if config.plugins.MyMetrixLiteOther.user15file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_15_user.xml'):
                 skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_15_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_15_user.xml" />'])
             if config.plugins.MyMetrixLiteOther.user16file.value and path.exists('/usr/share/enigma2/MetrixHD/skin_16_user.xml'):
