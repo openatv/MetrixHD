@@ -4442,8 +4442,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<screen name="DVDPlayer" position="0,0" size="1280,720" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="0,640" zPosition="-2" size="1280,80" backgroundColor="infobarbackground" />
 		<eLabel backgroundColor="infobaraccent1" position="110,683" size="796,1" zPosition="3"/>
-		<widget source="global.CurrentTime" render="Label" position="1060,648" size="70,26" font="infobar_text;20" halign="center" valign="top" backgroundColor="infobarbackground" foregroundColor="layer-a-clock-foreground" transparent="1" >
-			<convert type="ClockToText">Default</convert>
+		<widget source="global.CurrentTime" render="Label" position="1000,605" size="240,30" font="global_clock; 20" halign="right" shadowOffset="-2,-2" shadowColor="black" backgroundColor="infobarbackground" foregroundColor="layer-a-clock-foreground" transparent="1">
+			<convert type="ClockToText">Format:%H:%M , %A , %d.%m.%Y</convert>
 		</widget>
 		<widget source="session.CurrentService" render="PositionGauge" position="110,679" size="796,9" zPosition="6" transparent="1">
 			<convert type="ServicePosition">Gauge</convert>
@@ -4451,20 +4451,23 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="session.CurrentService" render="Progress" position="110,681" size="796,5" foregroundColor="infobarprogress" borderWidth="0" transparent="1" zPosition="5">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Label" position="110,644" size="796,30" font="infobar_event;24" halign="center" valign="top" backgroundColor="infobarbackground" transparent="1" foregroundColor="infobarfont1">
+		<widget source="session.CurrentService" render="Label" position="110,644" size="796,30" font="infobar_event;24" halign="left" valign="top" backgroundColor="infobarbackground" transparent="1" foregroundColor="infobarfont1">
 			<convert type="ServiceName">Name</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="15,669" size="75,28" font="infobar_text;20" halign="right" valign="bottom" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Label" position="15,648" size="75,28" font="infobar_text;20" halign="right" valign="bottom" backgroundColor="infobarbackground" transparent="1" foregroundColor="infobaraccent2">
+		<widget source="session.CurrentService" render="Label" position="826,644" size="80,30" font="infobar_event;24" halign="right" valign="top" backgroundColor="infobarbackground" transparent="1" foregroundColor="infobaraccent2">
 			<convert type="ServicePosition">Length</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="926,669" size="75,28" font="infobar_text;20" halign="left" valign="bottom" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
 			<convert type="ServicePosition">Remaining,Negate</convert>
 		</widget>
-		<eLabel text="..." position="1125,648" size="20,26" font="infobar_text;20" halign="center" valign="top" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" transparent="1" />
-		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text; 20" halign="center" position="1140,648" size="70,26" transparent="1">
+		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text; 20" halign="right" position="1058,648" size="60,28" transparent="1">
+			<convert type="MetrixHDServiceTime">StartTime</convert>
+		</widget>
+		<eLabel backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text; 20" halign="center" valign="center" position="1120,648" size="20,28" text="-" transparent="1"/>
+		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" font="infobar_text; 20" halign="left" position="1140,648" size="60,28" transparent="1">
 			<convert type="MetrixHDServiceTime">EndTime</convert>
 		</widget>
 		<widget name="chapterLabel" position="110,692" size="600,24" font="infobar_text;18" halign="left" foregroundColor="infobaraccent1" backgroundColor="layer-a-background" transparent="1" />

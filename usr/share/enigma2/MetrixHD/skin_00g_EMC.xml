@@ -226,6 +226,9 @@
 	<screen name="EMCMediaCenter_3">
 		<eLabel position="0,640" zPosition="-2" size="1281,80" backgroundColor="infobarbackground" />
 		<eLabel backgroundColor="infobaraccent1" position="110,683" size="796,1" zPosition="3"/>
+		<widget source="session.CurrentService" render="Label" position="110,644" size="716,30" font="infobar_event;24" valign="top" noWrap="1" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
+			<convert type="ServiceName">Name</convert>
+		</widget>
 		<widget source="Service" render="EMCPositionGauge" position="110,679" size="796,9" zPosition="6" transparent="1">
 			<convert type="EMCServicePosition">Gauge</convert>
 		</widget>
@@ -235,7 +238,7 @@
 		<widget source="Service" render="EMCPositionGauge" pointer="MetrixHD/extensions/CoolPointerRec.png:980,0" position="110,682" size="796,3" zPosition="4" transparent="1">
 			<convert type="EMCRecordPosition">Position</convert>
 		</widget>
-		<widget source="Service" render="Label" position="110,644" size="796,30" font="infobar_event;24" halign="center" valign="top" backgroundColor="infobarbackground" transparent="1" foregroundColor="infobaraccent2">
+		<widget source="Service" render="Label" position="826,644" size="80,30" font="infobar_event;24" halign="right" valign="top" backgroundColor="infobarbackground" transparent="1" foregroundColor="infobaraccent2">
 			<convert type="EMCServicePosition">Length</convert>
 		</widget>
 		<widget source="Service" render="Label" position="15,669" size="75,28" font="infobar_text;20" halign="right" valign="bottom" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
@@ -277,7 +280,7 @@
 			<convert type="MetrixHDServiceTime">StartTime</convert>
 		</widget>
 		<eLabel backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text; 20" halign="center" valign="bottom" position="502,686" size="20,28" text="-" transparent="1"/>
-		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text; 20" halign="left" valign="bottom" position="522,686" size="60,28" transparent="1">
+		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" font="infobar_text; 20" halign="left" valign="bottom" position="522,686" size="60,28" transparent="1">
 			<convert type="MetrixHDServiceTime">EndTime</convert>
 		</widget>
 	</screen>
