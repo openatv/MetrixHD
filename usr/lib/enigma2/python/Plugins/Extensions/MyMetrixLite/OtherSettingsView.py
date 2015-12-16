@@ -396,7 +396,20 @@ class OtherSettingsView(ConfigListScreen, Screen):
             list.append(getConfigListEntry(tab + _("Show SYS-Temp"), config.plugins.MyMetrixLiteOther.showSYSTemp, _("helptext")))
         section = _("InfoBar")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-        list.append(getConfigListEntry(tab + _("Show Extended-Info"), config.plugins.MyMetrixLiteOther.showExtendedinfo, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show Extended-Info"), config.plugins.MyMetrixLiteOther.showExtendedinfo, _("After enabling, 'Apply changes' and restart needs never press 'Apply changes' (and restart) when you change subordinate options."), "ENABLED"))
+        itext = _("Show only if available.\n\nPositions:\n")
+        if config.plugins.MyMetrixLiteOther.showExtendedinfo.value:
+            oscam = path.exists('/tmp/.oscam')
+            list.append(getConfigListEntry(tab*2 + _("Show CAID"), config.plugins.MyMetrixLiteOther.showExtended_caid, itext + "(CAID - pid - source - protocol - hops - ecm time)", "ENABLED"))
+            if config.plugins.MyMetrixLiteOther.showExtended_caid.value and oscam:
+                list.append(getConfigListEntry(tab*3 + _("Show PROV"), config.plugins.MyMetrixLiteOther.showExtended_prov, itext + "(caid:PROV - pid - source - protocol - hops - ecm time)"))
+            list.append(getConfigListEntry(tab*2 + _("Show PID"), config.plugins.MyMetrixLiteOther.showExtended_pid, itext + "(caid - PID - source - protocol - hops - ecm time)"))
+            list.append(getConfigListEntry(tab*2 + _("Show SOURCE"), config.plugins.MyMetrixLiteOther.showExtended_source, itext + "(caid - pid - SOURCE - protocol - hops - ecm time)", "ENABLED"))
+            if config.plugins.MyMetrixLiteOther.showExtended_source.value and oscam:
+                list.append(getConfigListEntry(tab*3 + _("Show READER"), config.plugins.MyMetrixLiteOther.showExtended_reader, itext + "(caid - pid - READER - protocol - hops - ecm time)"))
+            list.append(getConfigListEntry(tab*2 + _("Show PROTOCOL"), config.plugins.MyMetrixLiteOther.showExtended_protocol, itext + "(caid - pid - source - PROTOCOL - hops - ecm time)"))
+            list.append(getConfigListEntry(tab*2 + _("Show HOPS"), config.plugins.MyMetrixLiteOther.showExtended_hops,  itext + "(caid - pid - source - protocol - HOPS - ecm time)"))
+            list.append(getConfigListEntry(tab*2 + _("Show ECM TIME"), config.plugins.MyMetrixLiteOther.showExtended_ecmtime, itext + "(caid - pid - source - protocol - hops - ECM TIME)"))
         list.append(getConfigListEntry(tab + _("Enable Color Gradient"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarColorGradient, _("helptext")))
         list.append(getConfigListEntry(tab + _("Choose Picon Type"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon, _("helptext"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon.value == "1":
@@ -425,7 +438,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
             list.append(getConfigListEntry(tab + _("Set number of tuner automatically"), config.plugins.MyMetrixLiteOther.setTunerAuto, _("helptext"), "ENABLED"))
             if config.plugins.MyMetrixLiteOther.setTunerAuto.getValue() is False:
                 list.append(getConfigListEntry(tab + _("Set number of tuner manually"), config.plugins.MyMetrixLiteOther.setTunerManual, _("helptext")))
-        list.append(getConfigListEntry(tab + _("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfo, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfo, _("After enabling, 'Apply changes' and restart needs never press 'Apply changes' (and restart) when you change subordinate entrys in 'STB-Info'.")))
         section = _("InfoBar/SecondInfobar/Moviebar")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         list.append(getConfigListEntry(tab + _("ChannelName/Number FontSize"), config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize, _("helptext")))
@@ -447,7 +460,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(tab + _("Show MovieName"), config.plugins.MyMetrixLiteOther.showMovieName, _("helptext")))
         list.append(getConfigListEntry(tab + _("Show Movie Playback Time"), config.plugins.MyMetrixLiteOther.showMovieTime, _("helptext")))
         list.append(getConfigListEntry(tab + _("Show PVR State"), config.plugins.MyMetrixLiteOther.showPVRState, _("helptext")))
-        list.append(getConfigListEntry(tab + _("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer, _("After enabling, 'Apply changes' and restart needs never press 'Apply changes' (and restart) when you change subordinate entrys in 'STB-Info'.")))
         section = _("ChannelSelection") + ", " + _("graphical EPG")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         list.append(getConfigListEntry(tab + _("Channel selection style"), config.plugins.MyMetrixLiteOther.channelSelectionStyle, _("helptext"), "ENABLED"))

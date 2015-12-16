@@ -22,6 +22,9 @@ from Components.Converter.Converter import Converter
 from enigma import iServiceInformation, iPlayableService
 from Components.Element import cached
 from Poll import Poll
+from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
+from Components.config import config
+initOtherConfig()
 
 class MetrixHDCaidDisplay(Poll, Converter, object):
 	def __init__(self, type):
@@ -40,7 +43,7 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 			"0D" : "CRW",
 			"4A" : "DRE" }
 
-		self.poll_interval = 2000
+		self.poll_interval = 1000
 		self.poll_enabled = True
 
 	@cached
@@ -84,7 +87,7 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 				if info.getInfoObject(iServiceInformation.sCAIDs):
 					ecm_info = self.ecmfile()
 					if ecm_info:
-						# caid
+						'''# caid
 						caid = ecm_info.get("caid", "")
 						caid = caid.lstrip("0x")
 						caid = caid.upper()
@@ -130,6 +133,142 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 									textvalue = "(EMU) %s" % (caid)
 								else:
 									textvalue = "%s - %s" % (caid, decode)
+						return textvalue'''
+
+						show_reader = config.plugins.MyMetrixLiteOther.showExtended_reader.value
+						if show_reader:
+							typ = 'READER'
+							oscsource = ecm_info.get("reader", None)
+						else:
+							typ = 'SOURCE'
+							oscsource = ecm_info.get("from", None)
+						if oscsource is None:
+							using = ecm_info.get("using", None)
+							if using is None:
+								source = ecm_info.get("source", None)
+								if source is None:
+									decode= ecm_info.get("decode", None)
+									if decode is None:
+										return textvalue
+						show_caid = config.plugins.MyMetrixLiteOther.showExtended_caid.value
+						show_prov = config.plugins.MyMetrixLiteOther.showExtended_prov.value
+						show_pid = config.plugins.MyMetrixLiteOther.showExtended_pid.value
+						show_source = config.plugins.MyMetrixLiteOther.showExtended_source.value
+						show_protocol = config.plugins.MyMetrixLiteOther.showExtended_protocol.value
+						show_hops = config.plugins.MyMetrixLiteOther.showExtended_hops.value
+						show_ecmtime = config.plugins.MyMetrixLiteOther.showExtended_ecmtime.value
+
+						#caid or caid:prov - pid - address or oscsource or source or decode - protocol - hops - ecm time
+
+						# caid
+						caid = ""
+						if show_caid:
+							caid = ecm_info.get("caid", "####")
+							caid = caid.lstrip("0x")
+							caid = caid.upper()
+							caid = caid.zfill(4)
+							caid = "CAID: %s" % caid
+						# hops
+						hops = ""
+						if show_hops:
+							hops = ecm_info.get("hops", '#')
+							if show_caid or show_source or ((show_pid or show_protocol) and oscsource):
+								hops = " - HOPS: %s" % hops
+							else:
+								hops = "HOPS: %s" % hops
+						# ecm time
+						ecm_time = ""
+						if show_ecmtime:
+							ecm_time = ecm_info.get("ecm time", '#')
+							if "msec" in ecm_time:
+								ecm_time = "%s" % ecm_time
+							else:
+								ecm_time = "%ss" % ecm_time
+							if show_caid or show_source or show_hops or ((show_pid or show_protocol) and oscsource):
+								ecm_time = " - ECM: %s" % ecm_time
+							else:
+								ecm_time = "ECM: %s" % ecm_time
+
+						# source
+						# oscam
+						if oscsource:
+							if show_source:
+								if show_caid or show_pid:
+									oscsource = " - %s" % oscsource
+								else:
+									oscsource = "%s: %s" % (typ, oscsource)
+							else:
+								oscsource = ""
+							pid = ""
+							if show_pid:
+								pid = ecm_info.get("pid", '####')
+								pid = pid.lstrip("0x")
+								pid = pid.upper()
+								pid = pid.zfill(4)
+								if show_caid:
+									pid = " - PID: %s" % pid
+								else:
+									pid = "PID: %s" % pid
+							# protocol
+							protocol = ""
+							if show_protocol:
+								protocol = ecm_info.get("protocol", '#')
+								if show_caid or show_pid:
+									protocol = " - %s" % protocol
+								else:
+									protocol = "PROT: %s" % protocol
+							# prov
+							prov = ""
+							if show_caid and show_prov:
+								prov = ecm_info.get("prov", '######')
+								prov = prov.lstrip("0x")
+								prov = prov.upper()
+								prov = prov.zfill(6)
+								caid = "%s:%s" % (caid, prov)
+							textvalue = "%s%s%s%s%s%s" % (caid, pid, oscsource, protocol, hops, ecm_time)
+						# emu,cccam
+						elif using:
+							# address
+							if show_source:
+								address = ecm_info.get("address", '#')
+								if show_caid:
+									address = " - %s" % address
+								else:
+									address = "SOURCE: %s" % address
+							else:
+								address = ""
+							if using == "emu":
+								textvalue = "(EMU) %s%s" % (caid, ecm_time)
+							elif using == "CCcam-s2s":
+								textvalue = "(NET) %s%s%s%s" % (caid, address, hops, ecm_time)
+							else:
+								textvalue = "%s%s%s%s" % (caid, address, hops, ecm_time)
+						# mgcamd
+						elif source:
+							if source == "emu":
+								textvalue = "(EMU) %s" % (caid)
+							else:
+								if show_source:
+									if show_caid:
+										source = " - %s" % source
+									else:
+										source = "SOURCE: %s" % source
+								else:
+									source = ""
+								textvalue = "%s%s%s" % (caid, source, ecm_time)
+						# gbox
+						elif decode:
+							if decode == "Internal":
+								textvalue = "(EMU) %s" % (caid)
+							else:
+								if show_source:
+									if show_caid:
+										decode = " - %s" % decode
+									else:
+										decode = "SOURCE: %s" % decode
+								else:
+									decode = ""
+								textvalue = "%s%s" % (caid, decode)
 		return textvalue 
 
 	text = property(getText)

@@ -583,6 +583,16 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.showInfoBarResolution = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showInfoBarResolutionExtended = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.showExtendedinfo = ConfigYesNo(default=False)
+
+    config.plugins.MyMetrixLiteOther.showExtended_caid = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showExtended_prov = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.showExtended_pid = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.showExtended_source = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showExtended_reader = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.showExtended_protocol = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.showExtended_hops = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showExtended_ecmtime = ConfigYesNo(default=True)
+    
     config.plugins.MyMetrixLiteOther.ExtendedinfoStyle = ConfigSelection(default = "1", choices = [("1", _("Top of the screen")), ("2", _("Between Clock and Weather enclosed")), ("3", _("Between Clock and Weather centered")), ("4", _("Bottom of the screen"))])
     config.plugins.MyMetrixLiteOther.showSnr = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showRecordstate = ConfigYesNo(default=True)
