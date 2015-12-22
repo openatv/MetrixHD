@@ -52,15 +52,15 @@
 		<widget source="Service" render="Label" position="825,158" size="385,25" font="epg_text;20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCMovieInfo">RecordServiceName</convert>
 		</widget>
-		<widget source="Service" render="Label" position="825,185" size="55,25" font="epg_text;20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="825,185" size="55,25" font="epg_text;20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
 			<convert type="EMCServiceTime">StartTime</convert>
 			<convert type="EMCClockToText">Format:%H:%M </convert>
 		</widget>
-		<widget source="Service" render="Label" position="885,185" size="75,25" font="epg_text;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="885,185" size="75,25" font="epg_text;20" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
 			<convert type="EMCServiceTime">EndTime</convert>
 			<convert type="EMCClockToText">Format:-  %H:%M </convert>
 		</widget>
-		<widget source="Service" render="Label" position="1110,185" size="100,25" font="epg_text;20" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="1110,185" size="100,25" font="epg_text;20" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
 			<convert type="EMCServiceTime">Duration</convert>
 			<convert type="EMCClockToText">InMinutes</convert>
 		</widget>
@@ -70,6 +70,8 @@
 	</screen>
 	<!-- EMCSelectionCover_small -->
 	<screen name="EMCSelectionCover_small">
+		<eLabel position="1132,223" size="100,1" backgroundColor="layer-b-background" zPosition="3" />
+		<ePixmap position="1132,88" zPosition="1" size="100,100" alphatest="blend" pixmap="MetrixHD/icons/movie_small.png"/>
 		<panel name="EMCSelectionList_picon_left" />
 		<widget source="Service" render="Label" position="825,90" size="300,55" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCEventName">Name</convert>
@@ -77,24 +79,22 @@
 		<widget source="Service" render="Label" position="825,158" size="300,25" font="epg_text;20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCMovieInfo">RecordServiceName</convert>
 		</widget>
-		<widget source="Service" render="Label" position="825,185" size="55,25" font="epg_text;20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="825,185" size="55,25" font="epg_text;20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
 			<convert type="EMCServiceTime">StartTime</convert>
 			<convert type="EMCClockToText">Format:%H:%M </convert>
 		</widget>
-		<widget source="Service" render="Label" position="885,185" size="75,25" font="epg_text;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="885,185" size="75,25" font="epg_text;20" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
 			<convert type="EMCServiceTime">EndTime</convert>
 			<convert type="EMCClockToText">Format:-  %H:%M </convert>
 		</widget>
-		<widget source="Service" render="Label" position="1025,185" size="100,25" font="epg_text;20" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="1025,185" size="100,25" font="epg_text;20" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
 			<convert type="EMCServiceTime">Duration</convert>
 			<convert type="EMCClockToText">InMinutes</convert>
 		</widget>
 		<widget source="Service" render="Label" position="825,228" size="385,323" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" halign="left" valign="top">
 			<convert type="EMCEventName">FullDescription</convert>
 		</widget>
-		<eLabel position="1132,223" size="100,1" backgroundColor="layer-b-background" zPosition="3" />
 		<widget name="Cover" position="1132,83" size="100,141" alphatest="blend" zPosition="2" />
-		<ePixmap position="1132,88" zPosition="1" size="100,100" alphatest="blend" pixmap="MetrixHD/icons/movie_small.png"/>
 	</screen>
 	<!-- EMCSelectionCover_large -->
 	<screen name="EMCSelectionCover_large_description_on">
@@ -108,6 +108,8 @@
 		<panel name="EMCSelectionList_picon_left" />
 	</screen>
 	<screen name="EMCSelectionCover_large">
+		<eLabel position="902,478" zPosition="5" size="230,1" backgroundColor="layer-b-background" />
+		<ePixmap position="970,260" zPosition="1" size="100,100" alphatest="blend" pixmap="MetrixHD/icons/movie_small.png"/>
 		<panel name="EMCSelectionCover_large_description_on" />
 		<widget source="Service" render="Label" position="825,90" size="380,55" valign="center" halign="center" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCEventName">Name</convert>
@@ -115,21 +117,19 @@
 		<widget source="Service" render="Label" position="825,500" size="380,25" font="epg_text;20" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCMovieInfo">RecordServiceName</convert>
 		</widget>
-		<widget source="Service" render="Label" position="825,540" size="55,25" font="epg_text;20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="825,540" size="55,25" font="epg_text;20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
 			<convert type="EMCServiceTime">StartTime</convert>
 			<convert type="EMCClockToText">Format:%H:%M </convert>
 		</widget>
-		<widget source="Service" render="Label" position="885,540" size="75,25" font="epg_text;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="885,540" size="75,25" font="epg_text;20" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
 			<convert type="EMCServiceTime">EndTime</convert>
 			<convert type="EMCClockToText">Format:-  %H:%M </convert>
 		</widget>
-		<widget source="Service" render="Label" position="1110,540" size="100,25" font="epg_text;20" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="1110,540" size="100,25" font="epg_text;20" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
 			<convert type="EMCServiceTime">Duration</convert>
 			<convert type="EMCClockToText">InMinutes</convert>
 		</widget>
-		<eLabel position="902,478" zPosition="5" size="230,1" backgroundColor="layer-b-background" />
 		<widget name="Cover" position="902,155" size="230,324" zPosition="4" alphatest="blend" />
-		<ePixmap position="970,260" zPosition="1" size="100,100" alphatest="blend" pixmap="MetrixHD/icons/movie_small.png"/>
 	</screen>
 	<!-- EMCMediacenter_1 - standard version -->
 	<screen name="EMCMediaCenter_1">
@@ -438,11 +438,11 @@
 		<eLabel text="Enhanced Movie Center" position="70,47" size="525,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="wait" position="70,300" size="700,30" zPosition="1" font="screen_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" valign="center" transparent="1" />
 		<widget source="Title" render="Label" position="70,95" size="700,35" font="screen_text;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left" transparent="1" />
-		<widget source="Service" render="Label" position="825,567" size="270,30" font="screen_text;17" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="825,567" size="270,30" font="screen_text;19" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
 			<convert type="EMCServiceTime">StartTime</convert>
 			<convert type="EMCClockToText">Date</convert>
 		</widget>
-		<widget source="Service" render="Label" position="1110,567" size="100,30" font="screen_text;17" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+		<widget source="Service" render="Label" position="1110,567" size="100,30" font="screen_text;19" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
 			<convert type="EMCMovieInfo">FileSize</convert>
 		</widget>
 		<panel name="EMCSelectionCover_no" />

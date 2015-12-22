@@ -3294,7 +3294,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="__e-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
-	<screen name="SlimChannelSelection" position="center,center" flags="wfNoBorder" size="600,600">
+	<!--screen name="SlimChannelSelection" position="center,center" flags="wfNoBorder" size="600,600">
 		<widget source="Title" render="Label" position="10,0" size="525,50" font="global_title; 35" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="10,50" size="580,390" itemHeight="30" font="screen_text; 20" scrollbarMode="showNever" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 		<widget source="ServiceEvent" render="Label" position="10,440" zPosition="2" size="60,25" font="epg_info;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left" noWrap="1" valign="top" transparent="1" >
@@ -3316,6 +3316,24 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="key_green" position="175,e-37" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="left" noWrap="1" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="key_yellow" position="315,e-37" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="left" noWrap="1" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="key_blue" position="455,e-37" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="left" noWrap="1" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+	</screen-->
+	<screen name="SlimChannelSelection" position="0,0" size="1280,720" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title; 35" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list" position="70,105" size="600,520" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
+		<widget source="session.VideoPicture" render="Pig" position="680,95" size="530,299" zPosition="3" backgroundColor="unff000000" />
+		<eLabel position="680,405" size="530,215" zPosition="1" backgroundColor="layer-b-background" />
+		<widget source="ServiceEvent" render="Label" position="685,405" size="520,30" font="epg_text; 22" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" >
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="685,435" size="520,153" font="epg_info; 19" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="0" halign="left" valign="top">
+			<convert type="EventName">FullDescription</convert>
+		</widget>
+		<widget source="ServiceEvent" render="MetrixHDPrimeTime" position="685,590" size="520,30" font="epg_text;19" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="1" />
+		<panel name="template1_1layer" />
+		<panel name="ime-buttons_template1" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
 	</screen>
 	<screen name="SoftwareManagerSetup" position="0,0" size="1280,720" title="SoftwareManager Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Software manager setup" position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
