@@ -1,16 +1,19 @@
 <!-- original file -->
-<!-- run_mod -->
-	<!-- changing next lines -->
-<!-- next_line_is_picon -->
-	<!-- example: position="200,100" size="220,132" -->
-<!-- stop_mod -->
-	<!-- no changing next lines -->
-<!-- run_mod -->
-<!-- next_screen_rename_and_stop_mod -->
-	<!--screen name="example_is_FHD"-->
-<!-- next_screen_rename_and_stop_mod -->
-	<!--screen name="example"-->
-<!-- run_mod -->
+###############################################################################
+# change flags description (for converting skin to another screen resolution) #
+#<!-- cf#_#stop -->                                                           #
+# stop converting                                                             #
+#<!-- cf#_#begin -->                                                          #
+# begin converting                                                            #
+#<!-- cf#_#rename -->                                                         #
+# rename next screen and stop converting                                      #
+# example1: if name ends with 'xxx#_FHDscreen', renamed to 'xxx'              #
+# example2: if name ends with 'xxx', renamed to 'xxx#_HDscreen'               #
+#<!-- cf#_#picon -->                                                          #
+# next line is a picon position                                               #
+#(for centered position at different picon size -> xpicon scalable option)    #
+###############################################################################
+<!-- cf#_#begin -->
 <skin>
 	<!-- MetrixHD v2.5 by iMaxxx | optimized for openATV 4.0 -->
 	<!-- recommended to use with XPicons -->
@@ -189,7 +192,7 @@
 		<color name="ListboxMarkedAndSelectedForeground" color="layer-a-foreground" />
 		<color name="WindowTitleForeground" color="title-foreground" />
 		<color name="WindowTitleBackground" color="title-background"/>
-<!-- stop_mod -->
+<!-- cf#_#stop -->
 		<borderset name="bsWindow">
 			<!--pixmap pos="bpTopLeft" filename="MetrixHD/border/5px/0F0F0F.png" /-->
 			<pixmap pos="bpTop" filename="MetrixHD/border/50px/0F0F0F.png" />
@@ -212,7 +215,7 @@
 			<!--bu pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->
 			<!--bu pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->
 		<!--/borderset-->
-<!-- run_mod -->
+<!-- cf#_#begin -->
 	</windowstyle>
 	<windowstyle type="skinned" id="1">
 		<color name="Background" color="layer-a-background" />
@@ -403,7 +406,7 @@
 	</screen>
 <!-- SKIN DESIGN - Infobar XPicon -->
 	<screen name="IB_XPicon">
-<!-- next_line_is_picon -->
+<!-- cf#_#picon -->
 		<widget alphatest="blend" position="33,574" size="220,132" render="MetrixHDXPicon" source="session.CurrentService" transparent="1" zPosition="4">
 			<convert type="ServiceName">Reference</convert>
 		</widget>

@@ -1,4 +1,4 @@
-<!-- run_mod -->
+<!-- cf#_#begin -->
 <skin>
 	<!--About/Info Screens-->
 	<screen name="AboutOE" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
@@ -819,9 +819,6 @@
 			<convert type="MenuEntryCompare">dvdplayer_setup</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-
-		#######################################################################
-
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_av_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">av_setup</convert>
 			<convert type="ConditionalShowHide" />
@@ -877,8 +874,6 @@
 			<convert type="MenuEntryCompare">tempfancontrol</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-#############################################################################################################################################################################		
-		
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_extended_rfmod_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">rfmod_setup</convert>
 			<convert type="ConditionalShowHide" />
@@ -888,8 +883,6 @@
 			<convert type="ConditionalShowHide" />
 		</widget>
 	</screen>
-##############################################################################################################################################################################
-	
 	<screen name="menu_display" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MENU_template" />
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_display_display_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
@@ -3038,7 +3031,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="Event" render="Progress" position="160,121" size="630,5" borderWidth="0" foregroundColor="layer-a-progress" transparent="1" zPosition="2">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget source="Event" render="Label" position="950,638" size="80,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right" valign="center" >
+		<widget source="Event" render="Label" position="910,638" size="120,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right" valign="center" >
 			<convert type="EventTime">Remaining</convert>
 			<convert type="RemainingToText">InMinutes</convert>
 		</widget>
@@ -3079,7 +3072,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="Event" render="Progress" position="160,121" size="458,5" borderWidth="0" foregroundColor="layer-a-progress" transparent="1" zPosition="2">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget source="Event" render="Label" position="950,638" size="80,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right" valign="center">
+		<widget source="Event" render="Label" position="910,638" size="120,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right" valign="center">
 			<convert type="EventTime">Remaining</convert>
 			<convert type="RemainingToText">InMinutes</convert>
 		</widget>
@@ -3119,7 +3112,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="Event" render="Progress" position="160,121" size="960,5" borderWidth="0" foregroundColor="layer-a-progress" transparent="1" zPosition="2">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget source="Event" render="Label" position="950,638" size="80,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right" valign="center">
+		<widget source="Event" render="Label" position="910,638" size="120,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right" valign="center">
 			<convert type="EventTime">Remaining</convert>
 			<convert type="RemainingToText">InMinutes</convert>
 		</widget>
@@ -3159,7 +3152,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="Event" render="Progress" position="160,121" size="960,5" borderWidth="0" foregroundColor="layer-a-progress" transparent="1" zPosition="2">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget source="Event" render="Label" position="950,638" size="80,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right" valign="center">
+		<widget source="Event" render="Label" position="910,638" size="120,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right" valign="center">
 			<convert type="EventTime">Remaining</convert>
 			<convert type="RemainingToText">InMinutes</convert>
 		</widget>
@@ -3192,7 +3185,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="session.CurrentService" render="Label" position="30,9" size="850,55" font="infobar_event; 40" valign="top" noWrap="1" backgroundColor="epg-background" foregroundColor="epg-event-foreground" transparent="1">
 			<convert type="ServiceName">Name</convert>
 		</widget>
-		<widget source="Event" render="Label" position="950,193" size="80,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right" valign="center">
+		<widget source="Event" render="Label" position="910,193" size="120,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right" valign="center">
 			<convert type="EventTime">Remaining</convert>
 			<convert type="RemainingToText">InMinutes</convert>
 		</widget>
@@ -3247,7 +3240,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="Event" render="Label" position="650,77" size="615,102" font="epg_info;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
-		<widget source="Event" render="Label" position="950,193" size="80,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right" valign="center">
+		<widget source="Event" render="Label" position="910,193" size="120,30" font="epg_event;20" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right" valign="center">
 			<convert type="EventTime">Remaining</convert>
 			<convert type="RemainingToText">InMinutes</convert>
 		</widget>
@@ -3330,6 +3323,10 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 			<convert type="EventName">FullDescription</convert>
 		</widget>
 		<widget source="ServiceEvent" render="MetrixHDPrimeTime" position="685,590" size="520,30" font="epg_text;19" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="1" />
+		<widget source="ServiceEvent" render="Label" position="815,638" size="120,30" font="epg_event;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="right" valign="center"> 
+			<convert type="EventTime">Remaining</convert> 
+			<convert type="RemainingToText">InMinutes</convert> 
+		</widget> 
 		<panel name="template1_1layer" />
 		<panel name="ime-buttons_template1" />
 		<panel name="rgyb-buttons_template1" />
@@ -3346,7 +3343,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	</screen>
 	<screen name="EPGSelection" position="0,0" size="1280,720" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="EPG Selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-<!-- next_line_is_picon -->
+<!-- cf#_#picon -->
 		<widget alphatest="blend" position="70,50" render="MetrixHDXPicon" size="220,132" source="Service" transparent="1" zPosition="1">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
@@ -3390,7 +3387,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	</screen>
 	<screen name="EventView" position="0,0" size="1280,720" title="Eventview" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Eventview" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-<!-- next_line_is_picon -->
+<!-- cf#_#picon -->
 		<widget source="Title" render="MetrixHDXPicon" position="907,80" size="220,132" zPosition="5" transparent="1" alphatest="blend">
 			<convert type="MetrixHDRefString">CurrentRef</convert>
 		</widget>
@@ -3458,7 +3455,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="session.CurrentService" render="Label" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_event; 24" halign="left" position="1118,275" size="80,30" transparent="1"> 
 			<convert type="MetrixHDServiceTime">EndTime</convert> 
 		</widget> 
-<!-- next_line_is_picon -->
+<!-- cf#_#picon -->
 		<widget source="Service" render="MetrixHDXPicon" position="907,80" size="220,132" zPosition="5" transparent="1" alphatest="blend">
 			<convert type="MovieInfo">RecordServiceRef</convert>
 		</widget>
@@ -4347,7 +4344,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="__e-buttons_template1" />
 		<panel name="template1_2layer" />
 	</screen>
-<!-- next_screen_rename_and_stop_mod -->
+<!-- cf#_#rename -->
 	<screen name="wizard_rc_template">
 		<widget name="rc" position="955,100" size="154,500" pixmaps="skin_default/rc.png,skin_default/rcold.png" zPosition="10" alphatest="blend" />
 		<widget name="arrowdown" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />
@@ -4355,15 +4352,15 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="arrowup" position="-100,-100" size="37,70" pixmap="skin_default/arrowup.png" zPosition="11" alphatest="blend" />
 		<widget name="arrowup2" position="-100,-100" size="37,70" pixmap="skin_default/arrowup.png" zPosition="11" alphatest="blend" />
 	</screen>
-<!-- next_screen_rename_and_stop_mod -->
-	<screen name="wizard_rc_template_is_FHD">
+<!-- cf#_#rename -->
+	<screen name="wizard_rc_template#_FHDscreen">
 		<widget name="rc" position="1475,250" size="154,500" pixmaps="skin_default/rc.png,skin_default/rcold.png" zPosition="10" alphatest="blend" />
 		<widget name="arrowdown" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />
 		<widget name="arrowdown2" position="-100,-100" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="11" alphatest="blend" />
 		<widget name="arrowup" position="-100,-100" size="37,70" pixmap="skin_default/arrowup.png" zPosition="11" alphatest="blend" />
 		<widget name="arrowup2" position="-100,-100" size="37,70" pixmap="skin_default/arrowup.png" zPosition="11" alphatest="blend" />
 	</screen>
-<!-- run_mod -->
+<!-- cf#_#begin -->
 	<screen name="HelpMenu" position="0,0" size="1280,720" title="Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="help..." position="70,47" foregroundColor="layer-a-title-foreground" size="525,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />

@@ -1682,24 +1682,24 @@ class MainSettingsView(Screen):
 #additional files end
 #start skin files
 #rename marker
-				if '<!-- next_screen_rename_and_stop_mod -->' in line:
+				if '<!-- cf#_#rename -->' in line:
 					next_rename = True
 					run_mod = False
 				else:
 					if next_rename:
-						if '_is_FHD' in line:
-							line = line.replace('_is_FHD', "")
+						if '#_FHDscreen' in line:
+							line = line.replace('#_FHDscreen', "")
 						else:
 							if 'name="' in line:
 								n1 = line.find('name=', 0)
 								n2 = line.find('"', n1)
 								n3 = line.find('"', n2+1)
-								line = line[:(n3)] + '_is_HD' + line[(n3):]
+								line = line[:(n3)] + '#_HDscreen' + line[(n3):]
 						next_rename = False
 #control marker
-				if '<!-- run_mod -->' in line:
+				if '<!-- cf#_#begin -->' in line:
 					run_mod = True
-				if '<!-- stop_mod -->' in line:
+				if '<!-- cf#_#stop -->' in line:
 					run_mod = False
 				if run_mod:
 #picon zoom
