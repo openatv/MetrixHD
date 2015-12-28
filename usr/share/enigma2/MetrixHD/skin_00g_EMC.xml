@@ -437,7 +437,7 @@
 	<screen name="EMCSelection" position="0,0" size="1280,720" title="Enhanced Movie Center" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Enhanced Movie Center" position="70,47" size="525,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="wait" position="70,300" size="700,30" zPosition="1" font="screen_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" valign="center" transparent="1" />
-		<widget source="Title" render="Label" position="70,95" size="700,35" font="screen_text;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left" transparent="1" />
+		<widget source="Title" render="Label" position="70,95" size="700,30" font="screen_text;22" noWrap="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left" transparent="1" />
 		<widget source="Service" render="Label" position="825,567" size="270,30" font="screen_text;19" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
 			<convert type="EMCServiceTime">StartTime</convert>
 			<convert type="EMCClockToText">Date</convert>
