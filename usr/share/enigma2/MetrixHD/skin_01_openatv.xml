@@ -839,6 +839,15 @@
 			<convert type="MenuEntryCompare">remotecontrolcode</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/led.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">ledManager</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<!-- ... for systems with entry in menu_system and not in menu_extended /-->
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_fansetup_config.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">tempfancontrol</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
 	</screen>
 	<screen name="menu_extended" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MENU_template" />
