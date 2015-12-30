@@ -2935,7 +2935,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="global.CurrentTime" render="Label" position="680,190" size="160,27" font="global_clock;16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Format:%e. %B</convert>
 		</widget-->
-		<eLabel position="300,225" size="680,1" backgroundColor="layer-a-accent1" />
+		<eLabel position="290,225" size="700,1" backgroundColor="layer-a-accent1" />
 		<widget source="job_name" render="Label" position="310,240" size="660,90" font="screen_info;22" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
 		<widget source="job_task" render="Label" position="310,333" size="660,30" font="screen_text;18" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1"/>
 		<widget source="job_progress" render="Progress" position="310,360" size="660,30" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
@@ -3351,9 +3351,10 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/swm.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="EPGSelection" position="0,0" size="1280,720" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="60,88" size="240,1" backgroundColor="layer-a-background" zPosition="1" transparent="0" /> <!-- overlay for title text underline /-->
 		<eLabel text="EPG Selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 <!-- cf#_#picon -->
-		<widget alphatest="blend" position="70,50" render="MetrixHDXPicon" size="220,132" source="Service" transparent="1" zPosition="1">
+		<widget alphatest="blend" position="70,50" render="MetrixHDXPicon" size="220,132" source="Service" transparent="1" zPosition="2">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
 		<widget source="Service" render="Label" position="290,120" size="500,50" font="global_title; 35" halign="center" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1">
@@ -3395,6 +3396,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="__e-buttons_template1" />
 	</screen>
 	<screen name="EventView" position="0,0" size="1280,720" title="Eventview" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Eventview" position="58,32" size="525,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Eventview" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 <!-- cf#_#picon -->
 		<widget source="Title" render="MetrixHDXPicon" position="907,80" size="220,132" zPosition="5" transparent="1" alphatest="blend">
@@ -3454,6 +3456,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	</screen>
 	<!-- EventViewSimple , optimized for MovieInfo (EMC)-->
 	<screen name="EventViewSimple" position="0,0" size="1280,720" title="EventviewSimple" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Eventview" position="58,32" size="525,50" font="global_title; 35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="epg_description" position="70,110" size="700,520" font="epg_info;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="channel" position="832,212" size="370,70" font="epg_event;26" halign="center" valign="bottom" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
 		<eLabel text="Playback Time:" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" font="epg_event; 24" halign="right" position="812,275" size="200,30" transparent="1" /> 
