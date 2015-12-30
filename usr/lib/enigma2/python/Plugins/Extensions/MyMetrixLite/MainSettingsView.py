@@ -1919,6 +1919,9 @@ class MainSettingsView(Screen):
 							ypos = int(round(float((int(y)*FACT - int(y)*PFACT)/2),r_par))
 							ynew = str(int(round(float(int(y)*PFACT),r_par)))
 
+						if '<eLabel name="underline"' in line: #no new height for screen title separating line
+							ynew = str(y)
+
 						strnew = 'size="' + xnew + ',' + ynew + '"'
 						line = line[:n1] + strnew + line[(n4+1):]
 #position="423,460"
