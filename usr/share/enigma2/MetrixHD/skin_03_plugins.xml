@@ -952,21 +952,21 @@
 		<panel name="__e-buttons_template1"/>	
 		<ePixmap pixmap="MetrixHD/icons/info.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
 	</screen>
-		<!-- VPS *-->
-		<!--* NumberZapExt -->
+	<!-- VPS *-->
+	<!--* NumberZapExt -->
 	<screen name="NumberZapExt" position="center,center" size="690,152" title="Channel" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel name="layer1" position="0,0" size="460,152" zPosition="-10" backgroundColor="layer-a-background" />
 		<eLabel name="layer2" position="460,5" size="230,142" zPosition="-10" backgroundColor="layer-b-background" />
 <!-- cf#_#picon -->
 		<widget name="chPicon" position="465,10" size="220,132" transparent="1" zPosition="1" alphatest="blend" />
 		<widget name="chName" position="10,5" size="440,50" halign="center" font="global_title; 35" backgroundColor="layer-a-background" foregroundColor="title-foreground" noWrap="1" transparent="1" />
-		<eLabel position="20,60" zPosition="0" size="420,1" backgroundColor="layer-a-accent2" />
+		<!--eLabel position="20,60" zPosition="0" size="420,1" backgroundColor="layer-a-accent2" /-->
+		<panel name="ul-numberzap" />
 		<widget name="number" position="75,70" size="120,40" halign="left" font="SetrixHD; 28" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
 		<widget name="chNum" position="195,70" size="180,40" halign="right" font="SetrixHD; 28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="bouquet" position="75,105" size="120,40" halign="left" font="SetrixHD; 28" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
 		<widget name="chBouq" position="195,105" size="180,40" halign="right" font="SetrixHD; 28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" noWrap="1" transparent="1" />
 	</screen>
-<!-- cf#_#begin -->
 	<screen name="DirectoryBrowser" position="0,0" size="1280,720" title="Directorybrowser" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,32" size="525,50" font="global_title;35" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="curdir" render="Label" position="70,110" size="700,33" font="screen_info;23" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />

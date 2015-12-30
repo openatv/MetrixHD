@@ -635,6 +635,7 @@ class MainSettingsView(Screen):
             layeraextendedinfo1 = ('name="layer-a-extendedinfo1" value="#00' + config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value + '"')
             layeraextendedinfo2 = ('name="layer-a-extendedinfo2" value="#00' + config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value + '"')
             layeraprogress = ('name="layer-a-progress" value="#' + config.plugins.MyMetrixLiteColors.layeraprogresstransparency.value + config.plugins.MyMetrixLiteColors.layeraprogress.value + '"')
+            layeraunderline = ('name="layer-a-underline" value="#' + config.plugins.MyMetrixLiteColors.layeraunderlinetransparency.value + config.plugins.MyMetrixLiteColors.layeraunderline.value + '"')
 
             layerbbackground = ('name="layer-b-background" value="#' + config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layerbbackground.value + '"')
             layerbforeground = ('name="layer-b-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layerbforeground.value + '"')
@@ -699,6 +700,7 @@ class MainSettingsView(Screen):
             skinSearchAndReplace.append(['name="layer-a-extendedinfo1" value="#00BDBDBD"', layeraextendedinfo1 ])
             skinSearchAndReplace.append(['name="layer-a-extendedinfo2" value="#006E6E6E"', layeraextendedinfo2 ])
             skinSearchAndReplace.append(['name="layer-a-progress" value="#1A27408B"', layeraprogress ])
+            skinSearchAndReplace.append(['name="layer-a-underline" value="#00BDBDBD"', layeraunderline ])
 
             skinSearchAndReplace.append(['name="layer-b-background" value="#1A27408B"', layerbbackground ])
             skinSearchAndReplace.append(['name="layer-b-foreground" value="#00FFFFFF"', layerbforeground ])
@@ -1273,8 +1275,20 @@ class MainSettingsView(Screen):
             skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
             orgskin_lines = appendSkinFile(SKIN_SOURCE + bname, orgskinSearchAndReplace)
 
+            ulsize = config.plugins.MyMetrixLiteOther.layeraunderlinesize.value
+            ulposy = config.plugins.MyMetrixLiteOther.layeraunderlineposy.value
             xFile = open(SKIN_TARGET_TMP, "w")
             for xx in skin_lines:
+                if '<eLabel name="underline"' in xx:
+                    n1 = xx.find(' position=', 0)
+                    n2 = xx.find(',', n1) 
+                    n3 = xx.find('"', n2) 
+                    n4 = xx.find(' size=', 0)
+                    n5 = xx.find(',', n4) 
+                    n6 = xx.find('"', n5) 
+                    pos = int(xx[(n2+1):n3])-int(ulsize/2) + ulposy
+                    xx = xx[:n2+1] + str(pos) + xx[n3:n5+1] + str(ulsize) + xx[n6:]
+
                 xFile.writelines(xx)
             xFile.close()
 

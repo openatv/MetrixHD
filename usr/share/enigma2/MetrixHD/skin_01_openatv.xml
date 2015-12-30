@@ -2398,11 +2398,12 @@ self.instance.move(ePoint(0,0))
 		<ePixmap pixmap="MetrixHD/icons/message/info-53.png" position="c-27,c-60" size="53,53" alphatest="blend" />
 		<widget name="text" position="center,c+10" size="720,100" font="screen_text;20" halign="center" backgroundColor="black" foregroundColor="white"/>
 	</screen>
-	<screen name="HistoryZapSelector" position="center,center" size="550,490" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="History Zap..." position="0,-32" size="550,50" halign="center" font="global_title; 35" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" transparent="1" />
-		<eLabel position="30,50" zPosition="0" size="490,1" backgroundColor="layer-a-accent2" />
-		<eLabel position="9,0" zPosition="-2" size="532,490" backgroundColor="layer-a-background" />
-		<widget source="menu" render="Listbox" position="0,60" size="550,420" scrollbarMode="showNever" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
+	<screen name="HistoryZapSelector" position="center,center" size="550,505" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="History Zap..." position="9,5" size="532,50" halign="center" font="global_title; 35" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<!--eLabel position="9,50" zPosition="0" size="532,1" backgroundColor="layer-a-accent2" /-->
+		<panel name="ul-historyzap" />
+		<eLabel position="9,0" zPosition="-2" size="532,505" backgroundColor="layer-a-background" />
+		<widget source="menu" render="Listbox" position="0,75" size="550,420" scrollbarMode="showNever" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryText(pos = (128, 22), size = (10, 22), font = 1, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 1), # Current Service
@@ -2594,7 +2595,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<screen name="MessageBox-template-2">
 		<!-- new version 2 /-->
 		<widget source="Title" render="Label" position="30,10" foregroundColor="layer-a-title-foreground" size="760,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel name="line1" position="0,69" size="1280,1" backgroundColor="layer-a-accent1" zPosition="1" />
+		<panel name="ul-messagebox" />
 		<widget name="text" position="110,80" size="680,93" font="screen_info;23" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
 		<widget name="ErrorPixmap" pixmap="MetrixHD/icons/message/attention-53.png" position="30,100" size="53,53" alphatest="blend" />
 		<widget name="QuestionPixmap" pixmap="MetrixHD/icons/message/question-53.png" position="30,100" size="53,53" alphatest="blend" />
@@ -2681,7 +2682,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<screen name="MessageBox-template-3">
 		<!-- new version 3 /-->
 		<widget source="Title" render="Label" position="67,10" foregroundColor="layer-a-title-foreground" size="623,50" noWrap="0" font="global_title; 35" backgroundColor="layer-a-background" transparent="1"/>
-		<eLabel name="line1" position="0,69" size="1280,1" backgroundColor="layer-a-accent1" zPosition="1" />
+		<!--eLabel name="line1" position="0,69" size="1280,1" backgroundColor="layer-a-accent1" zPosition="1" /-->
+		<panel name="ul-messagebox" />
 		<widget name="text" position="10,80" size="780,50" font="screen_info;23" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
 		<widget name="ErrorPixmap" pixmap="MetrixHD/icons/message/attention-53.png" position="8,8" size="53,53" alphatest="blend" />
 		<widget name="QuestionPixmap" pixmap="MetrixHD/icons/message/question-53.png" position="8,8" size="53,53" alphatest="blend" />
@@ -3351,7 +3353,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/swm.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="EPGSelection" position="0,0" size="1280,720" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="60,88" size="240,1" backgroundColor="layer-a-background" zPosition="1" transparent="0" /> <!-- overlay for title text underline /-->
+		<eLabel position="60,78" size="240,20" backgroundColor="layer-a-background" zPosition="1" transparent="0" /> <!-- overlay for title text underline /-->
 		<eLabel text="EPG Selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 <!-- cf#_#picon -->
 		<widget alphatest="blend" position="70,50" render="MetrixHDXPicon" size="220,132" source="Service" transparent="1" zPosition="2">

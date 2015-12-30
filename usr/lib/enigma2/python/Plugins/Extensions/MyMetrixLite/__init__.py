@@ -325,6 +325,8 @@ def initColorsConfig():
     config.plugins.MyMetrixLiteColors.layeraaccent2 = ConfigSelection(default="6E6E6E", choices = ColorList)
     config.plugins.MyMetrixLiteColors.layeraprogress = ConfigSelection(default="27408B", choices = ColorList)
     config.plugins.MyMetrixLiteColors.layeraprogresstransparency = ConfigSelection(default="1A", choices = TransparencyList)
+    config.plugins.MyMetrixLiteColors.layeraunderline = ConfigSelection(default="BDBDBD", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.layeraunderlinetransparency = ConfigSelection(default="00", choices = TransparencyList)
     config.plugins.MyMetrixLiteColors.layeraextendedinfo1 = ConfigSelection(default="BDBDBD", choices = ColorList)
     config.plugins.MyMetrixLiteColors.layeraextendedinfo2 = ConfigSelection(default="6E6E6E", choices = ColorList)
 
@@ -658,6 +660,8 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.SkinDesignOLVposx = ConfigInteger(default=102, limits=(0, 1280))
     config.plugins.MyMetrixLiteOther.SkinDesignOLVposy = ConfigInteger(default=51, limits=(0, 720))
     config.plugins.MyMetrixLiteOther.SkinDesignOLVposz = ConfigInteger(default=0, limits=(0, 5))
+    config.plugins.MyMetrixLiteOther.layeraunderlinesize = ConfigSelectionNumber(0, 10, 1, default = 1)
+    config.plugins.MyMetrixLiteOther.layeraunderlineposy = ConfigSelectionNumber(-10, 10, 1, default = 0)
     #preset
     config.plugins.MyMetrixLiteOther.SkinDesignExamples = ConfigSelection(default = "preset_0", choices = skinDesignPresetList)
     #SkinParts
