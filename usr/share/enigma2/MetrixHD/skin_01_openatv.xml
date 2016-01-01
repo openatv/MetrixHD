@@ -2937,7 +2937,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="global.CurrentTime" render="Label" position="680,190" size="160,27" font="global_clock;16" noWrap="1" halign="right" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1">
 			<convert type="ClockToText">Format:%e. %B</convert>
 		</widget-->
-		<eLabel position="290,225" size="700,1" backgroundColor="layer-a-accent1" />
+		<!--eLabel position="290,225" size="700,1" backgroundColor="layer-a-accent1" /-->
+		<panel name="ul-jobview" />
 		<widget source="job_name" render="Label" position="310,240" size="660,90" font="screen_info;22" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
 		<widget source="job_task" render="Label" position="310,333" size="660,30" font="screen_text;18" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1"/>
 		<widget source="job_progress" render="Progress" position="310,360" size="660,30" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
