@@ -661,7 +661,8 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.SkinDesignOLVposy = ConfigInteger(default=51, limits=(0, 720))
     config.plugins.MyMetrixLiteOther.SkinDesignOLVposz = ConfigInteger(default=0, limits=(0, 5))
     config.plugins.MyMetrixLiteOther.layeraunderlinesize = ConfigSelectionNumber(0, 10, 1, default = 1)
-    config.plugins.MyMetrixLiteOther.layeraunderlineposy = ConfigSelectionNumber(-10, 10, 1, default = 0)
+    config.plugins.MyMetrixLiteOther.layeraunderlineposy = ConfigSelectionNumber(-5, 5, 1, default = 0)
+    config.plugins.MyMetrixLiteOther.layeraunderlineshowmainlayer = ConfigYesNo(default=False)
     #preset
     config.plugins.MyMetrixLiteOther.SkinDesignExamples = ConfigSelection(default = "preset_0", choices = skinDesignPresetList)
     #SkinParts

@@ -916,10 +916,15 @@ class MainSettingsView(Screen):
                 elif confvalue == "menus":
                     skinSearchAndReplace.append(['<!--eLabel name="optionallayervertical-m" position="102,51" zPosition="-105" size="60,669" backgroundColor="#1A27408B" /-->', newlinem ])
 
+            if config.plugins.MyMetrixLiteOther.layeraunderlineshowmainlayer.value:
+               skinSearchAndReplace.append(['<!--eLabel name="underline" position="40,88" size="1200,1" backgroundColor="layer-a-underline" zPosition="-1" /-->', '<eLabel name="underline" position="40,88" size="1200,1" backgroundColor="layer-a-underline" zPosition="-1" />' ])
+               skinSearchAndReplace.append(['<!--eLabel name="underline" position="40,88" size="755,1" backgroundColor="layer-a-underline" zPosition="-1" /-->', '<eLabel name="underline" position="40,88" size="755,1" backgroundColor="layer-a-underline" zPosition="-1" />' ])
+
             if config.plugins.MyMetrixLiteOther.SkinDesignSpace.getValue() is True:
                 newline1 = ('<panel name="template1_2layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + 's" />')
                 newline2 = ('<panel name="INFOBAREPGWIDGET_Layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + 's" />')
                 newline3 = ('<panel name="QuickMenu_Layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + 's" />')
+                skinSearchAndReplace.append(['eLabel name="underline" position="40,88" size="755,1"', 'eLabel name="underline" position="40,88" size="750,1"' ])
             else:
                 newline1 = ('<panel name="template1_2layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + '" />')
                 newline2 = ('<panel name="INFOBAREPGWIDGET_Layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + '" />')
@@ -1919,8 +1924,8 @@ class MainSettingsView(Screen):
 							ypos = int(round(float((int(y)*FACT - int(y)*PFACT)/2),r_par))
 							ynew = str(int(round(float(int(y)*PFACT),r_par)))
 
-						if '<eLabel name="underline"' in line: #no new height for screen title separating line
-							ynew = str(y)
+						#if '<eLabel name="underline"' in line: #no new height for screen title separating line
+						#	ynew = str(y)
 
 						strnew = 'size="' + xnew + ',' + ynew + '"'
 						line = line[:n1] + strnew + line[(n4+1):]

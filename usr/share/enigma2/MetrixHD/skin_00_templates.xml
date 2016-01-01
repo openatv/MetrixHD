@@ -1222,7 +1222,7 @@
 		<screen name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720">
 			<eLabel position="51,51" zPosition="-10" size="340,525" backgroundColor="layer-b-background" />
 			<eLabel position="416,51" zPosition="-1" size="810,619" backgroundColor="layer-a-background" />
-			<widget source="Title" render="Label" position="425,55" size="790,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
+			<widget source="Title" render="Label" position="425,55" size="790,50" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 			<!-- /*ClockWidget-->
 			<widget source="global.CurrentTime" render="Label" position="201,603" size="190,70" font="global_clock; 60" noWrap="1" halign="center" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
 				<convert type="ClockToText">Default</convert>
@@ -1310,19 +1310,19 @@
 		</screen>
 		<!-- template1_2layer with space-->
 		<screen name="template1_2layer-1s">
-			<panel name="ul-layer1_2s" />
+			<panel name="ul-layer1_2" />
 			<eLabel name="layer1" position="40,25" zPosition="-10" size="750,650" backgroundColor="layer-a-background" />
 			<eLabel name="layer2" position="800,60" zPosition="-10" size="440,580" backgroundColor="layer-b-background" />
 			<panel name="CLOCKWIDGET_2layer-1" />
 		</screen>
 		<screen name="template1_2layer-2s">
-			<panel name="ul-layer1_2s" />
+			<panel name="ul-layer1_2" />
 			<eLabel name="layer1" position="40,25" zPosition="-10" size="750,650" backgroundColor="layer-a-background" />
 			<eLabel name="layer2" position="800,25" zPosition="-10" size="440,650" backgroundColor="layer-b-background" />
 			<panel name="CLOCKWIDGET_2layer-1" />
 		</screen>
 		<screen name="template1_2layer-3s">
-			<panel name="ul-layer1_2s" />
+			<panel name="ul-layer1_2" />
 			<eLabel name="layer1" position="40,25" zPosition="-10" size="750,650" backgroundColor="layer-a-background" />
 			<eLabel name="layer2" position="800,25" zPosition="-10" size="440,650" backgroundColor="layer-b-background" />
 			<panel name="CLOCKWIDGET_2layer-2" />
@@ -1377,7 +1377,7 @@
 	<!-- CHANNELSELECTION 1 FOCUS LEFT NO PICON 5 NEXT EVENTS */ -->
 	<screen name="CHANNELSELECTION-1">
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget source="Title" render="Label" position="58,32" size="525,50" font="global_title; 35" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,38" size="550,50" font="global_title;34" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 		<widget source="ServiceEvent" render="Label" position="820,80" size="395,65" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center">
 			<convert type="EventName">Name</convert>
@@ -1406,7 +1406,7 @@
 	<!-- CHANNELSELECTION 1 FOCUS LEFT NO PICON 5 NEXT EVENTS */ + Primetime-->
 	<screen name="CHANNELSELECTION-1P">
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget source="Title" render="Label" position="58,32" size="525,50" font="global_title; 35" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,38" size="550,50" font="global_title;34" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 		<widget source="ServiceEvent" render="Label" position="820,80" size="395,65" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center">
 			<convert type="EventName">Name</convert>
@@ -1436,7 +1436,7 @@
 	<!-- CHANNELSELECTION 2 FOCUS LEFT PICON 1 NEXT EVENT */ -->
 	<screen name="CHANNELSELECTION-2">
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget source="Title" render="Label" position="58,32" size="525,50" font="global_title; 35" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,38" size="550,50" font="global_title;34" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 <!-- cf#_#picon -->
 		<widget alphatest="blend" position="907,80" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="0" zPosition="1">
@@ -1469,7 +1469,7 @@
 	<!-- CHANNELSELECTION 2 FOCUS LEFT PICON 1 NEXT EVENT */ + Primetime-->
 	<screen name="CHANNELSELECTION-2P">
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget source="Title" render="Label" position="58,32" size="525,50" font="global_title; 35" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,38" size="550,50" font="global_title;34" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 <!-- cf#_#picon -->
 		<widget alphatest="blend" position="907,80" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="0" zPosition="1">

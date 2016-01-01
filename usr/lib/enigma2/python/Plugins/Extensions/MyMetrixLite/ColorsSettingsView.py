@@ -165,6 +165,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.layerabackgroundtransparency, _("helptext")))
         list.append(getConfigListEntry(tab*2 + _("Font color"), config.plugins.MyMetrixLiteColors.layeraforeground, _("helptext")))
         list.append(getConfigListEntry(tab + _("Screen title separating line"), ))
+        list.append(getConfigListEntry(tab*2 + _("Show also in main layer?"), config.plugins.MyMetrixLiteOther.layeraunderlineshowmainlayer, _("helptext")))
         list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.layeraunderlinesize, _("helptext")))
         list.append(getConfigListEntry(tab*2 + _("pos y"), config.plugins.MyMetrixLiteOther.layeraunderlineposy, _("helptext")))
         list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.layeraunderline, _("helptext")))
