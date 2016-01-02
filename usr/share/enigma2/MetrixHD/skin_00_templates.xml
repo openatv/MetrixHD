@@ -762,19 +762,19 @@
 			<!--/* STYLE MODERN -->
 			<eLabel backgroundColor="infobarbackground" name="InfoBar" position="-1,560" size="1283,160" zPosition="-10"/>
 			<panel name="InfoBar_Picon" />
-			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1091,563" render="Label" size="75,30" source="session.Event_Now" transparent="1">
+			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1091,564" render="Label" size="75,30" source="session.Event_Now" transparent="1">
 				<convert type="EventTime">StartTime</convert>
 				<convert type="ClockToText">Default</convert>
 			</widget>
-			<eLabel backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="center" position="1173,563" size="15,30" text="-" transparent="1"/>
-			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1178,563" render="Label" size="60,30" source="session.Event_Now" transparent="1">
+			<eLabel backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="center" position="1173,564" size="15,30" text="-" transparent="1"/>
+			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1178,564" render="Label" size="60,30" source="session.Event_Now" transparent="1">
 				<convert type="EventTime">EndTime</convert>
 				<convert type="ClockToText">Default</convert>
 			</widget>
-			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="infobar_event; 40" halign="left" noWrap="1" position="286,558" render="Label" size="805,56" source="session.Event_Now" transparent="1">
+			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="infobar_event; 40" halign="left" noWrap="1" position="286,558" render="Label" size="805,56" source="session.Event_Now" transparent="1" valign="center">
 				<convert type="EventName">Name</convert>
 			</widget>
-			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1125,586" render="Label" size="113,30" source="session.Event_Now" transparent="1">
+			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1124,586" render="Label" size="113,30" source="session.Event_Now" transparent="1">
 				<convert type="EventTime">Remaining</convert>
 				<convert type="RemainingToText">InMinutes</convert>
 			</widget>
@@ -782,12 +782,12 @@
 			<widget render="Progress" position="287,613" size="951,5" source="session.Event_Now" foregroundColor="infobarprogress" transparent="1" zPosition="7">
 				<convert type="EventTime">Progress</convert>
 			</widget>
-			<widget backgroundColor="infobarbackground" font="global_small; 18" foregroundColor="infobarfont2" halign="right" noWrap="1" position="1091,619" render="Label" size="75,28" source="session.Event_Next" transparent="1" valign="top">
+			<widget backgroundColor="infobarbackground" font="global_small; 18" foregroundColor="infobarfont2" halign="right" noWrap="1" position="1091,620" render="Label" size="75,28" source="session.Event_Next" transparent="1" valign="top">
 				<convert type="EventTime">StartTime</convert>
 				<convert type="ClockToText">Default</convert>
 			</widget>
-			<eLabel backgroundColor="infobarbackground" font="global_small; 18" foregroundColor="infobarfont2" halign="center" noWrap="1" position="1173,619" size="15,28" text="-" transparent="1" valign="top"/>
-			<widget backgroundColor="infobarbackground" font="global_small; 18" foregroundColor="infobarfont2" halign="right" noWrap="1" position="1178,619" render="Label" size="60,28" source="session.Event_Next" transparent="1" valign="top">
+			<eLabel backgroundColor="infobarbackground" font="global_small; 18" foregroundColor="infobarfont2" halign="center" noWrap="1" position="1173,620" size="15,28" text="-" transparent="1" valign="top"/>
+			<widget backgroundColor="infobarbackground" font="global_small; 18" foregroundColor="infobarfont2" halign="right" noWrap="1" position="1178,620" render="Label" size="60,28" source="session.Event_Next" transparent="1" valign="top">
 				<convert type="EventTime">EndTime</convert>
 				<convert type="ClockToText">Default</convert>
 			</widget>
@@ -1222,7 +1222,7 @@
 		<screen name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720">
 			<eLabel position="51,51" zPosition="-10" size="340,525" backgroundColor="layer-b-background" />
 			<eLabel position="416,51" zPosition="-1" size="810,619" backgroundColor="layer-a-background" />
-			<widget source="Title" render="Label" position="425,55" size="790,50" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+			<widget source="Title" render="Label" position="425,53" size="790,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 			<!-- /*ClockWidget-->
 			<widget source="global.CurrentTime" render="Label" position="201,603" size="190,70" font="global_clock; 60" noWrap="1" halign="center" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
 				<convert type="ClockToText">Default</convert>
@@ -1377,7 +1377,7 @@
 	<!-- CHANNELSELECTION 1 FOCUS LEFT NO PICON 5 NEXT EVENTS */ -->
 	<screen name="CHANNELSELECTION-1">
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget source="Title" render="Label" position="58,38" size="550,50" font="global_title;34" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,36" size="550,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 		<widget source="ServiceEvent" render="Label" position="820,80" size="395,65" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center">
 			<convert type="EventName">Name</convert>
@@ -1406,7 +1406,7 @@
 	<!-- CHANNELSELECTION 1 FOCUS LEFT NO PICON 5 NEXT EVENTS */ + Primetime-->
 	<screen name="CHANNELSELECTION-1P">
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget source="Title" render="Label" position="58,38" size="550,50" font="global_title;34" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,36" size="550,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 		<widget source="ServiceEvent" render="Label" position="820,80" size="395,65" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center">
 			<convert type="EventName">Name</convert>
@@ -1436,7 +1436,7 @@
 	<!-- CHANNELSELECTION 2 FOCUS LEFT PICON 1 NEXT EVENT */ -->
 	<screen name="CHANNELSELECTION-2">
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget source="Title" render="Label" position="58,38" size="550,50" font="global_title;34" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,36" size="550,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 <!-- cf#_#picon -->
 		<widget alphatest="blend" position="907,80" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="0" zPosition="1">
@@ -1469,7 +1469,7 @@
 	<!-- CHANNELSELECTION 2 FOCUS LEFT PICON 1 NEXT EVENT */ + Primetime-->
 	<screen name="CHANNELSELECTION-2P">
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget source="Title" render="Label" position="58,38" size="550,50" font="global_title;34" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,36" size="550,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 <!-- cf#_#picon -->
 		<widget alphatest="blend" position="907,80" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="0" zPosition="1">

@@ -406,11 +406,13 @@ def initFontsConfig():
         ("/usr/share/enigma2/MetrixHD/fonts/DejaVuSans.ttf", ("DejaVu Sans (DejaVuSans.ttf)")),
         ("/usr/share/enigma2/MetrixHD/fonts/digi.ttf", ("LCD (digi.ttf)")),
         ("/usr/share/enigma2/MetrixHD/fonts/DroidSans.ttf", ("Droid Sans (DroidSans.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf", ("Droid Sans (DroidSans-Bold.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", ("Open Sans (OpenSans-Regular.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/Raleway-Channel.ttf", ("Raleway (Raleway-Channel.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf", ("Raleway (Raleway-Light.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf", ("Raleway (Raleway-Regular.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf", ("Droid Sans Bold (DroidSans-Bold.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf", ("HandelGotD (HandelGotD.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/HandelGotDBol.ttf", ("HandelGotD Bold (HandelGotDBol.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", ("OpenSans Regular (OpenSans-Regular.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/Raleway-Channel.ttf", ("Raleway Channel (Raleway-Channel.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf", ("Raleway Light(Raleway-Light.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf", ("Raleway Regular (Raleway-Regular.ttf)")),
         ("/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", ("Segoe UI Light 8 (setrixHD.ttf)"))
     ]
 
@@ -420,7 +422,8 @@ def initFontsConfig():
         ("preset_2", _("Bold and greater Fonts")),
         ("preset_3", _("Raleway Fonts")),
         ("preset_4", _("Digital Fonts")),
-        ("preset_5", _("Analog Fonts"))
+        ("preset_5", _("Analog Fonts")),
+        ("preset_6", _("HandelGotD Fonts"))
         ]
 
     FontTypeList = []
