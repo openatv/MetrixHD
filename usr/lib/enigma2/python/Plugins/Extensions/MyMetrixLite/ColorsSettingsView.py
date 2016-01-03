@@ -393,6 +393,8 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layeraaccent2.value = "6E6E6E"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value = "BDBDBD"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layeraunderline.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layeraunderlinetransparency.value = "00"
 
             config.plugins.MyMetrixLiteColors.layerbbackground.value = "27408B"
             config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = "1A"
@@ -499,6 +501,8 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layeraaccent2.value = "6E6E6E"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value = "1C1C1C"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layeraunderline.value = "1C1C1C"
+            config.plugins.MyMetrixLiteColors.layeraunderlinetransparency.value = "00"
 
             config.plugins.MyMetrixLiteColors.layerbbackground.value = "6E6E6E"
             config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = "1A"
@@ -605,6 +609,8 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layeraaccent2.value = "6E6E6E"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value = "F0A30A"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layeraunderline.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layeraunderlinetransparency.value = "00"
 
             config.plugins.MyMetrixLiteColors.layerbbackground.value = "0F0F0F"
             config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = "4D"
@@ -710,6 +716,8 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layeraaccent2.value = "6E6E6E"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value = "BDBDBD"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layeraunderline.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layeraunderlinetransparency.value = "00"
 
             config.plugins.MyMetrixLiteColors.layerbbackground.value = "911D10"
             config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = "4D"
@@ -815,6 +823,8 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layeraaccent2.value = "6E6E6E"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value = "BF9217"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layeraunderline.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layeraunderlinetransparency.value = "00"
 
             config.plugins.MyMetrixLiteColors.layerbbackground.value = "BF9217"
             config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = "1A"
@@ -920,6 +930,8 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layeraaccent2.value = "6E6E6E"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value = "70AD11"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layeraunderline.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layeraunderlinetransparency.value = "00"
 
             config.plugins.MyMetrixLiteColors.layerbbackground.value = "70AD11"
             config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = "1A"
