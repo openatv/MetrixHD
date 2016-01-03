@@ -884,8 +884,10 @@
 		<widget name="artist" position="10,318" size="1260,180" font="SetrixHD;90" foregroundColor="#6a6965" backgroundColor="black" zPosition="1" transparent="1" />
 		<widget name="album" position="385,438" size="800,45" font="Regular;30" backgroundColor="#000306" transparent="1" />
 		<widget name="track" position="405,486" size="180,65" font="Regular;40" foregroundColor="#6a6965" backgroundColor="black" halign="center" valign="center" transparent="1" zPosition="4"/>
-		<widget name="title" position="585,490" size="700,65" font="SetrixHD;40" backgroundColor="#010206" transparent="1" />
-		<widget name="genre" position="450,560" size="400,45" font="Regular;30" backgroundColor="black" transparent="1" />
+		<!--widget name="title" position="585,490" size="700,65" font="SetrixHD;40" backgroundColor="#010206" transparent="1" />
+		<widget name="genre" position="450,560" size="400,45" font="Regular;30" backgroundColor="black" transparent="1" /-->
+		<widget name="title" position="585,490" size="700,120" font="SetrixHD;40" backgroundColor="#010206" transparent="1" />
+		<widget name="genre" position="450,560" size="135,45" font="Regular;30" backgroundColor="black" transparent="1" />
 <!-- cf#_#stop -->
 <!-- pixmap missing -->
 		<ePixmap pixmap="/usr/share/enigma2/MetrixHD/mmp/dvr-fs8.png" alphatest="blend" position="507,619" size="245,60" transparent="1" zPosition="4"/>
@@ -893,13 +895,20 @@
 		<widget name="dvrStatus" pixmaps="/usr/share/enigma2/MetrixHD/mmp/dvr_pl.png,/usr/share/enigma2/MetrixHD/mmp/dvr_pau.png" alphatest="blend" position="507,619" size="245,60" transparent="1" zPosition="5"/>
 		<widget name="repeat" pixmaps="/usr/share/enigma2/MetrixHD/mmp/dvr_rep1.png,/usr/share/enigma2/MetrixHD/mmp/dvr_rep2.png" alphatest="blend" position="412,602" size="95,95" transparent="1" zPosition="5"/>
 		<widget name="shuffle" pixmaps="/usr/share/enigma2/MetrixHD/mmp/dvr_shuf1.png,/usr/share/enigma2/MetrixHD/mmp/dvr_shuf2.png" alphatest="blend" position="756,602" size="95,95" transparent="1" zPosition="4"/>
-		<widget source="session.CurrentService" render="Label" position="875,593" size="320,120" font="Regular;80" halign="left" backgroundColor="black" transparent="1">
+		<!--widget source="session.CurrentService" render="Label" position="875,593" size="320,120" font="Regular;80" halign="left" backgroundColor="black" transparent="1">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
 		<eLabel text="/" position="1064,593" size="70,120" font="Regular;80" foregroundColor="#6a6965" backgroundColor="black" transparent="1" />
 		<widget source="session.CurrentService" render="Label" position="935,593" size="320,120" font="Regular;80" foregroundColor="#6a6965" backgroundColor="black" halign="right" transparent="1">
 			<convert type="ServicePosition">Length</convert>
-		</widget>		
+		</widget-->
+		<widget source="session.CurrentService" render="Label" position="875,598" size="404,120" font="Regular;70" halign="left" backgroundColor="black" transparent="1">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
+		<!-- eLabel text="/" position="1043,593" size="68,120" font="Regular;70" foregroundColor="#6a6965" backgroundColor="black" transparent="1" / -->
+		<widget source="session.CurrentService" render="Label" position="875,598" size="404,120" font="Regular;70" foregroundColor="#6a6965" backgroundColor="black" halign="right" transparent="1">
+			<convert type="ServicePosition">Length</convert>
+		</widget>
 		<eLabel text="Next:" position="390,695" size="60,25" font="Regular;18" backgroundColor="black" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="nextTitle" position="440,695" size="600,26" font="Regular;18" foregroundColor="#6a6965" backgroundColor="black" transparent="1" />
 		<widget source="global.CurrentTime" render="Label" position="1128,10" size="140,60" font="global_clock; 50" noWrap="1" halign="center" valign="bottom" backgroundColor="black" foregroundColor="layer-a-clock-foreground" transparent="1">
