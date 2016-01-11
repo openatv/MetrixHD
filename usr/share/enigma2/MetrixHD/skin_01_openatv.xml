@@ -3870,8 +3870,10 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="__e-buttons_template1" />
 	</screen>
 	<screen name="BackupSelection" position="0,0" size="1280,720" title="Select files/folders to backup..." flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Select files/folders to backup..." position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<!--eLabel text="Select files/folders to backup..." position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" /-->
+		<widget source="title_text" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="checkList" position="70,110" size="700,480" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget source="summary_description" render="Label" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="rgy_-buttons_template1" />
 		<panel name="rgy_-keys_template1-source" />
@@ -4051,13 +4053,13 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 				}
 			</convert>
 		</widget>
-		<widget source="menu" render="Listbox" position="825,400" size="380,175" scrollbarMode="showNever" selectionDisabled="1" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" backgroundColorSelected="layer-b-selection-background" foregroundColorSelected="layer-b-selection-foreground" transparent="1">
+		<widget source="menu" render="Listbox" position="810,415" size="415,190" scrollbarMode="showNever" selectionDisabled="1" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" backgroundColorSelected="layer-b-selection-background" foregroundColorSelected="layer-b-selection-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
-						MultiContentEntryText(pos = (0, 0), size = (380, 175), flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, text = 2), # index 2 is the Description,
+						MultiContentEntryText(pos = (0, 0), size = (415, 190), flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER|RT_WRAP, text = 2), # index 2 is the Description,
 					],
-				"fonts": [gFont("SetrixHD",20)],
-				"itemHeight": 175
+				"fonts": [gFont("screen_info",20)],
+				"itemHeight": 190
 				}
 			</convert>
 		</widget>
