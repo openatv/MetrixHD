@@ -1412,14 +1412,20 @@ class MainSettingsView(Screen):
 
         skinReady = True
 
-    def getFHDiconRefresh(self):
-        # call from SystemPlugins/SoftwareManager/plugin.py after software update
+    def getFHDiconRefresh(self,restore=False):
+        # call from SystemPlugins/SoftwareManager/plugin.py after software update and Screens/SkinSelector.py after changing skin
         screenwidth = getDesktop(0).size().width()
         if screenwidth and screenwidth == 1920:
-            print "[MetrixHD] refreshing full-hd icons after software update..."
-            self.iconFileCopy("FHD")
-            self.iconFolderCopy("FHD")
-            print "[MetrixHD] ...done."
+            if restore:
+                print "[MetrixHD] restoring original icons after changing skin..."
+                self.iconFileCopy("HD")
+                self.iconFolderCopy("HD")
+                print "[MetrixHD] ...done."
+            else:
+                print "[MetrixHD] refreshing full-hd icons after software update..."
+                self.iconFileCopy("FHD")
+                self.iconFolderCopy("FHD")
+                print "[MetrixHD] ...done."
 
     def iconFileCopy(self, target):
 
@@ -1458,22 +1464,9 @@ class MainSettingsView(Screen):
         dpath = "/usr/lib/enigma2/python/Plugins/SystemPlugins/NetworkBrowser/icons/"
         self.FileCopy(target, spath, dpath)
 
-        #EnhancedMovieCenter
-        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/Extensions/EnhancedMovieCenter/img/"
-        dpath = "/usr/lib/enigma2/python/Plugins/Extensions/EnhancedMovieCenter/img/"
-        npath = "/usr/lib/enigma2/python/Plugins/Extensions/EnhancedMovieCenter/img_hd/"
-        #EnhancedMovieCenter previous proceeding was iconFolderCopy - workaround for this
-        if path.exists(npath):
-            self.FolderCopy("HD",spath,dpath,npath)
-        self.FileCopy(target, spath, dpath)
-
         #Infopanel
         spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/Extensions/Infopanel/icons/"
         dpath = "/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/icons/"
-        npath = "/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/icons_hd/"
-        #Infopanel previous proceeding was iconFolderCopy - workaround for this
-        if path.exists(npath):
-            self.FolderCopy("HD",spath,dpath,npath)
         self.FileCopy(target, spath, dpath)
 
         #SerienRecorder
@@ -1513,8 +1506,24 @@ class MainSettingsView(Screen):
         npath = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images_hd/"
         self.FolderCopy(target,spath,dpath,npath)
 
-    def FolderCopy(self, target, spath, dpath, npath):
-        if target == "FHD" and path.exists(spath) and path.exists(dpath):
+        #EnhancedMovieCenter
+        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/emc/"
+        dpath = "/usr/lib/enigma2/python/Plugins/Extensions/EnhancedMovieCenter/img/"
+        npath = "/usr/lib/enigma2/python/Plugins/Extensions/EnhancedMovieCenter/img_hd/"
+        #EnhancedMovieCenter previous proceeding was iconFolderCopy and FileCopy- workaround for this -> changed 13.01.2016
+        if path.exists(npath):
+            self.FolderCopy("HD",spath,dpath,npath)
+        self.FileCopy("HD", spath, dpath)
+
+        #EnhancedMovieCenter
+        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/emc/"
+        dpath = "/usr/share/enigma2/MetrixHD/emc/"
+        npath = ""
+        self.FolderCopy(target,spath,dpath,npath,True)
+
+    def FolderCopy(self, target, spath, dpath, npath, del_dpath = False):
+        if target == "FHD" and path.exists(spath) and path.exists(dpath) and not del_dpath:
+            print "#"*50
             if not path.exists(npath):
                 move(dpath,npath)
             if path.exists(dpath):
@@ -1524,6 +1533,10 @@ class MainSettingsView(Screen):
                 for subdir in subdirlist:
                     self.compFolder(subdir[0] + subdir[2] + "/", subdir[1] + subdir[2] + "/", subdirlist)
                 #---
+                rmtree(dpath)
+            copytree(spath,dpath)
+        elif target == "FHD" and path.exists(spath) and del_dpath:
+            if path.exists(dpath):
                 rmtree(dpath)
             copytree(spath,dpath)
 
@@ -1536,6 +1549,8 @@ class MainSettingsView(Screen):
             #---
             rmtree(dpath)
             move(npath,dpath)
+        elif target == "HD" and path.exists(dpath) and del_dpath:
+            rmtree(dpath)
 
     def compFolder(self, dpath, npath, subdirlist):
         for file in listdir(dpath):
@@ -2227,15 +2242,15 @@ class MainSettingsView(Screen):
 						strnew = line[n1:n2+1] + ynew + '"'
 						line = line[:n1] + strnew + line[(n3+1):]
 #progressbarBorderWidth="1" 
-					#if 'progressbarBorderWidth="' in line:
-					#	n1 = line.find('progressbarBorderWidth="', 0)
-					#	n2 = line.find('"', n1)
-					#	n3 = line.find('"', n2+1) 
-					#	y = line[(n2+1):n3]
+					if 'progressbarBorderWidth="' in line:
+						n1 = line.find('progressbarBorderWidth="', 0)
+						n2 = line.find('"', n1)
+						n3 = line.find('"', n2+1) 
+						y = line[(n2+1):n3]
 
-					#	ynew = str(int(round(float(int(y)*FACT),r_par)))
-					#	strnew = line[n1:n2+1] + ynew + '"'
-					#	line = line[:n1] + strnew + line[(n3+1):]
+						ynew = str(int(round(float(int(y)*FACT),r_par)))
+						strnew = line[n1:n2+1] + ynew + '"'
+						line = line[:n1] + strnew + line[(n3+1):]
 #itemHeight="25"
 					if 'itemHeight="' in line:
 						n1 = line.find('itemHeight="', 0)
