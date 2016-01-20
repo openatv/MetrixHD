@@ -1182,7 +1182,7 @@
 		<widget name="description" position="42,42" size="1206,55" zPosition="1" font="screen_info;20" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Quick Launch Menu" position="5,535" size="1280,200" font="global_large_menu; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<panel name="QuickMenu_Layer" />
-		<panel name="COLORGRADIENT_Top" />
+		<panel name="COLORGRADIENT_top_QM" />
 	</screen>
 	<screen name="QuickMenuDevices" position="0,0" size="1280,720" title="Devices" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Devices" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2859,7 +2859,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<screen name="PVRState_3">
 		<eLabel backgroundColor="infobarbackground" position="0,0" size="1280,30" transparent="0" zPosition="-99"/>
 		<widget name="state" position="0,4" size="1280,21" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" font="global_small; 16" halign="center" transparent="1" valign="center" />
-		<panel name="COLORGRADIENT_Top" />
+		<panel name="COLORGRADIENT_top_IB" />
 	</screen>
 	<screen name="PVRState_3_mt">
 		<!--eLabel text="Playback Time:" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" font="global_small; 16" halign="left" position="960,4" size="150,30" transparent="1" /-->
@@ -3218,7 +3218,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="key_blue" position="619,193" size="220,30" foregroundColor="layer-a-button-foreground" backgroundColor="epg-background" transparent="1" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" />
 		<ePixmap position="1045,190" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="on" />
 		<ePixmap position="1140,190" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
-		<!--panel name="COLORGRADIENT_Bottom_epg" /-->
+		<panel name="COLORGRADIENT_bottom_EPG" />
 	</screen>
 	<screen name="InfoBarEventView" position="0,0" size="1280,499" backgroundColor="transparent" flags="wfNoBorder" zPosition="1">
 		<eLabel name="new eLabel" position="30,30" zPosition="-10" size="1220,440" backgroundColor="epg-background" transparent="0" />
@@ -3268,7 +3268,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="key_blue" position="619,193" size="220,30" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" />
 		<ePixmap position="1045,190" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="on" />
 		<ePixmap position="1140,190" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
-		<!--panel name="COLORGRADIENT_Bottom_epg" /-->
+		<panel name="COLORGRADIENT_bottom_EPG" />
 	</screen>
 	<screen name="EPGSelectionMulti" position="0,0" size="1280,720" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="EPG Selection" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />

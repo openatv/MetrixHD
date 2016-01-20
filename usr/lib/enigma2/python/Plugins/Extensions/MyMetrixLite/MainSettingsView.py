@@ -56,6 +56,7 @@ from OtherSettingsView import OtherSettingsView
 from FontsSettingsView import FontsSettingsView
 from BackupSettingsView import BackupSettingsView
 from os import path, remove, statvfs, listdir, stat as statfile
+from PIL import Image
 
 #############################################################
 
@@ -1143,16 +1144,19 @@ class MainSettingsView(Screen):
             if path.exists(type):
                 skinSearchAndReplace.append([old, new ])
 
-            # color gradient for ib,sib,mb,infobar and quickepg
+            # color gradient for ib,sib,mb,ibepg and quickemenu
             if config.plugins.MyMetrixLiteOther.SkinDesignInfobarColorGradient.value:
-                old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom.png" position="0,640" size="1280,80" zPosition="-1" /-->'
-                new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom.png" position="0,640" size="1280,80" zPosition="-1" />'
+                old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_ib.png" position="0,640" size="1280,80" zPosition="-1" /-->'
+                new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_ib.png" position="0,640" size="1280,80" zPosition="-1" />'
                 skinSearchAndReplace.append([old, new ])
-                old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom.png" position="0,150" size="1280,80" zPosition="-1" /-->'
-                new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom.png" position="0,150" size="1280,80" zPosition="-1" />'
+                old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_epg.png" position="0,150" size="1280,80" zPosition="-1" /-->'
+                new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_epg.png" position="0,150" size="1280,80" zPosition="-1" />'
                 skinSearchAndReplace.append([old, new ])
-                old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top.png" position="0,0" size="1280,30" zPosition="-1" /-->'
-                new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top.png" position="0,0" size="1280,30" zPosition="-1" />'
+                old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top_ib.png" position="0,0" size="1280,30" zPosition="-1" /-->'
+                new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top_ib.png" position="0,0" size="1280,30" zPosition="-1" />'
+                skinSearchAndReplace.append([old, new ])
+                old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top_qm.png" position="0,0" size="1280,30" zPosition="-1" /-->'
+                new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top_qm.png" position="0,0" size="1280,30" zPosition="-1" />'
                 skinSearchAndReplace.append([old, new ])
 
             #picon
@@ -1357,14 +1361,15 @@ class MainSettingsView(Screen):
             if config.plugins.MyMetrixLiteOther.FHDenabled.value and not self.skinline_error:
                 screenwidth = getDesktop(0).size().width()
                 if screenwidth and screenwidth != 1920:
-                    #set standard icons after software update before copy new fhd icons
-                    #self.iconFileCopy("HD")
+                    #set standard icons after software update before copy new fhd icons (for saving new icons in backup 'hd' folder)
                     self.iconFolderCopy("HD")
                 self.iconFileCopy("FHD")
                 self.iconFolderCopy("FHD")
+                self.makeGrafics("FHD")
             else:
                 self.iconFileCopy("HD")
                 self.iconFolderCopy("HD")
+                self.makeGrafics("HD")
 
             #HD-standard
             if not config.plugins.MyMetrixLiteOther.FHDenabled.value or self.skinline_error:
@@ -1412,10 +1417,37 @@ class MainSettingsView(Screen):
 
         skinReady = True
 
+    def makeGrafics(self, target):
+		factor = 1
+		if target == 'FHD':
+			factor = 1.5
+
+		self.makeColorGradient("/usr/share/enigma2/MetrixHD/colorgradient_bottom_epg.png", int(1280*factor), int(80*factor), config.plugins.MyMetrixLiteColors.epgbackground.value, int(40*factor), False)
+		self.makeColorGradient("/usr/share/enigma2/MetrixHD/colorgradient_bottom_ib.png", int(1280*factor), int(80*factor), config.plugins.MyMetrixLiteColors.infobarbackground.value, int(40*factor), False)
+		self.makeColorGradient("/usr/share/enigma2/MetrixHD/colorgradient_top_ib.png", int(1280*factor), int(30*factor), config.plugins.MyMetrixLiteColors.infobarbackground.value, int(15*factor), True)
+		self.makeColorGradient("/usr/share/enigma2/MetrixHD/colorgradient_top_qm.png", int(1280*factor), int(30*factor), config.plugins.MyMetrixLiteColors.layerabackground.value, int(15*factor), True)
+
+    def makeColorGradient(self, name, sizex, sizey, color, begin, reverse):
+		alpha = 255 #set start alpha 0...255
+		rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), 255)
+		imga = Image.new("RGBA",(sizex, sizey-begin), rgba)
+		rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), alpha)
+		imgb = Image.new("RGBA",(sizex, sizey), rgba)
+		gradient = Image.new('L', (1,alpha+1))
+		for y in range(0,alpha+1):
+			gradient.putpixel((0,y),y)
+		w,h = imga.size
+		gradient = gradient.resize((w,h))
+		imga.putalpha(gradient)
+		imgb.paste(imga,(0,0,w,h))
+		if reverse:
+			imgb = imgb.transpose(Image.ROTATE_180)
+		imgb.save(name)
+
     def getFHDiconRefresh(self,restore=False):
         # call from SystemPlugins/SoftwareManager/plugin.py after software update and Screens/SkinSelector.py after changing skin
         screenwidth = getDesktop(0).size().width()
-        if screenwidth and screenwidth == 1920:
+        if screenwidth and screenwidth == 1920 or config.plugins.MyMetrixLiteOther.FHDenabled.value:
             if restore:
                 print "[MetrixHD] restoring original icons after changing skin..."
                 self.iconFileCopy("HD")
@@ -1429,49 +1461,44 @@ class MainSettingsView(Screen):
 
     def iconFileCopy(self, target):
 
-        #MetrixHD
+        #skin root
         spath = "/usr/share/enigma2/MetrixHD/FHD/copy/"
         dpath = "/usr/share/enigma2/MetrixHD/"
         self.FileCopy(target, spath, dpath)
 
-        #icons
+        #skin icons
         spath = "/usr/share/enigma2/MetrixHD/FHD/copy/icons/"
         dpath = "/usr/share/enigma2/MetrixHD/icons/"
         self.FileCopy(target, spath, dpath)
         
-        #buttons
+        #skin buttons
         spath = "/usr/share/enigma2/MetrixHD/FHD/copy/buttons/"
         dpath = "/usr/share/enigma2/MetrixHD/buttons/"
         self.FileCopy(target, spath, dpath)
         
-        #extensions
+        #skin extensions
         spath = "/usr/share/enigma2/MetrixHD/FHD/copy/extensions/"
         dpath = "/usr/share/enigma2/MetrixHD/extensions/"
         self.FileCopy(target, spath, dpath)
 
-        #SoftwareManager
+        #plugin SoftwareManager
         spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/SystemPlugins/SoftwareManager/"
         dpath = "/usr/lib/enigma2/python/Plugins/SystemPlugins/SoftwareManager/"
         self.FileCopy(target, spath, dpath)
 
-        #AutoBouquetsMaker
+        #plugin AutoBouquetsMaker
         spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/SystemPlugins/AutoBouquetsMaker/images/"
         dpath = "/usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/images/"
         self.FileCopy(target, spath, dpath)
 
-        #NetworkBrowser
+        #plugin NetworkBrowser
         spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/SystemPlugins/NetworkBrowser/icons/"
         dpath = "/usr/lib/enigma2/python/Plugins/SystemPlugins/NetworkBrowser/icons/"
         self.FileCopy(target, spath, dpath)
 
-        #Infopanel
+        #plugin Infopanel
         spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/Extensions/Infopanel/icons/"
         dpath = "/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/icons/"
-        self.FileCopy(target, spath, dpath)
-
-        #SerienRecorder
-        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/Extensions/serienrecorder/images/"
-        dpath = "/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/"
         self.FileCopy(target, spath, dpath)
 
     def FileCopy(self, target, spath, dpath):
@@ -1500,22 +1527,13 @@ class MainSettingsView(Screen):
 
     def iconFolderCopy(self, target):
 
-        #MyMetrixLite
+        #plugin MyMetrixLite
         spath = "/usr/share/enigma2/MetrixHD/FHD/copy/Plugins/Extensions/MyMetrixLite/images/"
         dpath = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/"
         npath = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images_hd/"
         self.FolderCopy(target,spath,dpath,npath)
 
-        #EnhancedMovieCenter
-        spath = "/usr/share/enigma2/MetrixHD/FHD/copy/emc/"
-        dpath = "/usr/lib/enigma2/python/Plugins/Extensions/EnhancedMovieCenter/img/"
-        npath = "/usr/lib/enigma2/python/Plugins/Extensions/EnhancedMovieCenter/img_hd/"
-        #EnhancedMovieCenter previous proceeding was iconFolderCopy and FileCopy- workaround for this -> changed 13.01.2016
-        if path.exists(npath):
-            self.FolderCopy("HD",spath,dpath,npath)
-        self.FileCopy("HD", spath, dpath)
-
-        #EnhancedMovieCenter
+        #plugin EnhancedMovieCenter
         spath = "/usr/share/enigma2/MetrixHD/FHD/copy/emc/"
         dpath = "/usr/share/enigma2/MetrixHD/emc/"
         npath = ""
@@ -1523,7 +1541,6 @@ class MainSettingsView(Screen):
 
     def FolderCopy(self, target, spath, dpath, npath, del_dpath = False):
         if target == "FHD" and path.exists(spath) and path.exists(dpath) and not del_dpath:
-            print "#"*50
             if not path.exists(npath):
                 move(dpath,npath)
             if path.exists(dpath):
@@ -1640,6 +1657,7 @@ class MainSettingsView(Screen):
 		run_mod = False
 		next_rename = False
 		next_picon_zoom = False
+		next_pixmap_ignore = False
 		FACT = 1.5
 		FFACT = FACT
 		PFACT = FACT
@@ -1736,17 +1754,23 @@ class MainSettingsView(Screen):
 				if '<!-- cf#_#stop -->' in line:
 					run_mod = False
 				if run_mod:
-#picon zoom
-					if '<!-- next_line_is_picon -->' in line:
+#picon zoom, pixmap ignore
+					if '<!-- cf#_#picon -->' in line:
 						#only for next line!
 						i_save = i+1
 						next_picon_zoom = True
 						PFACT = self.picon_zoom
+					elif '<!-- cf#_#pixnore -->' in line:
+						#only for next line!
+						i_save = i+1
+						next_pixmap_ignore = True
 					else:
 						if i > i_save:
 							i_save = i+10000 
 							next_picon_zoom = False
+							next_pixmap_ignore = False
 							PFACT = FACT
+
 #<resolution xres="1280" yres="720"
 					if '<resolution ' in line:
 						n1 = line.find('xres', 0)
@@ -2405,7 +2429,7 @@ class MainSettingsView(Screen):
 						strnew = line[n1:n2+1] + " " + xnew
 						line = line[:n1] + strnew + line[n3:]
 #change pixmap path
-					if 'pixmap="' in line or "pixmaps=" in line or '<pixmap pos="bp' in line or 'render="EMCPositionGauge"' in line:
+					if not next_pixmap_ignore and ('pixmap="' in line or "pixmaps=" in line or '<pixmap pos="bp' in line or 'render="EMCPositionGauge"' in line):
 						if 'MetrixHD/' in line and '.png' in line:
 							s = 0
 							n2 = 0
