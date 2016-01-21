@@ -543,9 +543,9 @@ class MainSettingsView(Screen):
 
             if config.plugins.MyMetrixLiteOther.showEMCSelectionRows.getValue() == "2":
                 EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="448" CoolCSWidth="115" CoolDirInfoWidth="115"'\
-                                               ,'itemHeight="20" CoolFont="epg_text;13" CoolSelectFont="epg_text;13" CoolDateFont="epg_text;13" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="1" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="8" CoolBarSize="50,7" CoolBarSizeSa="50,7" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="531" CoolFolderSize="546" CoolDatePos="625" CoolDateHPos="1" CoolDateWidth="80" CoolPiconPos="90" CoolPiconHPos="1" CoolPiconWidth="30" CoolPiconHeight="17" CoolMoviePiconPos="125" CoolMoviePiconSize="498" CoolCSWidth="80" CoolDirInfoWidth="80"'])
+                                               ,'itemHeight="20" CoolFont="epg_text;13" CoolSelectFont="epg_text;13" CoolDateFont="epg_text;13" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="8" CoolBarSize="50,7" CoolBarSizeSa="50,7" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="531" CoolFolderSize="546" CoolDatePos="625" CoolDateHPos="1" CoolDateWidth="80" CoolPiconPos="90" CoolPiconHPos="1" CoolPiconWidth="30" CoolPiconHeight="17" CoolMoviePiconPos="125" CoolMoviePiconSize="498" CoolCSWidth="80" CoolDirInfoWidth="80"'])
                 EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="542" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="88" CoolMoviePiconSize="448" CoolCSWidth="115" CoolDirInfoWidth="115"'\
-                                               ,'itemHeight="20" CoolFont="epg_text;13" CoolSelectFont="epg_text;13" CoolDateFont="epg_text;13" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="1" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="8" CoolBarSize="50,7" CoolBarSizeSa="50,7" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="532" CoolFolderSize="546" CoolDatePos="625" CoolDateHPos="1" CoolDateWidth="80" CoolPiconPos="592" CoolPiconHPos="1" CoolPiconWidth="30" CoolPiconHeight="17" CoolMoviePiconPos="88" CoolMoviePiconSize="498" CoolCSWidth="80" CoolDirInfoWidth="80"'])
+                                               ,'itemHeight="20" CoolFont="epg_text;13" CoolSelectFont="epg_text;13" CoolDateFont="epg_text;13" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="8" CoolBarSize="50,7" CoolBarSizeSa="50,7" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="532" CoolFolderSize="546" CoolDatePos="625" CoolDateHPos="1" CoolDateWidth="80" CoolPiconPos="592" CoolPiconHPos="1" CoolPiconWidth="30" CoolPiconHeight="17" CoolMoviePiconPos="88" CoolMoviePiconSize="498" CoolCSWidth="80" CoolDirInfoWidth="80"'])
             elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.getValue() == "1":
                 EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="448" CoolCSWidth="115" CoolDirInfoWidth="115"'\
                                                ,'itemHeight="24" CoolFont="epg_text;17" CoolSelectFont="epg_text;17" CoolDateFont="epg_text;15" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="2" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="10" CoolBarSize="50,8" CoolBarSizeSa="50,8" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="516" CoolFolderSize="566" CoolDatePos="610" CoolDateHPos="1" CoolDateWidth="90" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="35" CoolPiconHeight="20" CoolMoviePiconPos="130" CoolMoviePiconSize="470" CoolCSWidth="90" CoolDirInfoWidth="90"'])
@@ -1365,11 +1365,11 @@ class MainSettingsView(Screen):
                     self.iconFolderCopy("HD")
                 self.iconFileCopy("FHD")
                 self.iconFolderCopy("FHD")
-                self.makeGrafics("FHD")
+                self.makeGraphics("FHD")
             else:
                 self.iconFileCopy("HD")
                 self.iconFolderCopy("HD")
-                self.makeGrafics("HD")
+                self.makeGraphics("HD")
 
             #HD-standard
             if not config.plugins.MyMetrixLiteOther.FHDenabled.value or self.skinline_error:
@@ -1417,7 +1417,7 @@ class MainSettingsView(Screen):
 
         skinReady = True
 
-    def makeGrafics(self, target):
+    def makeGraphics(self, target):
 		factor = 1
 		if target == 'FHD':
 			factor = 1.5
@@ -1447,7 +1447,7 @@ class MainSettingsView(Screen):
     def getFHDiconRefresh(self,restore=False):
         # call from SystemPlugins/SoftwareManager/plugin.py after software update and Screens/SkinSelector.py after changing skin
         screenwidth = getDesktop(0).size().width()
-        if screenwidth and screenwidth == 1920 or config.plugins.MyMetrixLiteOther.FHDenabled.value:
+        if screenwidth and screenwidth == 1920: # or config.plugins.MyMetrixLiteOther.FHDenabled.value:
             if restore:
                 print "[MetrixHD] restoring original icons after changing skin..."
                 self.iconFileCopy("HD")
@@ -1537,7 +1537,10 @@ class MainSettingsView(Screen):
         spath = "/usr/share/enigma2/MetrixHD/FHD/copy/emc/"
         dpath = "/usr/share/enigma2/MetrixHD/emc/"
         npath = ""
-        self.FolderCopy(target,spath,dpath,npath,True)
+        if config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "2":
+            self.FolderCopy('HD',spath,dpath,npath,True)
+        else:
+            self.FolderCopy(target,spath,dpath,npath,True)
 
     def FolderCopy(self, target, spath, dpath, npath, del_dpath = False):
         if target == "FHD" and path.exists(spath) and path.exists(dpath) and not del_dpath:
