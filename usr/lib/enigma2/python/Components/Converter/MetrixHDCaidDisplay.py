@@ -142,13 +142,13 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 						else:
 							typ = 'SOURCE'
 							oscsource = ecm_info.get("from", None)
-						if oscsource is None:
+						if not oscsource:
 							using = ecm_info.get("using", None)
-							if using is None:
+							if not using:
 								source = ecm_info.get("source", None)
-								if source is None:
+								if not source:
 									decode= ecm_info.get("decode", None)
-									if decode is None:
+									if not decode:
 										return textvalue
 						show_caid = config.plugins.MyMetrixLiteOther.showExtended_caid.value
 						show_prov = config.plugins.MyMetrixLiteOther.showExtended_prov.value
