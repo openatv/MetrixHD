@@ -1422,10 +1422,16 @@ class MainSettingsView(Screen):
 		if target == 'FHD':
 			factor = 1.5
 
-		self.makeColorGradient("/usr/share/enigma2/MetrixHD/colorgradient_bottom_epg.png", int(1280*factor), int(80*factor), config.plugins.MyMetrixLiteColors.epgbackground.value, int(40*factor), False)
-		self.makeColorGradient("/usr/share/enigma2/MetrixHD/colorgradient_bottom_ib.png", int(1280*factor), int(80*factor), config.plugins.MyMetrixLiteColors.infobarbackground.value, int(40*factor), False)
-		self.makeColorGradient("/usr/share/enigma2/MetrixHD/colorgradient_top_ib.png", int(1280*factor), int(30*factor), config.plugins.MyMetrixLiteColors.infobarbackground.value, int(15*factor), True)
-		self.makeColorGradient("/usr/share/enigma2/MetrixHD/colorgradient_top_qm.png", int(1280*factor), int(30*factor), config.plugins.MyMetrixLiteColors.layerabackground.value, int(15*factor), True)
+		color = config.plugins.MyMetrixLiteColors.epgbackground.value
+		color = '000000'
+		self.makeColorGradient("/usr/share/enigma2/MetrixHD/colorgradient_bottom_epg.png", int(1280*factor), int(80*factor), color, int(16*factor), False)
+		color = config.plugins.MyMetrixLiteColors.infobarbackground.value
+		color = '000000'
+		self.makeColorGradient("/usr/share/enigma2/MetrixHD/colorgradient_bottom_ib.png", int(1280*factor), int(80*factor), color, int(16*factor), False)
+		self.makeColorGradient("/usr/share/enigma2/MetrixHD/colorgradient_top_ib.png", int(1280*factor), int(30*factor), color, int(6*factor), True)
+		color = config.plugins.MyMetrixLiteColors.layerabackground.value
+		color = '000000'
+		self.makeColorGradient("/usr/share/enigma2/MetrixHD/colorgradient_top_qm.png", int(1280*factor), int(30*factor), color, int(6*factor), True)
 
     def makeColorGradient(self, name, sizex, sizey, color, begin, reverse):
 		alpha = 255 #set start alpha 0...255
