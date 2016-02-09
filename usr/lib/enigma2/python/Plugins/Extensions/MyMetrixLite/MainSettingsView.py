@@ -1537,9 +1537,16 @@ class MainSettingsView(Screen):
 
     def getFHDiconRefresh(self,restore=False):
         # call from SystemPlugins/SoftwareManager/plugin.py after software update and Screens/SkinSelector.py after changing skin - not rename to EHD !!!
-        self.__getEHDsettings()
+        if config.plugins.MyMetrixLiteOther.EHDenabled.value == '0':
+            self.EHDres = 'HD'
+        elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '1':
+            self.EHDres = 'FHD'
+        elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '2':
+            self.EHDres = 'UHD'
+        else:
+            self.EHDres = 'HD'
         screenwidth = getDesktop(0).size().width()
-        if screenwidth and screenwidth != 1280 or self.EHDenabled:
+        if screenwidth and screenwidth != 1280 or self.EHDres != 'HD':
             if restore:
                 print "[MetrixHD] restoring original HD icons after changing skin..."
                 self.iconFileCopy("HD")
@@ -1626,11 +1633,14 @@ class MainSettingsView(Screen):
         self.FolderCopy(target,spath,dpath,npath)
 
         #plugin EnhancedMovieCenter
-        spath = "/usr/share/enigma2/MetrixHD/%s/copy/emc/"
+        spath = "/usr/share/enigma2/MetrixHD/%s/copy/emc/" % self.EHDres
         dpath = "/usr/share/enigma2/MetrixHD/emc/"
         npath = ""
         if config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "2":
-            self.FolderCopy('HD',spath,dpath,npath,True)
+            if self.EHDres == "FHD":
+                self.FolderCopy('HD',spath,dpath,npath,True)
+            elif self.EHDres == "UHD" and path.exists("/usr/share/enigma2/MetrixHD/FHD/copy/emc/"):
+                self.FolderCopy('FHD',"/usr/share/enigma2/MetrixHD/FHD/copy/emc/",dpath,npath,True)
         else:
             self.FolderCopy(target,spath,dpath,npath,True)
 
