@@ -1202,10 +1202,24 @@
 		<widget source="cancelBtn" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="saveBtn" render="Label" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="defaultsBtn" render="Label" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget source="testBtn" render="Label" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="helperimage" position="890,175" size="256,256" backgroundColor="layer-b-background" zPosition="1" transparent="1" alphatest="blend" />
 		<widget name="helpertext" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
-		<panel name="rgy_-buttons_template1" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
+	<screen name="SkinpartSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="titleText" render="Label" position="58,36" size="550,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget source="cancelBtn" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget source="saveBtn" render="Label" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget source="defaultsBtn" render="Label" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget source="zoomBtn" render="Label" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="helperimage" position="890,175" size="256,256" backgroundColor="layer-b-background" zPosition="1" transparent="1" alphatest="blend" />
+		<widget name="helpertext" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="WeatherSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
@@ -1455,6 +1469,21 @@
 	<!-- FullBackup -->
 	<!-- Serienrecorder -->
 <!-- cf#_#rename --> 
+	<screen name="serienrecorder_pixmap" >
+		<ePixmap zPosition="1" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/no_cover.png" position="890,270" size="320,200" alphatest="blend" />
+	</screen>
+<!-- cf#_#rename --> 
+	<screen name="serienrecorder_pixmap#_FHDscreen" >
+<!-- cf#_#begin -->
+<!-- cf#_#pixnore -->
+		<ePixmap zPosition="1" pixmap="MetrixHD/extensions/no_cover.png" position="890,270" size="320,200" alphatest="blend" />
+	</screen>
+<!-- cf#_#rename --> 
+	<screen name="serienrecorder_pixmap#_UHDscreen" >
+<!-- cf#_#begin -->
+<!-- cf#_#pixnore -->
+		<ePixmap zPosition="1" pixmap="MetrixHD/extensions/no_cover.png" position="890,270" size="320,200" alphatest="blend" />
+	</screen>
 	<screen name="SerienRecorder3.0" position="0,0" size="1280,720" title="Serien Recorder" backgroundColor="transparent"> 
 		<panel name="template1_1layer" />
 		<widget zPosition="1" name="headline" position="58,36" size="900,50" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom" font="global_title;34" halign="left" noWrap="1"/>
@@ -1483,7 +1512,7 @@
 		<widget zPosition="1" name="config_information" position="890,150" size="320,450" backgroundColor="layer-b-background" transparent="0" />
 		<widget zPosition="2" name="config_information_text" position="900,158" size="300,434" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center" font="screen_info;16"/>
 	<!-- Cover -->
-		<ePixmap zPosition="1" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/no_cover.png" position="890,270" size="320,200" alphatest="blend" />
+		<panel name="serienrecorder_pixmap" />
 		<widget zPosition="2" name="cover" position="890,150" size="320,450" alphatest="blend" />
 	<!-- Colour Buttons -->
 		<widget name="bt_red" pixmap="MetrixHD/buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" />
@@ -1522,76 +1551,7 @@
 		<widget name="bt_ok" pixmap="MetrixHD/skin_default/buttons/key_ok.png" position="1080,689" zPosition="1" size="32,32" alphatest="on" />
 		<widget name="text_ok" position="1115,691" size="165,26" zPosition="1" font="Regular;18" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
 	</screen>
-<!-- cf#_#rename --> 
-	<screen name="SerienRecorder3.0#_FHDscreen" position="0,0" size="1280,720" title="Serien Recorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
-		<widget zPosition="1" name="headline" position="87,54" size="1350,75" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom" font="global_title;51" halign="left" noWrap="1"/>
-		<widget zPosition="1" name="title" position="105,150" size="1230,45" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" font="screen_info;33" valign="center" halign="left" />
-		<widget zPosition="1" name="path" position="105,105" size="1230,90" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" font="screen_text;30" valign="center" halign="left" />
-		<widget zPosition="1" name="version" position="1335,150" size="480,45" font="screen_info;24" halign="center" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-	<!-- Serienbeschreibung -->
-		<widget zPosition="1" name="info" position="105,225" size="1227,675" font="screen_text;30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
-	<!-- Konfig-Listen -->
-		<widget zPosition="1" name="config" position="105,225" size="1227,675" itemHeight="45" font="screen_text;30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarMode="showAlways" transparent="0" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground"/>
-	<!-- Marker-/Planer-Listen -->
-		<widget zPosition="1" name="menu_list" position="105,225" size="1227,675" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarMode="showAlways" transparent="0" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground"/>
-	<!-- Log-Listen -->
-		<widget zPosition="1" name="log" position="105,225" size="1227,675" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" itemHeight="45" font="screen_text;30" scrollbarMode="showAlways" transparent="0" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground"/>
-	<!-- PopUp-Listen -->
-		<widget zPosition="2" name="popup_list" position="105,225" size="1227,675" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" itemHeight="45" font="screen_text;30" scrollbarMode="showAlways" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
-	<!-- Alternative Channelliste -->
-		<widget zPosition="2" name="popup_list2" position="1335,225" size="480,675" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" itemHeight="45" font="screen_text;30" scrollbarMode="showAlways" transparent="0" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" />
-	<!-- Channelzuordnung -->
-		<widget zPosition="1" name="Web_Channel" position="105,225" size="390,45" font="screen_label;30" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" />
-		<widget zPosition="1" name="STB_Channel" position="495,225" size="390,45" font="screen_label;30" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" />
-		<widget zPosition="1" name="alt_STB_Channel" position="885,225" size="390,45" font="screen_label;30" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" />
-		<widget zPosition="1" name="separator" position="105,264" size="1227,2" backgroundColor="layer-a-accent1" />
-		<widget zPosition="1" name="list" position="105,270" size="1227,630" backgroundColor="layer-a-background" itemHeight="45" font="screen_text;30" scrollbarMode="showAlways" transparent="0" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground"/>
-	<!-- Setup-Beschreibungen -->
-		<widget zPosition="1" name="config_information" position="1335,225" size="480,675" backgroundColor="layer-b-background" transparent="0" />
-		<widget zPosition="2" name="config_information_text" position="1350,237" size="450,651" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center" font="screen_info;24"/>
-	<!-- Cover -->
-		<ePixmap zPosition="1" pixmap="MetrixHD/extensions/no_cover.png" position="1335,405" size="480,300" alphatest="blend" />
-		<widget zPosition="2" name="cover" position="1335,225" size="480,675" alphatest="blend" />
-	<!-- Colour Buttons -->
-		<widget name="bt_red" pixmap="MetrixHD/FHD/buttons/key_red.png" position="53,953" size="45,60" alphatest="blend" />
-		<widget name="text_red" position="105,957" size="255,45" zPosition="1" valign="center" font="global_button;30" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="bt_green" pixmap="MetrixHD/FHD/buttons/key_green.png" position="327,953" size="45,60" alphatest="blend" />
-		<widget name="text_green" position="380,957" size="255,45" zPosition="1" valign="center" font="global_button;30" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="bt_yellow" pixmap="MetrixHD/FHD/buttons/key_yellow.png" position="602,953" size="45,60" alphatest="blend" />
-		<widget name="text_yellow" position="654,957" size="255,45" zPosition="1" valign="center" font="global_button;30" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="bt_blue" pixmap="MetrixHD/FHD/buttons/key_blue.png" position="876,953" size="45,60" alphatest="blend" />
-		<widget name="text_blue" position="929,957" size="255,45" zPosition="1" valign="center" font="global_button;30" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-	<!-- Buttons Background-->
-		<eLabel position="0,1028" zPosition="0" size="1920,53" backgroundColor="layer-a-background" />
-	<!-- Buttons -->
-		<ePixmap position="1568,953" size="122,60" zPosition="10" pixmap="MetrixHD/FHD/buttons/ok.png" transparent="1" alphatest="on" />
-		<ePixmap position="1710,953" size="122,60" zPosition="10" pixmap="MetrixHD/FHD/buttons/key_exit.png" transparent="1" alphatest="on" />
-		<widget name="bt_0" pixmap="MetrixHD/FHD/skin_default/buttons/key_0.png" position="15,1034" zPosition="3" size="48,48" alphatest="on" />
-		<widget name="bt_5" pixmap="MetrixHD/FHD/skin_default/buttons/key_5.png" position="15,1034" zPosition="2" size="48,48" alphatest="on" />
-		<widget name="bt_exit" pixmap="MetrixHD/FHD/skin_default/buttons/key_exit.png" position="15,1034" zPosition="1" size="48,48" alphatest="on" />
-		<widget name="text_0" position="68,1037" size="270,39" zPosition="1" font="Regular;27" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="bt_1" pixmap="MetrixHD/FHD/skin_default/buttons/key_1.png" position="338,1034" zPosition="3" size="48,48" alphatest="on" />
-		<widget name="bt_6" pixmap="MetrixHD/FHD/skin_default/buttons/key_6.png" position="338,1034" zPosition="2" size="48,48" alphatest="on" />
-		<widget name="bt_text" pixmap="MetrixHD/FHD/skin_default/buttons/text.png" position="338,1034" zPosition="1" size="48,48" alphatest="on" />
-		<widget name="text_1" position="390,1037" size="270,39" zPosition="1" font="Regular;27" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="bt_2" pixmap="MetrixHD/FHD/skin_default/buttons/key_2.png" position="660,1034" zPosition="3" size="48,48" alphatest="on" />
-		<widget name="bt_7" pixmap="MetrixHD/FHD/skin_default/buttons/key_7.png" position="660,1034" zPosition="2" size="48,48" alphatest="on" />
-		<widget name="bt_epg" pixmap="MetrixHD/FHD/skin_default/buttons/key_epg.png" position="660,1034" zPosition="1" size="48,48" alphatest="on" />
-		<widget name="text_2" position="713,1037" size="270,39" zPosition="1" font="Regular;27" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="bt_3" pixmap="MetrixHD/FHD/skin_default/buttons/key_3.png" position="975,1034" zPosition="3" size="48,48" alphatest="on" />
-		<widget name="bt_8" pixmap="MetrixHD/FHD/skin_default/buttons/key_8.png" position="975,1034" zPosition="2" size="48,48" alphatest="on" />
-		<widget name="bt_info" pixmap="MetrixHD/FHD/skin_default/buttons/key_help.png" position="975,1034" zPosition="1" size="48,48" alphatest="on" />
-		<widget name="text_3" position="1028,1037" size="270,39" zPosition="1" font="Regular;27" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="bt_4" pixmap="MetrixHD/FHD/skin_default/buttons/key_4.png" position="1298,1034" zPosition="3" size="48,48" alphatest="on" />
-		<widget name="bt_9" pixmap="MetrixHD/FHD/skin_default/buttons/key_9.png" position="1298,1034" zPosition="2" size="48,48" alphatest="on" />
-		<widget name="bt_menu" pixmap="MetrixHD/FHD/skin_default/buttons/key_menu.png" position="1298,1034" zPosition="1" size="48,48" alphatest="on" />
-		<widget name="text_4" position="1350,1037" size="270,39" zPosition="1" font="Regular;27" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="bt_ok" pixmap="MetrixHD/FHD/skin_default/buttons/key_ok.png" position="1620,1034" zPosition="1" size="48,48" alphatest="on" />
-		<widget name="text_ok" position="1673,1037" size="248,39" zPosition="1" font="Regular;27" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-	</screen>
 	<!-- Serienrecorder -->
-<!-- cf#_#begin -->
 	<!-- RemoteChannelStreamConverter -->
 	<screen name="StreamingChannelFromServerScreen" position="0,0" size="1280,720" title="Streaming Channel from Server" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="550,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />

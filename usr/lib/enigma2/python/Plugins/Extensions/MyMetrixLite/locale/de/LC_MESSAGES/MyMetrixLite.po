@@ -256,6 +256,9 @@ msgstr "Hilfetext"
 msgid "Color settings"
 msgstr "Farb - Einstellungen"
 
+msgid "Skinpart settings"
+msgstr "Skinpart - Einstellungen"
+
 #: ColorsSettingsView.py:71 FontsSettingsView.py:72 OtherSettingsView.py:72
 #: WeatherSettingsView.py:69
 msgid "Save"
@@ -744,8 +747,8 @@ msgid "Other settings"
 msgstr "Sonstige Einstellungen"
 
 #: MainSettingsView.py:185
-msgid "Your full-hd settings are inconsistent. Please check this."
-msgstr "Ihre Full-HD Einstellungen sind inkonsistent. Bitte überprüfen sie diese."
+msgid "Your enhanced hd settings are inconsistent. Please check this."
+msgstr "Ihre erweiterten HD Einstellungen sind inkonsistent. Bitte überprüfen sie diese."
 
 #: MainSettingsView.py:258
 msgid "Do you really want to reboot now?"
@@ -758,11 +761,9 @@ msgstr "GUI neu starten"
 #: MainSettingsView.py:325
 #, python-format
 msgid ""
-"Your flash space is to small.\n"
-"%d kb is not enough for creating new skin files. ( %d kb is required )"
+"Not enough free flash memory free to create the new %s skin files. ( %d kb is required )"
 msgstr ""
-"Ihr Flash-Speicher ist zu klein.\n"
-"%d kb sind nicht ausreichend um die neuen Skin-Dateien zu erstellen. ( %d kb werden benötigt )"
+"Nicht genug Flash Speicher frei zum erstellen der %s Skin Dateien. ( %d kb werden benötigt )"
 
 #: MainSettingsView.py:1202
 msgid ""
@@ -804,18 +805,18 @@ msgstr ""
 
 #: MainSettingsView.py:1269
 msgid ""
-"Error creating FHD-Skin. HD-Skin is used!\n"
+"Error creating %s skin. HD skin is used!\n"
 "\n"
 msgstr ""
-"Fehler beim erstellen des FHD-Skins. Der HD-Skin wird verwendet!\n"
+"Fehler beim erstellen des %s-Skins. Der HD-Skin wird verwendet!\n"
 "\n"
 
 #: MainSettingsView.py:1272
 msgid ""
-"One or more FHD-Pixmaps are missing. Using HD-Pixmaps for this.\n"
+"One or more %s icons are missing. Using HD icons for this.\n"
 "\n"
 msgstr ""
-"Ein oder mehrere FHD-Symbole fehlen. Es werden für diese die HD-Symbole verwendet.\n"
+"Ein oder mehrere %s-Symbole fehlen. Es werden für diese die HD-Symbole verwendet.\n"
 "\n"
 
 #: MainSettingsView.py:1274
@@ -832,39 +833,34 @@ msgstr "Fehler beim Erstellen vom Skin!"
 
 #: OtherSettingsView.py:143
 msgid ""
-"If you chose 'yes', then starts the resolution test.\n"
-"\n"
-"Can't you see the next message,\n"
-"the old resolution will automatically after 10 seconds restored."
+"!!! If your receiver not compatible is a crash possible !!!\n\nChoose 'yes', then starts the resolution test.\nThe old resolution will automatically restored after 10 seconds."
 msgstr ""
-"Wenn sie 'Ja' wählen, startet der Auflösungstest!\n"
-"Die alte Auflösung wird automatisch nach 10 Sekunden wieder hergestellt."
+"!!! Ist ihr Receiver nicht kompatibel ist ein Systemabsturz möglich !!!\n\nWenn sie 'Ja' wählen beginnt der Auflösungstest.\nDie alte Auflösung wird automatisch nach 10 Sekunden wieder hergestellt."
 
 #: OtherSettingsView.py:132
 msgid "You have the'HbbTV Plugin' installed.\n"
 msgstr "Sie haben das 'HbbTV'-Plugin installiert.\n"
 
 #: OtherSettingsView.py:134
-msgid "\nMaybe is a compatibility issue with full-hd resolution.\nAttention: The osd-error occurs first after gui or system restart!\n\nDo you want really change from HD to FHD - skin?"
-msgstr "\nMöglicherweise besteht ein Kompatibilitätsproblem mit der Full-HD Auflösung.\nAchtung: Der OSD-Fehler tritt erst nach einem Neustart der GUI oder des Systems auf!\n\nWollen Sie wirklich von HD auf Full-HD umstellen?"
+msgid "\nMaybe is a compatibility issue with %s resolution.\nAttention: The osd-error occurs first after gui or system restart!\n\nDo you want really change from %s to %s - skin?"
+msgstr "\nMöglicherweise besteht ein Kompatibilitätsproblem mit der %s Auflösung.\nAchtung: Der OSD-Fehler tritt erst nach einem Neustart der GUI oder des Systems auf!\n\nWollen Sie wirklich von %s auf den %s - Skin umstellen?"
+
+#: OtherSettingsView.py
+msgid "!!! Recording(s) are in progress or coming up in few minutes !!!"
+msgstr "!!! Aufnahme(n) sind aktiv oder starten in wenigen Minuten !!!"
 
 #: OtherSettingsView.py:133
 msgid ""
-"Can you see this, then is the receiver ready for FHD - skin.\n"
-"\n"
-"Do you want to change from HD to FHD - skin?"
+"If you can see this then is your receiver compatible.\nDo you want change from %s to %s - skin resolution?"
 msgstr ""
-"Können Sie diesen Text lesen?\n"
-"Wollen Sie den Skin auf Full-HD umstellen?"
+"Wenn sie das lesen lönnen ist ihr Receiver kompatibel.\nWollen Sie den Skin von %s auf %s umstellen?"
 
 #: OtherSettingsView.py:147
 #, fuzzy, python-format
 msgid ""
-"Your free flash space is to small.\n"
-"%d MB is not enough to install the full-hd icons. ( %d MB is required )"
+"Not enough free flash memory free to install the %s icons. ( %d MB is required )"
 msgstr ""
-"Ihr Flash-Speicher ist zu klein.\n"
-"%d kb sind nicht ausreichend um die neuen Skin-Dateien zu erstellen. ( %d kb werden benötigt )"
+"Nicht genug freier Flash Speicher frei zur Installation der %s Icons. ( %d MB werden benötigt )"
 
 #: OtherSettingsView.py:163
 msgid "A background update check is in progress, please wait a few minutes and try again."
@@ -925,12 +921,12 @@ msgid "Removing ..."
 msgstr "Entferne ..."
 
 #: OtherSettingsView.py:360
-msgid "FHD-Option"
-msgstr "Full-HD Einstellungen "
+msgid "Enhanced HD Option"
+msgstr "Erweiterte HD Optionen"
 
 #: OtherSettingsView.py:362
-msgid "Enable FHD"
-msgstr "Full-HD aktivieren"
+msgid "Choose skin resolution"
+msgstr "Auflösung des Skin wählen"
 
 #: OtherSettingsView.py:364
 msgid "All calculated values round down"
@@ -1840,3 +1836,26 @@ msgstr "Auch im Hauptlayer anzeigen?"
 msgid "Screen title separating line"
 msgstr "Fenstertitel Trennlinie"
 
+# SkinpartSettings.py
+msgid "Skinpart are not available - can't be activated."
+msgstr "Skinpart ist nicht vorhanden,\n und kann nicht aktiviert werden."
+
+# SkinpartSettings.py
+msgid "No description available."
+msgstr "keine Beschreibung vorhanden"
+
+# SkinpartSettings.py
+msgid "\n(No preview picture available.)"
+msgstr "\n(kein Vorschaubild vorhanden)"
+
+# SkinpartSettings.py
+msgid "Yes, show screens"
+msgstr "Ja, zeige Screens"
+
+# __init__.py
+msgid " - box support unknown"
+msgstr " - Box Unterstützung unbekannt"
+
+# OtherSettings.py
+msgid "Test Resolution"
+msgstr "Auflösungstest"

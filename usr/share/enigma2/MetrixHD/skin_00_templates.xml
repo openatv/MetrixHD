@@ -1218,6 +1218,24 @@
 			<panel name="INFOBAREPGWIDGET_Layer" />
 			<!-- EPGWidget FHD */-->
 		</screen>
+<!-- cf#_#rename -->
+		<screen name="INFOBAREPGWIDGET#_UHDscreen">
+			<!--/* EPGWidget -->
+			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" font="epg_event; 78" halign="right" noWrap="1" position="210,1440" render="Label" size="1665,105" source="session.Event_Now" transparent="1" valign="bottom" zPosition="2">
+				<convert type="EventName">Name</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" font="epg_event; 78" halign="left" noWrap="1" position="1965,1374" render="Label" size="1665,105" source="session.Event_Next" transparent="1" valign="bottom" zPosition="2">
+				<convert type="EventName">Name</convert>
+			</widget>
+			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="epg_info; 60" halign="right" position="210,474" render="Label" size="1665,945" source="session.Event_Now" transparent="1" zPosition="1">
+				<convert type="EventName">FullDescription</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_info; 60" halign="left" position="1965,553" render="Label" size="1665,795" source="session.Event_Next" transparent="1" zPosition="1">
+				<convert type="EventName">FullDescription</convert>
+			</widget>
+			<panel name="INFOBAREPGWIDGET_Layer" />
+			<!-- EPGWidget */-->
+		</screen>
 <!-- cf#_#begin -->
 		<screen name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720">
 			<eLabel position="51,51" zPosition="-10" size="340,525" backgroundColor="layer-b-background" />

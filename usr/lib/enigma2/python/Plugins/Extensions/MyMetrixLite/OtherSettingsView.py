@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, initOtherConfig, OTHER_IMAGE_PATH, MAIN_IMAGE_PATH
+from . import _, initOtherConfig, MAIN_IMAGE_PATH
 from boxbranding import getBoxType, getMachineBrand, getMachineName
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -35,6 +35,8 @@ from enigma import ePicLoad
 from os import path, statvfs
 from enigma import gMainDC, getDesktop
 
+BoxType = getBoxType()
+
 #############################################################
 
 class OtherSettingsView(ConfigListScreen, Screen):
@@ -46,9 +48,11 @@ class OtherSettingsView(ConfigListScreen, Screen):
     <widget source="cancelBtn" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <widget source="saveBtn" position="257,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <widget source="defaultsBtn" position="445,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+    <widget source="testBtn" position="631,640" size="360,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
     <eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
     <eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
     <eLabel position="430,635" size="5,40" backgroundColor="#00e5dd00" />
+    <eLabel position="616,635" size="5,40" backgroundColor="#000064c7" />
     <widget name="helperimage" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
     <widget name="helpertext" position="800,490" size="336,160" font="Regular; 18" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center" valign="center" transparent="1"/>
   </screen>
@@ -71,17 +75,11 @@ class OtherSettingsView(ConfigListScreen, Screen):
         self["saveBtn"] = StaticText("")
         self["saveBtn"].setText(_("Save"))
 
+        self["testBtn"] = StaticText("")
+        self["testBtn"].setText(_("Test Resolution"))
+
         self["defaultsBtn"] = StaticText("")
         self["defaultsBtn"].setText(_("Defaults"))
-
-        initOtherConfig()
-
-        ConfigListScreen.__init__(
-            self,
-            self.getMenuItemList(),
-            session = session,
-            on_change = self.__selectionChanged
-        )
 
         self["actions"] = ActionMap(
         [
@@ -98,87 +96,178 @@ class OtherSettingsView(ConfigListScreen, Screen):
             "red": self.exit,
             "green": self.save,
             "yellow": self.__defaults,
+            "blue": self.test,
             "cancel": self.exit
         }, -1)
 
+        initOtherConfig()
+        if self.session:
+            self.__getEHDsettings_old()
+            self.__checkEHDtested()
+        else:
+            self.__getEHDsettings()
+
+        ConfigListScreen.__init__(
+            self,
+            self.getMenuItemList(),
+            session = session,
+            on_change = self.__selectionChanged
+        )
+
         self.onLayoutFinish.append(self.UpdatePicture)
+
+    def __getEHDsettings(self):
+        if config.plugins.MyMetrixLiteOther.EHDenabled.value == '0':
+            self.EHDenabled = False
+            self.EHDfactor = 1
+            self.EHDvalue = "0"
+            self.EHDres = 'HD'
+            self.EHDtxt = 'Standard HD'
+        elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '1':
+            self.EHDenabled = True
+            self.EHDfactor = 1.5
+            self.EHDvalue = "1"
+            self.EHDres = 'FHD'
+            self.EHDtxt = 'Full HD'
+        elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '2':
+            self.EHDenabled = True
+            self.EHDfactor = 3
+            self.EHDvalue = "2"
+            self.EHDres = 'UHD'
+            self.EHDtxt = 'Ultra HD'
+        else:
+            self.EHDenabled = False
+            self.EHDfactor = 1
+            self.EHDvalue = "0"
+            self.EHDres = 'HD'
+            self.EHDtxt = 'Standard HD'
+
+    def __getEHDsettings_old(self):
+        self.x = getDesktop(0).size().width()
+        self.y = getDesktop(0).size().height()
+        screenwidth = self.x
+
+        if screenwidth and screenwidth == 1280:
+            self.EHDvalue_old = "0"
+            self.EHDres_old = 'HD'
+            self.EHDtext_old = 'Standard HD'
+        elif screenwidth and screenwidth == 1920 and not config.plugins.MyMetrixLiteOther.EHDenabled.value == '1':
+            self.EHDvalue_old = "1"
+            self.EHDres_old = 'FHD'
+            self.EHDtext_old = 'Full HD'
+        elif screenwidth and screenwidth == 3840  and not config.plugins.MyMetrixLiteOther.EHDenabled.value == '2':
+            self.EHDvalue_old = "2"
+            self.EHDres_old = 'UHD'
+            self.EHDtext_old = 'Ultra HD'
+        else:
+            self.EHDvalue_old = "0"
+            self.EHDres_old = 'HD'
+            self.EHDtext_old = 'Standard HD'
 
     def __selectionChanged(self):
         cur = self["config"].getCurrent()
         cur = cur and len(cur) > 3 and cur[3]
 
+        if cur == 'ENABLED_EHD':
+            self.__checkEHDtested()
+
         if cur == "PRESET":
             self.getPreset()
 
-        if cur == "ENABLED" or cur == "ENABLED_FHD" or cur == "PRESET":
+        if cur == "ENABLED" or cur == "ENABLED_EHD" or cur == "PRESET":
             self["config"].setList(self.getMenuItemList())
 
-        self.Console = Console()
-        self.service_name = 'enigma2-plugin-skins-metrix-atv-fhd-icons'
+    def __checkEHDtested(self):
+		self.__getEHDsettings()
+		tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
+		if self.EHDenabled and (len(tested) != 2 or not BoxType in tested[0] or not config.plugins.MyMetrixLiteOther.EHDenabled.value in tested[1]):
+			if "green" in self["actions"].actions:
+				del self["actions"].actions['green']
+				self["saveBtn"].setText(_(" "))
+			self["actions"].actions.update({"blue":self.test})
+			self["testBtn"].setText(_("Test Resolution"))
+		else:
+			self["actions"].actions.update({"green":self.save})
+			self["saveBtn"].setText(_("Save"))
+			if "blue" in self["actions"].actions:
+				del self["actions"].actions['blue']
+				self["testBtn"].setText(_(" "))
+			if self.EHDenabled:
+				self.InstallCheck()
+			else:
+				self.UninstallCheck()
 
-        self.x = getDesktop(0).size().width()
-        self.y = getDesktop(0).size().height()
-        if cur == "ENABLED_FHD" and config.plugins.MyMetrixLiteOther.FHDenabled.value and self.x < 1920 and self.y < 1080:
-            self.PluginCheck()
-        elif cur == "ENABLED_FHD" and not config.plugins.MyMetrixLiteOther.FHDenabled.value:
-            self.UninstallCheck()
-        elif cur == "ENABLED_FHD" and config.plugins.MyMetrixLiteOther.FHDenabled.value:
-            self.InstallCheck()
-
-    def PluginCheck(self):
-        plustext=""
-        #check hbbtv plugin - is sometimes or with some boxes not compatible with FHD-skin!
-        if path.exists("/usr/lib/enigma2/python/Plugins/Extensions/HbbTV/plugin.pyo"):
-            plustext = _("You have the'HbbTV Plugin' installed.\n")
-        if plustext:
-            text = plustext + _("\nMaybe is a compatibility issue with full-hd resolution.\nAttention: The osd-error occurs first after gui or system restart!\n\nDo you want really change from HD to FHD - skin?")
-            self.session.openWithCallback(self.resolutionQuestion, MessageBox, text, default = False, timeout = 10)
-        else:
-            self.resolutionQuestion(True)
+    def test(self):
+		plustext=""
+		#check hbbtv plugin - is sometimes or with some boxes not compatible with EHD-skin!
+		if path.exists("/usr/lib/enigma2/python/Plugins/Extensions/HbbTV/plugin.pyo"):
+			plustext = _("You have the'HbbTV Plugin' installed.\n")
+		if plustext:
+			text = plustext + _("\nMaybe is a compatibility issue with %s resolution.\nAttention: The osd-error occurs first after gui or system restart!\n\nDo you want really change from %s to %s - skin?") % (self.EHDtxt, self.EHDtext_old, self.EHDtxt)
+			self.session.openWithCallback(self.resolutionQuestion, MessageBox, text, default = False, timeout = 10)
+		else:
+			self.resolutionQuestion(True)
 
     def resolutionQuestion(self, result):
-        if not result:
-            self.resetFHD()
-            return
-        self.session.openWithCallback(self.resolutionTest, MessageBox, _("If you chose 'yes', then starts the resolution test.\n\nCan't you see the next message,\nthe old resolution will automatically after 10 seconds restored."), default = False)
+		if not result:
+			self.resetEHD()
+			return
+		import NavigationInstance
+		import time
+		rec = NavigationInstance.instance.RecordTimer.isRecording() or abs(NavigationInstance.instance.RecordTimer.getNextRecordingTime() - time.time()) <= 300
+		plustext = ""
+		if rec:
+			plustext = _("!!! Recording(s) are in progress or coming up in few minutes !!!") + '\n'
+		self.session.openWithCallback(self.resolutionTest, MessageBox, plustext + _("!!! If your receiver not compatible is a crash possible !!!\n\nChoose 'yes', then starts the resolution test.\nThe old resolution will automatically restored after 10 seconds."), default = False)
 
     def resolutionTest(self, result):
         if not result:
-            self.resetFHD()
+            self.resetEHD()
             return
-        gMainDC.getInstance().setResolution(1920, 1080)
-        self.session.openWithCallback(self.resolutionCheck, MessageBox, _("Can you see this, then is the receiver ready for FHD - skin.\n\nDo you want to change from HD to FHD - skin?"), default = False, timeout = 10)
+        gMainDC.getInstance().setResolution(int(1280*self.EHDfactor), int(720*self.EHDfactor))
+        self.session.openWithCallback(self.resolutionCheck, MessageBox, _("If you can see this then is your receiver compatible.\nDo you want change from %s to %s - skin resolution?") % (self.EHDtext_old, self.EHDtxt), default = False, timeout = 10)
 
     def resolutionCheck(self, result):
         gMainDC.getInstance().setResolution(self.x, self.y)
         if not result:
-            self.resetFHD()
+            self.resetEHD()
         else:
-            self.InstallCheck()
+            if BoxType in config.plugins.MyMetrixLiteOther.EHDtested.value and len(config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')) == 2:
+                config.plugins.MyMetrixLiteOther.EHDtested.value += config.plugins.MyMetrixLiteOther.EHDenabled.value
+            else:
+                config.plugins.MyMetrixLiteOther.EHDtested.value = BoxType + '_|_' + config.plugins.MyMetrixLiteOther.EHDenabled.value
+            config.plugins.MyMetrixLiteOther.save()
+            configfile.save()
+            initOtherConfig()
+            self.__checkEHDtested()
+            self["config"].setList(self.getMenuItemList())
 
     def freeFlashCheck(self):
         stat = statvfs("/usr/share/enigma2/MetrixHD/")
         freeflash = stat.f_bavail * stat.f_bsize / 1024 / 1024
         filesize = 15
         if freeflash < filesize:
-            self.session.open(MessageBox, _("Your free flash space is to small.\n%d MB is not enough to install the full-hd icons. ( %d MB is required )") % (freeflash, filesize), MessageBox.TYPE_ERROR)
+            self.session.open(MessageBox, _("Not enough free flash memory to install the %s icons. ( %d MB is required )") % (self.EHDtxt, filesize), MessageBox.TYPE_ERROR)
             return False
         return True
 
-    def resetFHD(self):
-        config.plugins.MyMetrixLiteOther.FHDenabled.setValue(False)
-        self["config"].setList(self.getMenuItemList())
+    def resetEHD(self):
+		config.plugins.MyMetrixLiteOther.EHDenabled.setValue(self.EHDvalue_old)
+		self.__checkEHDtested()
+		self["config"].setList(self.getMenuItemList())
 
     def InstallCheck(self):
+        self.Console = Console()
+        self.service_name = 'enigma2-plugin-skins-metrix-atv-%s-icons' % self.EHDres.lower()
         if self.freeFlashCheck():
             self.Console.ePopen('/usr/bin/opkg list_installed ' + self.service_name, self.checkNetworkState)
         else:
-            self.resetFHD()
+            self.resetEHD()
 
     def checkNetworkState(self, str, retval, extra_args):
         if 'Collected errors' in str:
             self.session.open(MessageBox, _("A background update check is in progress, please wait a few minutes and try again."), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
-            self.resetFHD()
+            self.resetEHD()
         elif not str:
             self.feedscheck = self.session.open(MessageBox,_('Please wait whilst feeds state is checked.'), MessageBox.TYPE_INFO, enable_input = False)
             self.feedscheck.setTitle(_('Checking Feeds'))
@@ -199,11 +288,11 @@ class OtherSettingsView(ConfigListScreen, Screen):
             self.doInstall(self.installComplete, self.service_name)
         else:
             self.feedscheck.close()
-            self.resetFHD()
+            self.resetEHD()
 
     def InstallPackageFailed(self, val):
         self.feedscheck.close()
-        self.resetFHD()
+        self.resetEHD()
 
     def doInstall(self, callback, pkgname):
         self.message = self.session.open(MessageBox,_("please wait..."), MessageBox.TYPE_INFO, enable_input = False)
@@ -213,14 +302,15 @@ class OtherSettingsView(ConfigListScreen, Screen):
     def installComplete(self, result, retval = None, extra_args = None):
         if 'Unknown package' in result:
             self.session.open(MessageBox,_("Install Package not found!"), MessageBox.TYPE_ERROR, timeout=10)
-            self.resetFHD()
+            self.resetEHD()
         elif "Collected errors" in result:
             self.session.open(MessageBox,_("Installation error!\n\n%s") % result, MessageBox.TYPE_ERROR, timeout=10)
-            self.resetFHD()
+            self.resetEHD()
         self.feedscheck.close()
         self.message.close()
 
     def UninstallCheck(self):
+        return #uninstall package disabled
         self.Console.ePopen('/usr/bin/opkg list_installed ' + self.service_name, self.RemovedataAvail)
 
     def RemovedataAvail(self, str, retval, extra_args):
@@ -374,17 +464,17 @@ class OtherSettingsView(ConfigListScreen, Screen):
         tab = " "*10
         sep = "-"
         list = []
-        section = _("FHD-Option")
+        section = _("Enhanced HD Option")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-        list.append(getConfigListEntry(tab + _("Enable FHD"), config.plugins.MyMetrixLiteOther.FHDenabled, _("helptext"),"ENABLED_FHD"))
-        if config.plugins.MyMetrixLiteOther.FHDenabled.getValue() is True:
-            list.append(getConfigListEntry(tab + _("All calculated values round down"), config.plugins.MyMetrixLiteOther.FHDrounddown, _("helptext")))
-            #list.append(getConfigListEntry(_("Method of font scaling"), config.plugins.MyMetrixLiteOther.FHDfontsize))
-            # FHDfontsize deactivated
-            if config.plugins.MyMetrixLiteOther.FHDfontsize.value != "2":
-                self.setInputToDefault(config.plugins.MyMetrixLiteOther.FHDfontsize)
-            list.append(getConfigListEntry(tab + _("Additional offset for font scaling"), config.plugins.MyMetrixLiteOther.FHDfontoffset, _("helptext")))
-            list.append(getConfigListEntry(tab + _("Calculating additional files"), config.plugins.MyMetrixLiteOther.FHDadditionalfiles, _("File list:\n\n%s") % '"/etc/enigma2/antilogo.xml"', "ENABLED"))
+        list.append(getConfigListEntry(tab + _("Choose skin resolution"), config.plugins.MyMetrixLiteOther.EHDenabled, _("helptext"),"ENABLED_EHD"))
+        if self.EHDenabled:
+            list.append(getConfigListEntry(tab + _("All calculated values round down"), config.plugins.MyMetrixLiteOther.EHDrounddown, _("helptext")))
+            #list.append(getConfigListEntry(_("Method of font scaling"), config.plugins.MyMetrixLiteOther.EHDfontsize))
+            # EHDfontsize deactivated
+            if config.plugins.MyMetrixLiteOther.EHDfontsize.value != "2":
+                self.setInputToDefault(config.plugins.MyMetrixLiteOther.EHDfontsize)
+            list.append(getConfigListEntry(tab + _("Additional offset for font scaling"), config.plugins.MyMetrixLiteOther.EHDfontoffset, _("helptext")))
+            list.append(getConfigListEntry(tab + _("Calculating additional files"), config.plugins.MyMetrixLiteOther.EHDadditionalfiles, _("File list:\n\n%s") % '"/etc/enigma2/antilogo.xml"', "ENABLED"))
         section = _("STB-Info")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         list.append(getConfigListEntry(tab + _("Distance between the STB-Infos"), config.plugins.MyMetrixLiteOther.STBDistance, _("helptext")))
@@ -413,8 +503,8 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(tab + _("Enable Color Gradient"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarColorGradient, _("helptext")))
         list.append(getConfigListEntry(tab + _("Choose Picon Type"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon, _("helptext"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon.value == "1":
-            if config.plugins.MyMetrixLiteOther.FHDenabled.value:
-                list.append(getConfigListEntry(tab + _("Show picons zoomed ?"), config.plugins.MyMetrixLiteOther.FHDpiconzoom, _("helptext")))
+            if self.EHDenabled:
+                list.append(getConfigListEntry(tab + _("Show picons zoomed ?"), config.plugins.MyMetrixLiteOther.EHDpiconzoom, _("helptext")))
             list.append(getConfigListEntry(tab + _("Offset picon position x"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarXPiconPosX, _("helptext")))
             list.append(getConfigListEntry(tab + _("Offset picon position y"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarXPiconPosY, _("helptext")))
         else:
@@ -473,68 +563,10 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(tab + _("Show Space between Layer A and B"),config.plugins.MyMetrixLiteOther.SkinDesignSpace, _("helptext")))
         list.append(getConfigListEntry(tab + _("Show large Text on bottom of the screen"),config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText, _("helptext")))
         list.append(getConfigListEntry(tab + _("Chose Extended-Info Style"), config.plugins.MyMetrixLiteOther.ExtendedinfoStyle, _("helptext")))
-        section = _("Skinparts")
-        list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-        itext = _("\n\nFile will used to create the full-hd-skin\n(use unchanged 'skin_10_user.xml' as template)")
-        list.append(getConfigListEntry(tab + _("Use part") + " 11",config.plugins.MyMetrixLiteOther.user11file, _("/usr/share/enigma2/MetrixHD/skin_11_user.xml") + itext))
-        list.append(getConfigListEntry(tab + _("Use part") + " 12",config.plugins.MyMetrixLiteOther.user12file, _("/usr/share/enigma2/MetrixHD/skin_12_user.xml") + itext))
-        list.append(getConfigListEntry(tab + _("Use part") + " 13",config.plugins.MyMetrixLiteOther.user13file, _("/usr/share/enigma2/MetrixHD/skin_13_user.xml") + itext))
-        list.append(getConfigListEntry(tab + _("Use part") + " 14",config.plugins.MyMetrixLiteOther.user14file, _("/usr/share/enigma2/MetrixHD/skin_14_user.xml") + itext))
-        list.append(getConfigListEntry(tab + _("Use part") + " 15",config.plugins.MyMetrixLiteOther.user15file, _("/usr/share/enigma2/MetrixHD/skin_15_user.xml")))
-        list.append(getConfigListEntry(tab + _("Use part") + " 16",config.plugins.MyMetrixLiteOther.user16file, _("/usr/share/enigma2/MetrixHD/skin_16_user.xml")))
-        list.append(getConfigListEntry(tab + _("Use part") + " 17",config.plugins.MyMetrixLiteOther.user17file, _("/usr/share/enigma2/MetrixHD/skin_17_user.xml")))
-        list.append(getConfigListEntry(tab + _("Use part") + " 18",config.plugins.MyMetrixLiteOther.user18file, _("/usr/share/enigma2/MetrixHD/skin_18_user.xml")))
-        list.append(getConfigListEntry(tab + _("Use part") + " 19",config.plugins.MyMetrixLiteOther.user19file, _("/usr/share/enigma2/MetrixHD/skin_19_user.xml")))
-        ''' moved to color settings
-        section = _("Skin Design - additional Layers")
-        list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-        list.append(getConfigListEntry(tab + _("Skin Design Examples"),config.plugins.MyMetrixLiteOther.SkinDesignExamples, _("helptext"), "PRESET"))
-        list.append(getConfigListEntry(tab + _("Show upper left Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignLUC, _("helptext"), "ENABLED"))
-        if config.plugins.MyMetrixLiteOther.SkinDesignLUC.getValue() is not "no":
-            list.append(getConfigListEntry(tab*2 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignLUCwidth, _("helptext")))
-            list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignLUCheight, _("helptext")))
-            list.append(getConfigListEntry(tab*2 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignLUCposz, _("helptext")))
-        list.append(getConfigListEntry(tab + _("Show lower left Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignLLC, _("helptext"), "ENABLED"))
-        if config.plugins.MyMetrixLiteOther.SkinDesignLLC.getValue() is not "no":
-            list.append(getConfigListEntry(tab*2 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignLLCwidth, _("helptext")))
-            list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignLLCheight, _("helptext")))
-            list.append(getConfigListEntry(tab*2 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignLLCposz, _("helptext")))
-        list.append(getConfigListEntry(tab + _("Show upper right Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignRUC, _("helptext"), "ENABLED"))
-        if config.plugins.MyMetrixLiteOther.SkinDesignRUC.getValue() is not "no":
-            list.append(getConfigListEntry(tab*2 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignRUCwidth, _("helptext")))
-            list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignRUCheight, _("helptext")))
-            list.append(getConfigListEntry(tab*2 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignRUCposz, _("helptext")))
-        list.append(getConfigListEntry(tab + _("Show lower right Corner Layer"),config.plugins.MyMetrixLiteOther.SkinDesignRLC, _("helptext"), "ENABLED"))
-        if config.plugins.MyMetrixLiteOther.SkinDesignRLC.getValue() is not "no":
-            list.append(getConfigListEntry(tab*2 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignRLCwidth, _("helptext")))
-            list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignRLCheight, _("helptext")))
-            list.append(getConfigListEntry(tab*2 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignRLCposz, _("helptext")))
-        list.append(getConfigListEntry(tab + _("Show optional horizontal Layer"),config.plugins.MyMetrixLiteOther.SkinDesignOLH, _("helptext"), "ENABLED"))
-        if config.plugins.MyMetrixLiteOther.SkinDesignOLH.getValue() is not "no":
-            list.append(getConfigListEntry(tab*2 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth, _("helptext")))
-            list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignOLHheight, _("helptext")))
-            list.append(getConfigListEntry(tab*2 + _("pos x"), config.plugins.MyMetrixLiteOther.SkinDesignOLHposx, _("helptext")))
-            list.append(getConfigListEntry(tab*2 + _("pos y"), config.plugins.MyMetrixLiteOther.SkinDesignOLHposy, _("helptext")))
-            list.append(getConfigListEntry(tab*2 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignOLHposz, _("helptext")))
-        list.append(getConfigListEntry(tab + _("Show optional vertical Layer"),config.plugins.MyMetrixLiteOther.SkinDesignOLV, _("helptext"), "ENABLED"))
-        if config.plugins.MyMetrixLiteOther.SkinDesignOLV.getValue() is not "no":
-            list.append(getConfigListEntry(tab*2 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth, _("helptext")))
-            list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignOLVheight, _("helptext")))
-            list.append(getConfigListEntry(tab*2 + _("pos x"), config.plugins.MyMetrixLiteOther.SkinDesignOLVposx, _("helptext")))
-            list.append(getConfigListEntry(tab*2 + _("pos y"), config.plugins.MyMetrixLiteOther.SkinDesignOLVposy, _("helptext")))
-            list.append(getConfigListEntry(tab*2 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignOLVposz, _("helptext")))
-        '''
         return list
 
     def GetPicturePath(self):
-        try:
-            returnValue = self["config"].getCurrent()[1].value
-            picturepath = OTHER_IMAGE_PATH % returnValue
-            if not path.exists(picturepath):
-                picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteOther"
-        except:
-            picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteOther"
-        return picturepath
+        return MAIN_IMAGE_PATH % "MyMetrixLiteOther"
 
     def UpdatePicture(self):
         self.PicLoad.PictureData.get().append(self.DecodePicture)
@@ -551,11 +583,11 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
     def keyLeft(self):
         ConfigListScreen.keyLeft(self)
-        self.ShowPicture()
+        #self.ShowPicture()
 
     def keyRight(self):
         ConfigListScreen.keyRight(self)
-        self.ShowPicture()
+        #self.ShowPicture()
 
     def keyDown(self):
         self["config"].instance.moveSelection(self["config"].instance.moveDown)
@@ -569,29 +601,6 @@ class OtherSettingsView(ConfigListScreen, Screen):
         self.session.open(MessageBox, _("Information"), MessageBox.TYPE_INFO)
 
     def save(self):
-        ''' moved to color settings
-        width = int(config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth.value)
-        height = int(config.plugins.MyMetrixLiteOther.SkinDesignOLHheight.value)
-        posx = int(config.plugins.MyMetrixLiteOther.SkinDesignOLHposx.value)
-        posy = int(config.plugins.MyMetrixLiteOther.SkinDesignOLHposy.value)
-        if (posx + width) > 1280:
-            width = width - (posx + width - 1280)
-            config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth.setValue(width)
-        if (posy + height) > 720:
-            height = height - (posy + height - 720)
-            config.plugins.MyMetrixLiteOther.SkinDesignOLHheight.setValue(height)
-
-        width = int(config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth.value)
-        height = int(config.plugins.MyMetrixLiteOther.SkinDesignOLVheight.value)
-        posx = int(config.plugins.MyMetrixLiteOther.SkinDesignOLVposx.value)
-        posy = int(config.plugins.MyMetrixLiteOther.SkinDesignOLVposy.value)
-        if (posx + width) > 1280:
-            width = width - (posx + width - 1280)
-            config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth.setValue(width)
-        if (posy + height) > 720:
-            height = height - (posy + height - 720)
-            config.plugins.MyMetrixLiteOther.SkinDesignOLVheight.setValue(height)
-        '''
         for x in self["config"].list:
             if len(x) > 1:
                 x[1].save()
@@ -617,9 +626,9 @@ class OtherSettingsView(ConfigListScreen, Screen):
         for x in self["config"].list:
             if len(x) > 1:
                 self.setInputToDefault(x[1])
+        self.__checkEHDtested()
         self["config"].setList(self.getMenuItemList())
         self.ShowPicture()
-        #self.save()
 
     def setNewValue(self, configItem, newValue):
         configItem.setValue(newValue)
