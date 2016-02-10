@@ -1393,7 +1393,7 @@ class MainSettingsView(Screen):
             self.font_size = int(config.plugins.MyMetrixLiteOther.EHDfontsize.value)
             self.font_offset = config.plugins.MyMetrixLiteOther.EHDfontoffset.value
             if config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon.value == "1":
-                self.picon_zoom = self.EHDfactor * float(config.plugins.MyMetrixLiteOther.EHDpiconzoom.value)
+                self.picon_zoom = 1 + ((self.EHDfactor - 1) * float(config.plugins.MyMetrixLiteOther.EHDpiconzoom.value))
                 if not self.picon_zoom: self.picon_zoom = 1
             else:
                 self.picon_zoom = self.EHDfactor
@@ -1544,19 +1544,17 @@ class MainSettingsView(Screen):
         elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '2':
             self.EHDres = 'UHD'
         else:
-            self.EHDres = 'HD'
+            restore = True
         screenwidth = getDesktop(0).size().width()
-        if screenwidth and screenwidth != 1280 or self.EHDres != 'HD':
+        if screenwidth and screenwidth != 1280 or restore:
             if restore:
-                print "[MetrixHD] restoring original HD icons after changing skin..."
-                self.iconFileCopy("HD")
-                self.iconFolderCopy("HD")
-                print "[MetrixHD] ...done."
+                self.EHDres = 'HD'
+                print "[MetrixHD] restoring original %s icons after changing skin..." % self.EHDres
             else:
                 print "[MetrixHD] refreshing %s icons after software update..." % self.EHDres
-                self.iconFileCopy(self.EHDres)
-                self.iconFolderCopy(self.EHDres)
-                print "[MetrixHD] ...done."
+            self.iconFileCopy(self.EHDres)
+            self.iconFolderCopy(self.EHDres)
+            print "[MetrixHD] ...done."
 
     def iconFileCopy(self, target):
 
