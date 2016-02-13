@@ -126,7 +126,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		nodesc = _("No description available.")
 		noprev = _("\n(No preview picture available.)")
 
-		section = _("/usr/share/enigma2/MetrixHD/[part].xml")
+		section = _("/usr/share/enigma2/MetrixHD/skinparts/[part]/[part].xml")
 		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
 		pidx = 0
 		for part in self.partlist:
@@ -157,9 +157,6 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 					preview = self.parts[pidx][0][0] + '/' + self.screens[pidx][sidx][2]
 					list.append(getConfigListEntry(tab*2 + self.screens[pidx][sidx][1], screen, itext, 'ENABLED', preview))
 					sidx += 1
-			if pidx == 4:
-				section = _("/usr/share/enigma2/MetrixHD/skinparts/[part]/[part].xml")
-				list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
 			pidx += 1
 
 		return list
@@ -170,28 +167,6 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		self.partlist = ConfigSubList()
 		self.screenlist = ConfigSubDict()
 		self.idx = 0
-		#integrated
-		if config.plugins.MyMetrixLiteOther.user10file.value == '2': config.plugins.MyMetrixLiteOther.user10file.setValue('1')
-		self.partlist.append(config.plugins.MyMetrixLiteOther.user10file)
-		self.readSkinPartScreens("/usr/share/enigma2/MetrixHD/", "skin_10_user")
-		self.idx += 1
-		if config.plugins.MyMetrixLiteOther.user11file.value == '2': config.plugins.MyMetrixLiteOther.user11file.setValue('1')
-		self.partlist.append(config.plugins.MyMetrixLiteOther.user11file)
-		self.readSkinPartScreens("/usr/share/enigma2/MetrixHD/", "skin_11_user")
-		self.idx += 1
-		if config.plugins.MyMetrixLiteOther.user12file.value == '2': config.plugins.MyMetrixLiteOther.user12file.setValue('1')
-		self.partlist.append(config.plugins.MyMetrixLiteOther.user12file)
-		self.readSkinPartScreens("/usr/share/enigma2/MetrixHD/", "skin_12_user")
-		self.idx += 1
-		if config.plugins.MyMetrixLiteOther.user13file.value == '2': config.plugins.MyMetrixLiteOther.user13file.setValue('1')
-		self.partlist.append(config.plugins.MyMetrixLiteOther.user13file)
-		self.readSkinPartScreens("/usr/share/enigma2/MetrixHD/", "skin_13_user")
-		self.idx += 1
-		if config.plugins.MyMetrixLiteOther.user14file.value == '2': config.plugins.MyMetrixLiteOther.user14file.setValue('1')
-		self.partlist.append(config.plugins.MyMetrixLiteOther.user14file)
-		self.readSkinPartScreens("/usr/share/enigma2/MetrixHD/", "skin_14_user")
-		self.idx += 1
-		#external
 		self.readSkinParts("/usr/share/enigma2/MetrixHD/skinparts/")
 
     def readSkinParts(self, skinpartdir):
@@ -358,8 +333,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			sfile = self.parts[pidx][0][0] + self.parts[pidx][0][1] + '.xml'
 			tfile = self.parts[pidx][0][0] + self.parts[pidx][0][1] + '.xml.tmp'
 			if part.value != '0':
-				if pidx > 4:
-					f = open(efile, 'w').close()
+				f = open(efile, 'w').close()
 				if path.isfile(sfile):
 					f = open(sfile, 'r')
 					source = f.readlines()
@@ -407,9 +381,8 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 						f.writelines(source)
 						f.close()
 			else:
-				if pidx > 4:
-					if path.isfile(efile):
-						remove(efile)
+				if path.isfile(efile):
+					remove(efile)
 			if not idxerr and path.isfile(tfile) and path.isfile(sfile):
 				copy(tfile,sfile)
 				remove(tfile)

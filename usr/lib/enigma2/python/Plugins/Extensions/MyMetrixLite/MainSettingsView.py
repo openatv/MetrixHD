@@ -359,14 +359,6 @@ class MainSettingsView(Screen):
                         (SKIN_USER_SOURCE, SKIN_USER_TARGET, SKIN_USER_TARGET_TMP),
                         ]
                         
-            #skinpart files 10...14
-            skinpart_EHD = [
-                        ("/usr/share/enigma2/MetrixHD/skin_10_user.xml","/usr/share/enigma2/MetrixHD/skin_10_user.MySkin.xml","/usr/share/enigma2/MetrixHD/skin_10_user.MySkin.xml.tmp"),
-                        ("/usr/share/enigma2/MetrixHD/skin_11_user.xml","/usr/share/enigma2/MetrixHD/skin_11_user.MySkin.xml","/usr/share/enigma2/MetrixHD/skin_11_user.MySkin.xml.tmp"),
-                        ("/usr/share/enigma2/MetrixHD/skin_12_user.xml","/usr/share/enigma2/MetrixHD/skin_12_user.MySkin.xml","/usr/share/enigma2/MetrixHD/skin_12_user.MySkin.xml.tmp"),
-                        ("/usr/share/enigma2/MetrixHD/skin_13_user.xml","/usr/share/enigma2/MetrixHD/skin_13_user.MySkin.xml","/usr/share/enigma2/MetrixHD/skin_13_user.MySkin.xml.tmp"),
-                        ("/usr/share/enigma2/MetrixHD/skin_14_user.xml","/usr/share/enigma2/MetrixHD/skin_14_user.MySkin.xml","/usr/share/enigma2/MetrixHD/skin_14_user.MySkin.xml.tmp"),
-                        ]
 
             ################
             # check free flash for _TARGET and _TMP files 
@@ -377,7 +369,7 @@ class MainSettingsView(Screen):
 
             filesize = 0
             if self.EHDenabled:
-                for file in skinfiles_EHD + skinpart_EHD:
+                for file in skinfiles_EHD:
                     if path.exists(file[1]):
                         filesize += path.getsize(file[1])
                     else:
@@ -1266,58 +1258,7 @@ class MainSettingsView(Screen):
                 #skinSearchAndReplace.append(['skin_04_check.xml', 'skin_04_check.MySkin.xml'])
                 #skinSearchAndReplace.append(['skin_05_screens_unchecked.xml', 'skin_05_screens_unchecked.MySkin.xml'])
 
-            #skinpart 'skin_10_user.xml' backup and restore
-            xmlfile = '/usr/share/enigma2/MetrixHD/skin_10_user.xml'
-            bakfile = '/usr/share/enigma2/MetrixHD/skin_10_user.bak'
-            mode = "backup"
-            if path.exists(xmlfile):
-                xmlstat = statfile(xmlfile)
-                if path.exists(bakfile):
-                    bakstat = statfile(bakfile)
-                    if xmlstat[6] < 2100:# original file has 2064 bytes
-                        mode = "recovery"
-                if xmlstat[6] < 2100 and mode == "backup":
-                    mode = "no backup exist and no changed xml file"
-            if mode == "recovery":
-                copy(bakfile,xmlfile)
-            elif mode == "backup":
-                copy(xmlfile,bakfile)
-
-            #skinparts 'skin_10_user.xml'...'skin_14_user.xml'
-            #remove old MySkin files 11...14
-            for file in skinpart_EHD:
-                if path.exists(file[1]):
-                    remove(file[1])
-            if self.EHDenabled:
-                if int(config.plugins.MyMetrixLiteOther.user10file.value) and path.exists('/usr/share/enigma2/MetrixHD/skin_10_user.xml'):
-                    skinfiles_EHD.append(("/usr/share/enigma2/MetrixHD/skin_10_user.xml","/usr/share/enigma2/MetrixHD/skin_10_user.MySkin.xml","/usr/share/enigma2/MetrixHD/skin_10_user.MySkin.xml.tmp"))
-                    skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_10_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_10_user.MySkin.xml" />'])
-                if int(config.plugins.MyMetrixLiteOther.user11file.value) and path.exists('/usr/share/enigma2/MetrixHD/skin_11_user.xml'):
-                    skinfiles_EHD.append(("/usr/share/enigma2/MetrixHD/skin_11_user.xml","/usr/share/enigma2/MetrixHD/skin_11_user.MySkin.xml","/usr/share/enigma2/MetrixHD/skin_11_user.MySkin.xml.tmp"))
-                    skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_11_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_11_user.MySkin.xml" />'])
-                if int(config.plugins.MyMetrixLiteOther.user12file.value) and path.exists('/usr/share/enigma2/MetrixHD/skin_12_user.xml'):
-                    skinfiles_EHD.append(("/usr/share/enigma2/MetrixHD/skin_12_user.xml","/usr/share/enigma2/MetrixHD/skin_12_user.MySkin.xml","/usr/share/enigma2/MetrixHD/skin_12_user.MySkin.xml.tmp"))
-                    skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_12_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_12_user.MySkin.xml" />'])
-                if int(config.plugins.MyMetrixLiteOther.user13file.value) and path.exists('/usr/share/enigma2/MetrixHD/skin_13_user.xml'):
-                    skinfiles_EHD.append(("/usr/share/enigma2/MetrixHD/skin_13_user.xml","/usr/share/enigma2/MetrixHD/skin_13_user.MySkin.xml","/usr/share/enigma2/MetrixHD/skin_13_user.MySkin.xml.tmp"))
-                    skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_13_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_13_user.MySkin.xml" />'])
-                if int(config.plugins.MyMetrixLiteOther.user14file.value) and path.exists('/usr/share/enigma2/MetrixHD/skin_14_user.xml'):
-                    skinfiles_EHD.append(("/usr/share/enigma2/MetrixHD/skin_14_user.xml","/usr/share/enigma2/MetrixHD/skin_14_user.MySkin.xml","/usr/share/enigma2/MetrixHD/skin_14_user.MySkin.xml.tmp"))
-                    skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_14_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_14_user.MySkin.xml" />'])
-            else:
-                if int(config.plugins.MyMetrixLiteOther.user10file.value) and path.exists('/usr/share/enigma2/MetrixHD/skin_10_user.xml'):
-                    skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_10_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_10_user.xml" />'])
-                if int(config.plugins.MyMetrixLiteOther.user11file.value) and path.exists('/usr/share/enigma2/MetrixHD/skin_11_user.xml'):
-                    skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_11_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_11_user.xml" />'])
-                if int(config.plugins.MyMetrixLiteOther.user12file.value) and path.exists('/usr/share/enigma2/MetrixHD/skin_12_user.xml'):
-                    skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_12_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_12_user.xml" />'])
-                if int(config.plugins.MyMetrixLiteOther.user13file.value) and path.exists('/usr/share/enigma2/MetrixHD/skin_13_user.xml'):
-                    skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_13_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_13_user.xml" />'])
-                if int(config.plugins.MyMetrixLiteOther.user14file.value) and path.exists('/usr/share/enigma2/MetrixHD/skin_14_user.xml'):
-                    skinSearchAndReplace.append(['<!--include filename="/usr/share/enigma2/MetrixHD/skin_14_user.xml" /-->', '<include filename="/usr/share/enigma2/MetrixHD/skin_14_user.xml" />'])
-
             #skinparts
-
             skinpartdir='/usr/share/enigma2/MetrixHD/skinparts/'
             skinparts = ''
             for skinpart in listdir(skinpartdir):
@@ -1353,7 +1294,7 @@ class MainSettingsView(Screen):
                             skinparts = '<include filename="%s" />' %partpath
 
             if skinparts:
-                skinSearchAndReplace.append(['<!--include filename="placeholder_skinparts" /-->', skinparts])
+                skinSearchAndReplace.append(['<!-- placeholder_skinparts /-->', skinparts])
 
             #make skin file
             skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
@@ -3012,6 +2953,114 @@ class MainSettingsView(Screen):
 #CoolPico="35"
 						if 'CoolPico="' in line:
 							n1 = line.find('CoolPico=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolDaySize="100"
+						if 'CoolDaySize="' in line:
+							n1 = line.find('CoolDaySize=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolDayPos="0"
+						if 'CoolDayPos="' in line:
+							n1 = line.find('CoolDayPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolDayHPos="2"
+						if 'CoolDayHPos="' in line:
+							n1 = line.find('CoolDayHPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolDayHPos="2"
+						if 'CoolDayHPos="' in line:
+							n1 = line.find('CoolDayHPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolDatePos="0"
+						if 'CoolDatePos="' in line:
+							n1 = line.find('CoolDatePos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolDateHPos="0"
+						if 'CoolDateHPos="' in line:
+							n1 = line.find('CoolDateHPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolDateSize="0"
+						if 'CoolDateSize="' in line:
+							n1 = line.find('CoolDateSize=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolMarkerHPos="200"
+						if 'CoolMarkerHPos="' in line:
+							n1 = line.find('CoolMarkerHPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolMarkerPicPos="2"
+						if 'CoolMarkerPicPos="' in line:
+							n1 = line.find('CoolMarkerPicPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolMarkerPicHPos="2"
+						if 'CoolMarkerPicHPos="' in line:
+							n1 = line.find('CoolMarkerPicHPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolPicoPos="2"
+						if 'CoolPicoPos="' in line:
+							n1 = line.find('CoolPicoPos=', 0)
+							n2 = line.find('"', n1)
+							n3 = line.find('"', n2+1)
+							y = line[(n2+1):n3]
+							ynew = str(int(round(float(int(y)*FACT),r_par)))
+							strnew = line[n1:n2+1] + ynew + '"'
+							line = line[:n1] + strnew + line[(n3+1):]
+#CoolPicoHPos="2"
+						if 'CoolPicoHPos="' in line:
+							n1 = line.find('CoolPicoHPos=', 0)
 							n2 = line.find('"', n1)
 							n3 = line.find('"', n2+1)
 							y = line[(n2+1):n3]

@@ -701,19 +701,6 @@ def initOtherConfig():
     #preset
     config.plugins.MyMetrixLiteOther.SkinDesignExamples = ConfigSelection(default = "preset_0", choices = skinDesignPresetList)
 
-    #SkinParts
-    skinpartConfig =[
-    ("0", _("No")),
-    ("2", _("Yes, show screens")),
-    ("1", _("Yes")),
-    ("3", _("Yes, show screens"))
-    ]
-    config.plugins.MyMetrixLiteOther.user10file = ConfigSelection(default = "0", choices = skinpartConfig)
-    config.plugins.MyMetrixLiteOther.user11file = ConfigSelection(default = "0", choices = skinpartConfig)
-    config.plugins.MyMetrixLiteOther.user12file = ConfigSelection(default = "0", choices = skinpartConfig)
-    config.plugins.MyMetrixLiteOther.user13file = ConfigSelection(default = "0", choices = skinpartConfig)
-    config.plugins.MyMetrixLiteOther.user14file = ConfigSelection(default = "0", choices = skinpartConfig)
-
 #######################################################################
 
 def getTunerPositionList():
