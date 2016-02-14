@@ -205,7 +205,9 @@ class MainSettingsView(Screen):
         if 'Collected errors' in str or not str:
             stat = statvfs("/usr/share/enigma2/MetrixHD/")
             freeflash = stat.f_bavail * stat.f_bsize / 1024 / 1024
-            filesize = 15
+            filesize = 10
+            if self.EHDres == 'UHD':
+                filesize = 25
             if freeflash < filesize:
                 global skinReadyCode
                 skinReadyCode = 3
