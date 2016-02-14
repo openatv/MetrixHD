@@ -84,29 +84,21 @@ SKIN_EMC_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00g_EMC.xml"
 SKIN_EMC_TARGET = "/usr/share/enigma2/MetrixHD/skin_00g_EMC.MySkin.xml"
 SKIN_EMC_TARGET_TMP = SKIN_EMC_TARGET + ".tmp"
 
-SKIN_OPENATV_SOURCE = "/usr/share/enigma2/MetrixHD/skin_01_openatv.xml"
-SKIN_OPENATV_TARGET = "/usr/share/enigma2/MetrixHD/skin_01_openatv.MySkin.xml"
+SKIN_OPENATV_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00o_openatv.xml"
+SKIN_OPENATV_TARGET = "/usr/share/enigma2/MetrixHD/skin_00o_openatv.MySkin.xml"
 SKIN_OPENATV_TARGET_TMP = SKIN_OPENATV_TARGET + ".tmp"
 
-SKIN_DISPLAY_SOURCE = "/usr/share/enigma2/MetrixHD/skin_02_display.xml"
-SKIN_DISPLAY_TARGET = "/usr/share/enigma2/MetrixHD/skin_02_display.MySkin.xml"
-SKIN_DISPLAY_TARGET_TMP = SKIN_DISPLAY_TARGET + ".tmp"
-
-SKIN_PLUGINS_SOURCE = "/usr/share/enigma2/MetrixHD/skin_03_plugins.xml"
-SKIN_PLUGINS_TARGET = "/usr/share/enigma2/MetrixHD/skin_03_plugins.MySkin.xml"
+SKIN_PLUGINS_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00p_plugins.xml"
+SKIN_PLUGINS_TARGET = "/usr/share/enigma2/MetrixHD/skin_00p_plugins.MySkin.xml"
 SKIN_PLUGINS_TARGET_TMP = SKIN_PLUGINS_TARGET + ".tmp"
 
-SKIN_CHECK_SOURCE = "/usr/share/enigma2/MetrixHD/skin_04_check.xml"
-SKIN_CHECK_TARGET = "/usr/share/enigma2/MetrixHD/skin_04_check.MySkin.xml"
-SKIN_CHECK_TARGET_TMP = SKIN_CHECK_TARGET + ".tmp"
-
-SKIN_UNCHECKED_SOURCE = "/usr/share/enigma2/MetrixHD/skin_05_screens_unchecked.xml"
-SKIN_UNCHECKED_TARGET = "/usr/share/enigma2/MetrixHD/skin_05_screens_unchecked.MySkin.xml"
+SKIN_UNCHECKED_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00u_unchecked.xml"
+SKIN_UNCHECKED_TARGET = "/usr/share/enigma2/MetrixHD/skin_00u_unchecked.MySkin.xml"
 SKIN_UNCHECKED_TARGET_TMP = SKIN_UNCHECKED_TARGET + ".tmp"
 
-SKIN_USER_SOURCE = "/usr/share/enigma2/MetrixHD/skin_10_user.xml"
-SKIN_USER_TARGET = "/usr/share/enigma2/MetrixHD/skin_10_user.MySkin.xml"
-SKIN_USER_TARGET_TMP = SKIN_USER_TARGET + ".tmp"
+SKIN_DESIGN_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00z_design.xml"
+SKIN_DESIGN_TARGET = "/usr/share/enigma2/MetrixHD/skin_00z_design.MySkin.xml"
+SKIN_DESIGN_TARGET_TMP = SKIN_DESIGN_TARGET + ".tmp"
 #############################################################
 
 MAIN_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/%s.png"
