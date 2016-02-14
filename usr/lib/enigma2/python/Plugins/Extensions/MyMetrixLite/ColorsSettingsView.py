@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, initColorsConfig, initOtherConfig, appendSkinFile, SKIN_TARGET_TMP, SKIN_SOURCE, COLOR_IMAGE_PATH, MAIN_IMAGE_PATH
+from . import _, initColorsConfig, initOtherConfig, COLOR_IMAGE_PATH, MAIN_IMAGE_PATH
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap

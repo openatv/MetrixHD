@@ -1580,6 +1580,12 @@ class MainSettingsView(Screen):
         else:
             self.FolderCopy(target,spath,dpath,npath,True)
 
+        #plugin Infobar Tunerstate
+        spath = "/usr/share/enigma2/MetrixHD/%s/copy/ibts/" % self.EHDres
+        dpath = "/usr/share/enigma2/MetrixHD/ibts/"
+        npath = ""
+        self.FolderCopy(target,spath,dpath,npath,True)
+
     def FolderCopy(self, target, spath, dpath, npath, del_dpath = False):
         if target != "HD" and path.exists(spath) and path.exists(dpath) and not del_dpath:
             if not path.exists(npath):

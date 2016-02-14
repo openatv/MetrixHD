@@ -1,5 +1,5 @@
-<!-- cf#_#begin -->
 <skin>
+<!-- cf#_#begin -->
 	<!--About/Info Screens-->
 	<screen name="AboutOE" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -361,7 +361,7 @@
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="infotext" position="70,110" size="700,500" font="SetrixHD;18" zPosition="3" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_mainmenu_info.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/info.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="NetworkNfs" title="NFS Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
@@ -543,7 +543,7 @@
 			<convert type="MenuEntryCompare">scart_switch</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_mainmenu_info.png" position="305,80" size="256,256" alphatest="blend">
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/info.png" position="305,80" size="256,256" alphatest="blend">
 			<convert type="MenuEntryCompare">info_screen</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
@@ -551,7 +551,7 @@
 			<convert type="MenuEntryCompare">plugin_selection</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_mainmenu_setup.png" position="305,80" size="256,256" alphatest="blend">
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/setup.png" position="305,80" size="256,256" alphatest="blend">
 			<convert type="MenuEntryCompare">setup_selection</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
@@ -587,7 +587,7 @@
 			<convert type="MenuEntryCompare">filecommand</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/mqb.png" position="305,80" size="256,256" alphatest="blend">
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/remotecontrol.png" position="305,80" size="256,256" alphatest="blend">
 			<convert type="MenuEntryCompare">multi_quick</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
@@ -649,14 +649,14 @@
 			<convert type="MenuEntryCompare">device_screen</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_information_service_info.png" position="305,80" size="256,256" alphatest="blend">
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/info.png" position="305,80" size="256,256" alphatest="blend">
 			<convert type="MenuEntryCompare">service_info_screen</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 	</screen>
 	<screen name="menu_setup" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/media1.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/service_info.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">video_menu</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
@@ -703,7 +703,7 @@
 	</screen>
 	<screen name="menu_video_menu" position="0,0" size="1280,720" title="Video menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/media1.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/service_info.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">video_setup</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
@@ -715,7 +715,7 @@
 			<convert type="MenuEntryCompare">video_finetune</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/media1.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/service_info.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">video_clipping</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
@@ -791,7 +791,7 @@
 			<convert type="MenuEntryCompare">buttonsetup_setup</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/mqb.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/remotecontrol.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">RCU Select</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
@@ -844,7 +844,7 @@
 			<convert type="ConditionalShowHide" />
 		</widget>
 		<!-- ... for systems with entry in menu_system and not in menu_extended /-->
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_fansetup_config.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/fan.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">tempfancontrol</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
@@ -871,7 +871,7 @@
 			<convert type="MenuEntryCompare">logs_setup</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_fansetup_config.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/fan.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">fansetup_config</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
@@ -879,7 +879,7 @@
 			<convert type="MenuEntryCompare">factory_reset</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_system_fansetup_config.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/fan.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">tempfancontrol</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
@@ -1201,7 +1201,7 @@
 		</widget>
 		<widget name="lab1" zPosition="2" position="126,170" size="600,40" font="Regular;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" transparent="1" />
 		<panel name="template1_2layer" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_mainmenu_info.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/info.png" transparent="1" alphatest="blend" />
 		<panel name="__e-buttons_template1" />
 	</screen>
 	<!--Infopanel-->
@@ -1211,7 +1211,7 @@
 		<!--widget name="label1" position="692,65" size="540,25" zPosition="1" font="Regular;15" halign="right" valign="top" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" /-->
 		<widget name="label1" position="825,425" size="385,175" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_mainmenu_info.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/info.png" transparent="1" alphatest="blend" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="Info" position="0,0" size="1280,720" title="Info" flags="wfNoBorder" backgroundColor="transparent">
@@ -1569,7 +1569,7 @@ self.instance.move(ePoint(0,0))
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/media1.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/service_info.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="AudioSetup" position="0,0" size="1280,720" title="Audio Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Basic settings" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -3791,7 +3791,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="r___-keys_template1-source" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_mainmenu_info.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/info.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="PluginBrowser" position="0,0" size="1280,720" title="Plugin browser" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Plugin browser" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
