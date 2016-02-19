@@ -1,5 +1,5 @@
-<!-- cf#_#begin -->
 <skin>
+<!-- cf#_#begin -->
 	<!--/* TEMPLATES -->
 		<!--/* BUTTONS /> -->
 		<screen name="INFOBARKEYSNONVISIBLE">
@@ -386,7 +386,7 @@
 			<eLabel backgroundColor="layer-b-background" position="259,45" size="116,61"/>
 			<widget backgroundColor="red" position="41,41" size="2,69" source="session.CurrentService" render="FixedLabel" zPosition="10">
 				<convert type="MetrixHDWeather">currentDataValid</convert>
-				<convert type="ConditionalShowHide">Invert</convert>>
+				<convert type="ConditionalShowHide">Invert</convert>
 			</widget>
 			<widget backgroundColor="layer-a-background" font="global_clock; 60" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="40,44" render="Label" size="84,70" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
 				<convert type="MetrixHDWeather">currentWeatherTemp</convert>
@@ -1217,6 +1217,24 @@
 			</widget>
 			<panel name="INFOBAREPGWIDGET_Layer" />
 			<!-- EPGWidget FHD */-->
+		</screen>
+<!-- cf#_#rename -->
+		<screen name="INFOBAREPGWIDGET#_UHDscreen">
+			<!--/* EPGWidget -->
+			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" font="epg_event; 78" halign="right" noWrap="1" position="210,1440" render="Label" size="1665,105" source="session.Event_Now" transparent="1" valign="bottom" zPosition="2">
+				<convert type="EventName">Name</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" font="epg_event; 78" halign="left" noWrap="1" position="1965,1374" render="Label" size="1665,105" source="session.Event_Next" transparent="1" valign="bottom" zPosition="2">
+				<convert type="EventName">Name</convert>
+			</widget>
+			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="epg_info; 60" halign="right" position="210,474" render="Label" size="1665,945" source="session.Event_Now" transparent="1" zPosition="1">
+				<convert type="EventName">FullDescription</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_info; 60" halign="left" position="1965,553" render="Label" size="1665,795" source="session.Event_Next" transparent="1" zPosition="1">
+				<convert type="EventName">FullDescription</convert>
+			</widget>
+			<panel name="INFOBAREPGWIDGET_Layer" />
+			<!-- EPGWidget */-->
 		</screen>
 <!-- cf#_#begin -->
 		<screen name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720">

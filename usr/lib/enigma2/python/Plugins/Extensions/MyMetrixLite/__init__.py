@@ -24,7 +24,7 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 from Components.config import config, ConfigSubsection, ConfigSelection, ConfigNumber, ConfigSelectionNumber, ConfigYesNo, ConfigText, ConfigInteger
 from os import path
 import gettext
-
+from boxbranding import getBoxType
 #############################################################
 
 PLUGIN_PATH = resolveFilename(SCOPE_PLUGINS, "Extensions/MyMetrixLite")
@@ -84,37 +84,26 @@ SKIN_EMC_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00g_EMC.xml"
 SKIN_EMC_TARGET = "/usr/share/enigma2/MetrixHD/skin_00g_EMC.MySkin.xml"
 SKIN_EMC_TARGET_TMP = SKIN_EMC_TARGET + ".tmp"
 
-SKIN_OPENATV_SOURCE = "/usr/share/enigma2/MetrixHD/skin_01_openatv.xml"
-SKIN_OPENATV_TARGET = "/usr/share/enigma2/MetrixHD/skin_01_openatv.MySkin.xml"
+SKIN_OPENATV_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00o_openatv.xml"
+SKIN_OPENATV_TARGET = "/usr/share/enigma2/MetrixHD/skin_00o_openatv.MySkin.xml"
 SKIN_OPENATV_TARGET_TMP = SKIN_OPENATV_TARGET + ".tmp"
 
-SKIN_DISPLAY_SOURCE = "/usr/share/enigma2/MetrixHD/skin_02_display.xml"
-SKIN_DISPLAY_TARGET = "/usr/share/enigma2/MetrixHD/skin_02_display.MySkin.xml"
-SKIN_DISPLAY_TARGET_TMP = SKIN_DISPLAY_TARGET + ".tmp"
-
-SKIN_PLUGINS_SOURCE = "/usr/share/enigma2/MetrixHD/skin_03_plugins.xml"
-SKIN_PLUGINS_TARGET = "/usr/share/enigma2/MetrixHD/skin_03_plugins.MySkin.xml"
+SKIN_PLUGINS_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00p_plugins.xml"
+SKIN_PLUGINS_TARGET = "/usr/share/enigma2/MetrixHD/skin_00p_plugins.MySkin.xml"
 SKIN_PLUGINS_TARGET_TMP = SKIN_PLUGINS_TARGET + ".tmp"
 
-SKIN_CHECK_SOURCE = "/usr/share/enigma2/MetrixHD/skin_04_check.xml"
-SKIN_CHECK_TARGET = "/usr/share/enigma2/MetrixHD/skin_04_check.MySkin.xml"
-SKIN_CHECK_TARGET_TMP = SKIN_CHECK_TARGET + ".tmp"
-
-SKIN_UNCHECKED_SOURCE = "/usr/share/enigma2/MetrixHD/skin_05_screens_unchecked.xml"
-SKIN_UNCHECKED_TARGET = "/usr/share/enigma2/MetrixHD/skin_05_screens_unchecked.MySkin.xml"
+SKIN_UNCHECKED_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00u_unchecked.xml"
+SKIN_UNCHECKED_TARGET = "/usr/share/enigma2/MetrixHD/skin_00u_unchecked.MySkin.xml"
 SKIN_UNCHECKED_TARGET_TMP = SKIN_UNCHECKED_TARGET + ".tmp"
 
-SKIN_USER_SOURCE = "/usr/share/enigma2/MetrixHD/skin_10_user.xml"
-SKIN_USER_TARGET = "/usr/share/enigma2/MetrixHD/skin_10_user.MySkin.xml"
-SKIN_USER_TARGET_TMP = SKIN_USER_TARGET + ".tmp"
+SKIN_DESIGN_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00z_design.xml"
+SKIN_DESIGN_TARGET = "/usr/share/enigma2/MetrixHD/skin_00z_design.MySkin.xml"
+SKIN_DESIGN_TARGET_TMP = SKIN_DESIGN_TARGET + ".tmp"
 #############################################################
 
 MAIN_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/%s.png"
-WEATHER_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/weather/%s.png"
 COLOR_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/colors/%s.png"
 FONT_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/fonts/%s.png"
-OTHER_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/other/%s.png"
-BACKUP_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/backup/%s.png"
 
 BACKUP_FILE = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/MyMetrixLiteBackup.dat"
 #############################################################
@@ -567,13 +556,48 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther = ConfigSubsection()
 
     #OtherSettings
-    #FHD-Option
-    config.plugins.MyMetrixLiteOther.FHDenabled = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.FHDrounddown = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.FHDfontsize = ConfigSelection(default = "2", choices = [("1", _("scale")), ("2", _("size")), ("3", _("50/50"))])
-    config.plugins.MyMetrixLiteOther.FHDfontoffset = ConfigSelectionNumber(-20, 20, 1, default = 0)
-    config.plugins.MyMetrixLiteOther.FHDpiconzoom =  ConfigSelection(default = "1.5", choices = [("1", _("No")), ("1.1", _("20%")), ("1.2", _("40%")), ("1.3", _("60%")), ("1.4", _("80%")), ("1.5", _("100%"))])
-    config.plugins.MyMetrixLiteOther.FHDadditionalfiles = ConfigYesNo(default=False)
+    #EHD-Option -> Enhanced HD
+    BoxType = getBoxType()
+    config.plugins.MyMetrixLiteOther.EHDtested = ConfigText(default = "%s_|_0" %BoxType)
+
+    skinmodes = [("0", _("Standard HD (1280x720)"))]
+    mode1080p = mode2160p = risk = False
+    try:
+        if path.exists("/proc/stb/video/videomode_choices"):
+            vmodes = open("/proc/stb/video/videomode_choices").read()
+            if '1080p' in vmodes:
+                mode1080p = True
+            if '2160p' in vmodes:
+                mode2160p = True
+        else:
+            risk = True
+    except:
+        print "[MyMetrixLite] - can't read video modes"
+        risk = True
+
+    tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
+    risktxt = _(" - box support unknown")
+    if len(tested) == 2:
+        if BoxType in tested[0] and '1' in tested[1]:
+            skinmodes.append(("1", _("Full HD (1920x1080)")))
+        elif mode1080p or risk:
+            skinmodes.append(("1", _("Full HD (1920x1080) %s") %risktxt))
+        if BoxType in tested[0] and '2' in tested[1]:
+            skinmodes.append(("2", _("Ultra HD (3840x2160)")))
+        elif mode2160p or risk:
+            skinmodes.append(("2", _("Ultra HD (3840x2160) %s") %risktxt))
+    else:
+        if mode1080p or risk:
+            skinmodes.append(("1", _("Full HD (1920x1080) %s") %risktxt))
+        if mode2160p or risk:
+            skinmodes.append(("2", _("Ultra HD (3840x2160) %s") %risktxt))
+
+    config.plugins.MyMetrixLiteOther.EHDenabled = ConfigSelection(default = "0", choices = skinmodes)
+    config.plugins.MyMetrixLiteOther.EHDrounddown = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.EHDfontsize = ConfigSelection(default = "2", choices = [("1", _("scale")), ("2", _("size")), ("3", _("50/50"))])
+    config.plugins.MyMetrixLiteOther.EHDfontoffset = ConfigSelectionNumber(-20, 20, 1, default = 0)
+    config.plugins.MyMetrixLiteOther.EHDpiconzoom =  ConfigSelection(default = "1.0", choices = [("0", _("No")), ("0.2", _("20%")), ("0.4", _("40%")), ("0.6", _("60%")), ("0.8", _("80%")), ("1.0", _("100%"))])
+    config.plugins.MyMetrixLiteOther.EHDadditionalfiles = ConfigYesNo(default=False)
     #STB-Info
     config.plugins.MyMetrixLiteOther.STBDistance = ConfigSelectionNumber(1, 50, 1, default = 10)
     config.plugins.MyMetrixLiteOther.showCPULoad = ConfigYesNo(default=True)
@@ -668,16 +692,6 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.layeraunderlineshowmainlayer = ConfigYesNo(default=False)
     #preset
     config.plugins.MyMetrixLiteOther.SkinDesignExamples = ConfigSelection(default = "preset_0", choices = skinDesignPresetList)
-    #SkinParts
-    config.plugins.MyMetrixLiteOther.user11file = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.user12file = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.user13file = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.user14file = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.user15file = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.user16file = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.user17file = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.user18file = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.user19file = ConfigYesNo(default=False)
 
 #######################################################################
 

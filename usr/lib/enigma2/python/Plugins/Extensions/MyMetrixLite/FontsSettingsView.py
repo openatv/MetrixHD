@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, initFontsConfig, appendSkinFile, SKIN_TARGET_TMP, SKIN_SOURCE, FONT_IMAGE_PATH, MAIN_IMAGE_PATH
+from . import _, initFontsConfig, FONT_IMAGE_PATH, MAIN_IMAGE_PATH
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap

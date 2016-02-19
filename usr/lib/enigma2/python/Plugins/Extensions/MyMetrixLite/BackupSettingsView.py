@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, MAIN_IMAGE_PATH, BACKUP_IMAGE_PATH, BACKUP_FILE, initColorsConfig, initWeatherConfig, initOtherConfig, initFontsConfig
+from . import _, MAIN_IMAGE_PATH, BACKUP_FILE, initColorsConfig, initWeatherConfig, initOtherConfig, initFontsConfig
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
@@ -145,14 +145,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
         return list
 
     def GetPicturePath(self):
-        try:
-            returnValue = self["config"].getCurrent()[1].value
-            picturepath = BACKUP_IMAGE_PATH % returnValue
-            if not path.exists(picturepath):
-                picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteBackup"
-        except:
-            picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteBackup"
-        return picturepath
+        return MAIN_IMAGE_PATH % "MyMetrixLiteBackup" 
 
     def UpdatePicture(self):
         self.PicLoad.PictureData.get().append(self.DecodePicture)
@@ -260,10 +253,6 @@ class BackupSettingsView(ConfigListScreen, Screen):
 
 		self.message(_("Settings successfully restored."), MessageBox.TYPE_INFO, False)
 
-		self.d.exit()
-		self.c.exit()
-		self.b.exit()
-		self.a.exit()
 		self.exit()
 
     def message(self, text, type, hwshow =  True):
@@ -399,18 +388,10 @@ class BackupSettingsView(ConfigListScreen, Screen):
         self.close()
 
     def __defaults(self):
-        self.a = self.session.open(ColorsSettingsView)
-        self.a.hide()
-        self.a.defaults()
-        self.b = self.session.open(FontsSettingsView)
-        self.b.hide()
-        self.b.defaults()
-        self.c = self.session.open(OtherSettingsView)
-        self.c.hide()
-        self.c.defaults()
-        self.d = self.session.open(WeatherSettingsView)
-        self.d.hide()
-        self.d.defaults()
+        ColorsSettingsView(None).defaults()
+        FontsSettingsView(None).defaults()
+        OtherSettingsView(None).defaults()
+        WeatherSettingsView(None).defaults()
 
     def __changedEntry(self, refresh = False):
         if not self.file:

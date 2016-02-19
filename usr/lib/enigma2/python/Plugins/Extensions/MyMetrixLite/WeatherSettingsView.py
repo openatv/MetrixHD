@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, initWeatherConfig, WEATHER_IMAGE_PATH, MAIN_IMAGE_PATH
+from . import _, initWeatherConfig, MAIN_IMAGE_PATH
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
@@ -131,14 +131,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
         return list
 
     def GetPicturePath(self):
-        try:
-            returnValue = self["config"].getCurrent()[1].value
-            picturepath = WEATHER_IMAGE_PATH % returnValue
-            if not path.exists(picturepath):
-                picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteWeather"
-        except:
-            picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteWeather"
-        return picturepath
+        return MAIN_IMAGE_PATH % "MyMetrixLiteWeather"
 
     def UpdatePicture(self):
         self.PicLoad.PictureData.get().append(self.DecodePicture)
