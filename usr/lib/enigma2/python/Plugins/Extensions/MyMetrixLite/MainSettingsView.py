@@ -1447,14 +1447,12 @@ class MainSettingsView(Screen):
 			self.makeColorGradient(cgfile, int(1280*factor), int(80*factor), color, int(8*factor), False)
 		else:
 			if path.isfile(cgfile): remove(cgfile)
-
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_top_ib.png"
 		if color:
 			self.makeColorGradient(cgfile, int(1280*factor), int(30*factor), color, int(3*factor), True)
 		else:
 			if path.isfile(cgfile): remove(cgfile)
 		# layer a
-
 		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.layerabackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_top_qm.png"
 		if color:
