@@ -1096,6 +1096,10 @@
 			<convert type="MenuEntryCompare">streamconvert</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_scan_fast_scan.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">fastscan</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/pluginmanager.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">sundtek_control_enter</convert>
 			<convert type="ConditionalShowHide" />
@@ -4533,26 +4537,4 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="number" position="155,26" size="100,40" halign="center" valign="bottom" font="screen_info;40" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" />
 	</screen>
 	<!-- DVDPlayer -->
-	<!--programmlisten-updater /-->
-	<screen name="Programmlisten_Updater" position="0,0" size="1308,720" flags="wfNoBorder" backgroundColor="transparent"> 
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" noWrap="1" valign="bottom" font="global_title;30" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="MenuListSetting" position="70,110" size="560,510" itemHeight="40" font="screen_text; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget name="description" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/> 
-		<widget name="update" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="screen_info; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<panel name="template1_2layer" />
-		<panel name="rgy_-buttons_template1" />
-		<panel name="rgy_-keys_template1-source" />
-		<panel name="moe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_autobouquetsmakermaker.png" transparent="1" alphatest="blend" /> 
-	</screen>
-	<screen name="PU_Restore" position="0,0" size="1308,720" flags="wfNoBorder" backgroundColor="transparent"> 
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" noWrap="1" valign="bottom" font="global_title;30" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="ListSetting" position="70,110" size="560,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<panel name="template1_2layer" />
-		<panel name="rgy_-buttons_template1" />
-		<panel name="rgy_-keys_template1-source" />
-		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_autobouquetsmakermaker.png" transparent="1" alphatest="blend" /> 
-	</screen>
-	<!--programmlisten-updater /-->
 </skin>
