@@ -108,8 +108,7 @@ FONT_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/image
 BACKUP_FILE = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/MyMetrixLiteBackup.dat"
 #############################################################
 
-def initColorsConfig():
-    ColorList = [
+ColorList = [
         ("F0A30A", _("Amber")),
         ("825A2C", _("Brown")),
         ("0050EF", _("Cobalt")),
@@ -122,6 +121,7 @@ def initColorsConfig():
         ("6A00FF", _("Indigo")),
         ("5FA816", _("Brightgreen")),
         ("70AD11", _("Green")),
+        ("009A93", _("Turquoise")),
         ("008A00", _("Emerald")),
         ("76608A", _("Mauve")),
         ("0000CD", _("Mediumblue")),
@@ -153,6 +153,32 @@ def initColorsConfig():
         ("FAFAFA", _("Greyscale 13")),
         ("FFFFFF", _("White"))
     ]
+
+TransparencyList=[
+        ("00", _("0%")),
+        ("0D", _("5%")),
+        ("1A", _("10%")),
+        ("27", _("15%")),
+        ("34", _("20%")),
+        ("40", _("25%")),
+        ("4D", _("30%")),
+        ("5A", _("35%")),
+        ("67", _("40%")),
+        ("74", _("45%")),
+        ("80", _("50%")),
+        ("8D", _("55%")),
+        ("9A", _("60%")),
+        ("A7", _("65%")),
+        ("B4", _("70%")),
+        ("C0", _("75%")),
+        ("CD", _("80%")),
+        ("DA", _("85%")),
+        ("E7", _("90%")),
+        ("F4", _("95%")),
+        ("FF", _("100%"))
+    ]
+
+def initColorsConfig():
 
     BorderList = [
         ("F0A30A", _("Amber")),
@@ -212,30 +238,6 @@ def initColorsConfig():
         ("8px", _("8 px")),
         ("9px", _("9 px")),
         ("10px", _("10 px"))
-    ]
-
-    TransparencyList=[
-        ("00", _("0%")),
-        ("0D", _("5%")),
-        ("1A", _("10%")),
-        ("27", _("15%")),
-        ("34", _("20%")),
-        ("40", _("25%")),
-        ("4D", _("30%")),
-        ("5A", _("35%")),
-        ("67", _("40%")),
-        ("74", _("45%")),
-        ("80", _("50%")),
-        ("8D", _("55%")),
-        ("9A", _("60%")),
-        ("A7", _("65%")),
-        ("B4", _("70%")),
-        ("C0", _("75%")),
-        ("CD", _("80%")),
-        ("DA", _("85%")),
-        ("E7", _("90%")),
-        ("F4", _("95%")),
-        ("FF", _("100%"))
     ]
 
     SkinColorPresetList = [
@@ -372,6 +374,9 @@ def initColorsConfig():
     config.plugins.MyMetrixLiteColors.optionallayerhorizontaltransparency = ConfigSelection(default="1A", choices = TransparencyList)
     config.plugins.MyMetrixLiteColors.optionallayerverticalbackground = ConfigSelection(default="27408B", choices = ColorList)
     config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency = ConfigSelection(default="1A", choices = TransparencyList)
+
+    gradientcolor = [('0', _('disabled')), ('1', _('same as background')), ('25', _('%s darker than background')%'25%') , ('50',  _('%s darker than background')%'50%'), ('75',  _('%s darker than background')%'75%')] + ColorList
+    config.plugins.MyMetrixLiteColors.cologradient = ConfigSelection(default='0', choices = gradientcolor)
 
 #############################################################
 

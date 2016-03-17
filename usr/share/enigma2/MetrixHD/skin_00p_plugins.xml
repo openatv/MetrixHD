@@ -1751,10 +1751,35 @@
 	<!--WebradioFS-TEMPLATES -->
 	<screen name="WebradioFSScreen_template">
 		<widget source="Title" render="Label" position="58,36" size="900,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" noWrap="0" transparent="1" />
-		<widget name="rec_pic" position="75,107" pixmap="MetrixHD/icons/ico_rec_on.png" size="45,23" zPosition="2" alphatest="blend" /> 
+		<widget name="rec_pic" position="75,112" pixmap="MetrixHD/icons/ico_rec_on.png" size="45,23" zPosition="2" alphatest="blend" /> 
 		<widget name="rec_txt" position="70,110" size="700,35" font="screen_text;22" halign="center" valign="center" foregroundColor="layer-a-accent1" zPosition="2" backgroundColor="layer-a-background" transparent="1"/> 
-		<widget name="rec_txt2" position="100,100" size="700,35" font="screen_text;22" halign="center" valign="center" foregroundColor="#00f47d19" zPosition="3" backgroundColor="layer-a-background" transparent="1"/> 
-		<widget name="streamlist" zPosition="2" position="70,145" size="700,390" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" /> 
+		<widget name="rec_txt2" position="70,100" size="700,35" font="screen_text;22" halign="center" valign="center" foregroundColor="#00f47d19" zPosition="3" backgroundColor="layer-a-background" transparent="1"/> 
+		<widget source="streamlist" render="Listbox" position="70,145" size="700,390" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" scrollbarMode="showOnDemand" zPosition="2" enableWrapAround="1" >
+			<convert type="TemplatedMultiContent" transparent="0">
+				{"templates": 
+								{"default": (30,[
+						MultiContentEntryPixmapAlphaTest(pos = (5, 2), size = (30, 30), png = 2), # index 2: picture
+						MultiContentEntryText(pos = (40, 0), size = (680, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1: text
+						]),
+								"info": (30,[
+						MultiContentEntryText(pos = (5, 1), size = (170, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, border_width = 0, text = 0), # index 1: text
+						MultiContentEntryText(pos = (220, 1), size = (480, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, color=0xf47d19,color_sel=0xf47d19, border_width = 0, text = 1)
+						],False),
+				"menus": (30,[
+						MultiContentEntryText(pos = (5, 0), size = (700, 30), font=0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, text = 1), # index 1: text
+						]),
+				"about": (30,[
+						MultiContentEntryText(pos = (0, 0), size = (700, 30), font=0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0xf47d19,color_sel=0xf47d19, border_width = 0, text = 0)
+						],False),
+				"genre": (30,[
+						MultiContentEntryText(pos = (5, 0), size = (700, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, border_width = 0, text = 1)
+						])
+				},		
+				"fonts": [gFont("Regular", 20),gFont("Regular", 24)],
+				"itemHeight": 50
+				}
+			</convert>
+		</widget>
 		<widget source="playtext" render="Label" position="70,553" zPosition="2" size="1140,63" font="screen_info;20" valign="center" halign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="0" /> 
 		<eLabel position="60,618" size="1160,2" backgroundColor="layer-a-accent2"/>
 		<eLabel position="800,100" size="2,450" backgroundColor="layer-a-accent2"/>
@@ -1791,7 +1816,7 @@
 		<widget name="cover2" zPosition="12" size="400,400" position="0,282" alphatest="blend" />
 	</screen>
 	<!--WebradioFS-TEMPLATES -->
-	<screen name="WebradioFSScreen_12" position="0,0" backgroundColor="transparent" flags="wfNoBorder" size="1280,720" title="webradioFS" >
+	<screen name="WebradioFSScreen_13" position="0,0" backgroundColor="transparent" flags="wfNoBorder" size="1280,720" title="webradioFS" >
 		<panel name="WebradioFSScreen_template" />
 		<widget name="buttons_abdeck" position="220,635" zPosition="12" size="825,40" valign="center" font="global_button;20" halign="center" foregroundColor="layer-a-background" backgroundColor="layer-a-background" />
 		<panel name="rgyb-buttons_template1" />
@@ -1800,22 +1825,22 @@
 		<ePixmap position="950,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
 		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="blend" />
 	</screen>
-	<screen name="genre_anzeige_12" position="0,0" backgroundColor="transparent" flags="wfNoBorder" size="1280,720" title="webradioFS" >
+	<screen name="genre_anzeige_13" position="0,0" backgroundColor="transparent" flags="wfNoBorder" size="1280,720" title="webradioFS" >
 		<panel name="WebradioFSScreen_template" />
 		<panel name="WebradioFSIcon_template" />
 		<widget name="green_pic" pixmap="MetrixHD/buttons/key_green.png" position="218,635" size="30,40" alphatest="blend" />
 	</screen>
-	<screen name="menu_12" position="0,0" backgroundColor="transparent" flags="wfNoBorder" size="1280,720" title="webradioFS" >
+	<screen name="menu_13" position="0,0" backgroundColor="transparent" flags="wfNoBorder" size="1280,720" title="webradioFS" >
 		<panel name="WebradioFSScreen_template" />
 		<panel name="WebradioFSIcon_template" />
 	</screen>
-	<screen name="groups_12" position="0,0" size="1280,720" title="webradioFS" backgroundColor="transparent" >
+	<screen name="groups_13" position="0,0" size="1280,720" title="webradioFS" backgroundColor="transparent" >
 		<panel name="WebradioFSScreen_template" />
 		<panel name="WebradioFSIcon_template" />
 		<panel name="rg__-keys_template1" />
 		<panel name="rg__-buttons_template1" />
 	</screen>
-	<screen name="wbrFS_r_site" position="830,98" size="390,450" flags="wfNoBorder" backgroundColor="transparent" >
+	<screen name="wbrFS_r_site13" position="830,98" size="390,450" flags="wfNoBorder" backgroundColor="transparent" >
 		<eLabel name="layer1" position="0,0" zPosition="-10" size="390,450" backgroundColor="layer-a-background" />
 		<widget name="streamlogo" position="45,10" size="300,75" alphatest="blend" />
 		<widget name="fav_name" position="0,35" size="390,30" font="screen_text;20" halign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -1835,23 +1860,23 @@
 		<widget name="subdirs" position="170,5" size="50,30" alphatest="blend" />
 		<widget name="auto" position="330,5" size="50,30" alphatest="blend" />
 	</screen>
-	<screen name="WebradioFSSetup_12" position="0,0" size="1280,720" title="webradioFS" backgroundColor="transparent" >
+	<screen name="WebradioFSSetup_13" position="0,0" size="1280,720" title="webradioFS" backgroundColor="transparent" >
 		<panel name="WebradioFSSetup_template" />
 		<panel name="WebradioFSIcon_template" />
 	</screen>
-	<screen name="Fav_edit_12" position="0,0" size="1280,720" title="webradioFS" backgroundColor="transparent" >
+	<screen name="Fav_edit_13" position="0,0" size="1280,720" title="webradioFS" backgroundColor="transparent" >
 		<panel name="WebradioFSSetup_template" />
 		<panel name="WebradioFSIcon_template" />
 	</screen>
-	<screen name="WebradioFS_FB_Setup_12" position="0,0" size="1280,720" title="webradioFS" backgroundColor="transparent" >
+	<screen name="WebradioFS_FB_Setup_13" position="0,0" size="1280,720" title="webradioFS" backgroundColor="transparent" >
 		<panel name="WebradioFSSetup_template" />
 		<panel name="WebradioFSIcon_template" />
 	</screen>
-	<screen name="rec_menu_12" position="0,0" size="1280,720" title="webradioFS" backgroundColor="transparent" >
+	<screen name="rec_menu_13" position="0,0" size="1280,720" title="webradioFS" backgroundColor="transparent" >
 		<panel name="WebradioFSSetup_template" />
 		<panel name="WebradioFSIcon_template" />
 	</screen>
-	<screen name="col_set_12" position="0,0" size="1280,720" title="webradioFS" backgroundColor="transparent" >
+	<screen name="col_set_13" position="0,0" size="1280,720" title="webradioFS" backgroundColor="transparent" >
 		<panel name="WebradioFSSetup_template" />
 		<panel name="WebradioFSIcon_template" />
 	</screen>
@@ -1859,7 +1884,7 @@
 		<panel name="WebradioFSSetup_template" />
 		<panel name="WebradioFSIcon_template" />
 	</screen>
-	<screen name="setDisplay" position="0,0" size="1280,720" title="webradioFS" backgroundColor="transparent" >
+	<screen name="webradioFSsetDisplay" position="0,0" size="1280,720" title="webradioFS" backgroundColor="transparent" >
 		<widget source="Title" render="Label" position="58,36" size="900,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" noWrap="0" transparent="1" />
 		<eLabel text="Display Settings" position="100,100" size="700,35" font="screen_text;22" halign="center" valign="center" foregroundColor="#00f47d19" zPosition="3" backgroundColor="layer-a-background" transparent="1"/> 
 		<widget name="config" position="70,145" size="700,390" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1"/>
@@ -1873,10 +1898,10 @@
 		<panel name="WebradioFSIcon_template" />
 		<panel name="template1_1layer" />
 	</screen>
-	<screen name="wbrScreenSaver_12" position="0,0" zPosition="10" size="1280,720" flags="wfNoBorder" backgroundColor="#00000000" title="" >
+	<screen name="wbrScreenSaver_13" position="0,0" zPosition="10" size="1280,720" flags="wfNoBorder" backgroundColor="#00000000" title="" >
 		<panel name="wbrScreenSaver_template" />
 	</screen>
-	<screen name="wbrfs_col_12" position="0,0" zPosition="10" size="1280,720" flags="wfNoBorder" backgroundColor="#00000000" title="" >
+	<screen name="wbrfs_col_13" position="0,0" zPosition="10" size="1280,720" flags="wfNoBorder" backgroundColor="#00000000" title="" >
 		<panel name="wbrScreenSaver_template" />
 	</screen>
 	<!--WebradioFS -->
@@ -2325,5 +2350,143 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pplayer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- PicturePlayer -->
+	<!-- XMLTV Import -->
+	<screen name="XMLTVImportConfig" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="XMLTV Import Configuration" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="71,110" size="700,300" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="statusbar" position="70,532" size="700,34" font="Regular;20" foregroundColor="layer-a-title-foreground" />
+		<widget name="status" position="70,454" size="700,60" font="Regular;20" foregroundColor="layer-a-title-foreground" />
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1-source" />
+		<panel name="ime-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_epgloadsave_menu_loadepgcache.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="XMLTVImportSources" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="XMLTV Import Sources" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,110" size="700,420" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="list" position="70,110" size="700,420" scrollbarMode="showOnDemand" />
+		<panel name="template1_2layer" />
+		<panel name="rgy_-buttons_template1" />
+		<panel name="rgy_-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_epg_epg_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+		<screen name="XMLTVImportProfile" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Days Profile" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,110" size="700,420" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_epg_epg_setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- XMLTV Import -->
+	<!-- GigaBlue IPBox Client -->
+	<screen name="GBIpboxMenu" position="0,0" size="1280,720" title="IPBox Client" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget source="text" render="Label" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_streamconvert.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- GigaBlue IPBox Client -->
+	<!--programmlisten-updater /-->
+	<screen name="Programmlisten_Updater" position="0,0" size="1308,720" flags="wfNoBorder" backgroundColor="transparent"> 
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" noWrap="1" valign="bottom" font="global_title;30" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="MenuListSetting" position="70,110" size="560,510" itemHeight="40" font="screen_text; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="description" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/> 
+		<widget name="update" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="screen_info; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rgy_-buttons_template1" />
+		<panel name="rgy_-keys_template1-source" />
+		<panel name="ime-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_autobouquetsmakermaker.png" transparent="1" alphatest="blend" /> 
+	</screen>
+	<screen name="PU_Restore" position="0,0" size="1308,720" flags="wfNoBorder" backgroundColor="transparent"> 
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" noWrap="1" valign="bottom" font="global_title;30" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="ListSetting" position="70,110" size="560,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rgy_-buttons_template1" />
+		<panel name="rgy_-keys_template1-source" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_autobouquetsmakermaker.png" transparent="1" alphatest="blend" /> 
+	</screen>
+	<screen name="PU_History" position="0,0" size="1308,720" flags="wfNoBorder" backgroundColor="transparent"> 
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" noWrap="1" valign="bottom" font="global_title;30" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="History" position="70,110" size="720,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="r___-buttons_template1" />
+		<panel name="r___-keys_template1-source" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_autobouquetsmakermaker.png" transparent="1" alphatest="blend" /> 
+	</screen>
+	<!--programmlisten-updater /-->
+	<!-- Fast Scan -->
+	<screen name="FastScanScreen" position="0,0" size="1280,720" title="Fast Scan" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget source="introduction" render="Label" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<eLabel text="Cancel" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="r___-buttons_template1" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_fast_scan.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="FastScanStatus" position="0,0" size="1280,720" title="Service Scan" flags="wfNoBorder" backgroundColor="transparent">
+		<widget name="Title" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="frontend" pixmap="skin_default/icons/scan-s.png" position="995,420" size="64,64" transparent="1" alphatest="blend"/>
+		<widget name="scan_state" position="70,180" size="700,30" zPosition="2" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="scan_progress" position="70,250" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/search.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- Fast Scan -->
+	<!-- Blindscan -->
+	<screen name="Blindscan" position="0,0" size="1280,720" title="Blindscan" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget source="introduction" render="Label" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<eLabel text="Cancel" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="r___-buttons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="SatBlindscanState" position="0,0" size="1280,720" title="Satellite Blindscan" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="550,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="progress" position="75,66" foregroundColor="layer-a-title-foreground" size="700,50" noWrap="1" valign="bottom" font="global_title;20" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="list" render="Listbox" position="70,120" size="700,500" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+			<convert type="TemplatedMultiContent">
+				{"template": [ MultiContentEntryText(pos = (5, 2), size = (514, 22), flags = RT_HALIGN_LEFT, text = 0) ],
+				 "fonts": [gFont("Regular", 19)],
+				 "itemHeight": 25
+				}
+			</convert>
+		</widget>
+		<widget name="post_action" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<eLabel text="Cancel" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<eLabel text="Change" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- Blindscan -->
+	<!-- SpinnerSelector -->
+	<screen name="SpinnerSelectionBox" position="center,center" size="1280,720" title="SpinnerSelector" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" size="550,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="text" position="70,115" size="700,30" font="screen_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+		<widget name="list" position="70,165" size="700,445" itemHeight="26" font="screen_text;20" scrollbarMode="showOnDemand" />
+		<eLabel backgroundColor="transparent" position="850,245" size="340,205" transparent="0" zPosition="-1"/>
+		<widget name="bild" position="890,250" zPosition="1" size="300,200" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
+	<!-- SpinnerSelector -->
 <!-- PLUGINS */-->
 </skin>

@@ -780,7 +780,7 @@ class MainSettingsView(Screen):
             DESIGNSkinSearchAndReplace.append(['<panel name="INFOBAREXTENDEDINFO-1" />', '<panel name="INFOBAREXTENDEDINFO-' + config.plugins.MyMetrixLiteOther.ExtendedinfoStyle.value + '" />' ])
 
             # color gradient for ib,sib,mb,ibepg and quickemenu
-            if config.plugins.MyMetrixLiteOther.SkinDesignInfobarColorGradient.value:
+            if config.plugins.MyMetrixLiteColors.cologradient.value != '0': # config.plugins.MyMetrixLiteOther.SkinDesignInfobarColorGradient.value:
                 old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_ib.png" position="0,640" size="1280,80" zPosition="-1" /-->'
                 new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_ib.png" position="0,640" size="1280,80" zPosition="-1" />'
                 DESIGNSkinSearchAndReplace.append([old, new ])
@@ -1433,27 +1433,51 @@ class MainSettingsView(Screen):
         skinReady = True
 
     def makeGraphics(self, factor):
+		# epg
+		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.epgbackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
+		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_bottom_epg.png"
+		if color:
+			self.makeColorGradient(cgfile, int(1280*factor), int(80*factor), color, int(8*factor), False)
+		else:
+			if path.isfile(cgfile): remove(cgfile)
+		# ib
+		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.infobarbackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
+		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_bottom_ib.png"
+		if color:
+			self.makeColorGradient(cgfile, int(1280*factor), int(80*factor), color, int(8*factor), False)
+		else:
+			if path.isfile(cgfile): remove(cgfile)
+		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_top_ib.png"
+		if color:
+			self.makeColorGradient(cgfile, int(1280*factor), int(30*factor), color, int(3*factor), True)
+		else:
+			if path.isfile(cgfile): remove(cgfile)
+		# layer a
+		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.layerabackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
+		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_top_qm.png"
+		if color:
+			self.makeColorGradient(cgfile, int(1280*factor), int(30*factor), color, int(3*factor), True)
+		else:
+			if path.isfile(cgfile): remove(cgfile)
 
-		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.epgbackground.value, -25)
-		self.makeColorGradient("/usr/share/enigma2/MetrixHD/colorgradient_bottom_epg.png", int(1280*factor), int(80*factor), color, int(16*factor), False)
-		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.infobarbackground.value, -25)
-		self.makeColorGradient("/usr/share/enigma2/MetrixHD/colorgradient_bottom_ib.png", int(1280*factor), int(80*factor), color, int(16*factor), False)
-		self.makeColorGradient("/usr/share/enigma2/MetrixHD/colorgradient_top_ib.png", int(1280*factor), int(30*factor), color, int(6*factor), True)
-		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.layerabackground.value, -25)
-		self.makeColorGradient("/usr/share/enigma2/MetrixHD/colorgradient_top_qm.png", int(1280*factor), int(30*factor), color, int(6*factor), True)
-
-    def makeNewColor(self, color, coloroption = None):
-		if coloroption is None:
+    def makeNewColor(self, color, coloroption):
+		if coloroption == '0':
+			return None
+		elif coloroption == '1':
 			return color
-		if type(coloroption) == int: #modify current color
-			r = int(color[-6:][:2],16) + coloroption
-			g = int(color[-4:][:2],16) + coloroption
-			b = int(color[-2:][:2],16) + coloroption
+		elif len(coloroption) < 6: #modify current color
+			coloroption = int(coloroption)
+			r = int(color[-6:][:2],16)
+			r -= r * 0.01 * int(coloroption)
+			g = int(color[-4:][:2],16)
+			g -= g * 0.01 * int(coloroption)
+			b = int(color[-2:][:2],16)
+			b -= b * 0.01 * int(coloroption)
 			if r < 0: r = 0
 			if g < 0: g = 0
 			if b < 0: b = 0
 			return "%.2x%.2x%.2x" %(int(r), int(g), int(b))
-		elif type(coloroption) == str and len(coloroption) == 6:
+		elif len(coloroption) == 6:
 			return coloroption
 		else:
 			return color
