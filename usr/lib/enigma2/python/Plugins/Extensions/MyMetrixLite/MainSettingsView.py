@@ -1662,7 +1662,7 @@ class MainSettingsView(Screen):
         tunerCount = nimmanager.getSlotCount()
 
         tunerCount = max(1, tunerCount)
-        tunerCount = min(6, tunerCount)
+        tunerCount = min(8, tunerCount)
 
         return tunerCount
 
