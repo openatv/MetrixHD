@@ -1562,11 +1562,6 @@ class MainSettingsView(Screen):
         dpath = "/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/icons/"
         self.FileCopy(target, spath, dpath)
 
-        #plugin webradioFS
-        spath = "/usr/share/enigma2/MetrixHD/%s/copy/Plugins/Extensions/webradioFS/skin/images/" % self.EHDres
-        dpath = "/usr/lib/enigma2/python/Plugins/Extensions/webradioFS/skin/images/"
-        self.FileCopy(target, spath, dpath)
-
     def FileCopy(self, target, spath, dpath):
         if target != "HD" and path.exists(spath) and path.exists(dpath):
             for file in listdir(spath):
