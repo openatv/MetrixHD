@@ -1747,63 +1747,62 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- openMultiboot Manager -->
-	<!--WebradioFS 14.32 -->
+	<!--WebradioFS > 14.32 -->
 	<!--WebradioFS-TEMPLATES -->
 	<screen name="WebradioFSScreen_template">
 		<widget source="Title" render="Label" position="58,36" size="900,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" noWrap="0" transparent="1" />
-		<widget name="rec_pic" position="75,112" pixmap="MetrixHD/icons/ico_rec_on.png" size="45,23" zPosition="2" alphatest="blend" /> 
-		<widget source="streamlist" render="Listbox" position="70,145" size="700,390" selectionDisabled="0" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" scrollbarMode="showOnDemand" zPosition="2" enableWrapAround="1" >
+		<widget name="rec_pic" position="75,104" pixmap="MetrixHD/icons/ico_rec_on.png" size="34,21" zPosition="2" alphatest="blend" /> 
+		<widget source="streamlist" render="Listbox" position="70,145" size="700,390" selectionDisabled="0" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" scrollbarMode="showNever" zPosition="2" enableWrapAround="1" >
 			<convert type="TemplatedMultiContent" transparent="0">
 				{"templates": 
 								{"default": (30,[
-						MultiContentEntryPixmapAlphaTest(pos = (5, 2), size = (30, 30), png = 2), # index 2: picture
-						MultiContentEntryText(pos = (40, 0), size = (680, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1: text
+						MultiContentEntryPixmapAlphaTest(pos = (5, 3), size = (30, 30), png = 2), # index 2: picture
+						MultiContentEntryText(pos = (40, 0), size = (660, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1: text
 						]),
 								"info": (30,[
 						MultiContentEntryText(pos = (5, 1), size = (170, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, border_width = 0, text = 0), # index 1: text
-						MultiContentEntryText(pos = (220, 1), size = (480, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, color=0xf47d19,color_sel=0xf47d19, border_width = 0, text = 1)
+						MultiContentEntryText(pos = (180, 1), size = (520, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, color=0xf47d19,color_sel=0xf47d19, border_width = 0, text = 1)
 						],False),
 				"menus": (30,[
-						MultiContentEntryText(pos = (5, 0), size = (700, 30), font=0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, text = 1), # index 1: text
+						MultiContentEntryText(pos = (5, 0), size = (695, 30), font=0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, text = 1), # index 1: text
 						]),
 				"about": (30,[
 						MultiContentEntryText(pos = (0, 0), size = (700, 30), font=0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0xf47d19,color_sel=0xf47d19, border_width = 0, text = 0)
 						],False),
 				"genre": (30,[
-						MultiContentEntryText(pos = (5, 0), size = (700, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, border_width = 0, text = 1)
+						MultiContentEntryText(pos = (5, 0), size = (695, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, border_width = 0, text = 1)
 						])
 				},		
-				"fonts": [gFont("Regular", 22),gFont("Regular", 20)],
+				"fonts": [gFont("Regular", 20),gFont("Regular", 19)],
 				"itemHeight": 30
 				}
 			</convert>
 		</widget>
-		<widget source="rec_text_new" render="Listbox" position="70,110" size="700,30" zPosition="2" selectionDisabled="1" scrollbarMode="showNever" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" >
+		<widget source="rec_text_new" render="Listbox" position="70,100" size="700,60" zPosition="1" selectionDisabled="1" scrollbarMode="showNever" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" >
 			<convert type="TemplatedMultiContent">
 				{"templates": 
 							{"default": (30,[
-						MultiContentEntryText(pos = (5, 0), size = (700, 28), font=0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0xB5B5B5, text = 0), # top-line over list 
+						MultiContentEntryText(pos = (5, 0), size = (695, 30), font=0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0xB5B5B5, text = 0), # top-line over list 
 						],False),
 							"cache": (30,[
-						MultiContentEntryText(pos = (35, 0), size = (665, 28), font=0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x58B74, text = 0), #cache-info 
+						MultiContentEntryText(pos = (35, 0), size = (665, 30), font=0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0x58B74, text = 0), #cache-info 
 						],False),
 				"record": (30,[
-						MultiContentEntryText(pos = (35, 0), size = (665, 28), font=0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0xFF4500, text = 0), # record-info
+						MultiContentEntryText(pos = (35, 0), size = (665, 30), font=0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0xFF4500, text = 0), # record-info
 						],False),
 				"timer": (30,[
-						MultiContentEntryText(pos = (35, 0), size = (665, 28), font=0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0xFFD800, text = 0), #record-timer-info
+						MultiContentEntryText(pos = (35, 0), size = (665, 30), font=0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0xFFD800, text = 0), #record-timer-info
 						],False),
-
 				"titel": (30,[
-						MultiContentEntryText(pos = (5, 0), size = (700, 28), font=0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0xf47d19, text = 0), #for list-titles
+						MultiContentEntryText(pos = (5, 0), size = (700, 30), font=0, flags = RT_HALIGN_CENTER|RT_VALIGN_CENTER, color=0xf47d19, text = 0), #for list-titles
 						],False),
 					},		
-				"fonts": [gFont("Regular", 20)],
+				"fonts": [gFont("Regular", 22)],
 				"itemHeight": 30
 				}
 			</convert>
 		</widget>
-		<widget source="playtext" render="Label" position="70,553" zPosition="2" size="1140,63" font="screen_info;20" valign="center" halign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="0" /> 
+		<widget source="playtext" render="Label" position="70,550" zPosition="2" size="1140,64" font="screen_info;24" valign="center" halign="center" foregroundColor="layer-a-background" backgroundColor="layer-a-background" borderColor="#00f47d19" borderWidth="1" transparent="0" /> 
 		<eLabel position="60,618" size="1160,2" backgroundColor="layer-a-accent2"/>
 		<eLabel position="800,100" size="2,450" backgroundColor="layer-a-accent2"/>
 		<eLabel position="60,548" size="1160,2" backgroundColor="layer-a-accent2"/>
@@ -1815,9 +1814,9 @@
 		<panel name="template1_1layer" />
 	</screen>
 	<screen name="WebradioFSSetup_template">
-		<widget source="Title" render="Label" position="58,36" size="900,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" noWrap="0" transparent="1" />
-		<widget source="playtext" render="Label" position="70,553" zPosition="2" size="1140,63" font="screen_info;20" valign="center" halign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="0" /> 
-		<widget name="rec_txt" position="70,110" size="700,35" font="screen_text;22" halign="center" valign="center" foregroundColor="#00f47d19" zPosition="2" backgroundColor="layer-a-background" transparent="1"/> 
+		<widget source="Title" render="Label" position="58,36" size="900,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" noWrap="1" transparent="1" />
+		<widget source="playtext" render="Label" position="70,550" zPosition="2" size="1140,64" font="screen_info;24" valign="center" halign="center" foregroundColor="layer-a-background" backgroundColor="layer-a-background" borderColor="#00f47d19" borderWidth="1" transparent="0" /> 
+		<widget name="rec_txt" position="70,100" size="700,30" font="screen_text;22" halign="center" valign="center" foregroundColor="#00f47d19" zPosition="2" backgroundColor="layer-a-background" transparent="1"/> 
 		<widget name="config" position="70,145" size="700,390" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1"/>
 		<eLabel position="60,618" size="1160,2" backgroundColor="layer-a-accent2"/>
 		<eLabel position="800,100" size="2,450" backgroundColor="layer-a-accent2"/>
@@ -1827,16 +1826,16 @@
 		<panel name="template1_1layer" />
 	</screen>
 	<screen name="WebradioFSIcon_template">
-		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/webradioFS/skin/images/wbrl.png" position="855,640" size="120,30" alphatest="blend" zPosition="5" transparent="1"/>
+		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/webradioFS/skin/images/wbrl.png" position="856,640" size="120,22" alphatest="blend" zPosition="5" transparent="1"/>
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="wbrScreenSaver_template">
 		<widget name="background1" position="0,0" size="1280,720" zPosition="11" transparent="0" backgroundColor="#00000000" />
-		<widget name="display_station" position="255,352" zPosition="12" size="600,70" font="screen_info;26" halign="left" transparent="1" foregroundColor="layer-a-accent2" noWrap="1" />
-		<widget name="display_time" position="255,282" zPosition="12" size="600,70" font="screen_info;26" halign="left" transparent="1" foregroundColor="layer-a-accent1" />
-		<widget name="display_nplaying" position="255,422" zPosition="12" size="600,70" font="screen_info;26" halign="left" transparent="1" foregroundColor="layer-a-accent2" />
-		<widget name="cover" zPosition="12" size="200,200" position="50,282" alphatest="blend" />
-		<widget name="cover2" zPosition="12" size="400,400" position="0,282" alphatest="blend" />
+		<widget name="display_time" position="260,0" zPosition="12" size="600,60" font="global_clock;22" halign="left" valign="top" transparent="1" foregroundColor="layer-a-accent1" borderColor="layer-a-accent2" borderWidth="1" />
+		<widget name="display_station" position="260,60" zPosition="12" size="600,40" font="screen_text;24" halign="left" valign="center" transparent="1" foregroundColor="layer-a-accent2" noWrap="1" borderColor="layer-a-accent1" borderWidth="1"/>
+		<widget name="display_nplaying" position="260,100" zPosition="12" size="600,100" font="screen_info;24" halign="left" valign="top" transparent="1" foregroundColor="layer-a-accent2" borderColor="#00f47d19" borderWidth="1" />
+		<widget name="cover" zPosition="12" size="200,200" position="0,0" alphatest="blend" />
+		<widget name="cover2" zPosition="12" size="400,400" position="0,0" alphatest="blend" />
 	</screen>
 	<!--WebradioFS-TEMPLATES -->
 	<screen name="WebradioFSScreen_13" position="0,0" backgroundColor="transparent" flags="wfNoBorder" size="1280,720" title="webradioFS" >
@@ -1875,7 +1874,7 @@
 		<widget name="zeile3b" position="110,150" size="260,25" font="screen_text;19" halign="left" foregroundColor="#00f47d19" backgroundColor="layer-a-background" transparent="1" noWrap="1" />
 		<widget name="zeile4" position="10,175" size="72,25" font="screen_label;18" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="zeile4b" position="110,175" size="260,50" font="screen_text;19" halign="left" foregroundColor="#00f47d19" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="picture" zPosition="0" position="95,225" size="200,198" alphatest="blend" /> 
+		<widget name="picture" zPosition="0" position="70,225" size="250,198" alphatest="blend" /> 
 		<widget name="playline2" position="10,70" size="368,5" pointer="MetrixHD/extensions/CoolPointer.png:980,0" transparent="1" foregroundColor="layer-a-progress">
 			<convert type="ServicePosition">Gauge</convert>
 		</widget> 
@@ -1929,7 +1928,7 @@
 	</screen>
 	<screen name="wbrfs_set_we" position="0,0" size="1280,720" title="Info" zPosition="99" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="900,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" noWrap="0" transparent="1" />
-		<widget name="warn" position="70,110" zPosition="1" size="700,240" valign="center" halign="center" font="Regular;22" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
+		<widget name="warn" position="70,100" zPosition="1" size="700,240" valign="center" halign="center" font="Regular;22" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
 		<widget name="config" position="70,400" size="700,120" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" />
 		<panel name="rg__-buttons_template1" />
 		<widget name="key_red" position="70,638" zPosition="3" size="170,30" valign="center" font="global_button;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" noWrap="1" transparent="1" />
