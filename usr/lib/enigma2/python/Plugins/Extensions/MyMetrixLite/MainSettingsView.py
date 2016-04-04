@@ -1459,6 +1459,11 @@ class MainSettingsView(Screen):
 			self.makeColorGradient(cgfile, int(1280*factor), int(30*factor), color, int(3*factor), True)
 		else:
 			if path.isfile(cgfile): remove(cgfile)
+		# ibts background
+		color = config.plugins.MyMetrixLiteColors.layerabackground.value
+		alpha = config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value
+		cgfile = "/usr/share/enigma2/MetrixHD/ibts/background.png"
+		self.makeColorField(cgfile, int(1280*factor), int(32*factor), color, alpha)
 
     def makeNewColor(self, color, coloroption):
 		if coloroption == '0':
@@ -1498,6 +1503,11 @@ class MainSettingsView(Screen):
 		if reverse:
 			imgb = imgb.transpose(Image.ROTATE_180)
 		imgb.save(name)
+
+    def makeColorField(self, name, sizex, sizey, color, alpha):
+		rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), 255 - int(alpha,16))
+		imga = Image.new("RGBA",(sizex, sizey), rgba)
+		imga.save(name)
 
     def getFHDiconRefresh(self,restore=False):
         # call from SystemPlugins/SoftwareManager/plugin.py after software update and Screens/SkinSelector.py after changing skin - not rename to EHD !!!
@@ -1562,6 +1572,11 @@ class MainSettingsView(Screen):
         dpath = "/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/icons/"
         self.FileCopy(target, spath, dpath)
 
+        #plugin Infobar Tunerstate
+        spath = "/usr/share/enigma2/MetrixHD/%s/copy/ibts/" % self.EHDres
+        dpath = "/usr/share/enigma2/MetrixHD/ibts/"
+        self.FileCopy(target,spath,dpath)
+
     def FileCopy(self, target, spath, dpath):
         if target != "HD" and path.exists(spath) and path.exists(dpath):
             for file in listdir(spath):
@@ -1605,12 +1620,6 @@ class MainSettingsView(Screen):
                 self.FolderCopy('FHD',"/usr/share/enigma2/MetrixHD/FHD/copy/emc/",dpath,npath,True)
         else:
             self.FolderCopy(target,spath,dpath,npath,True)
-
-        #plugin Infobar Tunerstate
-        spath = "/usr/share/enigma2/MetrixHD/%s/copy/ibts/" % self.EHDres
-        dpath = "/usr/share/enigma2/MetrixHD/ibts/"
-        npath = ""
-        self.FolderCopy(target,spath,dpath,npath,True)
 
     def FolderCopy(self, target, spath, dpath, npath, del_dpath = False):
         if target != "HD" and path.exists(spath) and path.exists(dpath) and not del_dpath:
