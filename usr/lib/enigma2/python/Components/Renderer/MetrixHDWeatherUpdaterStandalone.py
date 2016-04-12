@@ -36,6 +36,7 @@ from threading import Timer, Thread
 from time import time, strftime, localtime
 
 g_updateRunning = False
+g_isRunning = False
 
 initWeatherConfig()
 
@@ -44,39 +45,65 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
     def __init__(self, once=False, check=False):
         Renderer.__init__(self)
         VariableText.__init__(self)
-        #self.woeid = config.plugins.MetrixWeather.woeid.value
-        #self.verify = config.plugins.MetrixWeather.verifyDate.value #check for valid date
-        self.timer = None
-        self.refreshcnt = 0
         self.once = once
         self.check = check
-        self.getWeather()
+        self.timer = None
+        self.refreshcnt = 0
+        self.refreshcle = 0
+        if not g_isRunning or self.once or self.check:
+            self.getWeather()
 
     GUI_WIDGET = eLabel
 
     def __del__(self):
-        if self.timer is not None:
-            self.timer.cancel()
+        try:
+            if self.timer is not None:
+                self.timer.cancel()
+        except AttributeError:
+            pass
 
-    def startTimer(self, refresh=False, refreshtime=10):
+    def startTimer(self, refresh=False, refreshtime=None):
+        if not g_isRunning:
+            self.setWeatherDataValid(0)
         if self.once or self.check:
+            if self.once and refresh:
+                self.setWeatherDataValid(2)
             return
-        seconds = int(config.plugins.MetrixWeather.refreshInterval.value) * 60
 
-        if seconds < 60:
-            seconds = 300
-
-        if self.timer:
-            self.timer.cancel()
-            self.timer = None
+        seconds = interval = int(config.plugins.MetrixWeather.refreshInterval.value) * 60
+        if seconds > 1800:
+            pausetime = seconds
+        else:
+            pausetime = 1800
+        if not seconds:
+            seconds = pausetime
+        if refreshtime:
+            seconds = refreshtime
 
         if refresh:
+            datavalid = 0
             self.refreshcnt += 1
             if self.refreshcnt >= 6:
                 self.refreshcnt = 0
-                seconds = 300
-            else:
-                seconds = refreshtime
+                self.refreshcle += 1
+                if interval:
+                    datavalid = 1
+                else:
+                    datavalid = 2
+                if self.refreshcle >= 6:
+                    datavalid = 2
+                if datavalid == 1:
+                    print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " paused 5 mins, to many errors ..."
+                    seconds = 300
+                else:
+                    print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " aborted, to many errors ..."
+                    seconds = pausetime
+
+            self.setWeatherDataValid(datavalid)
+
+        if self.timer:
+            self.timer.cancel()
+            #self.timer = None
 
         self.timer = Timer(seconds, self.getWeather)
         self.timer.start()
@@ -84,21 +111,30 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
     def onShow(self):
         self.text = config.plugins.MetrixWeather.currentWeatherCode.value
 
+    def setWeatherDataValid(self, val):
+        config.plugins.MetrixWeather.currentWeatherDataValid.value = val # 0 = try to getting weather data, 1 = try to getting weather data paused, 2 = try to getting weather data aborted (to many error cycles), 3 = weather data valid
+        config.plugins.MetrixWeather.currentWeatherDataValid.save()
+
     def getWeather(self):
+        global g_updateRunning, g_isRunning
+
         # skip if weather-widget is disabled
-        if not self.check:
-            config.plugins.MetrixWeather.currentWeatherDataValid.value = False
         if config.plugins.MetrixWeather.enabled.getValue() is False:
             return
 
-        global g_updateRunning
         self.woeid = config.plugins.MetrixWeather.woeid.value
         self.verify = config.plugins.MetrixWeather.verifyDate.value #check for valid date
         self.startTimer()
+
+        valdata = config.plugins.MetrixWeather.currentWeatherDataValid.value
+        if ((valdata == 3 and (self.refreshcnt or self.refreshcle)) or (not int(config.plugins.MetrixWeather.refreshInterval.value) and valdata == 3) or valdata == 2) and not self.once and not self.check:
+            return
+
         if g_updateRunning:
             print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " skipped, allready running..."
             return
         g_updateRunning = True
+        g_isRunning = True
         Thread(target = self.getWeatherThread).start()
 
     def getWeatherThread(self):
@@ -118,7 +154,6 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
             file.close()
         except Exception as error:
             print "Cant get weather data: %r" % error
-            # cancel weather function
             g_updateRunning = False
             self.startTimer(True,30)
             if self.check:
@@ -142,6 +177,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
         if 'not found' in title:
             print "MetrixHDWeatherStandalone lookup for ID - " + title
             g_updateRunning = False
+            self.startTimer(True,30)
             if self.check:
                 text = "%s|" % title
                 self.writeCheckFile(text)
@@ -173,12 +209,12 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
         if not datevalid:
             #print "MetrixHDWeatherStandalone - get weather data failed. (current date = %s, returned date = %s)" %(currday, currentWeatherDate)
             g_updateRunning = False
-            self.startTimer(True)
+            self.startTimer(True,15)
             return
         #print "MetrixHDWeatherStandalone - get weather data successful. (current date = %s, returned date = %s)" %(currday, currentWeatherDate)
 
         config.plugins.MetrixWeather.currentLocation.value = city
-        config.plugins.MetrixWeather.currentWeatherDataValid.value = True
+        config.plugins.MetrixWeather.currentWeatherDataValid.value = 3
         config.plugins.MetrixWeather.currentWeatherCode.value = self.ConvertCondition(currentWeatherCode.nodeValue)
         config.plugins.MetrixWeather.currentWeatherTemp.value = self.getTemp(currentWeatherTemp.nodeValue)
         config.plugins.MetrixWeather.currentWeatherText.value = currentWeatherText.nodeValue
@@ -211,6 +247,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
         config.plugins.MetrixWeather.save()
         g_updateRunning = False
         self.refreshcnt = 0
+        self.refreshcle = 0
 
     def getText(self,nodelist):
         rc = []

@@ -498,7 +498,7 @@ def initWeatherConfig():
     config.plugins.MetrixWeather.enabled = ConfigYesNo(default=True)
     config.plugins.MetrixWeather.MoviePlayer = ConfigYesNo(default=True)
     config.plugins.MetrixWeather.verifyDate = ConfigYesNo(default=True)
-    config.plugins.MetrixWeather.refreshInterval = ConfigNumber(default=60)
+    config.plugins.MetrixWeather.refreshInterval = ConfigSelectionNumber(0, 1440, 30, default = 120, wraparound = True)
     config.plugins.MetrixWeather.woeid = ConfigNumber(default=676757) #Location (visit metrixhd.info)
     config.plugins.MetrixWeather.tempUnit = ConfigSelection(default="Celsius", choices = [
         ("Celsius", _("Celsius")),
@@ -508,7 +508,7 @@ def initWeatherConfig():
 
     ## RENDERER CONFIG:
 
-    config.plugins.MetrixWeather.currentWeatherDataValid = ConfigYesNo(default=False)
+    config.plugins.MetrixWeather.currentWeatherDataValid = ConfigNumber(default=0)
     config.plugins.MetrixWeather.currentLocation = ConfigText(default="N/A")
     config.plugins.MetrixWeather.currentWeatherCode = ConfigText(default="(")
     config.plugins.MetrixWeather.currentWeatherText = ConfigText(default="N/A")
