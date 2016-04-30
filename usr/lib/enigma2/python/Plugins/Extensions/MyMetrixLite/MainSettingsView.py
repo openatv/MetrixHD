@@ -1509,8 +1509,8 @@ class MainSettingsView(Screen):
 		imga = Image.new("RGBA",(sizex, sizey), rgba)
 		imga.save(name)
 
-    def getFHDiconRefresh(self,restore=False):
-        # call from SystemPlugins/SoftwareManager/plugin.py after software update and Screens/SkinSelector.py after changing skin - not rename to EHD !!!
+    def getEHDiconRefresh(self,restore=False):
+        # call from SystemPlugins/SoftwareManager/plugin.py after software update and Screens/SkinSelector.py after changing skin
         if config.plugins.MyMetrixLiteOther.EHDenabled.value == '0':
             self.EHDres = 'HD'
         elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '1':
