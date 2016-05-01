@@ -1398,7 +1398,7 @@ self.instance.move(ePoint(0,0))
 	<!--CCcaminfo-->
 	<screen name="CCcamInfoMain" position="0,0" size="1280,720" title="CCcam Info" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="menu" position="70,130" size="700,510" enableWrapAround="1" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
+		<widget name="menu" position="70,130" size="700,490" enableWrapAround="1" itemHeight="35" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/softcam.png" transparent="1" alphatest="blend" />
@@ -1414,7 +1414,7 @@ self.instance.move(ePoint(0,0))
 	</screen>
 	<screen name="CCcamInfoSubMenu" position="0,0" size="1280,720" title="CCcamInfo SubMenu" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,130" size="700,510" enableWrapAround="1" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
+		<widget name="list" position="70,130" size="700,480" enableWrapAround="1" itemHeight="60" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<widget name="info" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
@@ -3010,8 +3010,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="template1_1layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
-		<ePixmap position="950,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
+		<ePixmap position="950,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/info.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" transparent="1" alphatest="blend" />
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="RadioInfoBar" position="69,524" size="1142,102" title="Radio" zPosition="-9" flags="wfNoBorder" backgroundColor="layer-a-background">
@@ -3049,10 +3049,16 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<!-- EPG Screens -->
 	<screen name="GraphicalEPGPIG_1">
 		<eLabel text="Electronic Program Guide" position="58,36" size="800,50" valign="bottom" font="global_title;34" backgroundColor="epg-background" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<ePixmap position="584,46" size="36,36" zPosition="10" pixmap="MetrixHD/left.png" alphatest="on" />
+		<ePixmap position="980,46" size="36,36" zPosition="10" pixmap="MetrixHD/right.png" alphatest="on" />
+		<widget source="Title" render="Label" position="600,36" foregroundColor="epg-timeline-foreground" size="400,50" noWrap="1" halign="center" valign="bottom" font="global_title;34" backgroundColor="epg-background" transparent="1" />
 		<widget source="Event" render="Label" position="60,82" size="830,40" font="epg_event;24" backgroundColor="epg-background" foregroundColor="epg-event-foreground" transparent="0">
 			<convert type="EventName">Name</convert>
 		</widget>
 		<widget source="session.VideoPicture" render="Pig" position="895,95" size="326,183" zPosition="3" backgroundColor="unff000000" />
+		<widget source="session.CurrentService" render="Label" position="895,92" size="326,30" zPosition="4" font="epg_text; 18"  halign="center" valign="top" noWrap="1" backgroundColor="transparent" foregroundColor="epg-event-foreground" borderColor="black" borderWidth="1" transparent="1">
+			<convert type="ServiceName">Name</convert>
+		</widget>
 		<eLabel position="60,135" zPosition="0" size="830,142" backgroundColor="epg-eventdescription-background" transparent="0" />
 		<widget source="Event" render="Label" position="70,144" size="820,128" font="epg_info;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
 			<convert type="EventName">ExtendedDescription</convert>
@@ -3085,15 +3091,21 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="key_green" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="epg-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="key_yellow" position="436,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="epg-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="key_blue" position="619,638" size="220,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="epg-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="on" />
-		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
+		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/info.png" transparent="1" alphatest="on" />
+		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" transparent="1" alphatest="on" />
 	</screen>
 	<screen name="GraphicalEPGPIG_2">
 		<eLabel text="Electronic Program Guide" position="58,36" size="800,50" valign="bottom" font="global_title;34" backgroundColor="epg-background" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<ePixmap position="584,46" size="36,36" zPosition="10" pixmap="MetrixHD/left.png" alphatest="on" />
+		<ePixmap position="980,46" size="36,36" zPosition="10" pixmap="MetrixHD/right.png" alphatest="on" />
+		<widget source="Title" render="Label" position="600,36" foregroundColor="epg-timeline-foreground" size="400,50" noWrap="1" halign="center" valign="bottom" font="global_title;34" backgroundColor="epg-background" transparent="1" />
 		<widget source="Event" render="Label" position="60,82" size="658,40" font="epg_event;24" backgroundColor="epg-background" foregroundColor="epg-event-foreground" transparent="0">
 			<convert type="EventName">Name</convert>
 		</widget>
 		<widget source="session.VideoPicture" render="Pig" position="723,95" size="498,281" zPosition="3" backgroundColor="unff000000" />
+		<widget source="session.CurrentService" render="Label" position="723,92" size="498,30" zPosition="4" font="epg_text; 18"  halign="center" valign="top" noWrap="1" backgroundColor="transparent" foregroundColor="epg-event-foreground" borderColor="black" borderWidth="1" transparent="1">
+			<convert type="ServiceName">Name</convert>
+		</widget>
 		<eLabel position="60,135" zPosition="0" size="658,240" backgroundColor="epg-eventdescription-background" transparent="0" />
 		<widget source="Event" render="Label" position="70,143" size="648,230" font="epg_info;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
 			<convert type="EventName">ExtendedDescription</convert>
@@ -3126,11 +3138,14 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="key_green" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="epg-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="key_yellow" position="436,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="epg-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="key_blue" position="619,638" size="220,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="epg-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="on" />
-		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
+		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/info.png" transparent="1" alphatest="on" />
+		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" transparent="1" alphatest="on" />
 	</screen>
 	<screen name="GraphicalEPG_1">
 		<eLabel text="Electronic Program Guide" position="58,36" size="800,50" valign="bottom" font="global_title;34" backgroundColor="epg-background" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<ePixmap position="584,46" size="36,36" zPosition="10" pixmap="MetrixHD/left.png" alphatest="on" />
+		<ePixmap position="980,46" size="36,36" zPosition="10" pixmap="MetrixHD/right.png" alphatest="on" />
+		<widget source="Title" render="Label" position="600,36" foregroundColor="epg-timeline-foreground" size="400,50" noWrap="1" halign="center" valign="bottom" font="global_title;34" backgroundColor="epg-background" transparent="1" />
 		<widget source="Event" render="Label" position="60,82" size="1160,40" font="epg_event;24" backgroundColor="epg-background" foregroundColor="epg-event-foreground" transparent="0">
 			<convert type="EventName">Name</convert>
 		</widget>
@@ -3166,11 +3181,14 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="key_green" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="epg-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="key_yellow" position="436,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="epg-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="key_blue" position="619,638" size="220,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="epg-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="on" />
-		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
+		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/info.png" transparent="1" alphatest="on" />
+		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" transparent="1" alphatest="on" />
 	</screen>
 	<screen name="GraphicalEPG_2">
 		<eLabel text="Electronic Program Guide" position="58,36" size="800,50" valign="bottom" font="global_title;34" backgroundColor="epg-background" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<ePixmap position="584,46" size="36,36" zPosition="10" pixmap="MetrixHD/left.png" alphatest="on" />
+		<ePixmap position="980,46" size="36,36" zPosition="10" pixmap="MetrixHD/right.png" alphatest="on" />
+		<widget source="Title" render="Label" position="600,36" foregroundColor="epg-timeline-foreground" size="400,50" noWrap="1" halign="center" valign="bottom" font="global_title;34" backgroundColor="epg-background" transparent="1" />
 		<widget source="Event" render="Label" position="60,82" size="1160,40" font="epg_event;24" backgroundColor="epg-background" foregroundColor="epg-event-foreground" transparent="0">
 			<convert type="EventName">Name</convert>
 		</widget>
@@ -3206,8 +3224,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="key_green" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="epg-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="key_yellow" position="436,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="epg-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="key_blue" position="619,638" size="220,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="epg-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="on" />
-		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
+		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/info.png" transparent="1" alphatest="on" />
+		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" transparent="1" alphatest="on" />
 	</screen>
 	<screen name="GraphicalInfoBarEPG" title="InfoBar EPG" position="0,490" size="1280,230" backgroundColor="transparent" flags="wfNoBorder">
 		<eLabel name="new eLabel" position="0,10" zPosition="-10" size="1280,220" backgroundColor="epg-background" transparent="0" />
@@ -3241,8 +3259,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="key_green" position="253,193" size="170,30" foregroundColor="layer-a-button-foreground" backgroundColor="epg-background" transparent="1" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" />
 		<widget name="key_yellow" position="436,193" size="170,30" foregroundColor="layer-a-button-foreground" backgroundColor="epg-background" transparent="1" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" />
 		<widget name="key_blue" position="619,193" size="220,30" foregroundColor="layer-a-button-foreground" backgroundColor="epg-background" transparent="1" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" />
-		<ePixmap position="1045,190" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="on" />
-		<ePixmap position="1140,190" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
+		<ePixmap position="1045,190" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/info.png" transparent="1" alphatest="on" />
+		<ePixmap position="1140,190" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" transparent="1" alphatest="on" />
 		<panel name="COLORGRADIENT_bottom_EPG" />
 	</screen>
 	<screen name="InfoBarEventView" position="0,0" size="1280,499" backgroundColor="transparent" flags="wfNoBorder" zPosition="1">
@@ -3291,8 +3309,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="key_green" position="253,193" size="170,30" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" />
 		<widget name="key_yellow" position="436,193" size="170,30" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" />
 		<widget name="key_blue" position="619,193" size="220,30" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" />
-		<ePixmap position="1045,190" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="on" />
-		<ePixmap position="1140,190" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="on" />
+		<ePixmap position="1045,190" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/info.png" transparent="1" alphatest="on" />
+		<ePixmap position="1140,190" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" transparent="1" alphatest="on" />
 		<panel name="COLORGRADIENT_bottom_EPG" />
 	</screen>
 	<screen name="EPGSelectionMulti" position="0,0" size="1280,720" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
@@ -3368,8 +3386,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="template1_1layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
-		<ePixmap position="950,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
+		<ePixmap position="950,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/info.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" transparent="1" alphatest="blend" />
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="SoftwareManagerSetup" position="0,0" size="1280,720" title="SoftwareManager Setup" flags="wfNoBorder" backgroundColor="transparent">
