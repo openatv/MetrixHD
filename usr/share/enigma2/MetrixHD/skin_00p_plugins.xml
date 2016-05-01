@@ -2635,5 +2635,147 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- MenuSort -->
+	<!-- Foreca -->
+<!-- cf#_#rename -->
+	<screen name="ForecaPreview_list" >
+		<widget name="MainList" position="70,110" size="700,480" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" 
+		font0="screen_text;22"
+		font1="screen_info;22"
+		font2="screen_info;18"
+		font3="screen_text;22"
+		itemHeight="80"
+		setTime="10,34,60,24"
+		setPict="70,10,70,70"
+		setPictScale="1"
+		setTemp="145,15,80,24"
+		setTempUnits="145,45,80,24"
+		setWindPict="230,36,28,28"
+		setWindPictScale="1"
+		setWind="265,15,95,24"
+		setWindUnits="265,45,95,24"
+		text1Pos="365,5,335,28"
+		text2Pos="365,33,335,28"
+		text3Pos="365,56,335,28"
+		enableWrapAround="1" scrollbarMode="showOnDemand" />
+	</screen>
+<!-- cf#_#rename -->
+	<screen name="ForecaPreview_list#_FHDscreen" >
+		<widget name="MainList" position="105,165" size="1050,720" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" 
+		font0="screen_text;33"
+		font1="screen_info;33"
+		font2="screen_info;27"
+		font3="screen_text;33"
+		itemHeight="120"
+		setTime="15,51,90,36"
+		setPict="105,15,105,105"
+		setPictScale="1"
+		setTemp="218,23,120,36"
+		setTempUnits="218,68,120,36"
+		setWindPict="345,36,42,42"
+		setWindPictScale="1"
+		setWind="398,23,143,36"
+		setWindUnits="398,68,143,36"
+		text1Pos="548,8,503,42"
+		text2Pos="548,50,503,42"
+		text3Pos="548,84,503,42"
+		enableWrapAround="1" scrollbarMode="showOnDemand" />
+	</screen>
+<!-- cf#_#rename -->
+	<screen name="ForecaPreview_list#_UHDscreen" >
+		<widget name="MainList" position="210,330" size="2100,1440" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" 
+		font0="screen_text;66"
+		font1="screen_info;66"
+		font2="screen_info;54"
+		font3="screen_text;66"
+		itemHeight="240"
+		setTime="30,102,180,72"
+		setPict="210,30,210,210"
+		setPictScale="1"
+		setTemp="436,46,240,72"
+		setTempUnits="436,76,240,72"
+		setWindPict="690,72,84,84"
+		setWindPictScale="1"
+		setWind="796,46,286,72"
+		setWindUnits="796,136,286,72"
+		text1Pos="1096,16,1006,84"
+		text2Pos="1096,100,1006,84"
+		text3Pos="1096,168,1006,84"
+		enableWrapAround="1" scrollbarMode="showOnDemand" />
+	</screen>
+<!-- cf#_#rename -->
+	<screen name="SatPanel_list" >
+		<widget name="Mlist" position="70,110" size="700,480" zPosition="3" font="screen_text;22" itemHeight="80" setPictScale="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" 
+		textPos="230,25,470,30" 
+		enableWrapAround="1" scrollbarMode="showOnDemand" />
+	</screen>
+<!-- cf#_#rename -->
+	<screen name="SatPanel_list#_FHDscreen" >
+		<widget name="Mlist" position="105,165" size="1050,720" zPosition="3" font="screen_text;33" itemHeight="120" setPictScale="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" 
+		textPos="345,38,705,45" 
+		enableWrapAround="1" scrollbarMode="showOnDemand" />
+	</screen>
+<!-- cf#_#rename -->
+	<screen name="SatPanel_list#_UHDscreen" >
+		<widget name="Mlist" position="210,330" size="2100,1440" zPosition="3" font="screen_text;66" itemHeight="240" setPictScale="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" 
+		textPos="690,76,1410,90" 
+		enableWrapAround="1" scrollbarMode="showOnDemand" />
+	</screen>
+<!-- cf#_#begin --> 
+	<screen name="ForecaPreview" position="0,0" size="1280,720" title="Foreca Weather Forecast" backgroundColor="transparent" flags="wfNoBorder" >
+		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="ForecaPreview_list" />
+		<widget source="Titel2" render="Label" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<widget source="Titel3" render="Label" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1-source" />
+		<panel name="ioe-buttons_template1" />
+		<panel name="template1_2layer"/>
+		<ePixmap pixmap="MetrixHD/icons/menu_network_webif.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca/foreca_logo.png" position="890,175" size="100,43" zPosition="3" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="ForecaPreviewCache" position="970,245" size="48,48" backgroundColor="layer-b-background" flags="wfNoBorder" >
+		<widget name="spinner" position="0,0" zPosition="4" size="48,48" alphatest="blend" />
+	</screen>
+	<screen name="CityPanel" position="0,0" size="1280,720" title="Foreca Weather Forecast" backgroundColor="transparent" flags="wfNoBorder" >
+		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="Mlist" position="70,110" size="700,480" font="screen_text;20" itemHeight="30" column="10" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" scrollbarMode="showOnDemand" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1-source" />
+		<panel name="ioe-buttons_template1" />
+		<panel name="template1_2layer"/>
+		<ePixmap pixmap="MetrixHD/icons/menu_network_webif.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca/foreca_logo.png" position="890,175" size="100,43" zPosition="3" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="SatPanel" position="0,0" size="1280,720" title="Foreca Weather Forecast" backgroundColor="transparent" flags="wfNoBorder" >
+		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="SatPanel_list" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1-source" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="template1_2layer"/>
+		<ePixmap pixmap="MetrixHD/icons/menu_network_webif.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca/foreca_logo.png" position="890,175" size="100,43" zPosition="3" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="SatPanelb" position="0,0" size="1280,720" backgroundColor="transparent" flags="wfNoBorder" >
+		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="Mlist" position="70,110" size="700,480" zPosition="3" font="screen_text;22" itemHeight="80" setPictScale="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" scrollbarMode="showOnDemand" />
+		<widget source="key_blue" render="Label" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="584,635" size="30,40" alphatest="blend" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="template1_2layer"/>
+		<ePixmap pixmap="MetrixHD/icons/menu_network_webif.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca/foreca_logo.png" position="890,175" size="100,43" zPosition="3" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="PicSetup" position="0,0" size="1280,720" title= "SlideShow Settings" backgroundColor="transparent" flags="wfNoBorder" >
+		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="Mlist" position="70,110" size="700,480" enableWrapAround="1" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="template1_2layer"/>
+		<ePixmap pixmap="MetrixHD/icons/menu_network_webif.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca/foreca_logo.png" position="890,175" size="100,43" zPosition="3" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- Foreca -->
 <!-- PLUGINS */-->
 </skin>
