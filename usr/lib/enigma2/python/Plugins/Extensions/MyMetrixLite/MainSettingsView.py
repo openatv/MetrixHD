@@ -1577,6 +1577,17 @@ class MainSettingsView(Screen):
         dpath = "/usr/share/enigma2/MetrixHD/ibts/"
         self.FileCopy(target,spath,dpath)
 
+        #plugin EnhancedMovieCenter
+        spath = "/usr/share/enigma2/MetrixHD/%s/copy/emc/" % self.EHDres
+        dpath = "/usr/share/enigma2/MetrixHD/emc/"
+        if config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "2":
+            if self.EHDres == "FHD":
+                self.FileCopy('HD',spath,dpath)
+            elif self.EHDres == "UHD" and path.exists("/usr/share/enigma2/MetrixHD/FHD/copy/emc/"):
+                self.FileCopy('FHD',"/usr/share/enigma2/MetrixHD/FHD/copy/emc/",dpath)
+        else:
+            self.FileCopy(target,spath,dpath)
+
     def FileCopy(self, target, spath, dpath):
         if target != "HD" and path.exists(spath) and path.exists(dpath):
             for file in listdir(spath):
@@ -1608,18 +1619,6 @@ class MainSettingsView(Screen):
         dpath = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/"
         npath = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images_hd/"
         self.FolderCopy(target,spath,dpath,npath)
-
-        #plugin EnhancedMovieCenter
-        spath = "/usr/share/enigma2/MetrixHD/%s/copy/emc/" % self.EHDres
-        dpath = "/usr/share/enigma2/MetrixHD/emc/"
-        npath = ""
-        if config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "2":
-            if self.EHDres == "FHD":
-                self.FolderCopy('HD',spath,dpath,npath,True)
-            elif self.EHDres == "UHD" and path.exists("/usr/share/enigma2/MetrixHD/FHD/copy/emc/"):
-                self.FolderCopy('FHD',"/usr/share/enigma2/MetrixHD/FHD/copy/emc/",dpath,npath,True)
-        else:
-            self.FolderCopy(target,spath,dpath,npath,True)
 
     def FolderCopy(self, target, spath, dpath, npath, del_dpath = False):
         if target != "HD" and path.exists(spath) and path.exists(dpath) and not del_dpath:

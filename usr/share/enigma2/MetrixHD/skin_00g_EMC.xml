@@ -19,7 +19,7 @@
 	</screen>
 	<!-- EMCMediaCenterCover_small -->
 	<screen name="EMCMediaCenterCover_small">
-		<widget name="Cover" position="40,327" size="100,141" alphatest="blend" zPosition="2" />
+		<widget name="Cover" position="40,327" size="100,140" alphatest="blend" zPosition="2" />
 	</screen>
 	<!-- EMCMediaCenterCover_small_infobar-->
 	<screen name="EMCMediaCenterCover_small_infobar">
@@ -70,7 +70,6 @@
 	</screen>
 	<!-- EMCSelectionCover_small -->
 	<screen name="EMCSelectionCover_small">
-		<eLabel position="1132,223" size="100,1" backgroundColor="layer-b-background" zPosition="3" />
 		<ePixmap position="1132,88" zPosition="1" size="100,100" alphatest="blend" pixmap="MetrixHD/icons/movie_small.png"/>
 		<panel name="EMCSelectionList_picon_left" />
 		<widget source="Service" render="Label" position="825,90" size="300,55" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
@@ -94,7 +93,7 @@
 		<widget source="Service" render="Label" position="825,228" size="385,323" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" halign="left" valign="top">
 			<convert type="EMCEventName">FullDescription</convert>
 		</widget>
-		<widget name="Cover" position="1132,83" size="100,141" alphatest="blend" zPosition="2" />
+		<widget name="Cover" position="1132,83" size="100,140" alphatest="blend" zPosition="2" />
 	</screen>
 	<!-- EMCSelectionCover_large -->
 	<screen name="EMCSelectionCover_large_description_on">
@@ -108,7 +107,6 @@
 		<panel name="EMCSelectionList_picon_left" />
 	</screen>
 	<screen name="EMCSelectionCover_large">
-		<eLabel position="902,478" zPosition="5" size="230,1" backgroundColor="layer-b-background" />
 		<ePixmap position="970,260" zPosition="1" size="100,100" alphatest="blend" pixmap="MetrixHD/icons/movie_small.png"/>
 		<panel name="EMCSelectionCover_large_description_on" />
 		<widget source="Service" render="Label" position="825,90" size="380,55" valign="center" halign="center" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
@@ -129,7 +127,7 @@
 			<convert type="EMCServiceTime">Duration</convert>
 			<convert type="EMCClockToText">InMinutes</convert>
 		</widget>
-		<widget name="Cover" position="902,155" size="230,324" zPosition="4" alphatest="blend" />
+		<widget name="Cover" position="902,155" size="230,322" zPosition="4" alphatest="blend" />
 	</screen>
 	<!-- EMCMediacenter_1 - standard version -->
 	<screen name="EMCMediaCenter_1">
@@ -220,7 +218,7 @@
 		<eLabel text="Audio" position="567,654" size="300,26" font="global_small;14" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" halign="center" valign="top" zPosition="3" transparent="1" />
 		<widget name="audioLabel" position="567,666" size="300,30" font="infobar_text;24" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" halign="center" valign="top" zPosition="3" transparent="1" />
 		<panel name="SERVICEICONSMOVIEPLAYER" />
-		<panel name="RESOLUTIONMOVIEPLAYER" />
+		<panel name="RESOLUTIONMOVIEPLAYER-2" />
 	</screen>
 	<!-- EMCMediacenter_3 - small style -->
 	<screen name="EMCMediaCenter_3">
@@ -329,8 +327,7 @@
 		<widget name="menulist" position="70,110" size="700,450" font="epg_text;20" itemHeight="30" scrollbarMode="showNever" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" enableWrapAround="on"/>
 		<widget name="done_msg" position="70,580" size="700,30" zPosition="0" font="screen_label;20" halign="center" valign="center" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background"/>
 		<widget name="m_info" position="825,90" size="380,55" valign="center" halign="center" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
-		<eLabel position="902,478" zPosition="5" size="230,1" backgroundColor="layer-b-background" />
-		<widget name="poster" position="902,155" size="230,324" zPosition="4" alphatest="blend" />
+		<widget name="poster" position="902,155" size="230,322" zPosition="4" alphatest="blend" />
 		<widget name="info" position="825,500" size="380,30" zPosition="0" font="epg_text;22" halign="center" valign="center" transparent="1" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background"/>
 		<widget name="download" position="825,530" size="380,30" zPosition="0" font="epg_text;20" halign="center" valign="center" transparent="1" foregroundColor="layer-b-accent1" backgroundColor="layer-b-background"/>
 		<widget name="exist" position="845,560" size="150,30" zPosition="0" font="epg_text;20" halign="right" valign="center" transparent="1" foregroundColor="layer-b-accent1" backgroundColor="layer-b-background"/>
@@ -351,8 +348,7 @@
 		<!--widget name="menulist" position="70,110" size="700,504" font="epg_text;20" itemHeight="30" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" enableWrapAround="on" /-->
 		<widget name="menulist" position="70,110" size="700,510" font="epg_text;20" itemHeight="30" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" enableWrapAround="on" />
 		<widget name="info" position="70,638" size="700,30" zPosition="0" font="epg_text;20" halign="center" valign="center" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background"/>
-		<eLabel position="902,478" zPosition="5" size="230,1" backgroundColor="layer-b-background" />
-		<widget name="poster" position="902,155" size="230,324" zPosition="4" alphatest="blend" />
+		<widget name="poster" position="902,155" size="230,322" zPosition="4" alphatest="blend" />
 		<widget name="info" position="825,425" size="380,175" zPosition="0" font="screen_info;20" halign="center" valign="center" transparent="1" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background"/>
 		<panel name="template1_2layer"/>
 		<panel name="_oe-buttons_template1" />
