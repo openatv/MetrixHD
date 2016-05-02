@@ -21,6 +21,8 @@
 from . import _
 from MainSettingsView import MainSettingsView
 from Plugins.Plugin import PluginDescriptor
+from Components.config import config
+config.plugins.MetrixWeather.currentWeatherDataValid.setValue(0)
 
 #############################################################
 
