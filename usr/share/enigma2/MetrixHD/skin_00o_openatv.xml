@@ -2844,32 +2844,32 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<screen name="Seekbar" position="353,238" zPosition="2" size="574,230" backgroundColor="transparent" flags="wfNoBorder">
 		<widget name="cursor" position="0,0" size="16,230" pixmap="MetrixHD/epg/timeline-now_z.png" alphatest="blend" zPosition="6" />
 		<widget name="time" position="0,40" size="574,100" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="center" transparent="1" valign="center" />
-		<widget source="session.CurrentService" render="Label" position="32,176" size="80,27" font="infobar_text;20" halign="right" valign="bottom" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background">
+		<widget source="session.CurrentService" render="Label" position="32,176" size="80,27" font="infobar_text;20" halign="right" valign="bottom" foregroundColor="infobarfont1" backgroundColor="infobarbackground">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Label" position="462,176" size="80,27" font="infobar_text;20" halign="left" valign="bottom" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background">
+		<widget source="session.CurrentService" render="Label" position="462,176" size="80,27" font="infobar_text;20" halign="left" valign="bottom" foregroundColor="infobarfont1" backgroundColor="infobarbackground">
 			<convert type="ServicePosition">Length</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Progress" position="152,187" size="270,5" zPosition="5" foregroundColor="layer-a-progress" transparent="1">
+		<widget source="session.CurrentService" render="Progress" position="152,187" size="270,5" zPosition="5" foregroundColor="infobarprogress" transparent="1">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
-		<eLabel name="new eLabel" position="152,189" size="270,1" backgroundColor="layer-a-accent1" zPosition="1" />
-		<eLabel name="new eLabel" position="0,160" size="574,59" zPosition="-1" backgroundColor="layer-a-background" />
-		<eLabel name="new eLabel" position="0,160" size="20,59" zPosition="7" backgroundColor="layer-a-background" />
+		<eLabel name="new eLabel" position="152,189" size="270,1" backgroundColor="infobaraccent1" zPosition="1" />
+		<eLabel name="new eLabel" position="0,160" size="574,59" zPosition="-1" backgroundColor="infobarbackground" />
+		<eLabel name="new eLabel" position="0,160" size="20,59" zPosition="7" backgroundColor="infobarbackground" />
 	</screen>
 	<screen name="TimeshiftState" position="190,238" zPosition="2" size="900,230" backgroundColor="transparent" flags="wfNoBorder">
 		<widget name="state" position="0,40" size="900,100" backgroundColor="text-background" foregroundColor="background-text" font="Arial; 100" halign="center" transparent="1" valign="center" />
-		<widget source="session.CurrentService" render="Label" position="5,176" size="80,27" font="infobar_text;20" halign="right" valign="bottom" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background">
+		<widget source="session.CurrentService" render="Label" position="5,176" size="80,27" font="infobar_text;20" halign="right" valign="bottom" foregroundColor="infobarfont1" backgroundColor="infobarbackground">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Label" position="815,176" size="80,27" font="infobar_text;20" halign="left" valign="bottom" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background">
+		<widget source="session.CurrentService" render="Label" position="815,176" size="80,27" font="infobar_text;20" halign="left" valign="bottom" foregroundColor="infobarfont1" backgroundColor="infobarbackground">
 			<convert type="ServicePosition">Length</convert>
 		</widget>
-		<widget source="session.CurrentService" render="Progress" position="100,187" size="700,5" zPosition="5" foregroundColor="layer-a-progress" transparent="1">
+		<widget source="session.CurrentService" render="Progress" position="100,187" size="700,5" zPosition="5" foregroundColor="infobarprogress" transparent="1">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
-		<eLabel name="new eLabel" position="100,189" size="700,1" backgroundColor="layer-a-accent1" zPosition="1" />
-		<eLabel name="new eLabel" position="0,160" size="900,59" zPosition="-1" backgroundColor="layer-a-background" />
+		<eLabel name="new eLabel" position="100,189" size="700,1" backgroundColor="infobaraccent1" zPosition="1" />
+		<eLabel name="new eLabel" position="0,160" size="900,59" zPosition="-1" backgroundColor="infobarbackground" />
 	</screen>
 	<!-- templates PVRState -->
 	<screen name="PVRState_1">
