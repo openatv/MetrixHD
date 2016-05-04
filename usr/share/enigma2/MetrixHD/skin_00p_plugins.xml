@@ -2,412 +2,342 @@
 <!-- cf#_#begin -->
 <!--/* PLUGINS -->
 	<!-- CoolTV -->
-	<screen name="CoolTVGuideSetup" title="Cool TV Guide Setup" position="0,0" size="1280,720" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" transparent="1" />
-		<widget name="CoolText1" position="825,425" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<widget name="CoolText2" position="825,465" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<panel name="template1_2layer"/>
-		<panel name="rgyb-keys_template1-source"/>
-		<panel name="rgyb-buttons_template1"/>		
-		<ePixmap pixmap="MetrixHD/icons/setup.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+	<screen name="CoolTVGuide" position="0,0" size="1280,720" zPosition="1" title="Cool TV Guide" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="C o o l   T V   G u i d e" position="380,30" size="520,50" noWrap="1" valign="bottom" halign="center" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="epg-background" transparent="1" />
+		<widget source="Title" render="Label" position="810,638" size="220,30" font="epg_event;20" noWrap="1" valign="center" halign="right" foregroundColor="epg-event-foreground" backgroundColor="epg-background" transparent="1" />
+		<panel name="template_cool_title_picons" />
+		<panel name="template_cool_all" />
+		<panel name="template_cool_gepg" />
 	</screen>
-	<screen name="CoolSingleGuide" position="0,0" size="1280,720" title="Cool Single Guide" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Cool Single Guide" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Service" render="Label" position="70,113" size="700,32" font="SetrixHD;26" halign="left" backgroundColor="layer-a-background" transparent="1">
-			<convert type="ServiceName">Name</convert>
-		</widget>
-		<eLabel position="70,150" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget name="list" position="70,155" size="700,450" itemHeight="30" CoolFont="SetrixHD;21" CoolEventFont="SetrixHD;21" CoolDayPos="0" CoolDaySize="50" CoolTimePos="70" CoolTimeSize="70" CoolEventPos="150" CoolEventSize="1040" CoolDayColor="layer-a-foreground" CoolTimeColor="layer-a-foreground" CoolEventColor="layer-a-foreground" CoolRecPreColor="#f7c006" CoolRecColor="#e62711" CoolBackColor="layer-a-background" CoolBackColorSel="layer-a-selection-background" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Service" render="CoolPico" position="415,70" zPosition="2" size="100,60" alphatest="blend" transparent="1" />
-		<widget source="Event" render="Label" position="825,112" size="385,65" zPosition="2" font="SetrixHD; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center">
-			<convert type="EventName">Name</convert>
-		</widget>
-		<widget source="Event" render="Label" position="843,171" size="64,24" font="SetrixHD; 21" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="right">
-			<convert type="EventTime">StartTime</convert>
-			<convert type="ClockToText" />
-		</widget>
-		<widget source="Event" render="Label" position="1128,171" size="77,24" font="SetrixHD; 21" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0">
-			<convert type="EventTime">EndTime</convert>
-			<convert type="ClockToText">Format:%H:%M</convert>
-		</widget>
-		<eLabel position="914,187" size="206,1" backgroundColor="layer-b-progress" />
-		<widget source="Event" render="Progress" position="914,185" size="206,5" borderWidth="0" backgroundColor="layer-b-background" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
-			<convert type="EventTime">Progress</convert>
-		</widget>
-		<widget source="Event" render="Label" position="825,210" size="385,380" font="Regular; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
-			<convert type="EventName">ExtendedDescription</convert>
-		</widget>
-		<panel name="template1_2layer"/>
-		<panel name="_me-buttons_template1"/>
-		<panel name="rgyb-buttons_template1"/>
-		<panel name="rgyb-keys_template1-source"/>
+	<screen name="CoolTinyGuide" position="0,0" size="1280,720" zPosition="1" title="Cool Tiny Guide" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="C o o l   T i n y   G u i d e" position="380,30" size="520,50" noWrap="1" valign="bottom" halign="center" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="epg-background" transparent="1" />
+		<widget source="Title" render="Label" position="810,638" size="220,30" font="epg_event;20" noWrap="1" valign="center" halign="right" foregroundColor="epg-event-foreground" backgroundColor="epg-background" transparent="1" />
+		<panel name="template_cool_title_picons" />
+		<panel name="template_cool_all" />
+		<panel name="template_cool_gepg" />
 	</screen>
-	<screen name="CoolMultiGuide" position="40,25" size="1200,660" zPosition="1" title="Cool TV Guide" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="0,0" zPosition="-10" size="1360,660" backgroundColor="layer-a-background" />
-		<eLabel text="Cool Multi Guide" position="36,12" size="240,40" font="SetrixHD;28" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" shadowColor="layer-a-background" halign="left" transparent="1" />
-		<widget source="Title" render="Label" position="275,12" size="475,40" font="SetrixHD;28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="layer-a-background" halign="left" transparent="1" />
-		<widget source="global.CurrentTime" render="Label" position="1080,7" size="100,33" font="Regular;26" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="752,12" size="320,33" font="Regular;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1" valign="top">
-			<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
-		</widget>
-		<widget name="date" position="1013,49" size="160,28" font="Regular;15" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="timeline_text" position="36,49" size="1140,28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="list" position="36,75" size="1140,420" itemHeight="30" font="screen_text; 20" scrollbarMode="showNever" CoolBorderColR="layer-a-background" CoolBorderColL="layer-a-background" CoolNowBackCol="layer-a-background" CoolTVBackCol="layer-a-background" CoolBackCol="layer-a-background" CoolNowBackColSel="layer-a-selection-background" CoolTVBackColSel="layer-a-selection-background" CoolBackColSel="layer-a-selection-background" CoolFontCol="layer-a-foreground" CoolFontColSel="layer-a-background" CoolNowFontCol="layer-a-foreground" CoolNowFontColSel="layer-a-background" CoolBackRecColSel="#a90707" transparent="1" />
-		<widget name="timeline0" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline1" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline2" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline3" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline4" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline5" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline_now" position="35,75" zPosition="2" size="5,420" pixmap="MetrixHD/colors/00ffffff.png" alphatest="on" />
-		<widget source="Event" render="Label" position="8,501" size="100,36" font="SetrixHD; 26" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="layer-a-background" halign="right" transparent="1">
-			<convert type="EventTime">StartTime</convert>
-			<convert type="ClockToText" />
-		</widget>
-		<widget source="Event" render="Progress" backgroundColor="layer-a-background" foregroundColor="layer-a-progress" position="110,520" size="120,3" borderWidth="0" borderColor="layer-a-accent1" zPosition="1" transparent="1">
-			<convert type="EventTime">Progress</convert>
-		</widget>
-		<eLabel name="new eLabel" position="110,521" size="120,1" backgroundColor="layer-a-foreground" />
-		<widget source="Event" render="Label" position="235,501" size="100,36" font="SetrixHD; 26" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="layer-a-background" halign="left" transparent="1">
-			<convert type="EventTime">EndTime</convert>
-			<convert type="ClockToText">Format:%H:%M</convert>
-		</widget>
-		<widget source="Event" render="Label" position="347,500" size="670,36" font="SetrixHD; 26" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
-			<convert type="EventName">Name</convert>
-		</widget>
-		<widget source="Event" render="Label" position="1022,500" size="130,30" font="SetrixHD; 26" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="right">
-			<convert type="EventTime">Remaining</convert>
-			<convert type="RemainingToText">InMinutes</convert>
-		</widget>
-		<widget source="Event" render="Label" position="36,538" zPosition="1" size="1140,68" font="Regular;17" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="layer-a-background" transparent="1" valign="top">
-			<convert type="EventName">ExtendedDescription</convert>
-		</widget>
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="5,620" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="265,620" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="535,620" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="810,620" size="30,40" alphatest="blend" />
-		<widget name="key_red" position="45,623" size="200,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_green" position="305,623" size="200,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_yellow" position="575,623" size="200,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_blue" position="850,623" size="200,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<ePixmap position="1088,620" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" alphatest="blend" />
+	<screen name="CoolMultiGuide" position="0,0" size="1280,720" zPosition="1" title="Cool Multi Guide" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="C o o l   M u l t i   G u i d e" position="380,30" size="520,50" noWrap="1" valign="bottom" halign="center" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="epg-background" transparent="1" />
+		<widget source="Title" render="Label" position="810,638" size="220,30" font="epg_event;20" noWrap="1" valign="center" halign="right" foregroundColor="epg-event-foreground" backgroundColor="epg-background" transparent="1" />
+		<panel name="template_cool_title_picons" />
+		<panel name="template_cool_all" />
+		<panel name="template_cool_gepg_pig" />
 	</screen>
-	<screen name="CoolEasyGuide" position="40,25" size="1200,660" zPosition="1" title="Cool Easy Guide" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="0,0" zPosition="-10" size="1200,660" backgroundColor="layer-a-background" />
-		<eLabel text="Cool Easy Guide" position="36,12" size="240,40" valign="bottom" font="global_title;28" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" shadowColor="layer-a-background" halign="left" transparent="1" />
-		<widget source="Title" render="Label" position="275,12" size="474,40" font="SetrixHD;28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="layer-a-background" halign="left" transparent="1" />
-		<widget source="global.CurrentTime" render="Label" position="1080,7" size="100,33" font="Regular;26" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="752,12" size="320,33" font="Regular;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1" valign="top">
-			<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
-		</widget>
-		<widget name="list" position="28,61" size="1160,420" itemHeight="30" zPosition="25" CoolFont="Regular;19" CoolServiceFont="Regular;19" CoolEventFont="Regular;19" CoolServiceSize="220" CoolEventSize="720" CoolServicePos="4" CoolServiceHPos="1" CoolEventPos="355" CoolEventHPos="1" CoolBarPos="240" CoolBarHPos="10" CoolBarSize="100" CoolBarHigh="10" CoolTimePos="225" CoolTimeHPos="2" CoolTimeSize="120" CoolDurationPos="1055" CoolDurationSize="100" CoolDurationColor="layer-a-foreground" CoolServiceColor="layer-a-foreground" CoolBarColor="layer-a-foreground" CoolEventColor="layer-a-foreground" CoolBackColorSel="layer-a-selection-background" CoolRecPreColor="#f7c006" CoolRecColor="#e62711" CoolTunerCol="layer-a-foreground" CoolCurrentCol="layer-a-foreground" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Event" render="Label" position="8,501" size="100,36" font="SetrixHD; 26" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="layer-a-background" halign="right" transparent="1">
-			<convert type="EventTime">StartTime</convert>
-			<convert type="ClockToText" />
-		</widget>
-		<widget source="Event" render="Progress" backgroundColor="layer-a-background" foregroundColor="layer-a-progress" position="110,520" size="120,3" borderWidth="0" borderColor="layer-a-accent1" zPosition="1" transparent="1">
-			<convert type="EventTime">Progress</convert>
-		</widget>
-		<eLabel name="new eLabel" position="110,521" size="120,1" backgroundColor="layer-a-foreground" />
-		<widget source="Event" render="Label" position="235,501" size="100,36" font="SetrixHD; 26" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="layer-a-background" halign="left" transparent="1">
-			<convert type="EventTime">EndTime</convert>
-			<convert type="ClockToText">Format:%H:%M</convert>
-		</widget>
-		<widget source="Event" render="Label" position="347,500" size="670,36" font="SetrixHD; 26" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
-			<convert type="EventName">Name</convert>
-		</widget>
-		<widget source="Event" render="Label" position="1022,500" size="130,30" font="SetrixHD; 26" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="right">
-			<convert type="EventTime">Remaining</convert>
-			<convert type="RemainingToText">InMinutes</convert>
-		</widget>
-		<widget source="Event" render="Label" position="36,538" zPosition="1" size="1140,68" font="Regular;17" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="layer-a-background" transparent="1" valign="top">
-			<convert type="EventName">ExtendedDescription</convert>
-		</widget>
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="5,620" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="265,620" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="535,620" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="810,620" size="30,40" alphatest="blend" />
-		<widget name="key_red" position="45,623" size="200,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_green" position="305,623" size="200,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_yellow" position="575,623" size="200,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_blue" position="850,623" size="200,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="1088,620" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" alphatest="blend" />
-	</screen>
-	<screen name="CoolTVGuide" position="40,25" size="1200,660" zPosition="1" title="Cool TV Guide" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="0,0" zPosition="-10" size="1200,660" backgroundColor="layer-a-background" />
-		<eLabel text="Cool TV Guide" position="36,12" size="240,40" valign="bottom" font="global_title;28" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" shadowColor="layer-a-background" halign="left" transparent="1" />
-		<widget source="Title" render="Label" position="275,12" size="481,40" font="SetrixHD;28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="layer-a-background" halign="left" transparent="1" />
-		<widget source="global.CurrentTime" render="Label" position="1080,7" size="100,33" font="Regular;26" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="752,12" size="320,33" font="Regular;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1" valign="top">
-			<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
-		</widget>
-		<widget name="date" position="1013,49" size="160,28" font="Regular;15" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="timeline_text" position="36,49" size="1140,28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="list" position="36,75" size="1140,420" itemHeight="30" font="screen_text; 20" scrollbarMode="showNever" CoolBorderColR="layer-a-background" CoolBorderColL="layer-a-background" CoolNowBackCol="layer-a-background" CoolTVBackCol="layer-a-background" CoolBackCol="layer-a-background" CoolNowBackColSel="layer-a-selection-background" CoolTVBackColSel="layer-a-selection-background" CoolBackColSel="layer-a-selection-background" CoolFontCol="layer-a-foreground" CoolFontColSel="layer-a-background" CoolNowFontCol="layer-a-foreground" CoolNowFontColSel="layer-a-background" CoolBackRecColSel="#a90707" transparent="1" />
-		<widget name="timeline0" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline1" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline2" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline3" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline4" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline5" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline_now" position="35,75" zPosition="2" size="5,420" pixmap="MetrixHD/colors/00ffffff.png" alphatest="on" />
-		<widget source="Event" render="Label" position="8,501" size="100,36" font="SetrixHD; 26" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="layer-a-background" halign="right" transparent="1">
-			<convert type="EventTime">StartTime</convert>
-			<convert type="ClockToText" />
-		</widget>
-		<widget source="Event" render="Progress" backgroundColor="layer-a-background" foregroundColor="layer-a-progress" position="110,520" size="120,3" borderWidth="0" borderColor="layer-a-accent1" zPosition="1" transparent="1">
-			<convert type="EventTime">Progress</convert>
-		</widget>
-		<eLabel name="new eLabel" position="110,521" size="120,1" backgroundColor="layer-a-foreground" foregroundColor="layer-a-foreground" />
-		<widget source="Event" render="Label" position="235,501" size="100,36" font="SetrixHD; 26" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="layer-a-background" halign="left" transparent="1">
-			<convert type="EventTime">EndTime</convert>
-			<convert type="ClockToText">Format:%H:%M</convert>
-		</widget>
-		<widget source="Event" render="Label" position="347,500" size="670,36" font="SetrixHD; 26" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
-			<convert type="EventName">Name</convert>
-		</widget>
-		<widget source="Event" render="Label" position="1022,500" size="130,30" font="SetrixHD; 26" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="right">
-			<convert type="EventTime">Remaining</convert>
-			<convert type="RemainingToText">InMinutes</convert>
-		</widget>
-		<widget source="Event" render="Label" position="36,538" zPosition="1" size="1140,67" font="Regular;17" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="layer-a-background" transparent="1" valign="top">
-			<convert type="EventName">ExtendedDescription</convert>
-		</widget>
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="5,620" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="265,620" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="535,620" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="810,620" size="30,40" alphatest="blend" />
-		<widget name="key_red" position="45,623" size="200,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_green" position="305,623" size="200,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_yellow" position="575,623" size="200,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_blue" position="850,623" size="200,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="1088,620" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" alphatest="blend" />
-	</screen>
-	<screen name="CoolChannelGuide" position="40,40" size="1220,650" title="Cool Channel Guide" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="555,0" zPosition="-10" size="650,650" backgroundColor="layer-a-background" />
-		<eLabel position="0,0" zPosition="-10" size="540,550" backgroundColor="layer-a-background" />
-		<!-- /*ClockWidget-->
-		<widget source="global.CurrentTime" render="Label" position="364,560" size="179,80" font="SetrixHD; 65" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1" valign="top">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="132,608" size="226,32" font="SetrixHD; 24" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Format:%e. %b %Y</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="192,571" size="164,33" font="SetrixHD; 24" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<eLabel position="0,565" zPosition="-1" size="540,85" backgroundColor="layer-a-background" transparent="0" />
-		<!--ClockWidget */-->
-		<eLabel text="Cool Channel Guide" position="631,6" size="470,46" valign="bottom" font="global_title; 38" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" shadowColor="layer-a-background" halign="left" transparent="1" />
-		<widget source="Service" render="CoolPico" position="569,18" zPosition="1" size="50,30" alphatest="blend" transparent="1" />
-		<widget source="Event" render="Label" position="21,52" size="100,30" font="Regular;24" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" shadowColor="#00605f5e" halign="right" transparent="1">
-			<convert type="EventTime">StartTime</convert>
-			<convert type="ClockToText" />
-		</widget>
-		<widget source="Event" render="Label" position="410,52" size="100,30" font="Regular;24" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" shadowColor="#00605f5e" halign="left" transparent="1">
-			<convert type="EventTime">EndTime</convert>
-			<convert type="ClockToText">Format:%H:%M</convert>
-		</widget>
-		<widget source="Event" render="Label" position="16,13" size="505,33" font="SetrixHD; 26" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="#00605f5e" transparent="1" halign="left">
-			<convert type="EventName">Name</convert>
-		</widget>
-		<widget source="Event" render="Progress" backgroundColor="layer-a-background" foregroundColor="layer-a-progress" position="131,66" size="270,5" borderWidth="0" borderColor="layer-a-accent2" zPosition="2" transparent="1">
-			<convert type="EventTime">Progress</convert>
-		</widget>
-		<widget source="Event" render="Label" position="14,97" zPosition="1" size="509,267" font="Regular;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" shadowColor="#00605f5e" transparent="1" valign="top">
-			<convert type="EventName">ExtendedDescription</convert>
-		</widget>
-		<widget name="list" position="547,65" size="667,520" itemHeight="65" zPosition="0" CoolPico="35" CoolFont="SetrixHD;24" CoolServiceFont="SetrixHD;24" CoolEventFont="Regular;18" CoolServiceSize="405" CoolEventSize="498" CoolServicePos="18" CoolServiceHPos="4" CoolEventPos="18" CoolEventHPos="35" CoolBarPos="400" CoolBarHPos="16" CoolBarSize="150" CoolBarHigh="10" CoolTimePos="500" CoolTimeHPos="9" CoolTimeSize="150" CoolDurationPos="520" CoolDurationSize="100" CoolServiceColor="layer-a-foreground" CoolBarColor="layer-a-foreground" CoolEventColor="layer-a-foreground" CoolDurationColor="layer-a-foreground" CoolBackColorSel="layer-a-selection-background" CoolRecPreColor="#f7c006" CoolRecColor="#e62711" CoolTunerCol="layer-a-foreground" CoolMarkerColor="layer-a-foreground" CoolCurrentCol="layer-a-foreground" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Service" render="CoolNextEvent" position="14,381" size="509,162" font="Regular;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
-		</widget>
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="541,610" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="700,610" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="860,610" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="1023,610" size="30,40" alphatest="blend" />
-		<widget name="key_red" position="577,613" size="140,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_green" position="736,613" size="140,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_yellow" position="896,613" size="140,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_blue" position="1061,613" size="140,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<ePixmap position="47,610" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" alphatest="blend" />
-		<eLabel name=" " position="131,68" size="270, 1" backgroundColor="layer-a-foreground" foregroundColor="layer-a-foreground" />
+	<screen name="CoolNiceGuide" position="0,0" size="1280,720" zPosition="1" title="Cool Nice Guide" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="C o o l   N i c e   G u i d e" position="380,30" size="520,50" noWrap="1" valign="bottom" halign="center" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="epg-background" transparent="1" />
+		<widget source="Title" render="Label" position="810,638" size="220,30" font="epg_event;20" noWrap="1" valign="center" halign="right" foregroundColor="epg-event-foreground" backgroundColor="epg-background" transparent="1" />
+		<panel name="template_cool_title_picons" />
+		<panel name="template_cool_all" />
+		<panel name="template_cool_gepg_pig" />
 	</screen>
 	<screen name="CoolSearch" position="0,0" size="1280,720" zPosition="1" title="Cool Search" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Cool Search" position="495,62" size="480,40" valign="bottom" font="global_title; 28" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" halign="left" transparent="1" />
-		<eLabel position="51,51" zPosition="-10" size="340,525" backgroundColor="layer-a-background" />
-		<eLabel position="416,51" zPosition="-10" size="810,619" backgroundColor="layer-a-background" />
-		<widget source="Service" render="CoolPico" position="434,66" zPosition="1" size="50,28" alphatest="blend" transparent="1" />
-		<widget source="Event" render="Label" position="61,60" size="322,40" font="SetrixHD; 28" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" halign="left">
-			<convert type="EventName">Name</convert>
-		</widget>
-		<widget source="Event" render="Label" position="61,106" size="320,460" font="Regular; 18" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" valign="top">
-			<convert type="EventName">ExtendedDescription</convert>
-		</widget>
-		<widget name="list" position="422,110" size="797,490" itemHeight="35" zPosition="3" CoolFont="Regular;20" CoolServiceFont="Regular;20" CoolEventFont="Regular;20" CoolDayPos="0" CoolDayHPos="2" CoolDatePos="70" CoolDateHPos="2" CoolTimePos="150" CoolTimeHPos="2" CoolServicePos="230" CoolServiceHPos="2" CoolEventPos="500" CoolEventHPos="2" CoolDaySize="50" CoolDateSize="70" CoolTimeSize="70" CoolServiceSize="280" CoolEventSize="700" CoolServiceColor="layer-a-foreground" CoolEventColor="layer-a-foreground" CoolDateColor="layer-a-foreground" CoolTimeColor="layer-a-foreground" CoolDayColor="layer-a-foreground" CoolBackColor="layer-a-background" CoolBackColorSel="layer-a-selection-background" CoolEventBackColor="layer-a-background" CoolRecEventBackColor="red" CoolRecPreColor="yellow" CoolRecColor="layer-a-foreground" backgroundColor="transparent" scrollbarMode="showOnDemand" transparent="1" />
-		<!-- /*Buttons-->
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="415,630" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="637,630" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="831,630" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="1036,630" size="30,40" alphatest="blend" />
-		<widget name="key_red" position="453,633" size="140,30" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_green" position="677,633" size="130,30" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_yellow" position="870,633" size="130,30" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_blue" position="1076,633" size="130,30" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<!--Button */-->
-		<!-- /*ClockWidget-->
-		<widget source="global.CurrentTime" render="Label" position="239,590" size="169,80" font="SetrixHD; 60" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1" valign="top">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="83,632" size="148,29" font="SetrixHD; 20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Format:%e. %b</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="107,602" size="125,30" font="SetrixHD; 20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Format:%A</convert>
-		</widget>
-		<eLabel position="51,599" zPosition="-1" size="340,70" backgroundColor="layer-a-background" transparent="0" />
-		<!--ClockWidget */-->
-	</screen>
-	<screen name="CoolNiceGuide" position="40,25" size="1200,660" zPosition="1" title="Cool TV Guide" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="0,0" zPosition="-10" size="1200,660" backgroundColor="layer-a-background" />
-		<eLabel text="Cool Nice Guide" position="36,12" size="240,40" valign="bottom" font="global_title;28" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" shadowColor="layer-a-background" halign="left" transparent="1" />
-		<widget source="Title" render="Label" position="260,12" size="484,40" font="SetrixHD;28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="layer-a-background" halign="left" transparent="1" />
-		<widget source="global.CurrentTime" render="Label" position="1080,7" size="100,33" font="Regular;26" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Default</convert>
-		</widget>
-		<widget source="global.CurrentTime" render="Label" position="752,12" size="320,33" font="Regular;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1" valign="top">
-			<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
-		</widget>
-		<widget name="date" position="1013,49" size="160,28" font="Regular;15" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="timeline_text" position="36,49" size="1140,28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="list" position="36,75" size="1140,420" itemHeight="30" font="screen_text; 20" scrollbarMode="showNever" CoolBorderColR="layer-a-background" CoolBorderColL="layer-a-background" CoolNowBackCol="layer-a-background" CoolTVBackCol="layer-a-background" CoolBackCol="layer-a-background" CoolNowBackColSel="layer-a-selection-background" CoolTVBackColSel="layer-a-selection-background" CoolBackColSel="layer-a-selection-background" CoolFontCol="layer-a-foreground" CoolFontColSel="layer-a-background" CoolNowFontCol="layer-a-foreground" CoolNowFontColSel="layer-a-background" CoolBackRecColSel="#a90707" transparent="1" />
-		<widget name="timeline0" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline1" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline2" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline3" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline4" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline5" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline_now" position="35,75" zPosition="2" size="5,420" pixmap="MetrixHD/colors/00ffffff.png" alphatest="on" />
-		<widget source="Event" render="Label" position="8,501" size="100,36" font="SetrixHD; 26" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="layer-a-background" halign="right" transparent="1">
-			<convert type="EventTime">StartTime</convert>
-			<convert type="ClockToText" />
-		</widget>
-		<widget source="Event" render="Progress" backgroundColor="layer-a-background" foregroundColor="layer-a-progress" position="110,520" size="120,3" borderWidth="0" borderColor="layer-a-accent1" zPosition="1" transparent="1">
-			<convert type="EventTime">Progress</convert>
-		</widget>
-		<eLabel name="new eLabel" position="110,521" size="120,1" backgroundColor="layer-a-foreground" />
-		<widget source="Event" render="Label" position="235,501" size="100,36" font="SetrixHD; 26" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="layer-a-background" halign="left" transparent="1">
-			<convert type="EventTime">EndTime</convert>
-			<convert type="ClockToText">Format:%H:%M</convert>
-		</widget>
-		<widget source="Event" render="Label" position="347,500" size="670,36" font="SetrixHD; 26" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="left">
-			<convert type="EventName">Name</convert>
-		</widget>
-		<widget source="Event" render="Label" position="1022,500" size="130,30" font="SetrixHD; 26" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="right">
-			<convert type="EventTime">Remaining</convert>
-			<convert type="RemainingToText">InMinutes</convert>
-		</widget>
-		<widget source="Event" render="Label" position="36,538" zPosition="1" size="1140,68" font="Regular;17" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="layer-a-background" transparent="1" valign="top">
-			<convert type="EventName">ExtendedDescription</convert>
-		</widget>
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="5,620" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="265,620" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="535,620" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="810,620" size="30,40" alphatest="blend" />
-		<widget name="key_red" position="45,623" size="200,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_green" position="305,623" size="200,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_yellow" position="575,623" size="200,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_blue" position="850,623" size="200,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<ePixmap position="1088,620" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" alphatest="blend" />
+		<eLabel text="C o o l   S e a r c h" position="380,30" size="520,50" noWrap="1" valign="bottom" halign="center" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="epg-background" transparent="1" />
+		<widget source="Title" render="Label" position="810,638" size="220,30" font="epg_event;20" noWrap="1" valign="center" halign="right" foregroundColor="epg-event-foreground" backgroundColor="epg-background" transparent="1" />
+		<panel name="template_cool_title_picons" />
+		<panel name="template_cool_all" />
+		<panel name="template_cool_description_pig" />
+		<eLabel name="line" position="60,295" size="1160,1" backgroundColor="epg-borderlines" />
+		<widget name="list" position="60,300" size="1160,330" itemHeight="30" CoolServiceFont="epg_event;21" CoolEventFont="epg_text;19" CoolFont="epg_text;20" CoolDayPos="0" CoolDayHPos="2" CoolDatePos="40" CoolDateHPos="2" CoolTimePos="140" CoolTimeHPos="2" CoolServicePos="240" CoolServiceHPos="0" CoolEventPos="500" CoolEventHPos="2" CoolDaySize="30" CoolDateSize="100" CoolTimeSize="100" CoolServiceSize="260" CoolEventSize="660"
+		CoolServiceColor="epg-service-foreground" 
+		CoolEventColor="epg-event-foreground" 
+		CoolBackColor="epg-event-background" 
+		CoolBackColorSel="layer-a-selection-background" 
+		CoolDayColor="epg-service-foreground" 
+		CoolDateColor="epg-timeline-foreground" 
+		CoolTimeColor="epg-timeline-foreground" 
+		CoolRecEventBackColor="epg-event-background" 
+		CoolRecColor="#00d13333" 
+		CoolRecAlarmCol="#00B59E01" 
+		enableWrapAround="1" 
+		scrollbarMode="showOnDemand" 
+		zPosition="0" 
+		transparent="1" />
 	</screen>
 	<screen name="CoolInfoGuide" position="0,0" size="1280,720" zPosition="1" title="Cool Info Guide" flags="wfNoBorder" backgroundColor="transparent">
-		<widget name="CoolEvent" position="425,65" size="630,50" itemHeight="50" zPosition="5" CoolFont="SetrixHD; 26" CoolTimePos="0" CoolTimeSize="0" CoolEventPos="0" CoolTimeColor="layer-a-foreground" CoolEventColor="layer-a-foreground" CoolRecPreColor="yellow" CoolRecColor="red" CoolBackColorSel="layer-a-background" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel position="425,99" zPosition="10" size="630,16" backgroundColor="layer-a-background" />
-		<eLabel position="51,51" zPosition="-10" size="340,525" backgroundColor="layer-a-background" />
-		<eLabel text="Cool Info Guide" position="60,62" size="326,40" valign="bottom" font="global_title; 30" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" halign="left" transparent="1" />
-		<widget source="Service" render="CoolPico" position="60,125" zPosition="1" size="50,28" alphatest="blend" transparent="1" />
-		<widget source="Service" render="Label" zPosition="3" position="121,122" size="260,45" font="Regular; 24" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1">
+		<eLabel text="C o o l   I n f o   G u i d e" position="380,30" size="520,50" noWrap="1" valign="bottom" halign="center" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="epg-background" transparent="1" />
+		<panel name="template_cool_title_picons" />
+		<panel name="template_cool_all" />
+		<panel name="template_cool_large_description_pig" />
+		<eLabel name="line" position="856,295" size="365,1" backgroundColor="epg-borderlines" />
+		<panel name="template_cool_all" />
+		<widget source="Service" render="Label" position="810,638" size="220,30" font="epg_event;20" noWrap="1" valign="center" halign="right" foregroundColor="epg-service-foreground" backgroundColor="epg-background" transparent="1" >
+			<convert type="ServiceName2">Bouquet</convert>
+		</widget>
+		<widget source="Service" render="Label" position="856,300" size="365,34" font="epg_event; 24" halign="center" valign="center" foregroundColor="epg-service-foreground" backgroundColor="epg-background" transparent="1">
 			<convert type="ServiceName">Name</convert>
 		</widget>
-		<widget source="Event" render="Label" position="60,180" size="82,30" font="Regular; 22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="left" transparent="1">
-			<convert type="EventTime">StartTime</convert>
-			<convert type="ClockToText" />
+		<eLabel text="Similar broadcasts:" position="866,340" size="355,30" font="epg_text;20" foregroundColor="epg-timeline-foreground" backgroundColor="epg-background" transparent="1" />
+		<widget name="CoolSimilar" position="866,380" size="355,240" font="epg_text;20" itemHeight="30" noWrap="1" foregroundColor="epg-event-foreground" backgroundColor="epg-background" transparent="1" />
+		<widget name="CoolShort" position="60,600" size="791,30" font="epg_info;19" zPosition="1" halign="center" backgroundColor="epg-background" foregroundColor="epg-event-foreground" transparent="1" />
+	</screen>
+	<screen name="CoolSingleGuide" position="0,0" size="1280,720" zPosition="1" title="Cool Single Guide" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="C o o l   S i n g l e   G u i d e" position="380,30" size="520,50" noWrap="1" valign="bottom" halign="center" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="epg-background" transparent="1" />
+		<widget source="Service" render="Label" position="810,638" size="220,30" font="epg_event;20" noWrap="1" valign="center" halign="right" foregroundColor="epg-service-foreground" backgroundColor="epg-background" transparent="1" >
+			<convert type="ServiceName2">Bouquet</convert>
 		</widget>
-		<widget source="Event" render="Label" position="282,180" size="100,30" font="Regular; 22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="right" transparent="1">
-			<convert type="EventTime">EndTime</convert>
-			<convert type="ClockToText">Format:%H:%M</convert>
+		<panel name="template_cool_title_picons" />
+		<panel name="template_cool_all" />
+		<panel name="template_cool_description_pig" />
+		<eLabel name="line" position="60,295" size="1160,1" backgroundColor="epg-borderlines" />
+		<widget name="list" position="60,300" size="1160,330" itemHeight="30" CoolEventFont="epg_text;19" CoolFont="epg_text;20" CoolDayPos="0" CoolDayHPos="2" CoolTimePos="100" CoolTimeHPos="2" CoolEventPos="230" CoolEventHPos="2" CoolDaySize="30" CoolTimeSize="100" CoolEventSize="930"
+		CoolEventColor="epg-event-foreground" 
+		CoolBackColor="epg-event-background" 
+		CoolBackColorSel="layer-a-selection-background" 
+		CoolDayColor="epg-service-foreground" 
+		CoolTimeColor="epg-timeline-foreground" 
+		CoolRecColor="#00d13333" 
+		CoolRecAlarmCol="#00B59E01" 
+		enableWrapAround="1" 
+		scrollbarMode="showOnDemand" 
+		zPosition="0" 
+		transparent="1" />
+	</screen>
+	<screen name="CoolEasyGuide" position="0,0" size="1280,720" zPosition="1" title="Cool Easy Guide" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="C o o l   E a s y   G u i d e" position="380,30" size="520,50" noWrap="1" valign="bottom" halign="center" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="epg-background" transparent="1" />
+		<widget source="Title" render="Label" position="810,638" size="220,30" font="epg_event;20" noWrap="1" valign="center" halign="right" foregroundColor="epg-event-foreground" backgroundColor="epg-background" transparent="1" />
+		<panel name="template_cool_title_picons" />
+		<panel name="template_cool_all" />
+		<panel name="template_cool_description_pig" />
+		<eLabel name="line" position="60,295" size="1160,1" backgroundColor="epg-borderlines" />
+		<widget name="list" position="60,300" size="1160,330" itemHeight="30" CoolServiceFont="epg_event;21" CoolEventFont="epg_text;19" CoolFont="epg_text;19" CoolPico="28" CoolPicoHPos="1" CoolBarPos="290" CoolBarSize="80" CoolBarHPos="9" CoolBarHigh="12" CoolServicePos="20" CoolServiceHPos="0" CoolEventPos="390" CoolEventHPos="2" CoolServiceSize="260" CoolEventSize="650" CoolDurationPos="1040" CoolDurationSize="100"
+		CoolServiceColor="epg-service-foreground" 
+		CoolEventColor="epg-event-foreground" 
+		CoolBackColor="epg-event-background" 
+		CoolBackColorSel="layer-a-selection-background" 
+		CoolTunerCol="epg-service-foreground" 
+		CoolFontColSel="epg-event-selected-foreground" 
+		CoolCurrentCol="epg-event-now-foreground" 
+		CoolDurationColor="epg-timeline-foreground" 
+		CoolBarColor="epg-timeline-foreground" 
+		CoolRecColor="#00d13333" 
+		CoolRecAlarmCol="#00B59E01" 
+		enableWrapAround="1" 
+		scrollbarMode="showOnDemand" 
+		zPosition="0" 
+		transparent="1" />
+	</screen>
+	<screen name="CoolChannelGuide" position="0,0" size="1280,720" zPosition="1" title="Cool Channel Guide" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="C o o l   C h a n n e l   G u i d e" position="380,30" size="520,50" noWrap="1" valign="bottom" halign="center" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="epg-background" transparent="1" />
+		<panel name="template_cool_title_picons" />
+		<panel name="template_cool_all" />
+		<panel name="template_cool_description_pig" />
+		<eLabel name="line" position="60,295" size="791,1" backgroundColor="epg-borderlines" />
+		<eLabel name="line" position="856,430" size="365,1" backgroundColor="epg-borderlines" />
+		<panel name="template_cool_all" />
+		<widget source="Title" render="Label" position="810,638" size="220,30" font="epg_event;20" noWrap="1" valign="center" halign="right" foregroundColor="epg-event-foreground" backgroundColor="epg-background" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="856,296" size="365,34" font="epg_event; 24" halign="center" valign="center" foregroundColor="epg-service-foreground" backgroundColor="epg-background" transparent="1">
+			<convert type="ServiceName">Name</convert>
 		</widget>
-		<widget source="Event" render="Progress" backgroundColor="layer-a-background" foregroundColor="layer-a-progress" position="60,171" size="325,5" zPosition="1" transparent="1">
-			<convert type="EventTime">Progress</convert>
+		<widget source="session.Event_Now" render="Label" position="866,330" size="305,30" font="epg_text;20" noWrap="1" foregroundColor="epg-event-foreground" backgroundColor="epg-background" transparent="1">
+			<convert type="EventName">Name</convert>
 		</widget>
-		<widget source="Event" render="Label" position="1083,64" size="128,30" font="Regular; 22" foregroundColor="layer-a-foreground" halign="right" backgroundColor="layer-a-background" transparent="1">
+		<widget source="session.Event_Now" render="Label" position="1131,330" size="80,30" font="epg_text;20" halign="left" foregroundColor="epg-timeline-foreground" backgroundColor="epg-background"  >
 			<convert type="EventTime">Remaining</convert>
 			<convert type="RemainingToText">InMinutes</convert>
 		</widget>
-		<eLabel text="Aehnliche Sendungen" position="60,220" size="321,32" font="Regular; 19" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" shadowColor="layer-a-background" transparent="1" />
-		<widget name="CoolSimilar" position="60,260" size="322,305" font="Regular; 17" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="#00605f5e" transparent="1" />
-		<widget name="CoolDescription" position="425,111" size="789,500" font="SetrixHD; 24" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" shadowColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="418,630" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="618,630" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="820,630" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="1018,630" size="30,40" alphatest="blend" />
-		<widget name="key_red" position="454,633" size="180,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_green" position="654,633" size="180,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_yellow" position="855,633" size="180,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_blue" position="1054,633" size="180,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<eLabel name="new eLabel" position="60,173" size="323,1" backgroundColor="layer-a-foreground" />
-		<eLabel position="416,52" zPosition="-10" size="810,619" backgroundColor="layer-a-background" />
-		<!-- /*ClockWidget-->
-		<widget source="global.CurrentTime" render="Label" position="201,603" size="190,70" font="global_clock; 60" noWrap="1" halign="center" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
-			<convert type="ClockToText">Default</convert>
+		<eLabel text="Next Event:" position="866,360" size="355,30" font="epg_text;16" foregroundColor="epg-timeline-foreground" backgroundColor="epg-background" transparent="1" />
+		<widget source="session.Event_Next" render="Label" position="866,390" size="60,30" font="epg_text;20" halign="left" foregroundColor="epg-event-foreground" backgroundColor="epg-background"  >
+			<convert type="EventTime">StartTime</convert>
+			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="51,634" size="150,30" font="global_clock; 20" noWrap="1" halign="right" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
-			<convert type="ClockToText">Format:%e. %B</convert>
+		<widget source="session.Event_Next" render="Label" position="926,390" size="305,30" font="epg_text;20" foregroundColor="epg-event-foreground" backgroundColor="epg-background" transparent="1">
+			<convert type="EventName">Name</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="51,604" size="150,30" font="global_clock; 20" noWrap="1" halign="right" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
-			<convert type="ClockToText">Format:%A</convert>
+		<widget source="Service" render="Label" position="856,440" size="365,34" font="epg_event; 24" halign="center" valign="center" foregroundColor="epg-service-foreground" backgroundColor="epg-background" transparent="1">
+			<convert type="ServiceName">Name</convert>
 		</widget>
-		<eLabel position="51,600" zPosition="-1" size="340,70" backgroundColor="layer-a-background" transparent="0" />
-		<!--ClockWidget */-->
+		<eLabel text="Next Events:" position="866,470" size="355,30" font="epg_text;16" foregroundColor="epg-timeline-foreground" backgroundColor="epg-background" transparent="1" />
+		<widget source="Service" render="CoolNextEvent" position="866,500" size="355,130" font="epg_text;20" itemHeight="30" noWrap="1" foregroundColor="epg-event-foreground" backgroundColor="epg-background" transparent="1" />
+		<widget name="list" position="60,300" size="791,330" itemHeight="30" CoolServiceFont="epg_event;21" CoolEventFont="epg_text;19" CoolFont="epg_text;19" CoolPicoPos="0" CoolPico="28" CoolPicoHPos="1" CoolBarPos="290" CoolBarSize="80" CoolBarHPos="9" CoolBarHigh="12" CoolMarkerPos="150" CoolMarkerHPos="0" CoolMarkerPicPos="0" CoolMarkerPicHPos="0" CoolServicePos="10" CoolServiceHPos="0" CoolEventPos="270" CoolEventHPos="2" CoolServiceSize="240" CoolEventSize="520" CoolDurationPos="0" CoolDurationSize="0" CoolTimePos="290"  CoolTimeHPos="2" CoolTimeSize="80" CoolBar="0" CoolTime="0"
+		CoolServiceColor="epg-service-foreground" 
+		CoolEventColor="epg-event-foreground" 
+		CoolBackColor="epg-event-background" 
+		CoolBackColorSel="layer-a-selection-background" 
+		CoolTunerCol="epg-service-foreground" 
+		CoolFontColSel="epg-event-selected-foreground" 
+		CoolCurrentCol="epg-event-now-foreground" 
+		CoolDurationColor="epg-timeline-foreground" 
+		CoolBarColor="epg-timeline-foreground" 
+		CoolMarkerColor="red"
+		CoolRecColor="#00d13333" 
+		CoolRecAlarmCol="#00B59E01" 
+		enableWrapAround="1" 
+		scrollbarMode="showOnDemand" 
+		zPosition="0" 
+		transparent="1" />
 	</screen>
-	<screen name="CoolTinyGuide" position="40,25" size="1200,660" zPosition="1" title="Cool Tiny Guide" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="0,0" zPosition="-10" size="1200,660" backgroundColor="layer-a-background" />
-		<widget name="date" position="886,12" size="290,40" font="SetrixHD; 28" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<eLabel text="Cool Tiny Guide" position="36,12" size="240,40" valign="bottom" font="global_title;28" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" shadowColor="layer-a-background" halign="left" transparent="1" />
-		<widget source="Title" render="Label" position="265,12" size="475,40" font="SetrixHD;28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="layer-a-background" halign="left" transparent="1" />
-		<widget source="global.CurrentTime" render="Label" position="1080,7" size="100,33" font="Regular;26" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1">
-			<convert type="ClockToText">Default</convert>
+	<screen name="template_cool_description_pig">
+		<widget source="Event" render="Label"  position="65,76" size="60,40" font="epg_event;24" halign="left" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1">
+			<convert type="EventTime">StartTime</convert>
+			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
-		<widget source="global.CurrentTime" render="Label" position="752,12" size="320,33" font="Regular;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" transparent="1" valign="top">
-			<convert type="ClockToText">Format:%A, %d.%m.%Y</convert>
+		<widget source="Event" render="Label" position="122,76" size="80,40" font="epg_event;24" halign="left" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1">
+			<convert type="EventTime">EndTime</convert>
+			<convert type="ClockToText">Format:- %H:%M</convert>
 		</widget>
-		<widget name="date" position="1013,49" size="160,28" font="Regular;15" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="timeline_text" position="36,49" size="1140,28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="list" position="36,75" size="1140,450" itemHeight="30" font="screen_text; 20" scrollbarMode="showNever" CoolBorderColR="layer-a-background" CoolBorderColL="layer-a-background" CoolNowBackCol="layer-a-background" CoolTVBackCol="layer-a-background" CoolBackCol="layer-a-background" CoolNowBackColSel="layer-a-selection-background" CoolTVBackColSel="layer-a-selection-background" CoolBackColSel="layer-a-selection-background" CoolFontCol="layer-a-foreground" CoolFontColSel="layer-a-background" CoolNowFontCol="layer-a-foreground" CoolNowFontColSel="layer-a-background" CoolBackRecColSel="#a90707" transparent="1" />
-		<widget name="timeline0" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline1" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline2" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline3" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline4" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline5" position="0,140" zPosition="1" size="0,0" pixmap="MetrixHD/colors/00ffffff.png" />
-		<widget name="timeline_now" position="115,75" zPosition="2" size="5,450" pixmap="MetrixHD/colors/00ffffff.png" alphatest="on" />
-		<widget source="Event" render="Label" position="36,538" zPosition="1" size="1140,68" font="Regular;17" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" shadowColor="layer-a-background" transparent="1" valign="top">
+		<widget source="Event" render="Label" position="210,76" size="540,40" font="epg_event;24" halign="left" backgroundColor="epg-background" foregroundColor="epg-event-foreground" transparent="1">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget source="Event" render="Label" position="746,76" size="100,40" font="epg_event;24" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right">
+			<convert type="EventTime">Remaining</convert>
+			<convert type="RemainingToText">InMinutes</convert>
+		</widget>
+		<eLabel position="60,110" zPosition="0" size="791,180" backgroundColor="epg-eventdescription-background" transparent="0" />
+		<widget source="Event" render="Label" position="65,112" size="786,178" font="epg_info;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="5,620" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="265,620" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="535,620" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="810,620" size="30,40" alphatest="blend" />
-		<widget name="key_red" position="45,623" size="200,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_green" position="305,623" size="200,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_yellow" position="575,623" size="200,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_blue" position="850,623" size="200,30" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<ePixmap position="1088,620" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" alphatest="blend" />
+		<widget source="session.VideoPicture" render="Pig" position="856,85" size="365,205" zPosition="3" backgroundColor="#ff000000" />
+	</screen>
+	<screen name="template_cool_large_description_pig">
+		<widget source="Event" render="Label"  position="65,76" size="60,40" font="epg_event;24" halign="left" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1">
+			<convert type="EventTime">StartTime</convert>
+			<convert type="ClockToText">Format:%H:%M</convert>
+		</widget>
+		<widget source="Event" render="Label" position="122,76" size="80,40" font="epg_event;24" halign="left" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1">
+			<convert type="EventTime">EndTime</convert>
+			<convert type="ClockToText">Format:- %H:%M</convert>
+		</widget>
+		<widget source="Event" render="Label" position="210,76" size="540,40" font="epg_event;24" halign="left" backgroundColor="epg-background" foregroundColor="epg-event-foreground" transparent="1">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget source="Event" render="Label" position="746,76" size="100,40" font="epg_event;24" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right">
+			<convert type="EventTime">Remaining</convert>
+			<convert type="RemainingToText">InMinutes</convert>
+		</widget>
+		<eLabel position="60,110" zPosition="-9" size="791,481" backgroundColor="epg-eventdescription-background" transparent="0" />
+		<widget name="CoolDescription" position="65,112" size="786,480" font="epg_info;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1"/>
+		<widget source="session.VideoPicture" render="Pig" position="856,85" size="365,205" zPosition="3" backgroundColor="#ff000000" />
+	</screen>
+	<screen name="template_cool_title_picons">
+		<widget name="date" position="65,30" size="250,50" font="epg_event;34" valign="bottom" halign="left" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" />
+		<widget source="Service" render="CoolPico" position="330,42" zPosition="1" size="50,30" alphatest="blend" transparent="1" />
+		<widget source="Service" render="CoolPico" position="900,42" zPosition="1" size="50,30" alphatest="blend" transparent="1" />
+	</screen>
+	<screen name="template_cool_all">
+		<panel name="template1_1layer_graphicalepg" />
+		<panel name="rgyb-buttons_template1" />
+		<widget name="key_red" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="epg-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="key_green" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="epg-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="key_yellow" position="436,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="epg-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="key_blue" position="619,638" size="220,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="epg-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/info.png" transparent="1" alphatest="on" />
+		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" transparent="1" alphatest="on" />
+	</screen>
+	<screen name="template_cool_gepg">
+		<widget source="Event" render="Label" position="65,76" size="60,40" font="epg_event;24" halign="left" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1">
+			<convert type="EventTime">StartTime</convert>
+			<convert type="ClockToText">Format:%H:%M</convert>
+		</widget>
+		<widget source="Event" render="Label" position="122,76" size="80,40" font="epg_event;24" halign="left" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1">
+			<convert type="EventTime">EndTime</convert>
+			<convert type="ClockToText">Format:- %H:%M</convert>
+		</widget>
+		<widget source="Event" render="Label" position="210,76" size="900,40" font="epg_event;24" halign="left" backgroundColor="epg-background" foregroundColor="epg-event-foreground" transparent="0">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget source="Event" render="Label" position="1115,76" size="100,40" font="epg_event;24" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right">
+			<convert type="EventTime">Remaining</convert>
+			<convert type="RemainingToText">InMinutes</convert>
+		</widget>
+		<eLabel position="60,110" zPosition="0" size="1160,60" backgroundColor="epg-eventdescription-background" transparent="0" />
+		<widget source="Event" render="Label" position="65,115" size="1155,51" font="epg_info;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
+			<convert type="EventName">ExtendedDescription</convert>
+		</widget>
+		<widget name="list" position="60,210" size="1160,420" 
+		CoolPiconFontCol="epg-service-foreground" 
+		CoolPiconBackCol="epg-service-background" 
+		CoolCurrentCol="epg-event-now-background" 
+		CoolCurrentColSel="epg-event-selected-background" 
+		CoolNoPiconBackCol="epg-service-background" 
+		CoolFontCol="epg-event-foreground" 
+		CoolFontColSel="epg-event-selected-foreground" 
+		CoolBackColor="epg-event-background" 
+		CoolBackColorSel="epg-event-selected-background" 
+		CoolNowCol="epg-event-now-background" 
+		CoolNowColSel="epg-event-selected-background" 
+		CoolNowFontCol="epg-event-now-foreground" 
+		CoolNowFontColSel="epg-event-selected-foreground" 
+		CoolTunerCol="epg-service-foreground" 
+		CoolTunerBackCol="epg-service-background" 
+		coolbordercolL="epg-borderlines" 
+		coolbordercolR="epg-borderlines" 
+		CoolBorderColL="epg-borderlines" 
+		CoolBorderColR="epg-borderlines" 
+		CoolRecCol="#00d13333" 
+		CoolRecColSel="#009e2626" 
+		CoolRecAlarmCol="#00436143" 
+		enableWrapAround="1" 
+		scrollbarMode="showNever" 
+		zPosition="0" 
+		transparent="0" />
+		<eLabel name="timeline_background" position="60,175" size="1160,30" backgroundColor="epg-timeline-background" transparent="0" />
+		<widget name="timeline_text" position="5,178" size="1160,25" font="epg_event;20" foregroundColor="epg-timeline-foreground" backgroundColor="epg-timeline-background" zPosition="1" transparent="1" />
+		<widget name="timeline_now-" position="60,205" zPosition="1" size="16,430" pixmap="MetrixHD/epg/timeline-now-xl.png" alphatest="blend" />
+		<widget name="timeline_now" position="60,208" zPosition="1" size="2,424" pixmap="MetrixHD/colors/00E51400.png" alphatest="on" />
+	</screen>
+	<screen name="template_cool_gepg_pig">
+		<widget source="Event" render="Label"  position="65,76" size="60,40" font="epg_event;24" halign="left" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1">
+			<convert type="EventTime">StartTime</convert>
+			<convert type="ClockToText">Format:%H:%M</convert>
+		</widget>
+		<widget source="Event" render="Label" position="122,76" size="80,40" font="epg_event;24" halign="left" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1">
+			<convert type="EventTime">EndTime</convert>
+			<convert type="ClockToText">Format:- %H:%M</convert>
+		</widget>
+		<widget source="Event" render="Label" position="210,76" size="540,40" font="epg_event;24" halign="left" backgroundColor="epg-background" foregroundColor="epg-event-foreground" transparent="0">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget source="Event" render="Label" position="746,76" size="100,40" font="epg_event;24" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right">
+			<convert type="EventTime">Remaining</convert>
+			<convert type="RemainingToText">InMinutes</convert>
+		</widget>
+		<eLabel position="60,110" zPosition="0" size="791,180" backgroundColor="epg-eventdescription-background" transparent="0" />
+		<widget source="Event" render="Label" position="65,112" size="786,178" font="epg_info;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
+			<convert type="EventName">ExtendedDescription</convert>
+		</widget>
+		<widget source="session.VideoPicture" render="Pig" position="856,85" size="365,205" zPosition="3" backgroundColor="#ff000000" />
+		<widget name="list" position="60,330" size="1160,300" 
+		CoolPiconFontCol="epg-service-foreground" 
+		CoolPiconBackCol="epg-service-background" 
+		CoolCurrentCol="epg-event-now-background" 
+		CoolCurrentColSel="epg-event-selected-background" 
+		CoolNoPiconBackCol="epg-service-background" 
+		CoolFontCol="epg-event-foreground" 
+		CoolFontColSel="epg-event-selected-foreground" 
+		CoolBackColor="epg-event-background" 
+		CoolBackColorSel="epg-event-selected-background" 
+		CoolNowCol="epg-event-now-background" 
+		CoolNowColSel="epg-event-selected-background" 
+		CoolNowFontCol="epg-event-now-foreground" 
+		CoolNowFontColSel="epg-event-selected-foreground" 
+		CoolTunerCol="epg-service-foreground" 
+		CoolTunerBackCol="epg-service-background" 
+		coolbordercolL="epg-borderlines" 
+		coolbordercolR="epg-borderlines" 
+		CoolBorderColL="epg-borderlines" 
+		CoolBorderColR="epg-borderlines" 
+		CoolRecCol="#00d13333" 
+		CoolRecColSel="#009e2626" 
+		CoolRecAlarmCol="#00B59E01" 
+		enableWrapAround="1" 
+		scrollbarMode="showNever" 
+		zPosition="0" 
+		transparent="0" />
+		<eLabel name="timeline_background" position="60,295" size="1160,30" backgroundColor="epg-timeline-background" transparent="0" />
+		<widget name="timeline_text" position="5,298" size="1160,25" font="epg_event;20" foregroundColor="epg-timeline-foreground" backgroundColor="epg-timeline-background" zPosition="1" transparent="1" />
+		<widget name="timeline_now-" position="60,325" zPosition="1" size="16,310" pixmap="MetrixHD/epg/timeline-now-xl.png" alphatest="blend" />
+		<widget name="timeline_now" position="60,328" zPosition="1" size="2,304" pixmap="MetrixHD/colors/00E51400.png" alphatest="on" />
+	</screen>
+	<screen name="CoolTVGuideSetup" title="Cool TV Guide Setup" position="0,0" size="1280,720" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,30" size="550,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="CoolText1" position="825,425" size="380,80" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<widget name="CoolText2" position="825,505" size="380,80" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="template1_2layer"/>
+		<panel name="rgyb-keys_template1-source"/>
+		<panel name="rgyb-buttons_template1"/>
+		<panel name="_oe-buttons_template1" />
+		<ePixmap pixmap="MetrixHD/icons/setup.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- CoolTV */-->
 	<!-- Fritz! -->
