@@ -40,12 +40,12 @@
 		<widget name="list" position="60,300" size="1160,330" itemHeight="30" CoolServiceFont="epg_event;21" CoolEventFont="epg_text;19" CoolFont="epg_text;20" CoolDayPos="0" CoolDayHPos="2" CoolDatePos="40" CoolDateHPos="2" CoolTimePos="140" CoolTimeHPos="2" CoolServicePos="240" CoolServiceHPos="0" CoolEventPos="500" CoolEventHPos="2" CoolDaySize="30" CoolDateSize="100" CoolTimeSize="100" CoolServiceSize="260" CoolEventSize="660"
 		CoolServiceColor="epg-service-foreground" 
 		CoolEventColor="epg-event-foreground" 
-		CoolBackColor="epg-event-background" 
+		CoolBackColor="epg-background" 
 		CoolBackColorSel="layer-a-selection-background" 
 		CoolDayColor="epg-service-foreground" 
 		CoolDateColor="epg-timeline-foreground" 
 		CoolTimeColor="epg-timeline-foreground" 
-		CoolRecEventBackColor="epg-event-background" 
+		CoolRecEventBackColor="epg-background" 
 		CoolRecColor="#00d13333" 
 		CoolRecAlarmCol="#00B59E01" 
 		enableWrapAround="1" 
@@ -84,6 +84,7 @@
 		scrollbarMode="showNever" 
 		zPosition="5" 
 		transparent="1" />
+		<eLabel position="856,82" size="365,30" zPosition="5" backgroundColor="transparent" transparent="0"/>
 	</screen>
 	<screen name="CoolSingleGuide" position="0,0" size="1280,720" zPosition="1" title="Cool Single Guide" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="C o o l   S i n g l e   G u i d e" position="380,30" size="520,50" noWrap="1" valign="bottom" halign="center" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="epg-background" transparent="1" />
@@ -114,7 +115,7 @@
 		<panel name="template_cool_all" />
 		<panel name="template_cool_description_pig" />
 		<eLabel name="line" position="60,295" size="1160,1" backgroundColor="epg-borderlines" />
-		<widget name="list" position="60,300" size="1160,330" itemHeight="30" CoolServiceFont="epg_event;21" CoolEventFont="epg_text;19" CoolFont="epg_text;19" CoolPico="28" CoolPicoHPos="1" CoolBarPos="290" CoolBarSize="80" CoolBarHPos="9" CoolBarHigh="12" CoolServicePos="20" CoolServiceHPos="0" CoolEventPos="390" CoolEventHPos="2" CoolServiceSize="260" CoolEventSize="650" CoolDurationPos="1040" CoolDurationSize="100"
+		<widget name="list" position="60,300" size="1160,330" itemHeight="30" CoolServiceFont="epg_event;21" CoolEventFont="epg_text;19" CoolFont="epg_text;19" CoolPico="28" CoolPicoHPos="1" CoolBarPos="270" CoolBarSize="80" CoolBarHPos="9" CoolBarHigh="12" CoolServicePos="20" CoolServiceHPos="0" CoolEventPos="390" CoolEventHPos="2" CoolServiceSize="240" CoolEventSize="650" CoolDurationPos="1040" CoolDurationSize="100"
 		CoolServiceColor="epg-service-foreground" 
 		CoolEventColor="epg-event-foreground" 
 		CoolBackColor="epg-background" 
@@ -180,6 +181,7 @@
 		scrollbarMode="showOnDemand" 
 		zPosition="0" 
 		transparent="1" />
+		<eLabel position="856,82" size="365,30" zPosition="5" backgroundColor="transparent" transparent="0"/>
 	</screen>
 	<screen name="template_cool_description_pig">
 		<widget source="Event" render="Label"  position="65,76" size="60,40" font="epg_event;24" halign="left" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1">
@@ -202,6 +204,9 @@
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
 		<widget source="session.VideoPicture" render="Pig" position="856,85" size="365,205" zPosition="3" backgroundColor="#ff000000" />
+		<widget source="session.CurrentService" render="Label" position="856,82" size="365,30" zPosition="4" font="epg_text; 18"  halign="center" valign="top" noWrap="1" backgroundColor="transparent" foregroundColor="epg-event-foreground" borderColor="black" borderWidth="1" transparent="1">
+			<convert type="ServiceName">Name</convert>
+		</widget>
 	</screen>
 	<screen name="template_cool_large_description_pig">
 		<widget source="Event" render="Label"  position="65,76" size="60,40" font="epg_event;24" halign="left" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1">
@@ -222,6 +227,9 @@
 		<eLabel position="60,110" zPosition="-9" size="791,481" backgroundColor="epg-eventdescription-background" transparent="0" />
 		<widget name="CoolDescription" position="65,112" size="786,480" font="epg_info;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1"/>
 		<widget source="session.VideoPicture" render="Pig" position="856,85" size="365,205" zPosition="3" backgroundColor="#ff000000" />
+		<widget source="session.CurrentService" render="Label" position="856,82" size="365,30" zPosition="4" font="epg_text; 18"  halign="center" valign="top" noWrap="1" backgroundColor="transparent" foregroundColor="epg-event-foreground" borderColor="black" borderWidth="1" transparent="1">
+			<convert type="ServiceName">Name</convert>
+		</widget>
 	</screen>
 	<screen name="template_cool_title_picons">
 		<widget name="date" position="65,30" size="250,50" font="epg_event;34" valign="bottom" halign="left" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" />
@@ -311,6 +319,9 @@
 			<convert type="EventName">ExtendedDescription</convert>
 		</widget>
 		<widget source="session.VideoPicture" render="Pig" position="856,85" size="365,205" zPosition="3" backgroundColor="#ff000000" />
+		<widget source="session.CurrentService" render="Label" position="856,82" size="365,30" zPosition="4" font="epg_text; 18"  halign="center" valign="top" noWrap="1" backgroundColor="transparent" foregroundColor="epg-event-foreground" borderColor="black" borderWidth="1" transparent="1">
+			<convert type="ServiceName">Name</convert>
+		</widget>
 		<widget name="list" position="60,330" size="1160,300" 
 		CoolPiconFontCol="epg-service-foreground" 
 		CoolPiconBackCol="epg-service-background" 
