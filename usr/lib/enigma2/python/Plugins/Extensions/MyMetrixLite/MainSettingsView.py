@@ -405,11 +405,11 @@ class MainSettingsView(Screen):
 
             if config.plugins.MyMetrixLiteOther.showTunerinfo.getValue() is True:
                 if config.plugins.MyMetrixLiteOther.setTunerAuto.getValue() is False:
-                    infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-2" />', '<panel name="INFOBARTUNERINFO-%d" />' % config.plugins.MyMetrixLiteOther.setTunerManual.getValue()])
-                else:
-                    infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-2" />', '<panel name="INFOBARTUNERINFO-%d" />' % self.getTunerCount()])
+                    infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-X" />', '<panel name="INFOBARTUNERINFO-%d" />' % config.plugins.MyMetrixLiteOther.setTunerManual.getValue()])
+                #else:
+                #    infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-X" />', '<panel name="INFOBARTUNERINFO-%d" />' % self.getTunerCount()])
             else:
-                    infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-2" />', '']) 
+                    infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-X" />', '']) 
 
             if config.plugins.MyMetrixLiteOther.showInfoBarClock.getValue() is False:
                 infobarSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
