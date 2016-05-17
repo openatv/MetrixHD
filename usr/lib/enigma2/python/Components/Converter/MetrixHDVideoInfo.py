@@ -36,7 +36,7 @@ class MetrixHDVideoInfo(Poll, Converter, object):
 			self.type = self.VIDEOSIZE
 		elif type == "VideoSizeWidth":
 			self.type = self.VIDEOSIZEWIDTH
-		elif type == "VideoSizeHight":
+		elif type == "VideoSizeHeight":
 			self.type = self.VIDEOSIZEHEIGHT
 		elif type == "VideoSizeShort":
 			self.type = self.VIDEOSIZESHORT
@@ -101,7 +101,7 @@ class MetrixHDVideoInfo(Poll, Converter, object):
 				else:
 					text = "16:9"
 		else:
-			print "type must be {VideoMode, VideoSize, VideoSizeWidth, VideoSizeHight, VideoSizeShort, VideoCodec, VideoFormat} for MetrixHDVideoInfo converter"
+			print "type must be {VideoMode, VideoSize, VideoSizeWidth, VideoSizeHeight, VideoSizeShort, VideoCodec, VideoFormat} for MetrixHDVideoInfo converter"
 			text = "type-error"
 
 		return text
