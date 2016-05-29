@@ -1,17 +1,24 @@
 <!-- original file -->
-<!-- run_mod -->
-	<!-- changing next lines -->
-<!-- next_line_is_picon -->
-	<!-- example: position="200,100" size="220,132" -->
-<!-- stop_mod -->
-	<!-- no changing next lines -->
-<!-- run_mod -->
-<!-- next_screen_rename_and_stop_mod -->
-	<!--screen name="example_is_FHD"-->
-<!-- next_screen_rename_and_stop_mod -->
-	<!--screen name="example"-->
-<!-- run_mod -->
 <skin>
+###############################################################################
+# change flags description (for converting skin to another screen resolution) #
+#<!-- cf#_#stop -->                                                           #
+# stop converting                                                             #
+#<!-- cf#_#begin -->                                                          #
+# begin converting                                                            #
+#<!-- cf#_#rename -->                                                         #
+# rename next screen and stop converting                                      #
+# example1: if name ends with 'xxx#_FHDscreen', renamed to 'xxx'              #
+# example2: if name ends with 'xxx', renamed to 'xxx#_HDscreen'               #
+# example3: if name ends with 'xxx#_UHDscreen', renamed to 'xxx'              #
+# example4: if name ends with 'xxx', renamed to 'xxx#_HDscreen'               #
+#<!-- cf#_#picon -->                                                          #
+# next line is a picon position                                               #
+#(for centered position at different picon size -> xpicon scalable option)    #
+#<!-- cf#_#pixnore -->                                                        #
+# next line is a pixmap png file and not change path or check this            #
+###############################################################################
+<!-- cf#_#begin -->
 	<!-- MetrixHD v2.5 by iMaxxx | optimized for openATV 4.0 -->
 	<!-- recommended to use with XPicons -->
 	<!-- You can modify and redistribute it as long as you keep this license and the original author for the skin and all of your modifications -->
@@ -53,6 +60,7 @@
 		<color name="layer-a-extendedinfo1" value="#00BDBDBD" />					<!-- MetrixColors - First extended info layer a -->
 		<color name="layer-a-extendedinfo2" value="#006E6E6E" />					<!-- MetrixColors - Second extended info layer a -->
 		<color name="layer-a-progress" value="#1A27408B" />							<!-- MetrixColors - Progress layer a -->
+		<color name="layer-a-underline" value="#00BDBDBD" />						<!-- MetrixColors - color underline screen title text -->
 		<color name="layer-b-foreground" value="#00FFFFFF" />						<!-- MetrixColors - Foreground layer b -->
 		<color name="layer-b-background" value="#1A27408B" />						<!-- MetrixColors - Background layer b -->
 		<color name="layer-b-selection-foreground" value="#00FFFFFF" />				<!-- MetrixColors - Foreground layer b for selected items -->
@@ -176,7 +184,7 @@
 		<sub name="Subtitle_Italic" font="Regular;30" foregroundColor="undcaaaa" shadowColor="#40101010" shadowOffset="3,3" />
 	</subtitles>
 	<windowstyle type="skinned" id="0">
-		<title offset="5,0" font="global_title;35" />
+		<title offset="5,0" font="global_title;34" />
 		<color name="Background" color="layer-a-background" />
 		<color name="LabelForeground" color="layer-a-foreground" />
 		<color name="ListboxBackground" color="layer-a-background" />
@@ -189,7 +197,7 @@
 		<color name="ListboxMarkedAndSelectedForeground" color="layer-a-foreground" />
 		<color name="WindowTitleForeground" color="title-foreground" />
 		<color name="WindowTitleBackground" color="title-background"/>
-<!-- stop_mod -->
+<!-- cf#_#stop -->
 		<borderset name="bsWindow">
 			<!--pixmap pos="bpTopLeft" filename="MetrixHD/border/5px/0F0F0F.png" /-->
 			<pixmap pos="bpTop" filename="MetrixHD/border/50px/0F0F0F.png" />
@@ -206,14 +214,8 @@
 			<!--lb pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->
 			<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->
 		</borderset>
-		<!--borderset name="bsButton"-->
-			<!--bu pixmap pos="bpTop" filename="MetrixHD/border/1px/FFFFFF.png" /-->
-			<!--bu pixmap pos="bpBottom" filename="MetrixHD/border/1px/FFFFFF.png" /-->
-			<!--bu pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->
-			<!--bu pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->
-		<!--/borderset-->
-<!-- run_mod -->
 	</windowstyle>
+<!-- cf#_#begin -->
 	<windowstyle type="skinned" id="1">
 		<color name="Background" color="layer-a-background" />
 		<color name="LabelForeground" color="layer-a-foreground" />
@@ -262,7 +264,7 @@
 		<parameter name="ServiceInfoRight" value="300,0,600,25"/>
 		<parameter name="VirtualKeyboard" value="45,45"/>
 	</parameters>
-
+<!-- SKINPARTS -->
 	<include filename="/usr/share/enigma2/MetrixHD/skin_00_templates.xml" />
 	<include filename="/usr/share/enigma2/MetrixHD/skin_00a_InfoBar.xml" />
 	<include filename="/usr/share/enigma2/MetrixHD/skin_00b_SecondInfoBar.xml" />
@@ -271,161 +273,10 @@
 	<include filename="/usr/share/enigma2/MetrixHD/skin_00e_ChannelSelection.xml" />
 	<include filename="/usr/share/enigma2/MetrixHD/skin_00f_MoviePlayer.xml" />
 	<include filename="/usr/share/enigma2/MetrixHD/skin_00g_EMC.xml" />
-	<include filename="/usr/share/enigma2/MetrixHD/skin_01_openatv.xml" />
-	<include filename="/usr/share/enigma2/MetrixHD/skin_02_display.xml" />
-	<include filename="/usr/share/enigma2/MetrixHD/skin_03_plugins.xml" />
-	<include filename="/usr/share/enigma2/MetrixHD/skin_04_check.xml" />
-	<include filename="/usr/share/enigma2/MetrixHD/skin_05_screens_unchecked.xml" />
-	<include filename="/usr/share/enigma2/MetrixHD/skin_10_user.xml" />
-	<!--include filename="/usr/share/enigma2/MetrixHD/skin_11_user.xml" /-->
-	<!--include filename="/usr/share/enigma2/MetrixHD/skin_12_user.xml" /-->
-	<!--include filename="/usr/share/enigma2/MetrixHD/skin_13_user.xml" /-->
-	<!--include filename="/usr/share/enigma2/MetrixHD/skin_14_user.xml" /-->
-	<!--include filename="/usr/share/enigma2/MetrixHD/skin_15_user.xml" /-->
-	<!--include filename="/usr/share/enigma2/MetrixHD/skin_16_user.xml" /-->
-	<!--include filename="/usr/share/enigma2/MetrixHD/skin_17_user.xml" /-->
-	<!--include filename="/usr/share/enigma2/MetrixHD/skin_18_user.xml" /-->
-	<!--include filename="/usr/share/enigma2/MetrixHD/skin_19_user.xml" /-->
-<!-- SKIN DESIGN -->
-	<screen name="SkinDesign-s">
-		<!--eLabel name="upperleftcorner-s" position="0,0" zPosition="-105" size="40,25" backgroundColor="#1A27408B" /-->
-		<!--eLabel name="lowerleftcorner-s" position="0,675" zPosition="-105" size="40,45" backgroundColor="#1A27408B" /-->
-		<!--eLabel name="upperrightcorner-s" position="1240,0" zPosition="-105" size="40,60" backgroundColor="#1A0F0F0F" /-->
-		<!--eLabel name="lowerrightcorner-s" position="1240,640" zPosition="-105" size="40,80" backgroundColor="#1A0F0F0F" /-->
-		<!--eLabel name="optionallayerhorizontal-s" position="0,655" zPosition="-105" size="1127,30" backgroundColor="#1A27408B" /-->
-		<!--eLabel name="optionallayervertical-s" position="102,51" zPosition="-105" size="60,669" backgroundColor="#1A27408B" /-->
-	</screen>
-	<screen name="SkinDesign-m">
-		<!--eLabel name="upperleftcorner-m" position="0,0" zPosition="-105" size="40,25" backgroundColor="#1A27408B" /-->
-		<!--eLabel name="lowerleftcorner-m" position="0,675" zPosition="-105" size="40,45" backgroundColor="#1A27408B" /-->
-		<!--eLabel name="upperrightcorner-m" position="1240,0" zPosition="-105" size="40,60" backgroundColor="#1A0F0F0F" /-->
-		<!--eLabel name="lowerrightcorner-m" position="1240,640" zPosition="-105" size="40,80" backgroundColor="#1A0F0F0F" /-->
-		<!--eLabel name="optionallayerhorizontal-m" position="0,655" zPosition="-105" size="1127,30" backgroundColor="#1A27408B" /-->
-		<!--eLabel name="optionallayervertical-m" position="102,51" zPosition="-105" size="60,669" backgroundColor="#1A27408B" /-->
-	</screen>
-<!-- SKIN DESIGN - SCREENS -->
-	<screen name="template1_2layer">
-		<panel name="SkinDesign-s" />
-		<panel name="template1_2layer-1" />
-	</screen>
-	<screen name="template1_1layer">
-		<panel name="SkinDesign-s" />
-		<panel name="template1_1layer-1" />
-	</screen>
-	<screen name="template1_1layer_graphicalepg">
-		<panel name="SkinDesign-s" />
-		<panel name="template1_1layer-2" />
-	</screen>
-	<screen name="INFOBAREPGWIDGET_Layer">
-		<panel name="INFOBAREPGWIDGET_Layer-1" />
-	</screen>
-	<screen name="QuickMenu_Layer">
-		<panel name="QuickMenu_Layer-1" />
-	</screen>
-<!-- SKIN DESIGN - BUTTONS -->
-	<screen name="ime-buttons_template1">
-		<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="_me-buttons_template1">
-		<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="__e-buttons_template1">
-		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="_ie-buttons_template1">
-		<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="_oe-buttons_template1">
-		<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="moe-buttons_template1">
-		<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="ioe-buttons_template1">
-		<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
-	</screen>
-<!-- SKIN DESIGN - MENUS -->
-	<screen name="MENU_template">
-		<panel name="SkinDesign-m" />
-		<panel name="MENU_template-1" />
-		<widget source="Title" render="Label" position="5,535" size="1280,200" font="global_large_menu; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-	</screen>
-	<screen name="MENU_textTitle_template">
-		<panel name="SkinDesign-m" />
-		<panel name="MENU_template-1" />
-	</screen>
-	<screen name="CONTEXTMENU_template">
-		<panel name="SkinDesign-m" />
-		<panel name="CONTEXTMENU_template-1" />
-		<widget source="Title" render="Label" position="5,535" size="1280,200" font="global_large_menu; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-	</screen>
-	<screen name="CONTEXTMENU_textTitle_template">
-		<panel name="SkinDesign-m" />
-		<panel name="CONTEXTMENU_template-1" />
-	</screen>
-	<screen name="CONTEXTMENU2_template">
-		<panel name="SkinDesign-m" />
-		<panel name="CONTEXTMENU2_template-1" />
-		<widget source="Title" render="Label" position="5,535" size="1280,200" font="global_large_menu; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-	</screen>
-	<screen name="CONTEXTMENU2_textTitle_template">
-		<panel name="SkinDesign-m" />
-		<panel name="CONTEXTMENU2_template-1" />
-	</screen>
-<!-- SKIN DESIGN - INFOBAR EXTENDED INFO -->
-	<screen name="INFOBAREXTENDEDINFO">
-		<panel name="INFOBAREXTENDEDINFO-1" />
-	</screen>
-<!-- SKIN DESIGN - INFOBAR COLOR GRADIENT -->
-	<screen name="COLORGRADIENT_Bottom">
-		<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom.png" position="0,640" size="1280,80" zPosition="-1" /-->
-	</screen>
-	<screen name="COLORGRADIENT_Bottom_epg">
-		<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom.png" position="0,150" size="1280,80" zPosition="-1" /-->
-	</screen>
-	<screen name="COLORGRADIENT_Top">
-		<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top.png" position="0,0" size="1280,30" zPosition="-1" /-->
-	</screen>
-<!-- SKIN DESIGN - Infobar ZZZPicon -->
-	<screen name="IB_ZZZPicon">
-		<widget alphatest="blend" position="0,560" size="267,160" render="MetrixHDXPicon" source="session.CurrentService" transparent="1" zPosition="4">
-			<convert type="ServiceName">Reference</convert>
-		</widget>
-	</screen>
-<!-- SKIN DESIGN - Infobar XPicon -->
-	<screen name="IB_XPicon">
-<!-- next_line_is_picon -->
-		<widget alphatest="blend" position="33,574" size="220,132" render="MetrixHDXPicon" source="session.CurrentService" transparent="1" zPosition="4">
-			<convert type="ServiceName">Reference</convert>
-		</widget>
-	</screen>
-<!-- SKIN DESIGN - Infobar Picon -->
-	<screen name="InfoBar_Picon">
-		<panel name="IB_XPicon" />
-	</screen>
-<!-- Player PVRState -->
-	<screen name="PVRState" position="230,238" zPosition="2" size="820,230" backgroundColor="transparent" flags="wfNoBorder" >
-		<panel name="PVRState_1" />
-	</screen>
-	<screen name="PVRState_Top" position="0,0" zPosition="2" size="1280,30" backgroundColor="transparent" flags="wfNoBorder" >
-		<panel name="PVRState_3" />
-		<!--panel name="PVRState_3_mt" /-->
-		<!--panel name="PVRState_3_ct" /-->
-	</screen>
-<!-- graphical EPG Style -->
-	<screen name="GraphicalEPG" position="0,0" size="1280,720" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="GraphicalEPG_1" />
-	</screen>
-	<screen name="GraphicalEPGPIG" position="0,0" size="1280,720" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="GraphicalEPGPIG_1" />
-	</screen>
+	<include filename="/usr/share/enigma2/MetrixHD/skin_00o_openatv.xml" />
+	<include filename="/usr/share/enigma2/MetrixHD/skin_00p_plugins.xml" />
+	<include filename="/usr/share/enigma2/MetrixHD/skin_00u_unchecked.xml" />
+	<include filename="/usr/share/enigma2/MetrixHD/skin_00z_design.xml" />
+	<!-- placeholder_skinparts /-->
+<!-- SKINPARTS -->
 </skin>

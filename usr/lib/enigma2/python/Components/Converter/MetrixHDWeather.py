@@ -71,17 +71,16 @@ class MetrixHDWeather(Poll, Converter, object):
 			return ""
 
 	@cached
-	def getBoolean(self):
+	def getValue(self):
 		if self.type == "currentDataValid":
 			return config.plugins.MetrixWeather.currentWeatherDataValid.value
-		return False
+		return -1
 
 	def getCF(self):
 		if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit":
 			return "°F"
 		else: 
 			return "°C"
-		
 
-	boolean = property(getBoolean)
+	value = property(getValue)
 	text = property(getText)

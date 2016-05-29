@@ -24,7 +24,7 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 from Components.config import config, ConfigSubsection, ConfigSelection, ConfigNumber, ConfigSelectionNumber, ConfigYesNo, ConfigText, ConfigInteger
 from os import path
 import gettext
-
+from boxbranding import getBoxType
 #############################################################
 
 PLUGIN_PATH = resolveFilename(SCOPE_PLUGINS, "Extensions/MyMetrixLite")
@@ -84,43 +84,31 @@ SKIN_EMC_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00g_EMC.xml"
 SKIN_EMC_TARGET = "/usr/share/enigma2/MetrixHD/skin_00g_EMC.MySkin.xml"
 SKIN_EMC_TARGET_TMP = SKIN_EMC_TARGET + ".tmp"
 
-SKIN_OPENATV_SOURCE = "/usr/share/enigma2/MetrixHD/skin_01_openatv.xml"
-SKIN_OPENATV_TARGET = "/usr/share/enigma2/MetrixHD/skin_01_openatv.MySkin.xml"
+SKIN_OPENATV_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00o_openatv.xml"
+SKIN_OPENATV_TARGET = "/usr/share/enigma2/MetrixHD/skin_00o_openatv.MySkin.xml"
 SKIN_OPENATV_TARGET_TMP = SKIN_OPENATV_TARGET + ".tmp"
 
-SKIN_DISPLAY_SOURCE = "/usr/share/enigma2/MetrixHD/skin_02_display.xml"
-SKIN_DISPLAY_TARGET = "/usr/share/enigma2/MetrixHD/skin_02_display.MySkin.xml"
-SKIN_DISPLAY_TARGET_TMP = SKIN_DISPLAY_TARGET + ".tmp"
-
-SKIN_PLUGINS_SOURCE = "/usr/share/enigma2/MetrixHD/skin_03_plugins.xml"
-SKIN_PLUGINS_TARGET = "/usr/share/enigma2/MetrixHD/skin_03_plugins.MySkin.xml"
+SKIN_PLUGINS_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00p_plugins.xml"
+SKIN_PLUGINS_TARGET = "/usr/share/enigma2/MetrixHD/skin_00p_plugins.MySkin.xml"
 SKIN_PLUGINS_TARGET_TMP = SKIN_PLUGINS_TARGET + ".tmp"
 
-SKIN_CHECK_SOURCE = "/usr/share/enigma2/MetrixHD/skin_04_check.xml"
-SKIN_CHECK_TARGET = "/usr/share/enigma2/MetrixHD/skin_04_check.MySkin.xml"
-SKIN_CHECK_TARGET_TMP = SKIN_CHECK_TARGET + ".tmp"
-
-SKIN_UNCHECKED_SOURCE = "/usr/share/enigma2/MetrixHD/skin_05_screens_unchecked.xml"
-SKIN_UNCHECKED_TARGET = "/usr/share/enigma2/MetrixHD/skin_05_screens_unchecked.MySkin.xml"
+SKIN_UNCHECKED_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00u_unchecked.xml"
+SKIN_UNCHECKED_TARGET = "/usr/share/enigma2/MetrixHD/skin_00u_unchecked.MySkin.xml"
 SKIN_UNCHECKED_TARGET_TMP = SKIN_UNCHECKED_TARGET + ".tmp"
 
-SKIN_USER_SOURCE = "/usr/share/enigma2/MetrixHD/skin_10_user.xml"
-SKIN_USER_TARGET = "/usr/share/enigma2/MetrixHD/skin_10_user.MySkin.xml"
-SKIN_USER_TARGET_TMP = SKIN_USER_TARGET + ".tmp"
+SKIN_DESIGN_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00z_design.xml"
+SKIN_DESIGN_TARGET = "/usr/share/enigma2/MetrixHD/skin_00z_design.MySkin.xml"
+SKIN_DESIGN_TARGET_TMP = SKIN_DESIGN_TARGET + ".tmp"
 #############################################################
 
 MAIN_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/%s.png"
-WEATHER_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/weather/%s.png"
 COLOR_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/colors/%s.png"
 FONT_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/fonts/%s.png"
-OTHER_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/other/%s.png"
-BACKUP_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/backup/%s.png"
 
 BACKUP_FILE = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/MyMetrixLiteBackup.dat"
 #############################################################
 
-def initColorsConfig():
-    ColorList = [
+ColorList = [
         ("F0A30A", _("Amber")),
         ("825A2C", _("Brown")),
         ("0050EF", _("Cobalt")),
@@ -133,6 +121,7 @@ def initColorsConfig():
         ("6A00FF", _("Indigo")),
         ("5FA816", _("Brightgreen")),
         ("70AD11", _("Green")),
+        ("009A93", _("Turquoise")),
         ("008A00", _("Emerald")),
         ("76608A", _("Mauve")),
         ("0000CD", _("Mediumblue")),
@@ -164,6 +153,32 @@ def initColorsConfig():
         ("FAFAFA", _("Greyscale 13")),
         ("FFFFFF", _("White"))
     ]
+
+TransparencyList=[
+        ("00", _("0%")),
+        ("0D", _("5%")),
+        ("1A", _("10%")),
+        ("27", _("15%")),
+        ("34", _("20%")),
+        ("40", _("25%")),
+        ("4D", _("30%")),
+        ("5A", _("35%")),
+        ("67", _("40%")),
+        ("74", _("45%")),
+        ("80", _("50%")),
+        ("8D", _("55%")),
+        ("9A", _("60%")),
+        ("A7", _("65%")),
+        ("B4", _("70%")),
+        ("C0", _("75%")),
+        ("CD", _("80%")),
+        ("DA", _("85%")),
+        ("E7", _("90%")),
+        ("F4", _("95%")),
+        ("FF", _("100%"))
+    ]
+
+def initColorsConfig():
 
     BorderList = [
         ("F0A30A", _("Amber")),
@@ -223,30 +238,6 @@ def initColorsConfig():
         ("8px", _("8 px")),
         ("9px", _("9 px")),
         ("10px", _("10 px"))
-    ]
-
-    TransparencyList=[
-        ("00", _("0%")),
-        ("0D", _("5%")),
-        ("1A", _("10%")),
-        ("27", _("15%")),
-        ("34", _("20%")),
-        ("40", _("25%")),
-        ("4D", _("30%")),
-        ("5A", _("35%")),
-        ("67", _("40%")),
-        ("74", _("45%")),
-        ("80", _("50%")),
-        ("8D", _("55%")),
-        ("9A", _("60%")),
-        ("A7", _("65%")),
-        ("B4", _("70%")),
-        ("C0", _("75%")),
-        ("CD", _("80%")),
-        ("DA", _("85%")),
-        ("E7", _("90%")),
-        ("F4", _("95%")),
-        ("FF", _("100%"))
     ]
 
     SkinColorPresetList = [
@@ -325,6 +316,8 @@ def initColorsConfig():
     config.plugins.MyMetrixLiteColors.layeraaccent2 = ConfigSelection(default="6E6E6E", choices = ColorList)
     config.plugins.MyMetrixLiteColors.layeraprogress = ConfigSelection(default="27408B", choices = ColorList)
     config.plugins.MyMetrixLiteColors.layeraprogresstransparency = ConfigSelection(default="1A", choices = TransparencyList)
+    config.plugins.MyMetrixLiteColors.layeraunderline = ConfigSelection(default="BDBDBD", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.layeraunderlinetransparency = ConfigSelection(default="00", choices = TransparencyList)
     config.plugins.MyMetrixLiteColors.layeraextendedinfo1 = ConfigSelection(default="BDBDBD", choices = ColorList)
     config.plugins.MyMetrixLiteColors.layeraextendedinfo2 = ConfigSelection(default="6E6E6E", choices = ColorList)
 
@@ -382,6 +375,9 @@ def initColorsConfig():
     config.plugins.MyMetrixLiteColors.optionallayerverticalbackground = ConfigSelection(default="27408B", choices = ColorList)
     config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency = ConfigSelection(default="1A", choices = TransparencyList)
 
+    gradientcolor = [('0', _('disabled')), ('1', _('same as background')), ('25', _('%s darker than background')%'25%') , ('50',  _('%s darker than background')%'50%'), ('75',  _('%s darker than background')%'75%')] + ColorList
+    config.plugins.MyMetrixLiteColors.cologradient = ConfigSelection(default='0', choices = gradientcolor)
+
 #############################################################
 
 def initFontsConfig():
@@ -404,11 +400,13 @@ def initFontsConfig():
         ("/usr/share/enigma2/MetrixHD/fonts/DejaVuSans.ttf", ("DejaVu Sans (DejaVuSans.ttf)")),
         ("/usr/share/enigma2/MetrixHD/fonts/digi.ttf", ("LCD (digi.ttf)")),
         ("/usr/share/enigma2/MetrixHD/fonts/DroidSans.ttf", ("Droid Sans (DroidSans.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf", ("Droid Sans (DroidSans-Bold.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", ("Open Sans (OpenSans-Regular.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/Raleway-Channel.ttf", ("Raleway (Raleway-Channel.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf", ("Raleway (Raleway-Light.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf", ("Raleway (Raleway-Regular.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf", ("Droid Sans Bold (DroidSans-Bold.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf", ("HandelGotD (HandelGotD.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/HandelGotDBol.ttf", ("HandelGotD Bold (HandelGotDBol.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", ("OpenSans Regular (OpenSans-Regular.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/Raleway-Channel.ttf", ("Raleway Channel (Raleway-Channel.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf", ("Raleway Light(Raleway-Light.ttf)")),
+        ("/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf", ("Raleway Regular (Raleway-Regular.ttf)")),
         ("/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", ("Segoe UI Light 8 (setrixHD.ttf)"))
     ]
 
@@ -418,7 +416,8 @@ def initFontsConfig():
         ("preset_2", _("Bold and greater Fonts")),
         ("preset_3", _("Raleway Fonts")),
         ("preset_4", _("Digital Fonts")),
-        ("preset_5", _("Analog Fonts"))
+        ("preset_5", _("Analog Fonts")),
+        ("preset_6", _("HandelGotD Fonts"))
         ]
 
     FontTypeList = []
@@ -499,7 +498,7 @@ def initWeatherConfig():
     config.plugins.MetrixWeather.enabled = ConfigYesNo(default=True)
     config.plugins.MetrixWeather.MoviePlayer = ConfigYesNo(default=True)
     config.plugins.MetrixWeather.verifyDate = ConfigYesNo(default=True)
-    config.plugins.MetrixWeather.refreshInterval = ConfigNumber(default=60)
+    config.plugins.MetrixWeather.refreshInterval = ConfigSelectionNumber(0, 1440, 30, default = 120, wraparound = True)
     config.plugins.MetrixWeather.woeid = ConfigNumber(default=676757) #Location (visit metrixhd.info)
     config.plugins.MetrixWeather.tempUnit = ConfigSelection(default="Celsius", choices = [
         ("Celsius", _("Celsius")),
@@ -509,7 +508,7 @@ def initWeatherConfig():
 
     ## RENDERER CONFIG:
 
-    config.plugins.MetrixWeather.currentWeatherDataValid = ConfigYesNo(default=False)
+    config.plugins.MetrixWeather.currentWeatherDataValid = ConfigNumber(default=0)
     config.plugins.MetrixWeather.currentLocation = ConfigText(default="N/A")
     config.plugins.MetrixWeather.currentWeatherCode = ConfigText(default="(")
     config.plugins.MetrixWeather.currentWeatherText = ConfigText(default="N/A")
@@ -562,13 +561,48 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther = ConfigSubsection()
 
     #OtherSettings
-    #FHD-Option
-    config.plugins.MyMetrixLiteOther.FHDenabled = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.FHDrounddown = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.FHDfontsize = ConfigSelection(default = "2", choices = [("1", _("scale")), ("2", _("size")), ("3", _("50/50"))])
-    config.plugins.MyMetrixLiteOther.FHDfontoffset = ConfigSelectionNumber(-20, 20, 1, default = 0)
-    config.plugins.MyMetrixLiteOther.FHDpiconzoom =  ConfigSelection(default = "1.5", choices = [("1", _("No")), ("1.1", _("20%")), ("1.2", _("40%")), ("1.3", _("60%")), ("1.4", _("80%")), ("1.5", _("100%"))])
-    config.plugins.MyMetrixLiteOther.FHDadditionalfiles = ConfigYesNo(default=False)
+    #EHD-Option -> Enhanced HD
+    BoxType = getBoxType()
+    config.plugins.MyMetrixLiteOther.EHDtested = ConfigText(default = "%s_|_0" %BoxType)
+
+    skinmodes = [("0", _("Standard HD (1280x720)"))]
+    mode1080p = mode2160p = risk = False
+    try:
+        if path.exists("/proc/stb/video/videomode_choices"):
+            vmodes = open("/proc/stb/video/videomode_choices").read()
+            if '1080p' in vmodes:
+                mode1080p = True
+            if '2160p' in vmodes:
+                mode2160p = True
+        else:
+            risk = True
+    except:
+        print "[MyMetrixLite] - can't read video modes"
+        risk = True
+
+    tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
+    risktxt = _(" - box support unknown")
+    if len(tested) == 2:
+        if BoxType in tested[0] and '1' in tested[1]:
+            skinmodes.append(("1", _("Full HD (1920x1080)")))
+        elif mode1080p or risk:
+            skinmodes.append(("1", _("Full HD (1920x1080) %s") %risktxt))
+        if BoxType in tested[0] and '2' in tested[1]:
+            skinmodes.append(("2", _("Ultra HD (3840x2160)")))
+        elif mode2160p or risk:
+            skinmodes.append(("2", _("Ultra HD (3840x2160) %s") %risktxt))
+    else:
+        if mode1080p or risk:
+            skinmodes.append(("1", _("Full HD (1920x1080) %s") %risktxt))
+        if mode2160p or risk:
+            skinmodes.append(("2", _("Ultra HD (3840x2160) %s") %risktxt))
+
+    config.plugins.MyMetrixLiteOther.EHDenabled = ConfigSelection(default = "0", choices = skinmodes)
+    config.plugins.MyMetrixLiteOther.EHDrounddown = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.EHDfontsize = ConfigSelection(default = "2", choices = [("1", _("scale")), ("2", _("size")), ("3", _("50/50"))])
+    config.plugins.MyMetrixLiteOther.EHDfontoffset = ConfigSelectionNumber(-20, 20, 1, default = 0)
+    config.plugins.MyMetrixLiteOther.EHDpiconzoom =  ConfigSelection(default = "1.0", choices = [("0", _("No")), ("0.2", _("20%")), ("0.4", _("40%")), ("0.6", _("60%")), ("0.8", _("80%")), ("1.0", _("100%"))])
+    config.plugins.MyMetrixLiteOther.EHDadditionalfiles = ConfigYesNo(default=False)
     #STB-Info
     config.plugins.MyMetrixLiteOther.STBDistance = ConfigSelectionNumber(1, 50, 1, default = 10)
     config.plugins.MyMetrixLiteOther.showCPULoad = ConfigYesNo(default=True)
@@ -583,6 +617,16 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.showInfoBarResolution = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showInfoBarResolutionExtended = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.showExtendedinfo = ConfigYesNo(default=False)
+
+    config.plugins.MyMetrixLiteOther.showExtended_caid = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showExtended_prov = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.showExtended_pid = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.showExtended_source = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showExtended_reader = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.showExtended_protocol = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.showExtended_hops = ConfigYesNo(default=True)
+    config.plugins.MyMetrixLiteOther.showExtended_ecmtime = ConfigYesNo(default=True)
+    
     config.plugins.MyMetrixLiteOther.ExtendedinfoStyle = ConfigSelection(default = "1", choices = [("1", _("Top of the screen")), ("2", _("Between Clock and Weather enclosed")), ("3", _("Between Clock and Weather centered")), ("4", _("Bottom of the screen"))])
     config.plugins.MyMetrixLiteOther.showSnr = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showRecordstate = ConfigYesNo(default=True)
@@ -591,7 +635,7 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.showSTBinfo = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.showTunerinfo = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.setTunerAuto = ConfigYesNo(default=True)
-    config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelectionNumber(1, 6, 1, default = 2)
+    config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelectionNumber(1, 8, 1, default = 2)
     config.plugins.MyMetrixLiteOther.channelSelectionStyle = ConfigSelection(default="CHANNELSELECTION-1", choices = channelSelectionStyleList)
     config.plugins.MyMetrixLiteOther.channelSelectionShowPrimeTime = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.graphicalEpgStyle = ConfigSelection(default = "1", choices = [("1", _("Standard")), ("2", _("more Events or 'mini TV' greater"))])
@@ -648,18 +692,11 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.SkinDesignOLVposx = ConfigInteger(default=102, limits=(0, 1280))
     config.plugins.MyMetrixLiteOther.SkinDesignOLVposy = ConfigInteger(default=51, limits=(0, 720))
     config.plugins.MyMetrixLiteOther.SkinDesignOLVposz = ConfigInteger(default=0, limits=(0, 5))
+    config.plugins.MyMetrixLiteOther.layeraunderlinesize = ConfigSelectionNumber(0, 10, 1, default = 1)
+    config.plugins.MyMetrixLiteOther.layeraunderlineposy = ConfigSelectionNumber(-5, 5, 1, default = 0)
+    config.plugins.MyMetrixLiteOther.layeraunderlineshowmainlayer = ConfigYesNo(default=False)
     #preset
     config.plugins.MyMetrixLiteOther.SkinDesignExamples = ConfigSelection(default = "preset_0", choices = skinDesignPresetList)
-    #SkinParts
-    config.plugins.MyMetrixLiteOther.user11file = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.user12file = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.user13file = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.user14file = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.user15file = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.user16file = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.user17file = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.user18file = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.user19file = ConfigYesNo(default=False)
 
 #######################################################################
 

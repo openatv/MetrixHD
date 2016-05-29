@@ -1,10 +1,25 @@
 from Components.Converter.Converter import Converter
 from Components.config import config
 from Components.Element import cached
-from os import path, popen
+from Components.Language import language
+from os import path, popen, environ
 from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
+from Tools.Directories import resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS
 import Screens.Standby
+import gettext
 #from time import time
+
+lang = language.getLanguage()
+environ["LANGUAGE"] = lang[:2]
+gettext.bindtextdomain("enigma2", resolveFilename(SCOPE_LANGUAGE))
+gettext.textdomain("enigma2")
+gettext.bindtextdomain("MyMetrixLite", "%s%s" % (resolveFilename(SCOPE_PLUGINS), "Extensions/MyMetrixLite/locale/"))
+
+def _(txt):
+	t = gettext.dgettext("MyMetrixLite", txt)
+	if t == txt:
+		t = gettext.gettext(txt)
+	return t
 
 initOtherConfig()
 

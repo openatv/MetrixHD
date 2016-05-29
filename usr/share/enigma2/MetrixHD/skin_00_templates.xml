@@ -1,5 +1,5 @@
-<!-- run_mod -->
 <skin>
+<!-- cf#_#begin -->
 	<!--/* TEMPLATES -->
 		<!--/* BUTTONS /> -->
 		<screen name="INFOBARKEYSNONVISIBLE">
@@ -142,7 +142,9 @@
 		</screen>
 		<!--template2-1layer -> screen position="center,center" size="710,360" -->
 		<screen name="template2_1layer">
-			<eLabel name="layer" position="5,5" size="700,350" backgroundColor="layer-a-background" zPosition="-10" />
+			<panel name="ul-layer2_1" />
+			<eLabel name="layera" position="5,5" size="700,350" backgroundColor="layer-a-background" zPosition="-10" />
+			<eLabel name="layerb" position="4,4" size="702,352" backgroundColor="layer-b-background" zPosition="-11" />
 		</screen>
 		<screen name="r___-buttons_template2">
 			<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,315" size="30,40" alphatest="blend" />
@@ -189,19 +191,19 @@
 		o = ok
 		 -->
 		<!--screen name="ime-buttons_template1">
-			<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="blend" />
-			<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
+			<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/info.png" transparent="1" alphatest="blend" />
+			<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" transparent="1" alphatest="blend" />
 			<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
 		</screen>
 		<screen name="_me-buttons_template1">
-			<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
+			<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" transparent="1" alphatest="blend" />
 			<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
 		</screen>
 		<screen name="__e-buttons_template1">
 			<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
 		</screen>
 		<screen name="_ie-buttons_template1">
-			<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="blend" />
+			<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/info.png" transparent="1" alphatest="blend" />
 			<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
 		</screen>
 		<screen name="_oe-buttons_template1">
@@ -209,12 +211,12 @@
 			<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
 		</screen>
 		<screen name="moe-buttons_template1">
-			<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_menu.png" transparent="1" alphatest="blend" />
+			<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" transparent="1" alphatest="blend" />
 			<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="blend" />
 			<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
 		</screen>
 		<screen name="ioe-buttons_template1">
-			<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_info.png" transparent="1" alphatest="blend" />
+			<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/info.png" transparent="1" alphatest="blend" />
 			<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="blend" />
 			<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
 		</screen-->
@@ -338,7 +340,7 @@
 			</widget>
 			<eLabel text="x" position="901,666" size="16,29" font="infobar_text; 24" halign="center" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" transparent="1" />
 			<widget source="session.CurrentService" render="Label" position="916,666" size="100,29" font="infobar_text; 24" halign="left" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" transparent="1">
-				<convert type="MetrixHDVideoInfo">VideoSizeHight</convert>
+				<convert type="MetrixHDVideoInfo">VideoSizeHeight</convert>
 			</widget>
 		</screen>
 		<screen name="STBINFOMOVIEPLAYER">
@@ -382,9 +384,20 @@
 			<!-- NEEDED WITHOUT OPENSTORE INSTALLED */ -->
 			<eLabel backgroundColor="layer-a-background" position="40,40" size="219,71"/>
 			<eLabel backgroundColor="layer-b-background" position="259,45" size="116,61"/>
+			<widget backgroundColor="green" position="41,41" size="2,69" source="session.CurrentService" render="FixedLabel" zPosition="10">
+				<convert type="MetrixHDWeather">currentDataValid</convert>
+				<convert type="ValueRange">0,0</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
+			<widget backgroundColor="yellow" position="41,41" size="2,69" source="session.CurrentService" render="FixedLabel" zPosition="10">
+				<convert type="MetrixHDWeather">currentDataValid</convert>
+				<convert type="ValueRange">1,1</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
 			<widget backgroundColor="red" position="41,41" size="2,69" source="session.CurrentService" render="FixedLabel" zPosition="10">
 				<convert type="MetrixHDWeather">currentDataValid</convert>
-				<convert type="ConditionalShowHide">Invert</convert>>
+				<convert type="ValueRange">2,2</convert>
+				<convert type="ConditionalShowHide"/>
 			</widget>
 			<widget backgroundColor="layer-a-background" font="global_clock; 60" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="40,44" render="Label" size="84,70" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
 				<convert type="MetrixHDWeather">currentWeatherTemp</convert>
@@ -484,7 +497,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">IrdCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="695,23" size="15,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="696,22" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">IrdEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -493,7 +506,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">SecaCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="710,23" size="15,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="711,22" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">SecaEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -502,7 +515,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">ViaCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="725,23" size="15,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="726,22" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">ViaEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -511,7 +524,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">NagraCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="740,23" size="15,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="741,22" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">NagraEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -520,7 +533,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">CrwCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="755,23" size="30,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="757,22" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">CrwEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -529,7 +542,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">NdsCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="785,23" size="30,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="787,22" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">NdsEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -538,11 +551,11 @@
 				<convert type="MetrixHDChannelCryptoInfo">ConaxCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="815,23" size="30,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="817,22" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">ConaxEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<panel name="COLORGRADIENT_Top" />
+			<panel name="COLORGRADIENT_top_IB" />
 			<!-- CRYPT */ -->
 		</screen>
 		<screen name="INFOBAREXTENDEDINFO-2_and_3">
@@ -598,7 +611,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">BetaCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="740,104" size="15,3" backgroundColor="layer-a-progress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="741,103" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">BetaEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -607,7 +620,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">IrdCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="760,104" size="15,3" backgroundColor="layer-a-progress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="761,103" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">IrdEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -616,7 +629,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">SecaCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="780,104" size="15,3" backgroundColor="layer-a-progress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="781,103" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">SecaEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -625,7 +638,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">ViaCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="800,104" size="15,3" backgroundColor="layer-a-progress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="801,103" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">ViaEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -634,7 +647,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">NagraCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="820,104" size="15,3" backgroundColor="layer-a-progress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="821,103" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">NagraEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -643,7 +656,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">CrwCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="840,104" size="30,3" backgroundColor="layer-a-progress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="842,103" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">CrwEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -652,7 +665,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">NdsCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="875,104" size="30,3" backgroundColor="layer-a-progress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="877,103" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">NdsEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -661,7 +674,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">ConaxCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="910,104" size="30,3" backgroundColor="layer-a-progress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="912,103" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">ConaxEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -683,7 +696,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">BetaCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="338,716" size="15,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="339,715" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">BetaEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -692,7 +705,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">IrdCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="353,716" size="15,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="354,715" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">IrdEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -701,7 +714,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">SecaCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="368,716" size="15,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="369,715" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">SecaEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -710,7 +723,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">ViaCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="383,716" size="15,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="384,715" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">ViaEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -719,7 +732,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">NagraCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="398,716" size="15,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="399,715" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">NagraEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -728,7 +741,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">CrwCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="413,716" size="30,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="415,715" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">CrwEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -737,7 +750,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">NdsCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="443,716" size="30,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="445,715" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">NdsEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -746,7 +759,7 @@
 				<convert type="MetrixHDChannelCryptoInfo">ConaxCrypt</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="473,716" size="30,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+			<widget position="475,715" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
 				<convert type="MetrixHDChannelCryptoInfo">ConaxEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
@@ -760,19 +773,19 @@
 			<!--/* STYLE MODERN -->
 			<eLabel backgroundColor="infobarbackground" name="InfoBar" position="-1,560" size="1283,160" zPosition="-10"/>
 			<panel name="InfoBar_Picon" />
-			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1091,563" render="Label" size="75,30" source="session.Event_Now" transparent="1">
+			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1091,564" render="Label" size="75,30" source="session.Event_Now" transparent="1">
 				<convert type="EventTime">StartTime</convert>
 				<convert type="ClockToText">Default</convert>
 			</widget>
-			<eLabel backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="center" position="1173,563" size="15,30" text="-" transparent="1"/>
-			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1178,563" render="Label" size="60,30" source="session.Event_Now" transparent="1">
+			<eLabel backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="center" position="1173,564" size="15,30" text="-" transparent="1"/>
+			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1178,564" render="Label" size="60,30" source="session.Event_Now" transparent="1">
 				<convert type="EventTime">EndTime</convert>
 				<convert type="ClockToText">Default</convert>
 			</widget>
-			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="infobar_event; 40" halign="left" noWrap="1" position="286,558" render="Label" size="805,56" source="session.Event_Now" transparent="1">
+			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="infobar_event; 40" halign="left" noWrap="1" position="286,558" render="Label" size="805,56" source="session.Event_Now" transparent="1" valign="center">
 				<convert type="EventName">Name</convert>
 			</widget>
-			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1125,586" render="Label" size="113,30" source="session.Event_Now" transparent="1">
+			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1124,586" render="Label" size="113,30" source="session.Event_Now" transparent="1">
 				<convert type="EventTime">Remaining</convert>
 				<convert type="RemainingToText">InMinutes</convert>
 			</widget>
@@ -780,23 +793,23 @@
 			<widget render="Progress" position="287,613" size="951,5" source="session.Event_Now" foregroundColor="infobarprogress" transparent="1" zPosition="7">
 				<convert type="EventTime">Progress</convert>
 			</widget>
-			<widget backgroundColor="infobarbackground" font="global_small; 18" foregroundColor="infobarfont2" halign="right" noWrap="1" position="1091,619" render="Label" size="75,28" source="session.Event_Next" transparent="1" valign="top">
+			<widget backgroundColor="infobarbackground" font="global_small; 18" foregroundColor="infobarfont2" halign="right" noWrap="1" position="1091,620" render="Label" size="75,28" source="session.Event_Next" transparent="1" valign="top">
 				<convert type="EventTime">StartTime</convert>
 				<convert type="ClockToText">Default</convert>
 			</widget>
-			<eLabel backgroundColor="infobarbackground" font="global_small; 18" foregroundColor="infobarfont2" halign="center" noWrap="1" position="1173,619" size="15,28" text="-" transparent="1" valign="top"/>
-			<widget backgroundColor="infobarbackground" font="global_small; 18" foregroundColor="infobarfont2" halign="right" noWrap="1" position="1178,619" render="Label" size="60,28" source="session.Event_Next" transparent="1" valign="top">
+			<eLabel backgroundColor="infobarbackground" font="global_small; 18" foregroundColor="infobarfont2" halign="center" noWrap="1" position="1173,620" size="15,28" text="-" transparent="1" valign="top"/>
+			<widget backgroundColor="infobarbackground" font="global_small; 18" foregroundColor="infobarfont2" halign="right" noWrap="1" position="1178,620" render="Label" size="60,28" source="session.Event_Next" transparent="1" valign="top">
 				<convert type="EventTime">EndTime</convert>
 				<convert type="ClockToText">Default</convert>
 			</widget>
-			<widget backgroundColor="infobarbackground" font="infobar_event; 35" foregroundColor="infobarfont2" halign="left" position="286,617" render="Label" size="805,56" source="session.Event_Next" transparent="1" valign="top">
+			<widget backgroundColor="infobarbackground" font="infobar_event; 35" foregroundColor="infobarfont2" halign="left" noWrap="1" position="286,617" render="Label" size="805,56" source="session.Event_Next" transparent="1" valign="top">
 				<convert type="EventName">Name</convert>
 			</widget>
 			<widget backgroundColor="infobarbackground" font="global_small; 18" foregroundColor="infobarfont2" halign="right" position="1124,640" render="Label" size="113,28" source="session.Event_Next" transparent="1">
 				<convert type="EventTime">Duration</convert>
 				<convert type="ClockToText">InMinutes</convert>
 			</widget>
-			<panel name="COLORGRADIENT_Bottom" />
+			<panel name="COLORGRADIENT_bottom_IB" />
 			<!-- STYLE MODERN */ -->
 		</screen>
 		<screen name="INFOBARRESOLUTION">
@@ -832,7 +845,7 @@
 			</widget>
 			<eLabel text="x" position="682,666" size="16,29" font="infobar_text; 24" halign="center" valign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-accent1" transparent="1" />
 			<widget source="session.CurrentService" render="Label" position="697,666" size="100,29" font="infobar_text; 24" halign="left" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" transparent="1">
-				<convert type="MetrixHDVideoInfo">VideoSizeHight</convert>
+				<convert type="MetrixHDVideoInfo">VideoSizeHeight</convert>
 			</widget>
 			<!-- ResolutionInfo */ -->
 		</screen>
@@ -851,6 +864,188 @@
 			</widget>
 			<!-- Sat-Position */-->
 		</screen>
+		<screen name="INFOBARTUNERINFO-X">
+			<!-- /* TunerInfo -->
+			<widget position="270,666" source="session.FrontendInfo" render="Label" zPosition="2" size="160,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1">
+				<convert type="FrontendInfo">STRING,10</convert>
+			</widget>
+			<!-- TunerInfo */-->
+		</screen>
+		<screen name="INFOBARTUNERINFO-8">
+			<!-- /* TunerInfo -->
+			<eLabel position="286,666" text="A" zPosition="1" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" />
+			<widget position="286,666" text="A" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">1</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="286,692" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" backgroundColor="infobarprogress" transparent="0">
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">0,0</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="301,666" text="B" zPosition="1" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" />
+			<widget position="301,666" text="B" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">2</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="301,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0">
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">1,1</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="316,666" text="C" zPosition="1" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" />
+			<widget position="316,666" text="C" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">4</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="316,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0">
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">2,2</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="331,666" text="D" zPosition="1" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" />
+			<widget position="331,666" text="D" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">8</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="331,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">3,3</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<!--text="E" results "O", text="EE" results "E"-->
+			<eLabel position="346,666" text="EE" zPosition="1" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" />
+			<widget position="346,666" text="EE" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">16</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="346,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">4,4</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="361,666" text="F" zPosition="1" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" />
+			<widget position="361,666" text="F" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">32</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="361,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">5,5</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="376,666" text="G" zPosition="1" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" />
+			<widget position="376,666" text="G" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">64</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="376,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">6,6</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="391,666" text="H" zPosition="1" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" />
+			<widget position="391,666" text="H" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">128</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="393,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">7,7</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<!-- TunerInfo */-->
+		</screen>
+		<screen name="INFOBARTUNERINFO-7">
+			<!-- /* TunerInfo -->
+			<eLabel position="286,666" text="A" zPosition="1" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" />
+			<widget position="286,666" text="A" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">1</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="286,692" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" backgroundColor="infobarprogress" transparent="0">
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">0,0</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="303,666" text="B" zPosition="1" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" />
+			<widget position="303,666" text="B" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">2</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="303,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0">
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">1,1</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="320,666" text="C" zPosition="1" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" />
+			<widget position="320,666" text="C" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">4</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="320,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0">
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">2,2</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="337,666" text="D" zPosition="1" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" />
+			<widget position="337,666" text="D" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">8</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="337,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">3,3</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<!--text="E" results "O", text="EE" results "E"-->
+			<eLabel position="354,666" text="EE" zPosition="1" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" />
+			<widget position="354,666" text="EE" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">16</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="354,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">4,4</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="371,666" text="F" zPosition="1" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" />
+			<widget position="371,666" text="F" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">32</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="371,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">5,5</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="388,666" text="G" zPosition="1" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" />
+			<widget position="388,666" text="G" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1">
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">64</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="388,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+				<convert type="FrontendInfo">NUMBER</convert>
+				<convert type="ValueRange">6,6</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<!-- TunerInfo */-->
+		</screen>
 		<screen name="INFOBARTUNERINFO-6">
 			<!-- /* TunerInfo -->
 			<eLabel position="286,666" text="A" zPosition="1" size="20,29" font="infobar_text; 24" halign="center" transparent="1" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" />
@@ -859,7 +1054,7 @@
 				<convert type="ValueBitTest">1</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="286,693" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" backgroundColor="infobarprogress" transparent="0">
+			<widget position="286,692" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" backgroundColor="infobarprogress" transparent="0">
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">0,0</convert>
 				<convert type="ConditionalShowHide" />
@@ -870,7 +1065,7 @@
 				<convert type="ValueBitTest">2</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="306,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0">
+			<widget position="306,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0">
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">1,1</convert>
 				<convert type="ConditionalShowHide" />
@@ -881,7 +1076,7 @@
 				<convert type="ValueBitTest">4</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="326,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0">
+			<widget position="326,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0">
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">2,2</convert>
 				<convert type="ConditionalShowHide" />
@@ -892,7 +1087,7 @@
 				<convert type="ValueBitTest">8</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="346,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+			<widget position="346,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">3,3</convert>
 				<convert type="ConditionalShowHide" />
@@ -904,7 +1099,7 @@
 				<convert type="ValueBitTest">16</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="366,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+			<widget position="366,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">4,4</convert>
 				<convert type="ConditionalShowHide" />
@@ -915,7 +1110,7 @@
 				<convert type="ValueBitTest">32</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="386,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+			<widget position="386,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">5,5</convert>
 				<convert type="ConditionalShowHide" />
@@ -930,7 +1125,7 @@
 				<convert type="ValueBitTest">1</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="286,693" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+			<widget position="286,692" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" backgroundColor="infobarprogress" transparent="0" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">0,0</convert>
 				<convert type="ConditionalShowHide" />
@@ -941,7 +1136,7 @@
 				<convert type="ValueBitTest">2</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="306,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+			<widget position="306,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">1,1</convert>
 				<convert type="ConditionalShowHide" />
@@ -952,7 +1147,7 @@
 				<convert type="ValueBitTest">4</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="326,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+			<widget position="326,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">2,2</convert>
 				<convert type="ConditionalShowHide" />
@@ -963,7 +1158,7 @@
 				<convert type="ValueBitTest">8</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="346,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+			<widget position="346,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">3,3</convert>
 				<convert type="ConditionalShowHide" />
@@ -974,7 +1169,7 @@
 				<convert type="ValueBitTest">16</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="366,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0">
+			<widget position="366,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0">
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">4,4</convert>
 				<convert type="ConditionalShowHide" />
@@ -989,7 +1184,7 @@
 				<convert type="ValueBitTest">1</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="286,693" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+			<widget position="286,692" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" backgroundColor="infobarprogress" transparent="0" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">0,0</convert>
 				<convert type="ConditionalShowHide" />
@@ -1000,7 +1195,7 @@
 				<convert type="ValueBitTest">2</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="306,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+			<widget position="306,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">1,1</convert>
 				<convert type="ConditionalShowHide" />
@@ -1011,7 +1206,7 @@
 				<convert type="ValueBitTest">4</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="326,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+			<widget position="326,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">2,2</convert>
 				<convert type="ConditionalShowHide" />
@@ -1022,7 +1217,7 @@
 				<convert type="ValueBitTest">8</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="346,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+			<widget position="346,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">3,3</convert>
 				<convert type="ConditionalShowHide" />
@@ -1037,7 +1232,7 @@
 				<convert type="ValueBitTest">1</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="286,693" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+			<widget position="286,692" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" backgroundColor="infobarprogress" transparent="0" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">0,0</convert>
 				<convert type="ConditionalShowHide" />
@@ -1048,7 +1243,7 @@
 				<convert type="ValueBitTest">2</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="306,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+			<widget position="306,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">1,1</convert>
 				<convert type="ConditionalShowHide" />
@@ -1059,7 +1254,7 @@
 				<convert type="ValueBitTest">4</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="326,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+			<widget position="326,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">2,2</convert>
 				<convert type="ConditionalShowHide" />
@@ -1074,7 +1269,7 @@
 				<convert type="ValueBitTest">1</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="286,693" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+			<widget position="286,692" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" backgroundColor="infobarprogress" transparent="0" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">0,0</convert>
 				<convert type="ConditionalShowHide" />
@@ -1085,7 +1280,7 @@
 				<convert type="ValueBitTest">2</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="306,693" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+			<widget position="306,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="20,3" backgroundColor="infobarprogress" transparent="0" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">1,1</convert>
 				<convert type="ConditionalShowHide" />
@@ -1100,7 +1295,7 @@
 				<convert type="ValueBitTest">1</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
-			<widget position="286,693" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" backgroundColor="infobarprogress" transparent="0" >
+			<widget position="286,692" source="session.FrontendInfo" render="FixedLabel" zPosition="5" size="20,3" backgroundColor="infobarprogress" transparent="0" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">0,0</convert>
 				<convert type="ConditionalShowHide" />
@@ -1180,7 +1375,7 @@
 			<eLabel backgroundColor="layer-a-background" name="NowBG" position="60,148" size="575,376" zPosition="-1"/>
 			<eLabel backgroundColor="layer-b-background" name="NextBG" position="645,148" size="575,376" zPosition="-1"/>
 		</screen>
-<!-- next_screen_rename_and_stop_mod -->
+<!-- cf#_#rename -->
 		<screen name="INFOBAREPGWIDGET">
 			<!--/* EPGWidget -->
 			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" font="epg_event; 26" halign="right" noWrap="1" position="70,480" render="Label" size="555,35" source="session.Event_Now" transparent="1" valign="bottom" zPosition="2">
@@ -1198,8 +1393,8 @@
 			<panel name="INFOBAREPGWIDGET_Layer" />
 			<!-- EPGWidget */-->
 		</screen>
-<!-- next_screen_rename_and_stop_mod -->
-		<screen name="INFOBAREPGWIDGET_is_FHD">
+<!-- cf#_#rename -->
+		<screen name="INFOBAREPGWIDGET#_FHDscreen">
 			<!--/* EPGWidget FHD -->
 			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" font="epg_event;40" halign="right" noWrap="1" position="105,720" render="Label" size="832,53" source="session.Event_Now" transparent="1" valign="bottom" zPosition="2">
 				<convert type="EventName">Name</convert>
@@ -1216,11 +1411,29 @@
 			<panel name="INFOBAREPGWIDGET_Layer" />
 			<!-- EPGWidget FHD */-->
 		</screen>
-<!-- run_mod -->
+<!-- cf#_#rename -->
+		<screen name="INFOBAREPGWIDGET#_UHDscreen">
+			<!--/* EPGWidget -->
+			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" font="epg_event; 78" halign="right" noWrap="1" position="210,1440" render="Label" size="1665,105" source="session.Event_Now" transparent="1" valign="bottom" zPosition="2">
+				<convert type="EventName">Name</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" font="epg_event; 78" halign="left" noWrap="1" position="1965,1374" render="Label" size="1665,105" source="session.Event_Next" transparent="1" valign="bottom" zPosition="2">
+				<convert type="EventName">Name</convert>
+			</widget>
+			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="epg_info; 60" halign="right" position="210,474" render="Label" size="1665,945" source="session.Event_Now" transparent="1" zPosition="1">
+				<convert type="EventName">FullDescription</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_info; 60" halign="left" position="1965,553" render="Label" size="1665,795" source="session.Event_Next" transparent="1" zPosition="1">
+				<convert type="EventName">FullDescription</convert>
+			</widget>
+			<panel name="INFOBAREPGWIDGET_Layer" />
+			<!-- EPGWidget */-->
+		</screen>
+<!-- cf#_#begin -->
 		<screen name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720">
 			<eLabel position="51,51" zPosition="-10" size="340,525" backgroundColor="layer-b-background" />
 			<eLabel position="416,51" zPosition="-1" size="810,619" backgroundColor="layer-a-background" />
-			<widget source="Title" render="Label" position="425,55" size="790,50" font="global_title; 35" backgroundColor="layer-a-background" transparent="1" />
+			<widget source="Title" render="Label" position="425,53" size="790,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 			<!-- /*ClockWidget-->
 			<widget source="global.CurrentTime" render="Label" position="201,603" size="190,70" font="global_clock; 60" noWrap="1" halign="center" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
 				<convert type="ClockToText">Default</convert>
@@ -1270,6 +1483,7 @@
 		</screen>
 		<!-- template1_1layer -->
 		<screen name="template1_1layer-1">
+			<panel name="ul-layer1_1" />
 			<eLabel name="layer1" position="40,25" zPosition="-10" size="1200,650" backgroundColor="layer-a-background" />
 			<panel name="CLOCKWIDGET_1layer-1" />
 		</screen>
@@ -1288,32 +1502,38 @@
 		</screen>
 		<!-- template1_2layer -->
 		<screen name="template1_2layer-1">
+			<panel name="ul-layer1_2" />
 			<eLabel name="layer1" position="40,25" zPosition="-10" size="755,650" backgroundColor="layer-a-background" />
 			<eLabel name="layer2" position="795,60" zPosition="-10" size="445,580" backgroundColor="layer-b-background" />
 			<panel name="CLOCKWIDGET_2layer-1" />
 		</screen>
 		<screen name="template1_2layer-2">
+			<panel name="ul-layer1_2" />
 			<eLabel name="layer1" position="40,25" zPosition="-10" size="755,650" backgroundColor="layer-a-background" />
 			<eLabel name="layer2" position="795,25" zPosition="-10" size="445,650" backgroundColor="layer-b-background" />
 			<panel name="CLOCKWIDGET_2layer-1" />
 		</screen>
 		<screen name="template1_2layer-3">
+			<panel name="ul-layer1_2" />
 			<eLabel name="layer1" position="40,25" zPosition="-10" size="755,650" backgroundColor="layer-a-background" />
 			<eLabel name="layer2" position="795,25" zPosition="-10" size="445,650" backgroundColor="layer-b-background" />
 			<panel name="CLOCKWIDGET_2layer-2" />
 		</screen>
 		<!-- template1_2layer with space-->
 		<screen name="template1_2layer-1s">
+			<panel name="ul-layer1_2" />
 			<eLabel name="layer1" position="40,25" zPosition="-10" size="750,650" backgroundColor="layer-a-background" />
 			<eLabel name="layer2" position="800,60" zPosition="-10" size="440,580" backgroundColor="layer-b-background" />
 			<panel name="CLOCKWIDGET_2layer-1" />
 		</screen>
 		<screen name="template1_2layer-2s">
+			<panel name="ul-layer1_2" />
 			<eLabel name="layer1" position="40,25" zPosition="-10" size="750,650" backgroundColor="layer-a-background" />
 			<eLabel name="layer2" position="800,25" zPosition="-10" size="440,650" backgroundColor="layer-b-background" />
 			<panel name="CLOCKWIDGET_2layer-1" />
 		</screen>
 		<screen name="template1_2layer-3s">
+			<panel name="ul-layer1_2" />
 			<eLabel name="layer1" position="40,25" zPosition="-10" size="750,650" backgroundColor="layer-a-background" />
 			<eLabel name="layer2" position="800,25" zPosition="-10" size="440,650" backgroundColor="layer-b-background" />
 			<panel name="CLOCKWIDGET_2layer-2" />
@@ -1368,7 +1588,7 @@
 	<!-- CHANNELSELECTION 1 FOCUS LEFT NO PICON 5 NEXT EVENTS */ -->
 	<screen name="CHANNELSELECTION-1">
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title; 35" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 		<widget source="ServiceEvent" render="Label" position="820,80" size="395,65" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center">
 			<convert type="EventName">Name</convert>
@@ -1397,7 +1617,7 @@
 	<!-- CHANNELSELECTION 1 FOCUS LEFT NO PICON 5 NEXT EVENTS */ + Primetime-->
 	<screen name="CHANNELSELECTION-1P">
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title; 35" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 		<widget source="ServiceEvent" render="Label" position="820,80" size="395,65" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center">
 			<convert type="EventName">Name</convert>
@@ -1427,9 +1647,9 @@
 	<!-- CHANNELSELECTION 2 FOCUS LEFT PICON 1 NEXT EVENT */ -->
 	<screen name="CHANNELSELECTION-2">
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title; 35" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
-<!-- next_line_is_picon -->
+<!-- cf#_#picon -->
 		<widget alphatest="blend" position="907,80" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="0" zPosition="1">
 			<convert type="MetrixHDRefString">ServicelistRef</convert>
 		</widget>
@@ -1460,9 +1680,9 @@
 	<!-- CHANNELSELECTION 2 FOCUS LEFT PICON 1 NEXT EVENT */ + Primetime-->
 	<screen name="CHANNELSELECTION-2P">
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget source="Title" render="Label" position="70,47" size="525,50" font="global_title; 35" noWrap="0" valign="top" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,105" size="700,520" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
-<!-- next_line_is_picon -->
+<!-- cf#_#picon -->
 		<widget alphatest="blend" position="907,80" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="0" zPosition="1">
 			<convert type="MetrixHDRefString">ServicelistRef</convert>
 		</widget>
@@ -1496,7 +1716,7 @@
 		<panel name="SkinDesign-s" />
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget name="list" position="423,107" size="787,510" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
-<!-- next_line_is_picon -->
+<!-- cf#_#picon -->
 		<widget alphatest="blend" position="112,61" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="1" zPosition="1">
 			<convert type="MetrixHDRefString">ServicelistRef</convert>
 		</widget>
@@ -1518,12 +1738,12 @@
 		<widget source="ServiceEvent" render="Label" position="63,283" size="320,226" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
 			<convert type="EventName">FullDescription</convert>
 		</widget>
-		<widget source="ServiceEvent" render="MetrixHDNextEvent" position="63,517" size="320,53" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="0">
+		<widget source="ServiceEvent" render="MetrixHDNextEvent" position="63,517" size="320,53" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" noWrap="1" transparent="0">
 		</widget>
 		<panel name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720" />
 		<panel name="rgyb-buttons_screen_pos416_51_size_810_619" />
 		<panel name="rgyb-keys_screen_pos416_51_size_810_619" />
-		<ePixmap name="new ePixmap" position="1125,630" size="81,40" pixmap="MetrixHD/buttons/key_menu.png" />
+		<ePixmap name="new ePixmap" position="1125,630" size="81,40" pixmap="MetrixHD/buttons/menu.png" />
 	</screen>
 	<!-- CHANNELSELECTION 4 FOCUS RIGHT NO PICON 5 NEXT EVENT */ -->
 	<screen name="CHANNELSELECTION-4">
@@ -1548,11 +1768,11 @@
 		<widget source="ServiceEvent" render="Label" position="63,173" size="314,249" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
 			<convert type="EventName">FullDescription</convert>
 		</widget>
-		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="63,440" size="314,125" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="0" />
+		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="63,440" size="314,125" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" noWrap="1" transparent="0" />
 		<panel name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720" />
 		<panel name="rgyb-buttons_screen_pos416_51_size_810_619" />
 		<panel name="rgyb-keys_screen_pos416_51_size_810_619" />
-		<ePixmap name="new ePixmap" position="1125,630" size="81,40" pixmap="MetrixHD/buttons/key_menu.png" />
+		<ePixmap name="new ePixmap" position="1125,630" size="81,40" pixmap="MetrixHD/buttons/menu.png" />
 	</screen>
 	<!-- CHANNELSELECTION 4 FOCUS RIGHT NO PICON 5 NEXT EVENT */ -->
 	<!-- TEMPLATES */-->

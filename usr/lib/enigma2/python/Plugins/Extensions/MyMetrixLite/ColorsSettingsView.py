@@ -19,18 +19,18 @@
 #
 #######################################################################
 
-from . import _, initColorsConfig, initOtherConfig, appendSkinFile, SKIN_TARGET_TMP, SKIN_SOURCE, COLOR_IMAGE_PATH, MAIN_IMAGE_PATH
+from . import _, initColorsConfig, initOtherConfig, COLOR_IMAGE_PATH, MAIN_IMAGE_PATH, ColorList, TransparencyList
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
 from Components.AVSwitch import AVSwitch
-from Components.config import config, configfile, getConfigListEntry
+from Components.config import config, configfile, getConfigListEntry, ConfigSelection
 from Components.ConfigList import ConfigListScreen
 from Components.Sources.StaticText import StaticText
 from Components.Label import Label
 from skin import parseColor
 from Components.Pixmap import Pixmap
-from enigma import ePicLoad
+from enigma import ePicLoad, eTimer
 from os import path
 
 #######################################################################
@@ -73,8 +73,13 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         self["defaultsBtn"] = StaticText("")
         self["defaultsBtn"].setText(_("Defaults"))
 
+        
+        self.refreshTimer = eTimer()
+        self.refreshTimer.callback.append(self.refreshList)
+
         initColorsConfig()
         initOtherConfig()
+        self.initQuickColorSetup()
 
         ConfigListScreen.__init__(
             self,
@@ -103,12 +108,33 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 
         self.onLayoutFinish.append(self.UpdatePicture)
 
+    def initQuickColorSetup(self):
+		self.colorA = ConfigSelection(default=config.plugins.MyMetrixLiteColors.layerabackground.value, choices = ColorList)
+		self.colorAtransparency = ConfigSelection(default=config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value, choices = TransparencyList)
+		self.colorAfont = ConfigSelection(default=config.plugins.MyMetrixLiteColors.layeraforeground.value, choices = ColorList)
+		self.colorB = ConfigSelection(default=config.plugins.MyMetrixLiteColors.layerbbackground.value, choices = ColorList)
+		self.colorBtransparency = ConfigSelection(default=config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value, choices = TransparencyList)
+		self.colorBfont = ConfigSelection(default=config.plugins.MyMetrixLiteColors.layerbforeground.value, choices = ColorList)
+
     def getMenuItemList(self):
         char = 150
         tab = " "*10
         sep = "-"
         list = []
         list.append(getConfigListEntry(_("Color Examples"),config.plugins.MyMetrixLiteColors.SkinColorExamples, _("helptext"), "PRESET"))
+        section = _("Quick Setup")
+        list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        list.append(getConfigListEntry(tab + _("Left"), ))
+        list.append(getConfigListEntry(tab*2 + _("Background"), self.colorA, _("helptext"), "QUICKCOLOR"))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), self.colorAtransparency, _("helptext"), "QUICKCOLOR"))
+        list.append(getConfigListEntry(tab*2 + _("Font color"), self.colorAfont, _("helptext"), "QUICKCOLOR"))
+        list.append(getConfigListEntry(tab + _("Right"), ))
+        list.append(getConfigListEntry(tab*2 + _("Background"), self.colorB, _("helptext"), "QUICKCOLOR"))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), self.colorBtransparency, _("helptext"), "QUICKCOLOR"))
+        list.append(getConfigListEntry(tab*2 + _("Font color"), self.colorBfont, _("helptext"), "QUICKCOLOR"))
+        section = _("Color Gradient")
+        list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        list.append(getConfigListEntry(tab + _("Color"), config.plugins.MyMetrixLiteColors.cologradient, _("helptext")))
         section = _("Text Windowtitle")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         list.append(getConfigListEntry(tab + _("Foreground"), ))
@@ -164,6 +190,12 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.layerabackground, _("helptext")))
         list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.layerabackgroundtransparency, _("helptext")))
         list.append(getConfigListEntry(tab*2 + _("Font color"), config.plugins.MyMetrixLiteColors.layeraforeground, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Screen title separating line"), ))
+        list.append(getConfigListEntry(tab*2 + _("Show also in main layer?"), config.plugins.MyMetrixLiteOther.layeraunderlineshowmainlayer, _("helptext")))
+        list.append(getConfigListEntry(tab*2 + _("height"), config.plugins.MyMetrixLiteOther.layeraunderlinesize, _("helptext")))
+        list.append(getConfigListEntry(tab*2 + _("pos y"), config.plugins.MyMetrixLiteOther.layeraunderlineposy, _("helptext")))
+        list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.layeraunderline, _("helptext")))
+        list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.layeraunderlinetransparency, _("helptext")))
         list.append(getConfigListEntry(tab + _("Selection bar"), ))
         list.append(getConfigListEntry(tab*2 + _("Color"), config.plugins.MyMetrixLiteColors.layeraselectionbackground, _("helptext")))
         list.append(getConfigListEntry(tab*2 + _("Transparency"), config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency, _("helptext")))
@@ -327,9 +359,73 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             self.getPreset()
         elif cur == "PRESET2":
             self.getPreset2()
+        elif cur == "QUICKCOLOR":
+            self.setQuickColor()
 
-        if cur == "ENABLED" or cur == "PRESET" or cur == "PRESET2":
-            self["config"].setList(self.getMenuItemList())
+        if cur == "ENABLED" or cur == "PRESET" or cur == "PRESET2" or cur == "QUICKCOLOR":
+            self.refreshTimer.start(1000, True)
+
+    def refreshList(self):
+        self["config"].setList(self.getMenuItemList())
+
+    def setQuickColor(self):
+
+		config.plugins.MyMetrixLiteColors.menufont.value = self.colorAfont.value
+		config.plugins.MyMetrixLiteColors.menufontselected.value = self.colorAfont.value
+		config.plugins.MyMetrixLiteColors.menubackground.value = self.colorA.value
+		config.plugins.MyMetrixLiteColors.menubackgroundtransparency.value = self.colorAtransparency.value
+		config.plugins.MyMetrixLiteColors.menusymbolbackground.value = self.colorA.value
+		config.plugins.MyMetrixLiteColors.menusymbolbackgroundtransparency.value = self.colorAtransparency.value
+		config.plugins.MyMetrixLiteColors.infobarbackground.value = self.colorA.value
+		config.plugins.MyMetrixLiteColors.infobarbackgroundtransparency.value = self.colorAtransparency.value
+		config.plugins.MyMetrixLiteColors.infobarprogress.value = self.colorB.value
+		config.plugins.MyMetrixLiteColors.infobarprogresstransparency.value = self.colorAtransparency.value
+
+		config.plugins.MyMetrixLiteColors.channelselectionservice.value = self.colorAfont.value
+		config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value = self.colorAfont.value
+		config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value = self.colorAfont.value
+
+		config.plugins.MyMetrixLiteColors.windowtitletext.value = self.colorAfont.value
+		config.plugins.MyMetrixLiteColors.windowtitletextback.value = self.colorA.value
+		config.plugins.MyMetrixLiteColors.backgroundtext.value = self.colorAfont.value
+		config.plugins.MyMetrixLiteColors.backgroundtextback.value = self.colorAfont.value
+
+		config.plugins.MyMetrixLiteColors.layeraclockforeground.value = self.colorAfont.value
+		config.plugins.MyMetrixLiteColors.layerbclockforeground.value = self.colorBfont.value
+		config.plugins.MyMetrixLiteColors.buttonforeground.value = self.colorAfont.value
+
+		config.plugins.MyMetrixLiteColors.layerabackground.value = self.colorA.value
+		config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value = self.colorAtransparency.value
+		config.plugins.MyMetrixLiteColors.layeraforeground.value = self.colorAfont.value
+		config.plugins.MyMetrixLiteColors.layeraselectionbackground.value = self.colorB.value
+		config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency.value = self.colorAtransparency.value
+		config.plugins.MyMetrixLiteColors.layeraselectionforeground.value = self.colorAfont.value
+		config.plugins.MyMetrixLiteColors.layeraprogress.value = self.colorB.value
+		config.plugins.MyMetrixLiteColors.layeraprogresstransparency.value = self.colorAtransparency.value
+
+		config.plugins.MyMetrixLiteColors.layerbbackground.value = self.colorB.value
+		config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = self.colorBtransparency.value
+		config.plugins.MyMetrixLiteColors.layerbforeground.value = self.colorBfont.value
+		config.plugins.MyMetrixLiteColors.layerbselectionbackground.value = self.colorA.value
+		config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency.value = self.colorBtransparency.value
+		config.plugins.MyMetrixLiteColors.layerbselectionforeground.value = self.colorBfont.value
+		config.plugins.MyMetrixLiteColors.layerbprogress.value = self.colorBfont.value
+		config.plugins.MyMetrixLiteColors.layerbprogresstransparency.value = self.colorBtransparency.value
+
+		config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value = self.colorBfont.value
+		config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value = self.colorB.value
+		config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value = self.colorBtransparency.value
+		config.plugins.MyMetrixLiteColors.epgbackground.value = self.colorA.value
+		config.plugins.MyMetrixLiteColors.epgbackgroundtransparency.value = self.colorAtransparency.value
+		config.plugins.MyMetrixLiteColors.epgeventforeground.value = self.colorAfont.value
+		config.plugins.MyMetrixLiteColors.epgeventbackground.value = self.colorA.value
+		config.plugins.MyMetrixLiteColors.epgeventbackgroundtransparency.value = self.colorAtransparency.value
+		config.plugins.MyMetrixLiteColors.epgeventselectedforeground.value = self.colorBfont.value
+		config.plugins.MyMetrixLiteColors.epgeventselectedbackground.value = self.colorB.value
+		config.plugins.MyMetrixLiteColors.epgeventselectedbackgroundtransparency.value = self.colorBtransparency.value
+		config.plugins.MyMetrixLiteColors.epgserviceforeground.value = self.colorAfont.value
+		config.plugins.MyMetrixLiteColors.epgservicebackground.value = self.colorA.value
+		config.plugins.MyMetrixLiteColors.epgservicebackgroundtransparency.value = self.colorAtransparency.value
 
     def getPreset(self):
         if config.plugins.MyMetrixLiteColors.SkinColorExamples.value == "preset_0":
@@ -387,6 +483,8 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layeraaccent2.value = "6E6E6E"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value = "BDBDBD"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layeraunderline.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layeraunderlinetransparency.value = "00"
 
             config.plugins.MyMetrixLiteColors.layerbbackground.value = "27408B"
             config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = "1A"
@@ -493,6 +591,8 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layeraaccent2.value = "6E6E6E"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value = "1C1C1C"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layeraunderline.value = "1C1C1C"
+            config.plugins.MyMetrixLiteColors.layeraunderlinetransparency.value = "00"
 
             config.plugins.MyMetrixLiteColors.layerbbackground.value = "6E6E6E"
             config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = "1A"
@@ -599,6 +699,8 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layeraaccent2.value = "6E6E6E"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value = "F0A30A"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layeraunderline.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layeraunderlinetransparency.value = "00"
 
             config.plugins.MyMetrixLiteColors.layerbbackground.value = "0F0F0F"
             config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = "4D"
@@ -704,6 +806,8 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layeraaccent2.value = "6E6E6E"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value = "BDBDBD"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layeraunderline.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layeraunderlinetransparency.value = "00"
 
             config.plugins.MyMetrixLiteColors.layerbbackground.value = "911D10"
             config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = "4D"
@@ -809,6 +913,8 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layeraaccent2.value = "6E6E6E"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value = "BF9217"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layeraunderline.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layeraunderlinetransparency.value = "00"
 
             config.plugins.MyMetrixLiteColors.layerbbackground.value = "BF9217"
             config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = "1A"
@@ -914,6 +1020,8 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.layeraaccent2.value = "6E6E6E"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value = "70AD11"
             config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value = "6E6E6E"
+            config.plugins.MyMetrixLiteColors.layeraunderline.value = "BDBDBD"
+            config.plugins.MyMetrixLiteColors.layeraunderlinetransparency.value = "00"
 
             config.plugins.MyMetrixLiteColors.layerbbackground.value = "70AD11"
             config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value = "1A"
@@ -964,6 +1072,13 @@ class ColorsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteColors.optionallayerhorizontaltransparency.value = "1A"
             config.plugins.MyMetrixLiteColors.optionallayerverticalbackground.value = "00008B"
             config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency.value = "1A"
+
+        self.colorA.value = config.plugins.MyMetrixLiteColors.layerabackground.value
+        self.colorAtransparency.value = config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value
+        self.colorAfont.value = config.plugins.MyMetrixLiteColors.layeraforeground.value
+        self.colorB.value = config.plugins.MyMetrixLiteColors.layerbbackground.value
+        self.colorBtransparency.value = config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value
+        self.colorBfont.value = config.plugins.MyMetrixLiteColors.layerbforeground.value
 
     def getPreset2(self):
         # skin design preset (additional layer)
@@ -1117,7 +1232,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
         for x in self["config"].list:
             if len(x) > 1:
                 self.setInputToDefault(x[1])
-        self["config"].setList(self.getMenuItemList())
+        self.refreshList()
         self.ShowPicture()
         #self.save()
 

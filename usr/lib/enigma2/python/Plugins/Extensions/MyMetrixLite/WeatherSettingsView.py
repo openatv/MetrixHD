@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, initWeatherConfig, WEATHER_IMAGE_PATH, MAIN_IMAGE_PATH
+from . import _, initWeatherConfig, MAIN_IMAGE_PATH
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
@@ -117,7 +117,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
     def getMenuItemList(self):
         list = []
 
-        list.append(getConfigListEntry(_("Enabled"), config.plugins.MetrixWeather.enabled, _("helptext"), "ENABLED"))
+        list.append(getConfigListEntry(_("Enabled"), config.plugins.MetrixWeather.enabled, _("Cycle/failure indicator colors on widget:\ngreen - 6 times try to fetch weather data\nyellow - fetch weather data paused 5 mins\nred - fetch weather data aborted after 6 times green and yellow\n(if red -> press 'save' for refresh)"), "ENABLED"))
 
         self["resulttext"].setText("")
         self.check_enable = False
@@ -125,20 +125,13 @@ class WeatherSettingsView(ConfigListScreen, Screen):
             list.append(getConfigListEntry(_("Show in MoviePlayer"), config.plugins.MetrixWeather.MoviePlayer, _("helptext")))
             list.append(getConfigListEntry(_("MetrixWeather ID"), config.plugins.MetrixWeather.woeid , _("Get your local MetrixWeather ID from www.mymetrix.de")))
             list.append(getConfigListEntry(_("Unit"), config.plugins.MetrixWeather.tempUnit, _("helptext")))
-            list.append(getConfigListEntry(_("Refresh Interval (min)"), config.plugins.MetrixWeather.refreshInterval, _("helptext")))
+            list.append(getConfigListEntry(_("Refresh Interval (min)"), config.plugins.MetrixWeather.refreshInterval, _("If set to '0', fetch weather data only at system(gui) start.")))
             list.append(getConfigListEntry(_("Check is Weather date local date"), config.plugins.MetrixWeather.verifyDate, _("helptext")))
             self.check_enable = True
         return list
 
     def GetPicturePath(self):
-        try:
-            returnValue = self["config"].getCurrent()[1].value
-            picturepath = WEATHER_IMAGE_PATH % returnValue
-            if not path.exists(picturepath):
-                picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteWeather"
-        except:
-            picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteWeather"
-        return picturepath
+        return MAIN_IMAGE_PATH % "MyMetrixLiteWeather"
 
     def UpdatePicture(self):
         self.PicLoad.PictureData.get().append(self.DecodePicture)

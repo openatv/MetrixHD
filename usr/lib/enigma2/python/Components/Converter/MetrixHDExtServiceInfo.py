@@ -75,6 +75,7 @@ class MetrixHDExtServiceInfo(Converter, object):
 		orbital = self.getOrbitalPosition(info)
 		satName = self.satNames.get(orbital, orbital)
 
+		if len(number) > 5: number=''
 		if self.type == self.SERVICENAME:
 			text = name
 		elif self.type == self.SERVICENUMBER:

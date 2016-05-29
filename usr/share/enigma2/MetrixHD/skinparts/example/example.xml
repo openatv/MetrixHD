@@ -1,0 +1,34 @@
+<skin>
+<!-- cf#_#begin -->
+<!--
+	#description#- Example Skinpart -
+	#description#Please look in the example.xml file for function.
+	#description#
+	#description#- Beispiel Skinpart -
+	#description#Bitte sehen sie in der example.xml Datei für die Funktionsweise nach.
+	#previewfile#example.png
+/-->
+	<screen name="CLOCKWIDGET">
+<!--
+		#description#clock-widget without date
+		#description#Uhr-Widget ohne Datumsanzeige
+		#previewfile#CLOCKWIDGET.png
+/-->
+		<eLabel backgroundColor="layer-a-background" position="1076,40" size="164,71" transparent="0" zPosition="-1"/>
+		<widget backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" font="global_clock; 60" noWrap="1" valign="bottom" halign="center" position="1075,44" render="Label" size="164,70" source="global.CurrentTime" transparent="1" >
+			<convert type="ClockToText">Default</convert>
+		</widget>
+	</screen>
+	<screen name="Volume" position="center,40" size="335,71" title="Volume" flags="wfNoBorder" backgroundColor="transparent" zPosition="99">
+<!--
+		an alternative to the other two examples can also * .txt files for the description and * .png or * .jpg files for thumbnails in [skinpart] directory are used.
+		alternativ zu den beiden anderen Beispielen können auch *.txt Dateien für die Beschreibung und *.png oder *.jpg Dateien für Vorschaubilder im [skinpart] Verzeichnis genutzt werden.
+/-->
+		<widget name="Volume" position="78,33" size="178,5" zPosition="3" foregroundColor="layer-a-progress" transparent="1" />
+		<ePixmap position="8,4" size="64,64" zPosition="1" pixmap="MetrixHD/icons/volume.png" transparent="0" alphatest="blend" />
+		<widget font="screen_info;40" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="bottom" render="MetrixHDVolumeText" source="global.CurrentTime" position="250,12" size="85,50" zPosition="20" transparent="1" />
+		<eLabel position="78,35" size="178,1" backgroundColor="layer-a-accent1" foregroundColor="layer-a-accent1" />
+		<eLabel position="1,1" size="333,69" backgroundColor="layer-a-background" zPosition="-1" transparent="0" />
+		<eLabel position="0,0" size="335,71" backgroundColor="layer-b-background" zPosition="-2" transparent="0" />
+	</screen>
+</skin>
