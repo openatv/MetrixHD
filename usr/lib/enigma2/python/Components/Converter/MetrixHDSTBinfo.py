@@ -103,6 +103,10 @@ class MetrixHDSTBinfo(Converter, object):
 			f = open('/proc/stb/fp/temp_sensor', 'r')
 			temp = f.readline()
 			f.close()
+		elif path.exists('/proc/stb/sensors/temp/value'):
+			f = open('/proc/stb/sensors/temp/value', 'r')
+			temp = f.readline()
+			f.close()
 		if temp and int(temp.replace('\n', '')) > 0:
 			#info ="SYS-Temp: " + temp.replace('\n', '') + str('\xc2\xb0') + "C"
 			info = temp.replace('\n', '').replace(' ','') + str('\xc2\xb0') + "C"
