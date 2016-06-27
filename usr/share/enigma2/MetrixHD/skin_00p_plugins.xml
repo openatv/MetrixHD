@@ -584,8 +584,15 @@
 	<!-- CronManager (info panel ->  extensions -> cron manager, is different to timer menu -> cron timers) -->
 	<screen name="CronManager" position="0,0" size="1280,720" title="Cron Manager" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="list" render="Listbox" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
-			<convert type="StringList" />
+		<widget source="list" render="Listbox" position="70,110" size="700,510" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryText(pos = (5, 2), size = (695, 28), font=0, flags = RT_HALIGN_LEFT | RT_HALIGN_CENTER, text = 0), # index 0 is the name
+					],
+				"fonts": [gFont("screen_text", 20)],
+				"itemHeight": 30
+				}
+			</convert>
 		</widget>
 		<widget name="lab1" position="400,575" size="100,30" font="Regular;20" valign="center" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="labdisabled" position="550,575" size="100,30" font="Regular;20" valign="center" halign="center" backgroundColor="red" foregroundColor="layer-a-foreground" zPosition="1" transparent="0"/>
