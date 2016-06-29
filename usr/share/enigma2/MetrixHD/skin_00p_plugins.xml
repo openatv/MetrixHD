@@ -1673,8 +1673,15 @@
 		<widget name="label1" position="70,110" size="300,30" font="screen_label;22" foregroundColor="layer-a-foreground" halign="left" backgroundColor="layer-a-background" valign="center" transparent="1"/> 
 		<widget name="label2" position="370,110" size="400,30" font="screen_text;22" foregroundColor="layer-a-foreground" halign="right" backgroundColor="layer-a-background" valign="center" transparent="1"/> 
 		<eLabel position="70,160" size="700,1" backgroundColor="layer-a-accent1" />
-		<widget source="list" render="Listbox" position="70,180" size="700,450" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
-			<convert type="StringList" />
+		<widget source="list" render="Listbox" position="70,180" size="700,450" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryText(pos = (5, 2), size = (695, 28), font=0, flags = RT_HALIGN_LEFT | RT_HALIGN_CENTER, text = 0), # index 0 is the name
+					],
+				"fonts": [gFont("screen_text", 20)],
+				"itemHeight": 30
+				}
+			</convert>
 		</widget>
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
@@ -1686,8 +1693,15 @@
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="info" position="70,110" size="700,30" font="screen_text;22" foregroundColor="layer-a-foreground" halign="left" backgroundColor="layer-a-background" valign="center" transparent="1"/> 
 		<eLabel position="70,160" size="700,1" backgroundColor="layer-a-accent1" />
-		<widget source="list" render="Listbox" position="70,180" size="700,450" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
-			<convert type="StringList" />
+		<widget source="list" render="Listbox" position="70,180" size="700,450" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryText(pos = (5, 2), size = (695, 28), font=0, flags = RT_HALIGN_LEFT | RT_HALIGN_CENTER, text = 0), # index 0 is the name
+					],
+				"fonts": [gFont("screen_text", 20)],
+				"itemHeight": 30
+				}
+			</convert>
 		</widget>
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
