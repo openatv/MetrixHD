@@ -356,7 +356,7 @@
 	</screen>
 	<screen name="CoolTVGuideSetup" title="Cool TV Guide Setup" position="0,0" size="1280,720" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,30" size="550,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="CoolText1" position="825,425" size="380,80" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<widget name="CoolText2" position="825,505" size="380,80" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer"/>
@@ -370,7 +370,7 @@
 	<screen name="FritzDisplayCalls" position="center,center" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="statusbar" position="70,110" size="710,28" font="Regular; 24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="statusbar" position="70,100" size="710,28" font="Regular; 24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<eLabel position="70,155" size="710,2" backgroundColor="layer-a-accent1" />
 		<widget source="entries" render="Listbox" position="70,165" size="710,450" zPosition="3" scrollbarMode="showNever" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
@@ -412,7 +412,7 @@
 	<screen name="FritzMenu" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="FBFInfo" position="70,110" size="710,24" font="Regular; 20" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="FBFInfo" position="70,100" size="710,24" font="Regular; 20" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,155" size="710,2" backgroundColor="layer-a-accent1" />
 		<widget name="FBFInternet" position="105,165" size="630,80" font="Regular; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="internet_inactive" position="70,165" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
@@ -510,7 +510,7 @@
 	<screen name="MediaPlayerSettings" position="0,0" size="1280,720" title="Edit Settings" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,490" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="3" itemHeight="30" font="screen_text; 20" scrollbarMode="showNever" transparent="1" />
+		<widget name="config" position="70,100" size="700,490" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="3" itemHeight="30" font="screen_text; 20" scrollbarMode="showNever" transparent="1" />
 		<panel name="rg__-buttons_template1" />
 		<eLabel text="Cancel" position="70,638" size="170,30" valign="center" font="global_button; 20" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
 		<eLabel text="Save" position="253,638" size="170,30" valign="center" font="global_button; 20" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
@@ -584,7 +584,7 @@
 	<!-- CronManager (info panel ->  extensions -> cron manager, is different to timer menu -> cron timers) -->
 	<screen name="CronManager" position="0,0" size="1280,720" title="Cron Manager" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="list" render="Listbox" position="70,110" size="700,510" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+		<widget source="list" render="Listbox" position="70,100" size="700,510" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryText(pos = (5, 2), size = (695, 28), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0), # index 0 is the name
@@ -610,7 +610,7 @@
 	</screen>
 	<screen name="SetupCronConf" position="0,0" size="1280,720" title="Cron Manager" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="HelpWindow" position="338,594" size="604,126" zPosition="1" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
 		<panel name="r___-buttons_template1" />
@@ -654,7 +654,7 @@
 	<!-- AutoBouquetsMaker -->
 	<screen name="AutoBouquetsMaker_Menu" position="0,0" size="1280,720" title="AutoBouquetsMaker" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="list" render="Listbox" position="70,110" size="700,520" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+		<widget source="list" render="Listbox" position="70,100" size="700,520" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="TemplatedMultiContent">
 				{"template": [
 					MultiContentEntryPixmapAlphaTest(pos = (12, 4), size = (32, 32), png = 0),
@@ -671,7 +671,7 @@
 	</screen>
 	<screen name="AutoBouquetsMaker_Setup" position="0,0" size="1280,720" title="AutoBouquetsMaker Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="description" position="810,415" size="415,190" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<widget name="pleasewait" position="70,325" size="700,30" font="Regular;20" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" zPosition="2" />
 		<panel name="rg__-buttons_template1" />
@@ -688,7 +688,7 @@
 	</screen>
 	<screen name="AutoBouquetsMaker_Ordering" position="0,0" size="1280,720" title="Bouquets order" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="list" render="Listbox" position="70,110" size="700,510" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+		<widget source="list" render="Listbox" position="70,100" size="700,510" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="TemplatedMultiContent">
 				{"template": [
 					MultiContentEntryText(pos = (12, 1), size = (440, 32), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1),
@@ -707,7 +707,7 @@
 	</screen>
 	<screen name="AutoBouquetsMaker_KeepBouquets" position="0,0" size="1280,720" title="AutoBouquetsMaker Keep bouquets" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="list" render="Listbox" position="70,110" size="700,510" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+		<widget source="list" render="Listbox" position="70,100" size="700,510" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="TemplatedMultiContent">
 				{"template": [
 					MultiContentEntryPixmapAlphaTest(pos = (10, 0), size = (32, 32), png = 0),
@@ -727,7 +727,7 @@
 	</screen>
 	<screen name="AutoBouquetsMaker_HideSections" position="0,0" size="1280,720" title="AutoBouquetsMaker Hide sections" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="list" render="Listbox" position="70,110" size="700,510" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+		<widget source="list" render="Listbox" position="70,100" size="700,510" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="TemplatedMultiContent">
 				{"template": [
 					MultiContentEntryPixmapAlphaTest(pos = (10, 0), size = (32, 32), png = 0),
@@ -748,7 +748,7 @@
 	<screen name="AutoBouquetsMaker_ProvidersSetup" position="0,0" size="1280,720" title="AutoBouquetsMaker Providers" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="pleasewait" position="70,325" size="700,30" font="Regular;20" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" zPosition="2" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="description" position="810,415" size="415,190" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1" />
@@ -758,14 +758,14 @@
 	</screen>
 	<screen name="AutoBouquetsMaker_Log" position="0,0" size="1280,720" title="AutoBouquetsMaker Log" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" font="Regular;18" position="70,110" size="700,515" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="list" font="Regular;18" position="70,100" size="700,515" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_me-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_scan_autobouquetsmakermaker.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="AutoBouquetsMaker_About" position="0,0" size="1280,720" title="AutoBouquetsMaker - About" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="about" font="Regular;18" position="70,110" size="700,515" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+		<widget name="about" font="Regular;18" position="70,100" size="700,515" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
 		<widget name="oealogo" position="300,475" size="200,135" zPosition="4" transparent="1" alphatest="blend" />
 		<panel name="r___-buttons_template1" />
 		<panel name="r___-keys_template1" />
@@ -778,7 +778,7 @@
 	<screen name="iDreamAddToDatabase" position="0,0" size="1280,720" title="Add music files to iDream database" flags="wfNoBorder" backgroundColor="transparent">
 		<ePixmap pixmap="MetrixHD/mmp/wallpaper.png" position="0,0" size="1280,720" zPosition="-11" transparent="1" alphatest="blend" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="output" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="output" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-keys_template1-source" />
 		<panel name="rg__-buttons_template1" />
@@ -787,7 +787,7 @@
 	<screen name="iDreamMerlin" position="0,0" size="1280,720" title="iDream" flags="wfNoBorder" backgroundColor="transparent">
 		<ePixmap position="0,0" size="1280,720" zPosition="-11" transparent="1" alphatest="blend" pixmap="MetrixHD/mmp/wallpaper.png" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="headertext" position="70,110" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="headertext" position="70,100" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<eLabel position="70,150" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="list" position="70,165" size="700,450" zPosition="3" itemHeight="35" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
@@ -799,7 +799,7 @@
 	<screen name="SelectPath" position="0,0" size="1280,720" title="Select path" flags="wfNoBorder" backgroundColor="transparent">
 		<ePixmap pixmap="MetrixHD/mmp/wallpaper.png" position="0,0" size="1280,720" zPosition="-11" transparent="1" alphatest="blend"/>
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="target" position="70,110" size="700,28" font="SetrixHD;23" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="target" position="70,100" size="700,28" font="SetrixHD;23" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="filelist" position="70,165" size="700,450" zPosition="3" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
@@ -811,7 +811,7 @@
 	<screen name="MerlinMusicPlayerSetup" position="0,0" size="1280,720" title="Merlin Music Player Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<ePixmap pixmap="MetrixHD/mmp/wallpaper.png" position="0,0" size="1280,720" zPosition="-11" transparent="1" alphatest="blend" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-keys_template1-source" />
 		<panel name="rg__-buttons_template1" />
@@ -820,7 +820,7 @@
 	<screen name="MerlinMusicPlayerFileList" position="0,0" size="1280,720" title="Merlin Music Player" flags="wfNoBorder" backgroundColor="transparent">
 		<ePixmap pixmap="MetrixHD/mmp/wallpaper.png" position="0,0" size="1280,720" zPosition="-11" transparent="1" alphatest="blend"/>		
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="headertext" position="70,110" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="headertext" position="70,100" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<eLabel position="70,150" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="list" position="70,165" size="700,450" zPosition="3" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
@@ -830,7 +830,7 @@
 	<screen name="MerlinMusicPlayerSongList" position="0,0" size="1280,720" title="Songlist" flags="wfNoBorder" backgroundColor="transparent">
 		<ePixmap pixmap="MetrixHD/mmp/wallpaper.png" position="0,0" size="1280,720" zPosition="-11" transparent="1" alphatest="blend"/>
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="headertext" position="70,110" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="headertext" position="70,100" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="list" position="70,165" size="700,450" zPosition="3" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
@@ -887,7 +887,7 @@
 	<screen name="MerlinMusicPlayerLyrics" position="0,0" size="1280,720" title="Merlin Music Player" flags="wfNoBorder" backgroundColor="transparent">
 		<ePixmap pixmap="MetrixHD/mmp/wallpaper.png" position="0,0" size="1280,720" zPosition="-11" transparent="1" alphatest="blend"/>
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="headertext" position="70,110" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="headertext" position="70,100" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<eLabel position="70,150" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="resulttext" position="70,175" zPosition="1" size="700, 25" font="SetrixHD;20" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
 		<widget name="lyric_text" position="70,230" zPosition="2" size="700,400" font="SetrixHD;22" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
@@ -910,7 +910,7 @@
 	<!--* VPS -->
 	<screen name="VPS_Setup" title="VPS-Plugin" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">	
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="help" render="Label" position="825,425" size="380,175" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer"/>
 		<panel name="rgyb-keys_template1-source"/>
@@ -919,7 +919,7 @@
 	</screen>
 	<screen name="VPS_Screen_Info" position="0,0" size="1280,720" title="VPS-Plugin Information" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="text" position="70,110" size="700,510" font="SetrixHD;23" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="text" position="70,100" size="700,510" font="SetrixHD;23" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer"/>
 		<panel name="__e-buttons_template1"/>	
 		<ePixmap pixmap="MetrixHD/icons/info.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
@@ -941,7 +941,7 @@
 	</screen>
 	<screen name="DirectoryBrowser" position="0,0" size="1280,720" title="Directorybrowser" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="curdir" render="Label" position="70,110" size="700,33" font="screen_info;23" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="curdir" render="Label" position="70,100" size="700,33" font="screen_info;23" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="filelist" position="70,165" size="700,450" zPosition="3" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
@@ -954,7 +954,7 @@
 	<!--* VirtualZap -->
 	<screen name="VirtualZapConfig" position="0,0" size="1280,720" backgroundColor="transparent" >
 		<eLabel text="Virtual Zap Config" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer"/>
 		<panel name="rg__-keys_template1-source"/>
 		<panel name="rg__-buttons_template1"/>
@@ -962,7 +962,7 @@
 	</screen>
 	<screen name="DirectoryBrowserVZ" position="0,0" size="1280,720" title=" " backgroundColor="transparent" flags="wfNoBorder">
 		<eLabel text="Directory Browser" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="curdir" render="Label" position="70,110" size="700,33" font="screen_info;23" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="curdir" render="Label" position="70,100" size="700,33" font="screen_info;23" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="filelist" position="70,165" size="700,450" zPosition="3" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer"/>
@@ -1001,7 +1001,7 @@
 	<!--* MSNWeatherPlugin -->
 	<screen name="MSNWeatherPluginEntriesListConfigScreen" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="MSN WeatherPlugin" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget render="Label" source="city" font="SetrixHD;23" position="70,110" size="400,50" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left"/>
+		<widget render="Label" source="city" font="SetrixHD;23" position="70,100" size="400,50" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left"/>
 		<widget render="Label" source="degreetype" font="SetrixHD;23" position="450,115" size="130,50" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left"/>
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="entrylist" position="70,165" size="700,450" zPosition="3" itemHeight="30" font="screen_text; 24" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
@@ -1012,7 +1012,7 @@
 	</screen>
 	<screen name="MSNWeatherPluginEntryConfigScreen" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="MSN WeatherPlugin" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="Search" font="SetrixHD;23" position="70,110" size="400,50" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left"/>
+		<eLabel text="Search" font="SetrixHD;23" position="70,100" size="400,50" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left"/>
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,165" size="700,450" zPosition="3" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer"/>
@@ -1022,7 +1022,7 @@
 	</screen>
 	<screen name="MSNWeatherPluginSearch" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="MSN WeatherPlugin" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="Selection" font="SetrixHD;23" position="70,110" size="400,50" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left"/>
+		<eLabel text="Selection" font="SetrixHD;23" position="70,100" size="400,50" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left"/>
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="entrylist" position="70,165" size="700,450" zPosition="3" itemHeight="50" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer"/>
@@ -1137,7 +1137,7 @@
 	<!-- MyMetrix Lite -->
 	<screen name="MainSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="titleText" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="menuList" position="70,110" size="700,500" itemHeight="44" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="menuList" position="70,100" size="700,500" itemHeight="44" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="cancelBtn" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="applyBtn" render="Label" position="253,638" size="260,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="logo" position="970,60" size="258,58" zPosition="2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/MyMetrixLiteWeatherLogo.png" alphatest="blend" />
@@ -1149,7 +1149,7 @@
 	</screen>
 	<screen name="ColorsSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="titleText" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="cancelBtn" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="saveBtn" render="Label" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="defaultsBtn" render="Label" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
@@ -1161,7 +1161,7 @@
 	</screen>
 	<screen name="OtherSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="titleText" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="cancelBtn" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="saveBtn" render="Label" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="defaultsBtn" render="Label" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
@@ -1174,7 +1174,7 @@
 	</screen>
 	<screen name="SkinpartSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="titleText" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="cancelBtn" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="saveBtn" render="Label" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="defaultsBtn" render="Label" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
@@ -1188,7 +1188,7 @@
 	<screen name="WeatherSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="titleText" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap position="970,60" size="258,58" zPosition="2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/MyMetrixLiteWeatherLogo.png" alphatest="blend" />
-		<widget name="config" position="70,110" size="700,300" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,300" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="cancelBtn" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="saveBtn" render="Label" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="defaultsBtn" render="Label" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
@@ -1202,7 +1202,7 @@
 	</screen>
 	<screen name="FontsSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="titleText" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="cancelBtn" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="saveBtn" render="Label" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="defaultsBtn" render="Label" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
@@ -1214,7 +1214,7 @@
 	</screen>
 	<screen name="BackupSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="titleText" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,210" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,210" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="cancelBtn" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="loadBtn" render="Label" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="saveBtn" render="Label" position="436,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
@@ -1230,7 +1230,7 @@
 	<!-- Picons Updater -->
 	<screen name="PiconsUpdaterView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<eLabel text="Cancel" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<eLabel text="Save" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<eLabel text="Download Picons" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
@@ -1259,7 +1259,7 @@
 	<!-- EPGRefresh -->
 	<screen name="EPGRefreshServiceEditor" position="0,0" size="1280,720" title="Edit Services to refresh" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1-source" />
@@ -1268,7 +1268,7 @@
 	</screen>
 	<screen name="EPGRefreshConfiguration" position="0,0" size="1280,720" title="Configure EPGRefresh" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="help" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
@@ -1325,7 +1325,7 @@
 	<!-- EnhancedPowerSave -->
 	<screen name="EnhancedPowerSave" position="0,0" size="1280,720" title="Extended-Configuration" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
@@ -1334,7 +1334,7 @@
 	</screen>
 	<screen name="MiniPowerSave" position="0,0" size="1280,720" title="Extended-Configuration" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="w_text" render="Label" position="70, 550" size="300,30" zPosition="10" font="Regular;21" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="w_value" render="Label" position="370,550" size="400,30" zPosition="10" font="Regular;21" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<panel name="template1_2layer" />
@@ -1345,7 +1345,7 @@
 	</screen>
 	<screen name="EPSSetHours" position="0,0" size="1280,720" title="Extended-Configuration" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
@@ -1354,7 +1354,7 @@
 	</screen>
 	<screen name="EPSSetDays" position="0,0" size="1280,720" title="Extended-Configuration" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,270" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,270" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="Heading_1" render="Label" position="70,400" size="700,30" zPosition="10" font="Regular;21" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="profile_1" render="Label" position="70,430" size="300,30" zPosition="10" font="Regular;21" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="profile_2" render="Label" position="70,460" size="300,30" zPosition="10" font="Regular;21" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -1372,7 +1372,7 @@
 	</screen>
 	<screen name="SelectPath" position="0,0" size="1280,720" title="Select path" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="target" position="70,110" size="700,30" valign="center" font="Regular;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="target" position="70,100" size="700,30" valign="center" font="Regular;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="filelist" position="70,150" size="700,450" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
@@ -1384,7 +1384,7 @@
 	<!-- AutoBackup -->
 	<screen name="Config" position="0,0" size="1280,720" title="AutoBackup Configuration" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,300" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,300" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="status" position="70,425" size="700,200" font="screen_text;18" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="statusbar" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -1395,7 +1395,7 @@
 	</screen>
 	<!--screen name="BackupSelection" position="0,0" size="1280,720" title="Select files/folders to backup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="checkList" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="checkList" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rgy_-buttons_template1" />
 		<panel name="rgy_-keys_template1-source" />
@@ -1406,7 +1406,7 @@
 	<!-- FullBackup -->
 	<screen name="FullBackupConfig" position="0,0" size="1280,720" title="FullBackup Configuration" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,300" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,300" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="status" position="70,425" size="700,200" font="screen_text;18" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="statusbar" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -1417,7 +1417,7 @@
 	</screen>
 	<screen name="FlashImageConfig" position="0,0" size="1280,720" title="FlashImage Config" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="curdir" position="70,110" size="700,30" font="screen_text;18" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="curdir" position="70,100" size="700,30" font="screen_text;18" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="filelist" position="70,150" size="700,450" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rgy_-buttons_template1" />
@@ -1427,7 +1427,7 @@
 	</screen>
 	<screen name="DaysProfile" position="0,0" size="1280,720" title="Days Profile" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1" />
@@ -1523,7 +1523,7 @@
 	<!-- RemoteChannelStreamConverter -->
 	<screen name="StreamingChannelFromServerScreen" position="0,0" size="1280,720" title="Streaming Channel from Server" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="list" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="statusbar" render="Label" position="825,425" size="380,167" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
@@ -1533,7 +1533,7 @@
 	</screen>
 	<screen name="ServerEditor" position="0,0" size="1280,720" title="Server Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1-source" />
@@ -1544,7 +1544,7 @@
 	<!-- PPanel -->
 	<screen name="ToplevelPPanel" position="0,0" size="1280,720" title="Toplevel PPanel" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="nodelist" position="70,110" size="700,510" font="Console;16" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="nodelist" position="70,100" size="700,510" font="Console;16" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="helptext" position="825,425" size="380,167" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/console.png" transparent="1" alphatest="blend" />
@@ -1552,7 +1552,7 @@
 	</screen>
 	<screen name="PPanel" position="0,0" size="1280,720" title="PPanel" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="nodelist" position="70,110" size="700,510" font="Console;16" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="nodelist" position="70,100" size="700,510" font="Console;16" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="helptext" position="825,425" size="380,167" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/console.png" transparent="1" alphatest="blend" />
@@ -1560,7 +1560,7 @@
 	</screen>
 	<screen name="File" position="0,0" size="1280,720" title="File" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="nodelist" position="70,110" size="700,510" font="Console;16" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="nodelist" position="70,100" size="700,510" font="Console;16" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="helptext" position="825,425" size="380,167" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/console.png" transparent="1" alphatest="blend" />
@@ -1568,14 +1568,14 @@
 	</screen>
 	<screen name="Tarball" position="0,0" size="1280,720" title="Tarball" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="progress" position="70,110" size="700,510" font="Console;16" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="progress" position="70,100" size="700,510" font="Console;16" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/console.png" transparent="1" alphatest="blend" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="Execute" position="0,0" size="1280,720" title="Execute" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="linelist" position="70,110" size="700,510" font="Console;16" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="linelist" position="70,100" size="700,510" font="Console;16" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<widget name="key_yellow" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="key_blue" position="619,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -1588,7 +1588,7 @@
 	<!-- SimpleUmount -->
 	<screen name="SimpleUmount" position="0,0" size="1280,720" title="Simple Umount" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="wdg_config" position="70,110" size="700,30" itemHeight="30" font="screen_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="wdg_config" position="70,100" size="700,30" itemHeight="30" font="screen_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<eLabel position="70,160" size="700,2" backgroundColor="layer-a-accent1" />
 		<eLabel position="70,225" size="700,1" backgroundColor="layer-a-accent2" />
 		<widget name="wdg_label_legend_1" position="70,190" size="130,30" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
@@ -1605,7 +1605,7 @@
 	<!-- Dream Explorer -->
 	<screen name="DreamExplorerII" position="0,0" size="1280,720" flags="wfNoBorder" title="Dream-Explorer" backgroundColor="transparent">
 		<eLabel text="Dream-Explorer" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Title" render="Label" position="70,110" size="700,30" noWrap="0" font="Regular; 24" transparent="1" backgroundColor="layer-a-background"/>
+		<widget source="Title" render="Label" position="70,100" size="700,30" noWrap="0" font="Regular; 24" transparent="1" backgroundColor="layer-a-background"/>
 		<widget name="filelist" position="70,150" size="700,450" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<!--widget source="Title" render="Label" position="810,415" size="415,190" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/-->
 		<eLabel text="delete" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
@@ -1619,7 +1619,7 @@
 	</screen>
 	<screen name="vEditor" position="0,0" size="1280,720" flags="wfNoBorder" title="File-Explorer" backgroundColor="transparent">
 		<eLabel text="File-Explorer" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Title" render="Label" position="70,110" size="1140,30" noWrap="0" font="Regular; 24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="Title" render="Label" position="70,100" size="1140,30" noWrap="0" font="Regular; 24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="filedata" position="70,140" size="1140,480" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
 		<panel name="template1_1layer" />
 		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="blend" />
@@ -1627,7 +1627,7 @@
 	</screen>
 	<screen name="vInputBox" position="0,0" size="1280,720" flags="wfNoBorder" title="Input..." backgroundColor="transparent">
 		<eLabel text="Input..." position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Title" render="Label" position="70,110" size="1140,30" noWrap="0" font="Regular; 24" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+		<widget source="Title" render="Label" position="70,100" size="1140,30" noWrap="0" font="Regular; 24" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
 		<eLabel position="70,335" size="1140,2" backgroundColor="layer-a-accent1" />
 		<widget name="text" position="70,250" size="1140,25" font="Regular; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
 		<widget name="input" position="70,400" size="1140,25" font="Regular; 20" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background"/>
@@ -1637,7 +1637,7 @@
 		</screen>
 	<screen name="CPmaniger" position="0,0" size="1280,720" flags="wfNoBorder" title="Select Copy/Move location..." backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="File" position="70,110" size="700,30" noWrap="0" font="Regular; 24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="File" position="70,100" size="700,30" noWrap="0" font="Regular; 24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="CPto" position="70,140" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" size="700,450" zPosition="4" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<eLabel text="MOVE" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<eLabel text="COPY" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
@@ -1649,7 +1649,7 @@
 	</screen>
 	<screen name="SoftLinkScreen" position="0,0" size="1280,720" flags="wfNoBorder" title="Make a softlink..." backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="File" position="70,110" size="700,30" noWrap="0" font="Regular; 24" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+		<widget name="File" position="70,100" size="700,30" noWrap="0" font="Regular; 24" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
 		<widget name="SLto" position="70,140" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" size="700,450" zPosition="4" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<eLabel text="Set name" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<eLabel text="Make a softlink" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
@@ -1675,7 +1675,7 @@
 	<!-- openMultiboot Manager -->
 	<screen name="OMBManagerList" position="0,0" size="1280,720" title="OMBManagerList" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="label1" position="70,110" size="300,30" font="screen_label;22" foregroundColor="layer-a-foreground" halign="left" backgroundColor="layer-a-background" valign="center" transparent="1"/> 
+		<widget name="label1" position="70,100" size="300,30" font="screen_label;22" foregroundColor="layer-a-foreground" halign="left" backgroundColor="layer-a-background" valign="center" transparent="1"/> 
 		<widget name="label2" position="370,110" size="400,30" font="screen_text;22" foregroundColor="layer-a-foreground" halign="right" backgroundColor="layer-a-background" valign="center" transparent="1"/> 
 		<eLabel position="70,160" size="700,1" backgroundColor="layer-a-accent1" />
 		<widget source="list" render="Listbox" position="70,180" size="700,450" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
@@ -1696,7 +1696,7 @@
 	</screen>
 	<screen name="OMBManagerInstall" position="0,0" size="1280,720" title="OMBManagerInstall" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="info" position="70,110" size="700,30" font="screen_text;22" foregroundColor="layer-a-foreground" halign="left" backgroundColor="layer-a-background" valign="center" transparent="1"/> 
+		<widget name="info" position="70,100" size="700,30" font="screen_text;22" foregroundColor="layer-a-foreground" halign="left" backgroundColor="layer-a-background" valign="center" transparent="1"/> 
 		<eLabel position="70,160" size="700,1" backgroundColor="layer-a-accent1" />
 		<widget source="list" render="Listbox" position="70,180" size="700,450" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="TemplatedMultiContent">
@@ -1714,7 +1714,7 @@
 	</screen>
 	<screen name="OMBManagerPreferences" position="0,0" size="1280,720" title="OMBManagerPreferences" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="r___-buttons_template1" />
 		<panel name="r___-keys_template1" />
@@ -1723,7 +1723,7 @@
 	</screen>
 	<screen name="OMBManagerAbout" position="0,0" size="1280,720" title="OMBManagerAbout" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="about" position="70,110" size="700,505" font="screen_text; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="about" position="70,100" size="700,505" font="screen_text; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
@@ -1925,7 +1925,7 @@
 	<!-- PiconManager -->
 	<screen name="PiconManagerScreen" title="PiconManager" position="0,0" size="1280,720" backgroundColor="transparent" flags="wfNoBorder">
 		<widget source="Title" render="Label" position="58,36" size="900,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" noWrap="0" transparent="1" />
-		<widget name="piconpath" position="70,110" size="690,60" font="screen_label;20" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="piconpath" position="70,100" size="690,60" font="screen_label;20" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
 		<widget name="piconpath2" position="375,110" size="500,60" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
 		<widget name="piconspace" position="70,140" size="690,60" font="screen_label;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
 		<widget name="piconcount" position="70,170" size="690,60" font="screen_text;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
@@ -1960,7 +1960,7 @@
 	</screen>
 	<screen name="pm_conf" position="0,0" size="1280,720" title="" backgroundColor="transparent" flags="wfNoBorder">
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" zPosition="3" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" zPosition="3" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source"/>
@@ -1969,7 +1969,7 @@
 	</screen>	
 	<screen name="PiconManagerFolderScreen" position="0,0" size="1280,720" title="" backgroundColor="transparent" flags="wfNoBorder">
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="media" position="70,110" size="700,33" font="screen_info;23" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="media" position="70,100" size="700,33" font="screen_info;23" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="folderlist" position="70,165" size="700,450" zPosition="3" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
@@ -2039,7 +2039,7 @@
 	<!-- VTI Dateimanager -->
 	<screen name="FilebrowserConfigScreenVTi" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent" title="" >
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="help" position="810,415" size="415,190" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<ePixmap pixmap="MetrixHD/icons/setup.png" position="890,175" size="256,256" alphatest="blend" transparent="1" />
 		<panel name="template1_2layer" />
@@ -2080,7 +2080,7 @@
 	<!--Elektro Plugin -->
 	<screen name="Elektro" position="0,0" size="1280,720" flags="wfNoBorder" title="Elektro Power Save" backgroundColor="transparent" > 
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /> 
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" /> 
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" /> 
 		<widget source="help" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/> 
 		<panel name="template1_2layer" /> 
 		<panel name="rgyb-buttons_template1" /> 
@@ -2090,7 +2090,7 @@
 	</screen> 
 	<screen name="ElektroProfile" position="0,0" size="1280,720" flags="wfNoBorder" title="Elektro Power Save Profile Times" backgroundColor="transparent" > 
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /> 
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" /> 
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" /> 
 		<panel name="template1_2layer" /> 
 		<panel name="rg__-buttons_template1" /> 
 		<panel name="rg__-keys_template1" /> 
@@ -2099,7 +2099,7 @@
 	</screen> 
 	<screen name="ElektroIP" position="0,0" size="1280,720" flags="wfNoBorder" title="Elektro Power Save IP Addresses to wait" backgroundColor="transparent" > 
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /> 
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" /> 
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" /> 
 		<panel name="template1_2layer" /> 
 		<panel name="rg__-buttons_template1" /> 
 		<panel name="rg__-keys_template1" /> 
@@ -2108,7 +2108,7 @@
 	</screen> 
 	<screen name="ElektroNAS" position="0,0" size="1280,720" flags="wfNoBorder" title="Elektro Power Save IP Telnet - Poweroff" backgroundColor="transparent" > 
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /> 
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" /> 
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" /> 
 		<panel name="template1_2layer" /> 
 		<panel name="rgy_-buttons_template1" /> 
 		<panel name="rgy_-keys_template1" /> 
@@ -2126,7 +2126,7 @@
 	<!--SpecialJump Plugin -->
 	<screen name="SpecialJump_SpecialJumpConfiguration" position="0,0" size="1280,720" flags="wfNoBorder" title="SpecialJump Configuration" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /> 
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 18" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" /> 
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 18" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" /> 
 		<panel name="template1_2layer" /> 
 		<panel name="rg__-buttons_template1" /> 
 		<panel name="rg__-keys_template1-source" /> 
@@ -2235,7 +2235,7 @@
 	</screen>
 	<screen name="SATIPTuner" position="center,center" size="1280,720" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" zPosition="2" position="70,110" size="700,100" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" zPosition="2" position="70,100" size="700,100" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" transparent="1" />
 		<widget source="choices" render="Label"  position="810,415" size="415,190" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<widget source="description" render="Label" position="70,270" size="700,210" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="screen_text; 20" transparent="1" />
 		<panel name="template1_2layer" />
@@ -2248,7 +2248,7 @@
 	<!-- RCU Select -->
 	<screen name="RCUSelect" position="0,0" size="1280,720" title="RCU Select" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="list" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="config" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
@@ -2260,7 +2260,7 @@
 	<!--Animation Setup -->
 	<screen name="AnimationSetupConfig" position="center,center" size="1280,720" title="Animation Setup" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" zPosition="2" position="70,110" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" zPosition="2" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rgy_-buttons_template1" />
 		<panel name="rgy_-keys_template1-source" />
@@ -2269,7 +2269,7 @@
 	</screen>
 	<screen name="AnimationSetupScreen" position="center,center" size="1280,720" title="Animation Setup" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" zPosition="2" position="70,110" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="list" zPosition="2" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" transparent="1" />
 		<widget source="introduction" render="Label" position="825,425" size="380,175" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
@@ -2281,7 +2281,7 @@
 	<!-- VFD Plugin -->
 	<screen name="VFD_INISetup" position="0,0" size="1280,720" title="LED Display Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
@@ -2292,7 +2292,7 @@
 	<!-- BTDevicesManager -->
 	<screen name="BluetoothDevicesManager" position="0,0" size="1280,720" title="BluetoothDevicesManager" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="devicelist" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="devicelist" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="ConnStatus" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="rgy_-buttons_template1" />
@@ -2327,7 +2327,7 @@
 	<!-- ET8500LCD -->
 	<screen name="ET_8500_LCD" position="0,0" size="1280,720" title="ET 8500 LCD Configuration" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,480" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,480" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="helperimage" position="825,185" size="380,360" zPosition="1" backgroundColor="layer-a-background" transparent="0" alphatest="blend" />
 		<eLabel font="global_button; 20" halign="left" valign="center" text="Save" position="253,638" size="170,30" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" noWrap="1" zPosition="1" />
 		<eLabel font="global_button; 20" halign="left" valign="center" text="Cancel" position="70,638" size="170,30" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" noWrap="1" zPosition="1" />
@@ -2339,7 +2339,7 @@
 	<screen name="picshow" position="0,0" size="1280,720" title="PicturePlayer" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<eLabel text="PicturePlayer" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="filelist" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="filelist" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="thn" position="890,175" size="256,256" zPosition="4" alphatest="blend" />
 		<eLabel name="frame_a" position="888,173" size="260,260" zPosition="2" backgroundColor="layer-b-accent1" />
 		<eLabel name="frame_b" position="889,174" size="258,258" zPosition="3" backgroundColor="layer-b-background"  />
@@ -2370,7 +2370,7 @@
 	<!-- XMLTV Import -->
 	<screen name="EPGImportConfig" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="EPG Import Configuration" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,300" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,300" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="statusbar" position="70,532" size="700,34" font="Regular;20" foregroundColor="layer-a-title-foreground" />
 		<widget name="status" position="70,454" size="700,60" font="Regular;20" foregroundColor="layer-a-title-foreground" />
 		<panel name="template1_2layer" />
@@ -2381,8 +2381,8 @@
 	</screen>
 	<screen name="EPGImportSources" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="EPG Import Sources" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,420" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget name="list" position="70,110" size="700,420" scrollbarMode="showOnDemand" />
+		<widget name="config" position="70,100" size="700,420" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="list" position="70,100" size="700,420" scrollbarMode="showOnDemand" />
 		<panel name="template1_2layer" />
 		<panel name="rgy_-buttons_template1" />
 		<panel name="rgy_-keys_template1-source" />
@@ -2391,7 +2391,7 @@
 	</screen>
 		<screen name="EPGImportProfile" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Days Profile" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,420" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,420" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
@@ -2402,7 +2402,7 @@
 	<!-- GigaBlue IPBox Client -->
 	<screen name="GBIpboxMenu" position="0,0" size="1280,720" title="IPBox Client" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="text" render="Label" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
@@ -2414,7 +2414,7 @@
 	<!--programmlisten-updater /-->
 	<screen name="Programmlisten_Updater" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent"> 
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;30" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="MenuListSetting" position="70,110" size="700,495" itemHeight="45" font="screen_text; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="MenuListSetting" position="70,100" size="700,495" itemHeight="45" font="screen_text; 30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="description" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/> 
 		<eLabel text="=" position="574,638" size="10,30" noWrap="1" zPosition="1" valign="center" font="screen_info; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="update" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="screen_info; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
@@ -2426,7 +2426,7 @@
 	</screen>
 	<screen name="PU_Restore" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent"> 
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;30" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="ListSetting" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="ListSetting" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rgy_-buttons_template1" />
 		<panel name="rgy_-keys_template1-source" />
@@ -2435,7 +2435,7 @@
 	</screen>
 	<screen name="PU_History" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent"> 
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;30" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="History" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground"  transparent="1" />
+		<widget name="History" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground"  transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="r___-buttons_template1" />
 		<panel name="r___-keys_template1-source" />
@@ -2446,7 +2446,7 @@
 	<!-- Fast Scan -->
 	<screen name="FastScanScreen" position="0,0" size="1280,720" title="Fast Scan" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="introduction" render="Label" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<eLabel text="Cancel" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<panel name="template1_2layer" />
@@ -2467,7 +2467,7 @@
 	<!-- Blindscan -->
 	<screen name="Blindscan" position="0,0" size="1280,720" title="Blindscan" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="introduction" render="Label" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<eLabel text="Cancel" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<panel name="template1_2layer" />
@@ -2499,7 +2499,7 @@
 	<!-- SpinnerSelector -->
 	<screen name="SpinnerSelectionBox" position="center,center" size="1280,720" title="SpinnerSelector" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="text" position="70,110" size="700,30" font="screen_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+		<widget name="text" position="70,100" size="700,30" font="screen_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
 		<widget name="list" position="70,170" size="700,450" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<eLabel backgroundColor="transparent" position="800,170" size="410,450" transparent="0" zPosition="-1"/>
 		<widget name="bild" position="910,350" size="300,200" transparent="1" zPosition="1" />
@@ -2545,7 +2545,7 @@
 	</screen>
 	<screen name="BrowserPreferenceWindow" position="center,center" size="1280,720" title="Preference" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="url" position="70,110" size="700,30" font="screen_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" valign="center" transparent="1" />
+		<widget name="url" position="70,100" size="700,30" font="screen_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" valign="center" transparent="1" />
 		<widget name="config" position="70,165" size="700,455" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
@@ -2572,7 +2572,7 @@
 	</screen>
 	<screen name="PermanentClockMenu" position="0,0" size="1280,720" title="Permanent Clock" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="list" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_extended_time_setup.png" transparent="1" alphatest="blend" />
@@ -2581,7 +2581,7 @@
 	<!-- Automatic Volume Adjustment -->
 	<screen name="AutomaticVolumeAdjustmentConfigScreen" position="0,0" size="1280,720" title="Automatic Volume Adjustment" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="rg_b-buttons_template1" />
 		<panel name="rg_b-keys_template1-source" />
 		<panel name="template1_2layer" />
@@ -2590,7 +2590,7 @@
 	</screen>
 	<screen name="AutomaticVolumeAdjustmentEntriesListConfigScreen" position="0,0" size="1280,720" title="Automatic Volume Adjustment" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="entrylist" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="entrylist" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1-source" />
 		<panel name="template1_2layer" />
@@ -2599,7 +2599,7 @@
 	</screen>
 	<screen name="AutomaticVolumeAdjustmentEntryConfigScreen" position="0,0" size="1280,720" title="Automatic Volume Adjustment" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
 		<panel name="template1_2layer" />
@@ -2610,7 +2610,7 @@
 	<!-- MenuSort -->
 	<screen name="SortableMenu" position="center,center" size="1280,720" title="SortableMenu" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="menu" position="70,110" size="700,510" font="screen_text; 20" itemHeight="30" scrollbarMode="showOnDemand" />
+		<widget name="menu" position="70,100" size="700,510" font="screen_text; 20" itemHeight="30" scrollbarMode="showOnDemand" />
 		<panel name="template1_2layer" />
 		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="584,635" size="30,40" alphatest="blend" />
 		<widget source="key_blue" render="Label" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
@@ -2621,7 +2621,7 @@
 	<!-- Foreca -->
 <!-- cf#_#rename -->
 	<screen name="ForecaPreview_list" >
-		<widget name="MainList" position="70,110" size="700,480" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" 
+		<widget name="MainList" position="70,100" size="700,480" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" 
 		font0="screen_text;22"
 		font1="screen_info;22"
 		font2="screen_info;18"
@@ -2687,7 +2687,7 @@
 	</screen>
 <!-- cf#_#rename -->
 	<screen name="SatPanel_list" >
-		<widget name="Mlist" position="70,110" size="700,480" zPosition="3" font="screen_text;22" itemHeight="80" setPictScale="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" 
+		<widget name="Mlist" position="70,100" size="700,480" zPosition="3" font="screen_text;22" itemHeight="80" setPictScale="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" 
 		textPos="230,25,470,30" 
 		enableWrapAround="1" scrollbarMode="showOnDemand" />
 	</screen>
@@ -2727,7 +2727,7 @@
 	</screen>
 	<screen name="CityPanel" position="0,0" size="1280,720" title="Select a city" backgroundColor="transparent" flags="wfNoBorder" >
 		<panel name="Foreca_common" />
-		<widget name="Mlist" position="70,110" size="700,480" font="screen_text;20" itemHeight="30" column="10" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" scrollbarMode="showOnDemand" />
+		<widget name="Mlist" position="70,100" size="700,480" font="screen_text;20" itemHeight="30" column="10" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" scrollbarMode="showOnDemand" />
 		<panel name="_gyb-buttons_template1" />
 		<panel name="_gyb-keys_template1-source" />
 		<panel name="ioe-buttons_template1" />
@@ -2741,14 +2741,14 @@
 	</screen>
 	<screen name="SatPanelb" position="0,0" size="1280,720" backgroundColor="transparent" flags="wfNoBorder" >
 		<panel name="Foreca_common" />
-		<widget name="Mlist" position="70,110" size="700,480" zPosition="3" font="screen_text;22" itemHeight="80" setPictScale="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" scrollbarMode="showOnDemand" />
+		<widget name="Mlist" position="70,100" size="700,480" zPosition="3" font="screen_text;22" itemHeight="80" setPictScale="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" scrollbarMode="showOnDemand" />
 		<widget source="key_blue" render="Label" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="584,635" size="30,40" alphatest="blend" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="PicSetup" position="0,0" size="1280,720" title= "SlideShow Settings" backgroundColor="transparent" flags="wfNoBorder" >
 		<panel name="Foreca_common" />
-		<widget name="Mlist" position="70,110" size="700,480" enableWrapAround="1" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
+		<widget name="Mlist" position="70,100" size="700,480" enableWrapAround="1" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
 		<panel name="_oe-buttons_template1" />
@@ -2758,7 +2758,7 @@
 	<!-- Youtube -->
 	<screen name="YoutubeTVSettings" position="center,center" size="1280,720" title="Preference" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,110" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
@@ -2767,7 +2767,7 @@
 	</screen>
 	<screen name="YoutubeTVWindow" position="center,center" size="1280,720" title="Preference" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="infomation" position="70,110" size="700,30" font="screen_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" valign="center" transparent="1" />
+		<widget name="infomation" position="70,100" size="700,30" font="screen_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" valign="center" transparent="1" />
 		<widget name="startdesc" position="70,210" size="700,30" font="screen_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" valign="center" transparent="1" />
 		<widget name="helpdesc" position="70,240" size="700,30" font="screen_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" valign="center" transparent="1" />
 		<panel name="template1_2layer" />
