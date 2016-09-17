@@ -1384,12 +1384,7 @@
 			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" font="epg_event; 26" halign="left" noWrap="1" position="655,458" render="Label" size="555,35" source="session.Event_Next" transparent="1" valign="bottom" zPosition="2">
 				<convert type="EventName">Name</convert>
 			</widget>
-			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="epg_info; 20" halign="right" position="70,158" render="Label" size="555,315" source="session.Event_Now" transparent="1" zPosition="1">
-				<convert type="EventName">FullDescription</convert>
-			</widget>
-			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_info; 20" halign="left" position="655,184" render="Label" size="555,265" source="session.Event_Next" transparent="1" zPosition="1">
-				<convert type="EventName">FullDescription</convert>
-			</widget>
+			<panel name="RTSB_Infobarepgwidget_description"/>
 			<panel name="INFOBAREPGWIDGET_Layer" />
 			<!-- EPGWidget */-->
 		</screen>
@@ -1402,12 +1397,7 @@
 			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" font="epg_event;40" halign="left" noWrap="1" position="982,687" render="Label" size="832,53" source="session.Event_Next" transparent="1" valign="bottom" zPosition="2">
 				<convert type="EventName">Name</convert>
 			</widget>
-			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="epg_info;30" halign="right" position="105,235" render="Label" size="832,464" source="session.Event_Now" transparent="1" zPosition="1">
-				<convert type="EventName">FullDescription</convert>
-			</widget>
-			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_info;30" halign="left" position="982,275" render="Label" size="832,388" source="session.Event_Next" transparent="1" zPosition="1">
-				<convert type="EventName">FullDescription</convert>
-			</widget>
+			<panel name="RTSB_Infobarepgwidgetfhd_description"/>
 			<panel name="INFOBAREPGWIDGET_Layer" />
 			<!-- EPGWidget FHD */-->
 		</screen>
@@ -1420,12 +1410,7 @@
 			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" font="epg_event; 78" halign="left" noWrap="1" position="1965,1374" render="Label" size="1665,105" source="session.Event_Next" transparent="1" valign="bottom" zPosition="2">
 				<convert type="EventName">Name</convert>
 			</widget>
-			<widget backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="epg_info; 60" halign="right" position="210,474" render="Label" size="1665,945" source="session.Event_Now" transparent="1" zPosition="1">
-				<convert type="EventName">FullDescription</convert>
-			</widget>
-			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_info; 60" halign="left" position="1965,553" render="Label" size="1665,795" source="session.Event_Next" transparent="1" zPosition="1">
-				<convert type="EventName">FullDescription</convert>
-			</widget>
+			<panel name="RTSB_Infobarepgwidgetuhd_description"/>
 			<panel name="INFOBAREPGWIDGET_Layer" />
 			<!-- EPGWidget */-->
 		</screen>
@@ -1589,7 +1574,6 @@
 	<screen name="CHANNELSELECTION-1">
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,100" size="700,530" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 		<widget source="ServiceEvent" render="Label" position="820,80" size="395,65" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center">
 			<convert type="EventName">Name</convert>
 		</widget>
@@ -1605,9 +1589,7 @@
 		<widget source="ServiceEvent" render="Progress" position="914,165" size="206,5" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget source="ServiceEvent" render="Label" position="825,195" size="385,250" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
-			<convert type="EventName">FullDescription</convert>
-		</widget>
+		<panel name="RTSB_ChannelSelection-1_list_plus_description"/>
 		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="825,460" size="385,125" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" noWrap="1" transparent="0" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
@@ -1618,7 +1600,6 @@
 	<screen name="CHANNELSELECTION-1P">
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,100" size="700,530" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 		<widget source="ServiceEvent" render="Label" position="820,80" size="395,65" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center">
 			<convert type="EventName">Name</convert>
 		</widget>
@@ -1634,9 +1615,7 @@
 		<widget source="ServiceEvent" render="Progress" position="914,165" size="206,5" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget source="ServiceEvent" render="Label" position="825,190" size="385,250" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
-			<convert type="EventName">FullDescription</convert>
-		</widget>
+		<panel name="RTSB_ChannelSelection-1P_list_plus_description"/>
 		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="825,452" size="385,125" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" noWrap="1" transparent="0" />
 		<widget source="ServiceEvent" render="MetrixHDPrimeTime" position="825,588" size="385,30" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="0" />
 		<panel name="template1_2layer" />
@@ -1648,7 +1627,6 @@
 	<screen name="CHANNELSELECTION-2">
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,100" size="700,530" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 <!-- cf#_#picon -->
 		<widget alphatest="blend" position="907,80" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="0" zPosition="1">
 			<convert type="MetrixHDRefString">ServicelistRef</convert>
@@ -1668,9 +1646,7 @@
 		<widget source="ServiceEvent" render="Progress" position="914,285" size="206,5" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget source="ServiceEvent" render="Label" position="825,310" size="385,226" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
-			<convert type="EventName">FullDescription</convert>
-		</widget>
+		<panel name="RTSB_ChannelSelection-2_list_plus_description"/>
 		<widget source="ServiceEvent" render="MetrixHDNextEvent" position="825,542" size="385,53" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" noWrap="1" transparent="0" />
 		<panel name="template1_2layer" />
 		<panel name="ime-buttons_template1" />
@@ -1681,7 +1657,6 @@
 	<screen name="CHANNELSELECTION-2P">
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,100" size="700,530" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 <!-- cf#_#picon -->
 		<widget alphatest="blend" position="907,80" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="0" zPosition="1">
 			<convert type="MetrixHDRefString">ServicelistRef</convert>
@@ -1701,9 +1676,7 @@
 		<widget source="ServiceEvent" render="Progress" position="914,285" size="206,5" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget source="ServiceEvent" render="Label" position="825,302" size="385,226" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
-			<convert type="EventName">FullDescription</convert>
-		</widget>
+		<panel name="RTSB_ChannelSelection-2P_list_plus_description"/>
 		<widget source="ServiceEvent" render="MetrixHDNextEvent" position="825,532" size="385,53" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" noWrap="1" transparent="0" />
 		<widget source="ServiceEvent" render="MetrixHDPrimeTime" position="825,588" size="385,30" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="0" />
 		<panel name="template1_2layer" />
@@ -1715,7 +1688,6 @@
 	<screen name="CHANNELSELECTION-3">
 		<panel name="SkinDesign-s" />
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget name="list" position="423,107" size="787,510" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 <!-- cf#_#picon -->
 		<widget alphatest="blend" position="112,61" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="1" zPosition="1">
 			<convert type="MetrixHDRefString">ServicelistRef</convert>
@@ -1735,9 +1707,7 @@
 		<widget source="ServiceEvent" render="Progress" position="117,258" size="206,5" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget source="ServiceEvent" render="Label" position="63,283" size="320,226" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
-			<convert type="EventName">FullDescription</convert>
-		</widget>
+		<panel name="RTSB_ChannelSelection-3_list_plus_description"/>
 		<widget source="ServiceEvent" render="MetrixHDNextEvent" position="63,517" size="320,53" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" noWrap="1" transparent="0">
 		</widget>
 		<panel name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720" />
@@ -1749,7 +1719,6 @@
 	<screen name="CHANNELSELECTION-4">
 		<panel name="SkinDesign-s" />
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget name="list" position="423,107" size="787,510" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbarBorder="layer-a-selection-background" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_info;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 		<widget source="ServiceEvent" render="Label" position="62,66" size="320,65" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" valign="center" halign="center">
 			<convert type="EventName">Name</convert>
 		</widget>
@@ -1765,9 +1734,7 @@
 		<widget source="ServiceEvent" render="Progress" position="117,143" size="206,5" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget source="ServiceEvent" render="Label" position="63,173" size="314,249" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
-			<convert type="EventName">FullDescription</convert>
-		</widget>
+		<panel name="RTSB_ChannelSelection-4_list_plus_description"/>
 		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="63,440" size="314,125" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" noWrap="1" transparent="0" />
 		<panel name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720" />
 		<panel name="rgyb-buttons_screen_pos416_51_size_810_619" />
@@ -1775,5 +1742,5 @@
 		<ePixmap name="new ePixmap" position="1125,630" size="81,40" pixmap="MetrixHD/buttons/menu.png" />
 	</screen>
 	<!-- CHANNELSELECTION 4 FOCUS RIGHT NO PICON 5 NEXT EVENT */ -->
-	<!-- TEMPLATES */-->
+<!-- TEMPLATES */-->
 </skin>

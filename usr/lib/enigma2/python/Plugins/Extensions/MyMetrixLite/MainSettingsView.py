@@ -531,6 +531,14 @@ class MainSettingsView(Screen):
             else:
                 moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_1_time" />', '' ])
 
+            if config.plugins.MyMetrixLiteOther.showMovieListScrollbar.value:
+                moviePlayerSkinSearchAndReplace.append([',480" scrollbarMode="showNever" font="epg_text;20"', ',480" scrollbarMode="showOnDemand" font="epg_text;20"' ])
+
+            if config.plugins.MyMetrixLiteOther.showMovieListRunningtext.value:
+                delay = str(config.plugins.MyMetrixLiteOther.runningTextStartdelay.value)
+                speed = str(config.plugins.MyMetrixLiteOther.runningTextSpeed.value)
+                moviePlayerSkinSearchAndReplace.append(['render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60', 'render="MetrixHDRunningText" options="movetype=running,startdelay=%s,steptime=%s' %(delay,speed)])
+
             skin_lines = appendSkinFile(SKIN_MOVIEPLAYER_SOURCE, moviePlayerSkinSearchAndReplace)
 
             xFile = open(SKIN_MOVIEPLAYER_TARGET_TMP, "w")
@@ -575,7 +583,7 @@ class MainSettingsView(Screen):
                 EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="448" CoolCSWidth="115" CoolDirInfoWidth="115"'\
                                                ,'itemHeight="20" CoolFont="epg_text;13" CoolSelectFont="epg_text;13" CoolDateFont="epg_text;13" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="8" CoolBarSize="50,7" CoolBarSizeSa="50,7" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="531" CoolFolderSize="546" CoolDatePos="625" CoolDateHPos="1" CoolDateWidth="80" CoolPiconPos="90" CoolPiconHPos="1" CoolPiconWidth="30" CoolPiconHeight="17" CoolMoviePiconPos="125" CoolMoviePiconSize="498" CoolCSWidth="80" CoolDirInfoWidth="80"'])
                 EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="542" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="88" CoolMoviePiconSize="448" CoolCSWidth="115" CoolDirInfoWidth="115"'\
-                                               ,'itemHeight="20" CoolFont="epg_text;13" CoolSelectFont="epg_text;13" CoolDateFont="epg_text;13" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="8" CoolBarSize="50,7" CoolBarSizeSa="50,7" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="532" CoolFolderSize="546" CoolDatePos="625" CoolDateHPos="1" CoolDateWidth="80" CoolPiconPos="592" CoolPiconHPos="1" CoolPiconWidth="30" CoolPiconHeight="17" CoolMoviePiconPos="88" CoolMoviePiconSize="498" CoolCSWidth="80" CoolDirInfoWidth="80"'])
+                                               ,'itemHeight="20" CoolFont="epg_text;13" CoolSelectFont="epg_text;13" CoolDateFont="epg_text;13" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="8" CoolBarSize="50,7" CoolBarSizeSa="50,7" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="531" CoolFolderSize="546" CoolDatePos="625" CoolDateHPos="1" CoolDateWidth="80" CoolPiconPos="592" CoolPiconHPos="1" CoolPiconWidth="30" CoolPiconHeight="17" CoolMoviePiconPos="88" CoolMoviePiconSize="498" CoolCSWidth="80" CoolDirInfoWidth="80"'])
             elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.getValue() == "1":
                 EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="448" CoolCSWidth="115" CoolDirInfoWidth="115"'\
                                                ,'itemHeight="24" CoolFont="epg_text;17" CoolSelectFont="epg_text;17" CoolDateFont="epg_text;15" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="2" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="10" CoolBarSize="50,8" CoolBarSizeSa="50,8" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="516" CoolFolderSize="566" CoolDatePos="610" CoolDateHPos="1" CoolDateWidth="90" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="35" CoolPiconHeight="20" CoolMoviePiconPos="130" CoolMoviePiconSize="470" CoolCSWidth="90" CoolDirInfoWidth="90"'])
@@ -632,6 +640,18 @@ class MainSettingsView(Screen):
 
             if config.plugins.MyMetrixLiteColors.emcCoolHighlightColor.getValue() is False:
                 EMCSkinSearchAndReplace.append(['CoolHighlightColor="1"', 'CoolHighlightColor="0"' ])
+
+            if config.plugins.MyMetrixLiteOther.showMovieListScrollbar.value:
+                EMCSkinSearchAndReplace.append(['CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585"', 'CoolMovieSize="486" CoolFolderSize="536" CoolDatePos="575"' ])
+                EMCSkinSearchAndReplace.append(['CoolMovieSize="531" CoolFolderSize="546" CoolDatePos="625"', 'CoolMovieSize="521" CoolFolderSize="536" CoolDatePos="615"' ])
+                EMCSkinSearchAndReplace.append(['CoolMovieSize="516" CoolFolderSize="566" CoolDatePos="610"', 'CoolMovieSize="506" CoolFolderSize="556" CoolDatePos="600"' ])
+                EMCSkinSearchAndReplace.append(['CoolMovieSize="471" CoolFolderSize="524" CoolDatePos="565"', 'CoolMovieSize="461" CoolFolderSize="514" CoolDatePos="555"' ])
+                EMCSkinSearchAndReplace.append(['foregroundColor="layer-a-foreground" scrollbarMode="showNever" transparent="1" />', 'foregroundColor="layer-a-foreground" scrollbarMode="showOnDemand" transparent="1" />' ])
+
+            if config.plugins.MyMetrixLiteOther.showMovieListRunningtext.value:
+                delay = str(config.plugins.MyMetrixLiteOther.runningTextStartdelay.value)
+                speed = str(config.plugins.MyMetrixLiteOther.runningTextSpeed.value)
+                EMCSkinSearchAndReplace.append(['render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60', 'render="MetrixHDRunningText" options="movetype=running,startdelay=%s,steptime=%s' %(delay,speed)])
 
             skin_lines = appendSkinFile(SKIN_EMC_SOURCE, EMCSkinSearchAndReplace)
 
@@ -826,6 +846,14 @@ class MainSettingsView(Screen):
             if config.plugins.MyMetrixLiteOther.graphicalEpgStyle.getValue() == "2":
                 DESIGNSkinSearchAndReplace.append(['<panel name="GraphicalEPG_1" />', '<panel name="GraphicalEPG_2" />' ])
                 DESIGNSkinSearchAndReplace.append(['<panel name="GraphicalEPGPIG_1" />', '<panel name="GraphicalEPGPIG_2" />' ])
+
+            if config.plugins.MyMetrixLiteOther.showChannelListScrollbar.value:
+                DESIGNSkinSearchAndReplace.append(['scrollbarMode="showNever" fieldMargins="5" itemsDistances="5"', 'scrollbarMode="showOnDemand" fieldMargins="5" itemsDistances="5"' ])
+
+            if config.plugins.MyMetrixLiteOther.showChannelListRunningtext.value:
+                delay = str(config.plugins.MyMetrixLiteOther.runningTextStartdelay.value)
+                speed = str(config.plugins.MyMetrixLiteOther.runningTextSpeed.value)
+                DESIGNSkinSearchAndReplace.append(['render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60', 'render="MetrixHDRunningText" options="movetype=running,startdelay=%s,steptime=%s' %(delay,speed)])
 
             skin_lines = appendSkinFile(SKIN_DESIGN_SOURCE, DESIGNSkinSearchAndReplace)
 

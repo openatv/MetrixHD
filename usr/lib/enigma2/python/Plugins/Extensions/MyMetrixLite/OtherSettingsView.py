@@ -547,6 +547,12 @@ class OtherSettingsView(ConfigListScreen, Screen):
         if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "large":
             list.append(getConfigListEntry(tab + _("Show Movie Description"), config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription, _("helptext")))
         list.append(getConfigListEntry(tab + _("Change Number of Lines in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionRows, _("helptext")))
+        section = _("EMC/MovieList")
+        list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        help_scrollbar = _("Show Scrollbar if more than one pages are available.")
+        help_runningtext = _("Show running text for description of the event.")
+        list.append(getConfigListEntry(tab + _("Show scrollbar?"), config.plugins.MyMetrixLiteOther.showMovieListScrollbar, help_scrollbar))
+        list.append(getConfigListEntry(tab + _("Show running text?"), config.plugins.MyMetrixLiteOther.showMovieListRunningtext, help_runningtext, "ENABLED"))
         section = _("EMC/MoviePlayer")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         list.append(getConfigListEntry(tab + _("Style"), config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign, _("helptext"), "ENABLED"))
@@ -563,6 +569,13 @@ class OtherSettingsView(ConfigListScreen, Screen):
         if int(config.plugins.MyMetrixLiteOther.SkinDesign.value) > 1 and (config.plugins.MyMetrixLiteOther.channelSelectionStyle.value == "CHANNELSELECTION-1" or config.plugins.MyMetrixLiteOther.channelSelectionStyle.value == "CHANNELSELECTION-2"):
             list.append(getConfigListEntry(tab + _("Show Primetime Event"), config.plugins.MyMetrixLiteOther.channelSelectionShowPrimeTime, _("Set primetime in graphical epg settings.")))
         list.append(getConfigListEntry(tab + _("Graphical EPG style"), config.plugins.MyMetrixLiteOther.graphicalEpgStyle, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show scrollbar?"), config.plugins.MyMetrixLiteOther.showChannelListScrollbar, help_scrollbar))
+        list.append(getConfigListEntry(tab + _("Show running text?"), config.plugins.MyMetrixLiteOther.showChannelListRunningtext, help_runningtext, "ENABLED"))
+        section = _("Running Text Parameter")
+        if config.plugins.MyMetrixLiteOther.showChannelListRunningtext.value or config.plugins.MyMetrixLiteOther.showMovieListRunningtext.value:
+            list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+            list.append(getConfigListEntry(tab + _("Startdelay"),config.plugins.MyMetrixLiteOther.runningTextStartdelay, _("helptext")))
+            list.append(getConfigListEntry(tab + _("Speed"),config.plugins.MyMetrixLiteOther.runningTextSpeed, _("A higher value results in a slow movement.")))
         section = _("Skin Design")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         list.append(getConfigListEntry(tab + _("Chose Skin Design"),config.plugins.MyMetrixLiteOther.SkinDesign, _("helptext"), "ENABLED"))

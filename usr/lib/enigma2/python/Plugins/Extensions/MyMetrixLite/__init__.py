@@ -636,9 +636,15 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.showTunerinfo = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.setTunerAuto = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelectionNumber(1, 8, 1, default = 2)
+    #running text parameter
+    config.plugins.MyMetrixLiteOther.runningTextStartdelay = ConfigSelectionNumber(100, 6000, 100, default = 600, wraparound=True)
+    config.plugins.MyMetrixLiteOther.runningTextSpeed = ConfigSelectionNumber(10, 600, 10, default = 60, wraparound=True)
+    #channel list
     config.plugins.MyMetrixLiteOther.channelSelectionStyle = ConfigSelection(default="CHANNELSELECTION-1", choices = channelSelectionStyleList)
     config.plugins.MyMetrixLiteOther.channelSelectionShowPrimeTime = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.graphicalEpgStyle = ConfigSelection(default = "1", choices = [("1", _("Standard")), ("2", _("more Events or 'mini TV' greater"))])
+    config.plugins.MyMetrixLiteOther.showChannelListScrollbar = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.showChannelListRunningtext = ConfigYesNo(default=False)
     #EMC/MoviePlayer
     config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign = ConfigSelection(default = "1", choices = [("1", _("Standard")), ("2", _("Infobar")), ("3", _("Small"))])
     config.plugins.MyMetrixLiteOther.showMovieName = ConfigYesNo(default=True)
@@ -647,6 +653,8 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.showMovieTime = ConfigSelection(default = "2", choices = [("1", _("No")), ("2", _("In Moviebar")), ("3", _("Side by PVR-Symbol"))])
     config.plugins.MyMetrixLiteOther.showPVRState = ConfigSelection(default = "1", choices = [("1", _("Standard")), ("2", _("Top of the screen")), ("3", _("Top of the screen with current time"))])
+    config.plugins.MyMetrixLiteOther.showMovieListScrollbar = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.showMovieListRunningtext = ConfigYesNo(default=False)
     #EMC
     config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover = ConfigSelection(default = "no", choices = [("no", _("No")), ("small", _("Small")), ("large", _("Large"))])
     config.plugins.MyMetrixLiteOther.showEMCMediaCenterCoverInfobar = ConfigYesNo(default=True)
