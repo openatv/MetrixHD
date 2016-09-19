@@ -3235,11 +3235,14 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="session.VideoPicture" render="Pig" position="680,95" size="530,299" zPosition="3" backgroundColor="unff000000" />
-		<eLabel position="680,405" size="530,215" zPosition="1" backgroundColor="layer-b-background" />
-		<widget source="ServiceEvent" render="Label" position="685,405" size="520,30" font="epg_text; 22" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" >
+		<widget source="session.CurrentService" render="Label" position="680,92" size="530,30" zPosition="4" font="epg_text; 18"  halign="center" valign="top" noWrap="1" backgroundColor="transparent" foregroundColor="epg-event-foreground" borderColor="black" borderWidth="1" transparent="1">
+			<convert type="ServiceName">Name</convert>
+		</widget>
+		<eLabel position="680,400" size="530,228" zPosition="1" backgroundColor="layer-b-background" />
+		<widget source="ServiceEvent" render="Label" position="685,400" size="520,30" font="epg_text; 22" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" >
 			<convert type="EventName">Name</convert>
 		</widget>
-		<widget source="ServiceEvent" render="MetrixHDPrimeTime" position="685,590" size="520,30" font="epg_text;19" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="1" />
+		<widget source="ServiceEvent" render="MetrixHDPrimeTime" position="685,602" size="520,30" font="epg_text;19" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="1" />
 		<widget source="ServiceEvent" render="Label" position="815,638" size="120,30" font="epg_event;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="right" valign="center"> 
 			<convert type="EventTime">Remaining</convert> 
 			<convert type="RemainingToText">InMinutes</convert> 

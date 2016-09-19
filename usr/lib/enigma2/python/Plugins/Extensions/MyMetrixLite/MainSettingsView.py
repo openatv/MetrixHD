@@ -532,7 +532,7 @@ class MainSettingsView(Screen):
                 moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_1_time" />', '' ])
 
             if config.plugins.MyMetrixLiteOther.showMovieListScrollbar.value:
-                moviePlayerSkinSearchAndReplace.append([',480" scrollbarMode="showNever" font="epg_text;20"', ',480" scrollbarMode="showOnDemand" font="epg_text;20"' ])
+                moviePlayerSkinSearchAndReplace.append([',500" scrollbarMode="showNever" font="epg_text;20"', ',500" scrollbarMode="showOnDemand" font="epg_text;20"' ])
 
             if config.plugins.MyMetrixLiteOther.showMovieListRunningtext.value:
                 delay = str(config.plugins.MyMetrixLiteOther.runningTextStartdelay.value)
