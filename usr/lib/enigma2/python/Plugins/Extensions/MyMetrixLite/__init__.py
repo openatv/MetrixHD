@@ -596,7 +596,9 @@ def initOtherConfig():
             skinmodes.append(("1", _("Full HD (1920x1080) %s") %risktxt))
         if mode2160p or risk:
             skinmodes.append(("2", _("Ultra HD (3840x2160) %s") %risktxt))
-
+    ###no box supports at time uhd skins ...###
+    if '2' in skinmodes[-1]: del skinmodes[-1]#
+    ###########################################
     config.plugins.MyMetrixLiteOther.EHDenabled = ConfigSelection(default = "0", choices = skinmodes)
     config.plugins.MyMetrixLiteOther.EHDrounddown = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.EHDfontsize = ConfigSelection(default = "2", choices = [("1", _("scale")), ("2", _("size")), ("3", _("50/50"))])
@@ -637,8 +639,8 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.setTunerAuto = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelectionNumber(1, 8, 1, default = 2)
     #running text parameter
-    config.plugins.MyMetrixLiteOther.runningTextStartdelay = ConfigSelectionNumber(100, 6000, 100, default = 600, wraparound=True)
-    config.plugins.MyMetrixLiteOther.runningTextSpeed = ConfigSelectionNumber(10, 600, 10, default = 60, wraparound=True)
+    config.plugins.MyMetrixLiteOther.runningTextStartdelay = ConfigSelectionNumber(100, 10000, 100, default = 600, wraparound=True)
+    config.plugins.MyMetrixLiteOther.runningTextSpeed = ConfigSelectionNumber(10, 1000, 10, default = 60, wraparound=True)
     #channel list
     config.plugins.MyMetrixLiteOther.channelSelectionStyle = ConfigSelection(default="CHANNELSELECTION-1", choices = channelSelectionStyleList)
     config.plugins.MyMetrixLiteOther.channelSelectionShowPrimeTime = ConfigYesNo(default=False)
