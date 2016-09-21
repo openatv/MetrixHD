@@ -1900,16 +1900,25 @@ class MainSettingsView(Screen):
 						n1 = line.find('value="', 0)
 						n2 = line.find('"', n1) 
 						n12 = line.find('"', n2+1) 
-						parcount = len(line[n2:n12+1].split(','))
+						if 'Font' in line:
+							parcount = len(line[n2:n12+1].split(';'))
+						else:
+							parcount = len(line[n2:n12+1].split(','))
 						strnew = ""
 						if parcount == 1:
 							p1 = int(round(float(int(line[(n2+1):n12])*FACT),r_par))
 							strnew = 'value="%d"' %(p1)
 						elif parcount == 2:
-							n3 = line.find(',', n2) 
-							p1 = int(round(float(int(line[(n2+1):n3])*FACT),r_par))
-							p2 = int(round(float(int(line[(n3+1):n12])*FACT),r_par))
-							strnew = 'value="%d,%d"' %(p1,p2)
+							if 'Font' in line:
+								n3 = line.find(';', n2) 
+								p1 = line[(n2+1):n3]
+								p2 = int(f_offset + round(float(int(line[(n3+1):n12])*FFACT),r_par))
+								strnew = 'value="%s;%d"' %(p1,p2)
+							else:
+								n3 = line.find(',', n2) 
+								p1 = int(round(float(int(line[(n2+1):n3])*FACT),r_par))
+								p2 = int(round(float(int(line[(n3+1):n12])*FACT),r_par))
+								strnew = 'value="%d,%d"' %(p1,p2)
 						elif parcount == 3:
 							n3 = line.find(',', n2) 
 							n4 = line.find(',', n3+1) 
