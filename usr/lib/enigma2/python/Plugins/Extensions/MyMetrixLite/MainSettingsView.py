@@ -848,7 +848,12 @@ class MainSettingsView(Screen):
                 DESIGNSkinSearchAndReplace.append(['<panel name="GraphicalEPGPIG_1" />', '<panel name="GraphicalEPGPIG_2" />' ])
 
             if config.plugins.MyMetrixLiteOther.showChannelListScrollbar.value:
-                DESIGNSkinSearchAndReplace.append(['scrollbarMode="showNever" fieldMargins="5" itemsDistances="5"', 'scrollbarMode="showOnDemand" fieldMargins="5" itemsDistances="5"' ])
+                mode = "showOnDemand"
+            else:
+                mode = "showNever"
+            margin = str(config.plugins.MyMetrixLiteOther.setFieldMargin.value)
+            distance = str(config.plugins.MyMetrixLiteOther.setItemDistance.value)
+            DESIGNSkinSearchAndReplace.append(['scrollbarMode="showNever" fieldMargins="5" itemsDistances="5"', 'scrollbarMode="%s" fieldMargins="%s" itemsDistances="%s"' %(mode,margin,distance)])
 
             if config.plugins.MyMetrixLiteOther.showChannelListRunningtext.value:
                 delay = str(config.plugins.MyMetrixLiteOther.runningTextStartdelay.value)

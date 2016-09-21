@@ -566,6 +566,8 @@ class OtherSettingsView(ConfigListScreen, Screen):
         section = _("ChannelSelection") + ", " + _("graphical EPG")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         list.append(getConfigListEntry(tab + _("Channel selection style"), config.plugins.MyMetrixLiteOther.channelSelectionStyle, _("helptext"), "ENABLED"))
+        list.append(getConfigListEntry(tab + _("Item Distance"), config.plugins.MyMetrixLiteOther.setItemDistance, _("Distance between Servicename and Eventname.")))
+        list.append(getConfigListEntry(tab + _("Field Distance"), config.plugins.MyMetrixLiteOther.setFieldMargin, _("Distance between Servicenumber and Servicename or Eventname and Progressbar.")))
         if int(config.plugins.MyMetrixLiteOther.SkinDesign.value) > 1 and (config.plugins.MyMetrixLiteOther.channelSelectionStyle.value == "CHANNELSELECTION-1" or config.plugins.MyMetrixLiteOther.channelSelectionStyle.value == "CHANNELSELECTION-2"):
             list.append(getConfigListEntry(tab + _("Show Primetime Event"), config.plugins.MyMetrixLiteOther.channelSelectionShowPrimeTime, _("Set primetime in graphical epg settings.")))
         list.append(getConfigListEntry(tab + _("Graphical EPG style"), config.plugins.MyMetrixLiteOther.graphicalEpgStyle, _("helptext")))

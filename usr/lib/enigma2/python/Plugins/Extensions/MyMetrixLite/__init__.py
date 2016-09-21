@@ -643,6 +643,8 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.runningTextSpeed = ConfigSelectionNumber(10, 1000, 10, default = 60, wraparound=True)
     #channel list
     config.plugins.MyMetrixLiteOther.channelSelectionStyle = ConfigSelection(default="CHANNELSELECTION-1", choices = channelSelectionStyleList)
+    config.plugins.MyMetrixLiteOther.setItemDistance = ConfigSelectionNumber(1, 50, 1, default = 5, wraparound=True)
+    config.plugins.MyMetrixLiteOther.setFieldMargin = ConfigSelectionNumber(1, 50, 1, default = 5, wraparound=True)
     config.plugins.MyMetrixLiteOther.channelSelectionShowPrimeTime = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.graphicalEpgStyle = ConfigSelection(default = "1", choices = [("1", _("Standard")), ("2", _("more Events or 'mini TV' greater"))])
     config.plugins.MyMetrixLiteOther.showChannelListScrollbar = ConfigYesNo(default=False)
