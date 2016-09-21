@@ -1923,38 +1923,45 @@
 	</screen>
 	<!--WebradioFS -->
 	<!-- PiconManager -->
+<!-- cf#_#rename -->
+	<screen name="picon_manager">
+		<eLabel position="808,94" size="402,242" backgroundColor="layer-a-accent1" />
+		<eLabel position="809,95" size="400,240" backgroundColor="layer-a-background" />
+		<widget name="picon" position="809,95" size="400,240" zPosition="4" transparent="0" borderWidth="0" borderColor="layer-a-background" alphatest="blend" />
+	</screen>
+<!-- cf#_#rename -->
+	<screen name="picon_manager#_FHDscreen">
+		<eLabel position="1250,200" size="404,244" backgroundColor="layer-a-accent1" />
+		<eLabel position="1252,202" size="400,240" backgroundColor="layer-a-background" />
+		<widget name="picon" position="1252,202" size="400,240" zPosition="4" transparent="0" borderWidth="0" borderColor="layer-a-background" alphatest="blend" />
+	</screen>
+<!-- cf#_#begin -->
 	<screen name="PiconManagerScreen" title="PiconManager" position="0,0" size="1280,720" backgroundColor="transparent" flags="wfNoBorder">
 		<widget source="Title" render="Label" position="58,36" size="900,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" noWrap="0" transparent="1" />
-		<widget name="piconpath" position="70,100" size="690,60" font="screen_label;20" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="piconpath2" position="375,110" size="500,60" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="piconspace" position="70,140" size="690,60" font="screen_label;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="piconcount" position="70,170" size="690,60" font="screen_text;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="picondownload" position="70,200" size="690,60" font="screen_label;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="piconerror" position="70,230" size="690,60" font="screen_label;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="piconslidername" position="70,260" size="690,60" font="screen_label;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="selectedname" position="70,290" size="690,40" font="screen_label;20" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="selected" position="250,290" size="690,40" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="creatorname" position="70,320" size="160,40" font="screen_label;20" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="creator" position="250,320" size="200,40" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="sizename" position="375,290" size="160,40" font="screen_label;20" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="size" position="555,290" size="160,40" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="bitname" position="375,320" size="160,40" font="screen_label;20" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="bit" position="555,320" size="160,40" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="spiconname" position="70,350" size="690,40" font="screen_label;20" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="spicon" position="375,350" size="690,40" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
-		<widget name="piconslider" position="375,264" size="350,20" zPosition="2" borderWidth="2" foregroundColor="layer-a-progress" borderColor="layer-a-accent1" />
-		<widget name="picon" position="815,105" size="400,240" zPosition="4" transparent="1" borderWidth="0" borderColor="layer-a-background" alphatest="blend" />
-		<widget name="list" position="70,395" size="1140,210" zPosition="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1"/>
+		<panel name="picon_manager"/>
+		<widget name="piconpath" position="70,100" size="340,30" font="screen_label;22" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="piconpath2" position="410,100" size="400,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="spiconname" position="70,130" size="340,30" font="screen_label;22" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="spicon" position="410,130" size="400,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="selectedname" position="70,160" size="340,30" font="screen_label;22" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="selected" position="410,160" size="400,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="creatorname" position="70,190" size="340,30" font="screen_label;22" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="creator" position="410,190" size="400,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="sizename" position="70,220" size="340,30" font="screen_label;22" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="size" position="410,220" size="400,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="bitname" position="70,250" size="340,30" font="screen_label;22" foregroundColor="#00fba207" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="bit" position="410,250" size="400,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="piconspace" position="70,286" size="340,30" font="screen_text;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="piconcount" position="410,286" size="340,30" font="screen_text;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="picondownload" position="70,316" size="340,30" font="screen_text;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="piconerror" position="410,316" size="340,30" font="screen_text;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="piconslidername" position="70,350" size="0,0" font="screen_text;20" foregroundColor="#00fff000" backgroundColor="layer-a-background" transparent="1" zPosition="1" halign="left" />
+		<widget name="piconslider" position="70,345" size="1140,5" zPosition="2" borderWidth="0" foregroundColor="layer-a-progress" borderColor="layer-a-accent1" transparent="1" />
+		<eLabel position="70,347" size="1140,1" backgroundColor="layer-a-accent1" zPosition="1"/>
+		<widget name="list" position="70,360" size="1140,270" zPosition="1" itemHeight="30" font="screen_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" scrollbarMode="showOnDemand" enableWrapAround="1"/>
+		<panel name="rgyb-buttons_template1" />
 		<panel name="template1_1layer" />
-		<eLabel position="70,385" size="1140,1" backgroundColor="layer-a-accent1" />
-		<panel name="r___-buttons_template1" />
-		<panel name="r___-keys_template1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="258,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="481,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="704,635" size="30,40" alphatest="blend" />
-		<widget name="key_green" position="293,638" size="202,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_yellow" position="516,638" size="202,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="key_blue" position="739,638" size="202,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<panel name="rgyb-keys_template1" />
 		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_help.png" transparent="1" alphatest="blend" />
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/info.png" transparent="1" alphatest="blend" />
 	</screen>
@@ -1966,7 +1973,7 @@
 		<panel name="rg__-keys_template1-source"/>
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
-	</screen>	
+	</screen>
 	<screen name="PiconManagerFolderScreen" position="0,0" size="1280,720" title="" backgroundColor="transparent" flags="wfNoBorder">
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="media" position="70,100" size="700,33" font="screen_info;23" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
