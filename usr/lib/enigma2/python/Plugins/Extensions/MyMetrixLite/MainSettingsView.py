@@ -598,6 +598,8 @@ class MainSettingsView(Screen):
             posNR = False
             if not self.applyChangesFirst:
                 try:
+                    config.EMC.skin_able.setValue(True)
+                    config.EMC.save()
                     posNR = config.EMC.movie_picons_pos.getValue() == "nr"
                 except:
                     print "Error: find emc config - it's not installed ?"
