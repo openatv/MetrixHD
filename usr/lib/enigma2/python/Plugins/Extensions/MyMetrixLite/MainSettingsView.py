@@ -598,6 +598,8 @@ class MainSettingsView(Screen):
             if not self.applyChangesFirst:
                 try:
                     config.EMC.skin_able.setValue(True)
+                    config.EMC.use_orig_skin.setValue(False)
+                    if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.value != 'no': config.EMC.movie_cover.setValue(True)
                     config.EMC.save()
                     posNR = config.EMC.movie_picons_pos.getValue() == "nr"
                 except:
