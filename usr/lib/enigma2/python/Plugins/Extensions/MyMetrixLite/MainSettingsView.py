@@ -509,13 +509,12 @@ class MainSettingsView(Screen):
                 moviePlayerSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
 
             namepos = "30,465"
-            if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
+            if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() != "2":
                 if config.plugins.MyMetrixLiteOther.showMoviePlayerResolutionExtended.getValue() is True:
                     moviePlayerSkinSearchAndReplace.append(['<panel name="RESOLUTIONMOVIEPLAYER" />', '<panel name="RESOLUTIONMOVIEPLAYER-2" />' ])
-                moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_1" />', '<panel name="MoviePlayer_2" />' ])
-            elif config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "3":
-                moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_1" />', '<panel name="MoviePlayer_3" />' ])
-                namepos = "30,535"
+                moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_2" />', '<panel name="MoviePlayer_%s" />'  %(config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.value)])
+                if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "3":
+                    namepos = "30,535"
 
             channelNameXML = self.getChannelNameXML(
                 namepos,
@@ -527,9 +526,9 @@ class MainSettingsView(Screen):
             moviePlayerSkinSearchAndReplace.append(['<panel name="MOVIENAME" />', channelNameXML])
 
             if config.plugins.MyMetrixLiteOther.showMovieTime.getValue() == "2":
-                moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_1_time" />', '<panel name="MoviePlayer_' + config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() + '_time" />' ])
+                moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_2_time" />', '<panel name="MoviePlayer_' + config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() + '_time" />' ])
             else:
-                moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_1_time" />', '' ])
+                moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_2_time" />', '' ])
 
             if config.plugins.MyMetrixLiteOther.showMovieListScrollbar.value:
                 moviePlayerSkinSearchAndReplace.append([',500" scrollbarMode="showNever" font="epg_text;20"', ',500" scrollbarMode="showOnDemand" font="epg_text;20"' ])
@@ -614,13 +613,12 @@ class MainSettingsView(Screen):
                 EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionList_large_description_picon_left" />', '<panel name="EMCSelectionList_large_description_picon_right" />'])
 
             namepos = "30,465"
-            if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
+            if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() != "2":
                 if config.plugins.MyMetrixLiteOther.showMoviePlayerResolutionExtended.getValue() is True:
-                    EMCSkinSearchAndReplace.append(['<panel name="RESOLUTIONMOVIEPLAYER" />', '<panel name="RESOLUTIONMOVIEPLAYER-2" />' ])
-                EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_1" />', '<panel name="EMCMediaCenter_2" />' ])
-            elif config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "3":
-                EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_1" />', '<panel name="EMCMediaCenter_3" />' ])
-                namepos = "30,535"
+                    EMCSkinSearchAndReplace.append(['<panel name="RESOLUTIONMOVIEPLAYER-2" />', '<panel name="RESOLUTIONMOVIEPLAYER" />' ])
+                EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_2" />', '<panel name="EMCMediaCenter_%s" />' %(config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.value)])
+                if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "3": 
+                    namepos = "30,535"
 
             channelNameXML = self.getChannelNameXML(
                 namepos,
@@ -632,9 +630,9 @@ class MainSettingsView(Screen):
             EMCSkinSearchAndReplace.append(['<panel name="MOVIENAME" />', channelNameXML])
 
             if config.plugins.MyMetrixLiteOther.showMovieTime.getValue() == "2":
-                EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_1_time" />', '<panel name="EMCMediaCenter_' + config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() + '_time" />' ])
+                EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_2_time" />', '<panel name="EMCMediaCenter_' + config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() + '_time" />' ])
             else:
-                EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_1_time" />', '' ])
+                EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_2_time" />', '' ])
 
             EMCSkinSearchAndReplace.append(['WatchingColor="#D8C100"', 'WatchingColor="#' + config.plugins.MyMetrixLiteColors.emcWatchingColor.value + '"' ])
             EMCSkinSearchAndReplace.append(['FinishedColor="#5FA816"', 'FinishedColor="#' + config.plugins.MyMetrixLiteColors.emcFinishedColor.value + '"' ])

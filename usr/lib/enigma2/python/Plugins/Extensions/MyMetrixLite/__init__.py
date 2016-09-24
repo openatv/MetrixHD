@@ -650,7 +650,7 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.showChannelListScrollbar = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.showChannelListRunningtext = ConfigYesNo(default=False)
     #EMC/MoviePlayer
-    config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign = ConfigSelection(default = "1", choices = [("1", _("Standard")), ("2", _("Infobar")), ("3", _("Small"))])
+    config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign = ConfigSelection(default = "2", choices = [("1", _("Large")), ("2", _("Standard")), ("3", _("Small"))])
     config.plugins.MyMetrixLiteOther.showMovieName = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showMoviePlayerResolutionExtended = ConfigYesNo(default=False)
