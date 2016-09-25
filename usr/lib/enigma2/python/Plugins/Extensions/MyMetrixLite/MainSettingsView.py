@@ -1243,7 +1243,7 @@ class MainSettingsView(Screen):
             #channellist
             type = config.plugins.MyMetrixLiteFonts.epgevent_type.value
             scale = config.plugins.MyMetrixLiteFonts.epgevent_scale.value
-            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="epg_event" scale="100" />'
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_event" scale="95" />'
             new = '<font filename="' + type + '" name="epg_event" scale="' + str(scale) + '" />'
             if path.exists(type):
                 skinSearchAndReplace.append([old, new ])

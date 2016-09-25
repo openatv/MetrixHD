@@ -3275,9 +3275,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 			<convert type="ServiceName">Name</convert>
 		</widget>
 		<widget name="list" position="70,200" size="700,420" itemHeight="30" EventFontSingle="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="0" />
-		<widget source="Event" render="Label" position="825,80" size="385,523" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top">
-			<convert type="EventName">FullDescription</convert>
-		</widget>
+		<panel name="RTSB_EPGSelection_description"/>
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgy_-keys_template1" />
@@ -3322,10 +3320,10 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="Service" render="Progress" position="859,308" size="315,5" borderWidth="0" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="EventTime">Progress</convert>
 		</widget>
-		<widget name="datetime" position="882,337" size="270,40" font="epg_event;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="datetime" position="882,337" size="270,40" font="screen_info;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
 		<ePixmap position="825,336" size="36,36" zPosition="10" pixmap="MetrixHD/left.png" transparent="1" alphatest="blend" />
 		<ePixmap position="1174,336" size="36,36" zPosition="10" pixmap="MetrixHD/right.png" transparent="1" alphatest="blend" />
-		<widget name="duration" position="882,392" size="270,40" font="epg_event;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="duration" position="882,392" size="270,40" font="screen_info;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
 		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/subtitle_off.png" position="829,490" size="31,23"/>
 		<widget alphatest="blend" pixmap="MetrixHD/icons/subtitle_on.png" position="829,490" render="Pixmap" size="31,23" source="session.CurrentService" zPosition="1">
 			<convert type="ServiceInfo">SubservicesAvailable</convert>
@@ -3373,12 +3371,12 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<!--eLabel text="Eventview" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /-->
 		<widget name="epg_description" position="70,100" size="700,520" font="epg_info;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="channel" position="832,212" size="370,70" font="epg_event;26" halign="center" valign="bottom" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
-		<eLabel text="Playback Time:" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" font="epg_event; 24" halign="right" position="812,275" size="200,30" transparent="1" /> 
-		<widget source="session.CurrentService" render="Label" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_event; 24" halign="right" position="1012,275" size="80,30" transparent="1"> 
+		<eLabel text="Playback Time:" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" font="screen_info; 24" halign="right" position="812,275" size="200,30" transparent="1" /> 
+		<widget source="session.CurrentService" render="Label" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="screen_info; 24" halign="right" position="1012,275" size="80,30" transparent="1"> 
 			<convert type="MetrixHDServiceTime">StartTime</convert> 
 		</widget> 
-		<eLabel backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_event; 24" halign="center" position="1090,275" size="30,30" text="-" transparent="1"/> 
-		<widget source="session.CurrentService" render="Label" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="epg_event; 24" halign="left" position="1118,275" size="80,30" transparent="1"> 
+		<eLabel backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="screen_info; 24" halign="center" position="1090,275" size="30,30" text="-" transparent="1"/> 
+		<widget source="session.CurrentService" render="Label" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" font="screen_info; 24" halign="left" position="1118,275" size="80,30" transparent="1"> 
 			<convert type="MetrixHDServiceTime">EndTime</convert> 
 		</widget> 
 <!-- cf#_#picon -->
@@ -3389,9 +3387,9 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="session.CurrentService" render="Progress" position="859,308" size="315,5" borderWidth="0" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
-		<widget name="datetime" position="882,337" size="270,40" font="epg_event;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
-		<widget name="duration" position="882,377" size="270,40" font="epg_event;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
-		<widget source="Service" render="Label" position="882,417" size="270,40" font="epg_event;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" >
+		<widget name="datetime" position="882,337" size="270,40" font="screen_info;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="duration" position="882,377" size="270,40" font="screen_info;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget source="Service" render="Label" position="882,417" size="270,40" font="screen_info;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" >
 			<convert type="MovieInfo">FileSize</convert>
 		</widget>
 		<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_dolby_off.png" position="942,490" size="34,23" zPosition="1"/>
