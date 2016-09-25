@@ -486,10 +486,16 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(tab + _("Distance between the STB-Infos"), config.plugins.MyMetrixLiteOther.STBDistance, _("helptext")))
         list.append(getConfigListEntry(tab + _("Show CPU-Load"), config.plugins.MyMetrixLiteOther.showCPULoad, _("helptext")))
         list.append(getConfigListEntry(tab + _("Show free RAM"), config.plugins.MyMetrixLiteOther.showRAMfree, _("helptext")))
-        if self.getCPUSensor() or config.plugins.MyMetrixLiteOther.showCPUTemp.getValue() is not False:
+        if self.getCPUSensor():
             list.append(getConfigListEntry(tab + _("Show CPU-Temp"), config.plugins.MyMetrixLiteOther.showCPUTemp, _("helptext")))
-        if self.getSYSSensor() or config.plugins.MyMetrixLiteOther.showSYSTemp.getValue() is not False:
+        elif config.plugins.MyMetrixLiteOther.showCPUTemp.getValue() is not False:
+            config.plugins.MyMetrixLiteOther.showCPUTemp.setValue(False)
+            config.plugins.MyMetrixLiteOther.save()
+        if self.getSYSSensor():
             list.append(getConfigListEntry(tab + _("Show SYS-Temp"), config.plugins.MyMetrixLiteOther.showSYSTemp, _("helptext")))
+        elif config.plugins.MyMetrixLiteOther.showSYSTemp.getValue() is not False:
+            config.plugins.MyMetrixLiteOther.showSYSTemp.setValue(False)
+            config.plugins.MyMetrixLiteOther.save()
         section = _("InfoBar")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         list.append(getConfigListEntry(tab + _("Show Extended-Info"), config.plugins.MyMetrixLiteOther.showExtendedinfo, _("After enabling, 'Apply changes' and restart needs never press 'Apply changes' (and restart) when you change subordinate options."), "ENABLED"))
