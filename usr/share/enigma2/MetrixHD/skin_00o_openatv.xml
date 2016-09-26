@@ -2395,7 +2395,11 @@ self.instance.move(ePoint(0,0))
 		<eLabel position="70,170" size="700,46" zPosition="1" backgroundColor="layer-a-accent1" />
 		<widget name="text" position="72,172" size="696,42" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" zPosition="3" font="SetrixHD;30" noWrap="1" valign="center" halign="right" />
 		<widget name="list" position="145,320" size="600,300" selectionDisabled="1" transparent="1" />
-		<widget name="country" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<widget source="country" render="Label" position="436,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget source="country" render="Pixmap" position="988,175" size="60,40" alphatest="blend" borderWidth="0" >
+			<convert type="ValueToPixmap">LanguageCode</convert>
+		</widget>
+		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="401,635" size="30,40" alphatest="blend" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/keyb.png" transparent="1" alphatest="blend" />
 	</screen>
