@@ -22,6 +22,7 @@
 from . import _, MAIN_IMAGE_PATH, BACKUP_FILE, initColorsConfig, initWeatherConfig, initOtherConfig, initFontsConfig
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
+from Screens.VirtualKeyBoard import VirtualKeyBoard
 from Components.ActionMap import ActionMap
 from Components.AVSwitch import AVSwitch
 from Components.config import config, configfile, getConfigListEntry, ConfigSelectionNumber, ConfigText
@@ -122,7 +123,8 @@ class BackupSettingsView(ConfigListScreen, Screen):
             "green": self.restoreQ,
             "yellow": self.backupQ,
             "blue": self.deleteQ,
-            "cancel": self.exit
+            "cancel": self.exit,
+            "ok": self.renameName
         }, -1)
 
         self.__changedEntry(True)
@@ -135,7 +137,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
         tab = " "*10
 
         list.append(getConfigListEntry(_("My Backup Number"), self.myset, _("You can create up to 99 Backup-Sets.\nStored in:\n%s") % BACKUP_FILE, 'REFRESH'))
-        list.append(getConfigListEntry(_("My Backup Description"), self.myname, _("You can here assign an individual name.")))
+        list.append(getConfigListEntry(_("My Backup Description"), self.myname, _("You can here assign an individual name.") + _("\nPress 'OK-Button'")))
         list.append(getConfigListEntry(tab))
         list.append(getConfigListEntry((tab * 2) + _("My Backup Saved:   %s") % self.mydate))
         list.append(getConfigListEntry(sep * char))
@@ -143,6 +145,30 @@ class BackupSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry((tab + _("My Last Backup Entry:   %s") + tab + _("My Last Restored Entry:   %s")) % (self.mylastBackup, self.mylastRestore)))
 
         return list
+
+    def renameName(self):
+		if not isinstance(self["config"].getCurrent()[1], ConfigText): return
+		self.oldname = self.myname.value
+		self.session.openWithCallback(self.renameNameCB, VirtualKeyBoard, title=_("Please enter new name:"), text=self.myname.value)
+
+    def renameNameCB(self, name):
+		if name and self.oldname != name:
+			self.myname.value = name
+
+			set = self.myset.value
+			name= self.myname.value
+			newname = False
+			data = []
+			for entries in self.file:
+				if "set%dname" %set in entries:
+					data +=[("set%dname" %set, name)]
+					newname = True
+				else:
+					data += [entries]
+
+			if newname:
+				self.file = data
+				self.writeFile()
 
     def GetPicturePath(self):
         return MAIN_IMAGE_PATH % "MyMetrixLiteBackup" 
@@ -177,7 +203,6 @@ class BackupSettingsView(ConfigListScreen, Screen):
         self.ShowPicture()
 
     def writeFile(self):
-
 		try:
 			f = file(BACKUP_FILE,'wb')
 			pickle.dump(self.file, f)
@@ -199,13 +224,10 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		return False
 
     def restore(self):
-
 		self["titleText"].setText(_("Backup & Restore my settings"))
-
 		if not self.readFile():
 			self.message(_("No Backup-File found!\n( %s )")% BACKUP_FILE, MessageBox.TYPE_ERROR)
 			return
-
 		set = self.myset.value
 		s=0
 
@@ -248,39 +270,18 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		self.delete(writeFile = False, restore = True)
 		self.file+=[("myLastRestore", set)]
 		self.writeFile()
-
 		configfile.save()
-
-		self.message(_("Settings successfully restored."), MessageBox.TYPE_INFO, False)
-
+		self.message(_("Settings successfully restored."), MessageBox.TYPE_INFO)
 		self.exit()
 
-    def message(self, text, type, hwshow =  True):
-		self.hwhide = False
-		if isinstance(self["config"].getCurrent()[1], ConfigText):
-			if self["config"].getCurrent()[1].help_window.instance is not None:
-				self["config"].getCurrent()[1].help_window.hide()
-				self.hwhide = hwshow
-
-		self.session.openWithCallback(self.showHelpWindow, MessageBox, text, type, timeout = 5)
-
-    def showHelpWindow(self, result):
-		if self.hwhide:
-			self["config"].getCurrent()[1].help_window.show()
+    def message(self, text, type):
+		self.session.open(MessageBox, text, type, timeout = 5)
 
     def messageQ(self, text, type, default, runnext):
 		self.runnext = runnext
-		self.hwhide = False
-		if isinstance(self["config"].getCurrent()[1], ConfigText):
-			if self["config"].getCurrent()[1].help_window.instance is not None:
-				self["config"].getCurrent()[1].help_window.hide()
-				self.hwhide = True
-
 		self.session.openWithCallback(self.showHelpWindowQ, MessageBox, text, type, default = default, timeout = 5)
 
     def showHelpWindowQ(self, result):
-		if self.hwhide:
-			self["config"].getCurrent()[1].help_window.show()
 		if result:
 			self.delay = eTimer() # delay for closing messagebox
 			if self.runnext == "delete":
@@ -295,9 +296,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 				self.delay.start(500, True)
 
     def delete(self, writeFile = True, restore = False):
-
 		self.readFile()
-
 		set = self.myset.value
 		data = []
 
@@ -326,12 +325,10 @@ class BackupSettingsView(ConfigListScreen, Screen):
 				data += [entries]
 
 		self.file = data
-
 		if writeFile:
 			self.writeFile()
 
     def deleteQ(self):
-
 		run = True
 		set = self.myset.value
 		for entries in self.file:
@@ -343,7 +340,6 @@ class BackupSettingsView(ConfigListScreen, Screen):
 			self.delete()
 
     def backupQ(self):
-
 		run = True
 		set = self.myset.value
 		for entries in self.file:
@@ -355,7 +351,6 @@ class BackupSettingsView(ConfigListScreen, Screen):
 			self.backup()
 
     def restoreQ(self):
-
 		run = True
 		set = self.myset.value
 		for entries in self.file:
@@ -367,7 +362,6 @@ class BackupSettingsView(ConfigListScreen, Screen):
 			self.restore()
 
     def backup(self):
-
 		set = self.myset.value
 		name= self.myname.value
 		date = strftime("%a, %d.%m.%Y, %H:%M:%S", localtime(time()))
@@ -381,7 +375,6 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		self.file+=[("set%dfont" %set, config.plugins.MyMetrixLiteFonts.getSavedValue())]
 		self.file+=[("set%dother" %set, config.plugins.MyMetrixLiteOther.getSavedValue())]
 		self.file+=[("set%dweather" %set, config.plugins.MetrixWeather.getSavedValue())]
-
 		self.writeFile()
 
     def exit(self):
@@ -426,6 +419,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
             self.mylastRestore = restore
 
             self["config"].setList(self.getMenuItemList())
+            self.hideHelpWindow()
 
     def showHelperText(self):
         cur = self["config"].getCurrent()
@@ -433,3 +427,9 @@ class BackupSettingsView(ConfigListScreen, Screen):
             self["helpertext"].setText(cur[2])
         else:
             self["helpertext"].setText(" ")
+        self.hideHelpWindow()
+
+    def hideHelpWindow(self):
+        if isinstance(self["config"].getCurrent()[1], ConfigText):
+            if self["config"].getCurrent()[1].help_window.instance is not None:
+               self["config"].getCurrent()[1].help_window.hide()
