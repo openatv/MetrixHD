@@ -73,7 +73,10 @@ class MetrixHDWeather(Poll, Converter, object):
 	@cached
 	def getValue(self):
 		if self.type == "currentDataValid":
-			return config.plugins.MetrixWeather.currentWeatherDataValid.value
+			try:
+				return config.plugins.MetrixWeather.currentWeatherDataValid.value
+			except ValueError:
+				return 0
 		return -1
 
 	def getCF(self):
