@@ -150,6 +150,10 @@
 			<convert type="ServiceInfo">IsHD</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
+		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+			<convert type="ServiceInfo">Is4K</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
 		<widget source="session.CurrentService" render="Label" font="infobar_text;19" position="1070,580" size="55,25" halign="right" foregroundColor="infobaraccent1" backgroundColor="infobarbackground" transparent="1">
 			<convert type="ServiceInfo">VideoWidth</convert>
 		</widget>
