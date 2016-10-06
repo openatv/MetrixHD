@@ -551,7 +551,7 @@
 			<convert type="MenuEntryCompare">setup_selection</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_mainmenu_shutdown.png" position="305,80" size="256,256" alphatest="blend">
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/reset.png" position="305,80" size="256,256" alphatest="blend">
 			<convert type="MenuEntryCompare">standby_restart_list</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
@@ -1128,7 +1128,7 @@
 			<convert type="MenuEntryCompare">fastscan</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/pluginmanager.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/menu_mainmenu_pluginmanager.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">sundtek_control_enter</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
@@ -1147,7 +1147,7 @@
 	</screen>
 	<screen name="menu_shutdown" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/shutdown.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/power_off.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">deep_standby</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
@@ -1155,7 +1155,7 @@
 			<convert type="MenuEntryCompare">restart</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/restart_enigma.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/reboot.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">restart_enigma</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
@@ -1167,7 +1167,7 @@
 			<convert type="MenuEntryCompare">standby</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/shutdowntimer.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/power_timer.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">sleep</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
@@ -1925,7 +1925,7 @@ self.instance.move(ePoint(0,0))
 		<widget name="btt_yellow" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="btt_blue" position="619,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="ioe-buttons_template1" />
-		<ePixmap pixmap="MetrixHD/icons/pluginmanager.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/icons/menu_mainmenu_pluginmanager.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="TranscodingSetup" position="0,0" size="1280,720" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -3306,7 +3306,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<screen name="ExtensionsList" position="0,0" size="1280,720" title="ExtensionsList" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Please choose an extension..." position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,100" size="700,490" font="epg_event;29" zPosition="3" itemHeight="35" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
-		<ePixmap position="890,175" size="256,256" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" pixmap="MetrixHD/icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
 		<eLabel text="Extensions" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
@@ -3714,7 +3714,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="rgyb-keys_template1" />
 		<eLabel text="Extensions" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<panel name="_me-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="PluginDownloadBrowser" position="0,0" size="1280,720" title="Downloadable plugins" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -3725,7 +3725,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		</widget>
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="SoftwarePanel" position="0,0" size="1280,720" title="SoftwarePanel" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -3861,7 +3861,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
 		<widget name="divpic" position="0,0" size="0,0" />
 	</screen>
 	<screen name="PluginManager" position="0,0" size="1280,720" title="Plugin manager" flags="wfNoBorder" backgroundColor="transparent">
@@ -3889,7 +3889,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1-source" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="PluginManagerInfo" position="0,0" size="1280,720" title="Plugin manager activity" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Plugin manager activity information" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -3910,7 +3910,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="PluginManagerHelp" position="0,0" size="1280,720" title="Plugin manager help" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Plugin manager help" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -3931,7 +3931,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="r___-buttons_template1" />
 		<panel name="r___-keys_template1-source" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="RestoreMenu" position="0,0" size="1280,720" title="Restore Backups" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Restore backups" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -3940,7 +3940,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="rgy_-buttons_template1" />
 		<panel name="rgy_-keys_template1-source" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="RestoreMenuImage" position="0,0" size="1280,720" title="Restore Backups" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Restore Backups" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -3949,7 +3949,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="rgy_-buttons_template1" />
 		<panel name="rgy_-keys_template1-source" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="UpdatePluginMenu" position="0,0" size="1280,720" title="Softwaremanager..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
@@ -3982,7 +3982,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<screen name="RestorePlugins" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<eLabel text="Restore Plugins" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/pluginmanager.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
 		<widget source="menu" render="Listbox" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
