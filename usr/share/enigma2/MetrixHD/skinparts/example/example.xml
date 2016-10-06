@@ -31,4 +31,19 @@
 		<eLabel position="1,1" size="333,69" backgroundColor="layer-a-background" zPosition="-1" transparent="0" />
 		<eLabel position="0,0" size="335,71" backgroundColor="layer-b-background" zPosition="-2" transparent="0" />
 	</screen>
+	<screen name="SKINPART_infobar">
+<!--
+		#description#additional screen for infobar
+		#description#zusätzliche Anzeige für die Infobar
+		#previewfile#SKINPART_infobar.png
+/-->
+		<widget source="session.CurrentService" render="Label" font="global_small; 16" position="center,545" size="800,20" halign="center" zPosition="1" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" >
+			<convert type="ServiceName2">%P - %N (%A, %T)</convert>
+		</widget>
+<!--
+		see in skin_00_templates.xml (at end) for another available SKINPART_xxx screens.
+		in der skin_00_templates.xml (am Ende) sind mögliche nutzbare SKINPART_xxx for andere screens. 
+/-->
+	</screen>
+
 </skin>
