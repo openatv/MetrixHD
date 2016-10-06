@@ -569,12 +569,18 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(tab + _("Show Movie Playback Time"), config.plugins.MyMetrixLiteOther.showMovieTime, _("helptext")))
         list.append(getConfigListEntry(tab + _("Show PVR State"), config.plugins.MyMetrixLiteOther.showPVRState, _("helptext")))
         list.append(getConfigListEntry(tab + _("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer, _("After enabling, 'Apply changes' and restart needs never press 'Apply changes' (and restart) when you change subordinate entrys in 'STB-Info'.")))
+        section = _("mini TV")
+        list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        list.append(getConfigListEntry(tab + _("Show in Channel selection?"), config.usage.servicelist_mode, _("Setting is the same as\n'") + _("Channel list service mode*") + _("'\nin\n'") + _("Channel selection settings") + _("'\n(") + _("Simple") + _(" = mini TV on)"), "ENABLED"))
+        list.append(getConfigListEntry(tab + _("Show in graphical EPG?"), config.epgselection.graph_pig, _("Setting is the same as\n'") + _("Picture in graphics") + _("'\nin\n'") + _("GraphicalEPG settings") + "'"))
+        list.append(getConfigListEntry(tab + _("Show in Movie Center?"), config.movielist.useslim, _("Setting is the same as\n'") + _("Use slim screen") + _("'\nin\n'") + _("Movie List Setup") + "'"))
         section = _("ChannelSelection") + ", " + _("graphical EPG")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-        list.append(getConfigListEntry(tab + _("Channel selection style"), config.plugins.MyMetrixLiteOther.channelSelectionStyle, _("helptext"), "ENABLED"))
+        if config.usage.servicelist_mode.value == 'standard':
+            list.append(getConfigListEntry(tab + _("Channel selection style"), config.plugins.MyMetrixLiteOther.channelSelectionStyle, _("helptext"), "ENABLED"))
         list.append(getConfigListEntry(tab + _("Item Distance"), config.plugins.MyMetrixLiteOther.setItemDistance, _("Distance between Servicename and Eventname.")))
         list.append(getConfigListEntry(tab + _("Field Distance"), config.plugins.MyMetrixLiteOther.setFieldMargin, _("Distance between Servicenumber and Servicename or Eventname and Progressbar.")))
-        if int(config.plugins.MyMetrixLiteOther.SkinDesign.value) > 1 and (config.plugins.MyMetrixLiteOther.channelSelectionStyle.value == "CHANNELSELECTION-1" or config.plugins.MyMetrixLiteOther.channelSelectionStyle.value == "CHANNELSELECTION-2"):
+        if config.usage.servicelist_mode.value == 'standard' and int(config.plugins.MyMetrixLiteOther.SkinDesign.value) > 1 and (config.plugins.MyMetrixLiteOther.channelSelectionStyle.value == "CHANNELSELECTION-1" or config.plugins.MyMetrixLiteOther.channelSelectionStyle.value == "CHANNELSELECTION-2"):
             list.append(getConfigListEntry(tab + _("Show Primetime Event"), config.plugins.MyMetrixLiteOther.channelSelectionShowPrimeTime, _("Set primetime in graphical epg settings.")))
         list.append(getConfigListEntry(tab + _("Graphical EPG style"), config.plugins.MyMetrixLiteOther.graphicalEpgStyle, _("helptext")))
         list.append(getConfigListEntry(tab + _("Show scrollbar?"), config.plugins.MyMetrixLiteOther.showChannelListScrollbar, help_scrollbar))
