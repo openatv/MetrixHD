@@ -33,7 +33,7 @@
 	</screen>
 	<screen name="SoftwareUpdateChanges" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="text" position="70,100" size="700,500" font="SetrixHD;18" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="text" position="70,100" size="700,540" font="screen_text;18" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
 		<eLabel text="OPEN SOURCE" position="825,110" size="380,55" font="screen_info;50" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
 		<eLabel text="https://github.com/openatv" position="825,470" size="380,30" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
 		<eLabel text="https://github.com/oe-alliance" position="825,520" size="380,30" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
@@ -4227,7 +4227,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget source="key_red" render="Label" position="368,583" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="key_green" render="Label" position="551,583" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="key_yellow" render="Label" position="734,583" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget source="key_blue" render="Label" position="917,583" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<!--widget source="key_blue" render="Label" position="917,583" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" /-->
 	</screen>
 	<!--CableScanScreen /-->
 	<screen name="CableScanScreen" title="Cable Scan" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
@@ -4451,18 +4451,6 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	</screen>
 	<!-- DVDPlayer -->
 	<!-- MultiBoot Startup -->
-	<screen name="MultiBootStartup" position="center,center" size="500,250"  flags="wfNoBorder" title="MultiBoot STARTUP Selector" backgroundColor="transparent" >
-		<eLabel name="b" position="0,0" size="500,250" backgroundColor="layer-b-background" zPosition="-2" />
-		<eLabel name="a" position="1,1" size="498,248" backgroundColor="layer-a-background" zPosition="-1" />
-		<widget source="Title" render="Label" position="10,8" foregroundColor="layer-a-title-foreground" size="480,50" noWrap="1" halign="center" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1"/>
-		<panel name="ul-sleeptimer" />
-		<widget source="config" render="Label" position="10,110" size="480,60" halign="center" valign="center" font="screen_text; 28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="key_red" render="Label" position="35,212" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget source="key_green" render="Label" position="218,212" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,209" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="183,209" size="30,40" alphatest="blend" />
-		<ePixmap position="398,209" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_leftright.png" transparent="1" alphatest="blend" />
-	</screen>
 	<screen name="MultiBootStartupOPT" position="center,center" size="700,250"  flags="wfNoBorder" title="MultiBoot STARTUP Selector" backgroundColor="transparent" >
 		<eLabel name="b" position="0,0" size="700,250" backgroundColor="layer-b-background" zPosition="-2" />
 		<eLabel name="a" position="1,1" size="698,248" backgroundColor="layer-a-background" zPosition="-1" />
