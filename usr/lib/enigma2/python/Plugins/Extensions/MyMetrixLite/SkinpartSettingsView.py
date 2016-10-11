@@ -222,7 +222,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 
 			if '<skin>' in line:
 				p_nfo = True
-			if '<screen' in line:
+			if '<screen' in line and not '#hide#' in line:
 				s_nfo = True
 				a=line.find('name=')
 				b=line.find('"',a)

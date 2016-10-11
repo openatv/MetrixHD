@@ -31,19 +31,25 @@
 		<eLabel position="1,1" size="333,69" backgroundColor="layer-a-background" zPosition="-1" transparent="0" />
 		<eLabel position="0,0" size="335,71" backgroundColor="layer-b-background" zPosition="-2" transparent="0" />
 	</screen>
-	<screen name="SKINPART_infobar">
+	<screen name="SKINPART_infobar">#hide#
 <!--
-		#description#additional screen for infobar
-		#description#zusätzliche Anzeige für die Infobar
+	if #hide# in row from screen will screen in skinpart settings not displayed
+	wenn #hide' in der Zeile des screens steht wird er in den Skinpart Einstellungen nicht angezeigt
+/-->
+<!--
+		see in skin_00_templates.xml (at end) for another available SKINPART_xxx screens.
+		in der skin_00_templates.xml (am Ende) sind mögliche nutzbare SKINPART_xxx for andere screens. 
+/-->
+		<panel name="ServiceInfoForInfobar"/>
+	</screen>
+	<screen name="ServiceInfoForInfobar">
+<!--
+		#description#Additional screen for infobar
+		#description#Zusätzliche Anzeige für die Infobar
 		#previewfile#SKINPART_infobar.png
 /-->
 		<widget source="session.CurrentService" render="Label" font="global_small; 16" position="center,545" size="800,20" halign="center" zPosition="1" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" >
 			<convert type="ServiceName2">%P - %N (%A, %T)</convert>
 		</widget>
-<!--
-		see in skin_00_templates.xml (at end) for another available SKINPART_xxx screens.
-		in der skin_00_templates.xml (am Ende) sind mögliche nutzbare SKINPART_xxx for andere screens. 
-/-->
 	</screen>
-
 </skin>
