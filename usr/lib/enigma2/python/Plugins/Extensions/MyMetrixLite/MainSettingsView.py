@@ -578,21 +578,96 @@ class MainSettingsView(Screen):
                 if config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription.getValue() is False:
                     EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionCover_large_description_on" />', '<panel name="EMCSelectionCover_large_description_off" />'])
 
-            if config.plugins.MyMetrixLiteOther.showEMCSelectionRows.getValue() == "2":
-                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="448" CoolCSWidth="115" CoolDirInfoWidth="115"'\
-                                               ,'itemHeight="20" CoolFont="epg_text;13" CoolSelectFont="epg_text;13" CoolDateFont="epg_text;13" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="8" CoolBarSize="50,7" CoolBarSizeSa="50,7" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="531" CoolFolderSize="546" CoolDatePos="625" CoolDateHPos="1" CoolDateWidth="80" CoolPiconPos="90" CoolPiconHPos="1" CoolPiconWidth="30" CoolPiconHeight="17" CoolMoviePiconPos="125" CoolMoviePiconSize="498" CoolCSWidth="80" CoolDirInfoWidth="80"'])
-                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="542" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="88" CoolMoviePiconSize="448" CoolCSWidth="115" CoolDirInfoWidth="115"'\
-                                               ,'itemHeight="20" CoolFont="epg_text;13" CoolSelectFont="epg_text;13" CoolDateFont="epg_text;13" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="8" CoolBarSize="50,7" CoolBarSizeSa="50,7" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="531" CoolFolderSize="546" CoolDatePos="625" CoolDateHPos="1" CoolDateWidth="80" CoolPiconPos="592" CoolPiconHPos="1" CoolPiconWidth="30" CoolPiconHeight="17" CoolMoviePiconPos="88" CoolMoviePiconSize="498" CoolCSWidth="80" CoolDirInfoWidth="80"'])
-            elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.getValue() == "1":
-                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="448" CoolCSWidth="115" CoolDirInfoWidth="115"'\
-                                               ,'itemHeight="24" CoolFont="epg_text;17" CoolSelectFont="epg_text;17" CoolDateFont="epg_text;15" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="2" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="10" CoolBarSize="50,8" CoolBarSizeSa="50,8" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="516" CoolFolderSize="566" CoolDatePos="610" CoolDateHPos="1" CoolDateWidth="90" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="35" CoolPiconHeight="20" CoolMoviePiconPos="130" CoolMoviePiconSize="470" CoolCSWidth="90" CoolDirInfoWidth="90"'])
-                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="542" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="88" CoolMoviePiconSize="448" CoolCSWidth="115" CoolDirInfoWidth="115"'\
-                                               ,'itemHeight="24" CoolFont="epg_text;17" CoolSelectFont="epg_text;17" CoolDateFont="epg_text;15" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="2" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="10" CoolBarSize="50,8" CoolBarSizeSa="50,8" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="516" CoolFolderSize="566" CoolDatePos="610" CoolDateHPos="1" CoolDateWidth="90" CoolPiconPos="570" CoolPiconHPos="2" CoolPiconWidth="35" CoolPiconHeight="20" CoolMoviePiconPos="88" CoolMoviePiconSize="470" CoolCSWidth="90" CoolDirInfoWidth="90"'])
-            elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.getValue() == "-1":
-                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="448" CoolCSWidth="115" CoolDirInfoWidth="115"'\
-                                               ,'itemHeight="40" CoolFont="epg_text;24" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;24" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="3" CoolIconPos="5" CoolIconHPos="7" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="16" CoolBarSize="50,12" CoolBarSizeSa="50,12" CoolMoviePos="88" CoolMovieHPos="3" CoolMovieSize="471" CoolFolderSize="524" CoolDatePos="565" CoolDateHPos="3" CoolDateWidth="135" CoolPiconPos="90" CoolPiconHPos="6" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="423" CoolCSWidth="135" CoolDirInfoWidth="135"'])
-                EMCSkinSearchAndReplace.append(['itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88" CoolMovieHPos="1" CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="542" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="88" CoolMoviePiconSize="448" CoolCSWidth="115" CoolDirInfoWidth="115"'\
-                                               ,'itemHeight="40" CoolFont="epg_text;24" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;24" CoolSelNumTxtWidth="26" CoolProgressPos="35" CoolProgressHPos="3" CoolIconPos="5" CoolIconHPos="7" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="16" CoolBarSize="50,12" CoolBarSizeSa="50,12" CoolMoviePos="88" CoolMovieHPos="3" CoolMovieSize="471" CoolFolderSize="524" CoolDatePos="565" CoolDateHPos="3" CoolDateWidth="135" CoolPiconPos="522" CoolPiconHPos="6" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="88" CoolMoviePiconSize="423" CoolCSWidth="135" CoolDirInfoWidth="135"'])
+            sizeW = 700
+            sizeH = 480
+            startpos = 90
+            gap = 5
+            scale = config.plugins.MyMetrixLiteFonts.epgtext_scale.value / 95.0 # 95% standard scale
+            if config.plugins.MyMetrixLiteOther.showMovieListScrollbar.value:
+                sizeW = 690 # place for scrollbar
+                EMCSkinSearchAndReplace.append(['foregroundColor="layer-a-foreground" scrollbarMode="showNever" transparent="1" />', 'foregroundColor="layer-a-foreground" scrollbarMode="showOnDemand" transparent="1" />' ])
+
+            if config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "+8":
+                itemHeight = 20
+                rowfactor = itemHeight / 30.0
+                offsetHicon = 0
+                offsetHbar = -2
+            elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "+6":
+                sizeH = 484
+                itemHeight = 22
+                rowfactor = itemHeight / 30.0
+                offsetHicon = 0
+                offsetHbar = -2
+            elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "+4":
+                itemHeight = 24
+                rowfactor = itemHeight / 30.0
+                offsetHicon = 0
+                offsetHbar = -2
+            elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "+2":
+                sizeH = 486
+                itemHeight = 27
+                rowfactor = itemHeight / 30.0
+                offsetHicon = 1
+                offsetHbar = -1
+            elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "-2":
+                sizeH = 476
+                itemHeight = 34
+                rowfactor = itemHeight / 30.0
+                offsetHicon = 1
+                offsetHbar = 1
+            elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "-4":
+                itemHeight = 40
+                rowfactor = itemHeight / 30.0
+                offsetHicon = 3
+                offsetHbar = 4
+            else:
+                itemHeight = 30
+                rowfactor = 1
+                offsetHicon = 0
+                offsetHbar = 0
+
+            #font
+            CoolFont = int(20 * rowfactor)
+            CoolSelectFont = int(17 * rowfactor)
+            CoolDateFont = int(20 * rowfactor)
+            #height
+            CoolBarSize = int(10 * rowfactor)
+            CoolBarSizeSa = int(10 * rowfactor)
+            CoolPiconHPos = 2
+            CoolPiconHeight = itemHeight - CoolPiconHPos * 2
+            CoolIconHPos = 3 + offsetHicon
+            CoolBarHPos = 12 + offsetHbar
+            CoolMovieHPos = 1 + offsetHicon
+            CoolDateHPos = 1 + offsetHicon
+            CoolProgressHPos = 1 + offsetHicon
+            #widht
+            CoolDateWidth = int(115 * scale * rowfactor)
+            CoolPiconWidth = int(CoolPiconHeight * 1.73)
+            CoolCSWidth = int(135 * scale * rowfactor)
+            CoolDirInfoWidth = int(135 * scale * rowfactor)
+            CoolMovieSize = sizeW - CoolDateWidth - startpos
+            CoolMoviePiconSize = CoolMovieSize - CoolPiconWidth - gap
+            CoolFolderSize = sizeW - CoolDirInfoWidth - startpos
+            CoolDatePos = sizeW - CoolDateWidth
+
+            EMCSkinSearchAndReplace.append(['size="700,480" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;17" CoolDateFont="epg_text;20"'\
+                                           ,'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' %(sizeH, itemHeight, CoolFont, CoolSelectFont, CoolDateFont) ])
+
+            EMCSkinSearchAndReplace.append(['size="700,240" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20"'\
+                                           ,'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' %(sizeH/2, itemHeight, CoolFont, CoolSelectFont, CoolDateFont) ])
+
+            EMCSkinSearchAndReplace.append(['CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10"'\
+                                           ,'CoolProgressHPos="%s" CoolIconPos="5" CoolIconHPos="%s" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="%s" CoolBarSize="50,%s" CoolBarSizeSa="50,%s"' %(CoolProgressHPos, CoolIconHPos, CoolBarHPos, CoolBarSize, CoolBarSizeSa) ])
+
+            CoolMoviePiconPos = startpos + CoolPiconWidth + gap
+            CoolPiconPos = startpos
+            EMCSkinSearchAndReplace.append(['CoolMovieHPos="1" CoolMovieSize="495" CoolFolderSize="475" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="445" CoolCSWidth="135" CoolDirInfoWidth="135"'\
+                                           ,'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s"' %(CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSWidth, CoolDirInfoWidth) ])
+
+            CoolMoviePiconPos = startpos - 2
+            CoolPiconPos = CoolDatePos - CoolPiconWidth
+            EMCSkinSearchAndReplace.append(['CoolMovieHPos="1" CoolMovieSize="495" CoolFolderSize="475" CoolDatePos="585" CoolDateHPos="1" CoolDateWidth="115" CoolPiconPos="540" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="88" CoolMoviePiconSize="445" CoolCSWidth="135" CoolDirInfoWidth="135"'\
+                                           ,'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s"' %(CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSWidth, CoolDirInfoWidth) ])
 
             posNR = False
             if not self.applyChangesFirst:
@@ -642,13 +717,6 @@ class MainSettingsView(Screen):
 
             if config.plugins.MyMetrixLiteColors.emcCoolHighlightColor.getValue() is False:
                 EMCSkinSearchAndReplace.append(['CoolHighlightColor="1"', 'CoolHighlightColor="0"' ])
-
-            if config.plugins.MyMetrixLiteOther.showMovieListScrollbar.value:
-                EMCSkinSearchAndReplace.append(['CoolMovieSize="496" CoolFolderSize="546" CoolDatePos="585"', 'CoolMovieSize="486" CoolFolderSize="536" CoolDatePos="575"' ])
-                EMCSkinSearchAndReplace.append(['CoolMovieSize="531" CoolFolderSize="546" CoolDatePos="625"', 'CoolMovieSize="521" CoolFolderSize="536" CoolDatePos="615"' ])
-                EMCSkinSearchAndReplace.append(['CoolMovieSize="516" CoolFolderSize="566" CoolDatePos="610"', 'CoolMovieSize="506" CoolFolderSize="556" CoolDatePos="600"' ])
-                EMCSkinSearchAndReplace.append(['CoolMovieSize="471" CoolFolderSize="524" CoolDatePos="565"', 'CoolMovieSize="461" CoolFolderSize="514" CoolDatePos="555"' ])
-                EMCSkinSearchAndReplace.append(['foregroundColor="layer-a-foreground" scrollbarMode="showNever" transparent="1" />', 'foregroundColor="layer-a-foreground" scrollbarMode="showOnDemand" transparent="1" />' ])
 
             if config.plugins.MyMetrixLiteOther.showMovieListRunningtext.value:
                 delay = str(config.plugins.MyMetrixLiteOther.runningTextStartdelay.value)
@@ -1615,7 +1683,7 @@ class MainSettingsView(Screen):
         #plugin EnhancedMovieCenter
         spath = "/usr/share/enigma2/MetrixHD/%s/copy/emc/" % self.EHDres
         dpath = "/usr/share/enigma2/MetrixHD/emc/"
-        if config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "2":
+        if int(config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value) > 4:
             if self.EHDres == "FHD":
                 self.FileCopy('HD',spath,dpath)
             elif self.EHDres == "UHD" and path.exists("/usr/share/enigma2/MetrixHD/FHD/copy/emc/"):
