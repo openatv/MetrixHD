@@ -561,14 +561,16 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(tab + _("Show running text?"), config.plugins.MyMetrixLiteOther.showMovieListRunningtext, help_runningtext, "ENABLED"))
         section = _("EMC/MoviePlayer")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        list.append(getConfigListEntry(tab + _("Hide PVR State"), config.usage.movieplayer_pvrstate, _("Setting is the same as\n'") + _("Show PVR status in MoviePlayer infobar") + _("'\nin\n'") + _("OSD settings") + "'", "ENABLED"))
+        if not config.usage.movieplayer_pvrstate.value:
+            list.append(getConfigListEntry(tab*2 + _("Position PVR State"), config.plugins.MyMetrixLiteOther.showPVRState, _("helptext")))
         list.append(getConfigListEntry(tab + _("Style"), config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign, _("helptext"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
             list.append(getConfigListEntry(tab + _("Show extended Screen-Resolution"), config.plugins.MyMetrixLiteOther.showMoviePlayerResolutionExtended, _("helptext")))
         list.append(getConfigListEntry(tab + _("Show Clock"), config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer, _("helptext")))
         list.append(getConfigListEntry(tab + _("Show MovieName"), config.plugins.MyMetrixLiteOther.showMovieName, _("helptext")))
         list.append(getConfigListEntry(tab + _("Show Movie Playback Time"), config.plugins.MyMetrixLiteOther.showMovieTime, _("helptext")))
-        list.append(getConfigListEntry(tab + _("Show PVR State"), config.plugins.MyMetrixLiteOther.showPVRState, _("helptext")))
-        list.append(getConfigListEntry(tab + _("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer, _("After enabling, 'Apply changes' and restart needs never press 'Apply changes' (and restart) when you change subordinate entrys in 'STB-Info'.")))
+        list.append(getConfigListEntry(tab + _("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer,  _("After enabling, 'Apply changes' and restart needs never press 'Apply changes' (and restart) when you change subordinate entrys in 'STB-Info'.")))
         section = _("mini TV")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         list.append(getConfigListEntry(tab + _("Show in Channel selection?"), config.usage.servicelist_mode, _("Setting is the same as\n'") + _("Channel list service mode*") + _("'\nin\n'") + _("Channel selection settings") + _("'\n(") + _("Simple") + _(" = mini TV on)"), "ENABLED"))
