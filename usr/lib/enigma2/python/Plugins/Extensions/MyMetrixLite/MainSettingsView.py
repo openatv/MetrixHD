@@ -645,7 +645,7 @@ class MainSettingsView(Screen):
             CoolPiconWidth = int(CoolPiconHeight * 1.73)
             CoolCSWidth = int(135 * scale * rowfactor)
             CoolDirInfoWidth = int(135 * scale * rowfactor)
-            CoolMovieSize = sizeW - CoolDateWidth - startpos
+            CoolMovieSize = sizeW - CoolDateWidth - startpos + gap
             CoolMoviePiconSize = CoolMovieSize - CoolPiconWidth - gap
             CoolFolderSize = sizeW - CoolDirInfoWidth - startpos
             CoolDatePos = sizeW - CoolDateWidth
