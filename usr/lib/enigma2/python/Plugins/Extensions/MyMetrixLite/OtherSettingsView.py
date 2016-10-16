@@ -552,7 +552,10 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(tab + _("Show Cover in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionCover, _("helptext"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "large":
             list.append(getConfigListEntry(tab + _("Show Movie Description"), config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription, _("helptext")))
-        list.append(getConfigListEntry(tab + _("Change Number of Lines in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionRows, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Change Number of Rows in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionRows, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Change field size 'Date' in Movie Selection"),config.plugins.MyMetrixLiteOther.setEMCdatesize, _("Change field size or hide")))
+        list.append(getConfigListEntry(tab + _("Change field size 'Count/Size' in Movie Selection"),config.plugins.MyMetrixLiteOther.setEMCdirinfosize, _("Change field size or hide")))
+        list.append(getConfigListEntry(tab + _("Change field size 'Progressbar' in Movie Selection"),config.plugins.MyMetrixLiteOther.setEMCbarsize, _("Change field size or hide")))
         section = _("EMC/MovieList")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         help_scrollbar = _("Show Scrollbar if more than one pages are available.")
