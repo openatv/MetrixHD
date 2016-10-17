@@ -25,7 +25,8 @@ class MetrixHDSingleEpgList(Renderer, VariableText):
 		evt = None
 
 		if self.epgcache is not None:
-			evt = self.epgcache.lookupEvent(['IBDCT', (service.toString(), 0, -1, -1)])
+			#evt = self.epgcache.lookupEvent(['IBDCT', (service.toString(), 0, -1, -1)])
+			evt = self.epgcache.lookupEvent(['IBDCTM', (service.toString(), 0, -1, -1)]) #returned max 10 events - very faster
 
 		if evt:
 			maxx = 0
@@ -38,7 +39,7 @@ class MetrixHDSingleEpgList(Renderer, VariableText):
 						text = text + "n/a\n"
 
 				maxx += 1
-				if maxx > 7:
+				if maxx > 9:
 					break
 
 		self.text = text
