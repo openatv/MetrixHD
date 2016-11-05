@@ -1231,7 +1231,7 @@ class MainSettingsView(Screen):
 
             type = config.plugins.MyMetrixLiteFonts.globalbutton_type.value
             scale = config.plugins.MyMetrixLiteFonts.globalbutton_scale.value
-            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_button" scale="100" />'
+            old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_button" scale="90" />'
             new = '<font filename="' + type + '" name="global_button" scale="' + str(scale) + '" />'
             if path.exists(type):
                 skinSearchAndReplace.append([old, new ])

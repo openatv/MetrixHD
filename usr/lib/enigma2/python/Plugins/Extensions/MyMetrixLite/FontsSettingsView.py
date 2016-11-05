@@ -233,7 +233,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
             config.plugins.MyMetrixLiteFonts.globaltitle_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
             config.plugins.MyMetrixLiteFonts.globaltitle_scale.value = 100
             config.plugins.MyMetrixLiteFonts.globalbutton_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
-            config.plugins.MyMetrixLiteFonts.globalbutton_scale.value = 100
+            config.plugins.MyMetrixLiteFonts.globalbutton_scale.value = 90
             config.plugins.MyMetrixLiteFonts.globalclock_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
             config.plugins.MyMetrixLiteFonts.globalclock_scale.value = 100
             config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
