@@ -134,7 +134,10 @@ class MetrixHDExtServiceInfo(Converter, object):
 		self.radio_list = self.getListFromRef(eServiceReference('1:7:2:0:0:0:0:0:0:0:(type == 2) FROM BOUQUET "bouquets.radio" ORDER BY bouquet'))
 
 	def readSatXml(self):
-		satXml = parse("/etc/tuxbox/satellites.xml").getroot()
+		try:
+			satXml = parse("/etc/tuxbox/satellites.xml").getroot()
+		except:
+			satXml = parse("/etc/enigma2/satellites.xml").getroot()
 		if satXml is not None:
 			for sat in satXml.findall("sat"):
 				name = sat.get("name") or None
