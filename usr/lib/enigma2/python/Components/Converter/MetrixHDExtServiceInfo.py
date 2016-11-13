@@ -135,9 +135,9 @@ class MetrixHDExtServiceInfo(Converter, object):
 
 	def readSatXml(self):
 		try:
-			satXml = parse("/etc/tuxbox/satellites.xml").getroot()
-		except:
 			satXml = parse("/etc/enigma2/satellites.xml").getroot()
+		except:
+			satXml = parse("/etc/tuxbox/satellites.xml").getroot()
 		if satXml is not None:
 			for sat in satXml.findall("sat"):
 				name = sat.get("name") or None
