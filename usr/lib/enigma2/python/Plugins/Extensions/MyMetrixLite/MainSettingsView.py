@@ -509,9 +509,10 @@ class MainSettingsView(Screen):
                 moviePlayerSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
 
             namepos = "30,465"
-            if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() != "2":
+            if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
                 if config.plugins.MyMetrixLiteOther.showMoviePlayerResolutionExtended.getValue() is True:
                     moviePlayerSkinSearchAndReplace.append(['<panel name="RESOLUTIONMOVIEPLAYER" />', '<panel name="RESOLUTIONMOVIEPLAYER-2" />' ])
+            else:
                 moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_2" />', '<panel name="MoviePlayer_%s" />'  %(config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.value)])
                 if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "3":
                     namepos = "30,535"
@@ -699,9 +700,10 @@ class MainSettingsView(Screen):
                 EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionList_large_description_picon_left" />', '<panel name="EMCSelectionList_large_description_picon_right" />'])
 
             namepos = "30,465"
-            if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() != "2":
+            if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
                 if config.plugins.MyMetrixLiteOther.showMoviePlayerResolutionExtended.getValue() is True:
-                    EMCSkinSearchAndReplace.append(['<panel name="RESOLUTIONMOVIEPLAYER-2" />', '<panel name="RESOLUTIONMOVIEPLAYER" />' ])
+                    EMCSkinSearchAndReplace.append(['<panel name="RESOLUTIONMOVIEPLAYER" />', '<panel name="RESOLUTIONMOVIEPLAYER-2" />' ])
+            else:
                 EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_2" />', '<panel name="EMCMediaCenter_%s" />' %(config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.value)])
                 if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "3": 
                     namepos = "30,535"
