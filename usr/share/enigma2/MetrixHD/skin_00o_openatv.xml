@@ -2376,6 +2376,14 @@ self.instance.move(ePoint(0,0))
 		<widget name="servicebouquet" position="185,358" size="396,53" font="screen_info;28" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="161,244" size="550,181" backgroundColor="layer-a-background" zPosition="-5" />
 	</screen>
+	<screen name="NumberZapPicon" position="0,630" size="1280,90" title="QuickZap" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel name="a" position="0,0" size="1280,90" backgroundColor="layer-a-background" zPosition="-10" />
+		<widget name="number" position="200,0" size="200,90" halign="center" valign="center" font="screen_info;60" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" />
+		<widget alphatest="blend" position="34,5" render="MetrixHDXPicon" size="132,79" source="Service" transparent="1" zPosition="1">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+		<widget name="servicename" position="400,0" size="880,90" halign="center" valign="center" font="screen_info;60" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+	</screen>
 	<screen name="NumericalTextInputHelpDialog" position="818,25" size="402,128" backgroundColor="transparent" flags="wfNoBorder" zPosition="8">
 		<eLabel name="b" position="0,0" size="402,128" backgroundColor="layer-b-background" zPosition="-10" /> 
 		<eLabel name="a" position="1,1" size="400,126" backgroundColor="layer-a-background" zPosition="-9" /> 
