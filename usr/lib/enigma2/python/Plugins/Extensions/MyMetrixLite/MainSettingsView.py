@@ -566,7 +566,10 @@ class MainSettingsView(Screen):
 
             if config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover.getValue() == "small":
                 if config.plugins.MyMetrixLiteOther.showEMCMediaCenterCoverInfobar.getValue() is True and config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
-                    EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenterCover_no" />', '<panel name="EMCMediaCenterCover_small_infobar" />'])
+                    if config.plugins.MyMetrixLiteOther.showMovieName.value:
+                        EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenterCover_no" />', '<panel name="EMCMediaCenterCover_small_infobar" />'])
+                    else:
+                        EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenterCover_no" />', '<panel name="EMCMediaCenterCover_large_infobar" />'])
                 else:
                     EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenterCover_no" />', '<panel name="EMCMediaCenterCover_small" />'])
             elif config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover.getValue() == "large":
