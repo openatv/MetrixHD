@@ -582,6 +582,24 @@ class MainSettingsView(Screen):
                 if config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription.getValue() is False:
                     EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionCover_large_description_on" />', '<panel name="EMCSelectionCover_large_description_off" />'])
 
+            posNR = False
+            progress = False
+            if not self.applyChangesFirst:
+                try:
+                    config.EMC.skin_able.setValue(True)
+                    config.EMC.use_orig_skin.setValue(False)
+                    if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.value != 'no': config.EMC.movie_cover.setValue(True)
+                    config.EMC.save()
+                    posNR = config.EMC.movie_picons_pos.getValue() == "nr"
+                    progress = 'P' in config.EMC.movie_progress.value
+                except:
+                    print "Error: find emc config - it's not installed ?"
+            else:
+                f=open("/etc/enigma2/settings", "r")
+                s=f.read()
+                f.close()
+                posNR = "config.EMC.movie_picons_pos=nr" in s
+
             sizeW = 700
             sizeH = 480
             gap = 5
@@ -644,7 +662,10 @@ class MainSettingsView(Screen):
             CoolDateHPos = 1 + offsetHicon
             CoolProgressHPos = 1 + offsetHicon
             #width
-            CoolBarSizeH = int(config.plugins.MyMetrixLiteOther.setEMCbarsize.value)
+            if progress:
+                CoolBarSizeH = int(config.plugins.MyMetrixLiteOther.setEMCbarsize.value)
+            else:
+                CoolBarSizeH = 0
             CoolDateWidth = int(int(config.plugins.MyMetrixLiteOther.setEMCdatesize.value) * scale * rowfactor)
             CoolPiconWidth = int(CoolPiconHeight * 1.73)
             CoolCSDirInfoWidth = int(int(config.plugins.MyMetrixLiteOther.setEMCdirinfosize.value) * scale * rowfactor)
@@ -681,22 +702,6 @@ class MainSettingsView(Screen):
                 CoolPiconPos = CoolDatePos - CoolPiconWidth
             EMCSkinSearchAndReplace.append(['CoolMovieHPos="1" CoolMovieSize="495" CoolFolderSize="475" CoolDatePos="591" CoolDateHPos="1" CoolDateWidth="104" CoolPiconPos="540" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'\
                                            ,'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' %(CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos) ])
-
-            posNR = False
-            if not self.applyChangesFirst:
-                try:
-                    config.EMC.skin_able.setValue(True)
-                    config.EMC.use_orig_skin.setValue(False)
-                    if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.value != 'no': config.EMC.movie_cover.setValue(True)
-                    config.EMC.save()
-                    posNR = config.EMC.movie_picons_pos.getValue() == "nr"
-                except:
-                    print "Error: find emc config - it's not installed ?"
-            else:
-                f=open("/etc/enigma2/settings", "r")
-                s=f.read()
-                f.close()
-                posNR = "config.EMC.movie_picons_pos=nr" in s
 
             if posNR:
                 EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionList_picon_left" />', '<panel name="EMCSelectionList_picon_right" />'])
