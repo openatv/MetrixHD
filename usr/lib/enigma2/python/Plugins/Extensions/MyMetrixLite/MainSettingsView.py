@@ -599,6 +599,7 @@ class MainSettingsView(Screen):
                 s=f.read()
                 f.close()
                 posNR = "config.EMC.movie_picons_pos=nr" in s
+                progress = "config.EMC.movie_progress=P" in s or not "config.EMC.movie_progress=" in s
 
             sizeW = 700
             sizeH = 480
