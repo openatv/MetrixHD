@@ -1370,4 +1370,87 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<widget name="current_entry" position="70,585" size="710,40" font="SetrixHD;18" halign="center" valign="center" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/led.png" transparent="1" alphatest="blend" />
 	</screen>
+	<!-- AZPlay -->
+	<screen name="AZPlayScreen" position="center,center" size="710,470" title="AZPlay" flags="wfNoBorder" backgroundColor="transparent" >
+		<widget name="title1" position="5,5" foregroundColor="layer-a-title-foreground" size="705,40" noWrap="1" halign="center" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="title2" position="5,5" foregroundColor="layer-a-title-foreground" size="705,40" noWrap="1" halign="center" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1"/>
+		<eLabel name="b" position="0,0" size="710,470" backgroundColor="layer-b-background" zPosition="-2" />
+		<eLabel name="a" position="1,1" size="708,468" backgroundColor="layer-a-background" zPosition="-1" />
+		<eLabel name="line" position="1,45" size="709,1" backgroundColor="layer-a-accent1" zPosition="1" />
+		<widget name="text" position="0,50" font="screen_text;20" size="710,25" foregroundColor="layer-a-accent1" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
+		<widget name="list_left" position="5,80" size="700,295" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="start_progress" position="45,150" size="620,15" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="1" transparent="1" />
+		<widget name="text2" position="0,175" font="screen_text;22" size="710,60" foregroundColor="layer-a-accent1" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
+		<widget name="text1" position="0,390" font="screen_text;22" size="710,30" foregroundColor="layer-a-accent1" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,429" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="183,429" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="366,429" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="525,429" size="30,40" alphatest="blend" />
+		<widget source="key_red" render="Label" position="35,432" zPosition="1" size="170,30" font="global_button;20" halign="left" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget source="key_green" render="Label" position="218,432" zPosition="1" size="170,30" font="global_button;20" halign="left" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget source="key_yellow" render="Label" position="401,432" zPosition="1" size="170,30" font="global_button;20" halign="left" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget source="key_blue" render="Label" position="560,432" zPosition="1" noWrap="0" size="170,30" font="global_button;20" halign="left" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1"/>
+	</screen>
+	<screen name="AZPlayConfig" position="center,center" size="710,300" title="AZPlay - Setup" flags="wfNoBorder" backgroundColor="transparent" >
+		<widget source="Title" render="Label" position="5,5" foregroundColor="layer-a-title-foreground" size="705,40" noWrap="1" halign="center" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1"/>
+		<eLabel name="b" position="0,0" size="710,300" backgroundColor="layer-b-background" zPosition="-2" />
+		<eLabel name="a" position="1,1" size="708,298" backgroundColor="layer-a-background" zPosition="-1" />
+		<eLabel name="line" position="1,45" size="709,1" backgroundColor="layer-a-accent1" zPosition="1" />
+		<widget name="config" position="5,50" size="695,210" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,259" size="30,40" transparent="1" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="183,259" size="30,40" transparent="1" alphatest="blend" />
+		<widget source="key_red" render="Label" position="35,262" zPosition="1" size="170,30" font="global_button;20" halign="left" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget source="key_green" render="Label" position="218,262" zPosition="1" size="170,30" font="global_button;20" halign="left" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+	</screen>
+	<screen name="LoadSub" position="center,center" size="710,470" title="AZPlay - Load Subtitle" flags="wfNoBorder" backgroundColor="transparent" >
+		<widget source="Title" render="Label" position="5,5" foregroundColor="layer-a-title-foreground" size="705,40" noWrap="1" halign="center" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1"/>
+		<eLabel name="b" position="0,0" size="710,470" backgroundColor="layer-b-background" zPosition="-2" />
+		<eLabel name="a" position="1,1" size="708,468" backgroundColor="layer-a-background" zPosition="-1" />
+		<eLabel name="line" position="1,45" size="709,1" backgroundColor="layer-a-accent1" zPosition="1" />
+		<widget name="text" position="0,50" font="screen_text;20" size="710,25" foregroundColor="layer-a-accent1" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
+		<widget name="list_left" position="5,80" size="700,295" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget source="poraka" render="Label" position="0,390" size="710,30" font="screen_text;22" foregroundColor="layer-a-accent1" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,429" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="183,429" size="30,40" alphatest="blend" />
+		<widget source="key_red" render="Label" position="35,432" zPosition="1" size="170,30" font="global_button;20" halign="left" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget source="key_green" render="Label" position="218,432" zPosition="1" size="170,30" font="global_button;20" halign="left" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1"/>
+	</screen>
+	<screen name="AZPlaySelectLang" position="center,center" size="710,300" title="AZPlay - Language Select" flags="wfNoBorder" backgroundColor="transparent" >
+		<widget source="Title" render="Label" position="5,5" foregroundColor="layer-a-title-foreground" size="705,40" noWrap="1" halign="center" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1"/>
+		<eLabel name="b" position="0,0" size="710,300" backgroundColor="layer-b-background" zPosition="-2" />
+		<eLabel name="a" position="1,1" size="708,298" backgroundColor="layer-a-background" zPosition="-1" />
+		<eLabel name="line" position="1,45" size="709,1" backgroundColor="layer-a-accent1" zPosition="1" />
+		<widget name="list" position="5,50" size="695,180" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget source="poraka" render="Label" position="0,230" size="710,30" font="screen_text;22" foregroundColor="layer-a-accent1" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,259" size="30,40" transparent="1" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="183,259" size="30,40" transparent="1" alphatest="blend" />
+		<widget source="key_red" render="Label" position="35,262" zPosition="1" size="170,30" font="global_button;20" halign="left" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="key_green" render="Label" position="218,262" zPosition="1" size="170,30" font="global_button;20" halign="left" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+	</screen>
+	<screen name="AZPlaySelectSub" position="center,center" size="710,300" title="AZPlay - Subtitle Select" flags="wfNoBorder" backgroundColor="transparent" >
+		<widget source="Title" render="Label" position="5,5" foregroundColor="layer-a-title-foreground" size="705,40" noWrap="1" halign="center" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1"/>
+		<eLabel name="b" position="0,0" size="710,300" backgroundColor="layer-b-background" zPosition="-2" />
+		<eLabel name="a" position="1,1" size="708,298" backgroundColor="layer-a-background" zPosition="-1" />
+		<eLabel name="line" position="1,45" size="709,1" backgroundColor="layer-a-accent1" zPosition="1" />
+		<widget name="list" position="5,50" size="695,210" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget source="poraka" render="Label" position="0,230" size="710,30" font="screen_text;22" foregroundColor="layer-a-accent1" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,259" size="30,40" transparent="1" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="183,259" size="30,40" transparent="1" alphatest="blend" />
+		<widget source="key_red" render="Label" position="35,262" zPosition="1" size="170,30" font="global_button;20" halign="left" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="key_green" render="Label" position="218,262" zPosition="1" size="170,30" font="global_button;20" halign="left" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+	</screen>
+	<screen name="AZInfoBar" position="center,390" size="760,200" title="AZInfoBar" flags="wfNoBorder" backgroundColor="transparent" >
+		<widget name="infoC" position="45,12" size="670,30" font="screen_text;26" halign="left" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel name="b" position="0,0" size="760,200" backgroundColor="layer-b-background" zPosition="-2" />
+		<eLabel name="a" position="1,1" size="758,198" backgroundColor="layer-a-background" zPosition="-1" />
+		<widget name="infoD" position="45,55" size="335,25" font="screen_text;20" halign="left" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="infoE" position="380,55" size="335,25" font="screen_text;20" halign="right" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="infoF" position="45,88" size="335,25" font="screen_text;20" halign="left" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="infoG" position="380,88" size="335,25" font="screen_text;20" halign="right" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel backgroundColor="infobaraccent1" position="45,125" size="670,1" zPosition="1"/>
+		<widget name="media_progress" render="Progress" position="45,123" size="670,5" foregroundColor="infobarprogress" borderWidth="0" transparent="1" zPosition="5" />
+		<widget name="infoA" position="45,145" size="200,25" font="screen_text;20" halign="left" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="infoB" position="643,145" size="72,25" font="screen_text;20" halign="right" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+	</screen>
+	<!-- AZPlay -->
 </skin>
