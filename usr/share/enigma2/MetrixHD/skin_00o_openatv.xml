@@ -868,6 +868,14 @@
 			<convert type="MenuEntryCompare">permanent_clock</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/bluetooth.png" position="305,80" size="256,256" alphatest="blend">
+			<convert type="MenuEntryCompare">bluetooth_setup</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/pplayer.png" position="305,80" size="256,256" alphatest="blend">
+			<convert type="MenuEntryCompare">serviceapp_setup</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
 	</screen>
 	<screen name="menu_extended" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MENU_template" />
@@ -4489,4 +4497,62 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="restxt" position="center,75" size="360,35" font="screen_info;20" halign="center" valign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" zPosition="1" noWrap="1"/>
 	</screen>
 	<!-- AutoVideoModeLabel -->
+	<!-- Bluetooth Setup -->
+	<screen name="BluetoothSetup" position="0,0" size="1280,720" title="Bluetooth Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="deviceList" render="Listbox" position="100,70" size="700,480"  scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+			<convert type="TemplatedMultiContent">
+			{"template":
+				[
+					MultiContentEntryText(pos = (80, 0), size = (620, 35), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0), # index 0 is Name
+					MultiContentEntryText(pos = (80, 42), size = (310, 25), font=2, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1 is Type
+					MultiContentEntryText(pos = (390, 42), size = (310, 25), font=2, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2), # index 1 is status
+					MultiContentEntryPixmapAlphaTest(pos = (10, 10), size = (50, 50), png = 4), # index 4 is bt_icon
+				],
+				"fonts": [gFont("screen_text", 32), gFont("screen_text", 24) ,gFont("screen_text", 20), gFont("screen_text", 16)],
+				"itemHeight": 60
+			}
+			</convert>
+		</widget>
+		<widget source="description" render="Label" position="810,410" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+		<panel name="moe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/bluetooth.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="BluetoothDiscovery" position="0,0" size="1280,720" title="Bluetooth Scan" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="deviceList" render="Listbox" position="100,70" size="700,480"  scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+			<convert type="TemplatedMultiContent">
+				{"template":
+					[
+						MultiContentEntryText(pos = (80, 0), size = (620, 70), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0), # index 0 is Name
+						MultiContentEntryPixmapAlphaTest(pos = (10, 10), size = (50, 50), png = 1), # index 1 is bt_icon
+					],
+					"fonts": [gFont("screen_text", 40), gFont("screen_text", 24) ,gFont("screen_text", 20), gFont("screen_text", 16)],
+					"itemHeight": 60
+				}
+			</convert>
+		</widget>
+		<widget source="description" render="Label" position="810,410" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+		<panel name="moe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/bluetooth.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="BluetoothSetupConfig" position="0,0" size="1280,720" title="Bluetooth Setup Options" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="setup_common"/>
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/bluetooth.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- Bluetooth Setup -->
+	<!-- RemoteControlCode -->
+	<screen name="RemoteControlCode" position="0,0" size="1280,720" title="Position Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" size="700,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="setup_common"/>
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/remotecontrol.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- RemoteControlCode -->
 </skin>
