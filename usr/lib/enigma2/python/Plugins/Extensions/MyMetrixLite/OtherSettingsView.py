@@ -558,6 +558,8 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(tab + _("Change field size 'Progressbar' in Movie Selection"),config.plugins.MyMetrixLiteOther.setEMCbarsize, _("Change field size or hide")))
         section = _("EMC/MovieList")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        if not config.movielist.useslim.value:
+            list.append(getConfigListEntry(tab + _("Movie List style"), config.plugins.MyMetrixLiteOther.movielistStyle, _("Info: Setting applies not for EMC.")))
         help_scrollbar = _("Show Scrollbar if more than one pages are available.")
         help_runningtext = _("Show running text for description of the event.")
         list.append(getConfigListEntry(tab + _("Show scrollbar?"), config.plugins.MyMetrixLiteOther.showMovieListScrollbar, help_scrollbar))
@@ -578,7 +580,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         list.append(getConfigListEntry(tab + _("Show in Channel selection?"), config.usage.servicelist_mode, _("Setting is the same as\n'") + _("Channel list service mode*") + _("'\nin\n'") + _("Channel selection settings") + _("'\n(") + _("Simple") + _(" = mini TV on)"), "ENABLED"))
         list.append(getConfigListEntry(tab + _("Show in graphical EPG?"), config.epgselection.graph_pig, _("Setting is the same as\n'") + _("Picture in graphics") + _("'\nin\n'") + _("GraphicalEPG settings") + "'"))
-        list.append(getConfigListEntry(tab + _("Show in Movie Center?"), config.movielist.useslim, _("Setting is the same as\n'") + _("Use slim screen") + _("'\nin\n'") + _("Movie List Setup") + "'"))
+        list.append(getConfigListEntry(tab + _("Show in Movie Center?"), config.movielist.useslim, _("Setting is the same as\n'") + _("Use slim screen") + _("'\nin\n'") + _("Movie List Setup") + "'", "ENABLED"))
         section = _("ChannelSelection") + ", " + _("graphical EPG")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         if config.usage.servicelist_mode.value == 'standard':
@@ -599,6 +601,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         list.append(getConfigListEntry(tab + _("Chose Skin Design"),config.plugins.MyMetrixLiteOther.SkinDesign, _("helptext"), "ENABLED"))
         list.append(getConfigListEntry(tab + _("Show Space between Layer A and B"),config.plugins.MyMetrixLiteOther.SkinDesignSpace, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show Menu Buttons"),config.plugins.MyMetrixLiteOther.SkinDesignMenuButtons, _("Show color buttons at top of the screen.")))
         list.append(getConfigListEntry(tab + _("Show large Text on bottom of the screen"),config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText, _("helptext")))
         list.append(getConfigListEntry(tab + _("Chose Extended-Info Style"), config.plugins.MyMetrixLiteOther.ExtendedinfoStyle, _("helptext")))
         return list

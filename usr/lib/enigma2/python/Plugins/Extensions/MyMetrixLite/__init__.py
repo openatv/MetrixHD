@@ -534,6 +534,11 @@ def initOtherConfig():
         ("CHANNELSELECTION-4", _("Focus right, no picon, 5 next Events"))
         ]
 
+    movielistStyleList = [
+        ("left", _("Focus left, description right")),
+        ("right", _("Focus right, description left"))
+        ]
+
     infoBarChannelNameFontSizeList = [
         ("INFOBARCHANNELNAME-5", _("40")),
         ("INFOBARCHANNELNAME-4", _("50")),
@@ -650,6 +655,7 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.showChannelListScrollbar = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.showChannelListRunningtext = ConfigYesNo(default=False)
     #EMC/MoviePlayer
+    config.plugins.MyMetrixLiteOther.movielistStyle = ConfigSelection(default="left", choices = movielistStyleList)
     config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign = ConfigSelection(default = "2", choices = [("1", _("Large")), ("2", _("Standard")), ("3", _("Small"))])
     config.plugins.MyMetrixLiteOther.showMovieName = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer = ConfigYesNo(default=True)
@@ -675,6 +681,7 @@ def initOtherConfig():
         choicelist.append(('%d' %x,'%d' %x))
     config.plugins.MyMetrixLiteOther.setEMCbarsize = ConfigSelection(default = "50", choices = choicelist)
     #SkinDesign
+    config.plugins.MyMetrixLiteOther.SkinDesignMenuButtons = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.SkinDesign = ConfigSelection(default = "1", choices = [("1", _("Standard")), ("2", _("Layer A and B same height, Clock in Layer A")), ("3", _("Layer A and B same height, Clock in Layer B"))])
     config.plugins.MyMetrixLiteOther.SkinDesignSpace = ConfigYesNo(default=False)
     config.plugins.MyMetrixLiteOther.SkinDesignInfobarColorGradient = ConfigYesNo(default=False)

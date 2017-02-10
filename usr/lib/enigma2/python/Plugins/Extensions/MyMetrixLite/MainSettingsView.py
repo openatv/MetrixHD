@@ -539,6 +539,9 @@ class MainSettingsView(Screen):
                 speed = str(config.plugins.MyMetrixLiteOther.runningTextSpeed.value)
                 moviePlayerSkinSearchAndReplace.append(['render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60', 'render="MetrixHDRunningText" options="movetype=running,startdelay=%s,steptime=%s' %(delay,speed)])
 
+            if config.plugins.MyMetrixLiteOther.movielistStyle.value == 'right':
+                moviePlayerSkinSearchAndReplace.append(['<panel name="MovieSelection_left"/>', '<panel name="MovieSelection_right"/>' ])
+
             skin_lines = appendSkinFile(SKIN_MOVIEPLAYER_SOURCE, moviePlayerSkinSearchAndReplace)
 
             xFile = open(SKIN_MOVIEPLAYER_TARGET_TMP, "w")
@@ -949,6 +952,10 @@ class MainSettingsView(Screen):
                 delay = str(config.plugins.MyMetrixLiteOther.runningTextStartdelay.value)
                 speed = str(config.plugins.MyMetrixLiteOther.runningTextSpeed.value)
                 DESIGNSkinSearchAndReplace.append(['render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60', 'render="MetrixHDRunningText" options="movetype=running,startdelay=%s,steptime=%s' %(delay,speed)])
+
+            #show menu buttons
+            if not config.plugins.MyMetrixLiteOther.SkinDesignMenuButtons.value:
+                DESIGNSkinSearchAndReplace.append(['<panel name="MenuButtons_template"/>', '<!--panel name="MenuButtons_template"/-->' ])
 
             skin_lines = appendSkinFile(SKIN_DESIGN_SOURCE, DESIGNSkinSearchAndReplace)
 

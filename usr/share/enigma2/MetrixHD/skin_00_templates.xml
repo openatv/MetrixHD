@@ -1426,7 +1426,6 @@
 		<screen name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720">
 			<eLabel position="51,51" zPosition="-10" size="340,525" backgroundColor="layer-b-background" />
 			<eLabel position="416,51" zPosition="-1" size="810,619" backgroundColor="layer-a-background" />
-			<widget source="Title" render="Label" position="425,53" size="790,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 			<!-- /*ClockWidget-->
 			<widget source="global.CurrentTime" render="Label" position="201,603" size="190,70" font="global_clock; 60" noWrap="1" halign="center" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom">
 				<convert type="ClockToText">Default</convert>
@@ -1554,6 +1553,17 @@
 			</widget>
 			<!--ClockWidget */-->
 		</screen>
+		<screen name="MenuButtons_template">
+			<eLabel backgroundColor="menubackground" position="0,0" size="1280,20" transparent="0" zPosition="-1"/>
+			<!--ePixmap pixmap="MetrixHD/buttons/key_red.png" position="265,0" size="30,20" alphatest="blend" /-->
+			<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="448,0" size="30,20" alphatest="blend" />
+			<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="631,0" size="30,20" alphatest="blend" />
+			<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="814,0" size="30,20" alphatest="blend" />
+			<!--widget name="key" position="300,0" size="170,18" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" /-->
+			<widget name="green" position="483,0" size="170,18" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" />
+			<widget name="yellow" position="666,0" size="170,18" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" />
+			<widget name="blue" position="849,0" size="170,18" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" />
+		</screen>
 		<screen name="MENU_template-1">
 			<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="menubackground" transparent="0" />
 			<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="menusymbolbackground" transparent="0" />
@@ -1567,17 +1577,7 @@
 			</widget>
 			<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
 			<panel name="SKINPART_menu"/>
-
-			<eLabel backgroundColor="menubackground" position="0,0" size="1280,20" transparent="0" zPosition="-1"/>
-			<!--ePixmap pixmap="MetrixHD/buttons/key_red.png" position="265,0" size="30,20" alphatest="blend" /-->
-			<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="448,0" size="30,20" alphatest="blend" />
-			<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="631,0" size="30,20" alphatest="blend" />
-			<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="814,0" size="30,20" alphatest="blend" />
-			<!--widget name="key" position="300,0" size="170,18" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" /-->
-			<widget name="green" position="483,0" size="170,18" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" />
-			<widget name="yellow" position="666,0" size="170,18" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" />
-			<widget name="blue" position="849,0" size="170,18" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" />
-
+			<panel name="MenuButtons"/>
 		</screen>
 	<screen name="CONTEXTMENU_template-1" >
 		<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="menubackground" transparent="0" />
@@ -1719,12 +1719,13 @@
 	<!-- CHANNELSELECTION 3 FOCUS RIGHT 1 BIG PICON 1 NEXT EVENT */ -->
 	<screen name="CHANNELSELECTION-3">
 		<panel name="SkinDesign-s" />
+		<widget source="Title" render="Label" position="424,50" size="790,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 <!-- cf#_#picon -->
 		<widget alphatest="blend" position="112,61" render="MetrixHDXPicon" size="220,132" source="ServiceEvent" transparent="1" zPosition="1">
 			<convert type="MetrixHDRefString">ServicelistRef</convert>
 		</widget>
-		<widget source="ServiceEvent" render="Label" position="60,197" size="320,50" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="bottom" noWrap="1">
+		<widget source="ServiceEvent" render="Label" position="60,196" size="322,50" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="bottom" noWrap="1">
 			<convert type="EventName">Name</convert>
 		</widget>
 		<widget source="ServiceEvent" render="Label" position="55,250" size="54,25" font="screen_text;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="right" valign="center" >
@@ -1740,7 +1741,7 @@
 			<convert type="EventTime">Progress</convert>
 		</widget>
 		<panel name="RTSB_ChannelSelection-3_list_plus_description"/>
-		<widget source="ServiceEvent" render="MetrixHDNextEvent" position="63,517" size="320,53" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" noWrap="1" transparent="0">
+		<widget source="ServiceEvent" render="MetrixHDNextEvent" position="60,518" size="322,53" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" noWrap="1" transparent="0">
 		</widget>
 		<panel name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720" />
 		<panel name="rgyb-buttons_screen_pos416_51_size_810_619" />
@@ -1751,8 +1752,9 @@
 	<!-- CHANNELSELECTION 4 FOCUS RIGHT NO PICON 5 NEXT EVENT */ -->
 	<screen name="CHANNELSELECTION-4">
 		<panel name="SkinDesign-s" />
+		<widget source="Title" render="Label" position="424,50" size="790,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget source="ServiceEvent" render="Label" position="62,66" size="320,65" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" valign="center" halign="center">
+		<widget source="ServiceEvent" render="Label" position="60,66" size="322,65" font="epg_event; 24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" valign="center" halign="center">
 			<convert type="EventName">Name</convert>
 		</widget>
 		<widget source="ServiceEvent" render="Label" position="55,130" size="54,25" font="screen_text;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="right" valign="center"  >
@@ -1768,7 +1770,7 @@
 			<convert type="EventTime">Progress</convert>
 		</widget>
 		<panel name="RTSB_ChannelSelection-4_list_plus_description"/>
-		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="63,440" size="314,125" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" noWrap="1" transparent="0" />
+		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="60,440" size="322,125" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" noWrap="1" transparent="0" />
 		<panel name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720" />
 		<panel name="rgyb-buttons_screen_pos416_51_size_810_619" />
 		<panel name="rgyb-keys_screen_pos416_51_size_810_619" />
