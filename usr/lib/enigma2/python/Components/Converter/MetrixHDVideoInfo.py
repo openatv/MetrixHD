@@ -67,11 +67,11 @@ class MetrixHDVideoInfo(Poll, Converter, object):
 			if width > 0 and height > 0:
 				sProgressive = info.getInfo(iServiceInformation.sProgressive)
 				text = "%dx%d" % (width,height)
-				text += ("i", "p", " ")[sProgressive]
+				#text += ("i", "p", " ")[sProgressive]
 				if sProgressive:
-					text += str((info.getInfo(iServiceInformation.sFrameRate) + 499) / 1000)
+					text += "p" + str((info.getInfo(iServiceInformation.sFrameRate) + 499) / 1000)
 				else:
-					text += str((info.getInfo(iServiceInformation.sFrameRate) + 499) / 500)
+					text += "i" + str((info.getInfo(iServiceInformation.sFrameRate) + 499) / 500)
 		elif self.type == self.VIDEOSIZEWIDTH:
 			if width > 0:
 				text = "%d" % (width)
@@ -79,11 +79,11 @@ class MetrixHDVideoInfo(Poll, Converter, object):
 			if height > 0:
 				sProgressive = info.getInfo(iServiceInformation.sProgressive)
 				text = "%d" % (height)
-				text += ("i", "p", " ")[sProgressive]
+				#text += ("i", "p", " ")[sProgressive]
 				if sProgressive:
-					text += str((info.getInfo(iServiceInformation.sFrameRate) + 499) / 1000)
+					text += "p" + str((info.getInfo(iServiceInformation.sFrameRate) + 499) / 1000)
 				else:
-					text += str((info.getInfo(iServiceInformation.sFrameRate) + 499) / 500)
+					text += "i" + str((info.getInfo(iServiceInformation.sFrameRate) + 499) / 500)
 		elif self.type == self.VIDEOSIZESHORT:
 			if width > 0 and height > 0:
 				text = "%dx%d" % (width,height)
