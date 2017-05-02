@@ -2351,6 +2351,29 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="__e-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
+	<screen name="AutoTimerPreview" position="0,0" size="1280,720" title="Preview AutoTimer" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="timerlist" render="Listbox" position="70,100" size="700,512" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryText(pos=( 5, 5), size=(675,26), text = 3, font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER),
+						MultiContentEntryText(pos=( 5,32), size=(675,24), text = 0, font = 1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER),
+						MultiContentEntryText(pos=( 5,57), size=(435,24), text = 4, font = 1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER),
+						MultiContentEntryText(pos=(425,57), size=(255,24), text = 2, font = 1, flags = RT_HALIGN_RIGHT|RT_VALIGN_CENTER),
+						MultiContentEntryText(pos=(0,84),  size =(690,1), text = "", font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, border_width = 1),
+					],
+				 "fonts": [gFont("screen_text",22),gFont("screen_text",20)],
+				 "itemHeight": 85
+				}
+			</convert>
+		</widget>
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="401,635" size="30,40" alphatest="blend" />
+		<widget source="key_red" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="key_yellow" render="Label" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/timer.png" transparent="1" alphatest="blend" />
+	</screen>
 	<!-- General Screens -->
 	<screen name="Standby" position="0,0" size="1280,720" title="Standby" flags="wfNoBorder" backgroundColor="black"/>
 	<screen name="QuitMainloopScreen" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="black">
