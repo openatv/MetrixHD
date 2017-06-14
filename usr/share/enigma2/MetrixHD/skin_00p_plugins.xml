@@ -1729,15 +1729,21 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- openMultiboot Manager -->
-	<!--WebradioFS > 15.32 -->
+	<!--WebradioFS > 15.42 -->
 	<!--WebradioFS-TEMPLATES -->
 	<screen name="WebradioFSScreen_template">
 		<widget source="Title" render="Label" position="58,36" size="900,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" noWrap="0" transparent="1" />
-		<widget name="rec_pic" position="75,104" pixmap="MetrixHD/icons/ico_rec_on.png" size="34,21" zPosition="2" alphatest="blend" /> 
+		<widget name="rec_pic" position="75,104" pixmap="MetrixHD/icons/ico_rec_on.png" size="34,21" zPosition="2" alphatest="blend" />
+		<widget name="dummy" position="3,35" zPosition="0" size="0,45" backgroundColor="#000000" alphatest="blend" />
 		<widget source="streamlist" render="Listbox" position="70,145" size="700,390" selectionDisabled="0" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" scrollbarMode="showNever" zPosition="2" enableWrapAround="1" >
 			<convert type="TemplatedMultiContent" transparent="0">
 				{"templates": 
 								{"default": (30,[
+						MultiContentEntryPixmapAlphaTest(pos = (5, 3), size = (30, 30), png = 2), # index 2: picture
+						MultiContentEntryText(pos = (40, 0), size = (660, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1: text
+						MultiContentEntryPixmapAlphaTest(pos = (625, 4), size = (75, 23), png = 5, flags = BT_SCALE), # index 5: stream-logo
+						]),
+								"default_without_picon": (30,[
 						MultiContentEntryPixmapAlphaTest(pos = (5, 3), size = (30, 30), png = 2), # index 2: picture
 						MultiContentEntryText(pos = (40, 0), size = (660, 30), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 1: text
 						]),
@@ -1820,7 +1826,7 @@
 		<widget name="cover2" zPosition="12" size="400,400" position="0,0" alphatest="blend" />
 	</screen>
 	<!--WebradioFS-TEMPLATES -->
-	<screen name="WebradioFSScreen_15" position="0,0" backgroundColor="transparent" flags="wfNoBorder" size="1280,720" title="webradioFS" >
+	<screen name="WebradioFSScreen_16" position="0,0" backgroundColor="transparent" flags="wfNoBorder" size="1280,720" title="webradioFS" >
 		<panel name="WebradioFSScreen_template" />
 		<widget name="buttons_abdeck" position="401,635" zPosition="12" size="388,40" valign="center" font="global_button;20" halign="center" foregroundColor="layer-a-background" backgroundColor="layer-a-background" />
 		<panel name="rgyb-buttons_template1" />
@@ -1844,7 +1850,7 @@
 		<panel name="rg__-keys_template1" />
 		<panel name="rg__-buttons_template1" />
 	</screen>
-	<screen name="wbrFS_r_site13" position="830,98" size="390,450" flags="wfNoBorder" backgroundColor="transparent" >
+	<screen name="wbrFS_r_site15" position="830,98" size="390,450" flags="wfNoBorder" backgroundColor="transparent" >
 		<eLabel name="layer1" position="0,0" zPosition="-10" size="390,450" backgroundColor="layer-a-background" />
 		<widget name="streamlogo" position="45,10" size="300,75" alphatest="blend" />
 		<widget name="fav_name" position="0,35" size="390,30" font="screen_text;20" halign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
