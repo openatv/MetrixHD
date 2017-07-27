@@ -397,7 +397,7 @@
 				<convert type="TemplatedMultiContent">
 					{"template": [
 						MultiContentEntryText(pos = (5,5),size = (320,24),flags = RT_HALIGN_LEFT,text = 1),# index 0 is the name,index 1 is shortname
-						MultiContentEntryText(pos = (340,5),size = (360,24),flags = RT_HALIGN_LEFT,text = 2),# index 2 is number
+						MultiContentEntryText(pos = (430,5),size = (360,24),flags = RT_HALIGN_LEFT,text = 2),# index 2 is number
 						],
 						"fonts": [gFont("Regular",19)],
 						"itemHeight": 35
@@ -409,46 +409,52 @@
 		<panel name="rgyb-keys_template1" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
-	<screen name="FritzMenu" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="FBFInfo" position="70,100" size="710,24" font="Regular; 20" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel position="70,155" size="710,2" backgroundColor="layer-a-accent1" />
-		<widget name="FBFInternet" position="105,165" size="630,80" font="Regular; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="internet_inactive" position="70,165" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
-		<widget name="internet_active" position="70,165" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
-		<widget name="FBFDsl" position="105,252" size="630,24" font="Regular; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="dsl_inactive" position="70,250" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
-		<widget name="dsl_active" position="70,250" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
-		<widget name="FBFWlan" position="105,287" size="630,24" font="Regular; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="wlan_inactive" position="70,285" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
-		<widget name="wlan_active" position="70,285" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
-		<widget name="FBFMailbox" position="105,322" size="630,24" font="Regular; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="mailbox_inactive" position="70,320" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
-		<widget name="mailbox_active" position="70,320" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
-		<widget name="FBFRufuml" position="105,357" size="630,24" font="Regular; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="rufuml_inactive" position="70,355" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
-		<widget name="rufuml_active" position="70,355" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
-		<widget name="FBFFax" position="105,392" size="630,24" font="Regular; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="fax_inactive" position="70,390" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
-		<widget name="fax_active" position="70,390" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fritz.png" transparent="1" alphatest="blend" />
+	 <screen name="FritzMenu" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+    <panel name="template1_2layer" />
+    <widget source="Title" render="Label" position="58,21" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+    <widget name="FBFInfo" position="70,76" size="710,78" font="Regular; 20" backgroundColor="layer-a-background" transparent="1" />
+    <eLabel position="70,155" size="710,2" backgroundColor="layer-a-accent1" />
+    <widget name="FBFInternet" position="105,165" size="630,80" font="Regular; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+    <widget name="internet_inactive" position="70,165" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
+    <widget name="internet_active" position="70,165" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
+    <widget name="FBFDsl" position="105,252" size="630,24" font="Regular; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+    <widget name="dsl_inactive" position="70,250" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
+    <widget name="dsl_active" position="70,250" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
+    <widget name="FBFWlan" position="105,287" size="630,24" font="Regular; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+    <widget name="wlan_inactive" position="70,285" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
+    <widget name="wlan_active" position="70,285" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
+    <widget name="FBFRufuml" position="105,322" size="630,24" font="Regular; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+    <widget name="rufuml_inactive" position="70,320" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
+    <widget name="rufuml_active" position="70,320" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
+    <widget name="FBFFax" position="105,357" size="630,24" font="Regular; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+    <widget name="fax_inactive" position="70,355" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
+    <widget name="fax_active" position="70,355" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
+    <widget name="FBFGast" position="105,395" size="630,24" font="Regular; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+    <widget name="gast_inactive" position="70,390" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
+    <widget name="gast_active" position="70,390" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
+    <widget name="FBFDect" position="105,435" size="630,24" font="Regular; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+    <widget name="dect_active" position="70,430" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
+    <widget name="dect_inactive" position="70,430" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
+    <widget name="FBFMailbox" position="105,477" size="630,24" font="Regular; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+    <widget name="mailbox_inactive" position="70,472" size="30,30" pixmap="MetrixHD/buttons/key_grey.png" transparent="1" alphatest="blend" />
+    <widget name="mailbox_active" position="70,470" size="30,30" pixmap="MetrixHD/buttons/key_green.png" transparent="1" alphatest="blend" />
+    <ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fritz.png" transparent="1" alphatest="blend" />
+    <panel name="rgyb-buttons_template1" />
+    <panel name="rgyb-keys_template1" />
+    <panel name="_oe-buttons_template1" />
+  </screen>
+	 <screen name="FritzCallSetup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+	 	<panel name="template1_2layer" />
+		<widget source="Title" render="Label" position="58,7" size="525,116" valign="center" font="global_title; 30" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="consideration" position="837,480" size="394,91" font="Regular; 19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel position="58,123" size="710,2" backgroundColor="layer-a-accent1" />
+		<widget name="config" position="58,127" size="710,476" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<eLabel position="58,606" size="710,2" backgroundColor="layer-a-accent1" />
+ 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fritz.png" transparent="1" alphatest="blend" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
 		<panel name="_oe-buttons_template1" />
-	</screen>
-	<screen name="FritzCallSetup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="consideration" position="70,145" size="715,60" font="Regular; 19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<eLabel position="70,185" size="710,2" backgroundColor="layer-a-accent1" />
-		<widget name="config" position="70,195" size="710,270" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<eLabel position="70,473" size="710,2" backgroundColor="layer-a-accent1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fritz.png" transparent="1" alphatest="blend" />
-		<panel name="rgyb-buttons_template1" />
-		<panel name="rgyb-keys_template1" />
-		<panel name="_oe-buttons_template1" />
-	</screen>
+  </screen>
 	<screen name="AddScreen" position="0,0" size="1280,720" title="Add entry to phonebook" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
