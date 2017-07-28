@@ -467,12 +467,26 @@
 	<screen name="FritzAbout" position="-1,center" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<eLabel text="About FritzCall" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<panel name="template1_2layer" />
 		<widget name="text" position="81,165" size="540,250" font="Regular; 24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="url" position="81,563" size="400,50" font="Regular; 22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<ePixmap position="505,438" size="175,175" zPosition="4" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/FritzCall/images/website.png" alphatest="blend" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fritz.png" transparent="1" alphatest="blend" />
 		<panel name="_oe-buttons_template1" />
+	  </screen>
+  <screen name="FritzOfferAction" position="0,0" size="1280,720" title="Do what?" flags="wfNoBorder" backgroundColor="transparent">
+    	<panel name="template1_2layer" />
+    	<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+    	<widget name="FacePixmap" position="905,150" size="400,400" alphatest="blend" />
+    	<widget name="text" position="73,170" size="680,280" font="Regular;30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+ 		<panel name="rgy_-buttons_template1" />
+ 		<panel name="rgy_-keys_template1" />
+ 		<panel name="_oe-buttons_template1" />
+	</screen>
+	<screen name="MessageBoxPixmap" position="center,center" size="1280,720" title="New Call" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="InfoPixmap" position="905,150" size="400,400" alphatest="blend" />
+		<widget name="text" halign="left" valign="center" position="73,170" size="680,280" font="Regular;30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />	     
 	</screen>
 	<!-- Fritz! */-->
 	<!-- MediaPlayer -->
