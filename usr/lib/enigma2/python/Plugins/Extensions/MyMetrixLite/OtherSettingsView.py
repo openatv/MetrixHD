@@ -460,6 +460,11 @@ class OtherSettingsView(ConfigListScreen, Screen):
             f = open('/proc/stb/sensors/temp/value', 'r')
             temp = f.read()
             f.close()
+        elif getBoxType() == ('gbquad4k'):
+            f = open('/sys/devices/virtual/thermal/thermal_zone0/temp', 'r')
+            temp = f.read()
+            temp = temp[:-4]
+            f.close()
         if temp and int(temp.replace('\n', '')) > 0:
             return True
         else:

@@ -2,6 +2,7 @@ from Components.Converter.Converter import Converter
 from Components.config import config
 from Components.Element import cached
 from Components.Language import language
+from boxbranding import getBoxType
 from os import path, popen, environ
 from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
 from Tools.Directories import resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS
@@ -106,6 +107,11 @@ class MetrixHDSTBinfo(Converter, object):
 		elif path.exists('/proc/stb/sensors/temp/value'):
 			f = open('/proc/stb/sensors/temp/value', 'r')
 			temp = f.readline()
+			f.close()
+		elif getBoxType() == ('gbquad4k'):
+			f = open('/sys/devices/virtual/thermal/thermal_zone0/temp', 'r')
+			temp = f.read()
+			temp = temp[:-4]
 			f.close()
 		if temp and int(temp.replace('\n', '')) > 0:
 			#info ="SYS-Temp: " + temp.replace('\n', '') + str('\xc2\xb0') + "C"
