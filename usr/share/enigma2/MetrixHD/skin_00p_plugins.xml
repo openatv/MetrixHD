@@ -471,21 +471,49 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fritz.png" transparent="1" alphatest="blend" />
 		<panel name="_oe-buttons_template1" />
 	 </screen>
-	<screen name="FritzOfferAction" position="0,0" size="1280,720" title="Do what?" flags="wfNoBorder" backgroundColor="transparent">
+<!-- cf#_#rename -->
+	<screen name="FritzOfferAction_FacePixmap" >
+		<widget name="FacePixmap" position="916,191" size="230,230" alphatest="blend" />
+	</screen>
+<!-- cf#_#rename -->
+	<screen name="FritzOfferAction_FacePixmap#_FHDscreen" >
+		<widget name="FacePixmap" position="1351,279" size="400,400" alphatest="blend" />
+	</screen>
+<!-- cf#_#rename -->
+	<screen name="FritzOfferAction_FacePixmap#_UHDscreen" >
+		<widget name="FacePixmap" position="3702,552" size="800,800" alphatest="blend" />
+	</screen>
+<!-- cf#_#begin -->
+	 <screen name="FritzOfferAction" position="0,0" size="1280,720" title="Do what?" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="FacePixmap" position="890,175" size="256,256" alphatest="blend" />
-		<widget name="text" position="70,170" size="700,280" font="screen_text;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="text" position="70,250" size="700,100" font="screen_text;22" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<panel name="FritzOfferAction_FacePixmap" />
 		<panel name="rgy_-buttons_template1" />
 		<panel name="rgy_-keys_template1" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
+<!-- cf#_#rename -->
+	<screen name="MessageBoxPixmap_Info" >
+		<widget name="InfoPixmap" position="10,100" size="230,230" alphatest="blend" />
+		<widget name="text" position="230,100" size="540,200" font="screen_text;22" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+	</screen>
+<!-- cf#_#rename -->
+	<screen name="MessageBoxPixmap_Info#_FHDscreen" >
+		<widget name="InfoPixmap" position="15,120" size="400,400" alphatest="blend" />
+		<widget name="text" position="380,130" size="780,350" font="screen_text;33" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+	</screen>
+<!-- cf#_#rename -->
+	<screen name="MessageBoxPixmap_Info#_UHDscreen" >
+		<widget name="InfoPixmap" position="30,240" size="800,800" alphatest="blend" />
+		<widget name="text" position="760,260" size="1560,700" font="screen_text;66" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+	</screen>
+<!-- cf#_#begin -->
 	<screen name="MessageBoxPixmap" position="240,160" size="800,350" zPosition="10" title="Message" flags="wfNoBorder" backgroundColor="layer-a-background" >
 		<widget source="Title" render="Label" position="67,8" foregroundColor="layer-a-title-foreground" size="623,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1"/>
 		<ePixmap pixmap="MetrixHD/icons/message/info-53.png" position="8,8" size="53,53" alphatest="blend" />
+		<panel name="MessageBoxPixmap_Info" />
 		<panel name="ul-messagebox" />
-		<widget name="InfoPixmap" position="10,80" size="256,256" alphatest="blend" />
-		<widget name="text" position="250,80" size="540,260" font="screen_text;22" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
 	</screen>
 	<!-- Fritz! */-->
 	<!-- MediaPlayer -->
