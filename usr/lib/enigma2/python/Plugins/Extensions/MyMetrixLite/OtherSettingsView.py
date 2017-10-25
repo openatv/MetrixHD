@@ -262,7 +262,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         self.Console = Console()
         self.service_name = 'enigma2-plugin-skins-metrix-atv-%s-icons' % self.EHDres.lower()
         if self.freeFlashCheck():
-            self.Console.ePopen('/usr/bin/opkg list_installed ' + self.service_name, self.checkNetworkState)
+            self.Console.ePopen('/usr/bin/opkg list-installed ' + self.service_name, self.checkNetworkState)
         else:
             self.resetEHD()
 

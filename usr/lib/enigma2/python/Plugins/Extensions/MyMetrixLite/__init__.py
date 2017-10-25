@@ -105,7 +105,14 @@ MAIN_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/image
 COLOR_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/colors/%s.png"
 FONT_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/fonts/%s.png"
 
-BACKUP_FILE = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/MyMetrixLiteBackup.dat"
+OLD_BACKUP_FILE = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/MyMetrixLiteBackup.dat"
+BACKUP_FILE = "/etc/enigma2/MyMetrixLiteBackup.dat"
+
+from shutil import move
+from os import path
+if path.exists(OLD_BACKUP_FILE) and not path.exists(BACKUP_FILE):
+    move(OLD_BACKUP_FILE, BACKUP_FILE)
+
 #############################################################
 
 ColorList = [
