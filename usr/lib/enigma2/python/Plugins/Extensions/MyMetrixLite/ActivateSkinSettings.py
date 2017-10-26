@@ -65,7 +65,8 @@ class ActivateSkinSettings:
 
 		self.silent = silent
 		if self.silent:
-			if config.skin.primary_skin.value != "MetrixHD/skin.MySkin.xml":
+			self.E2settings = open("/etc/enigma2/settings", "r").read()
+			if config.skin.primary_skin.value != "MetrixHD/skin.MySkin.xml" and not 'config.skin.primary_skin=MetrixHD/skin.MySkin.xml' in self.E2settings:
 				print 'MetrixHD is not the primary skin or runs with default settings. No restore action needed!'
 				return 0
 			from Components.PluginComponent import plugins #need for fast restore in skin.py
@@ -421,20 +422,17 @@ class ActivateSkinSettings:
             progress = False
             if not self.silent:
                 try:
-                    config.plugins.EMC.skin_able.setValue(True)
-                    config.plugins.EMC.use_orig_skin.setValue(False)
-                    if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.value != 'no': config.plugins.EMC.movie_cover.setValue(True)
+                    config.EMC.skin_able.setValue(True)
+                    config.EMC.use_orig_skin.setValue(False)
+                    if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.value != 'no': config.EMC.movie_cover.setValue(True)
                     config.EMC.save()
-                    posNR = config.plugins.EMC.movie_picons_pgetValue() == "nr"
-                    progress = 'P' in config.plugins.EMC.movie_progress.value
+                    posNR = config.EMC.movie_picons_pos.getValue() == "nr"
+                    progress = 'P' in config.EMC.movie_progress.value
                 except:
                     print "Error: find emc config - it's not installed ?"
             else:
-                f=open("/etc/enigma2/settings", "r")
-                s=f.read()
-                f.close()
-                posNR = "config.EMC.movie_picons_pos=nr" in s
-                progress = "config.EMC.movie_progress=P" in s or not "config.EMC.movie_progress=" in s
+                posNR = "config.EMC.movie_picons_pos=nr" in self.E2settings
+                progress = "config.EMC.movie_progress=P" in self.E2settings or not "config.EMC.movie_progress=" in self.E2settings
 
             sizeW = 700
             sizeH = 480
