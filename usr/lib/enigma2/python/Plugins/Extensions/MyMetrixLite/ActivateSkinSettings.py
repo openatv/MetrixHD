@@ -447,22 +447,26 @@ class ActivateSkinSettings:
                 itemHeight = 20
                 rowfactor = itemHeight / 30.0
                 offsetHicon = 0
+                offsetPosIcon = 6
                 offsetHbar = -2
             elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "+6":
                 sizeH = 484
                 itemHeight = 22
                 rowfactor = itemHeight / 30.0
                 offsetHicon = 0
+                offsetPosIcon = 4
                 offsetHbar = -2
             elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "+4":
                 itemHeight = 24
                 rowfactor = itemHeight / 30.0
                 offsetHicon = 0
+                offsetPosIcon = 2
                 offsetHbar = -2
             elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "+2":
                 sizeH = 486
                 itemHeight = 27
                 rowfactor = itemHeight / 30.0
+                offsetPosIcon = 0
                 offsetHicon = 1
                 offsetHbar = -1
             elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "-2":
@@ -470,31 +474,34 @@ class ActivateSkinSettings:
                 itemHeight = 34
                 rowfactor = itemHeight / 30.0
                 offsetHicon = 1
+                offsetPosIcon = 0
                 offsetHbar = 1
             elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "-4":
                 itemHeight = 40
                 rowfactor = itemHeight / 30.0
+                offsetPosIcon = 0
                 offsetHicon = 3
                 offsetHbar = 4
             else:
                 itemHeight = 30
                 rowfactor = 1
+                offsetPosIcon = 0
                 offsetHicon = 0
                 offsetHbar = 0
 
             #font
             CoolFont = int(20 * rowfactor)
-            CoolSelectFont = int(17 * rowfactor)
+            CoolSelectFont = int(20 * rowfactor)
             CoolDateFont = int(20 * rowfactor)
             #height
             CoolBarSizeV = int(10 * rowfactor)
             CoolPiconHPos = 2
             CoolPiconHeight = itemHeight - CoolPiconHPos * 2
-            CoolIconHPos = 3 + offsetHicon
+            CoolIconHPos = 2 + offsetHicon
             CoolBarHPos = 12 + offsetHbar
-            CoolMovieHPos = 1 + offsetHicon
-            CoolDateHPos = 1 + offsetHicon
-            CoolProgressHPos = 1 + offsetHicon
+            CoolMovieHPos = 2 + offsetHicon
+            CoolDateHPos = 2 + offsetHicon
+            CoolProgressHPos = 2 + offsetHicon
             #width
             if progress:
                 CoolBarSizeH = int(config.plugins.MyMetrixLiteOther.setEMCbarsize.value)
@@ -503,38 +510,39 @@ class ActivateSkinSettings:
             CoolDateWidth = int(int(config.plugins.MyMetrixLiteOther.setEMCdatesize.value) * scale * rowfactor)
             CoolPiconWidth = int(CoolPiconHeight * 1.73)
             CoolCSDirInfoWidth = int(int(config.plugins.MyMetrixLiteOther.setEMCdirinfosize.value) * scale * rowfactor)
-            CoolFolderSize = sizeW - CoolCSDirInfoWidth - gap  - margin - 35 # 35 is progressbar position
+            CoolFolderSize = sizeW - CoolCSDirInfoWidth - gap - margin - 38 # 38 is progressbar position
             if not CoolCSDirInfoWidth:
                 CoolFolderSize = sizeW - 35# - margin
-            CoolMoviePos = 35 + CoolBarSizeH  + gap
+            CoolMoviePos = 38 + CoolBarSizeH  + gap
             if not CoolBarSizeH:
-                CoolMoviePos = 35
+                CoolMoviePos = 38
             CoolMovieSize = sizeW - CoolDateWidth - CoolMoviePos - gap - margin
             if not CoolDateWidth:
                 CoolMovieSize = sizeW - CoolMoviePos# - margin
             CoolMoviePiconSize = CoolMovieSize - CoolPiconWidth - gap
             CoolDatePos = sizeW - CoolDateWidth - margin
             CoolCSPos = sizeW - CoolCSDirInfoWidth - margin
+            CoolIconPos = 4 + offsetPosIcon
 
-            EMCSkinSearchAndReplace.append(['size="700,480" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;17" CoolDateFont="epg_text;20"'\
+            EMCSkinSearchAndReplace.append(['size="700,480" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"'\
                                            ,'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' %(sizeH, itemHeight, CoolFont, CoolSelectFont, CoolDateFont) ])
 
-            EMCSkinSearchAndReplace.append(['size="700,240" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;18" CoolDateFont="epg_text;20"'\
+            EMCSkinSearchAndReplace.append(['size="700,240" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"'\
                                            ,'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' %(sizeH/2, itemHeight, CoolFont, CoolSelectFont, CoolDateFont) ])
 
-            EMCSkinSearchAndReplace.append(['CoolProgressHPos="1" CoolIconPos="5" CoolIconHPos="3" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="88"'\
-                                           ,'CoolProgressHPos="%s" CoolIconPos="5" CoolIconHPos="%s" CoolIconSize="24,24" CoolBarPos="32" CoolBarHPos="%s" CoolBarSize="%s,%s" CoolBarSizeSa="%s,%s" CoolMoviePos="%s"' %(CoolProgressHPos, CoolIconHPos, CoolBarHPos, CoolBarSizeH, CoolBarSizeV, CoolBarSizeH, CoolBarSizeV, CoolMoviePos - margin) ])
+            EMCSkinSearchAndReplace.append(['CoolProgressHPos="2" CoolIconPos="4" CoolIconHPos="2" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90"'\
+                                           ,'CoolProgressHPos="%s" CoolIconPos="%s" CoolIconHPos="%s" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="%s" CoolBarSize="%s,%s" CoolBarSizeSa="%s,%s" CoolMoviePos="%s"' %(CoolProgressHPos, CoolIconPos, CoolIconHPos, CoolBarHPos, CoolBarSizeH, CoolBarSizeV, CoolBarSizeH, CoolBarSizeV, CoolMoviePos - margin) ])
 
             CoolMoviePiconPos = CoolMoviePos + CoolPiconWidth + gap - margin
             CoolPiconPos = CoolMoviePos - margin
-            EMCSkinSearchAndReplace.append(['CoolMovieHPos="1" CoolMovieSize="495" CoolFolderSize="475" CoolDatePos="591" CoolDateHPos="1" CoolDateWidth="104" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'\
+            EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'\
                                            ,'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' %(CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos) ])
 
             CoolMoviePiconPos = CoolMoviePos - margin
             CoolPiconPos = CoolDatePos - CoolPiconWidth - gap - margin
             if not CoolDateWidth:
                 CoolPiconPos = CoolDatePos - CoolPiconWidth
-            EMCSkinSearchAndReplace.append(['CoolMovieHPos="1" CoolMovieSize="495" CoolFolderSize="475" CoolDatePos="591" CoolDateHPos="1" CoolDateWidth="104" CoolPiconPos="540" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'\
+            EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="540" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'\
                                            ,'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' %(CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos) ])
 
             if posNR:
@@ -1519,7 +1527,7 @@ class ActivateSkinSettings:
         #plugin EnhancedMovieCenter
         spath = "/usr/share/enigma2/MetrixHD/%s/copy/emc/" % self.EHDres
         dpath = "/usr/share/enigma2/MetrixHD/emc/"
-        if int(config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value) > 4:
+        if int(config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value) > 3:
             if self.EHDres == "FHD":
                 self.FileCopy('HD',spath,dpath)
             elif self.EHDres == "UHD" and path.exists("/usr/share/enigma2/MetrixHD/FHD/copy/emc/"):
