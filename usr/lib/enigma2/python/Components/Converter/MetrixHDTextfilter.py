@@ -20,7 +20,7 @@ class MetrixHDTextfilter(Converter):
 		elif type == "emc_name_plus_version":
 			self.type = self.EMC_NAME_PLUS_VERSION
 		else:
-			self.type = self.TEXT
+			self.type = None
 
 	@cached
 	def getText(self):
