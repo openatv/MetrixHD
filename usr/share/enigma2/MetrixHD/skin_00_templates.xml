@@ -916,6 +916,11 @@
 			</widget>
 
 			<eLabel position="306,674" zPosition="1" size="3,16" backgroundColor="infobaraccent2" />
+			<widget position="306,674" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="3,16" backgroundColor="infobaraccent1" >
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">8</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
 			<widget position="305,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="5,3" backgroundColor="infobarprogress" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">3,3</convert>
@@ -1138,6 +1143,11 @@
 			</widget>
 
 			<eLabel position="306,674" zPosition="1" size="3,16" backgroundColor="infobaraccent2" />
+			<widget position="306,674" source="session.TunerInfo" render="FixedLabel" zPosition="2" size="3,16" backgroundColor="infobaraccent1" >
+				<convert type="TunerInfo">TunerUseMask</convert>
+				<convert type="ValueBitTest">8</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
 			<widget position="305,692" source="session.FrontendInfo" render="FixedLabel" zPosition="3" size="5,3" backgroundColor="infobarprogress" >
 				<convert type="FrontendInfo">NUMBER</convert>
 				<convert type="ValueRange">3,3</convert>
