@@ -127,7 +127,7 @@ class ActivateSkinSettings:
 			self.EHDfactor = 1
 			self.EHDres = 'HD'
 			self.EHDtxt = 'Standard HD'
-			if onlyCheckor or not self.silent:
+			if onlyCheck or not self.silent:
 				self.ErrorCode = 'checkEHDsettings', _("Your enhanced hd settings are inconsistent. Please check this.")
 
 		if self.EHDenabled:
