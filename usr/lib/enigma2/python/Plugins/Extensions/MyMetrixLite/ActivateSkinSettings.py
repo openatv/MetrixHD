@@ -1489,6 +1489,11 @@ class ActivateSkinSettings:
         dpath = "/usr/share/enigma2/MetrixHD/icons/"
         self.FileCopy(target, spath, dpath)
         
+        #skin countries
+        spath = "/usr/share/enigma2/MetrixHD/%s/copy/countries/" % self.EHDres
+        dpath = "/usr/share/enigma2/MetrixHD/countries/"
+        self.FileCopy(target, spath, dpath)
+
         #skin buttons
         spath = "/usr/share/enigma2/MetrixHD/%s/copy/buttons/" % self.EHDres
         dpath = "/usr/share/enigma2/MetrixHD/buttons/"
