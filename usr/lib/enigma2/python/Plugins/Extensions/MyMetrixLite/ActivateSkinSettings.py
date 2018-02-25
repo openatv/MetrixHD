@@ -37,7 +37,7 @@ from Components.config import config, configfile
 from Components.NimManager import nimmanager
 from shutil import move, copy, rmtree, copytree
 from enigma import getDesktop
-from os import path, remove, statvfs, listdir, system
+from os import path, remove, statvfs, listdir, system, mkdir
 from PIL import Image
 from boxbranding import getBoxType
 
@@ -1488,10 +1488,12 @@ class ActivateSkinSettings:
         spath = "/usr/share/enigma2/MetrixHD/%s/copy/icons/" % self.EHDres
         dpath = "/usr/share/enigma2/MetrixHD/icons/"
         self.FileCopy(target, spath, dpath)
-        
+
         #skin countries
         spath = "/usr/share/enigma2/MetrixHD/%s/copy/countries/" % self.EHDres
         dpath = "/usr/share/enigma2/MetrixHD/countries/"
+        if not path.exists(dpath):
+            mkdir(dpath)
         self.FileCopy(target, spath, dpath)
 
         #skin buttons
