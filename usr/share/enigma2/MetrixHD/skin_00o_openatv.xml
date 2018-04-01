@@ -3607,21 +3607,28 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	</screen>
 	<screen name="Satfinder" position="0,0" size="1280,720" title="Satfinder" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Signal Finder" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Frontend" render="Label" position="120,120" size="600,30" zPosition="2" font="SetrixHD;21" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" transparent="1">
+		<widget source="Frontend" render="Label" position="120,90" size="600,30" zPosition="2" font="SetrixHD;21" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" transparent="1">
 			<convert type="FrontendInfo">SNRdB</convert>
 		</widget>
-		<eLabel name="snr" text="SNR:" position="120,150" size=" 80,25" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="Frontend" render="Progress" position="210,155" size="420,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" >
+		<eLabel name="snr" text="SNR:" position="120,120" size=" 80,25" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="Frontend" render="Progress" position="210,125" size="420,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" >
 			<convert type="FrontendInfo">SNR</convert>
+		</widget>
+		<widget source="Frontend" render="Label" position="640,120" size=" 80,25" font="SetrixHD;21" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
+			<convert type="FrontendInfo">SNR</convert>
+		</widget>
+		<eLabel name="agc" text="AGC:" position="120,150" size=" 80,25" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="Frontend" render="Progress" position="210,155" size="420,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" >
+			<convert type="FrontendInfo">AGC</convert>
 		</widget>
 		<widget source="Frontend" render="Label" position="640,150" size=" 80,25" font="SetrixHD;21" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
-			<convert type="FrontendInfo">SNR</convert>
+			<convert type="FrontendInfo">AGC</convert>
 		</widget>
-		<eLabel name="ber" text="BER:" position="120,185" size=" 80,25" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="Frontend" render="Progress" position="210,190" size="420,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" >
+		<eLabel name="ber" text="BER:" position="120,180" size=" 80,25" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="Frontend" render="Progress" position="210,185" size="420,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" >
 			<convert type="FrontendInfo">BER</convert>
 		</widget>
-		<widget source="Frontend" render="Label" position="640,185" size=" 80,25" font="SetrixHD;21" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
+		<widget source="Frontend" render="Label" position="640,180" size=" 80,25" font="SetrixHD;21" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 			<convert type="FrontendInfo">BER</convert>
 		</widget>
 		<eLabel name="lock" text="Lock:" position="120,219" size=" 80,30" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
