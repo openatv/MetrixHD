@@ -514,8 +514,8 @@ class ActivateSkinSettings:
             if not CoolCSDirInfoWidth:
                 CoolFolderSize = sizeW - 35# - margin
             CoolMoviePos = 38 + CoolBarSizeH  + gap
-            if not CoolBarSizeH:
-                CoolMoviePos = 38
+            #if not CoolBarSizeH:
+            #    CoolMoviePos = 38
             CoolMovieSize = sizeW - CoolDateWidth - CoolMoviePos - gap - margin
             if not CoolDateWidth:
                 CoolMovieSize = sizeW - CoolMoviePos# - margin
