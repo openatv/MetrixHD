@@ -149,7 +149,7 @@
 		</widget>
 		<widget source="session.Event_Now" render="Label" position="1131,330" size="80,30" font="epg_text;20" halign="left" foregroundColor="epg-timeline-foreground" backgroundColor="epg-background"  >
 			<convert type="EventTime">Remaining</convert>
-			<convert type="RemainingToText">InMinutes</convert>
+			<convert type="RemainingToText"></convert>
 		</widget>
 		<eLabel text="Next Event:" position="866,360" size="355,30" font="epg_text;16" foregroundColor="epg-timeline-foreground" backgroundColor="epg-background" transparent="1" />
 		<widget source="session.Event_Next" render="Label" position="866,390" size="60,30" font="epg_text;20" halign="left" foregroundColor="epg-event-foreground" backgroundColor="epg-background"  >
@@ -197,7 +197,7 @@
 		</widget>
 		<widget source="Event" render="Label" position="746,76" size="100,40" font="epg_event;24" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right">
 			<convert type="EventTime">Remaining</convert>
-			<convert type="RemainingToText">InMinutes</convert>
+			<convert type="RemainingToText"></convert>
 		</widget>
 		<eLabel position="60,110" zPosition="0" size="791,180" backgroundColor="epg-eventdescription-background" transparent="0" />
 		<widget source="Event" render="Label" position="65,112" size="786,178" font="epg_info;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
@@ -222,7 +222,7 @@
 		</widget>
 		<widget source="Event" render="Label" position="746,76" size="100,40" font="epg_event;24" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right">
 			<convert type="EventTime">Remaining</convert>
-			<convert type="RemainingToText">InMinutes</convert>
+			<convert type="RemainingToText"></convert>
 		</widget>
 		<eLabel position="60,110" zPosition="-9" size="791,481" backgroundColor="epg-eventdescription-background" transparent="0" />
 		<widget name="CoolDescription" position="65,112" size="786,480" font="epg_info;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1"/>
@@ -260,7 +260,7 @@
 		</widget>
 		<widget source="Event" render="Label" position="1115,76" size="100,40" font="epg_event;24" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right">
 			<convert type="EventTime">Remaining</convert>
-			<convert type="RemainingToText">InMinutes</convert>
+			<convert type="RemainingToText"></convert>
 		</widget>
 		<eLabel position="60,110" zPosition="0" size="1160,60" backgroundColor="epg-eventdescription-background" transparent="0" />
 		<widget source="Event" render="Label" position="65,115" size="1155,51" font="epg_info;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
@@ -312,7 +312,7 @@
 		</widget>
 		<widget source="Event" render="Label" position="746,76" size="100,40" font="epg_event;24" backgroundColor="epg-background" foregroundColor="epg-timeline-foreground" transparent="1" halign="right">
 			<convert type="EventTime">Remaining</convert>
-			<convert type="RemainingToText">InMinutes</convert>
+			<convert type="RemainingToText"></convert>
 		</widget>
 		<eLabel position="60,110" zPosition="0" size="791,180" backgroundColor="epg-eventdescription-background" transparent="0" />
 		<widget source="Event" render="Label" position="65,112" size="786,178" font="epg_info;19" backgroundColor="epg-eventdescription-background" foregroundColor="epg-eventdescription-foreground" transparent="1" valign="top" zPosition="1">
@@ -2824,8 +2824,7 @@
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
-		<widget source="cancel" render="Label" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget source="ok" render="Label" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<panel name="rg__-keys_template1-source" />
 		<panel name="__e-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
