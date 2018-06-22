@@ -1202,6 +1202,10 @@
 			<convert type="MenuEntryCompare">powertimer_edit</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/usage_setup.png" position="305,80" size="256,256" alphatest="blend">
+			<convert type="MenuEntryCompare">maintenance_mode</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
 	</screen>
 	<!--Quick Menu-->
 	<!-- templates -->
@@ -4617,7 +4621,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
-		<panel name="oe-buttons_template1" />
+		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/bluetooth.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="BluetoothDiscoveryScreen" position="0,0" size="1280,720" title="Bluetooth Scan" flags="wfNoBorder" backgroundColor="transparent">
@@ -4646,7 +4650,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1" />
-		<panel name="oe-buttons_template1" />
+		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/bluetooth.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- RemoteControlCode -->
@@ -4664,4 +4668,57 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 <!-- cf#_#begin -->
 	</screen>
 	<!-- Screensaver -->
+	<!-- dBackup -->
+	<screen name="dBackup" position="0,0" size="1280,720" title="Flashing" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" zPosition="100" noWrap="1" />
+		<widget name="buttonred" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="buttongreen" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="buttonyellow" position="436,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="buttonblue" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="logo" position="370,590" size="100,60" zPosition="2" alphatest="blend" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="ime-buttons_template1" />
+		<panel name="template1_2layer" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="dBackupConfiguration" position="0,0" size="1280,720" title="dBackup Configuration" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" zPosition="100" noWrap="1" />
+		<widget name="config" position="70,100" size="700,480" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="buttonred" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="buttongreen" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="buttonyellow" position="436,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="buttonblue" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="logo" position="370,590" size="100,60" zPosition="2" alphatest="blend" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="template1_2layer" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="dBackupChecking" position="0,0" size="1280,720" title="choose NAND Flash Check" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" zPosition="100" noWrap="1" />
+		<widget name="menu" position="70,100" size="700,450" itemHeight="30" font="screen_text; 20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="buttonred" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="buttongreen" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="buttonyellow" position="436,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="buttonblue" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="logo" position="370,590" size="100,60" zPosition="2" alphatest="blend" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="template1_2layer" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="dBackupAbout" position="0,0" size="1280,720" title="About dBackup" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" noWrap="1" />
+		<widget name="aboutdbackup" foregroundColor="yellow" position="70,180" size="700,40" halign="center" font="screen_info;24"/>
+		<eLabel name="line" position="70,270" size="700,1" backgroundColor="layer-a-accent1" zPosition="2" />
+		<widget name="freefilesystem" position="100,250" size="300,300" valign="center" halign="center" font="screen_text;22"/>
+		<widget name="freememory" position="440,250" size="300,300" valign="center" halign="center" font="screen_text;22"/>
+		<widget name="buttonred" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="buttongreen" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="template1_2layer" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/info.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- dBackup -->
 </skin>
