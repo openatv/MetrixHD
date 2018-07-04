@@ -36,6 +36,7 @@ class MetrixHDXPicon(Renderer):
 		if self.instance:
 			pngname = ""
 			if what[0] != self.CHANGED_CLEAR:
+				self.instance.show()
 				sname = self.source.text
 				pos = sname.rfind(':')
 				if pos != -1:
