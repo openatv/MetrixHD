@@ -2100,6 +2100,18 @@ class ActivateSkinSettings:
 							ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
 							strnew = line[n1:n2+1] + ynew
 							line = line[:n1] + strnew + line[n3:]
+#TimeFontVertical="epg_event;22" EventFontVertical="epg_event;18"
+					if 'FontVertical=' in line and not ' Cool' in line and fontsize >= 2:
+						s = 0
+						n3 = 0
+						for s in range(0,line.count('FontVertical="')):
+							n1 = line.find('FontVertical="', n3)
+							n2 = line.find(';', n1)
+							n3 = line.find('"', n2) 
+							y = line[(n2+1):n3]
+							ynew = str(int(f_offset + round(float(int(y)*FFACT),r_par)))
+							strnew = line[n1:n2+1] + ynew
+							line = line[:n1] + strnew + line[n3:]
 #<alias name="Body" font="screen_text" size="20" height="25" />
 					if 'font="' in line and 'alias name="' in line and 'size="' in line and fontsize >= 2:
 						n1 = line.find('size="', 0)
