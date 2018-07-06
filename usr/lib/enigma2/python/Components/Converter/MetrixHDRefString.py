@@ -16,13 +16,16 @@
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 from Screens.InfoBar import InfoBar
+from Poll import Poll
 
-class MetrixHDRefString(Converter, object):
+class MetrixHDRefString(Poll, Converter, object):
 	CURRENT = 0
 	EVENT = 1
 	
 	def __init__(self, type):
 		Converter.__init__(self, type)
+		Poll.__init__(self)
+		self.poll_enabled = True
 		self.CHANSEL = None
 		self.type = {
 				"CurrentRef": self.CURRENT,
@@ -31,6 +34,7 @@ class MetrixHDRefString(Converter, object):
 
 	@cached
 	def getText(self):
+		self.poll_enabled = False
 		if (self.type == self.EVENT):
 			antw = str(self.source.service.toString())
 			if antw[:6] == "1:7:0:":
