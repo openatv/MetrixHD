@@ -4,8 +4,9 @@ from Components.Converter.Converter import Converter
 from enigma import iServiceInformation, iPlayableService, iPlayableServicePtr, eServiceReference, eServiceCenter, eTimer
 from Components.Element import cached
 from Components.config import config
+from Poll import Poll
 
-class MetrixHDServiceName2(Converter, object):
+class MetrixHDServiceName2(Poll, Converter, object):
     NAME = 0
     NUMBER = 1
     BOUQUET = 2
@@ -18,6 +19,8 @@ class MetrixHDServiceName2(Converter, object):
 
     def __init__(self, type):
         Converter.__init__(self, type)
+        Poll.__init__(self)
+        self.poll_enabled = True
         if type == 'Name' or not len(str(type)):
             self.type = self.NAME
         elif type == 'Number':
@@ -338,6 +341,7 @@ class MetrixHDServiceName2(Converter, object):
         else:
             info = service and self.source.info
             ref = service
+        self.poll_enabled = False
         if info is None:
             return ''
         if self.type == self.NAME:

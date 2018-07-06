@@ -3206,7 +3206,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 			<convert type="ServiceName">Name</convert>
 		</widget>
 		<widget source="session.CurrentService" render="MetrixHDXPicon" position="1172,209" size="48,28" zPosition="2" alphatest="blend">
-			<convert type="MetrixHDRefString">CurrentRef</convert>
+			<convert type="MetrixHDServiceName2">Reference</convert>
 		</widget>
 
 		<eLabel position="831,525" size="319,1" backgroundColor="layer-a-accent1" zPosition="1" />
@@ -3222,26 +3222,25 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 			<convert type="EventTime">EndTime</convert>
 			<convert type="ClockToText">Default</convert>
 		</widget>
-
-		<widget source="session.Event_Now" render="Label" position="761,550" size="70,30" foregroundColor="epg-timeline-foreground" backgroundColor="epg-background" valign="center" font="epg_event;19">
+		<widget source="session.Event_Now" render="Label" position="761,560" size="60,30" foregroundColor="epg-timeline-foreground" backgroundColor="epg-background" valign="center" font="epg_event;19" halign="right">
 			<convert type="EventTime">StartTime</convert>
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="session.Event_Now" render="Label" position="831,550" size="319,30" foregroundColor="epg-event-foreground" backgroundColor="epg-background" valign="center" font="epg_event;19" noWrap="1">
+		<widget source="session.Event_Now" render="Label" position="831,560" size="309,30" foregroundColor="epg-event-foreground" backgroundColor="epg-background" valign="center" font="epg_event;19" noWrap="1">
 			<convert type="EventName">Name</convert>
 		</widget>
-		<widget source="session.Event_Now" render="Label" position="1150,550" size="70,30" foregroundColor="epg-timeline-foreground" backgroundColor="epg-background" valign="center" font="epg_event;19" halign="right">
+		<widget source="session.Event_Now" render="Label" position="1120,560" size="80,30" foregroundColor="epg-timeline-foreground" backgroundColor="epg-background" valign="center" font="epg_event;19" halign="right" transparent="1">
 			<convert type="EventTime">Remaining</convert>
 			<convert type="RemainingToText">InMinutes</convert>
 		</widget>
-		<widget source="session.Event_Next" render="Label" position="761,580" size="70,30" foregroundColor="epg-timeline-foreground" backgroundColor="epg-background" valign="center" font="epg_event;19">
+		<widget source="session.Event_Next" render="Label" position="761,590" size="60,30" foregroundColor="epg-timeline-foreground" backgroundColor="epg-background" valign="center" font="epg_event;19" halign="right">
 			<convert type="EventTime">StartTime</convert>
 			<convert type="ClockToText">Default</convert>
 		</widget>
-		<widget source="session.Event_Next" render="Label" position="831,580" size="319,30" foregroundColor="epg-event-foreground" backgroundColor="epg-background" valign="center" font="epg_event;19" noWrap="1">
+		<widget source="session.Event_Next" render="Label" position="831,590" size="309,30" foregroundColor="epg-event-foreground" backgroundColor="epg-background" valign="center" font="epg_event;19" noWrap="1">
 			<convert type="EventName">Name</convert>
 		</widget>
-		<widget source="session.Event_Next" render="Label" position="1150,580" size="70,30" foregroundColor="epg-timeline-foreground" backgroundColor="epg-background" valign="center" font="epg_event;19" halign="right">
+		<widget source="session.Event_Next" render="Label" position="1120,590" size="80,30" foregroundColor="epg-timeline-foreground" backgroundColor="epg-background" valign="center" font="epg_event;19" halign="right" transparent="1">
 			<convert type="EventTime">Duration</convert>
 			<convert type="ClockToText">InMinutes</convert>
 		</widget>
