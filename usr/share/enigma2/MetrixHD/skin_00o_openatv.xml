@@ -3038,11 +3038,13 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<!-- EPGvertical -->
 <!-- cf#_#rename --> 
 	<screen name="bg_srv">
-		<eLabel name="epg-service-background" position="60,207" size="1160,32" backgroundColor="epg-borderlines" zPosition="-1" transparent="0" />
+		<eLabel name="epg-service-background" position="60,207" size="1160,1" backgroundColor="epg-borderlines" zPosition="-1" transparent="0" />
+		<eLabel name="epg-service-background" position="56,238" size="1168,1" backgroundColor="epg-borderlines" zPosition="-1" transparent="0" />
 	</screen>
 <!-- cf#_#rename --> 
 	<screen name="bg_srv#_FHDscreen">
-		<eLabel name="epg-service-background" position="90,311" size="1740,47" backgroundColor="epg-borderlines" zPosition="-1" transparent="0" />
+		<eLabel name="epg-service-background" position="90,311" size="1740,1" backgroundColor="epg-borderlines" zPosition="-1" transparent="0" />
+		<eLabel name="epg-service-background" position="84,357" size="1752,1" backgroundColor="epg-borderlines" zPosition="-1" transparent="0" />
 	</screen>
 <!-- cf#_#begin -->
 	<screen name="EPGvertical" position="0,0" size="1280,720" title="Electronic Program Guide" flags="wfNoBorder" backgroundColor="transparent">
@@ -3077,32 +3079,32 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="bouquetlist" position="60,208" size="1160,30" zPosition="3" itemHeight="30" font="screen_text;19" borderColor="epg-borderlines" borderWidth="1" backgroundColor="epg-event-background" foregroundColor="epg-event-foreground" backgroundColorSelected="epg-event-selected-background" foregroundColorSelected="epg-event-foreground" transparent="0" />
 		<!-- DO NOT CHANGE THIS LINE !!!!!!!!!!!!!!! -->
 		<widget enableWrapAround="0" itemHeight="20" font="Regular;0" name="list" position="0,0" size="0,100" zPosition="-10"/>
-		<widget font="screen_text;19" halign="center" valign="center" name="currCh1" backgroundColor="epg-service-background" foregroundColor="epg-service-foreground" noWrap="1" position="110,208" size="180,30" zPosition="2" transparent="1" />
-		<widget font="screen_text;19" halign="center" valign="center" name="currCh2" backgroundColor="epg-service-background" foregroundColor="epg-service-foreground" noWrap="1" position="342,208" size="180,30" zPosition="2" transparent="1" />
-		<widget font="screen_text;19" halign="center" valign="center" name="currCh3" backgroundColor="epg-service-background" foregroundColor="epg-service-foreground" noWrap="1" position="574,208" size="180,30" zPosition="2" transparent="1" />
-		<widget font="screen_text;19" halign="center" valign="center" name="currCh4" backgroundColor="epg-service-background" foregroundColor="epg-service-foreground" noWrap="1" position="806,208" size="180,30" zPosition="2" transparent="1" />
-		<widget font="screen_text;19" halign="center" valign="center" name="currCh5" backgroundColor="epg-service-background" foregroundColor="epg-service-foreground" noWrap="1" position="1038,208" size="180,30" zPosition="2" transparent="1" />
-		<widget backgroundColor="epg-service-now-background" name="Active1" position="60,208" size="232,30" zPosition="1" transparent="0" />
-		<widget backgroundColor="epg-service-now-background" name="Active2" position="292,208" size="232,30" zPosition="1" transparent="0" />
+		<widget font="screen_text;19" halign="center" valign="center" name="currCh1" backgroundColor="epg-service-background" foregroundColor="epg-service-foreground" noWrap="1" position="106,208" size="180,30" zPosition="2" transparent="1" />
+		<widget font="screen_text;19" halign="center" valign="center" name="currCh2" backgroundColor="epg-service-background" foregroundColor="epg-service-foreground" noWrap="1" position="340,208" size="180,30" zPosition="2" transparent="1" />
+		<widget font="screen_text;19" halign="center" valign="center" name="currCh3" backgroundColor="epg-service-background" foregroundColor="epg-service-foreground" noWrap="1" position="574,208" size="182,30" zPosition="2" transparent="1" />
+		<widget font="screen_text;19" halign="center" valign="center" name="currCh4" backgroundColor="epg-service-background" foregroundColor="epg-service-foreground" noWrap="1" position="810,208" size="180,30" zPosition="2" transparent="1" />
+		<widget font="screen_text;19" halign="center" valign="center" name="currCh5" backgroundColor="epg-service-background" foregroundColor="epg-service-foreground" noWrap="1" position="1044,208" size="180,30" zPosition="2" transparent="1" />
+		<widget backgroundColor="epg-service-now-background" name="Active1" position="56,208" size="230,30" zPosition="1" transparent="0" />
+		<widget backgroundColor="epg-service-now-background" name="Active2" position="290,208" size="230,30" zPosition="1" transparent="0" />
 		<widget backgroundColor="epg-service-now-background" name="Active3" position="524,208" size="232,30" zPosition="1" transparent="0" />
-		<widget backgroundColor="epg-service-now-background" name="Active4" position="756,208" size="232,30" zPosition="1" transparent="0" />
-		<widget backgroundColor="epg-service-now-background" name="Active5" position="988,208" size="232,30" zPosition="1" transparent="0" />
-		<widget source="piconCh1" render="MetrixHDXPicon" position="60,208" size="50,30" zPosition="2" alphatest="blend">
+		<widget backgroundColor="epg-service-now-background" name="Active4" position="760,208" size="230,30" zPosition="1" transparent="0" />
+		<widget backgroundColor="epg-service-now-background" name="Active5" position="994,208" size="230,30" zPosition="1" transparent="0" />
+		<widget source="piconCh1" render="MetrixHDXPicon" position="56,208" size="50,30" zPosition="2" alphatest="blend">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
-		<widget source="piconCh2" render="MetrixHDXPicon" position="292,208" size="50,30" zPosition="2" alphatest="blend">
+		<widget source="piconCh2" render="MetrixHDXPicon" position="290,208" size="50,30" zPosition="2" alphatest="blend">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
 		<widget source="piconCh3" render="MetrixHDXPicon" position="524,208" size="50,30" zPosition="2" alphatest="blend">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
-		<widget source="piconCh4" render="MetrixHDXPicon" position="756,208" size="50,30" zPosition="2" alphatest="blend">
+		<widget source="piconCh4" render="MetrixHDXPicon" position="760,208" size="50,30" zPosition="2" alphatest="blend">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
-		<widget source="piconCh5" render="MetrixHDXPicon" position="988,208" size="50,30" zPosition="2" alphatest="blend">
+		<widget source="piconCh5" render="MetrixHDXPicon" position="994,208" size="50,30" zPosition="2" alphatest="blend">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
-		<widget name="list1" position="65,243" scrollbarMode="showAlways" size="227,388" zPosition="1" transparent="0"
+		<widget name="list1" position="56,242" scrollbarMode="showAlways" size="230,388" zPosition="1" transparent="0"
 			TimeForegroundColor="epg-timeline-foreground" 
 			TimeBackgroundColor="epg-timeline-background" 
 			PrimeTimeForegroundColor="epg-primetime-foreground" 
@@ -3122,7 +3124,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 			EntryBorderColor="epg-borderlines" 
 			TimeFontVertical="epg_info;19" 
 			EventFontVertical="epg_event;18"/>
-		<widget name="list2" position="297,243" scrollbarMode="showAlways" size="227,388" zPosition="1"
+		<widget name="list2" position="290,242" scrollbarMode="showAlways" size="230,388" zPosition="1"
 			TimeForegroundColor="epg-timeline-foreground" 
 			TimeBackgroundColor="epg-timeline-background" 
 			PrimeTimeForegroundColor="epg-primetime-foreground" 
@@ -3142,7 +3144,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 			EntryBorderColor="epg-borderlines" 
 			TimeFontVertical="epg_info;19" 
 			EventFontVertical="epg_event;18"/>
-		<widget name="list3" position="529,243" scrollbarMode="showAlways" size="227,388" zPosition="1"
+		<widget name="list3" position="524,242" scrollbarMode="showAlways" size="232,388" zPosition="1"
 			TimeForegroundColor="epg-timeline-foreground" 
 			TimeBackgroundColor="epg-timeline-background" 
 			PrimeTimeForegroundColor="epg-primetime-foreground" 
@@ -3162,7 +3164,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 			EntryBorderColor="epg-borderlines" 
 			TimeFontVertical="epg_info;19" 
 			EventFontVertical="epg_event;18"/>
-		<widget name="list4" position="761,243" scrollbarMode="showAlways" size="227,388" zPosition="1"
+		<widget name="list4" position="760,242" scrollbarMode="showAlways" size="230,388" zPosition="1"
 			TimeForegroundColor="epg-timeline-foreground" 
 			TimeBackgroundColor="epg-timeline-background" 
 			PrimeTimeForegroundColor="epg-primetime-foreground" 
@@ -3182,7 +3184,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 			EntryBorderColor="epg-borderlines" 
 			TimeFontVertical="epg_info;19" 
 			EventFontVertical="epg_event;18"/>
-		<widget name="list5" position="993,243" scrollbarMode="showAlways" size="227,388" zPosition="1"
+		<widget name="list5" position="994,242" scrollbarMode="showAlways" size="230,388" zPosition="1"
 			TimeForegroundColor="epg-timeline-foreground" 
 			TimeBackgroundColor="epg-timeline-background" 
 			PrimeTimeForegroundColor="epg-primetime-foreground" 
@@ -3215,11 +3217,11 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="EPGvertical"/>
 		<!-- DO NOT CHANGE THIS LINE !!!!!!!!!!!!!!! -->
 		<widget enableWrapAround="0" itemHeight="20" font="Regular;0" name="list" position="0,0" size="0,60" zPosition="-10"/>
-		<widget source="session.VideoPicture" render="Pig" position="761,243" size="459,257" backgroundColor="unff000000" zPosition="1"/>
+		<widget source="session.VideoPicture" render="Pig" position="760,243" size="464,262" backgroundColor="unff000000" zPosition="1"/>
 		<widget source="session.CurrentService" render="Label" position="761,208" size="458,30" foregroundColor="epg-service-foreground" backgroundColor="epg-service-background" font="screen_text;19" zPosition="1"  halign="center" valign="center">
 			<convert type="ServiceName">Name</convert>
 		</widget>
-		<widget source="session.CurrentService" render="MetrixHDXPicon" position="1172,209" size="48,28" zPosition="2" alphatest="blend">
+		<widget source="session.CurrentService" render="MetrixHDXPicon" position="1176,209" size="48,28" zPosition="2" alphatest="blend">
 			<convert type="MetrixHDServiceName2">Reference</convert>
 		</widget>
 
