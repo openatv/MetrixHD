@@ -624,7 +624,6 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.EHDfontoffset = ConfigSelectionNumber(-20, 20, 1, default = 0)
     config.plugins.MyMetrixLiteOther.EHDpiconzoom =  ConfigSelection(default = "1.0", choices = [("0", _("No")), ("0.2", _("20%")), ("0.4", _("40%")), ("0.6", _("60%")), ("0.8", _("80%")), ("1.0", _("100%"))])
     config.plugins.MyMetrixLiteOther.EHDadditionalfiles = ConfigYesNo(default=False)
-    config.plugins.MyMetrixLiteOther.piconresize_experimental = ConfigYesNo(default=False)
     #STB-Info
     config.plugins.MyMetrixLiteOther.STBDistance = ConfigSelectionNumber(1, 50, 1, default = 10)
     config.plugins.MyMetrixLiteOther.showCPULoad = ConfigYesNo(default=True)

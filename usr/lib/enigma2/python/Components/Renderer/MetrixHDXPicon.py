@@ -6,9 +6,6 @@ from Renderer import Renderer
 from enigma import ePixmap
 from enigma import iServiceInformation, iPlayableService, iPlayableServicePtr
 from Tools.Directories import fileExists, SCOPE_SKIN_IMAGE, SCOPE_CURRENT_SKIN, resolveFilename
-from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
-from Components.config import config
-from PIL import Image
 
 # For SNP
 from ServiceReference import ServiceReference
@@ -77,25 +74,8 @@ class MetrixHDXPicon(Renderer):
 								pngname = resolveFilename(SCOPE_SKIN_IMAGE, "skin_default/picon_default.png")
 						self.nameCache["default"] = pngname
 				if self.pngname != pngname:
-					if config.plugins.MyMetrixLiteOther.piconresize_experimental.value:
-						im = Image.open(pngname)
-						imw, imh = im.size
-						inh = self.instance.size().height()
-						if imh != inh:
-							sf = float(inh)/imh
-							try:
-								a = im.getbands().index('A')
-							except:
-								im = im.convert('RGBA')
-							im = im.resize((int(imw*sf),int(imh*sf)), Image.ANTIALIAS)
-							tempfile = '/tmp/' + 'temp.png'
-							im.save(tempfile)
-							self.instance.setPixmapFromFile(tempfile)
-						else:
-							self.instance.setPixmapFromFile(pngname)
-					else:
-						self.instance.setPixmapFromFile(pngname)
 					self.instance.setScale(1)
+					self.instance.setPixmapFromFile(pngname)
 					self.pngname = pngname
 			else:
 				self.pngname = ""
