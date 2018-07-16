@@ -10,6 +10,8 @@ from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
 from Components.config import config
 from PIL import Image
 
+initOtherConfig()
+
 # For SNP
 from ServiceReference import ServiceReference
 import re, unicodedata
