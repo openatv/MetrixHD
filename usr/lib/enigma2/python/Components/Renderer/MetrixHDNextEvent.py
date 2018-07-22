@@ -64,6 +64,6 @@ class MetrixHDNextEvent(Renderer, VariableText):
 				if eventNext[0][4]:
 					t = localtime(eventNext[0][1])
 					duration = "%d min" %  (eventNext[0][2] / 60)
-					ENext = _("It follows:") + ' ' + "%02d:%02d  %s\n%s" % (t[3], t[4], duration, eventNext[0][4])
+					ENext = _("Next:") + ' ' + "%02d:%02d  %s\n%s" % (t[3], t[4], duration, eventNext[0][4])
 
 			self.text = ENext
