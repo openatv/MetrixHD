@@ -228,8 +228,10 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 				b=line.find('"',a)
 				c=line.find('"',b+1)
 				name = line[b+1:c]
-
-				sname = name.replace('#deactivatd#','')
+				#// fix old typo
+				name = name.replace('#deactivatd#','#deactivated#')
+				#//
+				sname = name.replace('#deactivated#','')
 				if path.isfile(partpath + sname + '.txt'):
 					f = open(partpath + sname + '.txt', 'r')
 					description = f.read()
@@ -239,8 +241,8 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 				elif path.isfile(partpath + sname + '.jpg'):
 					previewfile = sname + '.jpg'
 
-				if '#deactivatd#' in name:
-					screenname = name.replace('#deactivatd#','')
+				if '#deactivated#' in name:
+					screenname = name.replace('#deactivated#','')
 					enabled = False
 				else:
 					screenname = name
@@ -349,11 +351,15 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 								b=line.find('"',a)
 								c=line.find('"',b+1)
 								name = line[b+1:c]
-								if name.replace('#deactivatd#','') == self.screens[pidx][sidx][1]:
-									if not screen.value and not '#deactivatd#' in name:
-										screenname = '#deactivatd#' + name
-									elif screen.value and'#deactivatd#' in name:
-										screenname = name.replace('#deactivatd#','')
+								#// fix old typo
+								if '#deactivatd#' in name:
+									screenname = name = name.replace('#deactivatd#','#deactivated#')
+								#//
+								if name.replace('#deactivated#','') == self.screens[pidx][sidx][1]:
+									if not screen.value and not '#deactivated#' in name:
+										screenname = '#deactivated#' + name
+									elif screen.value and'#deactivated#' in name:
+										screenname = name.replace('#deactivated#','')
 									if screenname:
 										line = line[:b+1] + screenname + line[c:]
 										source[idx] = line
