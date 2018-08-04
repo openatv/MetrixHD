@@ -365,7 +365,7 @@ class ActivateSkinSettings:
                 moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_2_time" />', '' ])
 
             if config.plugins.MyMetrixLiteOther.showMovieListScrollbar.value:
-                moviePlayerSkinSearchAndReplace.append([',500" scrollbarMode="showNever" font="epg_text;20"', ',500" scrollbarMode="showOnDemand" font="epg_text;20"' ])
+                moviePlayerSkinSearchAndReplace.append([',500" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" font="epg_text;20"', ',500" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" font="epg_text;20"' ])
 
             if config.plugins.MyMetrixLiteOther.showMovieListRunningtext.value:
                 delay = str(config.plugins.MyMetrixLiteOther.runningTextStartdelay.value)
@@ -441,7 +441,7 @@ class ActivateSkinSettings:
             scale = config.plugins.MyMetrixLiteFonts.epgtext_scale.value / 95.0 # 95% standard scale
             if config.plugins.MyMetrixLiteOther.showMovieListScrollbar.value:
                 sizeW = 686 # place for scrollbar
-                EMCSkinSearchAndReplace.append(['foregroundColor="layer-a-foreground" scrollbarMode="showNever" transparent="1" />', 'foregroundColor="layer-a-foreground" scrollbarMode="showOnDemand" transparent="1" />' ])
+                EMCSkinSearchAndReplace.append(['foregroundColor="layer-a-foreground" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" transparent="1" />', 'foregroundColor="layer-a-foreground" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />' ])
 
             if config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "+8":
                 itemHeight = 20
@@ -784,7 +784,7 @@ class ActivateSkinSettings:
                 mode = "showNever"
             margin = str(config.plugins.MyMetrixLiteOther.setFieldMargin.value)
             distance = str(config.plugins.MyMetrixLiteOther.setItemDistance.value)
-            DESIGNSkinSearchAndReplace.append(['scrollbarMode="showNever" fieldMargins="5" itemsDistances="5"', 'scrollbarMode="%s" fieldMargins="%s" itemsDistances="%s"' %(mode,margin,distance)])
+            DESIGNSkinSearchAndReplace.append(['scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5"', 'scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="%s" fieldMargins="%s" itemsDistances="%s"' %(mode,margin,distance)])
 
             if config.plugins.MyMetrixLiteOther.showChannelListRunningtext.value:
                 delay = str(config.plugins.MyMetrixLiteOther.runningTextStartdelay.value)
@@ -884,6 +884,8 @@ class ActivateSkinSettings:
             infobarfont2 = ('name="infobarfont2" value="#00' + config.plugins.MyMetrixLiteColors.infobarfont2.value + '"')
             infobaraccent1 = ('name="infobaraccent1" value="#00' + config.plugins.MyMetrixLiteColors.infobaraccent1.value + '"')
             infobaraccent2 = ('name="infobaraccent2" value="#00' + config.plugins.MyMetrixLiteColors.infobaraccent2.value + '"')
+            scrollbarSlidercolor = ('name="scrollbarSlidercolor" value="#00' + config.plugins.MyMetrixLiteColors.scrollbarSlidercolor.value + '"')
+            scrollbarSliderbordercolor = ('name="scrollbarSliderbordercolor" value="#' + config.plugins.MyMetrixLiteColors.scrollbarSliderbordertransparency.value + config.plugins.MyMetrixLiteColors.scrollbarSliderbordercolor.value + '"')
 
             skinSearchAndReplace = []
             orgskinSearchAndReplace = [] # for some attributes (e.g. borderset)
@@ -956,6 +958,8 @@ class ActivateSkinSettings:
             skinSearchAndReplace.append(['name="infobarfont2" value="#00BDBDBD"', infobarfont2 ])
             skinSearchAndReplace.append(['name="infobaraccent1" value="#00BDBDBD"', infobaraccent1 ])
             skinSearchAndReplace.append(['name="infobaraccent2" value="#006E6E6E"', infobaraccent2 ])
+            skinSearchAndReplace.append(['name="scrollbarSlidercolor" value="#00FFFFFF"', scrollbarSlidercolor ])
+            skinSearchAndReplace.append(['name="scrollbarSliderbordercolor" value="#0027408B"', scrollbarSliderbordercolor ])
 
             #Borderset screens
             w = 5
@@ -1688,6 +1692,8 @@ class ActivateSkinSettings:
 		i = 0
 		i_save = i
 		for line in f.readlines(): 
+			line = line.replace('scrollbarWidth="10"', 'scrollbarWidth="%s"' %config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth.value)
+
 			i += 1
 			try: 
 #start additional files

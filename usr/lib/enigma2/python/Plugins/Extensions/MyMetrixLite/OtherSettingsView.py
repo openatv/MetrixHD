@@ -486,6 +486,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         list.append(getConfigListEntry(tab + _("Choose skin resolution"), config.plugins.MyMetrixLiteOther.EHDenabled, _("helptext"),"ENABLED_EHD"))
         if self.EHDenabled:
+            list.append(getConfigListEntry(tab + _("Scrollbar Slider width"), config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth, _("Currently only for FHD Resolution."),))
             list.append(getConfigListEntry(tab + _("All calculated values round down"), config.plugins.MyMetrixLiteOther.EHDrounddown, _("helptext")))
             #list.append(getConfigListEntry(_("Method of font scaling"), config.plugins.MyMetrixLiteOther.EHDfontsize))
             # EHDfontsize deactivated

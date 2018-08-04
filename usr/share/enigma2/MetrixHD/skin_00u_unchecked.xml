@@ -51,7 +51,7 @@
 	<screen name="CrashlogAutoSubmitConfiguration" position="0,0" size="1280,720" title="CrashlogAutoSubmit settings" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<eLabel text="CrashlogAutoSubmit settings" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,120" size="840,450" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
+		<widget name="config" position="70,120" size="840,450" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
 		<widget source="status" render="Label" position="70,595" size="800,28" font="SetrixHD;22" halign="center" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="HelpWindow" position="818,25" size="402,128" zPosition="1" transparent="1" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
@@ -85,7 +85,7 @@
 		</widget>
 		<eLabel position="146,145" size="990,1" backgroundColor="layer-a-accent1" />
 		<widget name="timeline_text" position="0,305" size="1280,25" selectionDisabled="1" transparent="1" />
-		<widget name="list" position="70,335" size="1160,300" itemHeight="60" EntryBorderColor="layer-a-foreground" EntryBackgroundColor="layer-a-background" EntryBackgroundColorSelected="layer-a-accent1" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="list" position="70,335" size="1160,300" itemHeight="60" EntryBorderColor="layer-a-foreground" EntryBackgroundColor="layer-a-background" EntryBackgroundColorSelected="layer-a-accent1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<widget name="timeline0" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/colors/00ffffff.png" />
 		<widget name="timeline1" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/colors/00ffffff.png" />
 		<widget name="timeline2" position="0,398" zPosition="1" size="1,230" pixmap="MetrixHD/colors/00ffffff.png" />
@@ -102,7 +102,7 @@
 	<screen name="MovieEpgSetup" position="0,0" size="1280,720" title="MovieEpg Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<widget source="Title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,120" size="700,400" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,120" size="700,400" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,530" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget source="help" render="Label" position="70,540" size="700,88" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
@@ -134,12 +134,12 @@
 		<eLabel position="0,0" zPosition="-10" size="400,723" backgroundColor="layer-a-background" />
 		<eLabel text="Select a movie" position="12,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Movielist menu" position="31,115" size="700,28" font="SetrixHD;23" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="menu" position="14,196" size="350,450" zPosition="3" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
+		<widget name="menu" position="14,196" size="350,450" zPosition="3" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
 	</screen>
 	<screen name="RecordPathsSettings" position="0,0" size="1280,720" title="Recording paths..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<eLabel text="Recording paths" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,120" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,120" size="700,510" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,638" size="240,30" zPosition="1" valign="center" font="global_button;20" backgroundColor="layer-a-background" transparent="1" />
@@ -164,7 +164,7 @@
 	</screen>
 	<!-- <screen name="SubtitleDisplay" position="0,0" size="1280,720" zPosition="-1" flags="wfNoBorder" /> -->
 	<screen name="TimeInput" position="center,280" size="500,145" title="Time Input" backgroundColor="layer-a-background">
-		<widget name="config" position=" 10, 10" size="480,90" itemHeight="30" scrollbarMode="showOnDemand" />
+		<widget name="config" position=" 10, 10" size="480,90" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" />
 		<eLabel position="0,115" size="500,30" zPosition="1" backgroundColor="layer-a-background" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 20,117" size="30,30" zPosition="2" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="210,117" size="30,30" zPosition="2" alphatest="blend" />
@@ -177,7 +177,7 @@
 	<screen name="AutoTimeshift" position="0,0" size="1280,720" title="Auto Timeshift Configuration" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<widget source="Title" render="Label" position="58,36" size="730,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,130" size="710,480" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" position="70,130" size="710,480" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="270,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="470,635" size="30,40" alphatest="blend" />
@@ -190,7 +190,7 @@
 	</screen>
 	<screen name="WlanSelection" position="0,0" size="1280,720" title="Wireless Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Wireless Network Adapter Selection..." position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="menulist" position="70,120" size="340,438" transparent="1" backgroundColor="layer-a-background" zPosition="10" scrollbarMode="showOnDemand" />
+		<widget name="menulist" position="70,120" size="340,438" transparent="1" backgroundColor="layer-a-background" zPosition="10" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" />
 		<widget source="description" render="Label" position="810,415" size="415,190" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
@@ -200,7 +200,7 @@
 	</screen>
 	<screen name="WlanSetup" position="0,0" size="1280,720" title="Wireless Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Wireless Network Setup Menu..." position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="menulist" position="70,119" size="360,438" transparent="1" backgroundColor="layer-a-background" zPosition="10" scrollbarMode="showOnDemand" />
+		<widget name="menulist" position="70,119" size="360,438" transparent="1" backgroundColor="layer-a-background" zPosition="10" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" />
 		<widget source="description" render="Label" position="810,415" size="415,190" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
@@ -210,7 +210,7 @@
 	</screen>
 	<screen name="WlanConfig" position="0,0" size="1280,720" title="Wireless Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Wireless Network Configuration..." position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,119" size="700,380" transparent="1" backgroundColor="layer-a-background" zPosition="10" scrollbarMode="showOnDemand" />
+		<widget name="config" position="70,119" size="700,380" transparent="1" backgroundColor="layer-a-background" zPosition="10" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" />
 		<eLabel text="IP Address : " position="70,510" size="200,26" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="ipaddress" render="Label" position="285,510" zPosition="1" size="200,26" font="SetrixHD;22" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="NetMask : " position="70,550" size="200,26" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
@@ -225,7 +225,7 @@
 	</screen>
 	<screen name="WlanScanAp" position="0,0" size="1280,720" title="Wireless Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Wireless Network AP Scan..." position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="menulist" position="70,120" size="360,480" transparent="1" backgroundColor="layer-a-background" zPosition="10" scrollbarMode="showOnDemand" />
+		<widget name="menulist" position="70,120" size="360,480" transparent="1" backgroundColor="layer-a-background" zPosition="10" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" />
 		<widget source="Address" render="Label" position="470,120" zPosition="1" size="300,30" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="ESSID" render="Label" position="470,149" zPosition="1" size="300,30" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="Protocol" render="Label" position="470,180" zPosition="1" size="300,30" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" />
@@ -253,7 +253,7 @@
 		<eLabel text="CD Info" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="info" render="Label" position="70,120" size="700,50" font="SetrixHD;21" transparent="1" />
 		<eLabel position="70,190" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget name="config" position="70,200" size="700,300" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" position="70,200" size="700,300" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<eLabel position="70,510" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget source="info2" render="Label" position="70,520" size="700,100" font="SetrixHD;21" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
@@ -268,7 +268,7 @@
 	<screen name="ProjectSettings" position="0,0" size="1280,720" title="Collection settings" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,140" size="700,300" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" position="70,140" size="700,300" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<widget source="info" render="Label" position="70,470" size="700,100" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
@@ -285,7 +285,7 @@
 		<eLabel text="Select a movie" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="Title" render="Label" position="70,100" size="700,56" font="SetrixHD;23" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,185" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget name="list" position="70,200" size="700,375" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="list" position="70,200" size="700,375" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<eLabel position="70,593" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="freeDiskSpace" position="70,602" size="700,25" font="SetrixHD;20" valign="center" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="Service" render="Label" position="801,116" size="430, 50" font="SetrixHD;22" foregroundColor="yellow" backgroundColor="layer-a-background" transparent="1">
@@ -336,7 +336,7 @@
 		<widget source="title_label" render="Label" position="70,100" size="700,56" font="SetrixHD;23" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="error_label" position="70,100" size="700,400" zPosition="3" font="SetrixHD;20" backgroundColor="layer-a-background" />
 		<eLabel position="70,185" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget source="titles" render="Listbox" position="70,195" size="700,360" scrollbarMode="showOnDemand" transparent="1">
+		<widget source="titles" render="Listbox" position="70,195" size="700,360" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryText(pos = ( 10, 2), size = (490, 28), font = 0, flags = RT_HALIGN_LEFT, text = 1), # index 1 Title,
@@ -380,7 +380,7 @@
 		<widget name="Timeline" position="70,597" size="700,20" backgroundColor="un808888" pointer="skin_default/position_arrow.png:3,5" foregroundColor="layer-a-background" />
 		<eLabel position="800,130" size="420,440" zPosition="1" backgroundColor="layer-a-foreground" />
 		<eLabel position="802,132" size="416,436" zPosition="2" backgroundColor="layer-a-background" />
-		<widget source="cutlist" render="Listbox" position="810,140" size="400,420" zPosition="3" scrollbarMode="showOnDemand">
+		<widget source="cutlist" render="Listbox" position="810,140" size="400,420" zPosition="3" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand">
 			<convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryText(pos=(0,4), size=(280, 22), text = 1, flags = RT_HALIGN_CENTER, backcolor = MultiContentTemplateColor(3)),
@@ -399,7 +399,7 @@
 		<widget name="thumbnail" position=" 70,120" size="260,160" alphatest="blend" />
 		<widget source="serviceinfo" render="Label" position="350,120" size="420,160" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position=" 70,295" size="700,2" backgroundColor="layer-a-foreground" />
-		<widget name="config" position=" 70,315" size="700,300" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position=" 70,315" size="700,300" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="940,635" size="30,40" alphatest="blend" />
@@ -412,7 +412,7 @@
 	<screen name="FilebrowserConfigScreen" position="0,0" size="1280,720" title="" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,100" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<widget name="buttonred" position="105,638" size="240,30" zPosition="1" valign="center" font="global_button;20" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -422,9 +422,9 @@
 	<screen name="FilebrowserScreen" position="0,0" size="1280,720" title="" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list_left" position=" 70,115" size="550,510" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list_left" position=" 70,115" size="550,510" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="639,115" size="2,510" backgroundColor="layer-a-accent1" />
-		<widget name="list_right" position="660,115" size="550,510" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list_right" position="660,115" size="550,510" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="650,635" size="30,40" alphatest="blend" />
@@ -438,7 +438,7 @@
 	<screen name="MovieTagEditor" position="0,0" size="1280,720" title="edit tags..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<eLabel text="edit tags..." position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,130" size="700,480" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="list" position="70,130" size="700,480" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="650,635" size="30,40" alphatest="blend" />
@@ -484,8 +484,8 @@
 	<screen name="MyTubePlayerMainScreen" position="0,0" size="1280,720" title="MyTubePlayerMainScreen..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<eLabel text="MyTubePlayer" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,120" size="710,28" zPosition="3" scrollbarMode="showNever" transparent="1" />
-		<widget source="feedlist" render="Listbox" position="70,170" size="710,420" scrollbarMode="showOnDemand" transparent="1">
+		<widget name="config" position="70,120" size="710,28" zPosition="3" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" transparent="1" />
+		<widget source="feedlist" render="Listbox" position="70,170" size="710,420" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 					{"templates":
 					 {"default": (105,[
@@ -522,7 +522,7 @@
 	<screen name="MyTubeSettingsScreen" position="0,0" size="1280,720" title="MyTubeSettingsScreen" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<widget name="title" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,120" size="700,480" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,120" size="700,480" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap position="1050,460" size="100,40" zPosition="4" pixmap="~/pluginmanager.png" alphatest="blend" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
@@ -531,7 +531,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/youtube.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="MyTubeSuggestionsListScreen" position="73,200" size="692,290" title="MyTubeSuggestionsListScreen..." zPosition="6" backgroundColor="layer-a-background">
-		<widget source="suggestionslist" render="Listbox" position="10,10" zPosition="7" size="670,270" scrollbarMode="showOnDemand" transparent="1">
+		<widget source="suggestionslist" render="Listbox" position="10,10" zPosition="7" size="670,270" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryText(pos = (10, 2), size = (420, 25), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
@@ -546,7 +546,7 @@
 	<screen name="MyTubeTasksScreen" position="0,0" size="1280,720" title="MyTubeTasksScreen" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<widget name="title" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="tasklist" render="Listbox" position="70,120" size="700,480" zPosition="3" scrollbarMode="showOnDemand" transparent="1">
+		<widget source="tasklist" render="Listbox" position="70,120" size="700,480" zPosition="3" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryText(pos = (10, 3), size = (250, 24), font=1, flags = RT_HALIGN_LEFT, text = 1), # index 1 is the name
@@ -576,7 +576,7 @@
 	<screen name="MyTubeVideoInfoScreen" position="0,0" size="1280,720" title="MyTubePlayerMainScreen..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<widget name="title" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="infolist" render="Listbox" position="70,100" size="700,130" zPosition="6" scrollbarMode="showNever" selectionDisabled="1" transparent="1">
+		<widget source="infolist" render="Listbox" position="70,100" size="700,130" zPosition="6" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" selectionDisabled="1" transparent="1">
 			<convert type="TemplatedMultiContent">
 			{"templates":
 				{"default": (130,[
@@ -619,8 +619,8 @@
 		<widget name="playlist_text" position="230,112" zPosition="4" size="150,23" font="SetrixHD;20" halign="center" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,143" size="720,464" zPosition="1" backgroundColor="layer-a-accent1" />
 		<eLabel position="72,145" size="716,460" zPosition="2" backgroundColor="layer-a-background" />
-		<widget name="filelist" position="80,155" size="700,437" zPosition="3" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="playlist" position="80,155" size="700,437" zPosition="3" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="filelist" position="80,155" size="700,437" zPosition="3" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="playlist" position="80,155" size="700,437" zPosition="3" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="265,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="470,635" size="30,40" alphatest="blend" />
@@ -639,7 +639,7 @@
 		<eLabel text="Select a VLC-Server Profile" position="830,120" size="410,29" font="SetrixHD;26" halign="center" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="serverlabel" position="70,100" size="720,25" font="SetrixHD;20" transparent="1" />
 		<eLabel position="70,143" size="720,464" zPosition="1" backgroundColor="layer-a-accent1" />
-		<widget name="serverlist" position="80,155" size="700,437" zPosition="3" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
+		<widget name="serverlist" position="80,155" size="700,437" zPosition="3" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="265,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="470,635" size="30,40" alphatest="blend" />
@@ -656,7 +656,7 @@
 		<panel name="template1_1layer" />
 		<eLabel text="VLC Video Player" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Edit VLC Server" position="830,120" size="410,29" font="SetrixHD;26" halign="center" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,120" size="730,490" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
+		<widget name="config" position="70,120" size="730,490" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
 		<ePixmap name="red" pixmap="MetrixHD/buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
 		<ePixmap name="green" pixmap="MetrixHD/buttons/key_green.png" position="610,635" size="30,40" alphatest="blend" />
 		<widget name="key_red" position="104,638" size="180,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -669,7 +669,7 @@
 		<panel name="template1_1layer" />
 		<widget name="headertext" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="statustext" position=" 70,120" size="1140,378" zPosition="1" font="SetrixHD;22" halign="center" valign="center" backgroundColor="layer-a-background" transparent="0" />
-		<widget name="list" position=" 70,120" size="1140,378" font="screen_text; 20" zPosition="2" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="0" />
+		<widget name="list" position=" 70,120" size="1140,378" font="screen_text; 20" zPosition="2" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="0" />
 		<eLabel position=" 70,510" size="1140,2" backgroundColor="layer-a-accent1" />
 		<widget name="cover" position=" 70,515" size="110,110" backgroundColor="layer-a-background" alphatest="blend" />
 		<widget name="titel" position="210,520" size="880,25" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
@@ -690,7 +690,7 @@
 		<eLabel position="800,120" size="430,244" zPosition="2" backgroundColor="layer-a-foreground" />
 		<eLabel position="802,122" size="426,240" zPosition="3" backgroundColor="layer-a-background" />
 		<eLabel text="SHOUTcast Setup" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,130" size="700,480" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" position="70,130" size="700,480" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -704,7 +704,7 @@
 		<eLabel text="Select record path for streamripper" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="target" position="70,100" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget name="filelist" position="70,165" size="700,450" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="filelist" position="70,165" size="700,450" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -715,7 +715,7 @@
 	<screen name="RSSSetup" position="0,0" size="1280,720" title="Simple RSS Reader Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<eLabel text="Simple RSS Reader Setup" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,120" size="700,450" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" position="70,120" size="700,450" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="650,635" size="30,40" alphatest="blend" />
@@ -739,7 +739,7 @@
 		<eLabel text="RSSFeedView" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="info" render="Label" position="70,100" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget source="content" render="Listbox" position="70,165" size="700,350" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1">
+		<widget source="content" render="Listbox" position="70,165" size="700,350" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryText(pos=(10, 5), size=(680, 60), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_WRAP, text = 0)
@@ -766,7 +766,7 @@
 	<!-- WebInterface -->
 	<screen name="WebIfConfigScreen" position="0,0" size="1280,720" title="Main Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Webinterface" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,130" size="700,480" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" position="70,130" size="700,480" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
@@ -780,7 +780,7 @@
 		<widget source="city" render="Label" position=" 70,115" size="150,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="language" render="Label" position="225,115" size="500,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position=" 70,155" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget name="entrylist" position=" 70,165" size="710,450" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="entrylist" position=" 70,165" size="710,450" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="650,635" size="30,40" alphatest="blend" />
@@ -794,7 +794,7 @@
 	<screen name="WeatherPluginEntryConfigScreen" position="0,0" size="1280,720" title="WeatherPlugin: Edit Entry" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<eLabel text="WeatherPlugin: Edit Entry" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position=" 70,115" size="710,510" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position=" 70,115" size="710,510" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="940,635" size="30,40" alphatest="blend" />
@@ -836,7 +836,7 @@
 		<ePixmap position="869,265" size="330,204" pixmap="MetrixHD/menu/vti.png" alphatest="blend" transparent="1" />
 <!-- cf#_#begin -->
 		<widget source="title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="menu" render="Listbox" position="70,100" size="690,500" scrollbarMode="showOnDemand" transparent="1">
+		<widget source="menu" render="Listbox" position="70,100" size="690,500" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
 							MultiContentEntryPixmapAlphaTest(pos = (2, 2), size = (44, 44), png = 3), # index 4 is the status pixmap
@@ -862,7 +862,7 @@
 		<ePixmap position="869,265" size="330,204" pixmap="MetrixHD/menu/vti.png" alphatest="blend" transparent="1" />
 <!-- cf#_#begin -->
 		<eLabel text="Restore Backups" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="filelist" position="70,100" size="690,480" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="filelist" position="70,100" size="690,480" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="650,635" size="30,40" alphatest="blend" />
@@ -878,7 +878,7 @@
 <!-- cf#_#begin -->
 		<widget source="title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="status" position="70,100" size="700,28" font="SetrixHD;23" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="menu" render="Listbox" position="70,100" size="690,500" scrollbarMode="showOnDemand" transparent="1">
+		<widget source="menu" render="Listbox" position="70,100" size="690,500" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
 							MultiContentEntryPixmapAlphaTest(pos = (2, 2), size = (44, 44), png = 3), # index 4 is the status pixmap
@@ -902,7 +902,7 @@
 		<ePixmap position="890,175" size="330,204" pixmap="MetrixHD/menu/vti.png" alphatest="blend" transparent="1" />
 <!-- cf#_#begin -->
 		<widget source="title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="downloadmenu" render="Listbox" position="70,100" size="690,500" scrollbarMode="showOnDemand" transparent="1">
+		<widget source="downloadmenu" render="Listbox" position="70,100" size="690,500" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
 							MultiContentEntryPixmapAlphaTest(pos = (2, 2), size = (44, 44), png = 3), # index 4 is the status pixmap
@@ -928,7 +928,7 @@
 		<widget source="title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="driverfile" position="70,100" size="700,28" font="SetrixHD;23" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget name="filelist" position="70,165" size="700,450" zPosition="3" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="filelist" position="70,165" size="700,450" zPosition="3" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -955,7 +955,7 @@
 		<eLabel position="208,410" zPosition="-1" size="368,70" backgroundColor="layer-a-background" transparent="0" />
 		<!--ClockWidget */-->
 		<widget source="title" render="Label" position="0,550" size="1273,296" font="SetrixHD;150" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="top" zPosition="-50" />
-		<widget source="list" render="Listbox" position="596,110" size="530,490" scrollbarMode="showNever" backgroundColor="layer-a-background" enableWrapAround="1" transparent="1">
+		<widget source="list" render="Listbox" position="596,110" size="530,490" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" backgroundColor="layer-a-background" enableWrapAround="1" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryText(pos = (75, 7), size = (600, 24), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0), # index 2 is the description
@@ -983,21 +983,21 @@
 		<panel name="template1_1layer" />
 		<ePixmap position="870,560" zPosition="-9" size="350,44" pixmap="MetrixHD/menu/db.png" alphatest="blend" transparent="1" />
 		<eLabel text="NTP-Server Contenant Selection" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="menu" position="70,120" size="700,480" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="menu" position="70,120" size="700,480" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<ePixmap position="890,175" size="256,256" pixmap="MetrixHD/icons/setup.png" alphatest="blend" transparent="1" />
 	</screen>
 	<screen name="SelectCountry" position="0,0" size="1280,720" title="NTP-Server Country Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<ePixmap position="870,560" zPosition="-9" size="350,44" pixmap="MetrixHD/menu/db.png" alphatest="blend" transparent="1" />
 		<eLabel text="NTP-Server Country Selection" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="countrymenu" position="70,120" size="700,480" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="countrymenu" position="70,120" size="700,480" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<ePixmap position="890,175" size="256,256" pixmap="MetrixHD/icons/setup.png" alphatest="blend" transparent="1" />
 	</screen>
 	<screen name="ManualFancontrol" position="0,0" size="1280,720" title="Fancontrol Settings in Standby mode" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<ePixmap position="870,560" zPosition="-9" size="350,44" pixmap="MetrixHD/menu/db.png" alphatest="blend" transparent="1" />
 		<eLabel text="Fancontrol Settings in Standby mode" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" zPosition="2" position="68,115" size="700,420" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" zPosition="2" position="68,115" size="700,420" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<widget source="current" render="Label" position="70,560" zPosition="1" size="700,30" font="SetrixHD;24" foregroundColor="orange" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,30" alphatest="on" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,30" alphatest="on" />
@@ -1020,7 +1020,7 @@
 		<ePixmap position="870,560" zPosition="-9" size="350,44" pixmap="MetrixHD/menu/db.png" alphatest="blend" transparent="1" />
 		<eLabel text="FPGA Upgrade" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="status" render="Label" position="70,120" zPosition="1" size="700,32" font="SetrixHD;24" halign="left" backgroundColor="layer-a-background" transparent="1" foregroundColor="yellow" />
-		<widget name="file_list" position="70,160" size="700,420" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="file_list" position="70,160" size="700,420" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,30" alphatest="on" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,30" alphatest="on" />
 		<!--<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="650,635" size="30,30" alphatest="on" />-->
@@ -1040,7 +1040,7 @@
 		<widget render="Label" source="key_red" position="105,638" size="140,30" zPosition="5" halign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" valign="center" font="global_button;20" transparent="1" />
 		<widget render="Label" source="key_green" position="285,638" size="140,30" zPosition="5" halign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" valign="center" font="global_button;20" transparent="1" />
 		<widget render="Label" source="key_yellow" position="465,638" size="140,30" zPosition="5" halign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" valign="center" font="global_button;20" transparent="1" />
-		<widget source="menu" render="Listbox" position="70,100" size="710,500" scrollbarMode="showOnDemand">
+		<widget source="menu" render="Listbox" position="70,100" size="710,500" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand">
 			<convert type="TemplatedMultiContent" transparent="0">
 				{"template": [
 						MultiContentEntryPixmapAlphaTest(pos = (4, 2), size = (48, 48), png = 2),
@@ -1062,7 +1062,7 @@
 		<widget render="Label" source="key_red" position="105,638" size="140,30" zPosition="5" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" valign="center" font="global_button;20" transparent="1" />
 		<widget render="Label" source="key_green" position="285,638" size="140,30" zPosition="5" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" valign="center" font="global_button;20" transparent="1" />
 		<widget render="Label" source="key_yellow" position="465,638" size="140,30" zPosition="5" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" valign="center" font="global_button;20" transparent="1" />
-		<widget name="config" zPosition="2" position="70,120" size="710,490" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" zPosition="2" position="70,120" size="710,490" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<ePixmap position="890,175" size="256,256" pixmap="MetrixHD/icons/setup.png" alphatest="blend" transparent="1" />
 	</screen>
 	<screen name="InputPanelPassword" position="0,0" size="1280,720" title="Change password for VTI Panel" flags="wfNoBorder" backgroundColor="transparent">
@@ -1072,7 +1072,7 @@
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="250,635" size="30,30" alphatest="on" />
 		<widget render="Label" source="key_red" position="105,638" size="140,30" zPosition="5" halign="left" backgroundColor="layer-a-background" valign="center" font="global_button;20" transparent="1" />
 		<widget render="Label" source="key_green" position="285,638" size="140,30" zPosition="5" halign="left" backgroundColor="layer-a-background" valign="center" font="global_button;20" transparent="1" />
-		<widget name="config" zPosition="2" position="70,120" size="710,490" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" zPosition="2" position="70,120" size="710,490" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<ePixmap position="890,175" size="256,256" pixmap="MetrixHD/icons/setup.png" alphatest="blend" transparent="1" />
 	</screen>
 	<screen name="VuplusAuthenticity" position="0,0" size="1280,720" title="Return the Love Event (only for genuine box)" flags="wfNoBorder" backgroundColor="transparent">
@@ -1082,7 +1082,7 @@
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="250,635" size="30,30" alphatest="on" />
 		<widget source="key_red" render="Label" position="105,638" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_green" render="Label" position="285,638" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" zPosition="2" position="70,120" size="710,280" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" zPosition="2" position="70,120" size="710,280" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<widget name="text1" position="70,420" size="710,70" font="SetrixHD;32" halign="center" valign="center" />
 		<widget name="text2" position="70,510" size="710,110" font="SetrixHD;18" halign="center" valign="center" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
@@ -1152,7 +1152,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<ePixmap position="869,265" size="330,204" pixmap="MetrixHD/menu/vti.png" alphatest="blend" transparent="1" />
 <!-- cf#_#begin -->
 		<widget source="title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="menu" render="Listbox" position="70,130" size="690,480" scrollbarMode="showOnDemand" transparent="1">
+		<widget source="menu" render="Listbox" position="70,130" size="690,480" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryPixmapAlphaTest(pos = (5, 2), size = (48, 48), png = 1),
@@ -1182,7 +1182,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<ePixmap position="869,265" size="330,204" pixmap="MetrixHD/menu/vti.png" alphatest="blend" transparent="1" />
 <!-- cf#_#begin -->
 		<widget source="title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="showexe" position="70,123" scrollbarMode="showOnDemand" size="680,480" transparent="1" />
+		<widget name="showexe" position="70,123" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" size="680,480" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="650,635" size="30,40" alphatest="blend" />
@@ -1199,7 +1199,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<ePixmap position="869,265" size="330,204" pixmap="MetrixHD/menu/vti.png" alphatest="blend" transparent="1" />
 <!-- cf#_#begin -->
 		<widget source="title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,123" scrollbarMode="showOnDemand" size="680,480" transparent="1" />
+		<widget name="config" position="70,123" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" size="680,480" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -1212,7 +1212,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<ePixmap position="869,265" size="330,204" pixmap="MetrixHD/menu/vti.png" alphatest="blend" transparent="1" />
 <!-- cf#_#begin -->
 		<widget source="title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,123" scrollbarMode="showOnDemand" size="680,480" transparent="1" />
+		<widget name="config" position="70,123" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" size="680,480" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -1227,7 +1227,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<widget source="title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="executable" position="70,100" size="700,28" font="SetrixHD;23" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget name="filelist" position="70,165" size="700,450" zPosition="3" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="filelist" position="70,165" size="700,450" zPosition="3" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_blue.png" position="940,635" size="30,40" alphatest="blend" />
@@ -1244,7 +1244,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<widget source="title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="status" position="70,100" size="700,60" font="SetrixHD;23" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,185" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget name="config" position="70,195" size="700,420" zPosition="3" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,195" size="700,420" zPosition="3" itemHeight="30" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -1258,7 +1258,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="290,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,638" zPosition="1" size="180,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_green" render="Label" position="325,638" zPosition="1" size="180,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" zPosition="2" position="70,120" size="650,500" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" zPosition="2" position="70,120" size="650,500" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/ui.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- UIPositionSetup by Maggy -->
@@ -1268,7 +1268,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="782,675" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="380,678" zPosition="1" size="180,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_green" render="Label" position="820,678" zPosition="1" size="180,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" zPosition="2" position="162,316" size="948,305" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" zPosition="2" position="162,316" size="948,305" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<eLabel name="new eLabel" position="6,6" size="20,20" backgroundColor="red" />
 		<eLabel name="new eLabel" position="1254,6" size="20,20" backgroundColor="red" />
 		<eLabel name="new eLabel" position="1254,694" size="20,20" backgroundColor="red" />
@@ -1283,7 +1283,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="230,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,638" zPosition="1" size="100,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_green" render="Label" position="265,638" zPosition="1" size="100,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="100,145" size="309,100" scrollbarMode="showOnDemand" />
+		<widget name="config" position="100,145" size="309,100" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" />
 		<ePixmap pixmap="MetrixHD/menu/rc_wb_desc.png" position="100,250" size="309,296" alphatest="blend" />
 		<widget name="info" position="100,550" size="309,70" font="SetrixHD;18" halign="center" foregroundColor="red" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/webb.png" transparent="1" alphatest="blend" />
@@ -1299,14 +1299,14 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<widget source="key_green" render="Label" position="305,638" zPosition="1" size="180,30" valign="center" font="global_button;20" halign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_yellow" render="Label" position="505,638" zPosition="1" size="180,30" valign="center" font="global_button;20" halign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_blue" render="Label" position="705,638" zPosition="1" size="180,30" valign="center" font="global_button;20" halign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" zPosition="2" position="70,120" size="710,500" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" zPosition="2" position="70,120" size="710,500" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/hdmicec.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="CrashlogReportConfiguration" position="center,center" size="1280,720" title="CrashlogReport Setting" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<widget source="Title" render="Label" position="58,36" size="700,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,544" size="710,2" backgroundColor="layer-a-accent1" />
-		<widget name="config" zPosition="2" position="70,100" itemHeight="30" size="710,420" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" zPosition="2" position="70,100" itemHeight="30" size="710,420" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<widget source="status" render="Label" position="70,550" size="710,70" zPosition="10" backgroundColor="layer-a-background" font="SetrixHD;20" halign="center" valign="center" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position=" 70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
@@ -1321,7 +1321,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="250,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,638" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_green" render="Label" position="285,638" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" zPosition="2" position="70,120" size="710,500" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" zPosition="2" position="70,120" size="710,500" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/fan.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="LEDBrightnessSetup" position="0,0" size="1280,720" title="LED Brightness Setup" flags="wfNoBorder" backgroundColor="transparent">
@@ -1333,7 +1333,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<widget source="key_red" render="Label" position="105,638" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_green" render="Label" position="285,638" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_yellow" render="Label" position="465,638" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" zPosition="2" position="70,120" size="710,455" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="config" zPosition="2" position="70,120" size="710,455" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<widget name="current_entry" position="70,585" size="710,40" font="SetrixHD;18" halign="center" valign="center" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/led.png" transparent="1" alphatest="blend" />
 	</screen>
@@ -1345,7 +1345,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<eLabel name="a" position="1,1" size="708,468" backgroundColor="layer-a-background" zPosition="-1" />
 		<eLabel name="line" position="1,45" size="709,1" backgroundColor="layer-a-accent1" zPosition="1" />
 		<widget name="text" position="0,50" font="screen_text;20" size="710,25" foregroundColor="layer-a-accent1" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
-		<widget name="list_left" position="5,80" size="700,295" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="list_left" position="5,80" size="700,295" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="start_progress" position="45,150" size="620,15" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="1" transparent="1" />
 		<widget name="text2" position="0,175" font="screen_text;22" size="710,60" foregroundColor="layer-a-accent1" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
 		<widget name="text1" position="0,390" font="screen_text;22" size="710,30" foregroundColor="layer-a-accent1" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
@@ -1363,7 +1363,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<eLabel name="b" position="0,0" size="710,300" backgroundColor="layer-b-background" zPosition="-2" />
 		<eLabel name="a" position="1,1" size="708,298" backgroundColor="layer-a-background" zPosition="-1" />
 		<eLabel name="line" position="1,45" size="709,1" backgroundColor="layer-a-accent1" zPosition="1" />
-		<widget name="config" position="5,50" size="695,210" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="5,50" size="695,210" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,259" size="30,40" transparent="1" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="183,259" size="30,40" transparent="1" alphatest="blend" />
 		<widget source="key_red" render="Label" position="35,262" zPosition="1" size="170,30" font="global_button;20" halign="left" valign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1"/>
@@ -1375,7 +1375,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<eLabel name="a" position="1,1" size="708,468" backgroundColor="layer-a-background" zPosition="-1" />
 		<eLabel name="line" position="1,45" size="709,1" backgroundColor="layer-a-accent1" zPosition="1" />
 		<widget name="text" position="0,50" font="screen_text;20" size="710,25" foregroundColor="layer-a-accent1" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
-		<widget name="list_left" position="5,80" size="700,295" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="list_left" position="5,80" size="700,295" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="poraka" render="Label" position="0,390" size="710,30" font="screen_text;22" foregroundColor="layer-a-accent1" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,429" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="183,429" size="30,40" alphatest="blend" />
@@ -1387,7 +1387,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<eLabel name="b" position="0,0" size="710,300" backgroundColor="layer-b-background" zPosition="-2" />
 		<eLabel name="a" position="1,1" size="708,298" backgroundColor="layer-a-background" zPosition="-1" />
 		<eLabel name="line" position="1,45" size="709,1" backgroundColor="layer-a-accent1" zPosition="1" />
-		<widget name="list" position="5,50" size="695,180" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="list" position="5,50" size="695,180" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="poraka" render="Label" position="0,230" size="710,30" font="screen_text;22" foregroundColor="layer-a-accent1" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,259" size="30,40" transparent="1" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="183,259" size="30,40" transparent="1" alphatest="blend" />
@@ -1399,7 +1399,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<eLabel name="b" position="0,0" size="710,300" backgroundColor="layer-b-background" zPosition="-2" />
 		<eLabel name="a" position="1,1" size="708,298" backgroundColor="layer-a-background" zPosition="-1" />
 		<eLabel name="line" position="1,45" size="709,1" backgroundColor="layer-a-accent1" zPosition="1" />
-		<widget name="list" position="5,50" size="695,210" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="list" position="5,50" size="695,210" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="poraka" render="Label" position="0,230" size="710,30" font="screen_text;22" foregroundColor="layer-a-accent1" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,259" size="30,40" transparent="1" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="183,259" size="30,40" transparent="1" alphatest="blend" />
