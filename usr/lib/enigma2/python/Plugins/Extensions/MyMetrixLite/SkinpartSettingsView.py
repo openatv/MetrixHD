@@ -81,6 +81,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
         self["zoomBtn"].setText(_("Zoom"))
 
         initOtherConfig()
+        self.linkGlobalSkinParts()
         self.getSkinParts()
 
         ConfigListScreen.__init__(
@@ -160,6 +161,19 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			pidx += 1
 
 		return list
+
+    def linkGlobalSkinParts(self):
+		from os import symlink, makedirs
+		dir_global_skinparts = "/usr/share/enigma2/skinparts"
+		dir_local_skinparts = "/usr/share/enigma2/MetrixHD/skinparts"
+		if path.exists(dir_global_skinparts):
+			for d in listdir(dir_global_skinparts):
+				if path.exists(dir_global_skinparts + "/" + d + "/" + d + ".xml"):
+					if not path.exists(dir_local_skinparts + "/" + d):
+						makedirs(dir_local_skinparts + "/" + d)
+					for f in listdir(dir_global_skinparts + "/" + d):
+						if not path.exists(dir_local_skinparts + "/" + d + "/" + f):
+							symlink(dir_global_skinparts + "/" + d + "/" + f, dir_local_skinparts + "/" + d + "/" + f)
 
     def getSkinParts(self):
 		self.parts = {}
