@@ -375,6 +375,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 
         if cur == "ENABLED" or cur == "PRESET" or cur == "PRESET2" or cur == "QUICKCOLOR":
             self.refreshTimer.start(1000, True)
+        self.ShowPicture()
 
     def refreshList(self):
         self["config"].setList(self.getMenuItemList())
@@ -1218,11 +1219,9 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 
     def keyLeft(self):
         ConfigListScreen.keyLeft(self)
-        self.ShowPicture()
 
     def keyRight(self):
         ConfigListScreen.keyRight(self)
-        self.ShowPicture()
 
     def keyDown(self):
         self["config"].instance.moveSelection(self["config"].instance.moveDown)

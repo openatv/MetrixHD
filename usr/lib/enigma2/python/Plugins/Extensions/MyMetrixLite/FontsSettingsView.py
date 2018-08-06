@@ -207,6 +207,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 
         if cur == "ENABLED" or cur == "PRESET":
             self["config"].setList(self.getMenuItemList())
+        self.ShowPicture()
 
     def getPreset(self):
         if config.plugins.MyMetrixLiteFonts.SkinFontExamples.value == "preset_0":
@@ -610,11 +611,9 @@ class FontsSettingsView(ConfigListScreen, Screen):
 
     def keyLeft(self):
         ConfigListScreen.keyLeft(self)
-        self.ShowPicture()
 
     def keyRight(self):
         ConfigListScreen.keyRight(self)
-        self.ShowPicture()
 
     def keyDown(self):
         self["config"].instance.moveSelection(self["config"].instance.moveDown)
