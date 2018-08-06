@@ -486,14 +486,13 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         list.append(getConfigListEntry(tab + _("Choose skin resolution"), config.plugins.MyMetrixLiteOther.EHDenabled, _("helptext"),"ENABLED_EHD"))
         if self.EHDenabled:
-            list.append(getConfigListEntry(tab + _("Scrollbar Slider width"), config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth, _("Currently only for FHD Resolution."),))
             list.append(getConfigListEntry(tab + _("All calculated values round down"), config.plugins.MyMetrixLiteOther.EHDrounddown, _("helptext")))
             #list.append(getConfigListEntry(_("Method of font scaling"), config.plugins.MyMetrixLiteOther.EHDfontsize))
             # EHDfontsize deactivated
             if config.plugins.MyMetrixLiteOther.EHDfontsize.value != "2":
                 self.setInputToDefault(config.plugins.MyMetrixLiteOther.EHDfontsize)
             list.append(getConfigListEntry(tab + _("Additional offset for font scaling"), config.plugins.MyMetrixLiteOther.EHDfontoffset, _("helptext")))
-            list.append(getConfigListEntry(tab + _("Calculating additional files"), config.plugins.MyMetrixLiteOther.EHDadditionalfiles, _("File list:\n\n%s") % '"/etc/enigma2/antilogo.xml"', "ENABLED"))
+            #list.append(getConfigListEntry(tab + _("Calculating additional files"), config.plugins.MyMetrixLiteOther.EHDadditionalfiles, _("File list:\n\n%s") % '"/etc/enigma2/antilogo.xml"', "ENABLED"))
         list.append(getConfigListEntry(tab + _("Experimental picon scaling"), config.plugins.MyMetrixLiteOther.piconresize_experimental, _("Set to 'Yes' if you have poor scaling quality - experimental.\n(no restart required)"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.piconresize_experimental.value:
             list.append(getConfigListEntry(tab + _("Experimental picon sharpness"), config.plugins.MyMetrixLiteOther.piconsharpness_experimental, _("Improved the scaling quality - experimental.\nInfo: < 1 = blurred and > 1 = sharpened image\n(no restart required)")))
@@ -616,6 +615,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         section = _("Skin Design")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         list.append(getConfigListEntry(tab + _("Chose Skin Design"),config.plugins.MyMetrixLiteOther.SkinDesign, _("helptext"), "ENABLED"))
+        list.append(getConfigListEntry(tab + _("Scrollbar Slider width"), config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth, _("helptext")))
         list.append(getConfigListEntry(tab + _("Show Space between Layer A and B"),config.plugins.MyMetrixLiteOther.SkinDesignSpace, _("helptext")))
         list.append(getConfigListEntry(tab + _("Show Menu Buttons"),config.plugins.MyMetrixLiteOther.SkinDesignMenuButtons, _("Show color buttons at top of the screen.")))
         list.append(getConfigListEntry(tab + _("Show large Text on bottom of the screen"),config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText, _("helptext")))
