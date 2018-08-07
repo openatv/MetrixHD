@@ -390,6 +390,7 @@ def initColorsConfig():
     config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency = ConfigSelection(default="1A", choices = TransparencyList)
 
     config.plugins.MyMetrixLiteColors.scrollbarSlidercolor = ConfigSelection(default="FFFFFF", choices = ColorList)
+    config.plugins.MyMetrixLiteColors.scrollbarSlidertransparency = ConfigSelection(default="00", choices = TransparencyList)
     config.plugins.MyMetrixLiteColors.scrollbarSliderbordercolor = ConfigSelection(default="27408B", choices = ColorList)
     config.plugins.MyMetrixLiteColors.scrollbarSliderbordertransparency = ConfigSelection(default="00", choices = TransparencyList)
 
@@ -705,7 +706,8 @@ def initOtherConfig():
         choicelist.append(('%d' %x,'%d' %x))
     config.plugins.MyMetrixLiteOther.setEMCbarsize = ConfigSelection(default = "50", choices = choicelist)
     #SkinDesign
-    config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth = ConfigSelectionNumber(3, 15, 1, default = 10)
+    config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth = ConfigSelectionNumber(0, 15, 1, default = 10)
+    config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth = ConfigSelectionNumber(0, 5, 1, default = 1)
     config.plugins.MyMetrixLiteOther.SkinDesignMenuButtons = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.SkinDesign = ConfigSelection(default = "1", choices = [("1", _("Standard")), ("2", _("Layer A and B same height, Clock in Layer A")), ("3", _("Layer A and B same height, Clock in Layer B"))])
     config.plugins.MyMetrixLiteOther.SkinDesignSpace = ConfigYesNo(default=False)

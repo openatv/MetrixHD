@@ -864,7 +864,7 @@ class ActivateSkinSettings:
             infobarfont2 = ('name="infobarfont2" value="#00' + config.plugins.MyMetrixLiteColors.infobarfont2.value + '"')
             infobaraccent1 = ('name="infobaraccent1" value="#00' + config.plugins.MyMetrixLiteColors.infobaraccent1.value + '"')
             infobaraccent2 = ('name="infobaraccent2" value="#00' + config.plugins.MyMetrixLiteColors.infobaraccent2.value + '"')
-            scrollbarSlidercolor = ('name="scrollbarSlidercolor" value="#00' + config.plugins.MyMetrixLiteColors.scrollbarSlidercolor.value + '"')
+            scrollbarSlidercolor = ('name="scrollbarSlidercolor" value="#' + config.plugins.MyMetrixLiteColors.scrollbarSlidertransparency.value + config.plugins.MyMetrixLiteColors.scrollbarSlidercolor.value + '"')
             scrollbarSliderbordercolor = ('name="scrollbarSliderbordercolor" value="#' + config.plugins.MyMetrixLiteColors.scrollbarSliderbordertransparency.value + config.plugins.MyMetrixLiteColors.scrollbarSliderbordercolor.value + '"')
 
             skinSearchAndReplace = []
@@ -1648,7 +1648,8 @@ class ActivateSkinSettings:
 		i_save = i
 		for line in f.readlines():
 # options for all skin files
-			line = line.replace('scrollbarWidth="10"', 'scrollbarWidth="%s"' %config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth.value)
+			line = line.replace('scrollbarWidth="10"', 'scrollbarWidth="%s"' %(config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth.value + config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value*2))
+			line = line.replace('scrollbarSliderBorderWidth="1"', 'scrollbarSliderBorderWidth="%s"' %config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value)
 #all skin files end
 			if self.EHDenabled:
 				try: 
