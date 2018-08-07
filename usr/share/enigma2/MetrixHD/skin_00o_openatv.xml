@@ -3,7 +3,7 @@
 	<!--About/Info Screens-->
 	<screen name="AboutOE" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="AboutScrollLabel" position="70,235" size="700,390" transparent="0" zPosition="1" font="screen_text; 20" />
+		<widget name="AboutScrollLabel" position="70,235" size="700,390" transparent="0" zPosition="1" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand"/>
 		<widget source="lab1" render="Label" position="70,100" size="369,40" font="SetrixHD;30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" zPosition="1" />
 		<widget source="lab2" render="Label" position="70,160" size="370,25" font="Regular;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" zPosition="1" />
 		<widget source="lab3" render="Label" position="70,185" size="369,25" font="Regular;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" zPosition="1" />
@@ -33,7 +33,7 @@
 	</screen>
 	<screen name="SoftwareUpdateChanges" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="text" position="70,100" size="700,530" font="screen_text;18" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" />
+		<widget name="text" position="70,100" size="700,530" font="screen_text;18" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand"/>
 		<eLabel text="OPEN SOURCE" position="825,110" size="380,55" font="screen_info;50" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
 		<eLabel text="https://github.com/openatv" position="825,470" size="380,30" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
 		<eLabel text="https://github.com/oe-alliance" position="825,520" size="380,30" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
@@ -1291,7 +1291,7 @@
 	</screen>
 	<screen name="Info" position="0,0" size="1280,720" title="Info" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="label2" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="label1" position="70,100" size="700,530" font="Console;16" zPosition="1" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground"/>
+		<widget name="label1" position="70,100" size="700,530" font="Console;16" zPosition="1" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand"/>
 		<panel name="template1_2layer" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/console.png" transparent="1" alphatest="blend" />
 		<panel name="_oe-buttons_template1" />
@@ -2946,7 +2946,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	</screen>
 	<screen name="Console" position="0,0" size="1280,720" title="Command execution..." flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="text" position="70,100" size="700,510" font="Console;16" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" />
+		<widget name="text" position="70,100" size="700,510" font="Console;16" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand"/>
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/console.png" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
