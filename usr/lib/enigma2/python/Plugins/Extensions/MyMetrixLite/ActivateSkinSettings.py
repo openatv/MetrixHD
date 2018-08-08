@@ -1648,7 +1648,7 @@ class ActivateSkinSettings:
 		i_save = i
 		for line in f.readlines():
 # options for all skin files
-			line = line.replace('scrollbarSliderBorderWidth="1" scrollbarWidth="10"', 'scrollbarSliderBorderWidth="1" scrollbarWidth="%s"' %(config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth.value + config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value*2))
+			line = line.replace('scrollbarWidth="10"', 'scrollbarWidth="%s"' %(config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth.value + config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value*2))
 			line = line.replace('scrollbarSliderBorderWidth="1"', 'scrollbarSliderBorderWidth="%s"' %config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value)
 #all skin files end
 			if self.EHDenabled:
