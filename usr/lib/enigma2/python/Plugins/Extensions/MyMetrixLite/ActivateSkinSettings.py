@@ -345,12 +345,12 @@ class ActivateSkinSettings:
                 moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_2_time" />', '' ])
 
             if config.plugins.MyMetrixLiteOther.showMovieListScrollbar.value:
-                moviePlayerSkinSearchAndReplace.append([',500" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" font="epg_text;20"', ',500" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" font="epg_text;20"' ])
+                moviePlayerSkinSearchAndReplace.append(['scrollbarMode="showNever"', 'scrollbarMode="showOnDemand"'])
 
             if config.plugins.MyMetrixLiteOther.showMovieListRunningtext.value:
                 delay = str(config.plugins.MyMetrixLiteOther.runningTextStartdelay.value)
                 speed = str(config.plugins.MyMetrixLiteOther.runningTextSpeed.value)
-                moviePlayerSkinSearchAndReplace.append(['render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60', 'render="MetrixHDRunningText" options="movetype=running,startdelay=%s,steptime=%s' %(delay,speed)])
+                moviePlayerSkinSearchAndReplace.append(['movetype=none,startdelay=600,steptime=60', 'movetype=running,startdelay=%s,steptime=%s' %(delay,speed)])
 
             if config.plugins.MyMetrixLiteOther.movielistStyle.value == 'right':
                 moviePlayerSkinSearchAndReplace.append(['<panel name="MovieSelection_left"/>', '<panel name="MovieSelection_right"/>' ])
@@ -420,8 +420,8 @@ class ActivateSkinSettings:
             margin = 2
             scale = config.plugins.MyMetrixLiteFonts.epgtext_scale.value / 95.0 # 95% standard scale
             if config.plugins.MyMetrixLiteOther.showMovieListScrollbar.value:
-                sizeW = 686 # place for scrollbar
-                EMCSkinSearchAndReplace.append(['foregroundColor="layer-a-foreground" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" transparent="1" />', 'foregroundColor="layer-a-foreground" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />' ])
+                sizeW -= config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth.value + config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value*2 # place for scrollbar
+                EMCSkinSearchAndReplace.append(['scrollbarMode="showNever"', 'scrollbarMode="showOnDemand"' ])
 
             if config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "+8":
                 itemHeight = 20
@@ -562,7 +562,7 @@ class ActivateSkinSettings:
             if config.plugins.MyMetrixLiteOther.showMovieListRunningtext.value:
                 delay = str(config.plugins.MyMetrixLiteOther.runningTextStartdelay.value)
                 speed = str(config.plugins.MyMetrixLiteOther.runningTextSpeed.value)
-                EMCSkinSearchAndReplace.append(['render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60', 'render="MetrixHDRunningText" options="movetype=running,startdelay=%s,steptime=%s' %(delay,speed)])
+                EMCSkinSearchAndReplace.append(['movetype=none,startdelay=600,steptime=60', 'movetype=running,startdelay=%s,steptime=%s' %(delay,speed)])
 
             skin_lines = appendSkinFile(SKIN_EMC_SOURCE, EMCSkinSearchAndReplace)
 
@@ -764,12 +764,12 @@ class ActivateSkinSettings:
                 mode = "showNever"
             margin = str(config.plugins.MyMetrixLiteOther.setFieldMargin.value)
             distance = str(config.plugins.MyMetrixLiteOther.setItemDistance.value)
-            DESIGNSkinSearchAndReplace.append(['scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5"', 'scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="%s" fieldMargins="%s" itemsDistances="%s"' %(mode,margin,distance)])
+            DESIGNSkinSearchAndReplace.append(['scrollbarMode="showNever" fieldMargins="5" itemsDistances="5"', 'scrollbarMode="%s" fieldMargins="%s" itemsDistances="%s"' %(mode,margin,distance)])
 
             if config.plugins.MyMetrixLiteOther.showChannelListRunningtext.value:
                 delay = str(config.plugins.MyMetrixLiteOther.runningTextStartdelay.value)
                 speed = str(config.plugins.MyMetrixLiteOther.runningTextSpeed.value)
-                DESIGNSkinSearchAndReplace.append(['render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60', 'render="MetrixHDRunningText" options="movetype=running,startdelay=%s,steptime=%s' %(delay,speed)])
+                DESIGNSkinSearchAndReplace.append(['movetype=none,startdelay=600,steptime=60', 'movetype=running,startdelay=%s,steptime=%s' %(delay,speed)])
 
             #show menu buttons
             if not config.plugins.MyMetrixLiteOther.SkinDesignMenuButtons.value:
@@ -868,7 +868,7 @@ class ActivateSkinSettings:
             scrollbarSliderbordercolor = ('name="scrollbarSliderbordercolor" value="#' + config.plugins.MyMetrixLiteColors.scrollbarSliderbordertransparency.value + config.plugins.MyMetrixLiteColors.scrollbarSliderbordercolor.value + '"')
 
             skinSearchAndReplace = []
-            orgskinSearchAndReplace = [] # for some attributes (e.g. borderset)
+            orgskinSearchAndReplace = [] # needed for some attributes (e.g. borderset setting was lost after using plugin media portal - because restored settings from skin.xml and not from skin.MySkin.xml)
             skinSearchAndReplace.append(['<!-- original file -->',''])
             orgskinSearchAndReplace.append(['<!-- original file -->','<!-- !!!copied and changed file!!! -->'])
 
