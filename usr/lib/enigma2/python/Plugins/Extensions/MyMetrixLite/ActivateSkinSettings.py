@@ -420,7 +420,7 @@ class ActivateSkinSettings:
             margin = 2
             scale = config.plugins.MyMetrixLiteFonts.epgtext_scale.value / 95.0 # 95% standard scale
             if config.plugins.MyMetrixLiteOther.showMovieListScrollbar.value:
-                sizeW -= config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth.value + config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value*2 # place for scrollbar
+                sizeW -= margin + config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth.value + config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value*2 # place for scrollbar
                 EMCSkinSearchAndReplace.append(['scrollbarMode="showNever"', 'scrollbarMode="showOnDemand"' ])
 
             if config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "+8":
