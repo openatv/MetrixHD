@@ -2258,16 +2258,16 @@ class ActivateSkinSettings:
 							ynew = str(int(round(float(int(y)*FACT),r_par)))
 							strnew = line[n1:n2+1] + ynew + '"'
 							line = line[:n1] + strnew + line[(n3+1):]
-#progressbarBorderWidth="1" 
-						if 'progressbarBorderWidth="' in line:
-							n1 = line.find('progressbarBorderWidth="', 0)
-							n2 = line.find('"', n1)
-							n3 = line.find('"', n2+1) 
-							y = line[(n2+1):n3]
+#progressbarBorderWidth="1" -> deactivated (channel list)
+						#if 'progressbarBorderWidth="' in line:
+						#	n1 = line.find('progressbarBorderWidth="', 0)
+						#	n2 = line.find('"', n1)
+						#	n3 = line.find('"', n2+1) 
+						#	y = line[(n2+1):n3]
 
-							ynew = str(int(round(float(int(y)*FACT),r_par)))
-							strnew = line[n1:n2+1] + ynew + '"'
-							line = line[:n1] + strnew + line[(n3+1):]
+						#	ynew = str(int(round(float(int(y)*FACT),r_par)))
+						#	strnew = line[n1:n2+1] + ynew + '"'
+						#	line = line[:n1] + strnew + line[(n3+1):]
 #itemHeight="25"
 						if 'itemHeight="' in line:
 							n1 = line.find('itemHeight="', 0)
