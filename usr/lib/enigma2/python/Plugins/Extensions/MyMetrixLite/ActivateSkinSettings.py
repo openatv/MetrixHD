@@ -1647,6 +1647,7 @@ class ActivateSkinSettings:
 		i = 0
 		i_save = i
 		for line in f.readlines():
+			i += 1
 # options for all skin files
 			line = line.replace('scrollbarWidth="10"', 'scrollbarWidth="%s"' %(config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth.value + config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value*2))
 			line = line.replace('scrollbarSliderBorderWidth="1"', 'scrollbarSliderBorderWidth="%s"' %config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value)
