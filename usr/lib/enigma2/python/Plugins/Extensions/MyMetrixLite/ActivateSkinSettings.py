@@ -398,20 +398,19 @@ class ActivateSkinSettings:
                 if config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription.getValue() is False:
                     EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionCover_large_description_on" />', '<panel name="EMCSelectionCover_large_description_off" />'])
 
-            posNR = False
+            posNR = config.plugins.MyMetrixLiteOther.showEMCSelectionPicon.value == 'right'
             progress = False
             if not self.silent:
                 try:
                     config.EMC.skin_able.setValue(True)
                     config.EMC.use_orig_skin.setValue(False)
-                    if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.value != 'no': config.EMC.movie_cover.setValue(True)
+                    config.EMC.movie_cover.setValue(config.plugins.MyMetrixLiteOther.showEMCSelectionCover.value != 'no')
+                    config.EMC.movie_picons.setValue(config.plugins.MyMetrixLiteOther.showEMCSelectionPicon.value != 'no')
                     config.EMC.save()
-                    posNR = config.EMC.movie_picons_pos.getValue() == "nr"
                     progress = 'P' in config.EMC.movie_progress.value
                 except:
                     print "Error: find emc config - it's not installed ?"
             else:
-                posNR = "config.EMC.movie_picons_pos=nr" in self.E2settings
                 progress = "config.EMC.movie_progress=P" in self.E2settings or not "config.EMC.movie_progress=" in self.E2settings
 
             sizeW = 700

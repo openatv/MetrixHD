@@ -698,6 +698,7 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.showEMCSelectionCover = ConfigSelection(default = "no", choices = [("no", _("No")), ("small", _("Small")), ("large", _("Large"))])
     config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription = ConfigYesNo(default=True)
     config.plugins.MyMetrixLiteOther.showEMCSelectionRows = ConfigSelection(default = "0", choices = [("-4", _("-4")), ("-2", _("-2")), ("0", _("No")), ("+2", _("+2")), ("+4", _("+4")), ("+6", _("+6")), ("+8", _("+8"))])
+    config.plugins.MyMetrixLiteOther.showEMCSelectionPicon = ConfigSelection(default = "no", choices = [("no", _("No")), ("left", _("left")), ("right", _("right"))])
     choicelist = [("0", _("off"))]
     for x in range(50,202,2):
         choicelist.append(('%d' %x,'%d' %x))

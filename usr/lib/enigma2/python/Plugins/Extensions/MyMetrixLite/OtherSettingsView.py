@@ -567,6 +567,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(tab + _("Show Cover in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionCover, _("helptext"), "ENABLED"))
         if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "large":
             list.append(getConfigListEntry(tab + _("Show Movie Description"), config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription, _("helptext")))
+        list.append(getConfigListEntry(tab + _("Show Picon in Movie Selection?"), config.plugins.MyMetrixLiteOther.showEMCSelectionPicon, _("helptext")))
         list.append(getConfigListEntry(tab + _("Change Number of Rows in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionRows, _("helptext")))
         list.append(getConfigListEntry(tab + _("Change field size 'Date' in Movie Selection"),config.plugins.MyMetrixLiteOther.setEMCdatesize, _("Change field size or hide")))
         list.append(getConfigListEntry(tab + _("Change field size 'Count/Size' in Movie Selection"),config.plugins.MyMetrixLiteOther.setEMCdirinfosize, _("Change field size or hide")))
