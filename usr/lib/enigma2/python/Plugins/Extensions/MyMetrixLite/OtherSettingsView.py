@@ -559,7 +559,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         section = _("InfoBar/SecondInfobar/Moviebar")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
         helptext = _("Show running text for event. If it flickers, try increasing the start delay.")
-        list.append(getConfigListEntry(tab + _("Show Running text"), config.plugins.MyMetrixLiteOther.showInfoBarRunningtext, helptext, "ENABLED"))
+        list.append(getConfigListEntry(tab + _("Show running text?"), config.plugins.MyMetrixLiteOther.showInfoBarRunningtext, helptext, "ENABLED"))
         list.append(getConfigListEntry(tab + _("ChannelName/Number FontSize"), config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize, _("helptext")))
         section = _("EMC")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
