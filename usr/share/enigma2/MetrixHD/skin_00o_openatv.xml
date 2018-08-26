@@ -4807,6 +4807,21 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="183,209" size="30,40" alphatest="blend" />
 		<ePixmap position="598,95" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_leftright.png" transparent="1" alphatest="blend" />
 	</screen>
+	<screen name="MultiBootStartupDS" position="center,center" size="700,250"  flags="wfNoBorder" title="MultiBoot STARTUP Selector" backgroundColor="transparent" >
+		<eLabel name="b" position="0,0" size="700,250" backgroundColor="layer-b-background" zPosition="-2" />
+		<eLabel name="a" position="1,1" size="698,248" backgroundColor="layer-a-background" zPosition="-1" />
+		<widget source="Title" render="Label" position="10,8" foregroundColor="layer-a-title-foreground" size="680,50" noWrap="1" halign="center" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1"/>
+		<panel name="ul-multibootstartup" />
+		<widget source="config" render="Label" position="5,95" size="590,40" halign="center" valign="center" font="screen_text; 28" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" noWrap="1" transparent="1" />
+		<eLabel position="1,164" size="898,1" backgroundColor="layer-a-accent2" />
+		<widget source="key_red" render="Label" position="35,212" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget source="key_green" render="Label" position="218,212" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget source="key_yellow" render="Label" position="401,212" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="0,209" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="183,209" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="366,209" size="30,40" alphatest="blend" />
+		<ePixmap position="598,95" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_leftright.png" transparent="1" alphatest="blend" />
+	</screen>
 	<!-- MultiBoot Startup -->
 	<!-- AutoVideoModeLabel -->
 	<screen name="AutoVideoModeLabel" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
