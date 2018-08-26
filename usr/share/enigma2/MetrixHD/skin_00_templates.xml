@@ -778,7 +778,6 @@
 		<screen name="INFOBARSTYLEMODERN">
 			<!--/* STYLE MODERN -->
 			<eLabel backgroundColor="infobarbackground" name="InfoBar" position="0,560" size="1280,160" zPosition="-10"/>
-			<panel name="InfoBar_Picon" />
 			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1091,564" render="Label" size="75,30" source="session.Event_Now" transparent="1">
 				<convert type="EventTime">StartTime</convert>
 				<convert type="ClockToText">Default</convert>
@@ -787,9 +786,6 @@
 			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1178,564" render="Label" size="60,30" source="session.Event_Now" transparent="1">
 				<convert type="EventTime">EndTime</convert>
 				<convert type="ClockToText">Default</convert>
-			</widget>
-			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="infobar_event; 40" halign="left" noWrap="1" position="286,558" render="Label" size="805,56" source="session.Event_Now" transparent="1" valign="center">
-				<convert type="EventName">Name</convert>
 			</widget>
 			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1124,586" render="Label" size="113,30" source="session.Event_Now" transparent="1">
 				<convert type="EventTime">Remaining</convert>
@@ -808,13 +804,12 @@
 				<convert type="EventTime">EndTime</convert>
 				<convert type="ClockToText">Default</convert>
 			</widget>
-			<widget backgroundColor="infobarbackground" font="infobar_event; 35" foregroundColor="infobarfont2" halign="left" noWrap="1" position="286,617" render="Label" size="805,56" source="session.Event_Next" transparent="1" valign="top">
-				<convert type="EventName">Name</convert>
-			</widget>
 			<widget backgroundColor="infobarbackground" font="global_small; 18" foregroundColor="infobarfont2" halign="right" position="1124,640" render="Label" size="113,28" source="session.Event_Next" transparent="1">
 				<convert type="EventTime">Duration</convert>
 				<convert type="ClockToText">InMinutes</convert>
 			</widget>
+			<panel name="InfoBar_Picon" />
+			<panel name="RT_INFOBARSTYLEMODERN" />
 			<panel name="COLORGRADIENT_bottom_IB" />
 			<!-- STYLE MODERN */ -->
 		</screen>
@@ -2108,7 +2103,7 @@
 			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" font="epg_event;40" halign="left" noWrap="1" position="982,687" render="Label" size="832,53" source="session.Event_Next" transparent="1" valign="bottom" zPosition="2">
 				<convert type="EventName">Name</convert>
 			</widget>
-			<panel name="RTSB_Infobarepgwidgetfhd_description"/>
+			<panel name="RTSB_Infobarepgwidget_description"/>
 			<panel name="INFOBAREPGWIDGET_Layer" />
 			<!-- EPGWidget FHD */-->
 		</screen>
@@ -2121,7 +2116,7 @@
 			<widget backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" font="epg_event; 78" halign="left" noWrap="1" position="1965,1374" render="Label" size="1665,105" source="session.Event_Next" transparent="1" valign="bottom" zPosition="2">
 				<convert type="EventName">Name</convert>
 			</widget>
-			<panel name="RTSB_Infobarepgwidgetuhd_description"/>
+			<panel name="RTSB_Infobarepgwidget_description"/>
 			<panel name="INFOBAREPGWIDGET_Layer" />
 			<!-- EPGWidget */-->
 		</screen>

@@ -558,6 +558,8 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(tab + _("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfo, _("After enabling, 'Apply changes' and restart needs never press 'Apply changes' (and restart) when you change subordinate entrys in 'STB-Info'.")))
         section = _("InfoBar/SecondInfobar/Moviebar")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        helptext = _("Show running text for event. If it flickers, try increasing the start delay.")
+        list.append(getConfigListEntry(tab + _("Show Running text"), config.plugins.MyMetrixLiteOther.showInfoBarRunningtext, helptext, "ENABLED"))
         list.append(getConfigListEntry(tab + _("ChannelName/Number FontSize"), config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize, _("helptext")))
         section = _("EMC")
         list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
@@ -609,7 +611,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(tab + _("Show scrollbar?"), config.plugins.MyMetrixLiteOther.showChannelListScrollbar, help_scrollbar))
         list.append(getConfigListEntry(tab + _("Show running text?"), config.plugins.MyMetrixLiteOther.showChannelListRunningtext, help_runningtext, "ENABLED"))
         section = _("Running Text Parameter")
-        if config.plugins.MyMetrixLiteOther.showChannelListRunningtext.value or config.plugins.MyMetrixLiteOther.showMovieListRunningtext.value:
+        if config.plugins.MyMetrixLiteOther.showChannelListRunningtext.value or config.plugins.MyMetrixLiteOther.showMovieListRunningtext.value or config.plugins.MyMetrixLiteOther.showInfoBarRunningtext.value:
             list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
             list.append(getConfigListEntry(tab + _("Startdelay"),config.plugins.MyMetrixLiteOther.runningTextStartdelay, _("helptext")))
             list.append(getConfigListEntry(tab + _("Speed"),config.plugins.MyMetrixLiteOther.runningTextSpeed, _("A higher value results in a slow movement.")))

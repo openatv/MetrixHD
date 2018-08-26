@@ -765,10 +765,12 @@ class ActivateSkinSettings:
             distance = str(config.plugins.MyMetrixLiteOther.setItemDistance.value)
             DESIGNSkinSearchAndReplace.append(['scrollbarMode="showNever" fieldMargins="5" itemsDistances="5"', 'scrollbarMode="%s" fieldMargins="%s" itemsDistances="%s"' %(mode,margin,distance)])
 
+            delay = config.plugins.MyMetrixLiteOther.runningTextStartdelay.value
+            speed = config.plugins.MyMetrixLiteOther.runningTextSpeed.value
             if config.plugins.MyMetrixLiteOther.showChannelListRunningtext.value:
-                delay = str(config.plugins.MyMetrixLiteOther.runningTextStartdelay.value)
-                speed = str(config.plugins.MyMetrixLiteOther.runningTextSpeed.value)
-                DESIGNSkinSearchAndReplace.append(['movetype=none,startdelay=600,steptime=60', 'movetype=running,startdelay=%s,steptime=%s' %(delay,speed)])
+                DESIGNSkinSearchAndReplace.append(['movetype=none,startdelay=600,steptime=60', 'movetype=running,startdelay=%s,steptime=%s' %(delay,speed)]) #event description
+            if config.plugins.MyMetrixLiteOther.showInfoBarRunningtext.value:
+                DESIGNSkinSearchAndReplace.append(['movetype=none,startdelay=900,steptime=1,step=3', 'movetype=running,startdelay=%s,steptime=1,step=%s' %(int(delay*1.5),speed/20)]) #infobar
 
             #show menu buttons
             if not config.plugins.MyMetrixLiteOther.SkinDesignMenuButtons.value:
@@ -1360,6 +1362,8 @@ class ActivateSkinSettings:
                     remove(file[1])
                 if path.exists(file[2]):
                     remove(file[2])
+            self.iconFileCopy("HD")
+            self.iconFolderCopy("HD")
 
             config.skin.primary_skin.setValue("MetrixHD/skin.xml")
 

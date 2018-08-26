@@ -289,7 +289,7 @@
 			<convert type="EventName">FullDescription</convert>
 		</widget>
 	</screen>
-<!-- cf#_#stop -->
+<!-- cf#_#rename -->
 	<screen name="RTSB_Infobarepgwidget_description">
 		<widget source="session.Event_Now" render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" size="555,315" position="70,158" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="epg_info; 20" halign="right" transparent="1" zPosition="1">
 			<convert type="EventName">FullDescription</convert>
@@ -298,7 +298,8 @@
 			<convert type="EventName">FullDescription</convert>
 		</widget>
 	</screen>
-	<screen name="RTSB_Infobarepgwidgetfhd_description">
+<!-- cf#_#rename -->
+	<screen name="RTSB_Infobarepgwidget_description#_FHDscreen">
 		<widget source="session.Event_Now" render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" size="832,464" position="105,235" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="epg_info;30" halign="right" transparent="1" zPosition="1">
 			<convert type="EventName">FullDescription</convert>
 		</widget>
@@ -306,7 +307,8 @@
 			<convert type="EventName">FullDescription</convert>
 		</widget>
 	</screen>
-	<screen name="RTSB_Infobarepgwidgetuhd_description">
+<!-- cf#_#rename -->
+	<screen name="RTSB_Infobarepgwidget_description#_UHDscreen">
 		<widget source="session.Event_Now" render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" size="1665,945" position="210,474" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="epg_info; 60" halign="right" transparent="1" zPosition="1">
 			<convert type="EventName">FullDescription</convert>
 		</widget>
@@ -316,6 +318,46 @@
 	</screen>
 <!--EPG/Channellist list, description - running text and scrollbar settings -->
 <!-- cf#_#begin -->
+<!-- Infobar, Scondinfobar, Moviebar/Emc Running Text -->
+	<screen name="RT_EMCMediaCenter_1">
+		<widget source="session.CurrentService" render="MetrixHDRunningText" options="movetype=none,startdelay=900,steptime=1,step=3,direction=left,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="150,588" size="892,56" font="infobar_event;40" valign="center" noWrap="1" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
+			<convert type="ServiceName">Name</convert>
+		</widget>
+	</screen>
+	<screen name="RT_EMCMediaCenter_2">
+		<widget source="session.CurrentService" render="MetrixHDRunningText" options="movetype=none,startdelay=900,steptime=1,step=3,direction=left,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="187,568" size="930,56" font="infobar_event;40" valign="center" noWrap="1" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
+			<convert type="ServiceName">Name</convert>
+		</widget>
+	</screen>
+	<screen name="RT_EMCMediaCenter_3">
+		<widget source="session.CurrentService" render="MetrixHDRunningText" options="movetype=none,startdelay=900,steptime=1,step=3,direction=left,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="110,644" size="716,30" font="infobar_event;24" valign="center" noWrap="1" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
+			<convert type="ServiceName">Name</convert>
+		</widget>
+	</screen>
+	<screen name="RT_MoviePlayer_1">
+		<widget source="session.CurrentService" render="MetrixHDRunningText" options="movetype=none,startdelay=900,steptime=1,step=3,direction=left,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="150,588" size="892,56" font="infobar_event;40" valign="center" noWrap="1" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
+			<convert type="ServiceName">Name</convert>
+		</widget>
+	</screen>
+	<screen name="RT_MoviePlayer_2">
+		<widget source="session.CurrentService" render="MetrixHDRunningText" options="movetype=none,startdelay=900,steptime=1,step=3,direction=left,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="187,568" size="930,56" font="infobar_event;40" valign="center" noWrap="1" backgroundColor="infobarbackground" transparent="1">
+			<convert type="ServiceName">Name</convert>
+		</widget>
+	</screen>
+	<screen name="RT_MoviePlayer_3">
+		<widget source="session.CurrentService" render="MetrixHDRunningText" options="movetype=none,startdelay=900,steptime=1,step=3,direction=left,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="110,644" size="716,30" font="infobar_event;24" valign="center" noWrap="1" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
+			<convert type="ServiceName">Name</convert>
+		</widget>
+	</screen>
+	<screen name="RT_INFOBARSTYLEMODERN">
+		<widget backgroundColor="infobarbackground" render="MetrixHDRunningText" options="movetype=none,startdelay=900,steptime=1,step=3,direction=left,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" foregroundColor="infobarfont1" font="infobar_event; 40" halign="left" noWrap="1" position="286,558" size="805,56" source="session.Event_Now" transparent="1" valign="center">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget backgroundColor="infobarbackground" render="MetrixHDRunningText" options="movetype=none,startdelay=900,steptime=1,step=3,direction=left,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" font="infobar_event; 35" foregroundColor="infobarfont2" halign="left" noWrap="1" position="286,617" size="805,56" source="session.Event_Next" transparent="1" valign="top">
+			<convert type="EventName">Name</convert>
+		</widget>
+	</screen>
+<!-- Infobar, Scondinfobar, Moviebar/Emc Running Text -->
 <!-- Show Menu Buttons -->
 	<screen name="MenuButtons">
 		<panel name="MenuButtons_template"/>

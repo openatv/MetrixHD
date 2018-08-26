@@ -4,9 +4,7 @@
 	<!-- MoviePlayer_1 - large style (old standard version) -->
 	<screen name="MoviePlayer_1">
 		<eLabel position="0,570" zPosition="-2" size="1281,150" backgroundColor="infobarbackground" />
-		<widget source="session.CurrentService" render="Label" position="150,588" size="892,56" font="infobar_event;40" valign="center" noWrap="1" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
-		<convert type="ServiceName">Name</convert>
-		</widget>
+		<panel name="RT_MoviePlayer_1"/>
 		<ePixmap pixmap="MetrixHD/icons/ico_dolby_off.png" position="1060,616" size="34,23" zPosition="1" alphatest="blend" />
 		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_dolby_on.png" position="1060,616" size="34,23" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsMultichannel</convert>
@@ -57,9 +55,6 @@
 	<screen name="MoviePlayer_2">
 		<eLabel position="0,570" zPosition="-2" size="1281,150" backgroundColor="infobarbackground" />
 		<ePixmap position="43,595" zPosition="1" size="100,100" alphatest="blend" pixmap="MetrixHD/icons/movie_small.png"/>
-		<widget source="session.CurrentService" render="Label" position="187,568" size="930,56" font="infobar_event;40" valign="center" noWrap="1" backgroundColor="infobarbackground" transparent="1">
-			<convert type="ServiceName">Name</convert>
-		</widget>
 		<eLabel backgroundColor="infobaraccent1" position="188,625" size="1050,1" zPosition="3"/>
 		<widget source="session.CurrentService" render="PositionGauge" position="188,621" size="1050,9" zPosition="6" transparent="1">
 			<convert type="ServicePosition">Gauge</convert>
@@ -76,6 +71,7 @@
 		<widget source="session.CurrentService" render="Label" position="1139,630" size="100,28" font="infobar_text;20" halign="right" valign="center" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
 			<convert type="ServicePosition">Remaining,Negate</convert>
 		</widget>
+		<panel name="RT_MoviePlayer_2"/>
 		<panel name="SERVICEICONSMOVIEPLAYER" />
 		<panel name="RESOLUTIONMOVIEPLAYER" />
 	</screen>
@@ -83,9 +79,6 @@
 	<screen name="MoviePlayer_3">
 		<eLabel position="0,640" zPosition="-2" size="1281,80" backgroundColor="infobarbackground" />
 		<eLabel backgroundColor="infobaraccent1" position="110,683" size="796,1" zPosition="3"/>
-		<widget source="session.CurrentService" render="Label" position="110,644" size="716,30" font="infobar_event;24" valign="center" noWrap="1" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
-			<convert type="ServiceName">Name</convert>
-		</widget>
 		<widget source="session.CurrentService" render="PositionGauge" position="110,679" size="796,9" zPosition="6" transparent="1">
 			<convert type="ServicePosition">Gauge</convert>
 		</widget>
@@ -108,6 +101,7 @@
 		<widget source="session.CurrentService" render="Label" position="1160,644" size="60,26" font="infobar_text;16" halign="left" valign="top" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" transparent="1">
 			<convert type="ServiceInfo">VideoHeight</convert>
 		</widget>
+		<panel name="RT_MoviePlayer_2"/>
 		<panel name="SERVICEICONSMOVIEPLAYER" />
 	</screen>
 	<!-- MoviePlayer_1-3 - start - endtime -->
