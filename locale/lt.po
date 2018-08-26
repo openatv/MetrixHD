@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: MetrixHD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-12 14:46+0200\n"
-"PO-Revision-Date: 2018-07-23 21:26+0300\n"
+"PO-Revision-Date: 2018-08-27 00:00+0300\n"
 "Last-Translator: Audronis Grincevičius <adga45@gmail.com>\n"
 "Language-Team: Adga (C) <adga45@gmail.com>\n"
 "Language: lt_LT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.1\n"
+"X-Generator: Poedit 2.1.1\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
 
@@ -42,7 +42,7 @@ msgstr "--- papildomų failų pradžia ---\n"
 
 #: ActivateSkinSettings.py:1338 ActivateSkinSettings.py:1341
 msgid "Backup "
-msgstr "Atsarginė kopija"
+msgstr "Atsarginė kopija "
 
 #: ActivateSkinSettings.py:1338 ActivateSkinSettings.py:1341
 msgid ""
@@ -201,7 +201,7 @@ msgstr "Atsarginės kopijos rinkinys nerastas!"
 
 #: BackupSettingsView.py:274
 msgid "Settings successfully restored."
-msgstr "Nustatymai sėkmingai atkurti"
+msgstr "Nustatymai sėkmingai atkurti."
 
 #: BackupSettingsView.py:294
 #, python-format
@@ -564,7 +564,7 @@ msgstr "Šrifto pavyzdžiai"
 
 #: FontsSettingsView.py:112
 msgid "in Image included Fonts"
-msgstr "Atvaizde naudojami šriftai"
+msgstr "atvaizde naudojami šriftai"
 
 #: FontsSettingsView.py:114
 msgid "LCD"
@@ -596,7 +596,7 @@ msgstr "Arial"
 
 #: FontsSettingsView.py:129
 msgid "in Skin included Fonts"
-msgstr "Temoje įtraukti šriftai"
+msgstr "į temą įtraukti šriftai"
 
 #: FontsSettingsView.py:131
 msgid "Regular"
@@ -762,7 +762,7 @@ msgstr "CPU greitis: %s MHz"
 
 #: MetrixHDVideoInfo.py:98
 msgid "N/A"
-msgstr "netaikoma"
+msgstr "Nėra"
 
 #: OtherSettingsView.py:79 OtherSettingsView.py:188
 msgid "Test Resolution"
@@ -1255,7 +1255,7 @@ msgstr " = mini TV įj.)"
 
 #: OtherSettingsView.py:594
 msgid "Show in graphical EPG?"
-msgstr "Rodyti grafiniame EPG"
+msgstr "Rodyti grafiniame EPG?"
 
 #: OtherSettingsView.py:594
 msgid "Picture in graphics"
@@ -1360,9 +1360,47 @@ msgstr "Rodyti didelį tekstą ekrano apačioje"
 msgid "Chose Extended-Info Style"
 msgstr "Pasirinkite išplėstą info stilių"
 
+#: OtherSettingsView.py
+msgid "Show Picon in Movie Selection?"
+msgstr "Rodyti logotipą filmo parinkime?"
+
+#: OtherSettingsView.py
+msgid "left"
+msgstr "kairė"
+
+#: OtherSettingsView.py
+msgid "right"
+msgstr "dešinė"
+
+#: OtherSettingsView.py
+msgid "Experimental picon scaling"
+msgstr "Eksperimentinis logotipų mastelio keitimas"
+
+#: OtherSettingsView.py
+msgid ""
+"Set to 'Yes' if you have poor scaling quality - experimental.\n"
+"(no restart required)"
+msgstr ""
+"Nustatykite \"Taip\", jei turite prastą mastelio kokybę - eksperimentinis.\n"
+"(nereikia paleisti iš naujo)"
+
+#: OtherSettingsView.py
+msgid "Experimental picon sharpness"
+msgstr "Eksperimentinis logotipų ryškumas"
+
+#: OtherSettingsView.py
+msgid ""
+"Improved the scaling quality - experimental.\n"
+"Info: < 1 = blurred and > 1 = sharpened image\n"
+"(no restart required)"
+msgstr ""
+"Pagerinta mastelio kokybė-eksperimentinis.\n"
+"Info: < 1 = neryškus ir > 1 = ryškesnis vaizdas\n"
+"(nereikia paleisti iš naujo)"
+
 #: plugin.py:33
 msgid "openATV configuration tool for MetrixHD"
-msgstr "Metrix HD temos OpenATV konfigūravimo įrankis"
+msgstr "openATV konfigūravimo įrankis, skirtas Metrix HD temai"
 
 #: SkinpartSettingsView.py:81 SkinpartSettingsView.py:284
 msgid "Zoom"
@@ -1844,7 +1882,7 @@ msgstr "išjungta"
 
 #: __init__.py:392
 msgid "same as background"
-msgstr "Kaip ir fonas"
+msgstr "kaip ir fonas"
 
 #: __init__.py:392
 #, python-format
@@ -1937,11 +1975,11 @@ msgstr "ekranuose"
 
 #: __init__.py:567
 msgid "in Menus"
-msgstr "Meniu"
+msgstr "į meniu"
 
 #: __init__.py:568
 msgid "in Menus and Screens"
-msgstr "Meniu ir ekranuose"
+msgstr "į meniu ir ekranuose"
 
 #: __init__.py:572
 msgid "No Design"
@@ -2093,9 +2131,6 @@ msgstr "220x132"
 msgid "ZZZPicons"
 msgstr "400x220"
 
-#~ msgid "It follows:"
-#~ msgstr "Išeina:"
-
 #
 #~ msgid "Enable Color Gradient"
 #~ msgstr "Įjungti spalvos gradientą"
@@ -2105,6 +2140,12 @@ msgstr "400x220"
 
 #~ msgid "Method of font scaling"
 #~ msgstr "Šrifto mastelio metodas"
+
+#~ msgid "Infobar"
+#~ msgstr "Infojuosta"
+
+#~ msgid "It follows:"
+#~ msgstr "Išeina:"
 
 #~ msgid ""
 #~ "\n"
@@ -2706,9 +2747,6 @@ msgstr "400x220"
 #~| msgid "Your enhanced hd settings are inconsistent. Please check this."
 #~ msgid "Your full-hd settings are inconsistent. Please check this."
 #~ msgstr "Išplėstiniai HD nustatymai yra nesuderinami. Patikrinkite."
-
-#~ msgid "Infobar"
-#~ msgstr "Infojuosta"
 
 #~ msgid ""
 #~ "Not enough free flash memory to create the new %s skin files. _( %d kb is "
