@@ -1,6 +1,25 @@
 <skin>
 <!-- cf#_#begin -->
 <!--/* PLUGINS -->
+	<!-- BlurayPlayer -->
+	<screen name="BlurayMain" position="0,0" size="1280,720" title="Blu-ray player" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="list" render="Listbox" position="70,120" size="700,430" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground">
+			<convert type="TemplatedMultiContent">
+				{
+					"template": [MultiContentEntryText(pos = (10, 10), size = (650, 30), font = 0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0)],
+					"fonts": [gFont("Regular", 20)],
+					"itemHeight": 50
+				}
+			</convert>
+		</widget>
+		<widget name="thumbnail" position="858,178" size="320,180" zPosition="1" transparent="1" alphatest="blend" />
+		<widget name="name" render="Label" position="825,425" size="380,175" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+	</screen>
+	<!-- BlurayPlayer */-->
 	<!-- CoolTV -->
 	<screen name="CoolTVGuide" position="0,0" size="1280,720" zPosition="1" title="Cool TV Guide" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="C o o l   T V   G u i d e" position="380,30" size="520,50" noWrap="1" valign="bottom" halign="center" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="epg-background" transparent="1" />
