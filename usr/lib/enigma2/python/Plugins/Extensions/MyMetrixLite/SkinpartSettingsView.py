@@ -167,13 +167,18 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		dir_global_skinparts = "/usr/share/enigma2/skinparts"
 		dir_local_skinparts = "/usr/share/enigma2/MetrixHD/skinparts"
 		if path.exists(dir_global_skinparts):
-			for d in listdir(dir_global_skinparts):
-				if path.exists(dir_global_skinparts + "/" + d + "/" + d + ".xml"):
-					if not path.exists(dir_local_skinparts + "/" + d):
-						makedirs(dir_local_skinparts + "/" + d)
-					for f in listdir(dir_global_skinparts + "/" + d):
-						if not path.exists(dir_local_skinparts + "/" + d + "/" + f):
-							symlink(dir_global_skinparts + "/" + d + "/" + f, dir_local_skinparts + "/" + d + "/" + f)
+			for pack in listdir(dir_global_skinparts):
+				if path.isdir(dir_global_skinparts + "/" + pack):
+					for d in listdir(dir_global_skinparts + "/" + pack):
+						if path.exists(dir_global_skinparts + "/" + pack + "/" + d + "/" + d + ".xml"):
+							if not path.exists(dir_local_skinparts + "/" + d):
+								makedirs(dir_local_skinparts + "/" + d)
+							for f in listdir(dir_global_skinparts + "/" + pack + "/" + d):
+								print dir_local_skinparts + "/" + d + "/" + f
+								print dir_global_skinparts + "/" + pack + "/" + d + "/" + f
+								if (not path.islink(dir_local_skinparts + "/" + d + "/" + f)) and (not path.exists(dir_local_skinparts + "/" + d + "/" + f)):
+									print "1"
+									symlink(dir_global_skinparts + "/" + pack + "/" + d + "/" + f, dir_local_skinparts + "/" + d + "/" + f)
 
     def getSkinParts(self):
 		self.parts = {}
