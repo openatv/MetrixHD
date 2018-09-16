@@ -2933,7 +2933,11 @@
 	<!-- Quadpip -->
 	<screen name="CreateQuadPipChannelEntry" position="center,center" size="1280,720" title="Quad PiP Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,100" size="700,510" itemHeight="30" serviceNameFont="screen_text;22" serviceInfoFont="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="list" position="70,240" size="700,385" itemHeight="30" serviceNameFont="screen_text;22" serviceInfoFont="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="textChannels" position="70,100" size="700,25" font="screen_text; 22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="selectedList" position="95,130" size="480,100" font="screen_text; 18" itemHeight="22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel position="70,229" size="700,1" backgroundColor="layer-a-accent1" />
+		<widget name="description" position="843,460" size="350,150" font="screen_text; 20" halign="center" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1-source" />
@@ -2942,17 +2946,19 @@
 	</screen>
 	<screen name="QuadPiPChannelSelection" position="center,center" size="1280,720" title="Quad PiP Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="ChannelList" render="Listbox" position="70,165" size="710,450" zPosition="3" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
+		<widget source="ChannelList" render="Listbox" position="70,120" size="700,480" zPosition="3" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"templates":
 					{"default": (160,[
-							MultiContentEntryText(pos = (50, 28), size = (400, 28), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),
-							MultiContentEntryText(pos = (50, 58), size = (400, 28), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2),
-							MultiContentEntryText(pos = (50, 88), size = (400, 28), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 3),
-							MultiContentEntryText(pos = (50, 118), size = (400, 28), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 4),
+							MultiContentEntryText(pos = (25, 3), size = (400, 28), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0),
+							MultiContentEntryText(pos = (50, 34), size = (400, 28), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1),
+							MultiContentEntryText(pos = (50, 64), size = (400, 28), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2),
+							MultiContentEntryText(pos = (50, 94), size = (400, 28), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 3),
+							MultiContentEntryText(pos = (50, 124), size = (400, 28), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 4),
+							MultiContentEntryText(pos=  (0, 159), size =(700,1), text = "", font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_TOP, border_width = 1, border_color = 5268604),
 					]),
 					},
-					"fonts": [gFont("Regular", 24),gFont("Regular", 24)],
+					"fonts": [gFont("Regular", 24),gFont("Regular", 20)],
 					"itemHeight": 160
 				}
 				</convert>
