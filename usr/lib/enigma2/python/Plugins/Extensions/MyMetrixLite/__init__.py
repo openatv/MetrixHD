@@ -189,6 +189,54 @@ TransparencyList=[
         ("FF", _("100%"))
     ]
 
+SysFontTypeList = [
+	("/usr/share/fonts/ae_AlMateen.ttf", ("ae_AlMateen (ae_AlMateen.ttf)")),
+	("/usr/share/fonts/andale.ttf", ("Andale Mono (andale.ttf)")),
+	("/usr/share/fonts/lcd.ttf", ("LCD (lcd.ttf)")),
+	#("/usr/share/fonts/md_khmurabi_10.ttf", ("MD King KhammuRabi (md_khmurabi_10.ttf)")),
+	("/usr/share/fonts/nmsbd.ttf", ("Nemisis Flatline (nmsbd.ttf)")),
+	#("/usr/share/fonts/Roboto-Black.ttf", ("Roboto Bk (Roboto-Black.ttf)")),
+	#("/usr/share/fonts/Roboto-BlackItalic.ttf", ("Roboto Bk (Roboto-BlackItalic.ttf)")),
+	#("/usr/share/fonts/Roboto-Bold.ttf", ("Roboto (Roboto-Bold.ttf)")),
+	#("/usr/share/fonts/Roboto-BoldItalic.ttf", ("Roboto (Roboto-BoldItalic.ttf)")),
+	("/usr/share/fonts/tuxtxt.ttf", ("Bitstream Vera Sans Mono (tuxtxt.ttf)"))
+	#("/usr/share/fonts/valis_enigma.ttf", ("valis_enigma (valis_enigma.ttf)"))
+]
+SkinFontTypeList = [
+	("/usr/share/enigma2/MetrixHD/fonts/analog.ttf", ("Analog (analog.ttf)")),
+	("/usr/share/enigma2/MetrixHD/fonts/DejaVuSans.ttf", ("DejaVu Sans (DejaVuSans.ttf)")),
+	("/usr/share/enigma2/MetrixHD/fonts/digi.ttf", ("LCD (digi.ttf)")),
+	("/usr/share/enigma2/MetrixHD/fonts/DroidSans.ttf", ("Droid Sans (DroidSans.ttf)")),
+	("/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf", ("Droid Sans Bold (DroidSans-Bold.ttf)")),
+	("/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf", ("HandelGotD (HandelGotD.ttf)")),
+	("/usr/share/enigma2/MetrixHD/fonts/HandelGotDBol.ttf", ("HandelGotD Bold (HandelGotDBol.ttf)")),
+	("/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", ("OpenSans Regular (OpenSans-Regular.ttf)")),
+	("/usr/share/enigma2/MetrixHD/fonts/Raleway-Channel.ttf", ("Raleway Channel (Raleway-Channel.ttf)")),
+	("/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf", ("Raleway Light(Raleway-Light.ttf)")),
+	("/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf", ("Raleway Regular (Raleway-Regular.ttf)")),
+	("/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", ("Segoe UI Light 8 (setrixHD.ttf)"))
+]
+
+SkinFontPresetList = [
+	("preset_0", _("Standard Fonts")),
+	("preset_1", _("Standard Fonts greater")),
+	("preset_2", _("Bold and greater Fonts")),
+	("preset_3", _("Raleway Fonts")),
+	("preset_4", _("Digital Fonts")),
+	("preset_5", _("Analog Fonts")),
+	("preset_6", _("HandelGotD Fonts"))
+	]
+
+FontTypeList = []
+
+for lines in SysFontTypeList:
+	if path.exists(lines[0]):
+		FontTypeList.append(lines)
+
+for lines in SkinFontTypeList:
+	if path.exists(lines[0]):
+		FontTypeList.append(lines)
+
 def initColorsConfig():
 
     BorderList = [
@@ -402,54 +450,6 @@ def initColorsConfig():
 #############################################################
 
 def initFontsConfig():
-
-    SysFontTypeList = [
-        ("/usr/share/fonts/ae_AlMateen.ttf", ("ae_AlMateen (ae_AlMateen.ttf)")),
-        ("/usr/share/fonts/andale.ttf", ("Andale Mono (andale.ttf)")),
-        ("/usr/share/fonts/lcd.ttf", ("LCD (lcd.ttf)")),
-        #("/usr/share/fonts/md_khmurabi_10.ttf", ("MD King KhammuRabi (md_khmurabi_10.ttf)")),
-        ("/usr/share/fonts/nmsbd.ttf", ("Nemisis Flatline (nmsbd.ttf)")),
-        #("/usr/share/fonts/Roboto-Black.ttf", ("Roboto Bk (Roboto-Black.ttf)")),
-        #("/usr/share/fonts/Roboto-BlackItalic.ttf", ("Roboto Bk (Roboto-BlackItalic.ttf)")),
-        #("/usr/share/fonts/Roboto-Bold.ttf", ("Roboto (Roboto-Bold.ttf)")),
-        #("/usr/share/fonts/Roboto-BoldItalic.ttf", ("Roboto (Roboto-BoldItalic.ttf)")),
-        ("/usr/share/fonts/tuxtxt.ttf", ("Bitstream Vera Sans Mono (tuxtxt.ttf)"))
-        #("/usr/share/fonts/valis_enigma.ttf", ("valis_enigma (valis_enigma.ttf)"))
-    ]
-    SkinFontTypeList = [
-        ("/usr/share/enigma2/MetrixHD/fonts/analog.ttf", ("Analog (analog.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/DejaVuSans.ttf", ("DejaVu Sans (DejaVuSans.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/digi.ttf", ("LCD (digi.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/DroidSans.ttf", ("Droid Sans (DroidSans.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf", ("Droid Sans Bold (DroidSans-Bold.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf", ("HandelGotD (HandelGotD.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/HandelGotDBol.ttf", ("HandelGotD Bold (HandelGotDBol.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", ("OpenSans Regular (OpenSans-Regular.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/Raleway-Channel.ttf", ("Raleway Channel (Raleway-Channel.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf", ("Raleway Light(Raleway-Light.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf", ("Raleway Regular (Raleway-Regular.ttf)")),
-        ("/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", ("Segoe UI Light 8 (setrixHD.ttf)"))
-    ]
-
-    SkinFontPresetList = [
-        ("preset_0", _("Standard Fonts")),
-        ("preset_1", _("Standard Fonts greater")),
-        ("preset_2", _("Bold and greater Fonts")),
-        ("preset_3", _("Raleway Fonts")),
-        ("preset_4", _("Digital Fonts")),
-        ("preset_5", _("Analog Fonts")),
-        ("preset_6", _("HandelGotD Fonts"))
-        ]
-
-    FontTypeList = []
-
-    for lines in SysFontTypeList:
-        if path.exists(lines[0]):
-            FontTypeList.append(lines)
-
-    for lines in SkinFontTypeList:
-        if path.exists(lines[0]):
-            FontTypeList.append(lines)
 
     config.plugins.MyMetrixLiteFonts = ConfigSubsection()
 #preset
@@ -756,6 +756,20 @@ def initOtherConfig():
     config.plugins.MyMetrixLiteOther.layeraunderlineshowmainlayer = ConfigYesNo(default=False)
     #preset
     config.plugins.MyMetrixLiteOther.SkinDesignExamples = ConfigSelection(default = "preset_0", choices = skinDesignPresetList)
+    #Buttons
+    config.plugins.MyMetrixLiteOther.SkinDesignButtons = ConfigYesNo(default=False)
+    config.plugins.MyMetrixLiteOther.SkinDesignButtonsBackColor = ConfigSelection(default="FFFFFF", choices = ColorList)
+    config.plugins.MyMetrixLiteOther.SkinDesignButtonsBackColorTransparency = ConfigSelection(default="00", choices = TransparencyList)
+    config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameColor = ConfigSelection(default="FFFFFF", choices = ColorList)
+    config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameColorTransparency = ConfigSelection(default="00", choices = TransparencyList)
+    config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextColor = ConfigSelection(default="000000", choices = ColorList)
+    config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextColorTransparency = ConfigSelection(default="00", choices = TransparencyList)
+    config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextFont = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices = FontTypeList)
+    config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextSize = ConfigSelectionNumber(10, 30, 1, default = 24)
+    config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameSize = ConfigSelectionNumber(0, 5, 1, default = 0)
+    config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition = ConfigSelectionNumber(-10, 10, 1, default = 0)
+    config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect = ConfigSelection(default = "no", choices = [("no", _("None")), ("withframe", _("With Frame")), ("withoutframe", _("Without Frame"))])
+    config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity = ConfigSelection(default="00", choices = TransparencyList)
 
 #######################################################################
 

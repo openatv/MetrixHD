@@ -38,8 +38,13 @@ from Components.NimManager import nimmanager
 from shutil import move, copy, rmtree, copytree
 from enigma import getDesktop
 from os import path, remove, statvfs, listdir, system, mkdir
-from PIL import Image
+from PIL import Image, ImageFont, ImageDraw
 from boxbranding import getBoxType
+
+initOtherConfig()
+initColorsConfig()
+initWeatherConfig()
+initFontsConfig()
 
 #############################################################
 
@@ -80,14 +85,7 @@ class ActivateSkinSettings:
 
     def RefreshIcons(self,restore=False):
 		# called from SystemPlugins/SoftwareManager/plugin.py after software update and from Screens/SkinSelector.py after changing skin
-		if config.plugins.MyMetrixLiteOther.EHDenabled.value == '0':
-			self.EHDres = 'HD'
-		elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '1':
-			self.EHDres = 'FHD'
-		elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '2':
-			self.EHDres = 'UHD'
-		else:
-			restore = True
+		self.getEHDSettings()
 		screenwidth = getDesktop(0).size().width()
 		if screenwidth and screenwidth != 1280 or restore:
 			if restore:
@@ -99,12 +97,7 @@ class ActivateSkinSettings:
 			self.iconFolderCopy(self.EHDres)
 			print "[MetrixHD] ...done."
 
-    def CheckSettings(self, onlyCheck=False):
-		initColorsConfig()
-		initWeatherConfig()
-		initOtherConfig()
-		initFontsConfig()
-		#first check is ehd tested, ehd-settings and available ehd-icons
+    def getEHDSettings(self, onlyCheck=False):
 		tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
 		EHDtested = len(tested) == 2 and getBoxType() in tested[0] and config.plugins.MyMetrixLiteOther.EHDenabled.value in tested[1]
 		if config.plugins.MyMetrixLiteOther.EHDenabled.value == '0':
@@ -129,6 +122,10 @@ class ActivateSkinSettings:
 			self.EHDtxt = 'Standard HD'
 			if onlyCheck or not self.silent:
 				self.ErrorCode = 'checkEHDsettings', _("Your enhanced hd settings are inconsistent. Please check this.")
+
+    def CheckSettings(self, onlyCheck=False):
+		#first check is ehd tested, ehd-settings and available ehd-icons
+		self.getEHDSettings(onlyCheck)
 
 		if self.EHDenabled:
 			self.service_name = 'enigma2-plugin-skins-metrix-atv-%s-icons' % self.EHDres.lower()
@@ -1265,6 +1262,46 @@ class ActivateSkinSettings:
             xFile.close()
 
             ################
+            # Buttons
+            ################
+
+            buttons = [
+                ('info.png', _('INFO')),
+                ('key_audio.png', _('AUDIO')),
+                ('key_av.png', _('AV')),
+                ('key_bouquet.png', _('BOUQUET')),
+                ('key_end.png', _('END')),
+                ('key_epg.png', _('EPG')),
+                ('key_exit.png', _('EXIT')),
+                ('key_help.png', _('HELP')),
+                ('key_home.png', _('HOME')),
+                ('key_leftright.png', _('<  >')),
+                ('key_tv.png', _('TV')),
+                ('key_updown.png', _('<  >')),
+                ('menu.png', _('MENU')),
+                ('ok.png', _('OK')),
+                ('text.png', _('TEXT'))
+                ]
+
+            buttonpath = {'HD':'/usr/share/enigma2/MetrixHD/buttons/', 'FHD':'/usr/share/enigma2/MetrixHD/FHD/buttons/', 'UHD':'/usr/share/enigma2/MetrixHD/UHD/buttons/'}
+
+            if config.plugins.MyMetrixLiteOther.SkinDesignButtons.value:
+                #backup
+                for button in buttons:
+                    buttonfile = buttonpath[self.EHDres]+button[0]
+                    buttonbackupfile = buttonfile + '.backup'
+                    if path.exists(buttonfile) and not path.exists(buttonbackupfile):
+                        copy(buttonfile,buttonbackupfile)
+                    self.makeButtons(buttonfile,button[1])
+            else:
+               #restore
+                for button in buttons:
+                    buttonfile = buttonpath[self.EHDres]+button[0]
+                    buttonbackupfile = buttonfile + '.backup'
+                    if path.exists(buttonbackupfile):
+                        move(buttonbackupfile,buttonfile)
+
+            ################
             # EHD-skin + ALL-skin files
             ################
 
@@ -1369,6 +1406,75 @@ class ActivateSkinSettings:
 
         config.skin.primary_skin.save()
         configfile.save()
+
+    def makeButtons(self, button, text):
+		try:
+			#makeButtons
+			self.getEHDSettings()
+
+			sizex = int(80*self.EHDfactor)
+			sizey = int(40*self.EHDfactor)
+			framesize = config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameSize.value
+			fonttyp = config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextFont.value
+			fontsize = int(config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextSize.value*self.EHDfactor)
+
+			color = config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameColor.value
+			trans = config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameColorTransparency.value
+			framecolor = rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), 255-int(trans,16))
+			color = config.plugins.MyMetrixLiteOther.SkinDesignButtonsBackColor.value
+			trans = config.plugins.MyMetrixLiteOther.SkinDesignButtonsBackColorTransparency.value
+			backcolor = rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), 255-int(trans,16))
+			color = config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextColor.value
+			trans = config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextColorTransparency.value
+			textcolor = rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), 255-int(trans,16))
+
+			#special size
+			if 'key_leftright.png' in button or 'key_updown.png' in button:
+				fontsize += int(fontsize/2)
+			#autoshrink text
+			x = 0
+			fontx = sizex + 1
+			while fontx > sizex:
+				font = ImageFont.truetype(fonttyp, fontsize-x)
+				fontx, fonty = font.getsize(text)
+				x += 1
+			#frame
+			img = Image.new("RGBA",(sizex, sizey), framecolor) 
+			draw = ImageDraw.Draw(img)
+			#button
+			draw.rectangle([(framesize, framesize), (sizex-framesize-1, sizey-framesize-1)],fill=backcolor)
+			#text
+			draw.text((int((sizex-fontx)/2), int((sizey-fonty)/2)+config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition.value), text, fill=textcolor, font=font)
+			#rotate updown
+			if 'key_updown.png' in button:
+				top = int(font.getsize('<')[0]/2)-1
+				lefta = int((sizex-fontx)/2)
+				righta = lefta + font.getsize('<')[0]
+				leftb = lefta + fontx - font.getsize('<')[0]
+				rightb = leftb + font.getsize('<')[0]
+				upper = int((sizey - fonty + font.getsize('<')[1])/2) - top
+				lower = upper + font.getsize('<')[0]
+				imga = img.crop((lefta,upper,righta,lower)).rotate(-90)
+				imgb = img.crop((leftb,upper,rightb,lower)).rotate(-90)
+				draw.rectangle([(framesize, framesize), (sizex-framesize-1, sizey-framesize-1)],fill=backcolor)
+				img.paste(imga,(lefta,top+1))
+				img.paste(imgb,(leftb,top+1))
+				#imga = img.crop((framesize,framesize,sizey-framesize, sizey-framesize))rotate(-90)
+				#imgb = img.crop((sizex-(sizey-framesize), framesize, sizex-framesize-2, sizey-framesize))rotate(-90)
+				#img.paste(imga, (framesize+2,framesize))
+				#img.paste(imgb, (sizex-(sizey-framesize),framesize+2))
+			#glossy effect
+			if config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value == 'withframe':
+				imga = Image.new("RGBA",(sizex, sizey/2), (255,255,255,int(config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity.value,16)))
+				img.paste(imga,(0,0),imga)
+			elif config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value == 'withoutframe':
+				imga = Image.new("RGBA",(sizex-framesize*2, sizey/2-framesize), (255,255,255,int(config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity.value,16)))
+				img.paste(imga,(framesize,framesize),imga)
+			####
+			img.save(button)
+			return 1
+		except:
+			return 0
 
     def makeGraphics(self, factor):
 		# epg

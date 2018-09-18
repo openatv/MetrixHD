@@ -32,8 +32,10 @@ from Components.Pixmap import Pixmap
 from Components.Console import Console
 from Components.Label import Label
 from enigma import ePicLoad
-from os import path, statvfs
+from os import path, statvfs, remove
 from enigma import gMainDC, getDesktop
+from ActivateSkinSettings import ActivateSkinSettings
+from PIL import Image
 
 BoxType = getBoxType()
 
@@ -174,8 +176,10 @@ class OtherSettingsView(ConfigListScreen, Screen):
         if cur == "PRESET":
             self.getPreset()
 
-        if cur == "ENABLED" or cur == "ENABLED_EHD" or cur == "PRESET":
+        if cur in ("ENABLED","ENABLED_EHD","PRESET","BUTTON"):
             self["config"].setList(self.getMenuItemList())
+
+        self.ShowPicture(True)
 
     def __checkEHDtested(self):
 		self.__getEHDsettings()
@@ -624,7 +628,37 @@ class OtherSettingsView(ConfigListScreen, Screen):
         list.append(getConfigListEntry(tab + _("Show Menu Buttons"),config.plugins.MyMetrixLiteOther.SkinDesignMenuButtons, _("Show color buttons at top of the screen.")))
         list.append(getConfigListEntry(tab + _("Show large Text on bottom of the screen"),config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText, _("helptext")))
         list.append(getConfigListEntry(tab + _("Chose Extended-Info Style"), config.plugins.MyMetrixLiteOther.ExtendedinfoStyle, _("helptext")))
+        section = _("Skin Design Buttons")
+        list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+        list.append(getConfigListEntry(tab + _("Skin Design Buttons"),config.plugins.MyMetrixLiteOther.SkinDesignButtons, _("helptext"), "BUTTON"))
+        if config.plugins.MyMetrixLiteOther.SkinDesignButtons.value:
+            list.append(getConfigListEntry(tab + _("Back Color"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsBackColor, _("helptext"), "BUTTON"))
+            list.append(getConfigListEntry(tab + _("Back Color Transparency"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsBackColorTransparency, _("helptext"), "BUTTON"))
+            list.append(getConfigListEntry(tab + _("Frame Size"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameSize, _("helptext"), "BUTTON"))
+            if config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameSize.value:
+                list.append(getConfigListEntry(tab + _("Frame Color"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameColor, _("helptext"), "BUTTON"))
+                list.append(getConfigListEntry(tab + _("Frame Color Transparency"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameColorTransparency, _("helptext"), "BUTTON"))
+            list.append(getConfigListEntry(tab + _("Text Color"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextColor, _("helptext"), "BUTTON"))
+            list.append(getConfigListEntry(tab + _("Text Color Transparency"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextColorTransparency, _("helptext"), "BUTTON"))
+            list.append(getConfigListEntry(tab + _("Text Font"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextFont, _("helptext"), "BUTTON"))
+            list.append(getConfigListEntry(tab + _("Text Size"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextSize, _("helptext"), "BUTTON"))
+            list.append(getConfigListEntry(tab + _("Text Position"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition, _("helptext"), "BUTTON"))
+            list.append(getConfigListEntry(tab + _("Glossy Effect"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect, _("helptext"), "BUTTON"))
+            if config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value != 'no':
+                list.append(getConfigListEntry(tab + _("Glossy Effect Intensity"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity, _("helptext"), "BUTTON"))
         return list
+
+    def getButtonPreview(self):
+		if not config.plugins.MyMetrixLiteOther.SkinDesignButtons.value:
+			return
+		ret = ActivateSkinSettings().makeButtons('/tmp/button.png', _('TEST'))
+		if ret:
+			img = Image.open(MAIN_IMAGE_PATH % "/other/template")
+			imga = Image.open('/tmp/button.png')
+			imgwidth, imgheight = img.size
+			imgawidth, imgaheight = imga.size
+			img.paste(imga,((imgwidth-imgawidth)/2,(imgheight-imgaheight)/3))
+			img.save("/tmp/template.png")
 
     def GetPicturePath(self):
         return MAIN_IMAGE_PATH % "MyMetrixLiteOther"
@@ -633,9 +667,16 @@ class OtherSettingsView(ConfigListScreen, Screen):
         self.PicLoad.PictureData.get().append(self.DecodePicture)
         self.onLayoutFinish.append(self.ShowPicture)
 
-    def ShowPicture(self):
-        self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
-        self.PicLoad.startDecode(self.GetPicturePath())
+    def ShowPicture(self, update=False):
+        cur = self["config"].getCurrent()
+        cur = cur and len(cur) > 3 and cur[3]
+        if cur == "BUTTON" and config.plugins.MyMetrixLiteOther.SkinDesignButtons.value:
+            if not path.exists("/tmp/template.png") or update:
+                self.getButtonPreview()
+            self["helperimage"].instance.setPixmapFromFile("/tmp/template.png")
+        else:
+            self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
+            self.PicLoad.startDecode(self.GetPicturePath())
         self.showHelperText()
 
     def DecodePicture(self, PicInfo = ""):
@@ -644,11 +685,9 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
     def keyLeft(self):
         ConfigListScreen.keyLeft(self)
-        #self.ShowPicture()
 
     def keyRight(self):
         ConfigListScreen.keyRight(self)
-        #self.ShowPicture()
 
     def keyDown(self):
         self["config"].instance.moveSelection(self["config"].instance.moveDown)
@@ -673,7 +712,8 @@ class OtherSettingsView(ConfigListScreen, Screen):
         for x in self["config"].list:
             if len(x) > 1:
                     x[1].cancel()
-
+        if path.exists("/tmp/template.png"):
+            remove("/tmp/template.png")
         self.close()
 
     def defaults(self):
