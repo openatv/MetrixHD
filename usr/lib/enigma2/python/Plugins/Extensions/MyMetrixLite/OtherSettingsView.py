@@ -649,12 +649,10 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		return list
 
 	def getButtonPreview(self):
-		if not config.plugins.MyMetrixLiteOther.SkinDesignButtons.value:
+		if not config.plugins.MyMetrixLiteOther.SkinDesignButtons.value or not path.exists(MAIN_IMAGE_PATH % "other/template"):
 			return
 		ret = ActivateSkinSettings().makeButtons('/tmp/button.png', _('TEST'))
 		if ret:
-			if not path.exists(MAIN_IMAGE_PATH % "other/template"):
-				return		
 			img = Image.open(MAIN_IMAGE_PATH % "other/template")
 			imga = Image.open('/tmp/button.png')
 			imgwidth, imgheight = img.size
