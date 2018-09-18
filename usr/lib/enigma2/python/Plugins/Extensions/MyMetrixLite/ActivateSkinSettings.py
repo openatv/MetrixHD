@@ -41,10 +41,6 @@ from os import path, remove, statvfs, listdir, system, mkdir
 from PIL import Image, ImageFont, ImageDraw
 from boxbranding import getBoxType
 
-initOtherConfig()
-initColorsConfig()
-initWeatherConfig()
-initFontsConfig()
 
 #############################################################
 
@@ -75,6 +71,10 @@ class ActivateSkinSettings:
 				print 'MetrixHD is not the primary skin or runs with default settings. No restore action needed!'
 				return 0
 			from Components.PluginComponent import plugins #need for fast restore in skin.py
+		initOtherConfig()
+		initColorsConfig()
+		initWeatherConfig()
+		initFontsConfig()
 		self.CheckSettings()
 		if self.ErrorCode is None:
 			if self.silent:
