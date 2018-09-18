@@ -653,7 +653,9 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			return
 		ret = ActivateSkinSettings().makeButtons('/tmp/button.png', _('TEST'))
 		if ret:
-			img = Image.open(MAIN_IMAGE_PATH % "/other/template")
+			if not path.exists(MAIN_IMAGE_PATH % "other/template"):
+				return		
+			img = Image.open(MAIN_IMAGE_PATH % "other/template")
 			imga = Image.open('/tmp/button.png')
 			imgwidth, imgheight = img.size
 			imgawidth, imgaheight = imga.size
