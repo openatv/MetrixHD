@@ -182,6 +182,24 @@ class ActivateSkinSettings:
 						(SKIN_PLUGINS_SOURCE, SKIN_PLUGINS_TARGET, SKIN_PLUGINS_TARGET_TMP),
 						(SKIN_UNCHECKED_SOURCE, SKIN_UNCHECKED_TARGET, SKIN_UNCHECKED_TARGET_TMP),
 						(SKIN_DESIGN_SOURCE, SKIN_DESIGN_TARGET, SKIN_DESIGN_TARGET_TMP)]
+			buttons = [
+						('info.png', _('INFO')),
+						('key_audio.png', _('AUDIO')),
+						('key_av.png', _('AV')),
+						('key_bouquet.png', _('BOUQUET')),
+						('key_end.png', _('END')),
+						('key_epg.png', _('EPG')),
+						('key_exit.png', _('EXIT')),
+						('key_help.png', _('HELP')),
+						('key_home.png', _('HOME')),
+						('key_leftright.png', _('<  >')),
+						('key_tv.png', _('TV')),
+						('key_updown.png', _('<  >')),
+						('menu.png', _('MENU')),
+						('ok.png', _('OK')),
+						('text.png', _('TEXT'))
+						]
+			buttonpath = {'HD':'/usr/share/enigma2/MetrixHD/buttons/', 'FHD':'/usr/share/enigma2/MetrixHD/FHD/buttons/', 'UHD':'/usr/share/enigma2/MetrixHD/UHD/buttons/'}
 
 			################
 			# check free flash for _TARGET and _TMP files 
@@ -501,25 +519,25 @@ class ActivateSkinSettings:
 			CoolIconPos = 4 + offsetPosIcon
 
 			EMCSkinSearchAndReplace.append(['size="700,480" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"'\
-										   ,'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' %(sizeH, itemHeight, CoolFont, CoolSelectFont, CoolDateFont) ])
+											,'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' %(sizeH, itemHeight, CoolFont, CoolSelectFont, CoolDateFont) ])
 
 			EMCSkinSearchAndReplace.append(['size="700,240" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"'\
-										   ,'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' %(sizeH/2, itemHeight, CoolFont, CoolSelectFont, CoolDateFont) ])
+											,'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' %(sizeH/2, itemHeight, CoolFont, CoolSelectFont, CoolDateFont) ])
 
 			EMCSkinSearchAndReplace.append(['CoolProgressHPos="2" CoolIconPos="4" CoolIconHPos="2" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90"'\
-										   ,'CoolProgressHPos="%s" CoolIconPos="%s" CoolIconHPos="%s" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="%s" CoolBarSize="%s,%s" CoolBarSizeSa="%s,%s" CoolMoviePos="%s"' %(CoolProgressHPos, CoolIconPos, CoolIconHPos, CoolBarHPos, CoolBarSizeH, CoolBarSizeV, CoolBarSizeH, CoolBarSizeV, CoolMoviePos - margin) ])
+											,'CoolProgressHPos="%s" CoolIconPos="%s" CoolIconHPos="%s" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="%s" CoolBarSize="%s,%s" CoolBarSizeSa="%s,%s" CoolMoviePos="%s"' %(CoolProgressHPos, CoolIconPos, CoolIconHPos, CoolBarHPos, CoolBarSizeH, CoolBarSizeV, CoolBarSizeH, CoolBarSizeV, CoolMoviePos - margin) ])
 
 			CoolMoviePiconPos = CoolMoviePos + CoolPiconWidth + gap - margin
 			CoolPiconPos = CoolMoviePos - margin
 			EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'\
-										   ,'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' %(CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos) ])
+											,'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' %(CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos) ])
 
 			CoolMoviePiconPos = CoolMoviePos - margin
 			CoolPiconPos = CoolDatePos - CoolPiconWidth - gap - margin
 			if not CoolDateWidth:
 				CoolPiconPos = CoolDatePos - CoolPiconWidth
 			EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="540" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'\
-										   ,'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' %(CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos) ])
+											,'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' %(CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos) ])
 
 			if posNR:
 				EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionList_picon_left" />', '<panel name="EMCSelectionList_picon_right" />'])
@@ -1265,26 +1283,6 @@ class ActivateSkinSettings:
 			# Buttons
 			################
 
-			buttons = [
-				('info.png', _('INFO')),
-				('key_audio.png', _('AUDIO')),
-				('key_av.png', _('AV')),
-				('key_bouquet.png', _('BOUQUET')),
-				('key_end.png', _('END')),
-				('key_epg.png', _('EPG')),
-				('key_exit.png', _('EXIT')),
-				('key_help.png', _('HELP')),
-				('key_home.png', _('HOME')),
-				('key_leftright.png', _('<  >')),
-				('key_tv.png', _('TV')),
-				('key_updown.png', _('<  >')),
-				('menu.png', _('MENU')),
-				('ok.png', _('OK')),
-				('text.png', _('TEXT'))
-				]
-
-			buttonpath = {'HD':'/usr/share/enigma2/MetrixHD/buttons/', 'FHD':'/usr/share/enigma2/MetrixHD/FHD/buttons/', 'UHD':'/usr/share/enigma2/MetrixHD/UHD/buttons/'}
-
 			if config.plugins.MyMetrixLiteOther.SkinDesignButtons.value:
 				#backup
 				for button in buttons:
@@ -1294,7 +1292,7 @@ class ActivateSkinSettings:
 						copy(buttonfile,buttonbackupfile)
 					self.makeButtons(buttonfile,button[1])
 			else:
-			   #restore
+				#restore
 				for button in buttons:
 					buttonfile = buttonpath[self.EHDres]+button[0]
 					buttonbackupfile = buttonfile + '.backup'
@@ -1392,6 +1390,7 @@ class ActivateSkinSettings:
 			if not self.silent:
 				self.ErrorCode = 'error', _("Error creating Skin!")
 
+			#restore skinfiles
 			if path.exists(SKIN_SOURCE + bname):
 				 move(SKIN_SOURCE + bname,SKIN_SOURCE)
 			for file in skinfiles:
@@ -1399,6 +1398,13 @@ class ActivateSkinSettings:
 					remove(file[1])
 				if path.exists(file[2]):
 					remove(file[2])
+			#retore buttons
+			for button in buttons:
+				buttonfile = buttonpath["HD"]+button[0]
+				buttonbackupfile = buttonfile + '.backup'
+				if path.exists(buttonbackupfile):
+					move(buttonbackupfile,buttonfile)
+			#retore icons
 			self.iconFileCopy("HD")
 			self.iconFolderCopy("HD")
 
