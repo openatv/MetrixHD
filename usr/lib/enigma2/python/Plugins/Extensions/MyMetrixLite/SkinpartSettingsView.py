@@ -39,87 +39,87 @@ from shutil import move, copy
 #############################################################
 
 class SkinpartSettingsView(ConfigListScreen, Screen):
-    skin = """
+	skin = """
  <screen name="MyMetrixLiteOtherView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-    <eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
-    <widget source="titleText" position="60,55" size="590,50" render="Label" font="Regular; 40" foregroundColor="#00ffffff" backgroundColor="#00000000" valign="center" transparent="1" />
-    <widget name="config" position="61,124" size="590,480" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
-    <widget source="cancelBtn" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
-    <widget source="saveBtn" position="257,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
-    <widget source="defaultsBtn" position="445,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
-    <widget source="zoomBtn" position="631,640" size="360,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
-    <eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
-    <eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
-    <eLabel position="430,635" size="5,40" backgroundColor="#00e5dd00" />
-    <eLabel position="616,635" size="5,40" backgroundColor="#000064c7" />
-    <widget name="helperimage" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
-    <widget name="helpertext" position="800,490" size="336,160" font="Regular; 18" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center" valign="center" transparent="1"/>
+	<eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
+	<widget source="titleText" position="60,55" size="590,50" render="Label" font="Regular; 40" foregroundColor="#00ffffff" backgroundColor="#00000000" valign="center" transparent="1" />
+	<widget name="config" position="61,124" size="590,480" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
+	<widget source="cancelBtn" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+	<widget source="saveBtn" position="257,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+	<widget source="defaultsBtn" position="445,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+	<widget source="zoomBtn" position="631,640" size="360,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+	<eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
+	<eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
+	<eLabel position="430,635" size="5,40" backgroundColor="#00e5dd00" />
+	<eLabel position="616,635" size="5,40" backgroundColor="#000064c7" />
+	<widget name="helperimage" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
+	<widget name="helpertext" position="800,490" size="336,160" font="Regular; 18" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center" valign="center" transparent="1"/>
   </screen>
 """
 
-    def __init__(self, session, args = None):
-        Screen.__init__(self, session)
-        self.session = session
-        self.Scale = AVSwitch().getFramebufferScale()
-        self.PicLoad = ePicLoad()
-        self["helperimage"] = Pixmap()
-        self["helpertext"] = Label()
+	def __init__(self, session, args = None):
+		Screen.__init__(self, session)
+		self.session = session
+		self.Scale = AVSwitch().getFramebufferScale()
+		self.PicLoad = ePicLoad()
+		self["helperimage"] = Pixmap()
+		self["helpertext"] = Label()
 
-        self["titleText"] = StaticText("")
-        self["titleText"].setText(_("Skinpart settings"))
+		self["titleText"] = StaticText("")
+		self["titleText"].setText(_("Skinpart settings"))
 
-        self["cancelBtn"] = StaticText("")
-        self["cancelBtn"].setText(_("Cancel"))
+		self["cancelBtn"] = StaticText("")
+		self["cancelBtn"].setText(_("Cancel"))
 
-        self["saveBtn"] = StaticText("")
-        self["saveBtn"].setText(_("Save"))
+		self["saveBtn"] = StaticText("")
+		self["saveBtn"].setText(_("Save"))
 
-        self["defaultsBtn"] = StaticText("")
-        self["defaultsBtn"].setText(_("Defaults"))
+		self["defaultsBtn"] = StaticText("")
+		self["defaultsBtn"].setText(_("Defaults"))
 
-        self["zoomBtn"] = StaticText("")
-        self["zoomBtn"].setText(_("Zoom"))
+		self["zoomBtn"] = StaticText("")
+		self["zoomBtn"].setText(_("Zoom"))
 
-        initOtherConfig()
-        self.linkGlobalSkinParts()
-        self.getSkinParts()
+		initOtherConfig()
+		self.linkGlobalSkinParts()
+		self.getSkinParts()
 
-        ConfigListScreen.__init__(
-            self,
-            self.getMenuItemList(),
-            session = session,
-            on_change = self.__selectionChanged
-        )
+		ConfigListScreen.__init__(
+			self,
+			self.getMenuItemList(),
+			session = session,
+			on_change = self.__selectionChanged
+		)
 
-        self["actions"] = ActionMap(
-        [
-            "OkCancelActions",
-            "DirectionActions",
-            "InputActions",
-            "ColorActions"
-        ],
-        {
-            "left": self.keyLeft,
-            "down": self.keyDown,
-            "up": self.keyUp,
-            "right": self.keyRight,
-            "red": self.exit,
-            "green": self.save,
-            "blue": self.zoom,
-            "yellow": self.__defaults,
-            "cancel": self.exit
-        }, -1)
+		self["actions"] = ActionMap(
+		[
+			"OkCancelActions",
+			"DirectionActions",
+			"InputActions",
+			"ColorActions"
+		],
+		{
+			"left": self.keyLeft,
+			"down": self.keyDown,
+			"up": self.keyUp,
+			"right": self.keyRight,
+			"red": self.exit,
+			"green": self.save,
+			"blue": self.zoom,
+			"yellow": self.__defaults,
+			"cancel": self.exit
+		}, -1)
 
-        self.onLayoutFinish.append(self.UpdatePicture)
+		self.onLayoutFinish.append(self.UpdatePicture)
 
-    def __selectionChanged(self):
-        cur = self["config"].getCurrent()
-        cur = cur and len(cur) > 3 and cur[3]
+	def __selectionChanged(self):
+		cur = self["config"].getCurrent()
+		cur = cur and len(cur) > 3 and cur[3]
 
-        if cur == "ENABLED":
-            self["config"].setList(self.getMenuItemList())
+		if cur == "ENABLED":
+			self["config"].setList(self.getMenuItemList())
 
-    def getMenuItemList(self):
+	def getMenuItemList(self):
 		list = []
 		char = 150
 		tab = " "*10
@@ -162,7 +162,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 
 		return list
 
-    def linkGlobalSkinParts(self):
+	def linkGlobalSkinParts(self):
 		from os import symlink, makedirs
 		dir_global_skinparts = "/usr/share/enigma2/skinparts"
 		dir_local_skinparts = "/usr/share/enigma2/MetrixHD/skinparts"
@@ -180,7 +180,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 									print "1"
 									symlink(dir_global_skinparts + "/" + pack + "/" + d + "/" + f, dir_local_skinparts + "/" + d + "/" + f)
 
-    def getSkinParts(self):
+	def getSkinParts(self):
 		self.parts = {}
 		self.screens = {}
 		self.partlist = ConfigSubList()
@@ -188,7 +188,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		self.idx = 0
 		self.readSkinParts("/usr/share/enigma2/MetrixHD/skinparts/")
 
-    def readSkinParts(self, skinpartdir):
+	def readSkinParts(self, skinpartdir):
 		for skinpart in listdir(skinpartdir):
 			enabled = '0'
 			partname = skinpart
@@ -202,7 +202,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 				self.readSkinPartScreens(partpath, partname)
 				self.idx += 1
 
-    def readSkinPartScreens(self, partpath, partname):
+	def readSkinPartScreens(self, partpath, partname):
 		part = []
 		screen = []
 		lines = []
@@ -288,7 +288,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			self.screenlist[self.idx][idx].value = self.screens[self.idx][idx][4] #screen[4]
 			idx += 1
 
-    def GetPicturePath(self):
+	def GetPicturePath(self):
 		try:
 			zoomEnable = False
 			if len(self["config"].getCurrent()) > 3:
@@ -309,42 +309,42 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 
 		return picturepath
 
-    def UpdatePicture(self):
-        self.PicLoad.PictureData.get().append(self.DecodePicture)
-        self.onLayoutFinish.append(self.ShowPicture)
+	def UpdatePicture(self):
+		self.PicLoad.PictureData.get().append(self.DecodePicture)
+		self.onLayoutFinish.append(self.ShowPicture)
 
-    def ShowPicture(self):
-        self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
-        self.PicLoad.startDecode(self.GetPicturePath())
-        self.showHelperText()
+	def ShowPicture(self):
+		self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
+		self.PicLoad.startDecode(self.GetPicturePath())
+		self.showHelperText()
 
-    def DecodePicture(self, PicInfo = ""):
-        ptr = self.PicLoad.getData()
-        self["helperimage"].instance.setPixmap(ptr)
+	def DecodePicture(self, PicInfo = ""):
+		ptr = self.PicLoad.getData()
+		self["helperimage"].instance.setPixmap(ptr)
 
-    def keyLeft(self):
-        ConfigListScreen.keyLeft(self)
-        #self.ShowPicture()
+	def keyLeft(self):
+		ConfigListScreen.keyLeft(self)
+		#self.ShowPicture()
 
-    def keyRight(self):
-        ConfigListScreen.keyRight(self)
-        #self.ShowPicture()
+	def keyRight(self):
+		ConfigListScreen.keyRight(self)
+		#self.ShowPicture()
 
-    def keyDown(self):
-        self["config"].instance.moveSelection(self["config"].instance.moveDown)
-        self.ShowPicture()
+	def keyDown(self):
+		self["config"].instance.moveSelection(self["config"].instance.moveDown)
+		self.ShowPicture()
 
-    def keyUp(self):
-        self["config"].instance.moveSelection(self["config"].instance.moveUp)
-        self.ShowPicture()
+	def keyUp(self):
+		self["config"].instance.moveSelection(self["config"].instance.moveUp)
+		self.ShowPicture()
 
-    def showInfo(self):
-        self.session.open(MessageBox, _("Information"), MessageBox.TYPE_INFO)
+	def showInfo(self):
+		self.session.open(MessageBox, _("Information"), MessageBox.TYPE_INFO)
 
-    def zoom(self):
+	def zoom(self):
 		self.session.open(zoomPreview, self.GetPicturePath())
 
-    def save(self):
+	def save(self):
 		idxerrtxt = ''
 		idxerrcnt = 0
 		pidx = 0
@@ -424,40 +424,40 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		configfile.save()
 		self.exit()
 
-    def exit(self):
-        for x in self["config"].list:
-            if len(x) > 1:
-                    x[1].cancel()
+	def exit(self):
+		for x in self["config"].list:
+			if len(x) > 1:
+					x[1].cancel()
 
-        self.close()
+		self.close()
 
-    def defaults(self):
-        for x in self["config"].list:
-            if len(x) > 1:
-                self.setInputToDefault(x[1])
-                x[1].save()
-        configfile.save()
+	def defaults(self):
+		for x in self["config"].list:
+			if len(x) > 1:
+				self.setInputToDefault(x[1])
+				x[1].save()
+		configfile.save()
 
-    def __defaults(self):
-        for x in self["config"].list:
-            if len(x) > 1:
-                self.setInputToDefault(x[1])
-        self["config"].setList(self.getMenuItemList())
-        self.ShowPicture()
-        #self.save()
+	def __defaults(self):
+		for x in self["config"].list:
+			if len(x) > 1:
+				self.setInputToDefault(x[1])
+		self["config"].setList(self.getMenuItemList())
+		self.ShowPicture()
+		#self.save()
 
-    def setNewValue(self, configItem, newValue):
-        configItem.setValue(newValue)
+	def setNewValue(self, configItem, newValue):
+		configItem.setValue(newValue)
 
-    def setInputToDefault(self, configItem):
-        configItem.setValue(configItem.default)
+	def setInputToDefault(self, configItem):
+		configItem.setValue(configItem.default)
 
-    def showHelperText(self):
-        cur = self["config"].getCurrent()
-        if cur and len(cur) > 2 and cur[2] and cur[2] != _("helptext"):
-            self["helpertext"].setText(cur[2])
-        else:
-            self["helpertext"].setText(" ")
+	def showHelperText(self):
+		cur = self["config"].getCurrent()
+		if cur and len(cur) > 2 and cur[2] and cur[2] != _("helptext"):
+			self["helpertext"].setText(cur[2])
+		else:
+			self["helpertext"].setText(" ")
 
 class zoomPreview(Screen):
 	x = getDesktop(0).size().width()
