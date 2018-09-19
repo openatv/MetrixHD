@@ -192,9 +192,9 @@ class ActivateSkinSettings:
 						('key_exit.png', _('EXIT')),
 						('key_help.png', _('HELP')),
 						('key_home.png', _('HOME')),
-						('key_leftright.png', _('<  >')),
+						('key_leftright.png', _('< >')),
 						('key_tv.png', _('TV')),
-						('key_updown.png', _('<  >')),
+						('key_updown.png', _('< >')),
 						('menu.png', _('MENU')),
 						('ok.png', _('OK')),
 						('text.png', _('TEXT'))
@@ -1437,20 +1437,24 @@ class ActivateSkinSettings:
 			trans = config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity.value
 			glossycolor = rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), int(trans,16))
 
-			unicodechar = True
+			unicodechar = 'setrixHD' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextFont.value or 'Raleway' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextFont.value
 			#special size
 			symbol = 0
 			if 'key_leftright.png' in button or 'key_updown.png' in button:
 				if unicodechar:
-					symbol = -1
-					fonttyp = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
-					fontsize += int(fontsize/1.5)
+					symbol = -2
+					fonttyp = '/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf'
+					fontsize += int(fontsize/2)
 					if 'key_leftright.png' in button:
 						text = u'\u02c2'+' '+u'\u02c3'
 					else:
 						text = u'\u02c4'+' '+u'\u02c5'
 				else:
+					symbol = 0
+					fonttyp = '/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf'
 					fontsize += int(fontsize/2)
+			else:
+				text = u'%s' %text
 			#autoshrink text
 			x = 0
 			fontx = sizex + 1
