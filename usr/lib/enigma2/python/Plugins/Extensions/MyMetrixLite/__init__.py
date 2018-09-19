@@ -768,7 +768,9 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextSize = ConfigSelectionNumber(10, 30, 1, default = 24)
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameSize = ConfigSelectionNumber(0, 5, 1, default = 0)
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition = ConfigSelectionNumber(-10, 10, 1, default = 0)
-	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect = ConfigSelection(default = "no", choices = [("no", _("None")), ("withframe", _("With Frame")), ("withoutframe", _("Without Frame"))])
+	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect = ConfigSelection(default = "no", choices = [("no", _("None")), ("withframe", _("With Frame")), ("withoutframe", _("Without Frame")), ("gradient", _("Gradient"))])
+	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectColor = ConfigSelection(default="FFFFFF", choices = ColorList)
+	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectOverText = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity = ConfigSelection(default="00", choices = TransparencyList)
 
 #######################################################################

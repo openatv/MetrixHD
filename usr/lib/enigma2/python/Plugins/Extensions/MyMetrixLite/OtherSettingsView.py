@@ -645,6 +645,8 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			list.append(getConfigListEntry(tab + _("Text Position"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition, _("helptext"), "BUTTON"))
 			list.append(getConfigListEntry(tab + _("Glossy Effect"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect, _("helptext"), "BUTTON"))
 			if config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value != 'no':
+				list.append(getConfigListEntry(tab + _("Glossy Effect Color"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectColor, _("helptext"), "BUTTON"))
+				list.append(getConfigListEntry(tab + _("Glossy Effect Over Text"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectOverText, _("helptext"), "BUTTON"))
 				list.append(getConfigListEntry(tab + _("Glossy Effect Intensity"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity, _("helptext"), "BUTTON"))
 		return list
 

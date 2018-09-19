@@ -1433,6 +1433,9 @@ class ActivateSkinSettings:
 			color = config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextColor.value
 			trans = config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextColorTransparency.value
 			textcolor = rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), 255-int(trans,16))
+			color = config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectColor.value
+			trans = config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity.value
+			glossycolor = rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), int(trans,16))
 
 			#special size
 			if 'key_leftright.png' in button or 'key_updown.png' in button:
@@ -1445,12 +1448,14 @@ class ActivateSkinSettings:
 				fontx, fonty = font.getsize(text)
 				x += 1
 			#frame
-			img = Image.new("RGBA",(sizex, sizey), framecolor) 
+			img = Image.new("RGBA",(sizex, sizey), framecolor)
 			draw = ImageDraw.Draw(img)
 			#button
-			draw.rectangle([(framesize, framesize), (sizex-framesize-1, sizey-framesize-1)],fill=backcolor)
+			draw.rectangle(((framesize, framesize), (sizex-framesize-1, sizey-framesize-1)),fill=backcolor)
 			#text
-			draw.text((int((sizex-fontx)/2), int((sizey-fonty)/2)+config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition.value), text, fill=textcolor, font=font)
+			imgtxt = Image.new("RGBA",(sizex, sizey), (textcolor[0],textcolor[1],textcolor[2],0))
+			drawtxt = ImageDraw.Draw(imgtxt)
+			drawtxt.text((int((sizex-fontx)/2), int((sizey-fonty)/2)+config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition.value), text, fill=textcolor, font=font)
 			#rotate updown
 			if 'key_updown.png' in button:
 				top = int(font.getsize('<')[0]/2)-1
@@ -1460,23 +1465,34 @@ class ActivateSkinSettings:
 				rightb = leftb + font.getsize('<')[0]
 				upper = int((sizey - fonty + font.getsize('<')[1])/2) - top
 				lower = upper + font.getsize('<')[0]
-				imga = img.crop((lefta,upper,righta,lower)).rotate(-90)
-				imgb = img.crop((leftb,upper,rightb,lower)).rotate(-90)
-				draw.rectangle([(framesize, framesize), (sizex-framesize-1, sizey-framesize-1)],fill=backcolor)
-				img.paste(imga,(lefta,top+1))
-				img.paste(imgb,(leftb,top+1))
-				#imga = img.crop((framesize,framesize,sizey-framesize, sizey-framesize))rotate(-90)
-				#imgb = img.crop((sizex-(sizey-framesize), framesize, sizex-framesize-2, sizey-framesize))rotate(-90)
-				#img.paste(imga, (framesize+2,framesize))
-				#img.paste(imgb, (sizex-(sizey-framesize),framesize+2))
+				imga = imgtxt.crop((lefta,upper,righta,lower)).rotate(-90)
+				imgb = imgtxt.crop((leftb,upper,rightb,lower)).rotate(-90)
+				drawtxt.rectangle(((0, 0), (sizex, sizey)),fill=(textcolor[0],textcolor[1],textcolor[2],0))
+				imgtxt.paste(imga,(lefta,top+1))
+				imgtxt.paste(imgb,(leftb,top+1))
+			#text under glossy
+			if config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectOverText.value:
+				img.paste(imgtxt,(0,0),imgtxt)
 			#glossy effect
 			if config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value == 'withframe':
-				imga = Image.new("RGBA",(sizex, sizey/2), (255,255,255,int(config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity.value,16)))
+				imga = Image.new("RGBA",(sizex, sizey/2), glossycolor)
 				img.paste(imga,(0,0),imga)
 			elif config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value == 'withoutframe':
-				imga = Image.new("RGBA",(sizex-framesize*2, sizey/2-framesize), (255,255,255,int(config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity.value,16)))
+				imga = Image.new("RGBA",(sizex-framesize*2, sizey/2-framesize), glossycolor)
 				img.paste(imga,(framesize,framesize),imga)
-			####
+			elif config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value == 'gradient':
+				imga = Image.new("RGBA",(sizex, sizey), (glossycolor[0],glossycolor[1],glossycolor[2],0))
+				draw = ImageDraw.Draw(imga)
+				a = glossycolor[3]
+				x = sizey*0.99
+				s = a/x
+				for l in range(0,int(x+1)):
+					draw.line([(0,l), (sizex,l)], fill=(glossycolor[0],glossycolor[1],glossycolor[2],int(a)))
+					a-=s
+				img.paste(imga,(0,0),imga)
+			#text over glossy
+			if not config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectOverText.value:
+				img.paste(imgtxt,(0,0),imgtxt)
 			img.save(button)
 			return 1
 		except:
