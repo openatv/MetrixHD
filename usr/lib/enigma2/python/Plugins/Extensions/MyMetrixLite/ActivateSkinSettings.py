@@ -1491,11 +1491,14 @@ class ActivateSkinSettings:
 			elif config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value == 'withoutframe':
 				imga = Image.new("RGBA",(sizex-framesize*2, sizey/2-framesize), glossycolor)
 				img.paste(imga,(framesize,framesize),imga)
-			elif config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value == 'gradient':
+			elif 'gradient' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value:
 				imga = Image.new("RGBA",(sizex, sizey), (glossycolor[0],glossycolor[1],glossycolor[2],0))
 				draw = ImageDraw.Draw(imga)
 				a = glossycolor[3]
-				x = sizey*0.99
+				if config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value == 'gradientfull':
+					x = sizey*0.99
+				else:
+					x = sizey*0.55
 				s = a/x
 				for l in range(0,int(x+1)):
 					draw.line([(0,l), (sizex,l)], fill=(glossycolor[0],glossycolor[1],glossycolor[2],int(a)))
