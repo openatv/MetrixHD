@@ -1437,9 +1437,20 @@ class ActivateSkinSettings:
 			trans = config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity.value
 			glossycolor = rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), int(trans,16))
 
+			unicodechar = True
 			#special size
+			symbol = 0
 			if 'key_leftright.png' in button or 'key_updown.png' in button:
-				fontsize += int(fontsize/2)
+				if unicodechar:
+					symbol = -1
+					fonttyp = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
+					fontsize += int(fontsize/1.5)
+					if 'key_leftright.png' in button:
+						text = u'\u02c2'+' '+u'\u02c3'
+					else:
+						text = u'\u02c4'+' '+u'\u02c5'
+				else:
+					fontsize += int(fontsize/2)
 			#autoshrink text
 			x = 0
 			fontx = sizex + 1
@@ -1455,9 +1466,9 @@ class ActivateSkinSettings:
 			#text
 			imgtxt = Image.new("RGBA",(sizex, sizey), (textcolor[0],textcolor[1],textcolor[2],0))
 			drawtxt = ImageDraw.Draw(imgtxt)
-			drawtxt.text((int((sizex-fontx)/2), int((sizey-fonty)/2)+config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition.value), text, fill=textcolor, font=font)
+			drawtxt.text((int((sizex-fontx)/2), int((sizey-fonty)/2)+ symbol + config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition.value), text, fill=textcolor, font=font)
 			#rotate updown
-			if 'key_updown.png' in button:
+			if not unicodechar and 'key_updown.png' in button: #rotation disabled - if using unicode charachters
 				top = int(font.getsize('<')[0]/2)-1
 				lefta = int((sizex-fontx)/2)
 				righta = lefta + font.getsize('<')[0]
