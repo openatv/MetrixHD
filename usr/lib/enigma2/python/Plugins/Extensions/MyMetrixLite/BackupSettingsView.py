@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, MAIN_IMAGE_PATH, BACKUP_FILE, initColorsConfig, initWeatherConfig, initOtherConfig, initFontsConfig
+from . import _, MAIN_IMAGE_PATH, BACKUP_FILE
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Screens.VirtualKeyBoard import VirtualKeyBoard
@@ -87,11 +87,6 @@ class BackupSettingsView(ConfigListScreen, Screen):
 
 		self["deleteBtn"] = StaticText("")
 		self["deleteBtn"].setText(_("Delete"))
-
-		initColorsConfig()
-		initWeatherConfig()
-		initOtherConfig()
-		initFontsConfig()
 
 		self.myset = ConfigSelectionNumber(1, 99, 1, default = 1, wraparound = True)
 		self.myname = ConfigText(default = _("My Backup No. %d") % self.myset.value, visible_width = 50, fixed_size = False)

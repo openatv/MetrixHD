@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, initFontsConfig, FONT_IMAGE_PATH, MAIN_IMAGE_PATH
+from . import _, FONT_IMAGE_PATH, MAIN_IMAGE_PATH
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
@@ -73,8 +73,6 @@ class FontsSettingsView(ConfigListScreen, Screen):
 
 		self["defaultsBtn"] = StaticText("")
 		self["defaultsBtn"].setText(_("Defaults"))
-
-		initFontsConfig()
 
 		ConfigListScreen.__init__(
 			self,

@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, initWeatherConfig, MAIN_IMAGE_PATH
+from . import _, MAIN_IMAGE_PATH
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
@@ -83,8 +83,6 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		self.check_enable = False
 		self.checkTimer = eTimer()
 		self.checkTimer.callback.append(self.readCheckFile)
-
-		initWeatherConfig()
 
 		ConfigListScreen.__init__(
 			self,

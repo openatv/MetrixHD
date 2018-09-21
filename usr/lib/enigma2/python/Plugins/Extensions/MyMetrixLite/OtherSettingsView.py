@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, initOtherConfig, MAIN_IMAGE_PATH
+from . import _, MAIN_IMAGE_PATH
 from boxbranding import getBoxType, getMachineBrand, getMachineName
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -102,7 +102,6 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			"cancel": self.exit
 		}, -1)
 
-		initOtherConfig()
 		if self.session:
 			self.__getEHDsettings_old()
 			self.__checkEHDtested()

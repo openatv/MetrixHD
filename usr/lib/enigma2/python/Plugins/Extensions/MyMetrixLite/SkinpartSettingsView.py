@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, initOtherConfig, MAIN_IMAGE_PATH
+from . import _, MAIN_IMAGE_PATH
 from boxbranding import getBoxType, getMachineBrand, getMachineName
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -80,7 +80,6 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		self["zoomBtn"] = StaticText("")
 		self["zoomBtn"].setText(_("Zoom"))
 
-		initOtherConfig()
 		self.linkGlobalSkinParts()
 		self.getSkinParts()
 

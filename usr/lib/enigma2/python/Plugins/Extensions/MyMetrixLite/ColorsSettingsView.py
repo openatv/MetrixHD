@@ -19,7 +19,7 @@
 #
 #######################################################################
 
-from . import _, initColorsConfig, initOtherConfig, COLOR_IMAGE_PATH, MAIN_IMAGE_PATH, ColorList, TransparencyList
+from . import _, COLOR_IMAGE_PATH, MAIN_IMAGE_PATH, ColorList, TransparencyList
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
@@ -77,8 +77,6 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 		self.refreshTimer = eTimer()
 		self.refreshTimer.callback.append(self.refreshList)
 
-		initColorsConfig()
-		initOtherConfig()
 		self.initQuickColorSetup()
 
 		ConfigListScreen.__init__(

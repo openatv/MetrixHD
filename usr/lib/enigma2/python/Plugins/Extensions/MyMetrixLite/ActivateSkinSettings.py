@@ -71,10 +71,7 @@ class ActivateSkinSettings:
 				print 'MetrixHD is not the primary skin or runs with default settings. No restore action needed!'
 				return 0
 			from Components.PluginComponent import plugins #need for fast restore in skin.py
-		initOtherConfig()
-		initColorsConfig()
-		initWeatherConfig()
-		initFontsConfig()
+		self.initConfigs()
 		self.CheckSettings()
 		if self.ErrorCode is None:
 			if self.silent:
@@ -83,8 +80,15 @@ class ActivateSkinSettings:
 				self.ErrorCode = 'unknown', _('Error, unknown Result!')
 		return self.ErrorCode
 
+	def initConfigs(self):
+		initOtherConfig()
+		initColorsConfig()
+		initWeatherConfig()
+		initFontsConfig()
+
 	def RefreshIcons(self,restore=False):
 		# called from SystemPlugins/SoftwareManager/plugin.py after software update and from Screens/SkinSelector.py after changing skin
+		self.initConfigs()
 		self.getEHDSettings()
 		screenwidth = getDesktop(0).size().width()
 		if screenwidth and screenwidth != 1280 or restore:
@@ -1472,7 +1476,7 @@ class ActivateSkinSettings:
 			drawtxt = ImageDraw.Draw(imgtxt)
 			drawtxt.text((int((sizex-fontx)/2), int((sizey-fonty)/2)+ symbolpos + config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition.value), text, fill=textcolor, font=font)
 			#rotate updown
-			if not unicodechar and 'key_updown.png' in button: #rotation disabled - if using unicode charachters
+			if 'key_updown.png' in button and not unicodechar: #rotation disabled - if using unicode charachters
 				top = int(font.getsize('<')[0]/2)-1
 				lefta = int((sizex-fontx)/2)
 				righta = lefta + font.getsize('<')[0]
