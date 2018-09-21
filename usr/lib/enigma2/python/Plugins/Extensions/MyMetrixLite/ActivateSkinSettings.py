@@ -41,7 +41,6 @@ from os import path, remove, statvfs, listdir, system, mkdir
 from PIL import Image, ImageFont, ImageDraw
 from boxbranding import getBoxType
 
-
 #############################################################
 
 class ActivateSkinSettings:

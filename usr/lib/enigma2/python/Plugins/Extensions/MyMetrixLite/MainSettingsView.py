@@ -18,7 +18,7 @@
 #
 #######################################################################
 
-from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, initFontsConfig, MAIN_IMAGE_PATH
+from . import _, MAIN_IMAGE_PATH
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Screens.Standby import TryQuitMainloop
@@ -121,10 +121,7 @@ class MainSettingsView(Screen):
 				"cancel": self.exit
 			}, -1)
 
-		initOtherConfig()
-		initColorsConfig()
-		initWeatherConfig()
-		initFontsConfig()
+		ActivateSkinSettings().initConfigs()
 
 		list = []
 		list.append(MenuEntryItem(_("Font settings"), "FONT", _("helptext")))
