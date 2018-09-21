@@ -1437,12 +1437,12 @@ class ActivateSkinSettings:
 			trans = config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity.value
 			glossycolor = rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), int(trans,16))
 
-			unicodechar = 'setrixHD' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextFont.value or 'Raleway' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextFont.value
-			#special size
-			symbol = 0
+			#symbols
+			symbolpos = 0
 			if 'key_leftright.png' in button or 'key_updown.png' in button:
+				unicodechar = 'setrixHD' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextFont.value or 'Raleway' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextFont.value
 				if unicodechar:
-					symbol = -2
+					symbolpos = -2
 					fonttyp = '/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf'
 					fontsize += int(fontsize/2)
 					if 'key_leftright.png' in button:
@@ -1450,7 +1450,7 @@ class ActivateSkinSettings:
 					else:
 						text = u'\u02c4'+' '+u'\u02c5'
 				else:
-					symbol = 0
+					symbolpos = 0
 					fonttyp = '/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf'
 					fontsize += int(fontsize/2)
 			else:
@@ -1470,7 +1470,7 @@ class ActivateSkinSettings:
 			#text
 			imgtxt = Image.new("RGBA",(sizex, sizey), (textcolor[0],textcolor[1],textcolor[2],0))
 			drawtxt = ImageDraw.Draw(imgtxt)
-			drawtxt.text((int((sizex-fontx)/2), int((sizey-fonty)/2)+ symbol + config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition.value), text, fill=textcolor, font=font)
+			drawtxt.text((int((sizex-fontx)/2), int((sizey-fonty)/2)+ symbolpos + config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition.value), text, fill=textcolor, font=font)
 			#rotate updown
 			if not unicodechar and 'key_updown.png' in button: #rotation disabled - if using unicode charachters
 				top = int(font.getsize('<')[0]/2)-1
