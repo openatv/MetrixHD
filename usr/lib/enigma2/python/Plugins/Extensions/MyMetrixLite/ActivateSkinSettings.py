@@ -1492,25 +1492,25 @@ class ActivateSkinSettings:
 			if config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectOverText.value:
 				img.paste(imgtxt,(0,0),imgtxt)
 			#glossy effect
-			if config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value == 'withframe':
-				imga = Image.new("RGBA",(sizex, sizey/2), glossycolor)
-				img.paste(imga,(0,0),imga)
-			elif config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value == 'withoutframe':
-				imga = Image.new("RGBA",(sizex-framesize*2, sizey/2-framesize), glossycolor)
-				img.paste(imga,(framesize,framesize),imga)
-			elif 'gradient' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value:
-				imga = Image.new("RGBA",(sizex, sizey), (glossycolor[0],glossycolor[1],glossycolor[2],0))
-				draw = ImageDraw.Draw(imga)
-				a = glossycolor[3]
-				if config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value == 'gradientfull':
-					x = sizey*0.99
+			if config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value != 'no':
+				if 'frame' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value:
+					fs = 0
+					sy = sizey
 				else:
-					x = sizey*0.55
-				s = a/x
-				for l in range(0,int(x+1)):
-					draw.line([(0,l), (sizex,l)], fill=(glossycolor[0],glossycolor[1],glossycolor[2],int(a)))
-					a-=s
-				img.paste(imga,(0,0),imga)
+					fs = framesize
+					sy = sizey - fs*2
+				y = sy*float(config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectSize.value)
+				if 'solid' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value:
+					imga = Image.new("RGBA",(sizex-fs*2, int(y)), glossycolor)
+				elif 'gradient' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value:
+					imga = Image.new("RGBA",(sizex-fs*2, int(y)), (glossycolor[0],glossycolor[1],glossycolor[2],0))
+					draw = ImageDraw.Draw(imga)
+					a = glossycolor[3]
+					s = a/y
+					for l in range(0,int(y+1)):
+						draw.line([(0,l), (sizex-fs*2,l)], fill=(glossycolor[0],glossycolor[1],glossycolor[2],int(a)))
+						a-=s
+				img.paste(imga,(fs,fs),imga)
 			#text over glossy
 			if not config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectOverText.value:
 				img.paste(imgtxt,(0,0),imgtxt)
