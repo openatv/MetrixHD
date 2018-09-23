@@ -456,6 +456,16 @@ class OtherSettingsView(ConfigListScreen, Screen):
 				f.close()
 			except:
 				temp = ""
+		elif path.exists('/proc/hisi/msp/pm_cpu'):
+			try:
+				for line in open('/proc/hisi/msp/pm_cpu').readlines():
+					line = [x.strip() for x in line.strip().split(":")]
+					if line[0] in ("Tsensor"):
+						temp = line[1].split("=")
+						temp = line[1].split(" ")
+						temp = temp[2]
+			except:
+				temp = ""
 		if temp and int(temp.replace('\n', '')) > 0:
 			return True
 		else:

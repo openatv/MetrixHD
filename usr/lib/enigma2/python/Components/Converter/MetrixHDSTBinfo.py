@@ -90,6 +90,16 @@ class MetrixHDSTBinfo(Converter, object):
 			f = open('/proc/stb/power/avs', 'r')
 			temp = f.readline()
 			f.close()
+		elif path.exists('/proc/hisi/msp/pm_cpu'):
+			try:
+				for line in open('/proc/hisi/msp/pm_cpu').readlines():
+					line = [x.strip() for x in line.strip().split(":")]
+					if line[0] in ("Tsensor"):
+						temp = line[1].split("=")
+						temp = line[1].split(" ")
+						temp = temp[2]
+			except:
+				temp = ""
 		elif path.exists('/sys/devices/virtual/thermal/thermal_zone0/temp'):
 			try:
 				f = open('/sys/devices/virtual/thermal/thermal_zone0/temp', 'r')
