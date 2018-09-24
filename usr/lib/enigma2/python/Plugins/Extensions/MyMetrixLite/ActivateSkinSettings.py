@@ -40,6 +40,7 @@ from enigma import getDesktop
 from os import path, remove, statvfs, listdir, system, mkdir
 from PIL import Image, ImageFont, ImageDraw
 from boxbranding import getBoxType
+import math
 
 #############################################################
 
@@ -47,6 +48,7 @@ class ActivateSkinSettings:
 
 	def __init__(self):
 		self.ErrorCode = None
+		self.ButtonEffect = None
 
 	def WriteSkin(self, silent=False):
 		#silent = True  -> returned int value for defined error code
@@ -1294,6 +1296,7 @@ class ActivateSkinSettings:
 					if path.exists(buttonfile) and not path.exists(buttonbackupfile):
 						copy(buttonfile,buttonbackupfile)
 					self.makeButtons(buttonfile,button[1])
+				self.ButtonEffect = None
 			else:
 				#restore
 				for button in buttons:
@@ -1496,21 +1499,34 @@ class ActivateSkinSettings:
 				if 'frame' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value:
 					fs = 0
 					sy = sizey
+					sx = sizex
 				else:
 					fs = framesize
 					sy = sizey - fs*2
-				y = sy*float(config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectSize.value)
-				if 'solid' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value:
-					imga = Image.new("RGBA",(sizex-fs*2, int(y)), glossycolor)
-				elif 'gradient' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value:
-					imga = Image.new("RGBA",(sizex-fs*2, int(y)), (glossycolor[0],glossycolor[1],glossycolor[2],0))
-					draw = ImageDraw.Draw(imga)
+					sx = sizex - fs*2
+				if not self.ButtonEffect:
 					a = glossycolor[3]
-					s = a/y
-					for l in range(0,int(y+1)):
-						draw.line([(0,l), (sizex-fs*2,l)], fill=(glossycolor[0],glossycolor[1],glossycolor[2],int(a)))
-						a-=s
-				img.paste(imga,(fs,fs),imga)
+					esy = sy*float(config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectSize.value)
+					if 'solid' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value:
+						imga = Image.new("RGBA",(sizex-fs*2, int(esy)), glossycolor)
+					elif 'gradient' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value:
+						imga = Image.new("RGBA",(sizex-fs*2, int(esy)), (glossycolor[0],glossycolor[1],glossycolor[2],0))
+						draw = ImageDraw.Draw(imga)
+						s = a/esy
+						for l in range(0,int(esy+1)):
+							draw.line([(0,l), (sizex-fs*2,l)], fill=(glossycolor[0],glossycolor[1],glossycolor[2],int(a)))
+							a-=s
+					elif 'circle' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value:
+						epx = sx*float(config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectPosX.value)
+						epy = sy*float(config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectPosY.value)
+						esx = sx*float(config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectSize.value)
+						imga = Image.new("RGBA",(sx, sy))
+						for y in range(sy):
+							for x in range(sx):
+								s = a*(float(math.sqrt((x - epx) ** 2 + (y - epy) ** 2)) / math.sqrt((esx ** 2) + (esy ** 2)))
+								imga.putpixel((x, y), (glossycolor[0],glossycolor[1],glossycolor[2],a-int(s)))
+					self.ButtonEffect = imga
+				img.paste(self.ButtonEffect,(fs,fs),self.ButtonEffect)
 			#text over glossy
 			if not config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectOverText.value:
 				img.paste(imgtxt,(0,0),imgtxt)
