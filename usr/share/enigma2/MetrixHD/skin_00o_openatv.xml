@@ -630,6 +630,10 @@
 			<convert type="MenuEntryCompare">youtubetv</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/pplayer.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">iptv_main</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
 	</screen>
 	<screen name="menu_timermenu" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MENU_template" />
@@ -893,6 +897,10 @@
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/pplayer.png" position="305,80" size="256,256" alphatest="blend">
 			<convert type="MenuEntryCompare">serviceapp_setup</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">iptv_config</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 	</screen>
