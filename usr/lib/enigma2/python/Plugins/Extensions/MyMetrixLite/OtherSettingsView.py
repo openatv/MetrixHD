@@ -241,7 +241,6 @@ class OtherSettingsView(ConfigListScreen, Screen):
 				config.plugins.MyMetrixLiteOther.EHDtested.value = BoxType + '_|_' + config.plugins.MyMetrixLiteOther.EHDenabled.value
 			config.plugins.MyMetrixLiteOther.save()
 			configfile.save()
-			initOtherConfig()
 			self.__checkEHDtested()
 			self["config"].setList(self.getMenuItemList())
 
