@@ -83,7 +83,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 			self,
 			self.getMenuItemList(),
 			session = session,
-			on_change = self.__selectionChanged
+			on_change = self.selectionChanged
 		)
 
 		self["actions"] = ActionMap(
@@ -99,7 +99,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 			"up": self.keyUp,
 			"right": self.keyRight,
 			"red": self.exit,
-			"yellow": self.__defaults,
+			"yellow": self.defaults,
 			"green": self.save,
 			"cancel": self.exit
 		}, -1)
@@ -365,7 +365,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 
 		return list
 
-	def __selectionChanged(self):
+	def selectionChanged(self):
 		cur = self["config"].getCurrent()
 		cur = cur and len(cur) > 3 and cur[3]
 
@@ -1239,15 +1239,11 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 			if len(x) > 1:
 				self.setInputToDefault(x[1])
 				x[1].save()
-		configfile.save()
-
-	def __defaults(self):
-		for x in self["config"].list:
-			if len(x) > 1:
-				self.setInputToDefault(x[1])
-		self.refreshList()
-		self.ShowPicture()
-		#self.save()
+		if self.session:
+			self.refreshList()
+			self.ShowPicture()
+		else:
+			configfile.save()
 
 	def setInputToDefault(self, configItem):
 		configItem.setValue(configItem.default)

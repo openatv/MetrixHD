@@ -88,7 +88,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			self,
 			self.getMenuItemList(),
 			session = session,
-			on_change = self.__changedEntry
+			on_change = self.changedEntry
 		)
 
 		self["actions"] = ActionMap(
@@ -105,7 +105,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			"right": self.keyRight,
 			"red": self.exit,
 			"green": self.save,
-			"yellow": self.__defaults,
+			"yellow": self.defaults,
 			"blue": self.checkID,
 			"cancel": self.exit
 		}, -1)
@@ -206,18 +206,14 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			if len(x) > 1:
 				self.setInputToDefault(x[1])
 				x[1].save()
-		configfile.save()
+		if self.session:
+			self["config"].setList(self.getMenuItemList())
+			self.ShowPicture()
+		else:
+			configfile.save()
 
 	def setInputToDefault(self, configItem):
 		configItem.setValue(configItem.default)
-
-	def __defaults(self):
-		for x in self["config"].list:
-			if len(x) > 1:
-				self.setInputToDefault(x[1])
-		self["config"].setList(self.getMenuItemList())
-		self.ShowPicture()
-		#self.save()
 
 	def exit(self):
 		for x in self["config"].list:
@@ -225,7 +221,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 					x[1].cancel()
 		self.close()
 
-	def __changedEntry(self):
+	def changedEntry(self):
 		cur = self["config"].getCurrent()
 		cur = cur and len(cur) > 3 and cur[3]
 

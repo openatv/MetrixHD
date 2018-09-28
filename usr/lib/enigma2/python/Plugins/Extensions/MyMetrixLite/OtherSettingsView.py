@@ -97,27 +97,27 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			"right": self.keyRight,
 			"red": self.exit,
 			"green": self.save,
-			"yellow": self.__defaults,
+			"yellow": self.defaults,
 			"blue": self.test,
 			"cancel": self.exit
 		}, -1)
 
 		if self.session:
-			self.__getEHDsettings_old()
-			self.__checkEHDtested()
+			self.checkEHDsettings()
+			self.checkEHDtested()
 		else:
-			self.__getEHDsettings()
+			self.getEHDsettings()
 
 		ConfigListScreen.__init__(
 			self,
 			self.getMenuItemList(),
 			session = session,
-			on_change = self.__selectionChanged
+			on_change = self.selectionChanged
 		)
 
 		self.onLayoutFinish.append(self.UpdatePicture)
 
-	def __getEHDsettings(self):
+	def getEHDsettings(self):
 		if config.plugins.MyMetrixLiteOther.EHDenabled.value == '0':
 			self.EHDenabled = False
 			self.EHDfactor = 1
@@ -143,7 +143,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.EHDres = 'HD'
 			self.EHDtxt = 'Standard HD'
 
-	def __getEHDsettings_old(self):
+	def checkEHDsettings(self):
 		self.x = getDesktop(0).size().width()
 		self.y = getDesktop(0).size().height()
 		screenwidth = self.x
@@ -165,12 +165,12 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.EHDres_old = 'HD'
 			self.EHDtext_old = 'Standard HD'
 
-	def __selectionChanged(self):
+	def selectionChanged(self):
 		cur = self["config"].getCurrent()
 		cur = cur and len(cur) > 3 and cur[3]
 
 		if cur == 'ENABLED_EHD':
-			self.__checkEHDtested()
+			self.checkEHDtested()
 
 		if cur == "PRESET":
 			self.getPreset()
@@ -180,8 +180,8 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
 		self.ShowPicture(True)
 
-	def __checkEHDtested(self):
-		self.__getEHDsettings()
+	def checkEHDtested(self):
+		self.getEHDsettings()
 		tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
 		if self.EHDenabled and (len(tested) != 2 or not BoxType in tested[0] or not config.plugins.MyMetrixLiteOther.EHDenabled.value in tested[1]):
 			if "green" in self["actions"].actions:
@@ -241,7 +241,8 @@ class OtherSettingsView(ConfigListScreen, Screen):
 				config.plugins.MyMetrixLiteOther.EHDtested.value = BoxType + '_|_' + config.plugins.MyMetrixLiteOther.EHDenabled.value
 			config.plugins.MyMetrixLiteOther.save()
 			configfile.save()
-			self.__checkEHDtested()
+			ActivateSkinSettings().initConfigs()
+			self.checkEHDtested()
 			self["config"].setList(self.getMenuItemList())
 
 	def freeFlashCheck(self):
@@ -257,7 +258,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
 	def resetEHD(self):
 		config.plugins.MyMetrixLiteOther.EHDenabled.setValue(self.EHDvalue_old)
-		self.__checkEHDtested()
+		self.checkEHDtested()
 		self["config"].setList(self.getMenuItemList())
 
 	def InstallCheck(self):
@@ -735,15 +736,11 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			if len(x) > 1:
 				self.setInputToDefault(x[1])
 				x[1].save()
-		configfile.save()
-
-	def __defaults(self):
-		for x in self["config"].list:
-			if len(x) > 1:
-				self.setInputToDefault(x[1])
-		self.__checkEHDtested()
-		self["config"].setList(self.getMenuItemList())
-		self.ShowPicture()
+		if self.session:
+			self["config"].setList(self.getMenuItemList())
+			self.ShowPicture()
+		else:
+			configfile.save()
 
 	def setNewValue(self, configItem, newValue):
 		configItem.setValue(newValue)

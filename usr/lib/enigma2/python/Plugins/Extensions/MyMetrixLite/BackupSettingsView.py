@@ -99,7 +99,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 			self,
 			self.getMenuItemList(),
 			session = session,
-			on_change = self.__changedEntry
+			on_change = self.changedEntry
 		)
 
 		self["actions"] = ActionMap(
@@ -122,7 +122,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 			"ok": self.renameName
 		}, -1)
 
-		self.__changedEntry(True)
+		self.changedEntry(True)
 		self.onLayoutFinish.append(self.UpdatePicture)
 
 	def getMenuItemList(self):
@@ -202,7 +202,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 			f = file(BACKUP_FILE,'wb')
 			pickle.dump(self.file, f)
 			f.close()
-			self.__changedEntry(True)
+			self.changedEntry(True)
 		except IOError:
 			self.message(_("Can't create Backup-File!\n( %s )")% BACKUP_FILE, MessageBox.TYPE_ERROR)
 
@@ -250,7 +250,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 			self.message(_("No Backup-Set found!"), MessageBox.TYPE_ERROR)
 			return
 
-		self.__defaults()
+		self.defaults()
 
 		for entries in self.file:
 			if "set%dcolor" %set in entries:
@@ -375,13 +375,13 @@ class BackupSettingsView(ConfigListScreen, Screen):
 	def exit(self):
 		self.close()
 
-	def __defaults(self):
+	def defaults(self):
 		ColorsSettingsView(None).defaults()
 		FontsSettingsView(None).defaults()
 		OtherSettingsView(None).defaults()
 		WeatherSettingsView(None).defaults()
 
-	def __changedEntry(self, refresh = False):
+	def changedEntry(self, refresh = False):
 		if not self.file:
 			self.readFile()
 

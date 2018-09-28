@@ -87,7 +87,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			self,
 			self.getMenuItemList(),
 			session = session,
-			on_change = self.__selectionChanged
+			on_change = self.selectionChanged
 		)
 
 		self["actions"] = ActionMap(
@@ -105,13 +105,13 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			"red": self.exit,
 			"green": self.save,
 			"blue": self.zoom,
-			"yellow": self.__defaults,
+			"yellow": self.defaults,
 			"cancel": self.exit
 		}, -1)
 
 		self.onLayoutFinish.append(self.UpdatePicture)
 
-	def __selectionChanged(self):
+	def selectionChanged(self):
 		cur = self["config"].getCurrent()
 		cur = cur and len(cur) > 3 and cur[3]
 
@@ -435,15 +435,11 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			if len(x) > 1:
 				self.setInputToDefault(x[1])
 				x[1].save()
-		configfile.save()
-
-	def __defaults(self):
-		for x in self["config"].list:
-			if len(x) > 1:
-				self.setInputToDefault(x[1])
-		self["config"].setList(self.getMenuItemList())
-		self.ShowPicture()
-		#self.save()
+		if self.session:
+			self["config"].setList(self.getMenuItemList())
+			self.ShowPicture()
+		else:
+			configfile.save()
 
 	def setNewValue(self, configItem, newValue):
 		configItem.setValue(newValue)
