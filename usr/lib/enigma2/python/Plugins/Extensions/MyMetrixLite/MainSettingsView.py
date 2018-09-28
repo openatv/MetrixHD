@@ -148,9 +148,8 @@ class MainSettingsView(Screen):
 		self.checkEHDsettingsTimer.callback.append(self.checkEHDsettings)
 		self.checkEHDsettingsTimer.start(1000, True)
 
-
-	def __del__(self):
-		self["menuList"].onSelectionChanged.remove(self.selectionChanged)
+	#def __del__(self):
+	#	self["menuList"].onSelectionChanged.remove(self.selectionChanged)
 
 	def UpdatePicture(self):
 		self.PicLoad.PictureData.get().append(self.DecodePicture)
@@ -161,9 +160,7 @@ class MainSettingsView(Screen):
 			return
 
 		cur = self["menuList"].getCurrent()
-
 		imageUrl = MAIN_IMAGE_PATH % "FFFFFF"
-
 		self["logo"].hide()
 
 		if cur:
