@@ -72,7 +72,6 @@ class ActivateSkinSettings:
 				print 'MetrixHD is not the primary skin or runs with default settings. No restore action needed!'
 				return 0
 			from Components.PluginComponent import plugins #need for fast restore in skin.py
-		self.initConfigs()
 		self.CheckSettings()
 		if self.ErrorCode is None:
 			if self.silent:
@@ -130,6 +129,7 @@ class ActivateSkinSettings:
 
 	def CheckSettings(self, onlyCheck=False):
 		#first check is ehd tested, ehd-settings and available ehd-icons
+		self.initConfigs()
 		self.getEHDSettings(onlyCheck)
 
 		if self.EHDenabled:
