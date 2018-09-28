@@ -1238,12 +1238,10 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 		for x in self["config"].list:
 			if len(x) > 1:
 				self.setInputToDefault(x[1])
-				x[1].save()
+				#x[1].save()
 		if self.session:
 			self.refreshList()
 			self.ShowPicture()
-		else:
-			configfile.save()
 
 	def setInputToDefault(self, configItem):
 		configItem.setValue(configItem.default)

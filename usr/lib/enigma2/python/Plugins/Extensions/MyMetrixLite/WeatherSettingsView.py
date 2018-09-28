@@ -205,12 +205,10 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		for x in self["config"].list:
 			if len(x) > 1:
 				self.setInputToDefault(x[1])
-				x[1].save()
+				#x[1].save()
 		if self.session:
 			self["config"].setList(self.getMenuItemList())
 			self.ShowPicture()
-		else:
-			configfile.save()
 
 	def setInputToDefault(self, configItem):
 		configItem.setValue(configItem.default)

@@ -107,6 +107,8 @@ class MainSettingsView(Screen):
 		self["applyBtn"] = StaticText("")
 		self["applyBtn"].setText(_("Apply changes"))
 
+		ActivateSkinSettings().initConfigs()
+
 		self["actions"] = ActionMap(
 			[
 				"OkCancelActions",
@@ -194,8 +196,6 @@ class MainSettingsView(Screen):
 		if cur:
 			selectedKey = cur[0][1]
 
-			if selectedKey != "SKINPART":
-				ActivateSkinSettings().initConfigs()
 			if selectedKey == "COLOR":
 				self.session.open(ColorsSettingsView)
 			elif selectedKey == "WEATHER":
@@ -247,7 +247,6 @@ class MainSettingsView(Screen):
 
 	def exit(self):
 		self["menuList"].onSelectionChanged.remove(self.selectionChanged)
-		ActivateSkinSettings().initConfigs() #restore old - not saved - settings
 		self.close()
 
 	def selectionChanged(self):
