@@ -38,6 +38,7 @@ from ColorsSettingsView import ColorsSettingsView
 from WeatherSettingsView import WeatherSettingsView
 from OtherSettingsView import OtherSettingsView
 from FontsSettingsView import FontsSettingsView
+from ActivateSkinSettings import ActivateSkinSettings
 
 #############################################################
 
@@ -267,6 +268,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		self.writeFile()
 		configfile.save()
 		self.message(_("Settings successfully restored."), MessageBox.TYPE_INFO)
+		ActivateSkinSettings().initConfigs()
 		self.exit()
 
 	def message(self, text, type):
@@ -376,10 +378,10 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		self.close()
 
 	def defaults(self):
-		ColorsSettingsView(None).defaults()
-		FontsSettingsView(None).defaults()
-		OtherSettingsView(None).defaults()
-		WeatherSettingsView(None).defaults()
+		ColorsSettingsView(None).defaults(True)
+		FontsSettingsView(None).defaults(True)
+		OtherSettingsView(None).defaults(True)
+		WeatherSettingsView(None).defaults(True)
 
 	def changedEntry(self, refresh = False):
 		if not self.file:

@@ -201,11 +201,11 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		MetrixHDWeatherUpdaterStandalone(once=True)
 		self.exit()
 
-	def defaults(self):
+	def defaults(self, SAVE = False):
 		for x in self["config"].list:
 			if len(x) > 1:
 				self.setInputToDefault(x[1])
-				#x[1].save()
+				if SAVE: x[1].save()
 		if self.session:
 			self["config"].setList(self.getMenuItemList())
 			self.ShowPicture()

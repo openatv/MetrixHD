@@ -1234,11 +1234,11 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 		self["config"].instance.moveSelection(self["config"].instance.moveUp)
 		self.ShowPicture()
 
-	def defaults(self):
+	def defaults(self, SAVE = False):
 		for x in self["config"].list:
 			if len(x) > 1:
 				self.setInputToDefault(x[1])
-				#x[1].save()
+				if SAVE: x[1].save()
 		if self.session:
 			self.refreshList()
 			self.ShowPicture()
@@ -1284,7 +1284,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 			if len(x) > 1:
 					x[1].cancel()
 		self.close()
-	
+
 	def showHelperText(self):
 		cur = self["config"].getCurrent()
 		if cur and len(cur) > 2 and cur[2] and cur[2] != _("helptext"):
