@@ -669,7 +669,7 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.showSTBinfo = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.showTunerinfo = ConfigYesNo(default=True)
 	config.plugins.MyMetrixLiteOther.setTunerAuto = ConfigYesNo(default=True)
-	config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelection(default='2', choices=[('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'),('8','8'),('10','10'),('12','12'),('16','16'),('18','18')])
+	config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelection(default='2', choices=[('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'),('8','8'),('10','10'),('12','12'),('16','16'),('18','18'),('19','19')])
 	config.plugins.MyMetrixLiteOther.showInfoBarRunningtext = ConfigYesNo(default=False)
 	#running text parameter
 	config.plugins.MyMetrixLiteOther.runningTextStartdelay = ConfigSelectionNumber(600, 10000, 100, default = 1200, wraparound=True)
