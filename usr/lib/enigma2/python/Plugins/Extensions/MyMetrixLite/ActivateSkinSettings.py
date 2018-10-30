@@ -1133,21 +1133,21 @@ class ActivateSkinSettings:
 				new = '<font filename="' + type + '" name="global_large_menu" scale="' + str(scale) + '" />'
 				skinSearchAndReplace.append([old, new ])
 				old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_screen" scale="100" />'
-				new = '<font filename="' + type + '" name="global_large_screen" scale="-1" />'
+				new = '<font filename="' + type + '" name="global_large_screen" scale="0" />'
 				skinSearchAndReplace.append([old, new ])
 			elif config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText.value == "screens":
 				old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_menu" scale="100" />'
-				new = '<font filename="' + type + '" name="global_large_menu" scale="-1" />'
+				new = '<font filename="' + type + '" name="global_large_menu" scale="0" />'
 				skinSearchAndReplace.append([old, new ])
 				old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_screen" scale="100" />'
 				new = '<font filename="' + type + '" name="global_large_screen" scale="' + str(scale) + '" />'
 				skinSearchAndReplace.append([old, new ])
 			else:
 				old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_menu" scale="100" />'
-				new = '<font filename="' + type + '" name="global_large_menu" scale="-1" />'
+				new = '<font filename="' + type + '" name="global_large_menu" scale="0" />'
 				skinSearchAndReplace.append([old, new ])
 				old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_screen" scale="100" />'
-				new = '<font filename="' + type + '" name="global_large_screen" scale="-1" />'
+				new = '<font filename="' + type + '" name="global_large_screen" scale="0" />'
 				skinSearchAndReplace.append([old, new ])
 
 			type = config.plugins.MyMetrixLiteFonts.globalsmall_type.value
@@ -2282,7 +2282,7 @@ class ActivateSkinSettings:
 								strnew = line[n1:n2+1] + " " + ynew
 								line = line[:n1] + strnew + line[n3:]
 #scale="100"
-						if 'scale="' in line and not 'scale="-1"' in line and fontsize != 2:
+						if 'scale="' in line and not 'scale="0"' in line and fontsize != 2:
 							n1 = line.find('scale="', 0)
 							n2 = line.find('"', n1)
 							n3 = line.find('"', n2+1) 
