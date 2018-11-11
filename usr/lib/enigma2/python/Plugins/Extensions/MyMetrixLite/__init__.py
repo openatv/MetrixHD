@@ -713,6 +713,7 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth = ConfigSelectionNumber(0, 15, 1, default = 10)
 	config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth = ConfigSelectionNumber(0, 5, 1, default = 1)
 	config.plugins.MyMetrixLiteOther.SkinDesignMenuButtons = ConfigYesNo(default=True)
+	config.plugins.MyMetrixLiteOther.SkinDesignMenuScrollInfo = ConfigYesNo(default=True)
 	config.plugins.MyMetrixLiteOther.SkinDesign = ConfigSelection(default = "1", choices = [("1", _("Standard")), ("2", _("Layer A and B same height, Clock in Layer A")), ("3", _("Layer A and B same height, Clock in Layer B"))])
 	config.plugins.MyMetrixLiteOther.SkinDesignSpace = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.SkinDesignInfobarColorGradient = ConfigYesNo(default=False)
