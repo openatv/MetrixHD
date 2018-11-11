@@ -84,11 +84,12 @@ class MetrixHDXPicon(Renderer):
 					pngname = self.findPicon(sname)
 					if pngname == "":
 						fields = sname.split('_', 3)
-						if len(fields) > 2 and fields[2] != '2': #fallback to 1 for tv services with nonstandard servicetypes
-							fields[2] = '1'
-						if len(fields) > 0 and fields[0] != '1': #fallback to 1 for IPTV streams
+						if len(fields) > 0 and fields[0] != '1':                    #fallback to 1 for IPTV streams
 							fields[0] = '1'
-						pngname = self.findPicon('_'.join(fields))
+							pngname = self.findPicon('_'.join(fields))
+						if pngname == "" and len(fields) > 2 and fields[2] != '2':  #fallback to 1 for find picons with not defined stream quality
+							fields[2] = '1'
+							pngname = self.findPicon('_'.join(fields))
 					if not pngname: # picon by channel name
 						name = ServiceReference(self.source.text).getServiceName()
 						name = unicodedata.normalize('NFKD', unicode(name, 'utf_8', errors='ignore')).encode('ASCII', 'ignore')
