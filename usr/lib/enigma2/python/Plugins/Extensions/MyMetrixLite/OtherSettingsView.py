@@ -635,7 +635,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab + _("Scrollbar Border width"), config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Show Space between Layer A and B"),config.plugins.MyMetrixLiteOther.SkinDesignSpace, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Show Menu Buttons"),config.plugins.MyMetrixLiteOther.SkinDesignMenuButtons, _("Show color buttons at top of the screen.")))
-		list.append(getConfigListEntry(tab + _("Show Menu Scrollinfo"),config.plugins.MyMetrixLiteOther.SkinDesignMenuScrollInfo, _("Show info in Mainmenu and Contextmenu if more entries on next side.")))
+		list.append(getConfigListEntry(tab + _("Show Menu Scrollinfo"),config.plugins.MyMetrixLiteOther.SkinDesignMenuScrollInfo, _("Show info in main menu and context menu if more entries on next side.\n(no restart required)")))
 		list.append(getConfigListEntry(tab + _("Show large Text on bottom of the screen"),config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Chose Extended-Info Style"), config.plugins.MyMetrixLiteOther.ExtendedinfoStyle, _("helptext")))
 		section = _("Skin Design Buttons")
