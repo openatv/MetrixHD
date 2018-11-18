@@ -2562,7 +2562,7 @@
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="text" position="70,66" foregroundColor="layer-a-title-foreground" size="700,50" noWrap="1" valign="bottom" font="global_title;20" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="progress" position="70,96" foregroundColor="layer-a-title-foreground" size="700,50" noWrap="1" valign="bottom" font="global_title;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="list" render="Listbox" position="70,150" size="700,510" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+		<widget source="list" render="Listbox" position="70,150" size="700,450" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="TemplatedMultiContent">
 				{"template": [ MultiContentEntryText(pos = (5, 2), size = (690, 26), flags = RT_HALIGN_LEFT, text = 0) ],
 				 "fonts": [gFont("Regular", 20)],
@@ -2577,6 +2577,26 @@
 		<panel name="rg__-buttons_template1" />
 		<panel name="_oe-buttons_template1" />
 		<widget source="constellation" render="Canvas" position="890,175" size="256,256" zPosition="2" correct_aspect="width" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="SatBlindscanState2" position="0,0" size="1280,720" title="Satellite Blindscan" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="text" position="70,66" foregroundColor="layer-a-title-foreground" size="700,50" noWrap="1" valign="bottom" font="global_title;20" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="progress" position="70,96" foregroundColor="layer-a-title-foreground" size="700,50" noWrap="1" valign="bottom" font="global_title;20" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="list" render="Listbox" position="70,150" size="700,450" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+			<convert type="TemplatedMultiContent">
+				{"template": [ MultiContentEntryText(pos = (5, 2), size = (690, 26), flags = RT_HALIGN_LEFT, text = 0) ],
+				 "fonts": [gFont("Regular", 20)],
+				 "itemHeight": 30
+				}
+			</convert>
+		</widget>
+		<widget name="post_action" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<eLabel text="Cancel" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<eLabel text="Change" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/search.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="BlindscanState" position="0,0" size="1280,720" title="Satellite Blindscan" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
