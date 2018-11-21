@@ -1820,10 +1820,12 @@ class ActivateSkinSettings:
 		i_save = i
 		for line in f.readlines():
 			i += 1
-# options for all skin files
+#options for all skin files
 			line = line.replace('scrollbarWidth="10"', 'scrollbarWidth="%s"' %(config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth.value + config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value*2))
 			line = line.replace('scrollbarSliderBorderWidth="1"', 'scrollbarSliderBorderWidth="%s"' %config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value)
-#all skin files end
+			if config.plugins.MyMetrixLiteColors.backgroundtextborderwidth.value and ' font="global_large' in line and not ' borderWidth=' in line and not ' borderColor=' in line:
+				line = line.replace(' font=', ' borderWidth="%s" borderColor="#%s%s" font=' %(config.plugins.MyMetrixLiteColors.backgroundtextborderwidth.value, config.plugins.MyMetrixLiteColors.backgroundtextbordertransparency.value, config.plugins.MyMetrixLiteColors.backgroundtextbordercolor.value))
+#options for all skin files end
 			if self.EHDenabled:
 				try: 
 #start additional files

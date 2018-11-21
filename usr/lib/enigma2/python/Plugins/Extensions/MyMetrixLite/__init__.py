@@ -366,6 +366,9 @@ def initColorsConfig():
 	config.plugins.MyMetrixLiteColors.backgroundtexttransparency = ConfigSelection(default="34", choices = TransparencyList)
 	config.plugins.MyMetrixLiteColors.backgroundtextback = ConfigSelection(default="FFFFFF", choices = ColorList)
 	config.plugins.MyMetrixLiteColors.backgroundtextbacktransparency = ConfigSelection(default="67", choices = TransparencyList)
+	config.plugins.MyMetrixLiteColors.backgroundtextborderwidth = ConfigSelectionNumber(0, 10, 1, default = 0)
+	config.plugins.MyMetrixLiteColors.backgroundtextbordercolor = ConfigSelection(default="0F0F0F", choices = ColorList)
+	config.plugins.MyMetrixLiteColors.backgroundtextbordertransparency = ConfigSelection(default="1A", choices = TransparencyList)
 
 	config.plugins.MyMetrixLiteColors.layerabackground = ConfigSelection(default="0F0F0F", choices = ColorList)
 	config.plugins.MyMetrixLiteColors.layerabackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
