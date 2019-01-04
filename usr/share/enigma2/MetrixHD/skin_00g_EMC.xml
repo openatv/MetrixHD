@@ -149,13 +149,32 @@
 			<convert type="ServiceInfo">IsWidescreen</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<ePixmap pixmap="MetrixHD/icons/ico_hd_off.png" position="1109,616" size="49,24" zPosition="1" alphatest="blend" />
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
-			<convert type="ServiceInfo">IsHD</convert>
-			<convert type="ConditionalShowHide" />
+		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_off.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+			<convert type="ServiceInfo">IsSD</convert>
+			<convert type="ConditionalShowHide"/>
 		</widget>
 		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+			<convert type="ServiceInfo">IsHD</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_uhd_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">Is4K</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<widget asource="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_hdr_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+			<convert type="ServiceInfo">IsHDHDR</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hdr_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+			<convert type="ServiceInfo">IsHDR</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hdr10_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+			<convert type="ServiceInfo">IsHDR10</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hlg_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+			<convert type="ServiceInfo">IsHLG</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
 		<widget source="session.CurrentService" render="Label" font="infobar_text;19" position="1070,580" size="55,25" halign="right" foregroundColor="infobaraccent1" backgroundColor="infobarbackground" transparent="1">

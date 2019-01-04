@@ -310,13 +310,32 @@
 				<convert type="ServiceInfo">IsMultichannel</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
-			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hd_off.png" position="1130,669" size="49,24" zPosition="1"/>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_off.png" position="1130,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+				<convert type="ServiceInfo">IsSD</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
 			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_on.png" position="1130,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
 				<convert type="ServiceInfo">IsHD</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
-			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_on.png" position="1130,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_uhd_on.png" position="1130,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
 				<convert type="ServiceInfo">Is4K</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_hdr_on.png" position="1130,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+				<convert type="ServiceInfo">IsHDHDR</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hdr_on.png" position="1130,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+				<convert type="ServiceInfo">IsHDR</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hdr10_on.png" position="1130,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+				<convert type="ServiceInfo">IsHDR10</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hlg_on.png" position="1130,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+				<convert type="ServiceInfo">IsHLG</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
 			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_format_off.png" position="1193,669" size="43,23" zPosition="1"/>
@@ -1670,15 +1689,34 @@
 				<convert type="ServiceInfo">IsMultichannel</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
-			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_hd_off.png" position="1077,669" size="49,24" zPosition="1"/>
-			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_on.png" position="1077,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_off.png" position="1077,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
 				<!--convert type="ServiceInfo">VideoWidth</convert>
 				<convert type="ValueRange">721,1980</convert-->
-				<convert type="ServiceInfo">IsHD</convert>
+				<convert type="ServiceInfo">IsSD</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
 			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_on.png" position="1077,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+				<convert type="ServiceInfo">IsHD</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_uhd_on.png" position="1077,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
 				<convert type="ServiceInfo">Is4K</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hd_hdr_on.png" position="1077,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+				<convert type="ServiceInfo">IsHDHDR</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hdr_on.png" position="1077,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+				<convert type="ServiceInfo">IsHDR</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hdr10_on.png" position="1077,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+				<convert type="ServiceInfo">IsHDR10</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
+			<widget alphatest="blend" pixmap="MetrixHD/icons/ico_hlg_on.png" position="1077,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+				<convert type="ServiceInfo">IsHLG</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
 			<ePixmap alphatest="blend" pixmap="MetrixHD/icons/ico_format_off.png" position="1140,669" size="43,23" zPosition="1"/>
