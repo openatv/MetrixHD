@@ -88,9 +88,8 @@ class MetrixHDVideoInfo(Poll, Converter, object):
 			if width > 0 and height > 0:
 				text = "%dx%d" % (width,height)
 		elif self.type == self.VIDEOCODEC:
-			videocodecs =  ("MPEG2", "MPEG4", "MPEG1", "MPEG4-II", "VC1", "VC1-SM", "HEVC", "H265", "CAVS", "-" )
-			if info.getInfo(iServiceInformation.sVideoType) < len(videocodecs):
-				text = videocodecs[info.getInfo(iServiceInformation.sVideoType)]
+			from Components.Converter.PliExtraInfo import codec_data
+			text = codec_data.get(self.info.getInfo(iServiceInformation.sVideoType), "N/A")
 		elif self.type == self.VIDEOFORMAT:
 			if width > 0 and height > 0:
 				text = info.getInfo(iServiceInformation.sAspect)
