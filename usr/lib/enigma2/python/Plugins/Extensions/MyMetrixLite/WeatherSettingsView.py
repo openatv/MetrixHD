@@ -121,7 +121,8 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		self.check_enable = False
 		if config.plugins.MetrixWeather.enabled.getValue() is True:
 			list.append(getConfigListEntry(_("Show in MoviePlayer"), config.plugins.MetrixWeather.MoviePlayer, _("helptext")))
-			list.append(getConfigListEntry(_("MetrixWeather ID"), config.plugins.MetrixWeather.woeid , _("Get your local MetrixWeather ID from www.mymetrix.de")))
+			list.append(getConfigListEntry(_("MetrixWeather ID"), config.plugins.MetrixWeather.woeid , _("Get your local MetrixWeather ID from https://openweathermap.org/")))
+			list.append(getConfigListEntry(_("MetrixWeather APIKEY"), config.plugins.MetrixWeather.apikey , _("Get your local MetrixWeather APIKEY from https://openweathermap.org/")))
 			list.append(getConfigListEntry(_("Unit"), config.plugins.MetrixWeather.tempUnit, _("helptext")))
 			list.append(getConfigListEntry(_("Refresh Interval (min)"), config.plugins.MetrixWeather.refreshInterval, _("If set to '0', fetch weather data only at system(gui) start.")))
 			list.append(getConfigListEntry(_("Check is Weather date local date"), config.plugins.MetrixWeather.verifyDate, _("helptext")))
@@ -174,13 +175,13 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		if not "MetrixHDWeatherStandalone lookup for ID" in text:
 			tmp = text.split('|')
 			if tmp and len(tmp) > 2:
-				text = _("Current weather data:   %s\n") %tmp[0]
+				text = _("Current weather id:   %s\n") %tmp[0]
 				text += _("City:   %s,   ") %tmp[1]
-				text += _("Temperature:   %s") %tmp[2]
-				if config.plugins.MetrixWeather.verifyDate.value and len(tmp) > 3:
-					text += _(",   Date is valid:   %s") %[_("No"),_("Yes")][int(tmp[3])]
+				text += _("Temp:   %s,   ") %tmp[2]
+				text += _("max:   %s,   ") %tmp[3]
+				text += _("min:   %s") %tmp[4]
 			elif tmp and len(tmp) > 1:
-				text = _("Cant get weather data:\n%s") %tmp[0]
+				text = _("Cant get weather id:\n%s") %tmp[0]
 
 			self["resulttext"].setText(text)
 			self.checkTimer.stop()

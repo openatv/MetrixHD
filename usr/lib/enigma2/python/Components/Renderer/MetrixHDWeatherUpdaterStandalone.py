@@ -34,6 +34,13 @@ from Components.config import config, configfile
 from Plugins.Extensions.MyMetrixLite.__init__ import initWeatherConfig
 from threading import Timer, Thread
 from time import time, strftime, localtime
+from twisted.web.client import getPage
+import sys
+#from twisted.python import log
+#log.startLogging(sys.stdout)
+
+import json
+
 
 g_updateRunning = False
 g_isRunning = False
@@ -50,6 +57,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 		self.timer = None
 		self.refreshcnt = 0
 		self.refreshcle = 0
+		self.error = False
 		if not g_isRunning or self.once or self.check:
 			self.getWeather()
 
@@ -130,12 +138,18 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 		if ((valdata == 3 and (self.refreshcnt or self.refreshcle)) or (not int(config.plugins.MetrixWeather.refreshInterval.value) and valdata == 3) or valdata == 2) and not self.once and not self.check:
 			return
 
-		if g_updateRunning:
-			print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " skipped, allready running..."
-			return
+		#if g_updateRunning:
+		#	print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " skipped, allready running..."
+		#	return
 		g_updateRunning = True
 		g_isRunning = True
 		Thread(target = self.getWeatherThread).start()
+
+	def error(self, error = None):
+		errormessage = ""
+		if error is not None:
+			errormessage = str(error.getErrorMessage())
+			print errormessage
 
 	def getWeatherThread(self):
 		global g_updateRunning
@@ -144,106 +158,64 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			self.writeCheckFile(text)
 		print text
 
-		url = "http://query.yahooapis.com/v1/public/yql?q=select%20item%20from%20weather.forecast%20where%20woeid%3D%22"+str(self.woeid)+"%22&format=xml"
-		#url = "http://query.yahooapis.com/v1/public/yql?q=select%20item%20from%20weather.forecast%20where%20woeid%3D%22"+str(self.woeid)+"%22%20u%3Dc&format=xml"
+		language = config.osd.language.value
+		apikey = "&appid=%s" % config.plugins.MetrixWeather.apikey.value
+		city="id=%s" % self.woeid
+		feedurl = "http://api.openweathermap.org/data/2.5/weather?%s&lang=%s&units=metric%s" % (city,language[:2],apikey)
+		getPage(feedurl).addCallback(self.jsonCallback).addErrback(self.error)
+		if not self.check:
+			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=metric&cnt=1%s" % (city,language[:2],apikey)
+			getPage(feedurl).addCallback(self.jsonCallback).addErrback(self.error)
 
-		# where location in (select id from weather.search where query="oslo, norway")
-		try:
-			file = urllib2.urlopen(url, timeout=2)
-			data = file.read()
-			file.close()
-		except Exception as error:
-			print "Cant get weather data: %r" % error
-			g_updateRunning = False
-			self.startTimer(True,30)
+	def jsonCallback(self, jsonstring):
+		d = json.loads(jsonstring)
+		if 'list' in d and 'cnt' in d:
+			temp_min_cnt_0 = d['list'][0]['main']['temp_min']
+			temp_max_cnt_0 = d['list'][0]['main']['temp_max']
+			weather_code_cnt_0 = d['list'][0]['weather'][0]['id']
+			config.plugins.MetrixWeather.forecastTomorrowTempMax.value = str(int(round(temp_max_cnt_0)))
+			config.plugins.MetrixWeather.forecastTomorrowTempMin.value = str(int(round(temp_min_cnt_0)))
+			config.plugins.MetrixWeather.forecastTomorrowCode.value = self.ConvertCondition(weather_code_cnt_0)
+		#elif 'message' in d and 'cod' in d:
+		#	if d['cod'] == "404":
+		#		print "json running",d['message']
+		#		config.plugins.MetrixWeather.currentWeatherDataValid.value = 0
+		#	if d['cod'] == "401":
+		#		print "json running",d['message']
+		#		config.plugins.MetrixWeather.currentWeatherDataValid.value = 0
+		#	elif d['cod'] != "200":
+		#		print "json running",d['message']
+		#		config.plugins.MetrixWeather.currentWeatherDataValid.value = 1
+		#	self.startTimer(True,1)
+		#	if self.check:
+		#		text = d['message']
+		#		self.writeCheckFile(text)
+		#	config.plugins.MetrixWeather.currentWeatherDataValid.save()
+		#	g_updateRunning = False
+		#	return
+		else:
+			if 'name' in d:
+				name = d['name']
+				config.plugins.MetrixWeather.currentLocation.value = str(name)
+			if 'id' in d:
+				id = d['id']
+			if 'main' in d and 'temp' in d['main']:
+				temp = d['main']['temp']
+				config.plugins.MetrixWeather.currentWeatherTemp.value = str(int(round(temp)))
+			if 'temp_max' in d['main']:
+				temp_max = d['main']['temp_max']
+				config.plugins.MetrixWeather.forecastTodayTempMax.value = str(int(round(temp_max)))
+			if 'temp_min' in d['main']:
+				temp_min = d['main']['temp_min']
+				config.plugins.MetrixWeather.forecastTodayTempMin.value = str(int(round(temp_min)))
+			if 'weather' in d:
+				weather_code = d['weather'][0]['id']
+				config.plugins.MetrixWeather.currentWeatherCode.value = self.ConvertCondition(weather_code)
 			if self.check:
-				text = "%s|" % str(error)
+				text = "%s|%s|%s°|%s°|%s°" %(id,name,temp,temp_max,temp_min)
 				self.writeCheckFile(text)
-			return
-
-		dom = parseString(data)
-		try:
-			title = self.getText(dom.getElementsByTagName('title')[0].childNodes)
-		except IndexError as error:
-			print "Cant get weather data: %r" % error
-			g_updateRunning = False
-			self.startTimer(True,30)
-			if self.check:
-				#text = "%s\n%s|" % (str(error),data)
-				text = "%s|" % str(error)
-				self.writeCheckFile(text)
-			return
-
-		if 'not found' in title:
-			print "MetrixHDWeatherStandalone lookup for ID - " + title
-			g_updateRunning = False
-			self.startTimer(True,30)
-			if self.check:
-				text = "%s|" % title
-				self.writeCheckFile(text)
-			return
-		city = str(title).split(',')[0].replace("Conditions for ","")
-		currentWeather = dom.getElementsByTagName('yweather:condition')[0]
-		currentWeatherDate = currentWeather.getAttributeNode('date').nodeValue
-		currentWeatherCode = currentWeather.getAttributeNode('code')
-		currentWeatherTemp = currentWeather.getAttributeNode('temp')
-		currentWeatherText = currentWeather.getAttributeNode('text')
-
-		#check returned date from weather values
-		datevalid = True
-		if self.verify:
-			t=time()
-			l=t-3600*24
-			month = ['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
-			lastday = strftime("%d " + month[int(strftime('%m',localtime(l)))] + " %Y", localtime(l)).strip("0")
-			currday = strftime("%d " + month[int(strftime('%m',localtime(t)))] + " %Y", localtime(t)).strip("0")
-			if not (currday in currentWeatherDate or lastday in currentWeatherDate):
-				datevalid = False
-
-		if self.check:
-			text = "%s|%s|%s°%s|%s" %(currentWeatherDate,city,self.getTemp(currentWeatherTemp.nodeValue),config.plugins.MetrixWeather.tempUnit.value[0],int(datevalid))
-			self.writeCheckFile(text)
-			g_updateRunning = False
-			return
-
-		if not datevalid:
-			#print "MetrixHDWeatherStandalone - get weather data failed. (current date = %s, returned date = %s)" %(currday, currentWeatherDate)
-			g_updateRunning = False
-			self.startTimer(True,15)
-			return
-		#print "MetrixHDWeatherStandalone - get weather data successful. (current date = %s, returned date = %s)" %(currday, currentWeatherDate)
-
-		config.plugins.MetrixWeather.currentLocation.value = city
-		config.plugins.MetrixWeather.currentWeatherDataValid.value = 3
-		config.plugins.MetrixWeather.currentWeatherCode.value = self.ConvertCondition(currentWeatherCode.nodeValue)
-		config.plugins.MetrixWeather.currentWeatherTemp.value = self.getTemp(currentWeatherTemp.nodeValue)
-		config.plugins.MetrixWeather.currentWeatherText.value = currentWeatherText.nodeValue
-
-		n = 0
-		currentWeather = dom.getElementsByTagName('yweather:forecast')[n]
-		if self.verify:
-			if lastday in currentWeather.getAttributeNode('date').nodeValue and currday in currentWeatherDate:
-				n = 1
-				currentWeather = dom.getElementsByTagName('yweather:forecast')[n]
-		currentWeatherCode = currentWeather.getAttributeNode('code')
-		config.plugins.MetrixWeather.forecastTodayCode.value = self.ConvertCondition(currentWeatherCode.nodeValue)
-		currentWeatherTemp = currentWeather.getAttributeNode('high')
-		config.plugins.MetrixWeather.forecastTodayTempMax.value = self.getTemp(currentWeatherTemp.nodeValue)
-		currentWeatherTemp = currentWeather.getAttributeNode('low')
-		config.plugins.MetrixWeather.forecastTodayTempMin.value = self.getTemp(currentWeatherTemp.nodeValue)
-		currentWeatherText = currentWeather.getAttributeNode('text')
-		config.plugins.MetrixWeather.forecastTodayText.value = currentWeatherText.nodeValue
-
-		currentWeather = dom.getElementsByTagName('yweather:forecast')[n + 1]
-		currentWeatherCode = currentWeather.getAttributeNode('code')
-		config.plugins.MetrixWeather.forecastTomorrowCode.value = self.ConvertCondition(currentWeatherCode.nodeValue)
-		currentWeatherTemp = currentWeather.getAttributeNode('high')
-		config.plugins.MetrixWeather.forecastTomorrowTempMax.value = self.getTemp(currentWeatherTemp.nodeValue)
-		currentWeatherTemp = currentWeather.getAttributeNode('low')
-		config.plugins.MetrixWeather.forecastTomorrowTempMin.value = self.getTemp(currentWeatherTemp.nodeValue)
-		currentWeatherText = currentWeather.getAttributeNode('text')
-		config.plugins.MetrixWeather.forecastTomorrowText.value = currentWeatherText.nodeValue
-
+				g_updateRunning = False
+				return
 		config.plugins.MetrixWeather.save()
 		g_updateRunning = False
 		self.refreshcnt = 0
@@ -258,43 +230,42 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 
 	def ConvertCondition(self, c):
 		c = int(c)
-		condition = "("
-		if c == 0 or c == 1 or c == 2:
-			condition = "S"
-		elif c == 3 or c == 4:
-			condition = "Z"
-		elif c == 5  or c == 6 or c == 7 or c == 18:
-			condition = "U"
-		elif c == 8 or c == 10 or c == 25:
-			condition = "G"
-		elif c == 9:
-			condition = "Q"
-		elif c == 11 or c == 12 or c == 40:
-			condition = "R"
-		elif c == 13 or c == 14 or c == 15 or c == 16 or c == 41 or c == 46 or c == 42 or c == 43:
-			condition = "W"
-		elif c == 17 or c == 35:
-			condition = "X"
-		elif c == 19:
-			condition = "F"
-		elif c == 20 or c == 21 or c == 22:
-			condition = "L"
-		elif c == 23 or c == 24:
-			condition = "S"
-		elif c == 26 or c == 44:
-			condition = "N"
-		elif c == 27 or c == 29:
-			condition = "I"
-		elif c == 28 or c == 30:
-			condition = "H"
-		elif c == 31 or c == 33:
-			condition = "C"
-		elif c == 32 or c == 34:
-			condition = "B"
-		elif c == 36:
-			condition = "B"
-		elif c == 37 or c == 38 or c == 39 or c == 45 or c == 47:
-			condition = "0"
+		if c == 800:
+			condition = "B" # Sonne am Tag 
+		elif c == 801:
+			condition = "H" # Bewoelkt Sonning 
+		elif c == 802:
+			condition = "J" # Nebel Sonning
+		elif c == 711 or c == 721:
+			condition = "L" # Bewoelkt Nebeling
+		elif c == 701 or c == 731 or c == 741 or c == 751 or c == 761 or c == 762:
+			condition = "M" # Nebel
+		elif c == 803 or c == 804:
+			condition = "N" # Bewoelkt
+		elif c == 202 or c == 202 or c == 212 or c == 221:
+			condition = "O" # Gewitter
+		elif c == 200 or c == 200 or c == 210 or c == 230 or c == 231 or c == 232:
+			condition = "P " # Gewitter leicht
+		elif c == 500 or  c == 501:
+			condition = "Q" # Leicher Regen
+		elif c == 520 or c == 521 or c == 531 or c == 300 or c == 301 or c == 302 or c == 310 or c == 311 or c == 312 or c == 313 or c == 314 or c == 321:
+			condition = "R" # Mittlere Regen
+		elif c == 771 or c == 781:
+			condition = "S" # Starker Wind
+		elif c == 502:
+			condition = "T" # Wind und Regen
+		elif c == 531 or c == 531:
+			condition = "U" # Normaler Regen
+		elif c == 600 or c == 601 or c == 616 or c == 620:
+			condition = "V" # Schnee
+		elif c == 611 or c == 612 or c == 615:
+			condition = "W" # Schnee gefahr
+		elif c == 602 or c == 622 or c == 621 or c == 511:
+			condition = "X" # Starker Schnee
+		elif c == 504 or c == 503:
+			condition = "Y" # Stark Regen
+		elif c == 803 or c == 804:
+			condition = "Y" # Stark Bewoelkt
 		else:
 			condition = ")"
 		return str(condition)
