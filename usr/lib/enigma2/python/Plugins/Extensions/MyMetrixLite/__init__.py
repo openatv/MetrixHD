@@ -84,9 +84,9 @@ SKIN_EMC_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00g_EMC.xml"
 SKIN_EMC_TARGET = "/usr/share/enigma2/MetrixHD/skin_00g_EMC.MySkin.xml"
 SKIN_EMC_TARGET_TMP = SKIN_EMC_TARGET + ".tmp"
 
-SKIN_OPENATV_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00o_openatv.xml"
-SKIN_OPENATV_TARGET = "/usr/share/enigma2/MetrixHD/skin_00o_openatv.MySkin.xml"
-SKIN_OPENATV_TARGET_TMP = SKIN_OPENATV_TARGET + ".tmp"
+SKIN_OPENVISION_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00o_openvision.xml"
+SKIN_OPENVISION_TARGET = "/usr/share/enigma2/MetrixHD/skin_00o_openvision.MySkin.xml"
+SKIN_OPENVISION_TARGET_TMP = SKIN_OPENVISION_TARGET + ".tmp"
 
 SKIN_PLUGINS_SOURCE = "/usr/share/enigma2/MetrixHD/skin_00p_plugins.xml"
 SKIN_PLUGINS_TARGET = "/usr/share/enigma2/MetrixHD/skin_00p_plugins.MySkin.xml"

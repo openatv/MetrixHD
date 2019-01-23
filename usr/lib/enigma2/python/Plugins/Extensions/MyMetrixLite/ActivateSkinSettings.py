@@ -28,7 +28,7 @@ from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, initFonts
 	SKIN_CHANNEL_SELECTION_SOURCE, SKIN_CHANNEL_SELECTION_TARGET, SKIN_CHANNEL_SELECTION_TARGET_TMP, \
 	SKIN_MOVIEPLAYER_SOURCE, SKIN_MOVIEPLAYER_TARGET, SKIN_MOVIEPLAYER_TARGET_TMP, \
 	SKIN_EMC_SOURCE, SKIN_EMC_TARGET, SKIN_EMC_TARGET_TMP, \
-	SKIN_OPENATV_SOURCE, SKIN_OPENATV_TARGET, SKIN_OPENATV_TARGET_TMP, \
+	SKIN_OPENVISION_SOURCE, SKIN_OPENVISION_TARGET, SKIN_OPENVISION_TARGET_TMP, \
 	SKIN_PLUGINS_SOURCE, SKIN_PLUGINS_TARGET, SKIN_PLUGINS_TARGET_TMP, \
 	SKIN_UNCHECKED_SOURCE, SKIN_UNCHECKED_TARGET, SKIN_UNCHECKED_TARGET_TMP, \
 	SKIN_DESIGN_SOURCE, SKIN_DESIGN_TARGET, SKIN_DESIGN_TARGET_TMP
@@ -133,7 +133,7 @@ class ActivateSkinSettings:
 		self.getEHDSettings(onlyCheck)
 
 		if self.EHDenabled:
-			self.service_name = 'enigma2-plugin-skins-metrix-atv-%s-icons' % self.EHDres.lower()
+			self.service_name = 'enigma2-plugin-skins-metrix-vision-%s-icons' % self.EHDres.lower()
 			if system('/usr/bin/opkg list-installed ' + self.service_name + ' | grep ' + self.service_name):
 				if onlyCheck or not self.silent:
 					self.ErrorCode = 'checkEHDsettings', _("Your enhanced hd settings are inconsistent. Please check this.")
@@ -183,7 +183,7 @@ class ActivateSkinSettings:
 						(SKIN_CHANNEL_SELECTION_SOURCE, SKIN_CHANNEL_SELECTION_TARGET, SKIN_CHANNEL_SELECTION_TARGET_TMP),
 						(SKIN_MOVIEPLAYER_SOURCE, SKIN_MOVIEPLAYER_TARGET, SKIN_MOVIEPLAYER_TARGET_TMP),
 						(SKIN_EMC_SOURCE, SKIN_EMC_TARGET, SKIN_EMC_TARGET_TMP),
-						(SKIN_OPENATV_SOURCE, SKIN_OPENATV_TARGET, SKIN_OPENATV_TARGET_TMP),
+						(SKIN_OPENVISION_SOURCE, SKIN_OPENVISION_TARGET, SKIN_OPENVISION_TARGET_TMP),
 						(SKIN_PLUGINS_SOURCE, SKIN_PLUGINS_TARGET, SKIN_PLUGINS_TARGET_TMP),
 						(SKIN_UNCHECKED_SOURCE, SKIN_UNCHECKED_TARGET, SKIN_UNCHECKED_TARGET_TMP),
 						(SKIN_DESIGN_SOURCE, SKIN_DESIGN_TARGET, SKIN_DESIGN_TARGET_TMP)]
@@ -1232,7 +1232,7 @@ class ActivateSkinSettings:
 			skinSearchAndReplace.append(['skin_00e_ChannelSelection.xml', 'skin_00e_ChannelSelection.MySkin.xml'])
 			skinSearchAndReplace.append(['skin_00f_MoviePlayer.xml', 'skin_00f_MoviePlayer.MySkin.xml'])
 			skinSearchAndReplace.append(['skin_00g_EMC.xml', 'skin_00g_EMC.MySkin.xml'])
-			skinSearchAndReplace.append(['skin_00o_openatv.xml', 'skin_00o_openatv.MySkin.xml'])
+			skinSearchAndReplace.append(['skin_00o_openvision.xml', 'skin_00o_openvision.MySkin.xml'])
 			skinSearchAndReplace.append(['skin_00p_plugins.xml', 'skin_00p_plugins.MySkin.xml'])
 			skinSearchAndReplace.append(['skin_00u_unchecked.xml', 'skin_00u_unchecked.MySkin.xml'])
 			skinSearchAndReplace.append(['skin_00z_design.xml', 'skin_00z_design.MySkin.xml'])

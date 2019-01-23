@@ -263,7 +263,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
 	def InstallCheck(self):
 		self.Console = Console()
-		self.service_name = 'enigma2-plugin-skins-metrix-atv-%s-icons' % self.EHDres.lower()
+		self.service_name = 'enigma2-plugin-skins-metrix-vision-%s-icons' % self.EHDres.lower()
 		if self.freeFlashCheck():
 			self.Console.ePopen('/usr/bin/opkg list-installed ' + self.service_name, self.checkNetworkState)
 		else:
