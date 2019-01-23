@@ -1,11 +1,11 @@
 MetrixHD
 ========
 
-##**openATV 4.0 default skin**
+##**Open Vision 7.0 default skin**
 
 MetrixHD is created by iMaxxx http://open-store.net
 
-##![alt text](https://raw2.github.com/openatv/MetrixHD/master/MetrixHD-INFO/openstore.png "Logo openStore http://www.open-store.net")
+##![alt text](https://raw2.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/openstore.png "Logo openStore http://www.open-store.net")
 
 **The skin uses a modern 2-layer style with 2 main fonts and several font colors to catch the users attention on the important areas of a screen.**
 
@@ -31,7 +31,7 @@ MetrixHD is created by iMaxxx http://open-store.net
 **_title-background_** *- MetrixColors - Background color for window title*  
 **_title-foreground_** *- MetrixColors - Foreground color for window title*  
 
-**The skin will be used in openATV without any additional pre-installed plugin using the default configuration - not customizable using the GUI.**
+**The skin will be used in Open Vision without any additional pre-installed plugin using the default configuration - not customizable using the GUI.**
 
 **Additionally colors (2-layer style, selectionbar,...) and much more will be customizable using two options:**  
 * openStore Plugin by iMaxxx (suggested for SetTopBoxes with more then 128MB flashmemory) - fully customizable.  
@@ -40,89 +40,89 @@ MetrixHD is created by iMaxxx http://open-store.net
 ##**Screenshots:**
 
 ###Mainmenu
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/mainmenu.png)
+![alt tag](https://raw.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/mainmenu.png)
 
 =========
 
 ###Quickmenu
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/quickmenu.png)
+![alt tag](https://raw.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/quickmenu.png)
 
 =========
 
 ###Infobar - OSD only
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/infobar_osd_only.png)
+![alt tag](https://raw.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/infobar_osd_only.png)
 
 =========
 
 ###Infobar - OSD&VIDEO
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/infobar_video.png)
+![alt tag](https://raw.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/infobar_video.png)
 
 =========
 
 ###SecondInfobar - OSD only
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/secondinfobar_osd_only.png)
+![alt tag](https://raw.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/secondinfobar_osd_only.png)
 
 =========
 
 ###SecondInfobar - OSD&VIDEO
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/secondinfobar_video.png)
+![alt tag](https://raw.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/secondinfobar_video.png)
 
 =========
 
 ###Channellist - Variant 1 - OSD only
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/channelselection_variant_1_osd_only.png)
+![alt tag](https://raw.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/channelselection_variant_1_osd_only.png)
 
 =========
 
 ###Channellist - Variant 1 - OSD&VIDEO
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/channelselection_variant_1.png)
+![alt tag](https://raw.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/channelselection_variant_1.png)
 
 =========
 
 ###Channellist - Variant 2 - OSD only
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/channelselection_variant_2_osd_only.png)
+![alt tag](https://raw.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/channelselection_variant_2_osd_only.png)
 
 =========
 
 ###Channellist - Variant 2 - OSD&VIDEO
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/channelselection_variant_2.png)
+![alt tag](https://raw.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/channelselection_variant_2.png)
 
 =========
 
 ###Channellist - Variant 3 - OSD only
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/channelselection_variant_3_osd_only.png)
+![alt tag](https://raw.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/channelselection_variant_3_osd_only.png)
 
 =========
 
 ###Channellist - Variant 3 - OSD&VIDEO
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/channelselection_variant_3.png)
+![alt tag](https://raw.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/channelselection_variant_3.png)
 
 =========
 
 ###Channellist - Variant 4 - OSD only
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/channelselection_variant_4_osd_only.png)
+![alt tag](https://raw.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/channelselection_variant_4_osd_only.png)
 
 =========
 
 ###Channellist - Variant 4 - OSD&VIDEO
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/channelselection_variant_4.png)
+![alt tag](https://raw.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/channelselection_variant_4.png)
 
 =========
 
 ###EPGSelection - OSD only
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/epgselection_osd_only.png)
+![alt tag](https://raw.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/epgselection_osd_only.png)
 
 =========
 
 ###EPGSelection - OSD&VIDEO
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/epgselection.png)
+![alt tag](https://raw.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/epgselection.png)
 
 =========
 
 ###Eventview - OSD only
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/eventview_osd_only.png)
+![alt tag](https://raw.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/eventview_osd_only.png)
 
 =========
 
 ###Eventview  - OSD&VIDEO
-![alt tag](https://raw.github.com/openatv/MetrixHD/master/MetrixHD-INFO/eventview.png)
+![alt tag](https://raw.github.com/OpenVisionE2/MetrixHD/master/MetrixHD-INFO/eventview.png)
