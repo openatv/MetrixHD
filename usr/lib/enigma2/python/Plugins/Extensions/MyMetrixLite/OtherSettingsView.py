@@ -36,6 +36,8 @@ from enigma import gMainDC, getDesktop
 from ActivateSkinSettings import ActivateSkinSettings
 from PIL import Image
 
+BoxType = getBoxType()
+
 #############################################################
 
 class OtherSettingsView(ConfigListScreen, Screen):
@@ -180,7 +182,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 	def checkEHDtested(self):
 		self.getEHDsettings()
 		tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
-		if self.EHDenabled and (len(tested) != 2 or not getBoxType() in tested[0] or not config.plugins.MyMetrixLiteOther.EHDenabled.value in tested[1]):
+		if self.EHDenabled and (len(tested) != 2 or not BoxType in tested[0] or not config.plugins.MyMetrixLiteOther.EHDenabled.value in tested[1]):
 			if "green" in self["actions"].actions:
 				del self["actions"].actions['green']
 				self["saveBtn"].setText(_(" "))
@@ -232,10 +234,10 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		if not result:
 			self.resetEHD()
 		else:
-			if getBoxType() in config.plugins.MyMetrixLiteOther.EHDtested.value and len(config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')) == 2:
+			if BoxType in config.plugins.MyMetrixLiteOther.EHDtested.value and len(config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')) == 2:
 				config.plugins.MyMetrixLiteOther.EHDtested.value += config.plugins.MyMetrixLiteOther.EHDenabled.value
 			else:
-				config.plugins.MyMetrixLiteOther.EHDtested.value = getBoxType() + '_|_' + config.plugins.MyMetrixLiteOther.EHDenabled.value
+				config.plugins.MyMetrixLiteOther.EHDtested.value = BoxType + '_|_' + config.plugins.MyMetrixLiteOther.EHDenabled.value
 			config.plugins.MyMetrixLiteOther.save()
 			configfile.save()
 			ActivateSkinSettings().initConfigs()
