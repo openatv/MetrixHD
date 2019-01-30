@@ -36,10 +36,9 @@ from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, initFonts
 from Components.config import config, configfile
 from Components.NimManager import nimmanager
 from shutil import move, copy, rmtree, copytree
-from enigma import getDesktop
+from enigma import getDesktop, getBoxType
 from os import path, remove, statvfs, listdir, system, mkdir
 from PIL import Image, ImageFont, ImageDraw
-from boxbranding import getBoxType
 import math
 
 #############################################################
