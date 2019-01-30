@@ -20,7 +20,6 @@
 #######################################################################
 
 from . import _, MAIN_IMAGE_PATH
-from boxbranding import getBoxType, getMachineBrand, getMachineName
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
@@ -31,13 +30,11 @@ from Components.Sources.StaticText import StaticText
 from Components.Pixmap import Pixmap
 from Components.Console import Console
 from Components.Label import Label
-from enigma import ePicLoad
+from enigma import ePicLoad, getBoxType
 from os import path, statvfs, remove
 from enigma import gMainDC, getDesktop
 from ActivateSkinSettings import ActivateSkinSettings
 from PIL import Image
-
-BoxType = getBoxType()
 
 #############################################################
 
@@ -183,7 +180,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 	def checkEHDtested(self):
 		self.getEHDsettings()
 		tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
-		if self.EHDenabled and (len(tested) != 2 or not BoxType in tested[0] or not config.plugins.MyMetrixLiteOther.EHDenabled.value in tested[1]):
+		if self.EHDenabled and (len(tested) != 2 or not getBoxType() in tested[0] or not config.plugins.MyMetrixLiteOther.EHDenabled.value in tested[1]):
 			if "green" in self["actions"].actions:
 				del self["actions"].actions['green']
 				self["saveBtn"].setText(_(" "))
@@ -235,10 +232,10 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		if not result:
 			self.resetEHD()
 		else:
-			if BoxType in config.plugins.MyMetrixLiteOther.EHDtested.value and len(config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')) == 2:
+			if getBoxType() in config.plugins.MyMetrixLiteOther.EHDtested.value and len(config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')) == 2:
 				config.plugins.MyMetrixLiteOther.EHDtested.value += config.plugins.MyMetrixLiteOther.EHDenabled.value
 			else:
-				config.plugins.MyMetrixLiteOther.EHDtested.value = BoxType + '_|_' + config.plugins.MyMetrixLiteOther.EHDenabled.value
+				config.plugins.MyMetrixLiteOther.EHDtested.value = getBoxType() + '_|_' + config.plugins.MyMetrixLiteOther.EHDenabled.value
 			config.plugins.MyMetrixLiteOther.save()
 			configfile.save()
 			ActivateSkinSettings().initConfigs()
@@ -282,7 +279,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
 	def checkNetworkStateFinished(self, result, retval,extra_args=None):
 		if 'bad address' in result:
-			self.session.openWithCallback(self.InstallPackageFailed, MessageBox, _("Your %s %s is not connected to the internet, please check your network settings and try again.") % (getMachineBrand(), getMachineName()), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
+			self.session.openWithCallback(self.InstallPackageFailed, MessageBox, _("Your %s is not connected to the internet, please check your network settings and try again.") % (getBoxType(), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
 		elif ('wget returned 1' or 'wget returned 255' or '404 Not Found') in result:
 			self.session.openWithCallback(self.InstallPackageFailed, MessageBox, _("Sorry feeds are down for maintenance, please try again later."), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
 		else:
