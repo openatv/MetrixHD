@@ -24,7 +24,7 @@ from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 from Components.config import config, ConfigSubsection, ConfigSelection, ConfigNumber, ConfigSelectionNumber, ConfigYesNo, ConfigText, ConfigInteger
 from os import path
 import gettext
-from boxbranding import getBoxType
+from enigma import getBoxType
 #############################################################
 
 PLUGIN_PATH = resolveFilename(SCOPE_PLUGINS, "Extensions/MyMetrixLite")
