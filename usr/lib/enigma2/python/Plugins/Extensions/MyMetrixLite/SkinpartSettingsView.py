@@ -20,7 +20,6 @@
 #######################################################################
 
 from . import _, MAIN_IMAGE_PATH
-from boxbranding import getBoxType, getMachineBrand, getMachineName
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Components.ActionMap import ActionMap
