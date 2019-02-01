@@ -130,12 +130,9 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
 		pidx = 0
 		for part in self.partlist:
-			if not self.screens[pidx]:
+			if not path.isfile(self.parts[pidx][0][0] + self.parts[pidx][0][1] + '.xml'):
 				part.value='0'
-				if not path.isfile(self.parts[pidx][0][0] + self.parts[pidx][0][2] + 'xml'):
-					itext = _("Skinpart are not available - can't be activated.")
-				else:
-					itext = _("No screens in skinpart are available - can't be activated.")
+				itext = _("Skinpart are not available - can't be activated.")
 			else:
 				if not self.parts[pidx][0][3]:
 					itext = nodesc
@@ -193,12 +190,15 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			partname = skinpart
 			partpath = skinpartdir + skinpart + '/'
 			partfile = partpath + skinpart + '.xml'
-			if path.isfile(partfile):
+			if not path.isfile(partpath[:-1]):
 				if path.isfile(partpath + 'enabled'):
 					enabled = '1'
-				self.partlist.append(ConfigSelection(default = '0', choices = [("0", _("No")), ("2", _("Yes, show screens")), ("1", _("Yes")), ("3", _("Yes, show screens"))]))
-				self.partlist[self.idx].value = enabled
 				self.readSkinPartScreens(partpath, partname)
+				if len(self.screenlist[self.idx]):
+					self.partlist.append(ConfigSelection(default = '0', choices = [("0", _("No")), ("2", _("Yes, show screens")), ("1", _("Yes")), ("3", _("Yes, show screens"))]))
+				else:
+					self.partlist.append(ConfigSelection(default = '0', choices = [("0", _("No")), ("1", _("Yes"))]))
+				self.partlist[self.idx].value = enabled
 				self.idx += 1
 
 	def readSkinPartScreens(self, partpath, partname):
