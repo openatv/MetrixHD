@@ -1238,8 +1238,15 @@ class ActivateSkinSettings:
 			skinSearchAndReplace.append(['skin_00z_design.xml', 'skin_00z_design.MySkin.xml'])
 
 			#skinparts
+			mySkindir = '/usr/share/enigma2/MetrixHD/mySkin/'
 			skinpartdir='/usr/share/enigma2/MetrixHD/skinparts/'
 			skinparts = ''
+			if not path.exists(mySkindir):
+				mkdir(mySkindir)
+			else:
+				for file in listdir(mySkindir):
+					if path.isfile(mySkindir + file):
+						remove(mySkindir + file)
 			for skinpart in listdir(skinpartdir):
 				if path.isfile(skinpartdir + skinpart):
 					continue
@@ -1252,7 +1259,7 @@ class ActivateSkinSettings:
 					if file == skinpart + '.xml':
 						partname = skinpart
 						partpath = filepath
-						TARGETpath = skinpartdir + skinpart + '/' + skinpart + '.MySkin.xml'
+						TARGETpath = mySkindir + 'skin_' + skinpart + '.MySkin.xml'
 						TMPpath = skinpartdir + skinpart + '/' + skinpart + '.MySkin.xml.tmp'
 						#remove old MySkin files
 						if path.isfile(TARGETpath):
@@ -1265,9 +1272,6 @@ class ActivateSkinSettings:
 					else:
 						skinparts = '<include filename="%s" />' %TARGETpath
 					skinfiles.append((partpath, TARGETpath, TMPpath))
-
-			if skinparts:
-				skinSearchAndReplace.append(['<!-- placeholder_skinparts /-->', skinparts])
 
 			#make skin file
 			skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
