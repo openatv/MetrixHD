@@ -151,10 +151,9 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 		errormessage = "unknown error"
 		if error is not None:
 			errormessage = str(error.getErrorMessage())
-			print errormessage
 		elif message is not None:
 			errormessage = str(message)
-			print errormessage
+		print errormessage
 		if self.check:
 			self.writeCheckFile(errormessage)
 		else:
