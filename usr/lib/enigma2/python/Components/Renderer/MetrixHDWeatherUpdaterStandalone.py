@@ -138,21 +138,31 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 		if ((valdata == 3 and (self.refreshcnt or self.refreshcle)) or (not int(config.plugins.MetrixWeather.refreshInterval.value) and valdata == 3) or valdata == 2) and not self.once and not self.check:
 			return
 
-		#if g_updateRunning:
-		#	print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " skipped, allready running..."
-		#	return
+		if g_updateRunning:
+			print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " skipped, allready running..."
+			return
 		g_updateRunning = True
 		g_isRunning = True
 		Thread(target = self.getWeatherThread).start()
 
-	def error(self, error = None):
-		errormessage = ""
+	def errorCallback(self, error = None, message = None):
+		global g_updateRunning
+		g_updateRunning = False
+		errormessage = "unknown error"
 		if error is not None:
 			errormessage = str(error.getErrorMessage())
 			print errormessage
+		elif message is not None:
+			errormessage = str(message)
+			print errormessage
+		if self.check:
+			self.writeCheckFile(errormessage)
+		else:
+			nextcall = 30
+			print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " failed, try next in %ds..." %nextcall
+			self.startTimer(True, nextcall)
 
 	def getWeatherThread(self):
-		global g_updateRunning
 		text = "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid)
 		if self.check:
 			self.writeCheckFile(text)
@@ -161,13 +171,14 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 		language = config.osd.language.value
 		apikey = "&appid=%s" % config.plugins.MetrixWeather.apikey.value
 		city="id=%s" % self.woeid
-		feedurl = "http://api.openweathermap.org/data/2.5/weather?%s&lang=%s&units=metric%s" % (city,language[:2],apikey)
-		getPage(feedurl).addCallback(self.jsonCallback).addErrback(self.error)
-		if not self.check:
-			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=metric&cnt=1%s" % (city,language[:2],apikey)
-			getPage(feedurl).addCallback(self.jsonCallback).addErrback(self.error)
+		feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=metric&cnt=1%s" % (city,language[:2],apikey)
+		if self.check:
+			feedurl = "http://api.openweathermap.org/data/2.5/weather?%s&lang=%s&units=metric%s" % (city,language[:2],apikey)
+		#print feedurl
+		getPage(feedurl).addCallback(self.jsonCallback).addErrback(self.errorCallback)
 
 	def jsonCallback(self, jsonstring):
+		global g_updateRunning
 		d = json.loads(jsonstring)
 		if 'list' in d and 'cnt' in d:
 			temp_min_cnt_0 = d['list'][0]['main']['temp_min']
@@ -176,23 +187,13 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			config.plugins.MetrixWeather.forecastTomorrowTempMax.value = str(int(round(temp_max_cnt_0)))
 			config.plugins.MetrixWeather.forecastTomorrowTempMin.value = str(int(round(temp_min_cnt_0)))
 			config.plugins.MetrixWeather.forecastTomorrowCode.value = self.ConvertCondition(weather_code_cnt_0)
-		#elif 'message' in d and 'cod' in d:
-		#	if d['cod'] == "404":
-		#		print "json running",d['message']
-		#		config.plugins.MetrixWeather.currentWeatherDataValid.value = 0
-		#	if d['cod'] == "401":
-		#		print "json running",d['message']
-		#		config.plugins.MetrixWeather.currentWeatherDataValid.value = 0
-		#	elif d['cod'] != "200":
-		#		print "json running",d['message']
-		#		config.plugins.MetrixWeather.currentWeatherDataValid.value = 1
-		#	self.startTimer(True,1)
-		#	if self.check:
-		#		text = d['message']
-		#		self.writeCheckFile(text)
-		#	config.plugins.MetrixWeather.currentWeatherDataValid.save()
-		#	g_updateRunning = False
-		#	return
+		elif 'message' in d:
+			if self.check:
+				text = d['message']
+				self.writeCheckFile(text)
+			else:
+				self.errorCallback(message = d['message'])
+			return
 		else:
 			if 'name' in d:
 				name = d['name']
@@ -214,8 +215,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			if self.check:
 				text = "%s|%s|%s°|%s°|%s°" %(id,name,temp,temp_max,temp_min)
 				self.writeCheckFile(text)
-				g_updateRunning = False
-				return
+		self.setWeatherDataValid(3)
 		config.plugins.MetrixWeather.save()
 		g_updateRunning = False
 		self.refreshcnt = 0
