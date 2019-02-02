@@ -1237,42 +1237,6 @@ class ActivateSkinSettings:
 			skinSearchAndReplace.append(['skin_00u_unchecked.xml', 'skin_00u_unchecked.MySkin.xml'])
 			skinSearchAndReplace.append(['skin_00z_design.xml', 'skin_00z_design.MySkin.xml'])
 
-			#skinparts
-			mySkindir = '/usr/share/enigma2/MetrixHD/mySkin/'
-			skinpartdir='/usr/share/enigma2/MetrixHD/skinparts/'
-			skinparts = ''
-			if not path.exists(mySkindir):
-				mkdir(mySkindir)
-			else:
-				for file in listdir(mySkindir):
-					if path.isfile(mySkindir + file):
-						remove(mySkindir + file)
-			for skinpart in listdir(skinpartdir):
-				if path.isfile(skinpartdir + skinpart):
-					continue
-				enabled = False
-				partname = partpath = ''
-				for file in listdir(skinpartdir + skinpart):
-					filepath = path.join(skinpartdir + skinpart, file)
-					if not path.isfile(filepath):
-						continue
-					if file == skinpart + '.xml':
-						partname = skinpart
-						partpath = filepath
-						TARGETpath = mySkindir + 'skin_' + skinpart + '.MySkin.xml'
-						TMPpath = skinpartdir + skinpart + '/' + skinpart + '.MySkin.xml.tmp'
-						#remove old MySkin files
-						if path.isfile(TARGETpath):
-							remove(TARGETpath)
-					if file == 'enabled':
-						enabled = True
-				if partname and enabled:
-					if skinparts:
-						skinparts += '\n\t<include filename="%s" />' %TARGETpath
-					else:
-						skinparts = '<include filename="%s" />' %TARGETpath
-					skinfiles.append((partpath, TARGETpath, TMPpath))
-
 			#make skin file
 			skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
 			orgskin_lines = appendSkinFile(SKIN_SOURCE + bname, orgskinSearchAndReplace)
@@ -1308,6 +1272,41 @@ class ActivateSkinSettings:
 					buttonbackupfile = buttonfile + '.backup'
 					if path.exists(buttonbackupfile):
 						move(buttonbackupfile,buttonfile)
+
+			################
+			# Skinparts
+			################
+
+			mySkindir = '/usr/share/enigma2/MetrixHD/mySkin/'
+			skinpartdir='/usr/share/enigma2/MetrixHD/skinparts/'
+			skinparts = ''
+			if not path.exists(mySkindir):
+				mkdir(mySkindir)
+			else:
+				for file in listdir(mySkindir):
+					if path.isfile(mySkindir + file):
+						remove(mySkindir + file)
+			for skinpart in listdir(skinpartdir):
+				if path.isfile(skinpartdir + skinpart):
+					continue
+				enabled = False
+				partname = partpath = ''
+				for file in listdir(skinpartdir + skinpart):
+					filepath = path.join(skinpartdir + skinpart, file)
+					if not path.isfile(filepath):
+						continue
+					if file == skinpart + '.xml':
+						partname = skinpart
+						partpath = filepath
+						TARGETpath = mySkindir + 'skin_' + skinpart + '.MySkin.xml'
+						TMPpath = skinpartdir + skinpart + '/' + skinpart + '.MySkin.xml.tmp'
+						#remove old MySkin files
+						if path.isfile(TMPpath.replace('.tmp','')):
+							remove(TMPpath.replace('.tmp',''))
+					if file == 'enabled':
+						enabled = True
+				if partname and enabled:
+					skinfiles.append((partpath, TARGETpath, TMPpath))
 
 			################
 			# EHD-skin + ALL-skin files

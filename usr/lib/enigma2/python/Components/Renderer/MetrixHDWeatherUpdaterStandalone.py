@@ -57,7 +57,6 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 		self.timer = None
 		self.refreshcnt = 0
 		self.refreshcle = 0
-		self.error = False
 		if not g_isRunning or self.once or self.check:
 			self.getWeather()
 
@@ -131,7 +130,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			return
 
 		self.woeid = config.plugins.MetrixWeather.woeid.value
-		self.verify = config.plugins.MetrixWeather.verifyDate.value #check for valid date
+		#self.verify = config.plugins.MetrixWeather.verifyDate.value #check for valid date
 		self.startTimer()
 
 		valdata = config.plugins.MetrixWeather.currentWeatherDataValid.value
@@ -153,12 +152,13 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			errormessage = str(error.getErrorMessage())
 		elif message is not None:
 			errormessage = str(message)
-		print errormessage
+		print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " failed, error: %s" %errormessage
 		if self.check:
 			self.writeCheckFile(errormessage)
 		else:
 			nextcall = 30
-			print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " failed, try next in %ds..." %nextcall
+			if not self.once:
+				print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " failed, try next in %ds ..." %nextcall
 			self.startTimer(True, nextcall)
 
 	def getWeatherThread(self):
@@ -178,6 +178,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 
 	def jsonCallback(self, jsonstring):
 		global g_updateRunning
+		g_updateRunning = False
 		d = json.loads(jsonstring)
 		if 'list' in d and 'cnt' in d:
 			temp_min_cnt_0 = d['list'][0]['main']['temp_min']
@@ -214,9 +215,9 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			if self.check:
 				text = "%s|%s|%s°|%s°|%s°" %(id,name,temp,temp_max,temp_min)
 				self.writeCheckFile(text)
+				return
 		self.setWeatherDataValid(3)
 		config.plugins.MetrixWeather.save()
-		g_updateRunning = False
 		self.refreshcnt = 0
 		self.refreshcle = 0
 

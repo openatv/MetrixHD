@@ -30,7 +30,7 @@ from Components.Label import Label
 from Components.Sources.StaticText import StaticText
 from Components.Pixmap import Pixmap
 from enigma import ePicLoad, eTimer
-from os import path
+from os import path, listdir
 from Components.Renderer.MetrixHDWeatherUpdaterStandalone import MetrixHDWeatherUpdaterStandalone
 
 #############################################################
@@ -117,7 +117,8 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 
 		list.append(getConfigListEntry(_("Enabled"), config.plugins.MetrixWeather.enabled, _("Cycle/failure indicator colors on widget:\ngreen - 6 times try to fetch weather data\nyellow - fetch weather data paused 5 mins\nred - fetch weather data aborted after 6 times green and yellow\n(if red -> press 'save' for refresh)"), "ENABLED"))
 
-		self["resulttext"].setText("")
+		info = _("If the file 'ID_APIKEY.apidata' exists in the '/tmp/' folder, imported  these data automatically on '" + _("Check ID") + "' function.\n(e.g. '2911298_a4bd84726035d0ce2c6185740617d8c5.apidata')")
+		self["resulttext"].setText(info)
 		self.check_enable = False
 		if config.plugins.MetrixWeather.enabled.getValue() is True:
 			list.append(getConfigListEntry(_("Show in MoviePlayer"), config.plugins.MetrixWeather.MoviePlayer, _("helptext")))
@@ -125,7 +126,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			list.append(getConfigListEntry(_("MetrixWeather APIKEY"), config.plugins.MetrixWeather.apikey , _("Get your local MetrixWeather APIKEY from https://openweathermap.org/")))
 			list.append(getConfigListEntry(_("Unit"), config.plugins.MetrixWeather.tempUnit, _("helptext")))
 			list.append(getConfigListEntry(_("Refresh Interval (min)"), config.plugins.MetrixWeather.refreshInterval, _("If set to '0', fetch weather data only at system(gui) start.")))
-			list.append(getConfigListEntry(_("Check is Weather date local date"), config.plugins.MetrixWeather.verifyDate, _("helptext")))
+			#list.append(getConfigListEntry(_("Check is Weather date local date"), config.plugins.MetrixWeather.verifyDate, _("helptext")))
 			self.check_enable = True
 		return list
 
@@ -187,11 +188,27 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			self.checkTimer.stop()
 
 	def checkID(self):
-		if self.checkTimer.isActive() or not self.check_enable:
+		if self.checkTimer.isActive() or not self.check_enable or not self.loadAPIdata():
 			return
 		self["resulttext"].setText(_("Please wait, get weather data ..."))
 		MetrixHDWeatherUpdaterStandalone(check=True)
 		self.checkTimer.start(3000,False)
+
+	def loadAPIdata(self):
+		ret = True
+		for file in listdir('/tmp/'):
+			if path.isfile('/tmp/'+file) and file.endswith('.apidata'):
+				try:
+					id, key = file.replace('.apidata','').split('_')
+				except:
+					self["resulttext"].setText(_("Wrong import file ..."))
+					ret = False
+					break
+				config.plugins.MetrixWeather.woeid.setValue(id)
+				config.plugins.MetrixWeather.apikey.setValue(key)
+				self["config"].setList(self.getMenuItemList())
+				break
+		return ret
 
 	def save(self):
 		for x in self["config"].list:
