@@ -519,15 +519,20 @@ def initWeatherConfig():
 
 	#MetrixWeather
 
-	config.plugins.MetrixWeather.enabled = ConfigYesNo(default=False)
+	config.plugins.MetrixWeather.enabled = ConfigYesNo(default=True)
 	config.plugins.MetrixWeather.MoviePlayer = ConfigYesNo(default=True)
 	config.plugins.MetrixWeather.verifyDate = ConfigYesNo(default=True)
 	config.plugins.MetrixWeather.refreshInterval = ConfigSelectionNumber(0, 1440, 30, default = 120, wraparound = True)
 	config.plugins.MetrixWeather.woeid = ConfigNumber(default=2911298)
 	config.plugins.MetrixWeather.apikey = ConfigText(default="a4bd84726035d0ce2c6185740617d8c5")
+	config.plugins.MetrixWeather.weathercity = ConfigText(default='Hamburg, Germany', visible_width=250, fixed_size=False)
 	config.plugins.MetrixWeather.tempUnit = ConfigSelection(default="Celsius", choices = [
 		("Celsius", _("Celsius")),
 		("Fahrenheit", _("Fahrenheit"))
+	])
+	config.plugins.MetrixWeather.weatherservice = ConfigSelection(default="MSN", choices = [
+		("MSN", _("MSN")),
+		("openweather", _("openweather"))
 	])
 
 

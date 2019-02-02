@@ -5,6 +5,7 @@
 #    based on
 #    MyMetrix
 #    Coded by iMaxxx (c) 2013
+#    MSN weatherserivce nikolasi
 #
 #
 #  This plugin is licensed under the Creative Commons
@@ -21,8 +22,13 @@
 
 from . import _, MAIN_IMAGE_PATH
 from Screens.Screen import Screen
+from Screens.VirtualKeyBoard import VirtualKeyBoard
 from Screens.MessageBox import MessageBox
+from Components.MenuList import MenuList
 from Components.ActionMap import ActionMap
+from urllib2 import Request, urlopen, URLError, HTTPError
+from xml.etree.cElementTree import fromstring as cet_fromstring
+from Tools.Directories import fileExists
 from Components.AVSwitch import AVSwitch
 from Components.config import config, configfile, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
@@ -30,7 +36,7 @@ from Components.Label import Label
 from Components.Sources.StaticText import StaticText
 from Components.Pixmap import Pixmap
 from enigma import ePicLoad, eTimer
-from os import path, listdir
+from os import path, listdir, system
 from Components.Renderer.MetrixHDWeatherUpdaterStandalone import MetrixHDWeatherUpdaterStandalone
 
 #############################################################
@@ -84,19 +90,16 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		self.checkTimer = eTimer()
 		self.checkTimer.callback.append(self.readCheckFile)
 
-		ConfigListScreen.__init__(
-			self,
-			self.getMenuItemList(),
-			session = session,
-			on_change = self.changedEntry
-		)
+		self.list = [ ]
+		ConfigListScreen.__init__(self, self.list, session = session, on_change = self.changedEntry)
 
 		self["actions"] = ActionMap(
 		[
 			"OkCancelActions",
 			"DirectionActions",
 			"InputActions",
-			"ColorActions"
+			"ColorActions",
+			"MovieSelectionActions"
 		],
 		{
 			"left": self.keyLeft,
@@ -107,28 +110,36 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			"green": self.save,
 			"yellow": self.defaults,
 			"blue": self.checkID,
+			"contextMenu": self.checkIDmy,
 			"cancel": self.exit
 		}, -1)
-
+		self.getMenuItemList()
 		self.onLayoutFinish.append(self.UpdatePicture)
 
 	def getMenuItemList(self):
-		list = []
+		self.list = [ ]
 
-		list.append(getConfigListEntry(_("Enabled"), config.plugins.MetrixWeather.enabled, _("Cycle/failure indicator colors on widget:\ngreen - 6 times try to fetch weather data\nyellow - fetch weather data paused 5 mins\nred - fetch weather data aborted after 6 times green and yellow\n(if red -> press 'save' for refresh)"), "ENABLED"))
+		self.list.append(getConfigListEntry(_("Enabled"), config.plugins.MetrixWeather.enabled, _("Cycle/failure indicator colors on widget:\ngreen - 6 times try to fetch weather data\nyellow - fetch weather data paused 5 mins\nred - fetch weather data aborted after 6 times green and yellow\n(if red -> press 'save' for refresh)"), "ENABLED"))
 
-		info = _("If the file 'ID_APIKEY.apidata' exists in the '/tmp/' folder, imported  these data automatically on '" + _("Check ID") + "' function.\n(e.g. '2911298_a4bd84726035d0ce2c6185740617d8c5.apidata')")
-		self["resulttext"].setText(info)
 		self.check_enable = False
 		if config.plugins.MetrixWeather.enabled.getValue() is True:
-			list.append(getConfigListEntry(_("Show in MoviePlayer"), config.plugins.MetrixWeather.MoviePlayer, _("helptext")))
-			list.append(getConfigListEntry(_("MetrixWeather ID"), config.plugins.MetrixWeather.woeid , _("Get your local MetrixWeather ID from https://openweathermap.org/")))
-			list.append(getConfigListEntry(_("MetrixWeather APIKEY"), config.plugins.MetrixWeather.apikey , _("Get your local MetrixWeather APIKEY from https://openweathermap.org/")))
-			list.append(getConfigListEntry(_("Unit"), config.plugins.MetrixWeather.tempUnit, _("helptext")))
-			list.append(getConfigListEntry(_("Refresh Interval (min)"), config.plugins.MetrixWeather.refreshInterval, _("If set to '0', fetch weather data only at system(gui) start.")))
-			#list.append(getConfigListEntry(_("Check is Weather date local date"), config.plugins.MetrixWeather.verifyDate, _("helptext")))
+			self.list.append(getConfigListEntry(_("Show in MoviePlayer"), config.plugins.MetrixWeather.MoviePlayer, _("helptext")))
+
+			self.list.append(getConfigListEntry(_("MetrixWeather Service"), config.plugins.MetrixWeather.weatherservice , _("Choose your preferred weather service")))
+			if config.plugins.MetrixWeather.weatherservice.value == "MSN":
+				self.list.append(getConfigListEntry(_("MetrixWeather City Name"), config.plugins.MetrixWeather.weathercity , _("Your place for weather determination. Press Menu to enter the city name")))
+				info = ""
+			else:
+				self.list.append(getConfigListEntry(_("MetrixWeather ID"), config.plugins.MetrixWeather.woeid , _("Get your local MetrixWeather ID from https://openweathermap.org/")))
+				self.list.append(getConfigListEntry(_("MetrixWeather APIKEY"), config.plugins.MetrixWeather.apikey , _("Get your local MetrixWeather APIKEY from https://openweathermap.org/")))
+				info = _("If the file 'ID_APIKEY.apidata' exists in the '/tmp/' folder, imported  these data automatically on '" + _("Check ID") + "' function.\n(e.g. '2911298_a4bd84726035d0ce2c6185740617d8c5.apidata')")
+			self.list.append(getConfigListEntry(_("Unit"), config.plugins.MetrixWeather.tempUnit, _("helptext")))
+			self.list.append(getConfigListEntry(_("Refresh Interval (min)"), config.plugins.MetrixWeather.refreshInterval, _("If set to '0', fetch weather data only at system(gui) start.")))
+			#self.list.append(getConfigListEntry(_("Check is Weather date local date"), config.plugins.MetrixWeather.verifyDate, _("helptext")))
+			self["resulttext"].setText(info)
 			self.check_enable = True
-		return list
+		self["config"].list = self.list
+		self["config"].l.setList(self.list)
 
 	def GetPicturePath(self):
 		return MAIN_IMAGE_PATH % "MyMetrixLiteWeather"
@@ -148,11 +159,11 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 
 	def keyLeft(self):
 		ConfigListScreen.keyLeft(self)
-		#self.ShowPicture()
+		self.getMenuItemList()
 
 	def keyRight(self):
 		ConfigListScreen.keyRight(self)
-		#self.ShowPicture()
+		self.getMenuItemList()
 
 	def keyDown(self):
 		self["config"].instance.moveSelection(self["config"].instance.moveDown)
@@ -210,6 +221,14 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 				break
 		return ret
 
+	def checkIDmy(self):
+		self.session.openWithCallback(self.ShowsearchBarracuda, VirtualKeyBoard, title=_('Enter text to search city'))
+
+	def ShowsearchBarracuda(self, name):
+		if name is not None:
+			self.session.open(Location, name)
+		return
+
 	def save(self):
 		for x in self["config"].list:
 			if len(x) > 1:
@@ -250,3 +269,73 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			self["helpertext"].setText(cur[2])
 		else:
 			self["helpertext"].setText(" ")
+
+class Location(Screen):
+	skin = """
+		<screen position="center,center" size="380,80" title="%s">
+		<widget name="menu" position="5,5" size="370,80" />
+		</screen>""" % _('Select Your Location')
+
+	def __init__(self, session, name):
+		Screen.__init__(self, session)
+		self.session = session
+		self.eventname = name
+		self.resultlist = []
+		self['menu'] = MenuList(self.resultlist)
+		self['actions'] = ActionMap(['OkCancelActions', 'DirectionActions'], {'ok': self.okClicked,
+			'cancel': self.close,
+			'up': self.pageUp,
+			'down': self.pageDown}, -1)
+		self.showMenu()
+
+	def pageUp(self):
+		self['menu'].instance.moveSelection(self['menu'].instance.moveUp)
+
+	def pageDown(self):
+		self['menu'].instance.moveSelection(self['menu'].instance.moveDown)
+
+	def showMenu(self):
+		try:
+			results = search_title(self.eventname)
+		except:
+			results = []
+
+		if len(results) == 0:
+			return False
+		self.resultlist = []
+		for searchResult in results:
+			try:
+				self.resultlist.append(searchResult)
+			except:
+				pass
+
+		self['menu'].l.setList(self.resultlist)
+
+	def okClicked(self):
+		id = self['menu'].getCurrent()
+		if id:
+			config.plugins.MetrixWeather.weathercity.value = id.replace(', ', ',')
+			config.plugins.MetrixWeather.weathercity.save()
+			if fileExists('/tmp/weathermsn.xml'):
+				system('rm /tmp/weathermsn.xml')
+			self.close()
+
+def search_title(id):
+	url = 'http://weather.service.msn.com/find.aspx?outputview=search&weasearchstr=%s&culture=en-US&src=outlook' % id
+	msnrequest = Request(url)
+	try:
+		msnpage = urlopen(msnrequest)
+	except (URLError) as err:
+		print '[WeatherSettingsView] Error: Unable to retrieve page - Error code: ', str(err)
+		return "error"
+
+	content = msnpage.read()
+	msnpage.close()
+	root = cet_fromstring(content)
+	search_results = []
+	if content:
+		for childs in root:
+			if childs.tag == 'weather':
+				locationcode = childs.attrib.get('weatherlocationname').encode('utf-8', 'ignore')
+				search_results.append(locationcode)
+	return search_results
