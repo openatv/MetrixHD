@@ -278,6 +278,7 @@ class Location(Screen):
 
 	def __init__(self, session, name):
 		Screen.__init__(self, session)
+		self.setTitle(_('Select Your Location'))
 		self.session = session
 		self.eventname = name
 		self.resultlist = []
