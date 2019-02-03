@@ -84,7 +84,6 @@ class MainSettingsView(Screen):
 	<eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
 	<eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
 	<widget name="helperimage" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
-	<widget name="logo" position="838,100" size="258,58" zPosition="2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/MyMetrixLiteWeatherLogo.png" alphatest="blend" />
 	<widget name="helpertext" position="800,490" size="336,160" font="Regular; 18" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center" valign="center" transparent="1"/>
   </screen>
 """
@@ -94,7 +93,6 @@ class MainSettingsView(Screen):
 		self.session = session
 		self.Scale = AVSwitch().getFramebufferScale()
 		self.PicLoad = ePicLoad()
-		self["logo"] = Pixmap()
 		self["helperimage"] = Pixmap()
 		self["helpertext"] = Label()
 
@@ -126,7 +124,7 @@ class MainSettingsView(Screen):
 		list = []
 		list.append(MenuEntryItem(_("Font settings"), "FONT", _("helptext")))
 		list.append(MenuEntryItem(_("Color settings"), "COLOR", _("helptext")))
-		list.append(MenuEntryItem(_("Weather settings"), "WEATHER", _("helptext")))
+		list.append(MenuEntryItem(_("Weather settings"), "WEATHER", _("Powered by\n-----------------\nmsn weather\n(https://www.msn.com)\nand\nOpenWeatherMap\n(https://openweathermap.org)")))
 		list.append(MenuEntryItem(_("Other settings"), "OTHER", _("helptext")))
 		if path.isfile("/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/DesignSettings.py"):
 			from DesignSettingsView import DesignSettingsView
@@ -161,7 +159,6 @@ class MainSettingsView(Screen):
 
 		cur = self["menuList"].getCurrent()
 		imageUrl = MAIN_IMAGE_PATH % "FFFFFF"
-		self["logo"].hide()
 
 		if cur:
 			selectedKey = cur[0][1]
@@ -170,7 +167,6 @@ class MainSettingsView(Screen):
 				imageUrl = MAIN_IMAGE_PATH % "MyMetrixLiteColor"
 			elif selectedKey == "WEATHER":
 				imageUrl = MAIN_IMAGE_PATH % "MyMetrixLiteWeather"
-				self["logo"].show()
 			elif selectedKey == "OTHER":
 				imageUrl = MAIN_IMAGE_PATH % "MyMetrixLiteOther"
 			elif selectedKey == "FONT":

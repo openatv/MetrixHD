@@ -55,7 +55,6 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 	<eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
 	<eLabel position="430,635" size="5,40" backgroundColor="#00e5dd00" />
 	<eLabel position="616,635" size="5,40" backgroundColor="#000064c7" />
-	<ePixmap position="838,100" size="258,58" zPosition="2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/MyMetrixLiteWeatherLogo.png" alphatest="blend" />
 	<widget name="helperimage" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
 	<widget name="helpertext" position="800,490" size="336,160" font="Regular; 18" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center" valign="center" transparent="1"/>
 	<widget name="resulttext" position="61,430" size="590,200" font="Regular; 20" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center" transparent="1"/>
@@ -111,6 +110,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			"yellow": self.defaults,
 			"blue": self.checkID,
 			"showVirtualKeyboard": self.checkIDmy,
+			"ok": self.checkIDmy,
 			"cancel": self.exit
 		}, -1)
 		self.getMenuItemList()
@@ -127,7 +127,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 
 			self.list.append(getConfigListEntry(_("MetrixWeather Service"), config.plugins.MetrixWeather.weatherservice , _("Choose your preferred weather service")))
 			if config.plugins.MetrixWeather.weatherservice.value == "MSN":
-				self.list.append(getConfigListEntry(_("MetrixWeather City Name"), config.plugins.MetrixWeather.weathercity , _("Your place for weather determination. Press TEXT to enter the city name")))
+				self.list.append(getConfigListEntry(_("MetrixWeather City Name"), config.plugins.MetrixWeather.weathercity , _("Your place for weather determination. Press TEXT or OK to enter the city name")))
 				info = ""
 			else:
 				self.list.append(getConfigListEntry(_("MetrixWeather ID"), config.plugins.MetrixWeather.woeid , _("Get your local MetrixWeather ID from https://openweathermap.org/")))
@@ -222,11 +222,12 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		return ret
 
 	def checkIDmy(self):
-		self.session.openWithCallback(self.ShowsearchBarracuda, VirtualKeyBoard, title=_('Enter text to search city'))
+		if self["config"].getCurrent()[0] == _("MetrixWeather City Name"):
+			self.session.openWithCallback(self.ShowsearchBarracuda, VirtualKeyBoard, title=_('Enter text to search city'))
 
 	def ShowsearchBarracuda(self, name):
 		if name is not None:
-			self.session.open(Location, name)
+			self.session.open(WeatherSettingsLocation, name)
 		return
 
 	def save(self):
@@ -270,7 +271,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		else:
 			self["helpertext"].setText(" ")
 
-class Location(Screen):
+class WeatherSettingsLocation(Screen):
 	skin = """
 		<screen position="center,center" size="380,80" title="%s">
 		<widget name="menu" position="5,5" size="370,80" />
