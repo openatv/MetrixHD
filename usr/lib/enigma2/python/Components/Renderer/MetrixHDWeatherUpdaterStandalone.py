@@ -22,6 +22,8 @@ from Plugins.Extensions.MyMetrixLite.__init__ import initWeatherConfig
 from threading import Timer, Thread
 from time import time, strftime, localtime
 from twisted.web.client import getPage
+from datetime import datetime, timedelta
+
 import sys
 #from twisted.python import log
 #log.startLogging(sys.stdout)
@@ -118,6 +120,10 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 	def setWeatherDataValid(self, val):
 		config.plugins.MetrixWeather.currentWeatherDataValid.value = val # 0 = try to getting weather data, 1 = try to getting weather data paused, 2 = try to getting weather data aborted (to many error cycles), 3 = weather data valid
 		config.plugins.MetrixWeather.currentWeatherDataValid.save()
+		if val == 3:
+			config.plugins.MetrixWeather.save()
+			self.refreshcnt = 0
+			self.refreshcle = 0
 
 	def getWeather(self):
 		global g_updateRunning, g_isRunning
@@ -153,13 +159,13 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			errormessage = str(error.getErrorMessage())
 		elif message is not None:
 			errormessage = str(message)
-		print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " failed, error: %s" %errormessage
+		print "MetrixHDWeatherStandalone get weather data failed - Error code: %s" %errormessage
 		if self.check:
 			self.writeCheckFile(errormessage)
 		else:
 			nextcall = 30
 			if not self.once:
-				print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " failed, try next in %ds ..." %nextcall
+				print "MetrixHDWeatherStandalone try next in %d sec ..." %nextcall
 			self.startTimer(True, nextcall)
 
 	def getWeatherThread(self):
@@ -178,7 +184,6 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 		print text
 
 		if config.plugins.MetrixWeather.weatherservice.value == "MSN":
-			g_updateRunning = False
 			language = config.osd.language.value.replace('_', '-')
 			if language == 'en-EN':
 				language = 'en-US'
@@ -188,106 +193,141 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			try:
 				msnpage = urlopen2(msnrequest)
 			except (URLError) as err:
-				print '[MetrixHDWeatherStandalone] Error: Unable to retrieve page - Error code: ', str(err)
+				self.errorCallback(message = str(err))
 				return
-			content = msnpage.read()
-			msnpage.close()
-			dom = parseString(content)
-			currentWeather = dom.getElementsByTagName('weather')[0]
-			titlemy = currentWeather.getAttributeNode('weatherlocationname')
-			config.plugins.MetrixWeather.currentLocation.value = titlemy.nodeValue
-			name = titlemy.nodeValue
-			idmy =  currentWeather.getAttributeNode('weatherlocationcode')
-			id = idmy.nodeValue
-			currentWeather = dom.getElementsByTagName('current')[0]
-			currentWeatherCode = currentWeather.getAttributeNode('skycode')
-			config.plugins.MetrixWeather.currentWeatherCode.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
-			currentWeatherTemp = currentWeather.getAttributeNode('temperature')
-			temp = currentWeatherTemp.nodeValue
-			config.plugins.MetrixWeather.currentWeatherTemp.value = currentWeatherTemp.nodeValue
-			currentWeatherText = currentWeather.getAttributeNode('skytext')
-			config.plugins.MetrixWeather.currentWeatherText.value = currentWeatherText.nodeValue
-			n = 1
-			currentWeather = dom.getElementsByTagName('forecast')[n]
-			currentWeatherCode = currentWeather.getAttributeNode('skycodeday')
-			config.plugins.MetrixWeather.forecastTodayCode.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
-			currentWeatherTemp = currentWeather.getAttributeNode('high')
-			temp_max  = currentWeatherTemp.nodeValue
-			config.plugins.MetrixWeather.forecastTodayTempMax.value = currentWeatherTemp.nodeValue
-			currentWeatherTemp = currentWeather.getAttributeNode('low')
-			temp_min = currentWeatherTemp.nodeValue
-			config.plugins.MetrixWeather.forecastTodayTempMin.value = currentWeatherTemp.nodeValue
-			currentWeatherText = currentWeather.getAttributeNode('skytextday')
-			config.plugins.MetrixWeather.forecastTodayText.value = currentWeatherText.nodeValue
-			currentWeather = dom.getElementsByTagName('forecast')[n + 1]
-			currentWeatherCode = currentWeather.getAttributeNode('skycodeday')
-			config.plugins.MetrixWeather.forecastTomorrowCode.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
-			currentWeatherTemp = currentWeather.getAttributeNode('high')
-			config.plugins.MetrixWeather.forecastTomorrowTempMax.value = currentWeatherTemp.nodeValue
-			currentWeatherTemp = currentWeather.getAttributeNode('low')
-			config.plugins.MetrixWeather.forecastTomorrowTempMin.value = currentWeatherTemp.nodeValue
-			currentWeatherText = currentWeather.getAttributeNode('skytextday')
-			config.plugins.MetrixWeather.forecastTomorrowText.value = currentWeatherText.nodeValue
-			if self.check:
-				text = "%s|%s|%s°|%s°|%s°" %(id,name,temp,temp_max,temp_min)
-				self.writeCheckFile(text)
+			g_updateRunning = False
+			try:
+				content = msnpage.read()
+				msnpage.close()
+				dom = parseString(content)
+				currentWeather = dom.getElementsByTagName('weather')[0]
+				titlemy = currentWeather.getAttributeNode('weatherlocationname')
+				config.plugins.MetrixWeather.currentLocation.value = titlemy.nodeValue
+				name = titlemy.nodeValue
+				idmy =  currentWeather.getAttributeNode('weatherlocationcode')
+				id = idmy.nodeValue
+				currentWeather = dom.getElementsByTagName('current')[0]
+				currentWeatherCode = currentWeather.getAttributeNode('skycode')
+				config.plugins.MetrixWeather.currentWeatherCode.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
+				currentWeatherTemp = currentWeather.getAttributeNode('temperature')
+				temp = currentWeatherTemp.nodeValue
+				config.plugins.MetrixWeather.currentWeatherTemp.value = currentWeatherTemp.nodeValue
+				currentWeatherText = currentWeather.getAttributeNode('skytext')
+				config.plugins.MetrixWeather.currentWeatherText.value = currentWeatherText.nodeValue
+				n = 1
+				currentWeather = dom.getElementsByTagName('forecast')[n]
+				currentWeatherCode = currentWeather.getAttributeNode('skycodeday')
+				config.plugins.MetrixWeather.forecastTodayCode.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
+				currentWeatherTemp = currentWeather.getAttributeNode('high')
+				temp_max  = currentWeatherTemp.nodeValue
+				config.plugins.MetrixWeather.forecastTodayTempMax.value = currentWeatherTemp.nodeValue
+				currentWeatherTemp = currentWeather.getAttributeNode('low')
+				temp_min = currentWeatherTemp.nodeValue
+				config.plugins.MetrixWeather.forecastTodayTempMin.value = currentWeatherTemp.nodeValue
+				currentWeatherText = currentWeather.getAttributeNode('skytextday')
+				config.plugins.MetrixWeather.forecastTodayText.value = currentWeatherText.nodeValue
+				currentWeather = dom.getElementsByTagName('forecast')[n + 1]
+				currentWeatherCode = currentWeather.getAttributeNode('skycodeday')
+				config.plugins.MetrixWeather.forecastTomorrowCode.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
+				currentWeatherTemp = currentWeather.getAttributeNode('high')
+				config.plugins.MetrixWeather.forecastTomorrowTempMax.value = currentWeatherTemp.nodeValue
+				currentWeatherTemp = currentWeather.getAttributeNode('low')
+				config.plugins.MetrixWeather.forecastTomorrowTempMin.value = currentWeatherTemp.nodeValue
+				currentWeatherText = currentWeather.getAttributeNode('skytextday')
+				config.plugins.MetrixWeather.forecastTomorrowText.value = currentWeatherText.nodeValue
+				if self.check:
+					text = "%s|%s|%s°|%s°|%s°" %(id,name,temp,temp_max,temp_min)
+					self.writeCheckFile(text)
+					return
+			except IndexError, err:
+				self.errorCallback(message = str(err))
 				return
-			config.plugins.MetrixWeather.save()
-			self.refreshcnt = 0
-			self.refreshcle = 0
+			self.setWeatherDataValid(3)
 		else:
 			language = config.osd.language.value
 			apikey = "&appid=%s" % config.plugins.MetrixWeather.apikey.value
 			city="id=%s" % self.woeid
-			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=metric&cnt=1%s" % (city,language[:2],apikey)
-			if self.check:
-				feedurl = "http://api.openweathermap.org/data/2.5/weather?%s&lang=%s&units=metric%s" % (city,language[:2],apikey)
+			cnt = (24 + (24 - int(datetime.now().strftime('%H')))) / 3 + 1
+			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=metric&cnt=%d%s" % (city,language[:2],cnt,apikey)
 			getPage(feedurl).addCallback(self.jsonCallback).addErrback(self.errorCallback)
 
 	def jsonCallback(self, jsonstring):
 		global g_updateRunning
-		g_updateRunning = False
 		d = json.loads(jsonstring)
-		if 'list' in d and 'cnt' in d:
-			temp_min_cnt_0 = d['list'][0]['main']['temp_min']
-			temp_max_cnt_0 = d['list'][0]['main']['temp_max']
-			weather_code_cnt_0 = d['list'][0]['weather'][0]['id']
-			config.plugins.MetrixWeather.forecastTomorrowTempMax.value = str(int(round(temp_max_cnt_0)))
-			config.plugins.MetrixWeather.forecastTomorrowTempMin.value = str(int(round(temp_min_cnt_0)))
-			config.plugins.MetrixWeather.forecastTomorrowCode.value = self.ConvertCondition(weather_code_cnt_0)
-		elif 'message' in d:
-			if self.check:
-				text = d['message']
-				self.writeCheckFile(text)
-			else:
-				self.errorCallback(message = d['message'])
+		if 'code' in d and d['cod'] != "200":
+			self.errorCallback(message = d['message'])
 			return
-		else:
-			if 'name' in d:
-				name = d['name']
-				config.plugins.MetrixWeather.currentLocation.value = str(name)
-			if 'id' in d:
-				id = d['id']
-			if 'main' in d and 'temp' in d['main']:
-				temp = d['main']['temp']
-				config.plugins.MetrixWeather.currentWeatherTemp.value = str(int(round(temp)))
-			if 'temp_max' in d['main']:
-				temp_max = d['main']['temp_max']
-				config.plugins.MetrixWeather.forecastTodayTempMax.value = str(int(round(temp_max)))
-			if 'temp_min' in d['main']:
-				temp_min = d['main']['temp_min']
-				config.plugins.MetrixWeather.forecastTodayTempMin.value = str(int(round(temp_min)))
-			if 'weather' in d:
-				weather_code = d['weather'][0]['id']
-				config.plugins.MetrixWeather.currentWeatherCode.value = self.ConvertCondition(weather_code)
+		g_updateRunning = False
+		try:
+			#location
+			id = str(d['city']['id'])
+			name = str(d['city']['name'])
+			#current
+			code = d['list'][0]['weather'][0]['id']
+			temp = str(int(round(d['list'][0]['main']['temp'])))
+			temp_min = str(int(round(d['list'][0]['main']['temp_min'])))
+			temp_max = str(int(round(d['list'][0]['main']['temp_max'])))
+
+			tmin_today =[]
+			tmax_today =[]
+			tmin_tomorrow =[]
+			tmax_tomorrow =[]
+			now = datetime.now().strftime('%Y-%m-%d')
+			tomorrow = (datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d')
+			code_tomorrow = tmp = ''
+			for dict in d['list']:
+				if now in dict['dt_txt']:
+					tmin_today.append(int(round(dict['main']['temp_min'])))
+					tmax_today.append(int(round(dict['main']['temp_max'])))
+				elif tomorrow in dict['dt_txt']:
+					if '00:00:00' in dict['dt_txt']:
+						tmin_today.append(int(round(dict['main']['temp_min'])))
+						tmax_today.append(int(round(dict['main']['temp_max'])))
+					tmin_tomorrow.append(int(round(dict['main']['temp_min'])))
+					tmax_tomorrow.append(int(round(dict['main']['temp_max'])))
+					tmp = dict['weather'][0]['id']
+					if '12:00:00' in dict['dt_txt']:
+						code_tomorrow = tmp
+
+			#no forecast temp data
+			if not tmin_today:
+				tmin_today = temp_min
+			else:
+				tmin_today = str(min(tmin_today))
+			if not tmax_today:
+				tmax_today = temp_max
+			else:
+				tmax_today = str(max(tmax_today))
+			if not tmin_tomorrow:
+				tmin_tomorrow = tmin_today
+			else:
+				tmin_tomorrow = str(min(tmin_tomorrow))
+			if not tmax_tomorrow:
+				tmax_tomorrow = tmax_today
+			else:
+				tmax_tomorrow = str(max(tmax_tomorrow))
+
 			if self.check:
-				text = "%s|%s|%s°|%s°|%s°" %(id,name,temp,temp_max,temp_min)
+				text = "%s|%s|%s°|%s°|%s°" %(id,name,temp,tmax_today,tmin_today)
 				self.writeCheckFile(text)
 				return
+
+			#name
+			config.plugins.MetrixWeather.currentLocation.value = name
+			#today
+			config.plugins.MetrixWeather.currentWeatherTemp.value = temp
+			config.plugins.MetrixWeather.currentWeatherCode.value = self.ConvertCondition(code)
+			config.plugins.MetrixWeather.forecastTodayTempMin.value = tmin_today
+			config.plugins.MetrixWeather.forecastTodayTempMax.value = tmax_today
+			#tomrorrow
+			if not code_tomorrow: code_tomorrow = tmp
+			config.plugins.MetrixWeather.forecastTomorrowCode.value = self.ConvertCondition(code_tomorrow)
+			config.plugins.MetrixWeather.forecastTomorrowTempMin.value = tmin_tomorrow
+			config.plugins.MetrixWeather.forecastTomorrowTempMax.value = tmax_tomorrow
+		except IndexError, err:
+			self.errorCallback(message = str(err))
+			return
 		self.setWeatherDataValid(3)
-		config.plugins.MetrixWeather.save()
-		self.refreshcnt = 0
-		self.refreshcle = 0
 
 	def getText(self,nodelist):
 		rc = []
