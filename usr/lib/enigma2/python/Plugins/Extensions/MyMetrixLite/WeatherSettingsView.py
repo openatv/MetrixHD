@@ -99,7 +99,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			"DirectionActions",
 			"InputActions",
 			"ColorActions",
-			"MovieSelectionActions"
+			"VirtualKeyboardActions"
 		],
 		{
 			"left": self.keyLeft,
@@ -110,7 +110,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			"green": self.save,
 			"yellow": self.defaults,
 			"blue": self.checkID,
-			"contextMenu": self.checkIDmy,
+			"showVirtualKeyboard": self.checkIDmy,
 			"cancel": self.exit
 		}, -1)
 		self.getMenuItemList()
@@ -127,7 +127,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 
 			self.list.append(getConfigListEntry(_("MetrixWeather Service"), config.plugins.MetrixWeather.weatherservice , _("Choose your preferred weather service")))
 			if config.plugins.MetrixWeather.weatherservice.value == "MSN":
-				self.list.append(getConfigListEntry(_("MetrixWeather City Name"), config.plugins.MetrixWeather.weathercity , _("Your place for weather determination. Press Menu to enter the city name")))
+				self.list.append(getConfigListEntry(_("MetrixWeather City Name"), config.plugins.MetrixWeather.weathercity , _("Your place for weather determination. Press TEXT to enter the city name")))
 				info = ""
 			else:
 				self.list.append(getConfigListEntry(_("MetrixWeather ID"), config.plugins.MetrixWeather.woeid , _("Get your local MetrixWeather ID from https://openweathermap.org/")))
