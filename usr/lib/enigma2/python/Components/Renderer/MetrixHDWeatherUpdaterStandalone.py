@@ -184,11 +184,14 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 		print text
 
 		if config.plugins.MetrixWeather.weatherservice.value == "MSN":
+			units = 'C'
+			if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit":
+				units ='F'
 			language = config.osd.language.value.replace('_', '-')
 			if language == 'en-EN':
 				language = 'en-US'
 			city="%s" % self.cityname
-			feedurl = "http://weather.service.msn.com/data.aspx?weadegreetype=%s&culture=%s&weasearchstr=%s&src=outlook" % (self.getTemp2(),language,urllib2_quote(city))
+			feedurl = "http://weather.service.msn.com/data.aspx?weadegreetype=%s&culture=%s&weasearchstr=%s&src=outlook" % (units,language,urllib2_quote(city))
 			msnrequest = Request(feedurl, None, std_headers)
 			try:
 				msnpage = urlopen2(msnrequest)
@@ -244,11 +247,15 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				return
 			self.setWeatherDataValid(3)
 		else:
+			units = 'metric'
+			if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit":
+				units ='imperial'
 			language = config.osd.language.value
 			apikey = "&appid=%s" % config.plugins.MetrixWeather.apikey.value
 			city="id=%s" % self.woeid
 			cnt = (24 + (24 - int(datetime.now().strftime('%H')))) / 3 + 1
-			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=metric&cnt=%d%s" % (city,language[:2],cnt,apikey)
+			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=%s&cnt=%d%s" % (city,language[:2],units,cnt,apikey)
+			print feedurl
 			getPage(feedurl).addCallback(self.jsonCallback).addErrback(self.errorCallback)
 
 	def jsonCallback(self, jsonstring):
@@ -425,19 +432,6 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 		else:
 			condition = ")"
 		return str(condition)
-
-	def getTemp(self,temp):
-		if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit":
-			return str(int(round(float(temp),0)))
-		else:
-			celsius = (float(temp) - 32 ) * 5 / 9
-			return str(int(round(float(celsius),0)))
-
-	def getTemp2(self):
-		if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit":
-			return 'F'
-		else:
-			return 'C'
 
 	def writeCheckFile(self,text):
 		f = open('/tmp/weathercheck.txt', 'w')
