@@ -89,8 +89,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		self.checkTimer = eTimer()
 		self.checkTimer.callback.append(self.readCheckFile)
 
-		self.list = [ ]
-		ConfigListScreen.__init__(self, self.list, session = session, on_change = self.changedEntry)
+		ConfigListScreen.__init__(self, self.getMenuItemList(), session = session, on_change = self.changedEntry)
 
 		self["actions"] = ActionMap(
 		[
@@ -113,33 +112,30 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			"ok": self.checkIDmy,
 			"cancel": self.exit
 		}, -1)
-		self.getMenuItemList()
 		self.onLayoutFinish.append(self.UpdatePicture)
 
 	def getMenuItemList(self):
-		self.list = [ ]
+		list = [ ]
 
-		self.list.append(getConfigListEntry(_("Enabled"), config.plugins.MetrixWeather.enabled, _("Cycle/failure indicator colors on widget:\ngreen - 6 times try to fetch weather data\nyellow - fetch weather data paused 5 mins\nred - fetch weather data aborted after 6 times green and yellow\n(if red -> press 'save' for refresh)"), "ENABLED"))
-
+		list.append(getConfigListEntry(_("Enabled"), config.plugins.MetrixWeather.enabled, _("Cycle/failure indicator colors on widget:\ngreen - 6 times try to fetch weather data\nyellow - fetch weather data paused 5 mins\nred - fetch weather data aborted after 6 times green and yellow\n(if red -> press 'save' for refresh)"), "ENABLED"))
 		self.check_enable = False
 		if config.plugins.MetrixWeather.enabled.getValue() is True:
-			self.list.append(getConfigListEntry(_("Show in MoviePlayer"), config.plugins.MetrixWeather.MoviePlayer, _("helptext")))
+			list.append(getConfigListEntry(_("Show in MoviePlayer"), config.plugins.MetrixWeather.MoviePlayer, _("helptext")))
 
-			self.list.append(getConfigListEntry(_("MetrixWeather Service"), config.plugins.MetrixWeather.weatherservice , _("Choose your preferred weather service")))
+			list.append(getConfigListEntry(_("MetrixWeather Service"), config.plugins.MetrixWeather.weatherservice , _("Choose your preferred weather service"),"ENABLED"))
 			if config.plugins.MetrixWeather.weatherservice.value == "MSN":
-				self.list.append(getConfigListEntry(_("MetrixWeather City Name"), config.plugins.MetrixWeather.weathercity , _("Your place for weather determination. Press TEXT or OK to enter the city name")))
+				list.append(getConfigListEntry(_("MetrixWeather City Name"), config.plugins.MetrixWeather.weathercity , _("Your place for weather determination. Press TEXT or OK to enter the city name")))
 				info = ""
 			else:
-				self.list.append(getConfigListEntry(_("MetrixWeather ID"), config.plugins.MetrixWeather.woeid , _("Get your local MetrixWeather ID from https://openweathermap.org/")))
-				self.list.append(getConfigListEntry(_("MetrixWeather APIKEY"), config.plugins.MetrixWeather.apikey , _("Get your local MetrixWeather APIKEY from https://openweathermap.org/")))
+				list.append(getConfigListEntry(_("MetrixWeather ID"), config.plugins.MetrixWeather.woeid , _("Get your local MetrixWeather ID from https://openweathermap.org/")))
+				list.append(getConfigListEntry(_("MetrixWeather APIKEY"), config.plugins.MetrixWeather.apikey , _("Get your local MetrixWeather APIKEY from https://openweathermap.org/")))
 				info = _("If the file 'ID_APIKEY.apidata' exists in the '/tmp/' folder,\nimported these data automatically on '") + _("Check ID") + _("' function.\n\n(e.g. '2911298_a4bd84726035d0ce2c6185740617d8c5.apidata')")
-			self.list.append(getConfigListEntry(_("Unit"), config.plugins.MetrixWeather.tempUnit, _("helptext")))
-			self.list.append(getConfigListEntry(_("Refresh Interval (min)"), config.plugins.MetrixWeather.refreshInterval, _("If set to '0', fetch weather data only at system(gui) start.")))
-			#self.list.append(getConfigListEntry(_("Check is Weather date local date"), config.plugins.MetrixWeather.verifyDate, _("helptext")))
+			list.append(getConfigListEntry(_("Unit"), config.plugins.MetrixWeather.tempUnit, _("helptext")))
+			list.append(getConfigListEntry(_("Refresh Interval (min)"), config.plugins.MetrixWeather.refreshInterval, _("If set to '0', fetch weather data only at system(gui) start.")))
+			#list.append(getConfigListEntry(_("Check is Weather date local date"), config.plugins.MetrixWeather.verifyDate, _("helptext")))
 			self["resulttext"].setText(info)
 			self.check_enable = True
-		self["config"].list = self.list
-		self["config"].l.setList(self.list)
+		return list
 
 	def GetPicturePath(self):
 		return MAIN_IMAGE_PATH % "MyMetrixLiteWeather"
@@ -159,11 +155,9 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 
 	def keyLeft(self):
 		ConfigListScreen.keyLeft(self)
-		self.getMenuItemList()
 
 	def keyRight(self):
 		ConfigListScreen.keyRight(self)
-		self.getMenuItemList()
 
 	def keyDown(self):
 		self["config"].instance.moveSelection(self["config"].instance.moveDown)
@@ -222,7 +216,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		return ret
 
 	def checkIDmy(self):
-		if self["config"].getCurrent()[0] == _("MetrixWeather City Name"):
+		if self["config"].getCurrent() and self["config"].getCurrent()[0] == _("MetrixWeather City Name"):
 			self.session.openWithCallback(self.ShowsearchBarracuda, VirtualKeyBoard, title=_('Enter text to search city'))
 
 	def ShowsearchBarracuda(self, name):
