@@ -7,7 +7,6 @@
 #    changes by openATV Team
 #    MSN Part from nikolasi
 #
-#
 #######################################################################
 
 from Renderer import Renderer
@@ -215,6 +214,22 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				currentWeatherTemp = currentWeather.getAttributeNode('temperature')
 				temp = currentWeatherTemp.nodeValue
 				config.plugins.MetrixWeather.currentWeatherTemp.value = currentWeatherTemp.nodeValue
+				currenthumidity = currentWeather.getAttributeNode('humidity')
+				config.plugins.MetrixWeather.currentWeatherhumidity.value = currenthumidity.nodeValue
+				currentwinddisplay = currentWeather.getAttributeNode('winddisplay')
+				config.plugins.MetrixWeather.currentWeatherwinddisplay.value = currentwinddisplay.nodeValue
+				currentwindspeed = currentWeather.getAttributeNode('windspeed')
+				config.plugins.MetrixWeather.currentWeatherwindspeed.value = currentwindspeed.nodeValue
+				currentshortday = currentWeather.getAttributeNode('shortday')
+				config.plugins.MetrixWeather.currentWeathershortday.value = currentshortday.nodeValue
+				currentday = currentWeather.getAttributeNode('day')
+				config.plugins.MetrixWeather.currentWeatherday.value = currentday.nodeValue
+				currentdate = currentWeather.getAttributeNode('date')
+				config.plugins.MetrixWeather.currentWeatherdate.value = currentdate.nodeValue
+				currentfeelslike = currentWeather.getAttributeNode('feelslike')
+				config.plugins.MetrixWeather.currentWeatherfeelslike.value = currentfeelslike.nodeValue
+				currentobservationtime = currentWeather.getAttributeNode('observationtime')
+				config.plugins.MetrixWeather.currentWeatherobservationtime.value = currentobservationtime.nodeValue
 				currentWeatherText = currentWeather.getAttributeNode('skytext')
 				config.plugins.MetrixWeather.currentWeatherText.value = currentWeatherText.nodeValue
 				n = 1
@@ -238,6 +253,44 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				config.plugins.MetrixWeather.forecastTomorrowTempMin.value = currentWeatherTemp.nodeValue
 				currentWeatherText = currentWeather.getAttributeNode('skytextday')
 				config.plugins.MetrixWeather.forecastTomorrowText.value = currentWeatherText.nodeValue
+				currentWeatherdate = currentWeather.getAttributeNode('date')
+				config.plugins.MetrixWeather.forecastTomorrowdate.value = currentWeatherdate.nodeValue
+				currentWeatherday = currentWeather.getAttributeNode('day')
+				config.plugins.MetrixWeather.forecastTomorrowday.value = currentWeatherday.nodeValue
+				currentWeathershortday = currentWeather.getAttributeNode('shortday')
+				config.plugins.MetrixWeather.forecastTomorrowshortday.value = currentWeathershortday.nodeValue
+
+				currentWeather = dom.getElementsByTagName('forecast')[n + 2]
+				currentWeatherCode = currentWeather.getAttributeNode('skycodeday')
+				config.plugins.MetrixWeather.forecastTomorrowCode2.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
+				currentWeatherTemp = currentWeather.getAttributeNode('high')
+				config.plugins.MetrixWeather.forecastTomorrowTempMax2.value = currentWeatherTemp.nodeValue
+				currentWeatherTemp = currentWeather.getAttributeNode('low')
+				config.plugins.MetrixWeather.forecastTomorrowTempMin2.value = currentWeatherTemp.nodeValue
+				currentWeatherText = currentWeather.getAttributeNode('skytextday')
+				config.plugins.MetrixWeather.forecastTomorrowText2.value = currentWeatherText.nodeValue
+				currentWeatherdate = currentWeather.getAttributeNode('date')
+				config.plugins.MetrixWeather.forecastTomorrowdate2.value = currentWeatherdate.nodeValue
+				currentWeatherday = currentWeather.getAttributeNode('day')
+				config.plugins.MetrixWeather.forecastTomorrowday2.value = currentWeatherday.nodeValue
+				currentWeathershortday = currentWeather.getAttributeNode('shortday')
+				config.plugins.MetrixWeather.forecastTomorrowshortday2.value = currentWeathershortday.nodeValue
+
+				currentWeather = dom.getElementsByTagName('forecast')[n + 3]
+				currentWeatherCode = currentWeather.getAttributeNode('skycodeday')
+				config.plugins.MetrixWeather.forecastTomorrowCode3.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
+				currentWeatherTemp = currentWeather.getAttributeNode('high')
+				config.plugins.MetrixWeather.forecastTomorrowTempMax3.value = currentWeatherTemp.nodeValue
+				currentWeatherTemp = currentWeather.getAttributeNode('low')
+				config.plugins.MetrixWeather.forecastTomorrowTempMin3.value = currentWeatherTemp.nodeValue
+				currentWeatherText = currentWeather.getAttributeNode('skytextday')
+				config.plugins.MetrixWeather.forecastTomorrowText3.value = currentWeatherText.nodeValue
+				currentWeatherdate = currentWeather.getAttributeNode('date')
+				config.plugins.MetrixWeather.forecastTomorrowdate3.value = currentWeatherdate.nodeValue
+				currentWeatherday = currentWeather.getAttributeNode('day')
+				config.plugins.MetrixWeather.forecastTomorrowday3.value = currentWeatherday.nodeValue
+				currentWeathershortday = currentWeather.getAttributeNode('shortday')
+				config.plugins.MetrixWeather.forecastTomorrowshortday3.value = currentWeathershortday.nodeValue
 				if self.check:
 					text = "%s|%s|%s°|%s°|%s°" %(id,name,temp,temp_max,temp_min)
 					self.writeCheckFile(text)

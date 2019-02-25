@@ -520,6 +520,8 @@ def initWeatherConfig():
 	#MetrixWeather
 
 	config.plugins.MetrixWeather.enabled = ConfigYesNo(default=True)
+	config.plugins.MetrixWeather.type = ConfigYesNo(default=False)
+	config.plugins.MetrixWeather.tempplus = ConfigYesNo(default=False)
 	config.plugins.MetrixWeather.MoviePlayer = ConfigYesNo(default=True)
 	config.plugins.MetrixWeather.verifyDate = ConfigYesNo(default=True)
 	config.plugins.MetrixWeather.refreshInterval = ConfigSelectionNumber(0, 1440, 30, default = 120, wraparound = True)
@@ -543,7 +545,15 @@ def initWeatherConfig():
 	config.plugins.MetrixWeather.currentWeatherCode = ConfigText(default="(")
 	config.plugins.MetrixWeather.currentWeatherText = ConfigText(default="N/A")
 	config.plugins.MetrixWeather.currentWeatherTemp = ConfigText(default="0")
+	config.plugins.MetrixWeather.currentWeatherhumidity = ConfigText(default="0")
+	config.plugins.MetrixWeather.currentWeatherwinddisplay = ConfigText(default="N/A")
+	config.plugins.MetrixWeather.currentWeatherwindspeed = ConfigText(default="N/A")
+	config.plugins.MetrixWeather.currentWeathershortday = ConfigText(default="N/A")
+	config.plugins.MetrixWeather.currentWeatherdate = ConfigText(default="N/A")
+	config.plugins.MetrixWeather.currentWeatherday = ConfigText(default="N/A")
+	config.plugins.MetrixWeather.currentWeatherobservationtime = ConfigText(default="0")
 
+	config.plugins.MetrixWeather.currentWeatherfeelslike = ConfigText(default="0")
 	config.plugins.MetrixWeather.forecastTodayCode = ConfigText(default="(")
 	config.plugins.MetrixWeather.forecastTodayText = ConfigText(default="N/A")
 	config.plugins.MetrixWeather.forecastTodayTempMin = ConfigText(default="0")
@@ -553,6 +563,25 @@ def initWeatherConfig():
 	config.plugins.MetrixWeather.forecastTomorrowText = ConfigText(default="N/A")
 	config.plugins.MetrixWeather.forecastTomorrowTempMin = ConfigText(default="0")
 	config.plugins.MetrixWeather.forecastTomorrowTempMax = ConfigText(default="0")
+	config.plugins.MetrixWeather.forecastTomorrowdate = ConfigText(default="N/A")
+	config.plugins.MetrixWeather.forecastTomorrowday = ConfigText(default="N/A")
+	config.plugins.MetrixWeather.forecastTomorrowshortday = ConfigText(default="N/A")
+
+	config.plugins.MetrixWeather.forecastTomorrowCode2 = ConfigText(default="(")
+	config.plugins.MetrixWeather.forecastTomorrowText2 = ConfigText(default="N/A")
+	config.plugins.MetrixWeather.forecastTomorrowTempMin2 = ConfigText(default="0")
+	config.plugins.MetrixWeather.forecastTomorrowTempMax2 = ConfigText(default="0")
+	config.plugins.MetrixWeather.forecastTomorrowdate2 = ConfigText(default="N/A")
+	config.plugins.MetrixWeather.forecastTomorrowday2 = ConfigText(default="N/A")
+	config.plugins.MetrixWeather.forecastTomorrowshortday2 = ConfigText(default="N/A")
+
+	config.plugins.MetrixWeather.forecastTomorrowCode3 = ConfigText(default="(")
+	config.plugins.MetrixWeather.forecastTomorrowText3 = ConfigText(default="N/A")
+	config.plugins.MetrixWeather.forecastTomorrowTempMin3 = ConfigText(default="0")
+	config.plugins.MetrixWeather.forecastTomorrowTempMax3 = ConfigText(default="0")
+	config.plugins.MetrixWeather.forecastTomorrowdate3 = ConfigText(default="N/A")
+	config.plugins.MetrixWeather.forecastTomorrowday3 = ConfigText(default="N/A")
+	config.plugins.MetrixWeather.forecastTomorrowshortday3 = ConfigText(default="N/A")
 
 #######################################################################
 

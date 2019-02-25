@@ -449,6 +449,55 @@
 			</widget>
 			<!-- WEATHER WIDGET */ -->
 		</screen>
+		<screen name="INFOBARWEATHERWIDGET-2">
+			<!-- /* WEATHER WIDGET -->
+			<!-- /* NEEDED WITHOUT OPENSTORE INSTALLED -->
+			<widget render="MetrixHDWeatherUpdaterStandalone" source="global.CurrentTime" position="0,0" size="0,0" transparent="1" />
+			<!-- NEEDED WITHOUT OPENSTORE INSTALLED */ -->
+			<eLabel backgroundColor="layer-a-background" position="40,40" size="219,71"/>
+			<eLabel backgroundColor="layer-b-background" position="259,45" size="116,61"/>
+			<widget backgroundColor="green" position="41,41" size="2,69" source="session.CurrentService" render="FixedLabel" zPosition="10">
+				<convert type="MetrixHDWeather">currentDataValid</convert>
+				<convert type="ValueRange">0,0</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
+			<widget backgroundColor="yellow" position="41,41" size="2,69" source="session.CurrentService" render="FixedLabel" zPosition="10">
+				<convert type="MetrixHDWeather">currentDataValid</convert>
+				<convert type="ValueRange">1,1</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
+			<widget backgroundColor="red" position="41,41" size="2,69" source="session.CurrentService" render="FixedLabel" zPosition="10">
+				<convert type="MetrixHDWeather">currentDataValid</convert>
+				<convert type="ValueRange">2,2</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
+			<widget backgroundColor="layer-a-background" font="global_clock; 60" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="40,44" render="Label" size="84,70" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">currentWeatherTemp</convert>
+			</widget>
+			<widget backgroundColor="layer-a-background" font="global_clock; 16" foregroundColor="layer-a-clock-foreground" halign="left" noWrap="1" position="127,42" render="Label" size="30,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">CF</convert>
+			</widget>
+			<widget backgroundColor="layer-a-background" font="global_clock; 16" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="210,42" render="Label" size="39,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTodayTempMax</convert>
+			</widget>
+			<widget backgroundColor="layer-a-background" font="global_clock; 16" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="210,72" render="Label" size="39,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTodayTempMin</convert>
+			</widget>
+			<widget render="MetrixHDWeatherWeatherPixmap" position="270,50" size="50,50" source="session.CurrentService" alphatest="blend" zPosition="9">
+				<convert type="MetrixHDWeather">forecastTomorrowCode</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock; 16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="327,42" render="Label" size="39,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowTempMax</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock; 16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="327,72" render="Label" size="39,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowTempMin</convert>
+			</widget>
+			<widget  position="156,50" render="MetrixHDWeatherWeatherPixmap" size="50,50" source="session.CurrentService" alphatest="blend" zPosition="9">
+				<!--convert type="MetrixHDWeather">forecastTodayCode</convert-->
+				<convert type="MetrixHDWeather">currentWeatherCode</convert>
+			</widget>
+			<!-- WEATHER WIDGET */ -->
+		</screen>
 		<screen name="CHANNELNAME">
 			<!--/* CHANNEL NAME -->
 			<widget font="global_large;80" backgroundColor="text-background" foregroundColor="background-text" noWrap="1" position="30,455" render="Label" size="1252,105" source="session.CurrentService" transparent="1" valign="bottom" zPosition="-30">
