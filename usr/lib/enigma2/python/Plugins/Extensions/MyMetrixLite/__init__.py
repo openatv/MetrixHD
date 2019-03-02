@@ -521,6 +521,7 @@ def initWeatherConfig():
 
 	config.plugins.MetrixWeather.enabled = ConfigYesNo(default=True)
 	config.plugins.MetrixWeather.type = ConfigYesNo(default=False)
+	config.plugins.MetrixWeather.animationspeed = ConfigSelection(default="100", choices = [("0", _("Off")),("20", _("+ 4")), ("40", _("+ 3")),("60", _("+ 2")),("80", _("+ 1")) ,("100", _("Default")),("125", _("- 1")),("150", _("- 2")),("200", _("- 3")),("300", _("- 4"))])
 	config.plugins.MetrixWeather.tempplus = ConfigYesNo(default=False)
 	config.plugins.MetrixWeather.MoviePlayer = ConfigYesNo(default=True)
 	config.plugins.MetrixWeather.verifyDate = ConfigYesNo(default=True)

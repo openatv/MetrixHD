@@ -6,6 +6,7 @@ from Tools.LoadPixmap import LoadPixmap
 from Renderer import Renderer 
 from enigma import ePixmap, eTimer 
 from Tools.Directories import fileExists, pathExists
+from Components.config import config
 import os
 
 class MetrixHDWeatherPixmap(Renderer):
@@ -16,6 +17,7 @@ class MetrixHDWeatherPixmap(Renderer):
 		Renderer.__init__(self)
 		self.path = 'animated_weather_icons'
 		self.pixdelay = 100
+		self.pixdelay_overwrite = False
 		self.slideicon = None
 
 	def applySkin(self, desktop, parent):
@@ -25,6 +27,7 @@ class MetrixHDWeatherPixmap(Renderer):
 				self.path = value
 			elif attrib == "pixdelay":
 				self.pixdelay = int(value)
+				self.pixdelay_overwrite = True
 			else:
 				attribs.append((attrib, value))
 
@@ -37,7 +40,10 @@ class MetrixHDWeatherPixmap(Renderer):
 		if self.instance:
 			sname = ''
 			if (what[0] != self.CHANGED_CLEAR):
-				sname = self.ConvertCondition(self.source.text)
+				if config.plugins.MetrixWeather.weatherservice.value == "MSN":
+					sname = self.source.text
+				else:
+					sname = self.ConvertCondition(self.source.text)
 				for path in self.searchPaths:
 					if pathExists((path % self.path)):
 						self.runAnim(sname)
@@ -66,9 +72,12 @@ class MetrixHDWeatherPixmap(Renderer):
 			for x in range(self.slideicon):
 				self.picsicon.append(LoadPixmap(pathanimicon + str(x) + '.png'))
 
+			if not self.pixdelay_overwrite:
+				self.pixdelay = int(config.plugins.MetrixWeather.animationspeed.value)
 			self.timericon = eTimer()
 			self.timericon.callback.append(self.timerEvent)
-			self.timericon.start(self.pixdelay, True)
+			self.timerEvent()
+			#self.timericon.start(self.pixdelay, True)
 
 	def timerEvent(self):
 		if self.slideicon == 0:
@@ -82,7 +91,8 @@ class MetrixHDWeatherPixmap(Renderer):
 		except:
 			pass
 		self.slideicon = self.slideicon - 1
-		self.timericon.start(self.pixdelay, True)
+		if self.pixdelay:
+			self.timericon.start(self.pixdelay, True)
 
 	def ConvertCondition(self, c):
 		condition = "NA"
