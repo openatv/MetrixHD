@@ -672,6 +672,10 @@
 			<convert type="MenuEntryCompare">service_info_screen</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
+		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/info.png" position="305,80" size="256,256" alphatest="blend">
+			<convert type="MenuEntryCompare">streaming_clients_info_screen</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
 		<widget source="menu" render="Pixmap" pixmap="MetrixHD/icons/weather.png" position="305,80" size="256,256" alphatest="blend">
 			<convert type="MenuEntryCompare">Weather_MSN</convert>
 			<convert type="ConditionalShowHide" />
@@ -5020,4 +5024,14 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="videomode" position="center,75" size="360,35" font="screen_info;20" halign="center" valign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" zPosition="1" noWrap="1"/>
 	</screen>
 	<!-- Videmode -->
+	<screen name="StreamingClientsInfo" position="0,0" size="1280,720" title="Streaming clients info" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="ScrollLabel" position="70,100" size="700,30" font="Regular;23" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" zPosition="1" />
+		<widget name="ScrollLabel2" position="70,185" size="700,390" font="Regular;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" zPosition="1" />
+		<ePixmap pixmap="MetrixHD/icons/info.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+		<panel name="rgyb-keys_template1" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
 </skin>
