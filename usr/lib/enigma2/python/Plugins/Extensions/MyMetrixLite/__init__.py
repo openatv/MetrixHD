@@ -528,7 +528,13 @@ def initWeatherConfig():
 	config.plugins.MetrixWeather.refreshInterval = ConfigSelectionNumber(0, 1440, 30, default = 120, wraparound = True)
 	config.plugins.MetrixWeather.woeid = ConfigNumber(default=2911298)
 	config.plugins.MetrixWeather.apikey = ConfigText(default="a4bd84726035d0ce2c6185740617d8c5")
-	config.plugins.MetrixWeather.weathercity = ConfigText(default='Hamburg, Germany', visible_width=250, fixed_size=False)
+	BoxType = getBoxType()
+	if BoxType.startswith("beyonwiz"):
+		# Beyonwiz - marketed only in Australia
+		weathercity = "Sydney, Australia"
+	else:
+		weathercity = "Hamburg, Germany"
+	config.plugins.MetrixWeather.weathercity = ConfigText(default=weathercity, visible_width=250, fixed_size=False)
 	config.plugins.MetrixWeather.tempUnit = ConfigSelection(default="Celsius", choices = [
 		("Celsius", _("Celsius")),
 		("Fahrenheit", _("Fahrenheit"))
