@@ -102,11 +102,11 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			"cancel": self.exit
 		}, -1)
 
+		self.getEHDsettings()
 		if self.session:
+			self.firstrun = False
 			self.checkEHDsettings()
-			self.checkEHDtested()
-		else:
-			self.getEHDsettings()
+			self.onShown.append(self.checkEHD_is_tested)
 
 		ConfigListScreen.__init__(
 			self,
@@ -116,6 +116,11 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		)
 
 		self.onLayoutFinish.append(self.UpdatePicture)
+
+	def checkEHD_is_tested(self):
+		if not self.firstrun:
+			self.checkEHDtested()
+			self.firstrun = True
 
 	def getEHDsettings(self):
 		if config.plugins.MyMetrixLiteOther.EHDenabled.value == '0':
@@ -181,7 +186,6 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		self.ShowPicture(True)
 
 	def checkEHDtested(self):
-		self.getEHDsettings()
 		tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
 		if self.EHDenabled and (len(tested) != 2 or not BoxType in tested[0] or not config.plugins.MyMetrixLiteOther.EHDenabled.value in tested[1]):
 			if "green" in self["actions"].actions:
