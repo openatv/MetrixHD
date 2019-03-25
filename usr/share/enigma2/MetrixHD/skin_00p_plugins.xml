@@ -3253,25 +3253,26 @@
 			<convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryText(pos = (10, 0), size = (510, 28), flags = RT_HALIGN_LEFT, text = 1), # index 1 is the index name,
-						MultiContentEntryText(pos = (520, 0), size = (150, 28), flags = RT_HALIGN_RIGHT, text = 2) # index 2 is the status,
+						MultiContentEntryText(pos = (515, 0), size = (150, 28), flags = RT_HALIGN_RIGHT, text = 2) # index 2 is the status,
 					],
 				 "fonts": [gFont("Regular", 20)],
 				 "itemHeight": 30
 				}
 			</convert>
 		</widget>
-		<widget name="Overall_progress" position="40,398" size="160,28" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="overall_progress" render="Progress" position="210,405" size="420,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
-		<widget name="Progress" position="40,458" size="160,28" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="sub_progress" render="Progress" position="210,465" size="420,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
-		<widget name="Failed" position="40,495" size="160,25" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="failed_counter" render="Label" position="210,495" size="160,25" font="SetrixHD;21" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="Succeeded" position="40,525" size="160,25" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="succeeded_counter" render="Label" position="210,525" size="100,25" font="SetrixHD;21" halign="lrft" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="With_errors" position="40,555" size="160,25" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="witherrors_counter" render="Label" position="210,555" size="100,25" font="SetrixHD;21" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="Not_tested" position="40,585" size="160,25" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="untestable_counter" render="Label" position="210,585" size="100,25" font="SetrixHD;21" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel position="70,400" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
+		<widget name="Overall_progress" position="60,413" size="160,28" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="overall_progress" render="Progress" position="230,420" size="420,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
+		<widget name="Progress" position="60,458" size="160,28" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="sub_progress" render="Progress" position="230,465" size="420,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
+		<widget name="Failed" position="60,495" size="160,28" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="failed_counter" render="Label" position="230,495" size="160,28" font="SetrixHD;21" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="Succeeded" position="60,525" size="160,28" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="succeeded_counter" render="Label" position="230,525" size="100,28" font="SetrixHD;21" halign="lrft" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="With_errors" position="60,555" size="160,28" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="witherrors_counter" render="Label" position="230,555" size="100,28" font="SetrixHD;21" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="Not_tested" position="60,585" size="160,28" font="SetrixHD;21" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="untestable_counter" render="Label" position="230,585" size="100,28" font="SetrixHD;21" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="CmdText" render="Label" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<ePixmap pixmap="MetrixHD/icons/menu_scan_satfinder.png" position="890,175" size="256,256" zPosition="4" alphatest="blend" />
 		<panel name="template1_2layer" />
