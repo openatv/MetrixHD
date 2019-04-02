@@ -5056,13 +5056,13 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<!-- TaskListScreen -->
 	<screen name="TaskListScreen" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent" title="Task list" >
 		<widget source="Title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="tasklist" render="Listbox" position="70,90" size="690,480" itemHeight="60" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+		<widget source="tasklist" render="Listbox" position="70,100" size="700,480" itemHeight="60" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryText(pos = (5, 1), size = (690, 30), font=0, flags = RT_HALIGN_LEFT, text = 1), # name
 						MultiContentEntryText(pos = (5, 32), size = (150, 28), font=1, flags = RT_HALIGN_LEFT, text = 2), # state
 						MultiContentEntryProgress(pos = (160, 40), size = (400, 10), percent = -3), # progress
-						MultiContentEntryText(pos = (570, 32), size = (120, 28), font=1, flags = RT_HALIGN_RIGHT, text = 4), # percentage
+						MultiContentEntryText(pos = (575, 32), size = (120, 28), font=1, flags = RT_HALIGN_RIGHT, text = 4), # percentage
 					],
 				"fonts": [gFont("screen_text", 20),gFont("screen_text", 18)],
 				"itemHeight": 60
