@@ -3372,8 +3372,8 @@
 		<convert type="TemplatedMultiContent">
 			{"template": [
 				MultiContentEntryText(pos = (20, 0), size = (100, 30), font = 0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is a symbolic mode
-				MultiContentEntryText(pos = (150, 0), size = (120, 30), font = 0, flags = RT_HALIGN_RIGHT, text = 11), # index 11 is the scaled size
-				MultiContentEntryText(pos = (300, 0), size = (250, 30), font = 0, flags = RT_HALIGN_RIGHT, text = 13), # index 13 is the modification time
+				MultiContentEntryText(pos = (140, 0), size = (120, 30), font = 0, flags = RT_HALIGN_RIGHT, text = 11), # index 11 is the scaled size
+				MultiContentEntryText(pos = (300, 0), size = (245, 30), font = 0, flags = RT_HALIGN_RIGHT, text = 13), # index 13 is the modification time
 				],
 				"fonts": [gFont("screen_text", 18)],
 				"itemHeight": 30,
@@ -3386,8 +3386,8 @@
 			<convert type="TemplatedMultiContent">
 				{"template": [
 					MultiContentEntryText(pos = (20, 0), size = (100, 30), font = 0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is a symbolic mode
-					MultiContentEntryText(pos = (150, 0), size = (120, 30), font = 0, flags = RT_HALIGN_RIGHT, text = 11), # index 11 is the scaled size
-					MultiContentEntryText(pos = (300, 0), size = (250, 30), font = 0, flags = RT_HALIGN_RIGHT, text = 13), # index 13 is the modification time
+					MultiContentEntryText(pos = (140, 0), size = (120, 30), font = 0, flags = RT_HALIGN_RIGHT, text = 11), # index 11 is the scaled size
+					MultiContentEntryText(pos = (300, 0), size = (245, 30), font = 0, flags = RT_HALIGN_RIGHT, text = 13), # index 13 is the modification time
 					],
 					"fonts": [gFont("screen_text", 18)],
 					"itemHeight": 30,
@@ -3444,18 +3444,18 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/filecom.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="InputBoxWide" position="0,0" size="1280,720" flags="wfNoBorder" title="Input..." backgroundColor="transparent">
-		<eLabel text="Input..." position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Input Box" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="Title" render="Label" position="70,90" size="565,50" font="screen_text;19" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1"/>
 		<eLabel position="70,335" size="1140,2" backgroundColor="layer-a-accent1" />
-		<widget name="text" position="70,250" size="1140,90" font="Regular; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
-		<widget name="input" position="70,400" size="1140,30" font="Regular; 20" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background"/>
+		<widget name="text" position="70,250" size="1140,90" font="screen_text; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
+		<widget name="input" position="70,400" size="1140,30" font="screen_text; 20" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background"/>
 		<panel name="template1_1layer" />
 		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="blend" />
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="vEditorScreen" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list_head" position="70,90" size="565,50" font="screen_text;19" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="list_head" position="70,90" size="1140,50" font="screen_text;19" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1"/>
 		<widget name="filedata" position="70,140" size="1140,480" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
 		<panel name="template1_1layer" />
 		<panel name="rgyb-buttons_template1" />
