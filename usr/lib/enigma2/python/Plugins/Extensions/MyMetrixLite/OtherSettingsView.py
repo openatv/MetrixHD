@@ -186,6 +186,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		self.ShowPicture(True)
 
 	def checkEHDtested(self):
+		self.getEHDsettings()
 		tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
 		if self.EHDenabled and (len(tested) != 2 or not BoxType in tested[0] or not config.plugins.MyMetrixLiteOther.EHDenabled.value in tested[1]):
 			if "green" in self["actions"].actions:
