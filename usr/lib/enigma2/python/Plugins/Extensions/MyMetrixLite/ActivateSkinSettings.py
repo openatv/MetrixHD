@@ -1843,6 +1843,8 @@ class ActivateSkinSettings:
 			line = line.replace('scrollbarSliderBorderWidth="1"', 'scrollbarSliderBorderWidth="%s"' %config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value)
 			if config.plugins.MyMetrixLiteColors.backgroundtextborderwidth.value and ' font="global_large' in line and not ' borderWidth=' in line and not ' borderColor=' in line:
 				line = line.replace(' font=', ' borderWidth="%s" borderColor="#%s%s" font=' %(config.plugins.MyMetrixLiteColors.backgroundtextborderwidth.value, config.plugins.MyMetrixLiteColors.backgroundtextbordertransparency.value, config.plugins.MyMetrixLiteColors.backgroundtextbordercolor.value))
+			if not config.plugins.MyMetrixLiteOther.SkinDesignMenuScrollInfo.value and 'name="menu_next_side_marker"' in line:
+				line = line.replace('text="&#x25ba;"', 'text=""')
 #options for all skin files end
 			if self.EHDenabled:
 				try: 
