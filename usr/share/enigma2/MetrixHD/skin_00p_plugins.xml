@@ -3464,7 +3464,7 @@
 	<screen name="FileCommanderFileStatInfo" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent" title="File/Directory Status Information" >
 		<widget source="Title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="filename" position="70,90" size="525,50" font="screen_text;19" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background"/>
-		<widget source="list" render="Listbox" position="70,170" size="700,450" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+		<widget source="list" render="Listbox" position="70,170" size="700,330" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="TemplatedMultiContent">
 				{"template": [
 					# 0   100 200 300 400 500
@@ -3479,6 +3479,9 @@
 				}
 			</convert>
 		</widget>
+		<widget name="link_sep" position="70,508" size="700,1" backgroundColor="layer-a-accent1" />
+		<widget name="link_label" position="70,520" size="300,30" font="screen_text; 20" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background"/>
+		<widget name="link_value" position="390,520" size="380,30" font="screen_text; 20" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background"/>
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/filecom.png" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
