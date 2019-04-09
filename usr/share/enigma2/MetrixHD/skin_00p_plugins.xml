@@ -3372,9 +3372,9 @@
 		<widget source="list_left_head2" render="Listbox" position="70,141" size="565,30" foregroundColor="layer-a-accent1" selectionDisabled="1" backgroundColor="layer-a-background" transparent="1" >
 		<convert type="TemplatedMultiContent">
 			{"template": [
-				MultiContentEntryText(pos = (20, 0), size = (100, 30), font = 0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is a symbolic mode
-				MultiContentEntryText(pos = (140, 0), size = (120, 30), font = 0, flags = RT_HALIGN_RIGHT, text = 11), # index 11 is the scaled size
-				MultiContentEntryText(pos = (300, 0), size = (245, 30), font = 0, flags = RT_HALIGN_RIGHT, text = 13), # index 13 is the modification time
+				MultiContentEntryText(pos = (120, 0), size = (100, 30), font = 0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is a symbolic mode
+				MultiContentEntryText(pos = (240, 0), size = (120, 30), font = 0, flags = RT_HALIGN_RIGHT, text = 11), # index 11 is the scaled size
+				MultiContentEntryText(pos = (320, 0), size = (245, 30), font = 0, flags = RT_HALIGN_RIGHT, text = 13), # index 13 is the modification time
 				],
 				"fonts": [gFont("screen_text", 18)],
 				"itemHeight": 30,
@@ -3386,9 +3386,9 @@
 		<widget source="list_right_head2" render="Listbox" position="645,141" size="565,30" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" selectionDisabled="1" transparent="1" >
 			<convert type="TemplatedMultiContent">
 				{"template": [
-					MultiContentEntryText(pos = (20, 0), size = (100, 30), font = 0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is a symbolic mode
-					MultiContentEntryText(pos = (140, 0), size = (120, 30), font = 0, flags = RT_HALIGN_RIGHT, text = 11), # index 11 is the scaled size
-					MultiContentEntryText(pos = (300, 0), size = (245, 30), font = 0, flags = RT_HALIGN_RIGHT, text = 13), # index 13 is the modification time
+					MultiContentEntryText(pos = (120, 0), size = (100, 30), font = 0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is a symbolic mode
+					MultiContentEntryText(pos = (240, 0), size = (120, 30), font = 0, flags = RT_HALIGN_RIGHT, text = 11), # index 11 is the scaled size
+					MultiContentEntryText(pos = (320, 0), size = (245, 30), font = 0, flags = RT_HALIGN_RIGHT, text = 13), # index 13 is the modification time
 					],
 					"fonts": [gFont("screen_text", 18)],
 					"itemHeight": 30,
@@ -3396,6 +3396,8 @@
 				}
 			</convert>
 		</widget>
+		<widget name="sort_left" position="90,141" size="100,30" font="screen_text;18" halign="left" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="sort_right" position="665,141" size="100,30" font="screen_text;18" halign="left" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1"/>
 		<eLabel position="70,140" size="1140,1" backgroundColor="layer-a-accent2" />
 		<eLabel position="70,165" size="1140,1" backgroundColor="layer-a-accent2" />
 		<eLabel position="640,140" size="1,480" backgroundColor="layer-a-accent2" />
@@ -3415,9 +3417,9 @@
 		<widget source="list_left_head2" render="Listbox" position="105,213" size="848,45" foregroundColor="layer-a-accent1" selectionDisabled="1" backgroundColor="layer-a-background" transparent="1" >
 		<convert type="TemplatedMultiContent">
 			{"template": [
-				MultiContentEntryText(pos = (30, 0), size = (150, 45), font = 0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is a symbolic mode
-				MultiContentEntryText(pos = (210, 0), size = (180, 45), font = 0, flags = RT_HALIGN_RIGHT, text = 11), # index 11 is the scaled size
-				MultiContentEntryText(pos = (450, 0), size = (368, 45), font = 0, flags = RT_HALIGN_RIGHT, text = 13), # index 13 is the modification time
+				MultiContentEntryText(pos = (180, 0), size = (120, 45), font = 0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is a symbolic mode
+				MultiContentEntryText(pos = (290, 0), size = (180, 45), font = 0, flags = RT_HALIGN_RIGHT, text = 11), # index 11 is the scaled size
+				MultiContentEntryText(pos = (470, 0), size = (368, 45), font = 0, flags = RT_HALIGN_RIGHT, text = 13), # index 13 is the modification time
 				],
 				"fonts": [gFont("screen_text", 27)],
 				"itemHeight": 45,
@@ -3425,13 +3427,15 @@
 			}
 		</convert>
 		</widget>
+		<widget name="sort_left" position="115,213" size="150,45" font="screen_text;27" halign="left" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="sort_right" position="978,213" size="150,45" font="screen_text;27" halign="left" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1"/>
 		<widget name="list_right_head1" position="975,135" size="848,75" font="screen_text;29" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1"/>
 		<widget source="list_right_head2" render="Listbox" position="968,213" size="848,45" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" selectionDisabled="1" transparent="1" >
 			<convert type="TemplatedMultiContent">
 				{"template": [
-					MultiContentEntryText(pos = (30, 0), size = (150, 45), font = 0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is a symbolic mode
-					MultiContentEntryText(pos = (210, 0), size = (180, 45), font = 0, flags = RT_HALIGN_RIGHT, text = 11), # index 11 is the scaled size
-					MultiContentEntryText(pos = (450, 0), size = (368, 45), font = 0, flags = RT_HALIGN_RIGHT, text = 13), # index 13 is the modification time
+					MultiContentEntryText(pos = (180, 0), size = (120, 45), font = 0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is a symbolic mode
+					MultiContentEntryText(pos = (290, 0), size = (180, 45), font = 0, flags = RT_HALIGN_RIGHT, text = 11), # index 11 is the scaled size
+					MultiContentEntryText(pos = (470, 0), size = (368, 45), font = 0, flags = RT_HALIGN_RIGHT, text = 13), # index 13 is the modification time
 					],
 					"fonts": [gFont("screen_text", 27)],
 					"itemHeight": 45,
