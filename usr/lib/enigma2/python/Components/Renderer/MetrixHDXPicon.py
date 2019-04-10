@@ -113,7 +113,16 @@ class MetrixHDXPicon(Renderer):
 						self.nameCache["default"] = pngname
 				if self.pngname != pngname:
 					if config.plugins.MyMetrixLiteOther.piconresize_experimental.value:
-						im = Image.open(pngname).convert('RGBA')
+						try:
+							im = Image.open(pngname).convert('RGBA')
+						except:
+							print "[MetrixHDXPicon] cant load image:",pngname
+							tmp = resolveFilename(SCOPE_CURRENT_SKIN, "picon_default.png")
+							if fileExists(tmp):
+								pngname = tmp
+							else:
+								pngname = resolveFilename(SCOPE_SKIN_IMAGE, "skin_default/picon_default.png")
+							im = Image.open(pngname).convert('RGBA')
 						imw, imh = im.size
 						inh = self.instance.size().height()
 						if imh != inh:
