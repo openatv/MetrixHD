@@ -1558,26 +1558,26 @@ class ActivateSkinSettings:
 		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.epgbackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_bottom_epg.png"
 		if color:
-			self.makeColorGradient(cgfile, int(1280*factor), int(80*factor), color, int(8*factor), False)
+			self.makeColorGradient(cgfile, int(1280*factor), int(80*factor), color, int(8*factor), 'up')
 		else:
 			if path.isfile(cgfile): remove(cgfile)
 		# ib
 		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.infobarbackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_bottom_ib.png"
 		if color:
-			self.makeColorGradient(cgfile, int(1280*factor), int(80*factor), color, int(8*factor), False)
+			self.makeColorGradient(cgfile, int(1280*factor), int(80*factor), color, int(8*factor), 'up')
 		else:
 			if path.isfile(cgfile): remove(cgfile)
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_top_ib.png"
 		if color:
-			self.makeColorGradient(cgfile, int(1280*factor), int(30*factor), color, int(3*factor), True)
+			self.makeColorGradient(cgfile, int(1280*factor), int(30*factor), color, int(3*factor), 'down')
 		else:
 			if path.isfile(cgfile): remove(cgfile)
 		# layer a
 		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.layerabackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_top_qm.png"
 		if color:
-			self.makeColorGradient(cgfile, int(1280*factor), int(30*factor), color, int(3*factor), True)
+			self.makeColorGradient(cgfile, int(1280*factor), int(30*factor), color, int(3*factor), 'down')
 		else:
 			if path.isfile(cgfile): remove(cgfile)
 		# ibts background
@@ -1585,6 +1585,10 @@ class ActivateSkinSettings:
 		alpha = config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value
 		cgfile = "/usr/share/enigma2/MetrixHD/ibts/background.png"
 		self.makeColorField(cgfile, int(1280*factor), int(32*factor), color, alpha)
+		# file commander image viewer background
+		color = config.plugins.MyMetrixLiteColors.layerabackground.value
+		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_imageviewer.png"
+		self.makeColorGradient(cgfile, int(30*factor), int(720*factor), color, 0, 'right')
 
 	def makeNewColor(self, color, coloroption):
 		if coloroption == '0':
@@ -1608,7 +1612,7 @@ class ActivateSkinSettings:
 		else:
 			return color
 
-	def makeColorGradient(self, name, sizex, sizey, color, begin, reverse):
+	def makeColorGradient(self, name, sizex, sizey, color, begin, direction):
 		alpha = 255 #set start alpha 0...255
 		rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), 255)
 		imga = Image.new("RGBA",(sizex, sizey-begin), rgba)
@@ -1621,8 +1625,14 @@ class ActivateSkinSettings:
 		gradient = gradient.resize((w,h))
 		imga.putalpha(gradient)
 		imgb.paste(imga,(0,0,w,h))
-		if reverse:
+		if direction == 'up':
+			pass
+		elif direction == 'left':
+			imgb = imgb.transpose(Image.ROTATE_90)
+		elif direction == 'down':
 			imgb = imgb.transpose(Image.ROTATE_180)
+		elif direction == 'right':
+			imgb = imgb.transpose(Image.ROTATE_270)
 		imgb.save(name)
 
 	def makeColorField(self, name, sizex, sizey, color, alpha):
