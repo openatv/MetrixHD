@@ -1588,7 +1588,7 @@ class ActivateSkinSettings:
 		# file commander image viewer background
 		color = config.plugins.MyMetrixLiteColors.layerabackground.value
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_imageviewer.png"
-		self.makeColorGradient(cgfile, int(30*factor), int(720*factor), color, 0, 'right')
+		self.makeColorGradient(cgfile, int(30*factor), int(640*factor), color, 0, 'right')
 
 	def makeNewColor(self, color, coloroption):
 		if coloroption == '0':
