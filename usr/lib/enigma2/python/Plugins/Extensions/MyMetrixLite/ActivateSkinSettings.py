@@ -1647,6 +1647,16 @@ class ActivateSkinSettings:
 		dpath = "/usr/share/enigma2/MetrixHD/"
 		self.FileCopy(target, spath, dpath)
 
+		#skin skin_default buttons
+		spath = "/usr/share/enigma2/MetrixHD/%s/copy/skin_default/buttons/" % self.EHDres
+		dpath = "/usr/share/enigma2/MetrixHD/skin_default/buttons/"
+		self.FileCopy(target, spath, dpath)
+
+		#skin skin_default icons
+		spath = "/usr/share/enigma2/MetrixHD/%s/copy/skin_default/icons/" % self.EHDres
+		dpath = "/usr/share/enigma2/MetrixHD/skin_default/icons/"
+		self.FileCopy(target, spath, dpath)
+
 		#skin icons
 		spath = "/usr/share/enigma2/MetrixHD/%s/copy/icons/" % self.EHDres
 		dpath = "/usr/share/enigma2/MetrixHD/icons/"
@@ -1927,7 +1937,7 @@ class ActivateSkinSettings:
 									line = line[:(n3)] + '#_HDscreen' + line[(n3):]
 							next_rename = False
 #control flags
-						if '<!-- cf#_#begin -->' in line:
+						if '<!-- cf#_#begin -->' in line or '<!-- cf#_#start -->' in line:
 							run_mod = True
 						if '<!-- cf#_#stop -->' in line:
 							run_mod = False
@@ -2628,7 +2638,7 @@ class ActivateSkinSettings:
 							line = line[:n1] + strnew + line[n3:]
 #change pixmap path
 						if not next_pixmap_ignore and ('pixmap="' in line or "pixmaps=" in line or '<pixmap pos="bp' in line or 'render="EMCPositionGauge"' in line):
-							if 'MetrixHD/' in line and '.png' in line:
+							if 'MetrixHD/' in line and not 'skin_default/' in line and '.png' in line:
 								s = 0
 								n2 = 0
 								for s in range(0,line.count('MetrixHD/')):
@@ -2641,19 +2651,20 @@ class ActivateSkinSettings:
 									else:
 										print "pixmap missing - line", i , file
 										self.pixmap_error = True
-							if 'skin_default/' in line and not '/skin_default/' in line and '.png"' in line:
-								s = 0
-								n2 = 0
-								for s in range(0,line.count('skin_default/')):
-									n1 = line.find('skin_default/', n2)
-									n2 = line.find('.png', n1)
-									file = "/usr/share/enigma2/MetrixHD/" + self.EHDres + "/skin_default" + line[(n1+12):(n2+4)]
-									if path.exists(file):
-										strnew = "MetrixHD/" + self.EHDres + "/skin_default" + line[(n1+12):n2]
-										line = line[:n1] + strnew + line[n2:]
-									else:
-										print "pixmap missing - line", i, file
-										self.pixmap_error = True
+							#!!! skin_default folder now in copy files !!!
+							#if 'skin_default/' in line and not '/skin_default/' in line and '.png"' in line:
+							#	s = 0
+							#	n2 = 0
+							#	for s in range(0,line.count('skin_default/')):
+							#		n1 = line.find('skin_default/', n2)
+							#		n2 = line.find('.png', n1)
+							#		file = "/usr/share/enigma2/MetrixHD/" + self.EHDres + "/skin_default" + line[(n1+12):(n2+4)]
+							#		if path.exists(file):
+							#			strnew = "MetrixHD/" + self.EHDres + "/skin_default" + line[(n1+12):n2]
+							#			line = line[:n1] + strnew + line[n2:]
+							#		else:
+							#			print "pixmap missing - line", i, file
+							#			self.pixmap_error = True
 #emc special start
 						if 'widget name="list"' in line and ' Cool' in line and not ' CoolEvent' in line or 'render="EMCPositionGauge"' in line:
 #CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;30" 
