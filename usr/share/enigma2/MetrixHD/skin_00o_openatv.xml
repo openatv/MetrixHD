@@ -4164,15 +4164,16 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="ImageBackup" position="0,0" size="1280,720" title="Image Backup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="info-hdd" position="70,140" zPosition="1" size="700,100" font="screen_text;20" halign="left" valign="top" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
-		<widget name="info-usb" position="70,250" zPosition="1" size="700,250" font="screen_text;20" halign="left" valign="top" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
-		<widget name="info-multi" position="70,500" zPosition="1" size="700,100" font="screen_text;20" halign="left" valign="top" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
-		<ePixmap position="890,175" size="256,256" pixmap="MetrixHD/icons/swm.png" transparent="1" alphatest="blend" />
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="description" render="Label" position="70,50" size="700,150" font="screen_text; 20" halign="center" valign="center" transparent="1"/>
+		<eLabel position="70,170" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
+		<widget name="config" position="70,180" size="700,390" transparent="0" zPosition="1" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand"/>
+		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="MetrixHD/icons/swm.png" transparent="1" alphatest="blend" />
+		<widget source="options" render="Label" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="rg__-keys_template1-source" />
+		<panel name="rg__-buttons_template1" />
 		<panel name="template1_2layer" />
-		<panel name="rgyb-buttons_template1" />
-		<panel name="rgyb-keys_template1-source" />
-		<panel name="__e-buttons_template1" />
+		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="BackupSelection" position="0,0" size="1280,720" title="Select files/folders to backup..." flags="wfNoBorder" backgroundColor="transparent">
 		<!--eLabel text="Select files/folders to backup..." position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" /-->
@@ -5090,8 +5091,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="config" position="70,180" size="700,390" transparent="0" zPosition="1" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand"/>
 		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="MetrixHD/icons/menu_system_usage_setup.png" transparent="1" alphatest="blend" />
 		<widget source="options" render="Label" position="810,415" size="415,190" font="screen_info; 20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<panel name="rg__-keys_template1-source" />
-		<panel name="rg__-buttons_template1" />
+		<panel name="rgy_-keys_template1-source" />
+		<panel name="rgy_-buttons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
