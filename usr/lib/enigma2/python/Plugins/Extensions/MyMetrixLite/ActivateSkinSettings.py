@@ -430,7 +430,7 @@ class ActivateSkinSettings:
 				EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionCover_no" />', '<panel name="EMCSelectionCover_small" />'])
 			elif config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "large":
 				EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionCover_no" />', '<panel name="EMCSelectionCover_large" />'])
-				if config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription.getValue() is False:
+			if config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription.getValue() is False:
 					EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionCover_large_description_on" />', '<panel name="EMCSelectionCover_large_description_off" />'])
 
 			posNR = config.plugins.MyMetrixLiteOther.showEMCSelectionPicon.value == 'right'
