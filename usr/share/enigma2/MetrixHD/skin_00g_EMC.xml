@@ -451,6 +451,51 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/movie.png" transparent="1" alphatest="blend" /> 
 	</screen>
 	<!-- EMC : Enhanced Movie Center -->
+	<screen name="EMCSelection_PIG" position="0,0" size="1280,720" title="Enhanced Movie Center" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Enhanced Movie Center" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="wait" position="70,300" size="700,30" zPosition="1" font="epg_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" valign="center" transparent="1" />
+		<widget source="Title" render="Label" position="70,95" size="700,30" font="epg_text;22" noWrap="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left" transparent="1" >
+			<convert type="MetrixHDTextfilter">emc_pathinfo</convert>
+		</widget>
+		<widget source="Service" render="Label" position="825,567" size="280,30" font="epg_text;19" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1" noWrap="1">
+			<convert type="EMCServiceTime">StartTime</convert>
+			<convert type="EMCClockToText">Date</convert>
+		</widget>
+		<widget source="Service" render="Label" position="1110,567" size="100,30" font="epg_text;19" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1" noWrap="1">
+			<convert type="EMCMovieInfo">FileSize</convert>
+		</widget>
+		<eLabel position="824,129" size="387,219" backgroundColor="layer-b-accent2" />
+		<widget source="session.VideoPicture" render="Pig" position="825,130" size="385,217" zPosition="3" backgroundColor="unff000000" />
+		<widget source="session.CurrentService" render="Label" position="825,127" size="388,30" zPosition="4" font="epg_text; 18"  halign="center" valign="top" noWrap="1" backgroundColor="transparent" foregroundColor="epg-event-foreground" borderColor="black" borderWidth="1" transparent="1">
+			<convert type="ServiceName">Name</convert>
+		</widget>
+		<eLabel position="825,369" size="385,1" backgroundColor="layer-b-accent2" />
+		<ePixmap position="825,410" zPosition="1" size="100,100" alphatest="blend" pixmap="MetrixHD/icons/movie_small.png"/>
+		<panel name="EMCSelectionCover_large_description_on" />
+		<widget source="Service" render="Label" position="930,389" size="280,55" valign="center" halign="center" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+			<convert type="EMCEventName">Name</convert>
+		</widget>
+		<widget source="Service" render="Label" position="930,480" size="280,55" font="epg_text;20" valign="center" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
+			<convert type="EMCMovieInfo">RecordServiceName</convert>
+		</widget>
+		<widget source="Service" render="Label" position="825,540" size="55,25" font="epg_text;20" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
+			<convert type="EMCServiceTime">StartTime</convert>
+			<convert type="EMCClockToText">Format:%H:%M </convert>
+		</widget>
+		<widget source="Service" render="Label" position="885,540" size="75,25" font="epg_text;20" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
+			<convert type="EMCServiceTime">EndTime</convert>
+			<convert type="EMCClockToText">Format:-  %H:%M </convert>
+		</widget>
+		<widget source="Service" render="Label" position="1110,540" size="100,25" font="epg_text;20" halign="right" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
+			<convert type="EMCServiceTime">Duration</convert>
+			<convert type="EMCClockToText">InMinutes</convert>
+		</widget>
+		<widget name="Cover" position="825,390" size="100,140" zPosition="4" alphatest="blend" />
+		<panel name="template1_2layer" />
+		<panel name="rgyb-buttons_template1" />
+		<panel name="rgyb-keys_template1" />
+		<panel name="ime-buttons_template1" />
+	</screen>
 	<screen name="EMCSelection" position="0,0" size="1280,720" title="Enhanced Movie Center" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Enhanced Movie Center" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<!--widget source="Title" render="Label" position="58,36" size="535,50" noWrap="1" valign="bottom" font="global_title;33" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" >

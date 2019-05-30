@@ -579,14 +579,21 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		helptext = _("Show running text for event. If it flickers, try increasing the start delay.")
 		list.append(getConfigListEntry(tab + _("Show running text?"), config.plugins.MyMetrixLiteOther.showInfoBarRunningtext, helptext, "ENABLED"))
 		list.append(getConfigListEntry(tab + _("ChannelName/Number FontSize"), config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize, _("helptext")))
+		section = _("mini TV")
+		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(tab + _("Show in Channel selection?"), config.usage.use_pig, _("Setting is the same as\n'") + _("Channel list show MiniTV") + _("'\nin\n'") + _("Channel selection settings"), "ENABLED"))
+		list.append(getConfigListEntry(tab + _("Show in graphical EPG?"), config.epgselection.graph_pig, _("Setting is the same as\n'") + _("Picture in graphics") + _("'\nin\n'") + _("GraphicalEPG settings") + "'"))
+		list.append(getConfigListEntry(tab + _("Show in Movie Center?"), config.plugins.MyMetrixLiteOther.movielist_pig, _("helptext"), "ENABLED"))
+		list.append(getConfigListEntry(tab + _("Show in EMC?"), config.plugins.MyMetrixLiteOther.emc_pig, _("helptext"), "ENABLED"))
 		section = _("EMC")
 		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Show Cover in Media Center"),config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover, _("helptext"), "ENABLED"))
 		if config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover.getValue() == "small" and config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
 			list.append(getConfigListEntry(tab + _("Show Cover in Infobar"), config.plugins.MyMetrixLiteOther.showEMCMediaCenterCoverInfobar, _("helptext")))
-		list.append(getConfigListEntry(tab + _("Show Cover in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionCover, _("helptext"), "ENABLED"))
-		if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "large":
-			list.append(getConfigListEntry(tab + _("Show Movie Description"), config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription, _("helptext")))
+		if not config.plugins.MyMetrixLiteOther.emc_pig.value:
+			list.append(getConfigListEntry(tab + _("Show Cover in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionCover, _("helptext"), "ENABLED"))
+			if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "large":
+				list.append(getConfigListEntry(tab + _("Show Movie Description"), config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Show Picon in Movie Selection?"), config.plugins.MyMetrixLiteOther.showEMCSelectionPicon, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Change Number of Rows in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionRows, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Change field size 'Date' in Movie Selection"),config.plugins.MyMetrixLiteOther.setEMCdatesize, _("Change field size or hide")))
@@ -594,7 +601,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab + _("Change field size 'Progressbar' in Movie Selection"),config.plugins.MyMetrixLiteOther.setEMCbarsize, _("Change field size or hide")))
 		section = _("EMC/MovieList")
 		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-		if not config.movielist.useslim.value:
+		if not config.plugins.MyMetrixLiteOther.movielist_pig.value:
 			list.append(getConfigListEntry(tab + _("Movie List style"), config.plugins.MyMetrixLiteOther.movielistStyle, _("Info: Setting applies not for EMC.")))
 		help_scrollbar = _("Show Scrollbar if more than one pages are available.")
 		help_runningtext = _("Show running text for description of the event.")
@@ -612,18 +619,13 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab + _("Show MovieName"), config.plugins.MyMetrixLiteOther.showMovieName, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Show Movie Playback Time"), config.plugins.MyMetrixLiteOther.showMovieTime, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer,  _("After enabling, 'Apply changes' and restart needs never press 'Apply changes' (and restart) when you change subordinate entrys in 'STB-Info'.")))
-		section = _("mini TV")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-		list.append(getConfigListEntry(tab + _("Show in Channel selection?"), config.usage.servicelist_mode, _("Setting is the same as\n'") + _("Channel list service mode*") + _("'\nin\n'") + _("Channel selection settings") + _("'\n(") + _("Simple") + _(" = mini TV on)"), "ENABLED"))
-		list.append(getConfigListEntry(tab + _("Show in graphical EPG?"), config.epgselection.graph_pig, _("Setting is the same as\n'") + _("Picture in graphics") + _("'\nin\n'") + _("GraphicalEPG settings") + "'"))
-		list.append(getConfigListEntry(tab + _("Show in Movie Center?"), config.movielist.useslim, _("Setting is the same as\n'") + _("Use slim screen") + _("'\nin\n'") + _("Movie List Setup") + "'", "ENABLED"))
 		section = _("ChannelSelection") + ", " + _("graphical EPG")
 		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-		if config.usage.servicelist_mode.value == 'standard':
+		if not config.usage.use_pig.value:
 			list.append(getConfigListEntry(tab + _("Channel selection style"), config.plugins.MyMetrixLiteOther.channelSelectionStyle, _("helptext"), "ENABLED"))
 		list.append(getConfigListEntry(tab + _("Item Distance"), config.plugins.MyMetrixLiteOther.setItemDistance, _("Distance between Servicename and Eventname.")))
 		list.append(getConfigListEntry(tab + _("Field Distance"), config.plugins.MyMetrixLiteOther.setFieldMargin, _("Distance between Servicenumber and Servicename or Eventname and Progressbar.")))
-		if config.usage.servicelist_mode.value == 'standard' and int(config.plugins.MyMetrixLiteOther.SkinDesign.value) > 1 and (config.plugins.MyMetrixLiteOther.channelSelectionStyle.value == "CHANNELSELECTION-1" or config.plugins.MyMetrixLiteOther.channelSelectionStyle.value == "CHANNELSELECTION-2"):
+		if not config.usage.use_pig.value and int(config.plugins.MyMetrixLiteOther.SkinDesign.value) > 1 and (config.plugins.MyMetrixLiteOther.channelSelectionStyle.value == "CHANNELSELECTION-1" or config.plugins.MyMetrixLiteOther.channelSelectionStyle.value == "CHANNELSELECTION-2"):
 			list.append(getConfigListEntry(tab + _("Show Primetime Event"), config.plugins.MyMetrixLiteOther.channelSelectionShowPrimeTime, _("Set primetime in graphical epg settings.")))
 		list.append(getConfigListEntry(tab + _("Graphical EPG style"), config.plugins.MyMetrixLiteOther.graphicalEpgStyle, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Show scrollbar?"), config.plugins.MyMetrixLiteOther.showChannelListScrollbar, help_scrollbar))

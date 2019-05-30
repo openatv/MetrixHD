@@ -3597,7 +3597,10 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/menu_system_channelselection_setup.png" transparent="1" alphatest="blend" />
 	</screen>
-	<screen name="SlimChannelSelection" position="0,0" size="1280,720" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="SlimChannelSelection" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="ChannelSelection" />
+	</screen>
+	<screen name="ChannelSelection_PIG" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Channel selection" position="5,535" size="1280,200" font="global_large_screen; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="session.VideoPicture" render="Pig" position="680,95" size="530,299" zPosition="3" backgroundColor="unff000000" />
