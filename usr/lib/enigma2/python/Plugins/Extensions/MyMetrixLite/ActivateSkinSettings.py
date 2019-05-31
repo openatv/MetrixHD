@@ -1878,7 +1878,7 @@ class ActivateSkinSettings:
 			if config.usage.use_pig.value:
 				if 'screen name="ChannelSelection_PIG"' in line:
 					line = line.replace('screen name="ChannelSelection_PIG"', 'screen name="ChannelSelection"')
-				elif 'screen name="MovieSelection"' in line:
+				elif 'screen name="ChannelSelection"' in line:
 					line = line.replace('screen name="ChannelSelection"', 'screen name="ChannelSelection_noPIG"')
 #options for all skin files end
 			if self.EHDenabled:
