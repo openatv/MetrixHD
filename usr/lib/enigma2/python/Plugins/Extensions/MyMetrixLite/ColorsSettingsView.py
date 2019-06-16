@@ -141,6 +141,11 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 		section = _("Color Gradient")
 		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Color"), config.plugins.MyMetrixLiteColors.cologradient, _("helptext")))
+		list.append(getConfigListEntry(tab + _("Position"), config.plugins.MyMetrixLiteColors.cologradient_position, _("helptext")))
+		list.append(getConfigListEntry(tab + _("Size"), config.plugins.MyMetrixLiteColors.cologradient_size, _("helptext")))
+		list.append(getConfigListEntry(tab + 'A ' +_("Transparency"), config.plugins.MyMetrixLiteColors.cologradient_transparencyA, _("helptext"), "TRANSPARENCYA"))
+		list.append(getConfigListEntry(tab + 'B ' +_("Transparency"), config.plugins.MyMetrixLiteColors.cologradient_transparencyB, _("helptext"), "TRANSPARENCYB"))
+		list.append(getConfigListEntry(tab + _("Show Background"), config.plugins.MyMetrixLiteColors.cologradient_show_background, _("helptext")))
 		section = _("Text Windowtitle")
 		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Foreground"), ))
@@ -379,6 +384,11 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 			self.getPreset2()
 		elif cur == "QUICKCOLOR":
 			self.setQuickColor()
+		elif (cur == "TRANSPARENCYA" or cur == "TRANSPARENCYB") and int(config.plugins.MyMetrixLiteColors.cologradient_transparencyA.value, 16) > int(config.plugins.MyMetrixLiteColors.cologradient_transparencyB.value, 16):
+			if cur == "TRANSPARENCYA":
+				config.plugins.MyMetrixLiteColors.cologradient_transparencyA.value = config.plugins.MyMetrixLiteColors.cologradient_transparencyB.value
+			else:
+				config.plugins.MyMetrixLiteColors.cologradient_transparencyB.value = config.plugins.MyMetrixLiteColors.cologradient_transparencyA.value
 
 		if cur == "ENABLED" or cur == "PRESET" or cur == "PRESET2" or cur == "QUICKCOLOR":
 			self.refreshTimer.start(1000, True)

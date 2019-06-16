@@ -470,7 +470,7 @@
 		<!-- INFOBAR EXTENDED INFO -->
 		<screen name="INFOBAREXTENDEDINFO-1">
 			<!-- /* ECM -->
-			<eLabel backgroundColor="infobarbackground" position="0,0" size="1280,30" transparent="0" zPosition="-99"/>
+			<eLabel name="GRADIENT_BACKGROUND" backgroundColor="infobarbackground" position="0,0" size="1280,30" transparent="0" zPosition="-99"/>
 			<widget source="session.CurrentService" position="850,4" size="420,21" render="Label" font="global_small; 16" halign="center" valign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" transparent="1" noWrap="1">
 				<convert type="MetrixHDCaidDisplay">Default</convert>
 			</widget>
@@ -807,7 +807,7 @@
 		<!-- INFOBAR EXTENDED INFO -->
 		<screen name="INFOBARSTYLEMODERN">
 			<!--/* STYLE MODERN -->
-			<eLabel backgroundColor="infobarbackground" name="InfoBar" position="0,560" size="1280,160" zPosition="-10"/>
+			<eLabel name="GRADIENT_BACKGROUND" backgroundColor="infobarbackground" position="0,560" size="1280,160" zPosition="-10"/>
 			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small; 19" halign="right" position="1091,564" render="Label" size="75,30" source="session.Event_Now" transparent="1">
 				<convert type="EventTime">StartTime</convert>
 				<convert type="ClockToText">Default</convert>

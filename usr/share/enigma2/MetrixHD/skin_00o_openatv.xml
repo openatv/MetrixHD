@@ -1279,7 +1279,7 @@
 	</screen>
 	<!-- templates -->
 	<screen name="QuickMenu" position="0,0" size="1280,720" title="Quick Launch Menu" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="-1,0" zPosition="-11" size="1282,95" backgroundColor="layer-a-background" foregroundColor="layer-a-background" />
+		<eLabel name="GRADIENT_BACKGROUND" position="0,0" zPosition="-11" size="1280,94" backgroundColor="layer-a-background" />
 		<ePixmap pixmap="MetrixHD/buttons/key_red.png" position="265,0" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_green.png" position="448,0" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="MetrixHD/buttons/key_yellow.png" position="631,0" size="30,40" alphatest="blend" />
@@ -2925,7 +2925,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="state" position="0,40" size="370,120" noWrap="1" backgroundColor="text-background" foregroundColor="background-text" font="global_large;80" halign="right" transparent="1" valign="center" />
 	</screen>
 	<screen name="PVRState_3">
-		<eLabel backgroundColor="infobarbackground" position="0,0" size="1280,30" transparent="0" zPosition="-99"/>
+		<eLabel name="GRADIENT_BACKGROUND" backgroundColor="infobarbackground" position="0,0" size="1280,30" transparent="0" zPosition="-99"/>
 		<widget name="state" position="0,4" size="1280,21" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" font="global_small; 16" halign="center" transparent="1" valign="center" />
 		<panel name="COLORGRADIENT_top_IB" />
 	</screen>
@@ -3479,7 +3479,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" transparent="1" alphatest="on" />
 	</screen>
 	<screen name="GraphicalInfoBarEPG" title="InfoBar EPG" position="0,490" size="1280,230" backgroundColor="transparent" flags="wfNoBorder">
-		<eLabel name="new eLabel" position="0,10" zPosition="-10" size="1280,220" backgroundColor="epg-background" transparent="0" />
+		<eLabel name="GRADIENT_BACKGROUND" position="0,10" zPosition="-10" size="1280,220" backgroundColor="epg-background" transparent="0" />
 		<widget source="global.CurrentTime" render="Label" position="1128,9" size="140,60" font="global_clock;50" noWrap="1" halign="center" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="epg-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
@@ -3523,7 +3523,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="epg_description" position="55,120" size="1170,330" font="epg_info;22" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" foregroundColor="epg-eventdescription-foreground" backgroundColor="epg-eventdescription-background" transparent="1" zPosition="1" />
 	</screen>
 	<screen name="QuickEPG" title="InfoBar QuickEPG" position="0,490" size="1280,230" backgroundColor="transparent" flags="wfNoBorder">
-		<eLabel name="new eLabel" position="0,10" zPosition="-10" size="1280,220" backgroundColor="epg-background" transparent="0" />
+		<eLabel name="GRADIENT_BACKGROUND" position="0,10" zPosition="-10" size="1280,220" backgroundColor="epg-background" transparent="0" />
 		<widget source="global.CurrentTime" render="Label" position="1128,9" size="140,60" font="global_clock;50" noWrap="1" halign="center" valign="bottom" foregroundColor="layer-a-clock-foreground" backgroundColor="epg-background" transparent="1">
 			<convert type="ClockToText">Default</convert>
 		</widget>
@@ -4819,7 +4819,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/dvd.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="DVDPlayer" position="0,0" size="1280,720" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="0,640" zPosition="-2" size="1280,80" backgroundColor="infobarbackground" />
+		<eLabel name="GRADIENT_BACKGROUND" position="0,640" zPosition="-2" size="1280,80" backgroundColor="infobarbackground" />
 		<eLabel backgroundColor="infobaraccent1" position="110,683" size="796,1" zPosition="3"/>
 		<widget source="global.CurrentTime" render="Label" position="940,605" size="300,30" font="global_clock; 20" halign="right" shadowOffset="-2,-2" shadowColor="black" backgroundColor="infobarbackground" foregroundColor="layer-a-clock-foreground" transparent="1">
 			<convert type="ClockToText">Format:%H:%M , %A , %d.%m.%Y</convert>

@@ -745,18 +745,24 @@ class ActivateSkinSettings:
 			DESIGNSkinSearchAndReplace.append(['<panel name="INFOBAREXTENDEDINFO-1" />', '<panel name="INFOBAREXTENDEDINFO-' + config.plugins.MyMetrixLiteOther.ExtendedinfoStyle.value + '" />' ])
 
 			# color gradient for ib,sib,mb,ibepg and quickemenu
-			if config.plugins.MyMetrixLiteColors.cologradient.value != '0': # config.plugins.MyMetrixLiteOther.SkinDesignInfobarColorGradient.value:
-				old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_ib.png" position="0,640" size="1280,80" zPosition="-1" /-->'
-				new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_ib.png" position="0,640" size="1280,80" zPosition="-1" />'
+			if config.plugins.MyMetrixLiteColors.cologradient.value != '0':
+				old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_ib.png" position="0,560" size="1280,160" zPosition="-1" /-->'
+				new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_ib.png" position="0,560" size="1280,160" zPosition="-1" />'
 				DESIGNSkinSearchAndReplace.append([old, new ])
-				old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_epg.png" position="0,150" size="1280,80" zPosition="-1" /-->'
-				new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_epg.png" position="0,150" size="1280,80" zPosition="-1" />'
+				old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_epg.png" position="0,10" size="1280,220" zPosition="-1" /-->'
+				new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_epg.png" position="0,10" size="1280,220" zPosition="-1" />'
 				DESIGNSkinSearchAndReplace.append([old, new ])
 				old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top_ib.png" position="0,0" size="1280,30" zPosition="-1" /-->'
 				new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top_ib.png" position="0,0" size="1280,30" zPosition="-1" />'
 				DESIGNSkinSearchAndReplace.append([old, new ])
-				old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top_qm.png" position="0,0" size="1280,30" zPosition="-1" /-->'
-				new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top_qm.png" position="0,0" size="1280,30" zPosition="-1" />'
+				old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top_qm.png" position="0,0" size="1280,94" zPosition="-1" /-->'
+				new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top_qm.png" position="0,0" size="1280,94" zPosition="-1" />'
+				DESIGNSkinSearchAndReplace.append([old, new ])
+				old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_mb.png" position="0,570" size="1280,150" zPosition="-1" /-->'
+				new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_mb.png" position="0,570" size="1280,150" zPosition="-1" />'
+				DESIGNSkinSearchAndReplace.append([old, new ])
+				old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_pb.png" position="0,640" size="1280,80" zPosition="-1" /-->'
+				new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_pb.png" position="0,640" size="1280,80" zPosition="-1" />'
 				DESIGNSkinSearchAndReplace.append([old, new ])
 
 			#picon
@@ -1557,27 +1563,62 @@ class ActivateSkinSettings:
 		# epg
 		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.epgbackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_bottom_epg.png"
+		size = 220
+		gpos = size - size * ((100-int(config.plugins.MyMetrixLiteColors.cologradient_position.value))*0.01)
+		gsize = (size-gpos) * (int(config.plugins.MyMetrixLiteColors.cologradient_size.value)*0.01)
 		if color:
-			self.makeColorGradient(cgfile, int(1280*factor), int(80*factor), color, int(8*factor), 'up')
+			self.makeColorGradient(cgfile, int(1280*factor), int(size*factor), color, int(gpos*factor), int(gsize*factor), 'up')
 		else:
 			if path.isfile(cgfile): remove(cgfile)
 		# ib
 		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.infobarbackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_bottom_ib.png"
+		size = 160
+		gpos = size - size * ((100-int(config.plugins.MyMetrixLiteColors.cologradient_position.value))*0.01)
+		gsize = (size-gpos) * (int(config.plugins.MyMetrixLiteColors.cologradient_size.value)*0.01)
 		if color:
-			self.makeColorGradient(cgfile, int(1280*factor), int(80*factor), color, int(8*factor), 'up')
+			self.makeColorGradient(cgfile, int(1280*factor), int(size*factor), color, int(gpos*factor), int(gsize*factor), 'up')
 		else:
 			if path.isfile(cgfile): remove(cgfile)
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_top_ib.png"
+		size = 30
+		gpos = size - size * ((100-int(config.plugins.MyMetrixLiteColors.cologradient_position.value))*0.01)
+		gsize = (size-gpos) * (int(config.plugins.MyMetrixLiteColors.cologradient_size.value)*0.01)
 		if color:
-			self.makeColorGradient(cgfile, int(1280*factor), int(30*factor), color, int(3*factor), 'down')
+			self.makeColorGradient(cgfile, int(1280*factor), int(size*factor), color, int(gpos*factor), int(gsize*factor), 'down')
+		else:
+			if path.isfile(cgfile): remove(cgfile)
+		# mb
+		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.infobarbackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
+		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_bottom_mb.png"
+		if int(config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.value) > 2:
+			size = 80
+		else:
+			size = 150
+		gpos = size - size * ((100-int(config.plugins.MyMetrixLiteColors.cologradient_position.value))*0.01)
+		gsize = (size-gpos) * (int(config.plugins.MyMetrixLiteColors.cologradient_size.value)*0.01)
+		if color:
+			self.makeColorGradient(cgfile, int(1280*factor), int(150*factor), color, int(gpos*factor), int(gsize*factor), 'up')
+		else:
+			if path.isfile(cgfile): remove(cgfile)
+		# db
+		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.infobarbackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
+		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_bottom_pb.png"
+		size = 80
+		gpos = size - size * ((100-int(config.plugins.MyMetrixLiteColors.cologradient_position.value))*0.01)
+		gsize = (size-gpos) * (int(config.plugins.MyMetrixLiteColors.cologradient_size.value)*0.01)
+		if color:
+			self.makeColorGradient(cgfile, int(1280*factor), int(size*factor), color, int(gpos*factor), int(gsize*factor), 'up')
 		else:
 			if path.isfile(cgfile): remove(cgfile)
 		# layer a
 		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.layerabackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_top_qm.png"
+		size = 95
+		gpos = size - size * ((100-int(config.plugins.MyMetrixLiteColors.cologradient_position.value))*0.01)
+		gsize = (size-gpos) * (int(config.plugins.MyMetrixLiteColors.cologradient_size.value)*0.01)
 		if color:
-			self.makeColorGradient(cgfile, int(1280*factor), int(30*factor), color, int(3*factor), 'down')
+			self.makeColorGradient(cgfile, int(1280*factor), int(size*factor), color, int(gpos*factor), int(gsize*factor), 'down')
 		else:
 			if path.isfile(cgfile): remove(cgfile)
 		# ibts background
@@ -1588,7 +1629,7 @@ class ActivateSkinSettings:
 		# file commander image viewer background
 		color = config.plugins.MyMetrixLiteColors.layerabackground.value
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_imageviewer.png"
-		self.makeColorGradient(cgfile, int(30*factor), int(640*factor), color, 0, 'right')
+		self.makeColorGradient(cgfile, int(30*factor), int(640*factor), color, 0, int(640*factor), 'right', 255,0)
 
 	def makeNewColor(self, color, coloroption):
 		if coloroption == '0':
@@ -1612,28 +1653,33 @@ class ActivateSkinSettings:
 		else:
 			return color
 
-	def makeColorGradient(self, name, sizex, sizey, color, begin, direction):
-		alpha = 255 #set start alpha 0...255
-		rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), 255)
-		imga = Image.new("RGBA",(sizex, sizey-begin), rgba)
-		rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), alpha)
-		imgb = Image.new("RGBA",(sizex, sizey), rgba)
-		gradient = Image.new('L', (1,alpha+1))
-		for y in range(0,alpha+1):
-			gradient.putpixel((0,y),y)
-		w,h = imga.size
-		gradient = gradient.resize((w,h))
-		imga.putalpha(gradient)
-		imgb.paste(imga,(0,0,w,h))
+	def makeColorGradient(self, name, sizex, sizey, color, begin, height, direction, alphaA = None, alphaB = None):
+		print name
+		if alphaA is None:
+			alphaA = 255-int(config.plugins.MyMetrixLiteColors.cologradient_transparencyA.value, 16)
+		if alphaB is None:
+			alphaB = 255-int(config.plugins.MyMetrixLiteColors.cologradient_transparencyB.value, 16)
+		rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), 0)
+		imga = Image.new("RGBA",(sizex, sizey), rgba)
+		rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), alphaA)
+		imgb = Image.new("RGBA",(sizex, begin), rgba)
+		imgc = Image.new("RGBA",(sizex, height), rgba)
+		gradient = Image.new('L', (1,alphaA-alphaB+1))
+		for y in range(0,alphaA-alphaB+1):
+			gradient.putpixel((0,y),alphaB + y)
+		gradient = gradient.resize(imgc.size)
+		imgc.putalpha(gradient)
+		imga.paste(imgb, (0, imga.size[1] - begin))
+		imga.paste(imgc, (0, imga.size[1] - begin - height))
 		if direction == 'up':
 			pass
 		elif direction == 'left':
-			imgb = imgb.transpose(Image.ROTATE_90)
+			imga = imga.transpose(Image.ROTATE_90)
 		elif direction == 'down':
-			imgb = imgb.transpose(Image.ROTATE_180)
+			imga = imga.transpose(Image.ROTATE_180)
 		elif direction == 'right':
-			imgb = imgb.transpose(Image.ROTATE_270)
-		imgb.save(name)
+			imga = imga.transpose(Image.ROTATE_270)
+		imga.save(name)
 
 	def makeColorField(self, name, sizex, sizey, color, alpha):
 		rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), 255 - int(alpha,16))
@@ -1875,6 +1921,8 @@ class ActivateSkinSettings:
 					line = line.replace('screen name="MovieSelection_PIG"', 'screen name="MovieSelection"')
 				elif 'screen name="MovieSelection"' in line:
 					line = line.replace('screen name="MovieSelection"', 'screen name="MovieSelection_noPIG"')
+			if not config.plugins.MyMetrixLiteColors.cologradient_show_background.value and 'name="GRADIENT_BACKGROUND"' in line:
+				continue
 #options for all skin files end
 			if self.EHDenabled:
 				try: 
