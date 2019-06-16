@@ -581,7 +581,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab + _("ChannelName/Number FontSize"), config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize, _("helptext")))
 		section = _("mini TV")
 		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-		list.append(getConfigListEntry(tab + _("Show in Channel selection?"), config.usage.use_pig, _("Setting is the same as\n'") + _("Channel list show MiniTV*") + _("'\nin\n'") + _("Channel selection settings"), "ENABLED"))
+		list.append(getConfigListEntry(tab + _("Show in Channel selection?"), config.usage.use_pig, _("Setting is the same as\n'") + _("Channel list show MiniTV*") + _("'\nin\n'") + _("Channel selection settings") + "'", "ENABLED"))
 		#list.append(getConfigListEntry(tab + _("Show in graphical EPG?"), config.epgselection.graph_pig, _("Setting is the same as\n'") + _("Picture in graphics") + _("'\nin\n'") + _("GraphicalEPG settings") + "'"))
 		list.append(getConfigListEntry(tab + _("Show in Movie Center?"), config.plugins.MyMetrixLiteOther.movielist_pig, _("helptext"), "ENABLED"))
 		list.append(getConfigListEntry(tab + _("Show in EMC?"), config.plugins.MyMetrixLiteOther.emc_pig, _("helptext"), "ENABLED"))
