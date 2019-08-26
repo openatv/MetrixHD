@@ -37,6 +37,9 @@ class MetrixHDWeather(Poll, Converter, object):
 	@cached
 	def getText(self):
 		try:
+			if config.plugins.MetrixWeather.tempplus.value:
+				config.plugins.MetrixWeather.tempplus.setValue(False) # option disabled -> WeatherSettingsView
+				config.plugins.MetrixWeather.save()
 			if self.type == "currentLocation":
 				return config.plugins.MetrixWeather.currentLocation.value
 			elif self.type == "currentWeatherTemp":

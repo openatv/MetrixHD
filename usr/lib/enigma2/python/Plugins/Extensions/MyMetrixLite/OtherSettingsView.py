@@ -517,8 +517,8 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		section = _("STB-Info")
 		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Distance between the STB-Infos"), config.plugins.MyMetrixLiteOther.STBDistance, _("helptext")))
-		list.append(getConfigListEntry(tab + _("Show CPU-Load"), config.plugins.MyMetrixLiteOther.showCPULoad, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Show free RAM"), config.plugins.MyMetrixLiteOther.showRAMfree, _("helptext")))
+		list.append(getConfigListEntry(tab + _("Show CPU-Load"), config.plugins.MyMetrixLiteOther.showCPULoad, _("helptext")))
 		if self.getCPUSensor():
 			list.append(getConfigListEntry(tab + _("Show CPU-Temp"), config.plugins.MyMetrixLiteOther.showCPUTemp, _("helptext")))
 		elif config.plugins.MyMetrixLiteOther.showCPUTemp.getValue() is not False:
@@ -580,8 +580,8 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab + _("ChannelName/Number FontSize"), config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize, _("helptext")))
 		section = _("mini TV")
 		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-		list.append(getConfigListEntry(tab + _("Show in Channel selection?"), config.usage.use_pig, _("Setting is the same as\n'") + _("Channel list show MiniTV*") + _("'\nin\n'") + _("Channel selection settings") + "'", "ENABLED"))
-		#list.append(getConfigListEntry(tab + _("Show in graphical EPG?"), config.epgselection.graph_pig, _("Setting is the same as\n'") + _("Picture in graphics") + _("'\nin\n'") + _("GraphicalEPG settings") + "'"))
+		list.append(getConfigListEntry(tab + _("Show in Channel selection?"), config.usage.use_pig, _("Setting is the same as\n'") + _("Channel list show MiniTV*") + _("'\nin\n'") + _("Channel selection settings") + "'.", "ENABLED"))
+		#list.append(getConfigListEntry(tab + _("Show in graphical EPG?"), config.epgselection.graph_pig, _("Setting is the same as\n'") + _("Picture in graphics") + _("'\nin\n'") + _("GraphicalEPG settings") + "'."))
 		list.append(getConfigListEntry(tab + _("Show in Movie Center?"), config.plugins.MyMetrixLiteOther.movielist_pig, _("helptext"), "ENABLED"))
 		list.append(getConfigListEntry(tab + _("Show in EMC?"), config.plugins.MyMetrixLiteOther.emc_pig, _("helptext"), "ENABLED"))
 		section = _("EMC")
@@ -608,7 +608,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab + _("Show running text?"), config.plugins.MyMetrixLiteOther.showMovieListRunningtext, help_runningtext, "ENABLED"))
 		section = _("EMC/MoviePlayer")
 		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-		list.append(getConfigListEntry(tab + _("Hide PVR State"), config.usage.movieplayer_pvrstate, _("Setting is the same as\n'") + _("Show PVR status in MoviePlayer infobar") + _("'\nin\n'") + _("OSD settings") + "'", "ENABLED"))
+		list.append(getConfigListEntry(tab + _("Hide PVR State"), config.usage.movieplayer_pvrstate, _("Setting is the same as\n'") + _("Show PVR status in MoviePlayer infobar") + _("'\nin\n'") + _("OSD settings") + "'.", "ENABLED"))
 		if not config.usage.movieplayer_pvrstate.value:
 			list.append(getConfigListEntry(tab*2 + _("Position PVR State"), config.plugins.MyMetrixLiteOther.showPVRState, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Style"), config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign, _("helptext"), "ENABLED"))
