@@ -1,7 +1,7 @@
 MetrixHD
 ========
 
-##**openATV 4.0 default skin**
+##**openATV 6.3 default skin**
 
 MetrixHD is created by iMaxxx 
 
