@@ -5,8 +5,6 @@ MetrixHD
 
 MetrixHD is created by iMaxxx 
 
-##![alt text](https://raw2.github.com/openatv/MetrixHD/master/MetrixHD-INFO/openstore.png )
-
 **The skin uses a modern 2-layer style with 2 main fonts and several font colors to catch the users attention on the important areas of a screen.**
 
 **_background-text_** *- MetrixColors - color for texts in background*  
