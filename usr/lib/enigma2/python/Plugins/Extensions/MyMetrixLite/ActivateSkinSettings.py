@@ -1905,7 +1905,8 @@ class ActivateSkinSettings:
 		for line in f.readlines():
 			i += 1
 #options for all skin files
-			line = line.replace('scrollbarWidth="10"', 'scrollbarWidth="%s"' %(config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth.value + config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value*2))
+			sb_width = config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth.value + config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value*2
+			line = line.replace('scrollbarWidth="10"', 'scrollbarWidth="%s"' %(sb_width))
 			line = line.replace('scrollbarSliderBorderWidth="1"', 'scrollbarSliderBorderWidth="%s"' %config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value)
 			if config.plugins.MyMetrixLiteColors.backgroundtextborderwidth.value and ' font="global_large' in line and not ' borderWidth=' in line and not ' borderColor=' in line:
 				line = line.replace(' font=', ' borderWidth="%s" borderColor="#%s%s" font=' %(config.plugins.MyMetrixLiteColors.backgroundtextborderwidth.value, config.plugins.MyMetrixLiteColors.backgroundtextbordertransparency.value, config.plugins.MyMetrixLiteColors.backgroundtextbordercolor.value))
@@ -1923,6 +1924,10 @@ class ActivateSkinSettings:
 					line = line.replace('screen name="MovieSelection"', 'screen name="MovieSelection_noPIG"')
 			if not config.plugins.MyMetrixLiteColors.cologradient_show_background.value and 'name="GRADIENT_BACKGROUND"' in line:
 				continue
+			#list margin channellist
+			line = line.replace('listMarginRight="5"', 'listMarginRight="%s"' % (sb_width + int(5*FACT) + 5 if config.plugins.MyMetrixLiteOther.showChannelListScrollbar.value else int(5*FACT)))
+			line = line.replace('listMarginLeft="5"', 'listMarginLeft="%s"' % (int(5*FACT)))
+			#-----------------------
 #options for all skin files end
 			if self.EHDenabled:
 				try: 
