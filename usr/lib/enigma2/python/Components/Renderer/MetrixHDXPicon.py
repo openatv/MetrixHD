@@ -80,7 +80,7 @@ class MetrixHDXPicon(Renderer):
 					sname = sname[:pos].rstrip(':').replace(':','_')
 					sname = sname.split("_http")[0]
 				pngname = self.nameCache.get(sname, "")
-				if pngname == "":
+				if pngname == "" or not fileExists(pngname):
 					pngname = self.findPicon(sname)
 					if pngname == "":
 						fields = sname.split('_', 3)
