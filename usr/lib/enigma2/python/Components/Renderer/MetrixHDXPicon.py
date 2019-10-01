@@ -80,7 +80,7 @@ class MetrixHDXPicon(Renderer):
 					sname = sname[:pos].rstrip(':').replace(':','_')
 					sname = sname.split("_http")[0]
 				pngname = self.nameCache.get(sname, "")
-				if pngname == "" or sname.split('_', 1)[0] != "1" or not fileExists(pngname):
+				if pngname == "" or not fileExists(pngname):
 					pngname = self.findPicon(sname)
 					if pngname == "":
 						fields = sname.split('_', 3)
@@ -98,7 +98,7 @@ class MetrixHDXPicon(Renderer):
 							pngname = self.findPicon(name)
 							if not pngname and len(name) > 2 and name.endswith('hd'):
 								pngname = self.findPicon(name[:-2])
-					if pngname != "":
+					if pngname != "" and sname.split('_', 1)[0] == "1":
 						self.nameCache[sname] = pngname
 				if pngname == "": # no picon for service found
 					pngname = self.nameCache.get("default", "")
