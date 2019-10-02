@@ -332,7 +332,7 @@ def initColorsConfig():
 	config.plugins.MyMetrixLiteColors.menufontselected = ConfigSelection(default="FFFFFF", choices = ColorList)
 	config.plugins.MyMetrixLiteColors.menubackground = ConfigSelection(default="0F0F0F", choices = ColorList)
 	config.plugins.MyMetrixLiteColors.menubackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
-	config.plugins.MyMetrixLiteColors.menusymbolbackground = ConfigSelection(default="0F0F0F", choices = ColorList)
+	config.plugins.MyMetrixLiteColors.menusymbolbackground = ConfigSelection(default="27408B", choices = ColorList)
 	config.plugins.MyMetrixLiteColors.menusymbolbackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
 	config.plugins.MyMetrixLiteColors.infobarbackground = ConfigSelection(default="0F0F0F", choices = ColorList)
 	config.plugins.MyMetrixLiteColors.infobarbackgroundtransparency = ConfigSelection(default="1A", choices = TransparencyList)
