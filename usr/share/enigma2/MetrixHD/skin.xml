@@ -99,7 +99,7 @@
 		<color name="layer-a-clock-foreground" value="#00FFFFFF" />					<!-- MetrixColors - Foreground color for clock in layer a -->
 		<color name="layer-b-clock-foreground" value="#00FFFFFF" />					<!-- MetrixColors - Foreground color for clock in layer b -->
 		<color name="menubackground" value="#1A0F0F0F" />							<!-- MetrixColors - Background color for menu -->
-		<color name="menusymbolbackground" value="#1A0F0F0F" />						<!-- MetrixColors - Background color for menu symbol -->
+		<color name="menusymbolbackground" value="#1A27408B" />						<!-- MetrixColors - Background color for menu symbol -->
 		<color name="menufont" value="#00FFFFFF" />									<!-- MetrixColors - Font color for menu item  -->
 		<color name="menufontselected" value="#00FFFFFF" />							<!-- MetrixColors - Font color for selected menu item -->
 		<color name="infobarbackground" value="#1A0F0F0F" />						<!-- MetrixColors - Background color for infobar,moviebar -->
@@ -304,17 +304,18 @@
 <!-- Menu Horizental (must places in skin.xml) -->
 	<screen name="Animmain" position="0,0" size="1280,720" title="Mainmenu" backgroundColor="transparent" flags="wfNoBorder">
 		<eLabel position="0,590" size="1280,130" backgroundColor="menubackground" zPosition="-1"/>
-		<eLabel position="0,590" size="1280,1" backgroundColor="layer-b-background" zPosition="-1"/>
+		<eLabel position="0,590" size="1280,5" backgroundColor="menusymbolbackground" zPosition="-1"/>
 		<widget name="title" position="0,490" size="1280,100" zPosition="3" halign="center" valign="bottom" font="global_large_menu;60" backgroundColor="text-background" transparent="1" foregroundColor="background-text"/>
 		<widget source="label1" render="Label" position="0,605" size="200,100" font="global_menu;22" halign="center" valign="center" zPosition="2" foregroundColor="menufont" backgroundColor="menubackground" transparent="1"/>
 		<widget source="label2" render="Label" position="256,605" size="200,100" font="global_menu;22" halign="center" valign="center" zPosition="2" foregroundColor="menufont" backgroundColor="menubackground" transparent="1"/>
-		<widget source="label3" render="Label" position="512,605" size="200,100" font="global_menu;24" borderWidth="1" borderColor="menufontselected" halign="center" valign="center" zPosition="2" foregroundColor="menufontselected" backgroundColor="menubackground" transparent="1"/>
+		<eLabel position="510,604" size="204,104" zPosition="1" backgroundColor="menusymbolbackground"/>
+		<widget source="label3" render="Label" position="512,606" size="200,100" font="global_menu;24" borderWidth="1" borderColor="menufontselected" halign="center" valign="center" zPosition="2" foregroundColor="menufontselected" backgroundColor="menubackground" transparent="0"/>
 		<widget source="label4" render="Label" position="768,605" size="200,100" font="global_menu;22" halign="center" valign="center" zPosition="2" foregroundColor="menufont" backgroundColor="menubackground" transparent="1"/>
 		<widget source="label5" render="Label" position="1024,605" size="200,100" font="global_menu;22" halign="center" valign="center" zPosition="2" foregroundColor="menufont" backgroundColor="menubackground" transparent="1"/>
 	</screen>
 	<screen name="Iconmain" position="0,0" size="1280,720" title="Mainmenu" backgroundColor="transparent" flags="wfNoBorder">
 		<widget name="title" position="0,490" size="1280,100" zPosition="3" halign="center" valign="bottom" font="global_large_menu;60" backgroundColor="text-background" transparent="1" foregroundColor="background-text"/>
-		<eLabel position="0,590" size="1280,1" backgroundColor="layer-b-background" zPosition="-1"/>
+		<eLabel position="0,590" size="1280,5" backgroundColor="menusymbolbackground" zPosition="-1"/>
 		<widget source="label1" render="Label" position="15,605" size="200,100" font="global_menu;22" halign="center" valign="center" zPosition="2" foregroundColor="menufont" backgroundColor="menubackground" transparent="1"/>
 		<widget source="label1s" render="Label" position="15,605" size="200,100" font="global_menu;24" borderWidth="1" borderColor="menufontselected" halign="center" valign="center" zPosition="2" foregroundColor="menufontselected" backgroundColor="menubackground" transparent="1"/>
 		<widget name="pixmap1" position="15,605" size="200,100" zPosition="1" transparent="1" alphatest="on"/>

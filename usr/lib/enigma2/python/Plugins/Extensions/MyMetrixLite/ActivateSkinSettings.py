@@ -977,7 +977,7 @@ class ActivateSkinSettings:
 			skinSearchAndReplace.append(['name="menufont" value="#00FFFFFF"', menufont ])
 			skinSearchAndReplace.append(['name="menufontselected" value="#00FFFFFF"', menufontselected ])
 			skinSearchAndReplace.append(['name="menubackground" value="#1A0F0F0F"', menubackground ])
-			skinSearchAndReplace.append(['name="menusymbolbackground" value="#1A0F0F0F"', menusymbolbackground ])
+			skinSearchAndReplace.append(['name="menusymbolbackground" value="#1A27408B"', menusymbolbackground ])
 			skinSearchAndReplace.append(['name="infobarbackground" value="#1A0F0F0F"', infobarbackground ])
 			skinSearchAndReplace.append(['name="infobarprogress" value="#1A27408B"', infobarprogress ])
 			skinSearchAndReplace.append(['name="infobarfont1" value="#00FFFFFF"', infobarfont1 ])
