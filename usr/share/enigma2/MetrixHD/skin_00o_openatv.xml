@@ -3405,8 +3405,11 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<ePixmap position="534,46" size="36,36" zPosition="10" pixmap="MetrixHD/left.png" alphatest="on" />
 		<ePixmap position="940,46" size="36,36" zPosition="10" pixmap="MetrixHD/right.png" alphatest="on" />
 		<widget source="Title" render="Label" position="550,36" foregroundColor="epg-timeline-foreground" size="410,50" noWrap="1" halign="center" valign="bottom" font="global_title;34" backgroundColor="epg-background" transparent="1" />
-		<widget source="Event" render="Label" position="60,82" size="1160,40" font="epg_event;24" backgroundColor="epg-background" foregroundColor="epg-event-foreground" transparent="0">
+		<widget source="Event" render="Label" position="60,82" size="950,40" font="epg_event;24" backgroundColor="epg-background" foregroundColor="epg-event-foreground" transparent="0">
 			<convert type="EventName">Name</convert>
+		</widget>
+		<widget source="Event" render="Label" position="1020,87" size="200,40" halign="right" font="epg_info;19" backgroundColor="epg-background" foregroundColor="epg-event-foreground" transparent="0">
+			<convert type="EventName">Genre</convert>
 		</widget>
 		<eLabel position="60,135" zPosition="0" size="1160,142" backgroundColor="epg-eventdescription-background" transparent="0" />
 		<panel name="RTSB_gEPG1_description"/>
@@ -5144,6 +5147,17 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	</screen>
 	<!-- SoftcamSetup -->
 	<!-- IceTV -->
+	<screen name="IceTVServerSetup" position="0,0" size="1280,720" title="IceTV - Service selection" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="instructions" position="70,100" size="700,200" font="screen_text; 20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
+		<eLabel position="70,300" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
+		<widget name="config" position="70,320" size="700,300" itemHeight="35" zPosition="1" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand"/>
+		<ePixmap position="890,175" size="300,256" zPosition="10" pixmap="MetrixHD/icons/icetv.png" transparent="1" alphatest="blend" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
 	<screen name="IceTVUserTypeScreen" position="0,0" size="1280,720" title="IceTV - Account selection" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="instructions" render="Label" position="70,100" size="700,200" font="screen_text; 20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
@@ -5178,7 +5192,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="rg__-keys_template1-source" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
-	<screen name="IceTVCreateLogin" position="0,0" size="1280,720" title="IceTV - Login" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="IceTVLogin" position="0,0" size="1280,720" title="IceTV - Login" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="instructions" position="70,100" size="700,100" font="screen_text; 20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
 		<widget name="message" position="70,460" size="700,170" itemHeight="35" zPosition="1" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand"/>
