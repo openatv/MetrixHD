@@ -489,7 +489,7 @@
 			<convert type="TemplatedMultiContent">
 					{"templates":
 					 {"default": (105,[
-					 MultiContentEntryPixmapAlphaTest(pos = (10,12),size = (100,75),png = 4),# index 4 is the thumbnail
+					 MultiContentEntryPixmapAlphaTest(pos = (10,12),size = (100,75),png = 4, flags = BT_SCALE),# index 4 is the thumbnail
 					 MultiContentEntryText(pos = (120,10),size = (550,25),font=0,flags = RT_HALIGN_LEFT | RT_VALIGN_TOP| RT_WRAP,text = 1),# index 1 is the Title
 					 MultiContentEntryText(pos = (120,40),size = (290,22),font=1,flags = RT_HALIGN_LEFT | RT_VALIGN_TOP| RT_WRAP,text = 5),# index 5 is the Published Date
 					 MultiContentEntryText(pos = (120,70),size = (290,22),font=1,flags = RT_HALIGN_LEFT | RT_VALIGN_TOP| RT_WRAP,text = 6),# index 6 is the Views Count
@@ -580,10 +580,10 @@
 			<convert type="TemplatedMultiContent">
 			{"templates":
 				{"default": (130,[
-						MultiContentEntryPixmapAlphaTest(pos = (10, 0), size = (170, 130), png = 0), # index 0 is the thumbnail
-						MultiContentEntryPixmapAlphaTest(pos = (180, 0), size = (170, 130), png = 1), # index 0 is the thumbnail
-						MultiContentEntryPixmapAlphaTest(pos = (350, 0), size = (170, 130), png = 2), # index 0 is the thumbnail
-						MultiContentEntryPixmapAlphaTest(pos = (520, 0), size = (170, 130), png = 3), # index 0 is the thumbnail
+						MultiContentEntryPixmapAlphaTest(pos = (10, 0), size = (170, 130), png = 0, flags = BT_SCALE), # index 0 is the thumbnail
+						MultiContentEntryPixmapAlphaTest(pos = (180, 0), size = (170, 130), png = 1, flags = BT_SCALE), # index 0 is the thumbnail
+						MultiContentEntryPixmapAlphaTest(pos = (350, 0), size = (170, 130), png = 2, flags = BT_SCALE), # index 0 is the thumbnail
+						MultiContentEntryPixmapAlphaTest(pos = (520, 0), size = (170, 130), png = 3, flags = BT_SCALE), # index 0 is the thumbnail
 					]),
 				"state": (130,[
 						MultiContentEntryText(pos = (0, 35), size = (740, 65), font=2, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER| RT_WRAP, text = 0), # index 0 is the name
@@ -839,7 +839,7 @@
 		<widget source="menu" render="Listbox" position="70,100" size="690,500" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
-							MultiContentEntryPixmapAlphaTest(pos = (2, 2), size = (44, 44), png = 3), # index 4 is the status pixmap
+							MultiContentEntryPixmapAlphaTest(pos = (2, 2), size = (44, 44), png = 3, flags = BT_SCALE), # index 4 is the status pixmap
 							MultiContentEntryText(pos = (52, 2), size = (600, 24), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 0 is the MenuText,
 							MultiContentEntryText(pos = (52, 26), size = (600, 20), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2), # index 0 is the MenuText,
 					],
@@ -881,7 +881,7 @@
 		<widget source="menu" render="Listbox" position="70,100" size="690,500" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
-							MultiContentEntryPixmapAlphaTest(pos = (2, 2), size = (44, 44), png = 3), # index 4 is the status pixmap
+							MultiContentEntryPixmapAlphaTest(pos = (2, 2), size = (44, 44), png = 3, flags = BT_SCALE), # index 4 is the status pixmap
 							MultiContentEntryText(pos = (52, 2), size = (600, 24), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 0 is the MenuText,
 							MultiContentEntryText(pos = (52, 26), size = (600, 20), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2), # index 0 is the MenuText,
 					],
@@ -905,7 +905,7 @@
 		<widget source="downloadmenu" render="Listbox" position="70,100" size="690,500" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
-							MultiContentEntryPixmapAlphaTest(pos = (2, 2), size = (44, 44), png = 3), # index 4 is the status pixmap
+							MultiContentEntryPixmapAlphaTest(pos = (2, 2), size = (44, 44), png = 3, flags = BT_SCALE), # index 4 is the status pixmap
 							MultiContentEntryText(pos = (52, 2), size = (600, 24), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 0 is the MenuText,
 							MultiContentEntryText(pos = (52, 26), size = (600, 20), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2), # index 0 is the MenuText,
 					],
@@ -961,7 +961,7 @@
 						MultiContentEntryText(pos = (75, 7), size = (600, 24), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0), # index 2 is the description
 						MultiContentEntryText(pos = (75, 33), size = (600, 16), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2), # index 0 is the name
 						MultiContentEntryText(pos = (75, 49), size = (600, 16), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 1), # index 2 is the description
-						MultiContentEntryPixmapAlphaTest(pos = (25, 9), size = (48, 48), png = 4), # index 4 is the status pixmap
+						MultiContentEntryPixmapAlphaTest(pos = (25, 9), size = (48, 48), png = 4, flags = BT_SCALE), # index 4 is the status pixmap
 						MultiContentEntryPixmapAlphaTest(pos = (75, 66), size = (652, 0), png = 5), # index 4 is the div pixmap
 					],
 				"fonts": [gFont("SetrixHD",22),gFont("SetrixHD",14)],
@@ -1043,7 +1043,7 @@
 		<widget source="menu" render="Listbox" position="70,100" size="710,500" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand">
 			<convert type="TemplatedMultiContent" transparent="0">
 				{"template": [
-						MultiContentEntryPixmapAlphaTest(pos = (4, 2), size = (48, 48), png = 2),
+						MultiContentEntryPixmapAlphaTest(pos = (4, 2), size = (48, 48), png = 2, flags = BT_SCALE),
 						MultiContentEntryText(pos = (60, 12), size = (500, 24), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 0),
 					],
 				"fonts": [gFont("SetrixHD",22),gFont("Regular",16)],
@@ -1155,7 +1155,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
 		<widget source="menu" render="Listbox" position="70,130" size="690,480" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
-						MultiContentEntryPixmapAlphaTest(pos = (5, 2), size = (48, 48), png = 1),
+						MultiContentEntryPixmapAlphaTest(pos = (5, 2), size = (48, 48), png = 1, flags = BT_SCALE),
 						MultiContentEntryText(pos = (55, 2), size = (600, 24), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 2),
 						MultiContentEntryText(pos = (55, 26), size = (600, 16), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 3),
 						MultiContentEntryText(pos = (55, 42), size = (600, 16), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_CENTER, text = 4),
