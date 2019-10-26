@@ -32,6 +32,7 @@ from skin import parseColor
 from Components.Pixmap import Pixmap
 from enigma import ePicLoad, eTimer
 from os import path
+from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 #######################################################################
 
@@ -1212,13 +1213,14 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteOther.SkinDesignOLVposy.value = 41
 
 	def GetPicturePath(self):
-		try:
-			returnValue = self["config"].getCurrent()[1].value
+		returnValue = self["config"].getCurrent()[1].value
+		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/colors/%s.png" % returnValue)
+		if not fileExists(picturepath):
 			picturepath = COLOR_IMAGE_PATH % returnValue
-			if not path.exists(picturepath):
-				picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteColor"
-		except:
-			picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteColor"
+			if not fileExists(picturepath):
+				picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/MyMetrixLiteColor.png")
+				if not fileExists(picturepath):
+					picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteColor"
 		return picturepath
 
 	def UpdatePicture(self):

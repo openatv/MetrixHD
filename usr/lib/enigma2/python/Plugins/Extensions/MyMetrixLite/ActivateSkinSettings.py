@@ -37,7 +37,7 @@ from Components.config import config, configfile
 from Components.NimManager import nimmanager
 from shutil import move, copy, rmtree, copytree
 from enigma import getDesktop
-from os import path, remove, statvfs, listdir, system, mkdir
+from os import path, remove, statvfs, listdir, system, mkdir, unlink, symlink, rename
 from PIL import Image, ImageFont, ImageDraw
 from boxbranding import getBoxType
 import math
@@ -98,8 +98,7 @@ class ActivateSkinSettings:
 				print "[MetrixHD] restoring original %s icons after changing skin..." % self.EHDres
 			else:
 				print "[MetrixHD] refreshing %s icons after software update..." % self.EHDres
-			self.iconFileCopy(self.EHDres)
-			self.iconFolderCopy(self.EHDres)
+			self.updateIcons(self.EHDres)
 			print "[MetrixHD] ...done."
 
 	def getEHDSettings(self, onlyCheck=False):
@@ -1377,18 +1376,12 @@ class ActivateSkinSettings:
 						plustext = plustext + _("No files found or files already exist.")
 					plustext = plustext + _("\n--- additional files end ---\n\n")
 
-			#last step to ehd-mode - copy icon files for fixed paths in py-files
+			#last step to ehd-mode - update icon files
 			if self.EHDenabled and not self.skinline_error:
-				#set standard icons before copy new ehd icons (for saving new icons and clean start)
-				self.iconFileCopy("HD")
-				self.iconFolderCopy("HD")
-				#----
-				self.iconFileCopy(self.EHDres)
-				self.iconFolderCopy(self.EHDres)
+				self.updateIcons(self.EHDres)
 				self.makeGraphics(self.EHDfactor)
 			else:
-				self.iconFileCopy("HD")
-				self.iconFolderCopy("HD")
+				self.updateIcons()
 				self.makeGraphics(1)
 
 			#remove old _TMP files
@@ -1435,8 +1428,7 @@ class ActivateSkinSettings:
 				if path.exists(buttonbackupfile):
 					move(buttonbackupfile,buttonfile)
 			#retore icons
-			self.iconFileCopy("HD")
-			self.iconFolderCopy("HD")
+			self.updateIcons()
 
 			config.skin.primary_skin.setValue("MetrixHD/skin.xml")
 
@@ -1685,6 +1677,43 @@ class ActivateSkinSettings:
 		rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), 255 - int(alpha,16))
 		imga = Image.new("RGBA",(sizex, sizey), rgba)
 		imga.save(name)
+
+	def updateIcons(self, target = "HD"):
+		# backward compatibility - remove old icon files
+		self.iconFileCopy("HD")
+		self.iconFolderCopy("HD")
+		# ---
+		spath = '/usr/share/enigma2/MetrixHD/%s' % target
+		dpath = '/usr/share/enigma2/MetrixHD'
+
+		# first reset / set hd icons
+		if not path.isdir(dpath):
+			return
+		for x in listdir(dpath):
+			dest = path.join(dpath, x)
+			if path.islink(dest):
+				unlink(dest)
+		for x in listdir(dpath):
+			src = path.join(dpath, x)
+			dest = path.join(dpath, x[1:-3])
+			if x.startswith('.') and x.endswith('_hd') and not path.exists(dest):
+				rename(src, dest)
+
+		# set other res icons
+		if target == "HD" or not path.isdir(spath):
+			return
+		for x in listdir(spath):
+			src = path.join(spath, x)
+			dest = path.join(dpath, x)
+			hd = path.join(dpath, '.' + x + '_hd')
+			if path.exists(dest) and not path.exists(hd):
+				rename(dest, hd)
+			if x == 'emc' and int(config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value) > 3:
+				if target == 'FHD':
+					continue
+				elif target == 'UHD' and path.isdir('/usr/share/enigma2/MetrixHD/FHD/emc'):
+					src = '/usr/share/enigma2/MetrixHD/FHD/emc'
+			symlink(src, dest)
 
 	def iconFileCopy(self, target):
 
@@ -2707,11 +2736,11 @@ class ActivateSkinSettings:
 								for s in range(0,line.count('MetrixHD/')):
 									n1 = line.find('MetrixHD/', n2)
 									n2 = line.find('.png', n1)
-									file = "/usr/share/enigma2/MetrixHD/" + self.EHDres + line[(n1+8):(n2+4)]  
-									if path.exists(file):
-										strnew = "MetrixHD/" + self.EHDres + line[(n1+8):n2]
-										line = line[:n1] + strnew + line[n2:]
-									else:
+									file = "/usr/share/enigma2/MetrixHD" + line[(n1+8):(n2+4)]
+									if not path.exists(file):
+									#	strnew = "MetrixHD/" + self.EHDres + line[(n1+8):n2]
+									#	line = line[:n1] + strnew + line[n2:]
+									#else:
 										print "pixmap missing - line", i , file
 										self.pixmap_error = True
 							#!!! skin_default folder now in copy files !!!

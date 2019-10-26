@@ -38,6 +38,7 @@ from Components.Pixmap import Pixmap
 from enigma import ePicLoad, eTimer
 from os import path, listdir, system
 from Components.Renderer.MetrixHDWeatherUpdaterStandalone import MetrixHDWeatherUpdaterStandalone
+from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 #############################################################
 
@@ -143,7 +144,10 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		return list
 
 	def GetPicturePath(self):
-		return MAIN_IMAGE_PATH % "MyMetrixLiteWeather"
+		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/MyMetrixLiteWeather.png")
+		if not fileExists(picturepath):
+			picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteWeather"
+		return picturepath
 
 	def UpdatePicture(self):
 		self.PicLoad.PictureData.get().append(self.DecodePicture)

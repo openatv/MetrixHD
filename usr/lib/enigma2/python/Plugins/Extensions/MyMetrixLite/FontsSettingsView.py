@@ -32,7 +32,7 @@ from skin import parseColor
 from Components.Pixmap import Pixmap
 from enigma import ePicLoad
 from os import path
-
+from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 #######################################################################
 
@@ -583,15 +583,16 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.infobartext_scale.value = 100
 
 	def GetPicturePath(self):
-		try:
-			returnValue = str(self["config"].getCurrent()[1].value).split('/')[-1]
-			if len(returnValue) <= 3:
-				returnValue = "scale_75-100-125"
+		returnValue = str(self["config"].getCurrent()[1].value).split('/')[-1]
+		if len(returnValue) <= 3:
+			returnValue = "scale_75-100-125"
+		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/fonts/%s.png" % returnValue)
+		if not fileExists(picturepath):
 			picturepath = FONT_IMAGE_PATH % returnValue
-			if not path.exists(picturepath):
-				picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteFont"
-		except:
-			picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteFont"
+			if not fileExists(picturepath):
+				picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/MyMetrixLiteFont.png")
+				if not fileExists(picturepath):
+					picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteFont"
 		return picturepath
 
 	def UpdatePicture(self):

@@ -35,6 +35,7 @@ from enigma import ePicLoad
 from os import path, statvfs, listdir, remove
 from enigma import gMainDC, getDesktop
 from shutil import move, copy
+from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 #############################################################
 
@@ -288,16 +289,15 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			idx += 1
 
 	def GetPicturePath(self):
-		try:
-			zoomEnable = False
-			if len(self["config"].getCurrent()) > 3:
-				picturepath = self["config"].getCurrent()[4]
-				if path.isfile(picturepath):
-					zoomEnable = True
-			if not zoomEnable or not path.isfile(picturepath):
+		zoomEnable = False
+		if len(self["config"].getCurrent()) > 3:
+			picturepath = self["config"].getCurrent()[4]
+			if path.isfile(picturepath):
+				zoomEnable = True
+		if not zoomEnable or not path.isfile(picturepath):
+			picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/MyMetrixLiteSkinpart.png")
+			if not fileExists(picturepath):
 				picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteSkinpart"
-		except:
-			picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteSkinpart"
 
 		if zoomEnable and not "blue" in self["actions"].actions:
 			self["actions"].actions.update({"blue":self.zoom})

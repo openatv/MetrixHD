@@ -38,6 +38,7 @@ from FontsSettingsView import FontsSettingsView
 from BackupSettingsView import BackupSettingsView
 from SkinpartSettingsView import SkinpartSettingsView
 from ActivateSkinSettings import ActivateSkinSettings
+from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 #############################################################
 
@@ -158,29 +159,35 @@ class MainSettingsView(Screen):
 			return
 
 		cur = self["menuList"].getCurrent()
-		imageUrl = MAIN_IMAGE_PATH % "FFFFFF"
+		imageUrl = self.GetPicturePath("MyMetrixLiteOther")
 
 		if cur:
 			selectedKey = cur[0][1]
 
 			if selectedKey == "COLOR":
-				imageUrl = MAIN_IMAGE_PATH % "MyMetrixLiteColor"
+				imageUrl = self.GetPicturePath("MyMetrixLiteColor")
 			elif selectedKey == "WEATHER":
-				imageUrl = MAIN_IMAGE_PATH % "MyMetrixLiteWeather"
+				imageUrl = self.GetPicturePath("MyMetrixLiteWeather")
 			elif selectedKey == "OTHER":
-				imageUrl = MAIN_IMAGE_PATH % "MyMetrixLiteOther"
+				imageUrl = self.GetPicturePath("MyMetrixLiteOther")
 			elif selectedKey == "FONT":
-				imageUrl = MAIN_IMAGE_PATH % "MyMetrixLiteFont"
+				imageUrl = self.GetPicturePath("MyMetrixLiteFont")
 			elif selectedKey == "BACKUP":
-				imageUrl = MAIN_IMAGE_PATH % "MyMetrixLiteBackup"
+				imageUrl = self.GetPicturePath("MyMetrixLiteBackup")
 			elif selectedKey == "SKINPART":
-				imageUrl = MAIN_IMAGE_PATH % "MyMetrixLiteSkinpart"
+				imageUrl = self.GetPicturePath("MyMetrixLiteSkinpart")
 			elif selectedKey == "DESIGN":
-				imageUrl = MAIN_IMAGE_PATH % "MyMetrixLiteSkinpart"
+				imageUrl = self.GetPicturePath("MyMetrixLiteSkinpart")
 
 		self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
 		self.PicLoad.startDecode(imageUrl)
 		self.showHelperText()
+
+	def GetPicturePath(self, pic):
+		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/%s.png" % pic)
+		if not fileExists(picturepath):
+			picturepath = MAIN_IMAGE_PATH % pic
+		return picturepath
 
 	def DecodePicture(self, PicInfo = ""):
 		ptr = self.PicLoad.getData()

@@ -39,6 +39,7 @@ from WeatherSettingsView import WeatherSettingsView
 from OtherSettingsView import OtherSettingsView
 from FontsSettingsView import FontsSettingsView
 from ActivateSkinSettings import ActivateSkinSettings
+from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 #############################################################
 
@@ -167,7 +168,10 @@ class BackupSettingsView(ConfigListScreen, Screen):
 				self.writeFile()
 
 	def GetPicturePath(self):
-		return MAIN_IMAGE_PATH % "MyMetrixLiteBackup" 
+		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/MyMetrixLiteBackup.png")
+		if not fileExists(picturepath):
+			picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteBackup"
+		return picturepath
 
 	def UpdatePicture(self):
 		self.PicLoad.PictureData.get().append(self.DecodePicture)

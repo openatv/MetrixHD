@@ -36,6 +36,7 @@ from os import path, statvfs, remove
 from enigma import gMainDC, getDesktop
 from ActivateSkinSettings import ActivateSkinSettings
 from PIL import Image
+from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 BoxType = getBoxType()
 
@@ -671,11 +672,14 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		return list
 
 	def getButtonPreview(self):
-		if not config.plugins.MyMetrixLiteOther.SkinDesignButtons.value or not path.exists(MAIN_IMAGE_PATH % "other/template"):
+		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "MyMetrixLite/other/template.png")
+		if not fileExists(picturepath):
+			picturepath = MAIN_IMAGE_PATH % "other/template"
+		if not config.plugins.MyMetrixLiteOther.SkinDesignButtons.value or not path.exists(picturepath):
 			return
 		ret = ActivateSkinSettings().makeButtons('/tmp/button.png', _('TEST'))
 		if ret:
-			img = Image.open(MAIN_IMAGE_PATH % "other/template")
+			img = Image.open(picturepath)
 			imga = Image.open('/tmp/button.png')
 			imgwidth, imgheight = img.size
 			imgawidth, imgaheight = imga.size
@@ -683,7 +687,10 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			img.save("/tmp/template.png")
 
 	def GetPicturePath(self):
-		return MAIN_IMAGE_PATH % "MyMetrixLiteOther"
+		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "MyMetrixLite/MyMetrixLiteOther.png")
+		if not fileExists(picturepath):
+			picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteOther"
+		return picturepath
 
 	def UpdatePicture(self):
 		self.PicLoad.PictureData.get().append(self.DecodePicture)
