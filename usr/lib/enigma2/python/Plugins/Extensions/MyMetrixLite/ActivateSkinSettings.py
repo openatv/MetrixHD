@@ -1245,18 +1245,18 @@ class ActivateSkinSettings:
 				skinSearchAndReplace.append([old, new ])
 
 			#skinfiles
-			skinSearchAndReplace.append(['skin_00_templates.xml', 'skin_00_templates.MySkin.xml'])
-			skinSearchAndReplace.append(['skin_00a_InfoBar.xml', 'skin_00a_InfoBar.MySkin.xml'])
-			skinSearchAndReplace.append(['skin_00b_SecondInfoBar.xml', 'skin_00b_SecondInfoBar.MySkin.xml'])
-			skinSearchAndReplace.append(['skin_00c_SecondInfoBarECM.xml', 'skin_00c_SecondInfoBarECM.MySkin.xml'])
-			skinSearchAndReplace.append(['skin_00d_InfoBarLite.xml', 'skin_00d_InfoBarLite.MySkin.xml'])
-			skinSearchAndReplace.append(['skin_00e_ChannelSelection.xml', 'skin_00e_ChannelSelection.MySkin.xml'])
-			skinSearchAndReplace.append(['skin_00f_MoviePlayer.xml', 'skin_00f_MoviePlayer.MySkin.xml'])
-			skinSearchAndReplace.append(['skin_00g_EMC.xml', 'skin_00g_EMC.MySkin.xml'])
-			skinSearchAndReplace.append(['skin_00o_openatv.xml', 'skin_00o_openatv.MySkin.xml'])
-			skinSearchAndReplace.append(['skin_00p_plugins.xml', 'skin_00p_plugins.MySkin.xml'])
-			skinSearchAndReplace.append(['skin_00u_unchecked.xml', 'skin_00u_unchecked.MySkin.xml'])
-			skinSearchAndReplace.append(['skin_00z_design.xml', 'skin_00z_design.MySkin.xml'])
+			skinSearchAndReplace.append([SKIN_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET])
+			skinSearchAndReplace.append([SKIN_INFOBAR_LITE_SOURCE, SKIN_INFOBAR_LITE_TARGET])
+			skinSearchAndReplace.append([SKIN_SECOND_INFOBAR_SOURCE, SKIN_SECOND_INFOBAR_TARGET])
+			skinSearchAndReplace.append([SKIN_SECOND_INFOBAR_ECM_SOURCE, SKIN_SECOND_INFOBAR_ECM_TARGET])
+			skinSearchAndReplace.append([SKIN_CHANNEL_SELECTION_SOURCE, SKIN_CHANNEL_SELECTION_TARGET])
+			skinSearchAndReplace.append([SKIN_OPENATV_SOURCE, SKIN_OPENATV_TARGET])
+			skinSearchAndReplace.append([SKIN_PLUGINS_SOURCE, SKIN_PLUGINS_TARGET])
+			skinSearchAndReplace.append([SKIN_MOVIEPLAYER_SOURCE, SKIN_MOVIEPLAYER_TARGET])
+			skinSearchAndReplace.append([SKIN_EMC_SOURCE, SKIN_EMC_TARGET])
+			skinSearchAndReplace.append([SKIN_UNCHECKED_SOURCE, SKIN_UNCHECKED_TARGET])
+			skinSearchAndReplace.append([SKIN_TEMPLATES_SOURCE, SKIN_TEMPLATES_TARGET])
+			skinSearchAndReplace.append([SKIN_DESIGN_SOURCE, SKIN_DESIGN_TARGET])
 
 			#make skin file
 			skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
@@ -1319,8 +1319,8 @@ class ActivateSkinSettings:
 					if file == skinpart + '.xml':
 						partname = skinpart
 						partpath = filepath
-						TARGETpath = mySkindir + 'skin_' + skinpart + '.MySkin.xml'
-						TMPpath = skinpartdir + skinpart + '/' + skinpart + '.MySkin.xml.tmp'
+						TARGETpath = mySkindir + 'skin_' + skinpart + '.mySkin.xml'
+						TMPpath = skinpartdir + skinpart + '/' + skinpart + '.mySkin.xml.tmp'
 						#remove old MySkin files
 						if path.isfile(TMPpath.replace('.tmp','')):
 							remove(TMPpath.replace('.tmp',''))
