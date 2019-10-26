@@ -1703,6 +1703,8 @@ class ActivateSkinSettings:
 		if target == "HD" or not path.isdir(spath):
 			return
 		for x in listdir(spath):
+			if x == "Plugins": #folder is current placeholder for unused icons
+				continue
 			src = path.join(spath, x)
 			dest = path.join(dpath, x)
 			hd = path.join(dpath, '.' + x + '_hd')
