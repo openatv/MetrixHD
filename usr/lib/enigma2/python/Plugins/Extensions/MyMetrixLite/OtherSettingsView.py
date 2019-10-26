@@ -687,7 +687,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			img.save("/tmp/template.png")
 
 	def GetPicturePath(self):
-		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "MyMetrixLite/MyMetrixLiteOther.png")
+		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/MyMetrixLiteOther.png")
 		if not fileExists(picturepath):
 			picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteOther"
 		return picturepath
