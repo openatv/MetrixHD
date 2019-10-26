@@ -672,7 +672,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		return list
 
 	def getButtonPreview(self):
-		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "MyMetrixLite/other/template.png")
+		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/other/template.png")
 		if not fileExists(picturepath):
 			picturepath = MAIN_IMAGE_PATH % "other/template"
 		if not config.plugins.MyMetrixLiteOther.SkinDesignButtons.value or not path.exists(picturepath):

@@ -2736,13 +2736,14 @@ class ActivateSkinSettings:
 								for s in range(0,line.count('MetrixHD/')):
 									n1 = line.find('MetrixHD/', n2)
 									n2 = line.find('.png', n1)
-									file = "/usr/share/enigma2/MetrixHD" + line[(n1+8):(n2+4)]
+									file = "/usr/share/enigma2/MetrixHD/" + self.EHDres + line[(n1+8):(n2+4)]
 									if not path.exists(file):
 									#	strnew = "MetrixHD/" + self.EHDres + line[(n1+8):n2]
 									#	line = line[:n1] + strnew + line[n2:]
 									#else:
 										print "pixmap missing - line", i , file
 										self.pixmap_error = True
+										self.skinline_error = True
 							#!!! skin_default folder now in copy files !!!
 							#if 'skin_default/' in line and not '/skin_default/' in line and '.png"' in line:
 							#	s = 0
