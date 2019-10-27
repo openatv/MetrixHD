@@ -2731,7 +2731,7 @@ class ActivateSkinSettings:
 							strnew = line[n1:n2+1] + " " + xnew
 							line = line[:n1] + strnew + line[n3:]
 #change pixmap path
-						if not next_pixmap_ignore and ('pixmap="' in line or "pixmaps=" in line or '<pixmap pos="bp' in line or 'render="EMCPositionGauge"' in line):
+						if not next_pixmap_ignore and ('pixmap name=' in line or 'pixmap="' in line or "pixmaps=" in line or '<pixmap pos="bp' in line or 'render="EMCPositionGauge"' in line):
 							if 'MetrixHD/' in line and not 'skin_default/' in line and '.png' in line:
 								s = 0
 								n2 = 0
