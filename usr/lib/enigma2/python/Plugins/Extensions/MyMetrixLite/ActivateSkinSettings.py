@@ -59,10 +59,10 @@ class ActivateSkinSettings:
 		#0:"No Error"
 		#1:"Unknown Error creating Skin. Please check after reboot MyMetrixLite-Plugin and apply your settings."
 		#2:"Error creating HD-Skin. Not enough flash memory free."
-		#3:"Error creating FullHD-Skin. Not enough flash memory free. Using HD-Skin!"
-		#4:"Error creating FullHD-Skin. Icon package download not available. Using HD-Skin!"
-		#5:"Error creating FullHD-Skin. Using HD-Skin!"
-		#6:"Some FullHD-Icons are missing. Using HD-Icons!"
+		#3:"Error creating EHD-Skin. Not enough flash memory free. Using HD-Skin!"
+		#4:"Error creating EHD-Skin. Icon package download not available. Using HD-Skin!"
+		#5:"Error creating EHD-Skin. Using HD-Skin!"
+		#6:"Error creating EHD-Skin. Some EHD-Icons are missing. Using HD-Skin!"
 		#7:"Error, unknown Result!"
 
 		self.silent = silent
@@ -1394,9 +1394,9 @@ class ActivateSkinSettings:
 			if self.skinline_error:
 				self.ErrorCode = 5
 				plustext = plustext + _("Error creating %s skin. HD skin is used!\n\n") % self.EHDres
-			elif not self.skinline_error and self.pixmap_error:
-				self.ErrorCode = 6
-				plustext = plustext + _("One or more %s icons are missing. Using HD icons for this.\n\n") % self.EHDres
+				if self.pixmap_error:
+					self.ErrorCode = 6
+					plustext = plustext.rstrip('\n') + _("\n(One or more %s icons are missing.)\n\n") % self.EHDres
 
 			text = plustext + _("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?")
 
@@ -1708,13 +1708,13 @@ class ActivateSkinSettings:
 			src = path.join(spath, x)
 			dest = path.join(dpath, x)
 			hd = path.join(dpath, '.' + x + '_hd')
-			if path.exists(dest) and not path.exists(hd):
-				rename(dest, hd)
 			if x == 'emc' and int(config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value) > 3:
 				if target == 'FHD':
 					continue
 				elif target == 'UHD' and path.isdir('/usr/share/enigma2/MetrixHD/FHD/emc'):
 					src = '/usr/share/enigma2/MetrixHD/FHD/emc'
+			if path.exists(dest) and not path.exists(hd):
+				rename(dest, hd)
 			symlink(src, dest)
 
 	def iconFileCopy(self, target):
@@ -2731,7 +2731,7 @@ class ActivateSkinSettings:
 							strnew = line[n1:n2+1] + " " + xnew
 							line = line[:n1] + strnew + line[n3:]
 #change pixmap path
-						if not next_pixmap_ignore and ('pixmap name=' in line or 'pixmap="' in line or "pixmaps=" in line or '<pixmap pos="bp' in line or 'render="EMCPositionGauge"' in line):
+						if not next_pixmap_ignore and ('filename="' in line or 'pixmap="' in line or "pixmaps=" in line or 'render="EMCPositionGauge"' in line):
 							if 'MetrixHD/' in line and not 'skin_default/' in line and '.png' in line:
 								s = 0
 								n2 = 0
