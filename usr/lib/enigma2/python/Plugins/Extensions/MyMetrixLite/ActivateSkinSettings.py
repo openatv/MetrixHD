@@ -1360,7 +1360,6 @@ class ActivateSkinSettings:
 			if config.plugins.MyMetrixLiteOther.SkinDesignButtons.value:
 				#backup
 				for button in buttons:
-					print self.EHDres
 					buttonfile = buttonpath[self.EHDres]+button[0]
 					buttonbackupfile = buttonfile + '.backup'
 					if path.exists(buttonfile) and not path.exists(buttonbackupfile):
@@ -1424,7 +1423,7 @@ class ActivateSkinSettings:
 			config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")
 		config.skin.primary_skin.save()
 		configfile.save()
-		print "MyMetrixLite apply Changes - duration %ss " % (round(time()-apply_starttime,1))
+		print "MyMetrixLite apply Changes - duration time: %ss" % (round(time()-apply_starttime,1))
 
 	def makeButtons(self, button, text, extern = True):
 		try:
