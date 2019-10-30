@@ -1320,6 +1320,10 @@ class ActivateSkinSettings:
 
 			#EHD-option
 			print "--------   option%s   --------" % self.EHDres
+			# update icon files
+			if self.EHDenabled:
+				self.updateIcons(self.EHDres)
+				self.makeGraphics(self.EHDfactor)
 			for file in skinfiles:
 				if self.skinline_error:
 					break
@@ -1328,11 +1332,8 @@ class ActivateSkinSettings:
 				else:
 					self.optionEHD(file[0],file[1])
 
-			#last step to ehd-mode - update icon files
-			if self.EHDenabled and not self.skinline_error:
-				self.updateIcons(self.EHDres)
-				self.makeGraphics(self.EHDfactor)
-			else:
+			# restore icon files
+			if self.skinline_error:
 				self.EHDenabled = False
 				self.EHDfactor = 1
 				self.EHDres = 'HD'
