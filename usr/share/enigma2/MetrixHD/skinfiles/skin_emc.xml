@@ -279,29 +279,29 @@
 	</screen>
 	<!-- EMCMediaCenter_1-3 - start - endtime -->
 	<screen name="EMCMediaCenter_1_time">
-		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text; 22" halign="right" valign="bottom" position="566,674" size="60,28" transparent="1">
+		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text;22" halign="right" valign="bottom" position="566,674" size="60,28" transparent="1">
 			<convert type="MetrixHDServiceTime">StartTime</convert>
 		</widget>
-		<eLabel backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text; 22" halign="center" valign="bottom" position="628,674" size="20,28" text="-" transparent="1"/>
-		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" font="infobar_text; 22" halign="left" valign="bottom" position="648,674" size="60,28" transparent="1">
+		<eLabel backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text;22" halign="center" valign="bottom" position="628,674" size="20,28" text="-" transparent="1"/>
+		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" font="infobar_text;22" halign="left" valign="bottom" position="648,674" size="60,28" transparent="1">
 			<convert type="MetrixHDServiceTime">EndTime</convert>
 		</widget>
 	</screen>
 	<screen name="EMCMediaCenter_2_time">
-		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text; 20" halign="right" valign="center" position="644,630" size="60,28" transparent="1">
+		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text;20" halign="right" valign="center" position="644,630" size="60,28" transparent="1">
 			<convert type="MetrixHDServiceTime">StartTime</convert>
 		</widget>
-		<eLabel backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text; 20" halign="center" valign="center" position="706,630" size="20,28" text="-" transparent="1"/>
-		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" font="infobar_text; 20" halign="left" valign="center" position="726,630" size="60,28" transparent="1">
+		<eLabel backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text;20" halign="center" valign="center" position="706,630" size="20,28" text="-" transparent="1"/>
+		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" font="infobar_text;20" halign="left" valign="center" position="726,630" size="60,28" transparent="1">
 			<convert type="MetrixHDServiceTime">EndTime</convert>
 		</widget>
 	</screen>
 	<screen name="EMCMediaCenter_3_time">
-		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text; 20" halign="right" valign="bottom" position="440,686" size="60,28" transparent="1">
+		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text;20" halign="right" valign="bottom" position="440,686" size="60,28" transparent="1">
 			<convert type="MetrixHDServiceTime">StartTime</convert>
 		</widget>
-		<eLabel backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text; 20" halign="center" valign="bottom" position="502,686" size="20,28" text="-" transparent="1"/>
-		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" font="infobar_text; 20" halign="left" valign="bottom" position="522,686" size="60,28" transparent="1">
+		<eLabel backgroundColor="infobarbackground" foregroundColor="infobaraccent2" font="infobar_text;20" halign="center" valign="bottom" position="502,686" size="20,28" text="-" transparent="1"/>
+		<widget source="session.CurrentService" render="Label" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" font="infobar_text;20" halign="left" valign="bottom" position="522,686" size="60,28" transparent="1">
 			<convert type="MetrixHDServiceTime">EndTime</convert>
 		</widget>
 	</screen>
@@ -341,13 +341,13 @@
 	<screen name="MovieMenu" position="0,0" size="1280,720" title="Menu EMC" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="CONTEXTMENU_textTitle_template" />
 		<ePixmap position="305,80" size="256,256" pixmap="MetrixHD/icons/movie.png" alphatest="blend" />
-		<eLabel text="Menu EMC" position="5,535" size="1280,200" font="global_large_menu; 100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<eLabel text="Menu EMC" position="5,535" size="1280,200" font="global_large_menu;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 	</screen>
 	<!-- EMC MovieRetitle -->
 	<screen name="MovieRetitle" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Setup" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="center" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="Title" render="Label" position="70,100" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,160" size="700,480" itemHeight="30" font="screen_text; 20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="config" position="70,160" size="700,480" itemHeight="30" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
@@ -430,7 +430,7 @@
 		<widget name="countrytxt" position="420,330" size="350,60" halign="right" font="epg_text;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="contenttxt" position="70,400" size="700,220" font="screen_info;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="key_green" pixmap="MetrixHD/buttons/key_green.png" position="218,635" size="30,40" alphatest="blend" />
-		<widget name="save" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="save" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="moe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/movie.png" transparent="1" alphatest="blend" />
@@ -442,10 +442,10 @@
 		<widget source="Title" render="Label" position="70,95" size="700,35" font="epg_text;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left" transparent="1" />
 		<eLabel position="70,135" size="700,1" backgroundColor="layer-a-accent2" />
 		<widget name="playlist" position="70,150" size="700,450" posFont="epg_text;20" nameFont="epg_text;20" itemHeight="30" posWidth="50" nameWidth="650" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" posColor="layer-a-foreground" posColorSel="layer-a-selection-foreground" nameColor="layer-a-foreground" nameColorSel="layer-a-selection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" /> 
-		<widget name="cancel" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="save" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="delete" position="436,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="deleteall" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="cancel" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="save" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="delete" position="436,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="deleteall" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<panel name="template1_2layer"/> 
 		<panel name="rgyb-buttons_template1"/> 
 		<panel name="_oe-buttons_template1" /> 
@@ -454,8 +454,8 @@
 	<screen name="EMCPlaylistSetup" position="0,0" size="1280,720" title="EMC Playlist Setup" flags="wfNoBorder" backgroundColor="transparent"> 
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" halign="left" transparent="1" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="epg_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="cancel" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="save" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button; 20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="cancel" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="save" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<panel name="template1_2layer"/> 
 		<panel name="rg__-buttons_template1"/> 
 		<panel name="_oe-buttons_template1" /> 
@@ -477,7 +477,7 @@
 		</widget>
 		<eLabel position="824,129" size="387,219" backgroundColor="layer-b-accent2" />
 		<widget source="session.VideoPicture" render="Pig" position="825,130" size="385,217" zPosition="3" backgroundColor="unff000000" />
-		<widget source="session.CurrentService" render="Label" position="825,127" size="388,30" zPosition="4" font="epg_text; 18"  halign="center" valign="top" noWrap="1" backgroundColor="transparent" foregroundColor="epg-event-foreground" borderColor="black" borderWidth="1" transparent="1">
+		<widget source="session.CurrentService" render="Label" position="825,127" size="388,30" zPosition="4" font="epg_text;18"  halign="center" valign="top" noWrap="1" backgroundColor="transparent" foregroundColor="epg-event-foreground" borderColor="black" borderWidth="1" transparent="1">
 			<convert type="ServiceName">Name</convert>
 		</widget>
 		<eLabel position="825,369" size="385,1" backgroundColor="layer-b-accent2" />

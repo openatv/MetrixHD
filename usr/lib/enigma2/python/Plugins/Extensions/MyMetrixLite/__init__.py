@@ -679,10 +679,8 @@ def initOtherConfig():
 	###########################################
 	config.plugins.MyMetrixLiteOther.EHDenabled = ConfigSelection(default = "0", choices = skinmodes)
 	config.plugins.MyMetrixLiteOther.EHDrounddown = ConfigYesNo(default=False)
-	config.plugins.MyMetrixLiteOther.EHDfontsize = ConfigSelection(default = "2", choices = [("1", _("scale")), ("2", _("size")), ("3", _("50/50"))])
-	config.plugins.MyMetrixLiteOther.EHDfontoffset = ConfigSelectionNumber(-20, 20, 1, default = 0)
+	config.plugins.MyMetrixLiteOther.EHDfontoffset = ConfigSelectionNumber(-10, 5, 1, default = 0)
 	config.plugins.MyMetrixLiteOther.EHDpiconzoom =  ConfigSelection(default = "1.0", choices = [("0", _("No")), ("0.2", _("20%")), ("0.4", _("40%")), ("0.6", _("60%")), ("0.8", _("80%")), ("1.0", _("100%"))])
-	config.plugins.MyMetrixLiteOther.EHDadditionalfiles = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.piconresize_experimental = ConfigYesNo(default=False)
 	sharpness = []
 	for i in range(0,525,25):
