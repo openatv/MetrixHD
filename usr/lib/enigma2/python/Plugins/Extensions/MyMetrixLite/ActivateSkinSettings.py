@@ -1821,8 +1821,7 @@ class ActivateSkinSettings:
 							if not pic.startswith('/usr/share/enigma2/'):
 								pic = '/usr/share/enigma2/' + pic
 							if not path.isfile(pic):
-								if not 'MetrixHD/%s/' %self.EHDres in pic and not 'MetrixHD/skinparts/' in pic and not 'MetrixHD/border/' in pic:
-									pic = pic.replace('MetrixHD/', 'MetrixHD/%s/' %self.EHDres)
+								pic = path.realpath(pic)
 								print "pixmap missing - line:", i, pic
 								self.pixmap_error = pic
 								self.skinline_error = True
