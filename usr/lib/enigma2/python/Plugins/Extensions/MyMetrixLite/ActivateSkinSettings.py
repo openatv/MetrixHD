@@ -292,7 +292,6 @@ class ActivateSkinSettings:
 			)
 			infobarSkinSearchAndReplace.append(['<panel name="CHANNELNAME" />', channelNameXML])
 
-
 			# SecondInfoBar
 			skin_lines = appendSkinFile(SKIN_SECOND_INFOBAR_SOURCE, infobarSkinSearchAndReplace)
 
@@ -1266,6 +1265,14 @@ class ActivateSkinSettings:
 			xFile.close()
 
 			################
+			# Icons, Graphics
+			################
+
+			# update *.png files
+			self.updateIcons(self.EHDres)
+			self.makeGraphics(self.EHDfactor)
+
+			################
 			# Skinparts
 			################
 
@@ -1301,10 +1308,10 @@ class ActivateSkinSettings:
 					skinfiles.append((partpath, TARGETpath, TMPpath))
 
 			################
-			# EHD-skin + ALL-skin files
+			# EHD-skin
 			################
 
-			#function "optionEHD" variables
+			#EHD-variables
 			self.skinline_error = False
 			self.pixmap_error = False
 			self.round_par = int(config.plugins.MyMetrixLiteOther.EHDrounddown.value)
@@ -1314,15 +1321,9 @@ class ActivateSkinSettings:
 				if not self.picon_zoom: self.picon_zoom = 1
 			else:
 				self.picon_zoom = self.EHDfactor
-			#variables end
 
-			text = ""
-
-			#EHD-option
-			print "--------   option%s   --------" % self.EHDres
-			# update icon files
-			self.updateIcons(self.EHDres)
-			self.makeGraphics(self.EHDfactor)
+			#make *_TARGET files
+			print "--------   make %s-skin  --------" % self.EHDres
 			for file in skinfiles:
 				if self.skinline_error:
 					break
@@ -1331,26 +1332,27 @@ class ActivateSkinSettings:
 				else:
 					self.optionEHD(file[0],file[1])
 
-			# restore icon files
 			if self.skinline_error:
+				print "--------   force HD-skin   --------"
 				self.EHDenabled = False
 				self.EHDfactor = 1
 				self.EHDres = 'HD'
 				self.EHDtxt = 'Standard HD'
-				error_skinline = self.skinline_error
+				skinline_error = self.skinline_error
 				self.skinline_error = False
-				print "--------   reset to %s   --------" % self.EHDres
 				for file in skinfiles:
-					if self.skinline_error:
-						break
 					if path.exists(file[2]):
 						self.optionEHD(file[2],file[1])
 					else:
 						self.optionEHD(file[0],file[1])
-				if not self.skinline_error:
-					self.skinline_error = error_skinline
+				self.skinline_error = skinline_error
 				self.updateIcons()
 				self.makeGraphics(1)
+
+			#remove *_TMP files
+			for file in skinfiles:
+				if path.exists(file[2]):
+					remove(file[2])
 
 			################
 			# Buttons
@@ -1373,20 +1375,20 @@ class ActivateSkinSettings:
 					if path.exists(buttonbackupfile):
 						move(buttonbackupfile,buttonfile)
 
-			#remove old _TMP files
-			for file in skinfiles:
-				if path.exists(file[2]):
-					remove(file[2])
+			################
+			# info message
+			################
 
+			text = ""
 			if self.skinline_error:
 				self.getEHDSettings()
 				self.ErrorCode = 5
 				text += _("Error creating %s skin. HD skin is used!\n\n") % self.EHDres
-				if self.skinline_error[1]:
-					text = text.rstrip('\n') + "\n\n< %s >\n\n" % self.skinline_error[1]
-				if self.pixmap_error:
+				if not self.pixmap_error:
+					text = text.rstrip('\n') + "\n\n< %s >\n\n" % self.skinline_error
+				else:
 					self.ErrorCode = 6
-					text = text.rstrip('\n') + (_("\n(One or more %s icons are missing.)\n\n")  + "< %s >\n\n") % (self.EHDres, self.pixmap_error[1])
+					text = text.rstrip('\n') + (_("\n(One or more %s icons are missing.)\n\n")  + "< %s >\n\n") % (self.EHDres, self.pixmap_error)
 
 			text += _("GUI needs a restart to apply a new skin.\nDo you want to Restart the GUI now?")
 
@@ -1396,7 +1398,7 @@ class ActivateSkinSettings:
 				self.ErrorCode = 'reboot', text
 
 		except Exception as error:
-			print '[ActivateSkinSettings]', error
+			print '[ActivateSkinSettings - applyChanges]', error
 			self.ErrorCode = 1
 			if not self.silent:
 				self.ErrorCode = 'error', _("Error creating Skin!") + '\n< %s >' %error
@@ -1408,7 +1410,7 @@ class ActivateSkinSettings:
 					remove(file[1])
 				if path.exists(file[2]):
 					remove(file[2])
-			#retore buttons
+			#restore buttons
 			for button in buttons:
 				buttonfile = buttonpath["HD"]+button[0]
 				buttonbackupfile = buttonfile + '.backup'
@@ -1416,7 +1418,7 @@ class ActivateSkinSettings:
 					move(buttonbackupfile,buttonfile)
 			#restore icons
 			self.updateIcons()
-			#retore default hd skin
+			#restore default hd skin
 			config.skin.primary_skin.setValue("MetrixHD/skin.xml")
 		else:
 			config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")
@@ -1892,9 +1894,9 @@ class ActivateSkinSettings:
 						for pic in pics:
 							ehdpic = '/usr/share/enigma2/' + pic.replace('MetrixHD/', 'MetrixHD/%s/' %self.EHDres) if not pic.startswith('/usr/share/enigma2/') else pic.replace('MetrixHD/', 'MetrixHD/%s/' %self.EHDres)
 							if not path.isfile(ehdpic):
-								print "pixmap missing - line", i , ehdpic
-								self.pixmap_error = True, ehdpic
-								self.skinline_error = True, ''
+								print "pixmap missing - line:", i, ehdpic
+								self.pixmap_error = ehdpic
+								self.skinline_error = True
 								break
 					if run_mod:
 #<resolution xres="1280" yres="720"
@@ -2032,14 +2034,14 @@ class ActivateSkinSettings:
 							line = re_ctvg.sub(self.linereplacer, line)
 #cool tv guide special end
 				except Exception as error:
-					self.skinline_error = True ,str(error)
-					print "error in line: ", i, line, error
+					self.skinline_error = error
+					print "error in line:", i, line, error
 					print "--------"
 			f1.write(line)
 			if self.skinline_error:
 				break
-
 		f.close()
 		f1.close()
-		print "complete"
-		print "--------"
+		if not self.skinline_error:
+			print "complete"
+			print "--------"
