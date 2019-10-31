@@ -1609,7 +1609,7 @@ class ActivateSkinSettings:
 		color = config.plugins.MyMetrixLiteColors.layerabackground.value
 		alpha = config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value
 		cgfile = "/usr/share/enigma2/MetrixHD/ibts/background.png"
-		self.makeColorField(cgfile, int(1280*factor), int(32*factor), color, alpha)
+		if path.isdir("/usr/share/enigma2/MetrixHD/ibts"): self.makeColorField(cgfile, int(1280*factor), int(32*factor), color, alpha)
 		# file commander image viewer background
 		color = config.plugins.MyMetrixLiteColors.layerabackground.value
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_imageviewer.png"
@@ -1731,7 +1731,10 @@ class ActivateSkinSettings:
 					src = '/usr/share/enigma2/MetrixHD/FHD/emc'
 			if path.exists(dest) and not path.exists(hd):
 				rename(dest, hd)
-			symlink(src, dest)
+			try:
+				symlink(src, dest)
+			except OSError, e:
+				raise Exception(_("Can't create symlink:") + "\n%s\n---> %s\n(%s)" %(src, dest, e))
 
 	def optionEHD(self, sourceFile, targetFile):
 		oldlinechanger = config.plugins.MyMetrixLiteOther.EHDoldlinechanger.value
@@ -1812,13 +1815,16 @@ class ActivateSkinSettings:
 								next_picon_zoom = False
 								next_pixmap_ignore = False
 #test pixmap path
-					if not next_pixmap_ignore and not next_rename and not 'MetrixHD/border/' in line and not 'MetrixHD/skinparts/' in line and 'MetrixHD/' in line and '.png' in line:
+					if not next_pixmap_ignore and 'MetrixHD/' in line and '.png' in line:
 						pics = re.findall('Metrix[-/\w]+.png', line)
 						for pic in pics:
-							ehdpic = '/usr/share/enigma2/' + pic.replace('MetrixHD/', 'MetrixHD/%s/' %self.EHDres) if not pic.startswith('/usr/share/enigma2/') else pic.replace('MetrixHD/', 'MetrixHD/%s/' %self.EHDres)
-							if not path.isfile(ehdpic):
-								print "pixmap missing - line:", i, ehdpic
-								self.pixmap_error = ehdpic
+							if not pic.startswith('/usr/share/enigma2/'):
+								pic = '/usr/share/enigma2/' + pic
+							if not path.isfile(pic):
+								if not 'MetrixHD/%s/' %self.EHDres in pic and not 'MetrixHD/skinparts/' in pic and not 'MetrixHD/border/' in pic:
+									pic = pic.replace('MetrixHD/', 'MetrixHD/%s/' %self.EHDres)
+								print "pixmap missing - line:", i, pic
+								self.pixmap_error = pic
 								self.skinline_error = True
 								break
 					if run_mod:
