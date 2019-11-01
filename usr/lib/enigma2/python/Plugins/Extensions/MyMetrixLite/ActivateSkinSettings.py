@@ -1692,6 +1692,8 @@ class ActivateSkinSettings:
 						move(dpath + file,dpath + file[:-3])
 					elif file.endswith('.png.del') and path.isfile(dpath + file):
 						remove(dpath + file)
+					elif dpath == "/usr/share/enigma2/MetrixHD/" and file.startswith("skin_00") and path.isfile(dpath + file):
+						remove(dpath + file)
 		dpath = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/"
 		npath = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images_hd/"
 		if path.isdir(dpath) and path.isdir(npath):
