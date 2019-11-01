@@ -882,9 +882,7 @@
 		<widget name="genre" position="450,560" size="400,45" font="Regular;30" backgroundColor="black" transparent="1" /-->
 		<widget name="title" position="585,490" size="700,120" font="SetrixHD;40" backgroundColor="#010206" transparent="1" />
 		<widget name="genre" position="450,560" size="135,45" font="Regular;30" backgroundColor="black" transparent="1" />
-<!-- pixmap missing -->
-<!-- cf#_#pixnore -->
-		<ePixmap pixmap="/usr/share/enigma2/MetrixHD/mmp/dvr-fs8.png" alphatest="blend" position="507,619" size="245,60" transparent="1" zPosition="4"/>
+		<ePixmap pixmap="/usr/share/enigma2/MetrixHD/mmp/dvr.png" alphatest="blend" position="507,619" size="245,60" transparent="1" zPosition="4"/>
 		<widget name="dvrStatus" pixmaps="/usr/share/enigma2/MetrixHD/mmp/dvr_pl.png,/usr/share/enigma2/MetrixHD/mmp/dvr_pau.png" alphatest="blend" position="507,619" size="245,60" transparent="1" zPosition="5"/>
 		<widget name="repeat" pixmaps="/usr/share/enigma2/MetrixHD/mmp/dvr_rep1.png,/usr/share/enigma2/MetrixHD/mmp/dvr_rep2.png" alphatest="blend" position="412,602" size="95,95" transparent="1" zPosition="5"/>
 		<widget name="shuffle" pixmaps="/usr/share/enigma2/MetrixHD/mmp/dvr_shuf1.png,/usr/share/enigma2/MetrixHD/mmp/dvr_shuf2.png" alphatest="blend" position="756,602" size="95,95" transparent="1" zPosition="4"/>
@@ -1471,22 +1469,6 @@
 	</screen>
 	<!-- FullBackup -->
 	<!-- Serienrecorder -->
-<!-- cf#_#rename --> 
-	<screen name="serienrecorder_pixmap" >
-		<ePixmap zPosition="1" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/serienrecorder/images/no_cover.png" position="890,270" size="320,200" alphatest="blend" />
-	</screen>
-<!-- cf#_#rename --> 
-	<screen name="serienrecorder_pixmap#_FHDscreen" >
-<!-- cf#_#start -->
-<!-- cf#_#pixnore -->
-		<ePixmap zPosition="1" pixmap="MetrixHD/extensions/no_cover.png" position="890,270" size="320,200" alphatest="blend" />
-	</screen>
-<!-- cf#_#rename --> 
-	<screen name="serienrecorder_pixmap#_UHDscreen" >
-<!-- cf#_#start -->
-<!-- cf#_#pixnore -->
-		<ePixmap zPosition="1" pixmap="MetrixHD/extensions/no_cover.png" position="890,270" size="320,200" alphatest="blend" />
-	</screen>
 	<screen name="SerienRecorder3.0" position="0,0" size="1280,720" title="Serien Recorder" backgroundColor="transparent"> 
 		<panel name="template1_1layer" />
 		<widget zPosition="1" name="headline" position="58,36" size="900,50" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" valign="bottom" font="global_title;34" halign="left" noWrap="1"/>
@@ -1515,7 +1497,7 @@
 		<widget zPosition="1" name="config_information" position="890,150" size="320,450" backgroundColor="layer-b-background" transparent="0" />
 		<widget zPosition="2" name="config_information_text" position="900,158" size="300,434" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center" font="screen_info;16"/>
 	<!-- Cover -->
-		<panel name="serienrecorder_pixmap" />
+		<ePixmap zPosition="1" pixmap="MetrixHD/extensions/no_cover.png" position="890,270" size="320,200" alphatest="blend" />
 		<widget zPosition="2" name="cover" position="890,150" size="320,450" alphatest="blend" />
 	<!-- Colour Buttons -->
 		<widget name="bt_red" pixmap="MetrixHD/buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" />
@@ -3557,10 +3539,8 @@
 	<screen name="ImageViewer" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="0,0" zPosition="0" size="1280,720" backgroundColor="#00000000" />
 		<widget name="image" position="0,0" size="1280,720" zPosition="1" alphatest="on" />
-	<!-- cf#_#pixnore -->
 		<ePixmap position="0,0" size="1280,30" zPosition="1" pixmap="MetrixHD/colorgradient_imageviewer.png" transparent="1" alphatest="blend" />
 		<widget name="status" position="9,7" size="20,20" zPosition="2" pixmap="MetrixHD/icons/record.png" alphatest="blend" />
-	<!-- cf#_#pixnore -->
 		<widget name="icon" position="29,5" size="20,20" zPosition="2" pixmap="MetrixHD/icons/ico_mp_play.png" alphatest="blend" />
 		<widget source="message" render="Label" position="54,0" size="1200,30" font="screen_text;20" halign="left" foregroundColor="#0038FF48" backgroundColor="layer-a-background" zPosition="2" noWrap="1" transparent="1" />
 	</screen>

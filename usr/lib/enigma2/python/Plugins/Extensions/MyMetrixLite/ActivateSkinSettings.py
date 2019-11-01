@@ -1743,6 +1743,7 @@ class ActivateSkinSettings:
 		next_rename = False
 		next_picon_zoom = False
 		next_pixmap_ignore = False
+		line_disabled = False
 
 		self.xpos = 0
 		self.ypos = 0
@@ -1814,8 +1815,12 @@ class ActivateSkinSettings:
 								self.ypos = 0
 								next_picon_zoom = False
 								next_pixmap_ignore = False
+#line disabled on
+					if not 'cf#_#' in line and re.match('<!--|#+', line.lstrip()):
+						#print 'line disabled on', i, line
+						line_disabled = True
 #test pixmap path
-					if not next_pixmap_ignore and 'MetrixHD/' in line and '.png' in line:
+					if not line_disabled and not next_pixmap_ignore and 'MetrixHD/' in line and '.png' in line:
 						pics = re.findall('Metrix[-/\w]+.png', line)
 						for pic in pics:
 							if not pic.startswith('/usr/share/enigma2/'):
@@ -1826,11 +1831,15 @@ class ActivateSkinSettings:
 								self.pixmap_error = pic
 								self.skinline_error = True
 								break
-					if run_mod:
+					if run_mod and not line_disabled:
 						if oldlinechanger:
 							line = self.linerchanger_old(line, next_picon_zoom)
 						else:
 							line = self.linerchanger_new(line, next_picon_zoom)
+#line disabled off
+					if line_disabled and not 'cf#_#' in line and (re.match('#+', line.lstrip()) or re.match('.*-->.*', line.rstrip())):
+						#print 'line disabled off', i, line
+						line_disabled = False
 				except Exception as error:
 					self.skinline_error = error
 					print "error in line:", i, line, error
