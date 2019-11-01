@@ -1831,7 +1831,7 @@ class ActivateSkinSettings:
 								self.pixmap_error = pic
 								self.skinline_error = True
 								break
-					if run_mod and not line_disabled:
+					if run_mod and not line_disabled and not self.skinline_error:
 						if oldlinechanger:
 							line = self.linerchanger_old(line, next_picon_zoom)
 						else:
