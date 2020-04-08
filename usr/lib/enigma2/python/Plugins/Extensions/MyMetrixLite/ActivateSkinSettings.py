@@ -812,7 +812,7 @@ class ActivateSkinSettings:
 			if config.plugins.MyMetrixLiteOther.showChannelListRunningtext.value:
 				DESIGNSkinSearchAndReplace.append(['movetype=none,startdelay=600,steptime=60', 'movetype=running,startdelay=%s,steptime=%s' %(delay,speed)]) #event description
 			if config.plugins.MyMetrixLiteOther.showInfoBarRunningtext.value:
-				DESIGNSkinSearchAndReplace.append(['movetype=none,startdelay=900,steptime=1,step=3', 'movetype=running,startdelay=%s,steptime=1,step=%s' %(int(delay*1.5),speed/20)]) #infobar
+				DESIGNSkinSearchAndReplace.append(['movetype=none,startdelay=900,steptime=1,step=3', 'movetype=running,startdelay=%s,steptime=%s,step=2' %(int(delay*1.5),speed)]) #infobar
 
 			#show menu buttons
 			if not config.plugins.MyMetrixLiteOther.SkinDesignMenuButtons.value:
