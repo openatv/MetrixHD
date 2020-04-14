@@ -739,31 +739,31 @@ class ActivateSkinSettings:
 			DESIGNSkinSearchAndReplace.append(['<panel name="QuickMenu_Layer-1" />', newline3 ])
 
 			if int(config.plugins.MyMetrixLiteOther.SkinDesign.value) > 1:
-				DESIGNSkinSearchAndReplace.append(['<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/', '<ePixmap position="950,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/' ])
-				DESIGNSkinSearchAndReplace.append(['<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/', '<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/' ])
-				DESIGNSkinSearchAndReplace.append(['<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/', '<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/' ])
+				DESIGNSkinSearchAndReplace.append(['<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="buttons/', '<ePixmap position="950,635" size="81,40" zPosition="10" pixmap="buttons/' ])
+				DESIGNSkinSearchAndReplace.append(['<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="buttons/', '<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/' ])
+				DESIGNSkinSearchAndReplace.append(['<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="buttons/', '<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/' ])
 
 			DESIGNSkinSearchAndReplace.append(['<panel name="INFOBAREXTENDEDINFO-1" />', '<panel name="INFOBAREXTENDEDINFO-' + config.plugins.MyMetrixLiteOther.ExtendedinfoStyle.value + '" />' ])
 
 			# color gradient for ib,sib,mb,ibepg and quickemenu
 			if config.plugins.MyMetrixLiteColors.cologradient.value != '0':
-				old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_ib.png" position="0,560" size="1280,160" zPosition="-1" /-->'
-				new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_ib.png" position="0,560" size="1280,160" zPosition="-1" />'
+				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_bottom_ib.png" position="0,560" size="1280,160" zPosition="-1" /-->'
+				new = '<ePixmap alphatest="blend" pixmap="colorgradient_bottom_ib.png" position="0,560" size="1280,160" zPosition="-1" />'
 				DESIGNSkinSearchAndReplace.append([old, new ])
-				old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_epg.png" position="0,10" size="1280,220" zPosition="-1" /-->'
-				new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_epg.png" position="0,10" size="1280,220" zPosition="-1" />'
+				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_bottom_epg.png" position="0,10" size="1280,220" zPosition="-1" /-->'
+				new = '<ePixmap alphatest="blend" pixmap="colorgradient_bottom_epg.png" position="0,10" size="1280,220" zPosition="-1" />'
 				DESIGNSkinSearchAndReplace.append([old, new ])
-				old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top_ib.png" position="0,0" size="1280,30" zPosition="-1" /-->'
-				new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top_ib.png" position="0,0" size="1280,30" zPosition="-1" />'
+				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_top_ib.png" position="0,0" size="1280,30" zPosition="-1" /-->'
+				new = '<ePixmap alphatest="blend" pixmap="colorgradient_top_ib.png" position="0,0" size="1280,30" zPosition="-1" />'
 				DESIGNSkinSearchAndReplace.append([old, new ])
-				old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top_qm.png" position="0,0" size="1280,94" zPosition="-1" /-->'
-				new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_top_qm.png" position="0,0" size="1280,94" zPosition="-1" />'
+				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_top_qm.png" position="0,0" size="1280,94" zPosition="-1" /-->'
+				new = '<ePixmap alphatest="blend" pixmap="colorgradient_top_qm.png" position="0,0" size="1280,94" zPosition="-1" />'
 				DESIGNSkinSearchAndReplace.append([old, new ])
-				old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_mb.png" position="0,570" size="1280,150" zPosition="-1" /-->'
-				new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_mb.png" position="0,570" size="1280,150" zPosition="-1" />'
+				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_bottom_mb.png" position="0,570" size="1280,150" zPosition="-1" /-->'
+				new = '<ePixmap alphatest="blend" pixmap="colorgradient_bottom_mb.png" position="0,570" size="1280,150" zPosition="-1" />'
 				DESIGNSkinSearchAndReplace.append([old, new ])
-				old = '<!--ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_pb.png" position="0,640" size="1280,80" zPosition="-1" /-->'
-				new = '<ePixmap alphatest="blend" pixmap="MetrixHD/colorgradient_bottom_pb.png" position="0,640" size="1280,80" zPosition="-1" />'
+				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_bottom_pb.png" position="0,640" size="1280,80" zPosition="-1" /-->'
+				new = '<ePixmap alphatest="blend" pixmap="colorgradient_bottom_pb.png" position="0,640" size="1280,80" zPosition="-1" />'
 				DESIGNSkinSearchAndReplace.append([old, new ])
 
 			#picon

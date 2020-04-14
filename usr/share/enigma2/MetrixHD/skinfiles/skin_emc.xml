@@ -76,7 +76,7 @@
 	</screen>
 	<!-- EMCSelectionCover_small -->
 	<screen name="EMCSelectionCover_small">
-		<ePixmap position="1132,88" zPosition="1" size="100,100" alphatest="blend" pixmap="MetrixHD/icons/movie_small.png"/>
+		<ePixmap position="1132,88" zPosition="1" size="100,100" alphatest="blend" pixmap="icons/movie_small.png"/>
 		<panel name="EMCSelectionList_picon_left" />
 		<widget source="Service" render="Label" position="825,90" size="300,55" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCEventName">Name</convert>
@@ -113,7 +113,7 @@
 		<panel name="EMCSelectionList_picon_left" />
 	</screen>
 	<screen name="EMCSelectionCover_large">
-		<ePixmap position="970,260" zPosition="1" size="100,100" alphatest="blend" pixmap="MetrixHD/icons/movie_small.png"/>
+		<ePixmap position="970,260" zPosition="1" size="100,100" alphatest="blend" pixmap="icons/movie_small.png"/>
 		<panel name="EMCSelectionCover_large_description_on" />
 		<widget source="Service" render="Label" position="825,90" size="380,55" valign="center" halign="center" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCEventName">Name</convert>
@@ -139,41 +139,41 @@
 	<screen name="EMCMediaCenter_1">
 		<eLabel name="GRADIENT_BACKGROUND" position="0,570" zPosition="-2" size="1281,150" backgroundColor="infobarbackground" />
 		<panel name="RT_EMCMediaCenter_1"/>
-		<ePixmap pixmap="MetrixHD/icons/ico_dolby_off.png" position="1060,616" size="34,23" zPosition="1" alphatest="blend" />
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_dolby_on.png" position="1060,616" size="34,23" zPosition="2" alphatest="blend">
+		<ePixmap pixmap="icons/ico_dolby_off.png" position="1060,616" size="34,23" zPosition="1" alphatest="blend" />
+		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_dolby_on.png" position="1060,616" size="34,23" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsMultichannel</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<ePixmap pixmap="MetrixHD/icons/ico_format_off.png" position="1175,616" size="43,26" zPosition="1" alphatest="blend" />
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_format_on.png" position="1175,616" size="43,26" zPosition="2" alphatest="blend">
+		<ePixmap pixmap="icons/ico_format_off.png" position="1175,616" size="43,26" zPosition="1" alphatest="blend" />
+		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_format_on.png" position="1175,616" size="43,26" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsWidescreen</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_off.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_hd_off.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsSD</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_hd_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsHD</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_uhd_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_uhd_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">Is4K</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		<widget asource="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_hdr_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+		<widget asource="session.CurrentService" render="Pixmap" pixmap="icons/ico_hd_hdr_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsHDHDR</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hdr_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_hdr_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsHDR</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hdr10_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_hdr10_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsHDR10</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hlg_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_hlg_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsHLG</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
@@ -184,7 +184,7 @@
 		<widget source="session.CurrentService" render="Label" font="infobar_text;19" position="1146,580" size="55,25" halign="left" foregroundColor="infobaraccent1" backgroundColor="infobarbackground" transparent="1">
 			<convert type="ServiceInfo">VideoHeight</convert>
 		</widget>
-		<widget source="session.RecordState" render="Pixmap" pixmap="MetrixHD/icons/ico_rec_on.png" position="999,616" size="74,23" zPosition="2" alphatest="blend">
+		<widget source="session.RecordState" render="Pixmap" pixmap="icons/ico_rec_on.png" position="999,616" size="74,23" zPosition="2" alphatest="blend">
 			<convert type="ConditionalShowHide">Blink</convert>
 		</widget>
 		<widget source="Service" render="Label" position="40,657" size="100,28" font="infobar_text;22" halign="right" valign="bottom" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
@@ -215,7 +215,7 @@
 	<!-- EMCMediacenter_2 - standard version (old infobar style) -->
 	<screen name="EMCMediaCenter_2">
 		<eLabel name="GRADIENT_BACKGROUND" position="0,570" zPosition="-2" size="1281,150" backgroundColor="infobarbackground" />
-		<ePixmap position="40,595" zPosition="1" size="100,100" alphatest="blend" pixmap="MetrixHD/icons/movie_small.png"/>
+		<ePixmap position="40,595" zPosition="1" size="100,100" alphatest="blend" pixmap="icons/movie_small.png"/>
 		<eLabel backgroundColor="infobaraccent1" position="188,625" size="1050,1" zPosition="3"/>
 		<widget source="Service" render="EMCPositionGauge" position="188,621" size="1050,9" zPosition="6" transparent="1">
 			<convert type="EMCServicePosition">Gauge</convert>
@@ -315,7 +315,7 @@
 		<panel name="rg_b-keys_template1"/>
 		<panel name="rg_b-buttons_template1"/>
 		<panel name="_oe-buttons_template1" />
-		<ePixmap pixmap="MetrixHD/icons/setup.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+		<ePixmap pixmap="icons/setup.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
 	</screen>	
 	<!-- EMC MovieInfoSetup -->
 	<screen name="MovieInfoSetup" position="0,0" size="1280,720" title="Movie Information Download Setup" flags="wfNoBorder" backgroundColor="transparent">
@@ -325,7 +325,7 @@
 		<panel name="rg__-keys_template1"/>
 		<panel name="rg__-buttons_template1"/>
 		<panel name="_oe-buttons_template1" />
-		<ePixmap pixmap="MetrixHD/icons/setup.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+		<ePixmap pixmap="icons/setup.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- EMC CoverSearch Setup -->
 	<screen name="imdbSetup" position="0,0" size="1280,720" title="EMC Cover search setup" flags="wfNoBorder" backgroundColor="transparent">
@@ -335,12 +335,12 @@
 		<panel name="rg__-keys_template1"/>
 		<panel name="rg__-buttons_template1"/>
 		<panel name="_oe-buttons_template1" />
-		<ePixmap pixmap="MetrixHD/icons/setup.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+		<ePixmap pixmap="icons/setup.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- EnhancedMovieCenter Menu -->
 	<screen name="MovieMenu" position="0,0" size="1280,720" title="Menu EMC" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="CONTEXTMENU_textTitle_template" />
-		<ePixmap position="305,80" size="256,256" pixmap="MetrixHD/icons/movie.png" alphatest="blend" />
+		<ePixmap position="305,80" size="256,256" pixmap="icons/movie.png" alphatest="blend" />
 		<eLabel text="Menu EMC" position="5,535" size="1280,200" font="global_large_menu;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 	</screen>
 	<!-- EMC MovieRetitle -->
@@ -352,7 +352,7 @@
 		<panel name="rg__-buttons_template1" />
 		<panel name="rg__-keys_template1-source" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/setup.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- EMC Cover Search -->
 	<screen name="EMCImdbScan" position="0,0" size="1280,720" title="EMC Cover search" flags="wfNoBorder" backgroundColor="transparent">
@@ -399,7 +399,7 @@
 		<widget name="movieinfo" position="635,638" size="170,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="template1_2layer"/>
 		<panel name="moe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/movie.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/movie.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- EMC MovieInfo - MovieInfoPreview --> 
 	<screen name="MovieInfoPreview" position="0,0" size="1280,720" title="Movie Information Preview" flags="wfNoBorder" backgroundColor="transparent"> 
@@ -408,15 +408,15 @@
 		<widget name="previewtext" position="70,150" size="700,480" font="epg_text;20" backgroundColor="layer-a-background" /> 
 		<panel name="template1_2layer"/> 
 		<panel name="__e-buttons_template1" /> 
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/movie.png" transparent="1" alphatest="blend" /> 
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/movie.png" transparent="1" alphatest="blend" /> 
 	</screen> 
 	<!-- EMC MovieInfoTMDb - MovieInfoTMDb -->
 	<screen name="MovieInfoTMDb" position="0,0" size="1280,720" title="Movie Information TMDb" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" halign="left" transparent="1" />
 		<widget name="movie_name" position="70,90" size="700,60" zPosition="0" font="epg_text;21" valign="center" halign="center" transparent="1" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background"/>
 		<widget name="previewlist" position="70,400" size="700,210" font="epg_text;20" itemHeight="30" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="starsbg" position="562,160" size="210,21" pixmap="MetrixHD/imdb/starsbar_empty.png" zPosition="2" alphatest="blend" />
-		<widget name="stars" position="562,160" size="210,21" pixmap="MetrixHD/imdb/starsbar_filled.png" zPosition="3" transparent="1" />
+		<widget name="starsbg" position="562,160" size="210,21" pixmap="imdb/starsbar_empty.png" zPosition="2" alphatest="blend" />
+		<widget name="stars" position="562,160" size="210,21" pixmap="imdb/starsbar_filled.png" zPosition="3" transparent="1" />
 		<widget name="rating" position="560,185" size="210,30" font="screen_info;20" halign="left" foregroundColor="unf0b400" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="ratingtxt" position="560,185" size="210,30" font="screen_info;20" halign="right" foregroundColor="unf0b400" backgroundColor="layer-a-background" transparent="1"  />
 		<widget name="previewcover" position="70,160" size="160,224" alphatest="blend" />
@@ -429,11 +429,11 @@
 		<widget name="country" position="250,330" size="170,30" halign="left" font="screen_label;19" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1" />
 		<widget name="countrytxt" position="420,330" size="350,60" halign="right" font="epg_text;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="contenttxt" position="70,400" size="700,220" font="screen_info;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="key_green" pixmap="MetrixHD/buttons/key_green.png" position="218,635" size="30,40" alphatest="blend" />
+		<widget name="key_green" pixmap="buttons/key_green.png" position="218,635" size="30,40" alphatest="blend" />
 		<widget name="save" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="moe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/movie.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/movie.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- EMCPlaylistScreen -->
 	<screen name="EMCPlaylist" position="0,0" size="1280,720" title="EMC Playlist" flags="wfNoBorder" backgroundColor="transparent"> 
@@ -449,7 +449,7 @@
 		<panel name="template1_2layer"/> 
 		<panel name="rgyb-buttons_template1"/> 
 		<panel name="_oe-buttons_template1" /> 
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/movie.png" transparent="1" alphatest="blend" /> 
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/movie.png" transparent="1" alphatest="blend" /> 
 	</screen> 
 	<screen name="EMCPlaylistSetup" position="0,0" size="1280,720" title="EMC Playlist Setup" flags="wfNoBorder" backgroundColor="transparent"> 
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" halign="left" transparent="1" />
@@ -459,7 +459,7 @@
 		<panel name="template1_2layer"/> 
 		<panel name="rg__-buttons_template1"/> 
 		<panel name="_oe-buttons_template1" /> 
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="MetrixHD/icons/movie.png" transparent="1" alphatest="blend" /> 
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/movie.png" transparent="1" alphatest="blend" /> 
 	</screen>
 	<!-- EMC : Enhanced Movie Center -->
 	<screen name="EMCSelection_PIG" position="0,0" size="1280,720" title="Enhanced Movie Center" flags="wfNoBorder" backgroundColor="transparent">
@@ -481,7 +481,7 @@
 			<convert type="ServiceName">Name</convert>
 		</widget>
 		<eLabel position="825,369" size="385,1" backgroundColor="layer-b-accent2" />
-		<ePixmap position="825,410" zPosition="1" size="100,100" alphatest="blend" pixmap="MetrixHD/icons/movie_small.png"/>
+		<ePixmap position="825,410" zPosition="1" size="100,100" alphatest="blend" pixmap="icons/movie_small.png"/>
 		<panel name="EMCSelectionCover_large_description_on" />
 		<widget source="Service" render="Label" position="930,389" size="280,55" valign="center" halign="center" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
 			<convert type="EMCEventName">Name</convert>

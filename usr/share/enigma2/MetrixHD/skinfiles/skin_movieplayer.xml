@@ -5,41 +5,41 @@
 	<screen name="MoviePlayer_1">
 		<eLabel name="GRADIENT_BACKGROUND" position="0,570" zPosition="-2" size="1281,150" backgroundColor="infobarbackground" />
 		<panel name="RT_MoviePlayer_1"/>
-		<ePixmap pixmap="MetrixHD/icons/ico_dolby_off.png" position="1060,616" size="34,23" zPosition="1" alphatest="blend" />
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_dolby_on.png" position="1060,616" size="34,23" zPosition="2" alphatest="blend">
+		<ePixmap pixmap="icons/ico_dolby_off.png" position="1060,616" size="34,23" zPosition="1" alphatest="blend" />
+		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_dolby_on.png" position="1060,616" size="34,23" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsMultichannel</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-			<ePixmap pixmap="MetrixHD/icons/ico_format_off.png" position="1175,616" size="43,26" zPosition="1" alphatest="blend" />
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_format_on.png" position="1175,616" size="43,26" zPosition="2" alphatest="blend">
+			<ePixmap pixmap="icons/ico_format_off.png" position="1175,616" size="43,26" zPosition="1" alphatest="blend" />
+		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_format_on.png" position="1175,616" size="43,26" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsWidescreen</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_off.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_hd_off.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsSD</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_hd_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsHD</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_uhd_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_uhd_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">Is4K</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		<widget asource="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hd_hdr_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+		<widget asource="session.CurrentService" render="Pixmap" pixmap="icons/ico_hd_hdr_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsHDHDR</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hdr_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_hdr_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsHDR</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hdr10_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_hdr10_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsHDR10</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		<widget source="session.CurrentService" render="Pixmap" pixmap="MetrixHD/icons/ico_hlg_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
+		<widget source="session.CurrentService" render="Pixmap" pixmap="icons/ico_hlg_on.png" position="1109,616" size="49,24" zPosition="2" alphatest="blend">
 			<convert type="ServiceInfo">IsHLG</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
@@ -50,7 +50,7 @@
 		<widget source="session.CurrentService" render="Label" font="infobar_text;18" position="1146,580" size="55,25" halign="left" foregroundColor="infobaraccent1" backgroundColor="infobarbackground" transparent="1">
 			<convert type="ServiceInfo">VideoHeight</convert>
 		</widget>
-		<widget source="session.RecordState" render="Pixmap" pixmap="MetrixHD/icons/ico_rec_on.png" position="999,616" size="74,23" zPosition="2" alphatest="blend">
+		<widget source="session.RecordState" render="Pixmap" pixmap="icons/ico_rec_on.png" position="999,616" size="74,23" zPosition="2" alphatest="blend">
 			<convert type="ConditionalShowHide">Blink</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="40,658" size="100,28" font="infobar_event;24" halign="right" valign="bottom" backgroundColor="infobarbackground" foregroundColor="infobarfont1" transparent="1">
@@ -73,7 +73,7 @@
 	<!-- MoviePlayer_2 - standard version (old infobar style) -->
 	<screen name="MoviePlayer_2">
 		<eLabel name="GRADIENT_BACKGROUND" position="0,570" zPosition="-2" size="1281,150" backgroundColor="infobarbackground" />
-		<ePixmap position="43,595" zPosition="1" size="100,100" alphatest="blend" pixmap="MetrixHD/icons/movie_small.png"/>
+		<ePixmap position="43,595" zPosition="1" size="100,100" alphatest="blend" pixmap="icons/movie_small.png"/>
 		<eLabel backgroundColor="infobaraccent1" position="188,625" size="1050,1" zPosition="3"/>
 		<widget source="session.CurrentService" render="PositionGauge" position="188,621" size="1050,9" zPosition="6" transparent="1">
 			<convert type="ServicePosition">Gauge</convert>
@@ -208,7 +208,7 @@
 		<widget source="key_green" render="Label" position="637,633" size="130,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="key_yellow" render="Label" position="810,633" size="130,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="key_blue" render="Label" position="981,633" size="130,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<ePixmap name="menu_button" position="1125,630" size="81,40" pixmap="MetrixHD/buttons/menu.png" />
+		<ePixmap name="menu_button" position="1125,630" size="81,40" pixmap="buttons/menu.png" />
 	</screen>
 	<screen name="MovieSelectionSlim" position="0,0" size="1280,720" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MovieSelection_left"/>
@@ -240,9 +240,9 @@
 		<panel name="template1_1layer" />
 		<panel name="rgyb-buttons_template1" />
 		<panel name="rgyb-keys_template1-source" />
-		<ePixmap position="950,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/info.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/menu.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="blend" />
+		<ePixmap position="950,635" size="81,40" zPosition="10" pixmap="buttons/info.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/menu.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/key_exit.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="MovieListTags" position="0,0" size="1280,720" title="Please select tag to filter..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="ChoiceBox"/>
