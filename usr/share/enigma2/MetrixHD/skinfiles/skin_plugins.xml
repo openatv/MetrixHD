@@ -573,7 +573,7 @@
 		<widget source="session.CurrentService" render="PositionGauge" position="900,121" size="235,9" zPosition="3" transparent="1">
 			<convert type="ServicePosition">Gauge</convert>
 		</widget>
-		<widget name="repeat" pixmaps="MetrixHD/repeat_off.png,MetrixHD/repeat_on.png" position="70,370" size="70,30" transparent="1" zPosition="2" alphatest="blend" />
+		<widget name="repeat" pixmaps="repeat_off.png,repeat_on.png" position="70,370" size="70,30" transparent="1" zPosition="2" alphatest="blend" />
 		<panel name="_me-buttons_template1" />
 	</screen>
 	<screen name="MediaPlayerSettings" position="0,0" size="1280,720" title="Edit Settings" flags="wfNoBorder" backgroundColor="transparent">
@@ -591,7 +591,7 @@
 	<screen name="PluginHiderSetup" position="0,0" size="1280,720" title="PluginHider Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<!--eLabel text="PluginHider Setup" position="58,36" size="525,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" /-->
-		<widget name="tabbar" pixmaps="MetrixHD/tab_now.png,MetrixHD/tab_next.png,MetrixHD/tab_more.png" position="70,142" size="700,515" alphatest="blend" />
+		<widget name="tabbar" pixmaps="tab_now.png,tab_next.png,tab_more.png" position="70,142" size="700,515" alphatest="blend" />
 		<widget name="list" position="70,160" size="700,450" itemHeight="30" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget valign="center" transparent="1" size="150,22" backgroundColor="layer-a-background" position="115,110" zPosition="2" source="plugins" render="Label" halign="center" font="Regular;18" />
 		<widget valign="center" transparent="1" size="150,22" backgroundColor="layer-a-background" position="350,110" zPosition="2" source="extensions" render="Label" halign="center" font="Regular;18" />
@@ -1866,7 +1866,7 @@
 		<widget name="zeile4" position="10,175" size="72,25" font="screen_label;18" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="zeile4b" position="110,175" size="260,50" font="screen_text;19" halign="left" foregroundColor="#00f47d19" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="picture" zPosition="0" position="70,225" size="250,198" alphatest="blend" /> 
-		<widget name="playline2" position="10,70" size="368,5" pointer="MetrixHD/extensions/CoolPointer.png:980,0" transparent="1" foregroundColor="layer-a-progress">
+		<widget name="playline2" position="10,70" size="368,5" pointer="extensions/CoolPointer.png:980,0" transparent="1" foregroundColor="layer-a-progress">
 			<convert type="ServicePosition">Gauge</convert>
 		</widget> 
 		<widget name="random" position="10,5" size="50,30" alphatest="blend" />
@@ -2005,13 +2005,13 @@
 <!-- cf#_#rename -->
 	<screen name="ibts_icons#_FHDscreen" >
 		<widget name="Background" pixmap="ibts/background.png" position="0,0" size="1920,48" zPosition="-1" transparent="1" alphatest="off"/> 
-		<widget name="Type" pixmaps="MetrixHD/ibts/record.png,MetrixHD/ibts/stream.png,MetrixHD/ibts/finished.png,MetrixHD/ibts/info.png,MetrixHD/ibts/live.png,MetrixHD/ibts/unknown.png" position="0,0" size="48,48" zPosition="1" transparent="1" alphatest="blend"/>  
+		<widget name="Type" pixmaps="ibts/record.png,ibts/stream.png,ibts/finished.png,ibts/info.png,ibts/live.png,ibts/unknown.png" position="0,0" size="48,48" zPosition="1" transparent="1" alphatest="blend"/>  
 		<widget name="Progress" pixmap="ibts/progress.png" position="0,0" size="120,12" zPosition="1" borderWidth="1" borderColor="layer-a-background" backgroundColor="layer-a-background" transparent="1"/>
 	</screen>
 <!-- cf#_#rename -->
 	<screen name="ibts_icons#_UHDscreen" >
 		<widget name="Background" pixmap="ibts/background.png" position="0,0" size="3840,96" zPosition="-1" transparent="1" alphatest="off"/> 
-		<widget name="Type" pixmaps="MetrixHD/ibts/record.png,MetrixHD/ibts/stream.png,MetrixHD/ibts/finished.png,MetrixHD/ibts/info.png,MetrixHD/ibts/live.png,MetrixHD/ibts/unknown.png" position="0,0" size="96,96" zPosition="1" transparent="1" alphatest="blend"/>  
+		<widget name="Type" pixmaps="ibts/record.png,ibts/stream.png,ibts/finished.png,ibts/info.png,ibts/live.png,ibts/unknown.png" position="0,0" size="96,96" zPosition="1" transparent="1" alphatest="blend"/>  
 		<widget name="Progress" pixmap="ibts/progress.png" position="0,0" size="240,24" zPosition="1" borderWidth="1" borderColor="layer-a-background" backgroundColor="layer-a-background" transparent="1"/>
 	</screen>
 <!-- cf#_#start -->
