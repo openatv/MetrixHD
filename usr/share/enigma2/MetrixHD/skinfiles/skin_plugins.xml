@@ -3574,5 +3574,60 @@
 		<panel name="__e-buttons_template1" />
 	</screen>
 	<!-- Series2Folder -->
+		<!-- Youtube2 -->
+		<screen name="YouTubeSearch" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
+		<widget name="config" position="70,100" size="700,420" itemHeight="30" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget source="list" render="Listbox" position="70,180" size="700,450" font="screen_text;20" itemHeight="30" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+			<convert type="TemplatedMultiContent" >
+				{"template": [MultiContentEntryText(pos=(10,1), size=(580,30), font=0, flags=RT_HALIGN_LEFT, text=0)],
+					"fonts": [gFont("Regular",20)],
+					"itemHeight": 30}
+			</convert>
+		</widget>
+		<panel name="template1_2layer" />
+		<panel name="rgy_-buttons_template1" />
+		<panel name="rgy_-keys_template1-source" />
+		<panel name="moe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/youtube.png" transparent="1" alphatest="blend" />
+	</screen>
+		<screen name="YouTubeMain" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;28" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="list" render="Listbox" position="70,100" size="700,510" font="screen_text;20" itemHeight="72" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+			<convert type="TemplatedMultiContent" >
+				{"template": [
+					MultiContentEntryPixmapAlphaTest(pos=(0,0), size=(100,72), png=2), # Thumbnail
+					MultiContentEntryText(pos=(110,8), size=(575,52), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_WRAP, text=3), # Title
+					MultiContentEntryText(pos=(120, 50), size=(200,22), font=1, flags=RT_HALIGN_LEFT, text=4), # Views
+					MultiContentEntryText(pos=(360,50), size=(200,22), 	font=1, flags=RT_HALIGN_LEFT, text=5), # Duration
+							],
+					"fonts": [gFont("Regular",20), gFont("Regular",16)],
+					"itemHeight": 72}
+			</convert>
+		</widget>
+		<widget name="thumbnail" position="0,0" size="100,72" />
+		<panel name="template1_2layer" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+		<panel name="moe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/youtube.png" transparent="1" alphatest="blend" />
+	</screen>
+		<screen name="YouTubeInfo" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="pic" position="70,120" size="320,180" transparent="1" alphatest="blend" />
+		<widget name="description" position="70,420" size="700,200" font="screen_text;20" />
+		<widget name="views" position="70,320" size="150,20" font="screen_text;20" />
+		<widget name="duration" position="220,320" size="150,20" font="screen_text;20" />
+		<widget name="likes" position="70,350" size="150,20" font="screen_text;20" />
+		<widget name="dislikes" position="220,350" size="210,20" font="screen_text;20" />
+		<widget name="published" position="70,380" size="300,20" font="screen_text;20" />
+		<panel name="template1_2layer" />
+		<panel name="r___-buttons_template1" />
+		<panel name="r___-keys_template1-source" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/youtube.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- Youtube2 -->
 <!-- PLUGINS */-->
 </skin>
