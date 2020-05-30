@@ -56,14 +56,14 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 				caids = info.getInfoObject(iServiceInformation.sCAIDs)
 				if caids:
 					for cs in self.systemCaids:
-						caidlist[cs] = (self.systemCaids.get(cs),0)
+						caidlist[cs] = (self.systemCaids.get(cs), 0)
 					for caid in caids:
 						c = "%x" % int(caid)
 						if len(c) == 3:
 							c = "0%s" % c
 						c = c[:2].upper()
-						if self.systemCaids.has_key(c):
-							caidlist[c] = (self.systemCaids.get(c),1)
+						if c in self.systemCaids:
+							caidlist[c] = (self.systemCaids.get(c), 1)
 					ecm_info = self.ecmfile()
 					if ecm_info:
 						emu_caid = ecm_info.get("caid", "")
@@ -72,7 +72,7 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 							if len(c) == 3:
 								c = "0%s" % c
 							c = c[:2].upper()
-							caidlist[c] = (self.systemCaids.get(c),2)
+							caidlist[c] = (self.systemCaids.get(c), 2)
 		return caidlist
 
 	getCaidlist = property(get_caidlist)
@@ -297,7 +297,7 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 						if len(item) > 1:
 							info[item[0].strip().lower()] = item[1].strip()
 						else:
-							if not info.has_key("caid"):
+							if "caid" not in info:
 								x = line.lower().find("caid")
 								if x != -1:
 									y = line.find(",")

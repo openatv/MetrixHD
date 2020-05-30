@@ -181,7 +181,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		if cur == "PRESET":
 			self.getPreset()
 
-		if cur in ("ENABLED","ENABLED_EHD","PRESET","BUTTON"):
+		if cur in ("ENABLED", "ENABLED_EHD", "PRESET", "BUTTON"):
 			self["config"].setList(self.getMenuItemList())
 
 		self.ShowPicture(True)
@@ -280,7 +280,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.session.open(MessageBox, _("A background update check is in progress, please wait a few minutes and try again."), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
 			self.resetEHD()
 		elif not str:
-			self.feedscheck = self.session.open(MessageBox,_('Please wait whilst feeds state is checked.'), MessageBox.TYPE_INFO, enable_input = False)
+			self.feedscheck = self.session.open(MessageBox, _('Please wait whilst feeds state is checked.'), MessageBox.TYPE_INFO, enable_input = False)
 			self.feedscheck.setTitle(_('Checking Feeds'))
 			cmd1 = "opkg update"
 			self.CheckConsole = Console()
@@ -306,16 +306,16 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		self.resetEHD()
 
 	def doInstall(self, callback, pkgname):
-		self.message = self.session.open(MessageBox,_("please wait..."), MessageBox.TYPE_INFO, enable_input = False)
+		self.message = self.session.open(MessageBox, _("please wait..."), MessageBox.TYPE_INFO, enable_input = False)
 		self.message.setTitle(_('Installing ...'))
 		self.Console.ePopen('/usr/bin/opkg install ' + pkgname, callback)
 
 	def installComplete(self, result, retval = None, extra_args = None):
 		if 'Unknown package' in result:
-			self.session.open(MessageBox,_("Install Package not found!"), MessageBox.TYPE_ERROR, timeout=10)
+			self.session.open(MessageBox, _("Install Package not found!"), MessageBox.TYPE_ERROR, timeout=10)
 			self.resetEHD()
 		elif "Collected errors" in result:
-			self.session.open(MessageBox,_("Installation error!\n\n%s") % result, MessageBox.TYPE_ERROR, timeout=10)
+			self.session.open(MessageBox, _("Installation error!\n\n%s") % result, MessageBox.TYPE_ERROR, timeout=10)
 			self.resetEHD()
 		self.feedscheck.close()
 		self.message.close()
@@ -336,7 +336,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.doRemove(self.removeComplete, self.service_name)
 
 	def doRemove(self, callback, pkgname):
-		self.message = self.session.open(MessageBox,_("please wait..."), MessageBox.TYPE_INFO, enable_input = False)
+		self.message = self.session.open(MessageBox, _("please wait..."), MessageBox.TYPE_INFO, enable_input = False)
 		self.message.setTitle(_('Removing ...'))
 		self.Console.ePopen('/usr/bin/opkg remove ' + pkgname + ' --force-remove --autoremove', callback)
 
@@ -503,7 +503,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		list = []
 		section = _("Enhanced HD Option")
 		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-		list.append(getConfigListEntry(tab + _("Choose skin resolution"), config.plugins.MyMetrixLiteOther.EHDenabled, _("helptext"),"ENABLED_EHD"))
+		list.append(getConfigListEntry(tab + _("Choose skin resolution"), config.plugins.MyMetrixLiteOther.EHDenabled, _("helptext"), "ENABLED_EHD"))
 		if self.EHDenabled:
 			list.append(getConfigListEntry(tab + _("Use simple calculation"), config.plugins.MyMetrixLiteOther.EHDoldlinechanger, _("Alternative calculation, recommened for slow boxes or for a fast settings testing.")))
 			list.append(getConfigListEntry(tab + _("All calculated values round down"), config.plugins.MyMetrixLiteOther.EHDrounddown, _("helptext")))
@@ -583,18 +583,18 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab + _("Show in EMC?"), config.plugins.MyMetrixLiteOther.emc_pig, _("helptext"), "ENABLED"))
 		section = _("EMC")
 		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-		list.append(getConfigListEntry(tab + _("Show Cover in Media Center"),config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover, _("helptext"), "ENABLED"))
+		list.append(getConfigListEntry(tab + _("Show Cover in Media Center"), config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover, _("helptext"), "ENABLED"))
 		if config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover.getValue() == "small" and config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
 			list.append(getConfigListEntry(tab + _("Show Cover in Infobar"), config.plugins.MyMetrixLiteOther.showEMCMediaCenterCoverInfobar, _("helptext")))
 		if not config.plugins.MyMetrixLiteOther.emc_pig.value:
-			list.append(getConfigListEntry(tab + _("Show Cover in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionCover, _("helptext"), "ENABLED"))
+			list.append(getConfigListEntry(tab + _("Show Cover in Movie Selection"), config.plugins.MyMetrixLiteOther.showEMCSelectionCover, _("helptext"), "ENABLED"))
 		if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "large" or config.plugins.MyMetrixLiteOther.emc_pig.value:
 			list.append(getConfigListEntry(tab + _("Show Movie Description"), config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Show Picon in Movie Selection?"), config.plugins.MyMetrixLiteOther.showEMCSelectionPicon, _("helptext")))
-		list.append(getConfigListEntry(tab + _("Change Number of Rows in Movie Selection"),config.plugins.MyMetrixLiteOther.showEMCSelectionRows, _("helptext")))
-		list.append(getConfigListEntry(tab + _("Change field size 'Date' in Movie Selection"),config.plugins.MyMetrixLiteOther.setEMCdatesize, _("Change field size or hide")))
-		list.append(getConfigListEntry(tab + _("Change field size 'Count/Size' in Movie Selection"),config.plugins.MyMetrixLiteOther.setEMCdirinfosize, _("Change field size or hide")))
-		list.append(getConfigListEntry(tab + _("Change field size 'Progressbar' in Movie Selection"),config.plugins.MyMetrixLiteOther.setEMCbarsize, _("Change field size or hide")))
+		list.append(getConfigListEntry(tab + _("Change Number of Rows in Movie Selection"), config.plugins.MyMetrixLiteOther.showEMCSelectionRows, _("helptext")))
+		list.append(getConfigListEntry(tab + _("Change field size 'Date' in Movie Selection"), config.plugins.MyMetrixLiteOther.setEMCdatesize, _("Change field size or hide")))
+		list.append(getConfigListEntry(tab + _("Change field size 'Count/Size' in Movie Selection"), config.plugins.MyMetrixLiteOther.setEMCdirinfosize, _("Change field size or hide")))
+		list.append(getConfigListEntry(tab + _("Change field size 'Progressbar' in Movie Selection"), config.plugins.MyMetrixLiteOther.setEMCbarsize, _("Change field size or hide")))
 		section = _("EMC/MovieList")
 		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
 		if not config.plugins.MyMetrixLiteOther.movielist_pig.value:
@@ -629,42 +629,42 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		section = _("Running Text Parameter")
 		if config.plugins.MyMetrixLiteOther.showChannelListRunningtext.value or config.plugins.MyMetrixLiteOther.showMovieListRunningtext.value or config.plugins.MyMetrixLiteOther.showInfoBarRunningtext.value:
 			list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-			list.append(getConfigListEntry(tab + _("Startdelay"),config.plugins.MyMetrixLiteOther.runningTextStartdelay, _("helptext")))
-			list.append(getConfigListEntry(tab + _("Speed"),config.plugins.MyMetrixLiteOther.runningTextSpeed, _("A higher value results in a slow movement.")))
+			list.append(getConfigListEntry(tab + _("Startdelay"), config.plugins.MyMetrixLiteOther.runningTextStartdelay, _("helptext")))
+			list.append(getConfigListEntry(tab + _("Speed"), config.plugins.MyMetrixLiteOther.runningTextSpeed, _("A higher value results in a slow movement.")))
 		section = _("Skin Design")
 		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-		list.append(getConfigListEntry(tab + _("Chose Skin Design"),config.plugins.MyMetrixLiteOther.SkinDesign, _("helptext"), "ENABLED"))
+		list.append(getConfigListEntry(tab + _("Chose Skin Design"), config.plugins.MyMetrixLiteOther.SkinDesign, _("helptext"), "ENABLED"))
 		list.append(getConfigListEntry(tab + _("Scrollbar Slider width"), config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Scrollbar Border width"), config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth, _("helptext")))
-		list.append(getConfigListEntry(tab + _("Show Space between Layer A and B"),config.plugins.MyMetrixLiteOther.SkinDesignSpace, _("helptext")))
-		list.append(getConfigListEntry(tab + _("Show Menu Buttons"),config.plugins.MyMetrixLiteOther.SkinDesignMenuButtons, _("Show color buttons at top of the screen.")))
-		list.append(getConfigListEntry(tab + _("Show Menu Scrollinfo"),config.plugins.MyMetrixLiteOther.SkinDesignMenuScrollInfo, _("Show info in main menu and context menu if more entries on next side.\n(no restart required)")))
-		list.append(getConfigListEntry(tab + _("Show large Text on bottom of the screen"),config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText, _("helptext")))
+		list.append(getConfigListEntry(tab + _("Show Space between Layer A and B"), config.plugins.MyMetrixLiteOther.SkinDesignSpace, _("helptext")))
+		list.append(getConfigListEntry(tab + _("Show Menu Buttons"), config.plugins.MyMetrixLiteOther.SkinDesignMenuButtons, _("Show color buttons at top of the screen.")))
+		list.append(getConfigListEntry(tab + _("Show Menu Scrollinfo"), config.plugins.MyMetrixLiteOther.SkinDesignMenuScrollInfo, _("Show info in main menu and context menu if more entries on next side.\n(no restart required)")))
+		list.append(getConfigListEntry(tab + _("Show large Text on bottom of the screen"), config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Chose Extended-Info Style"), config.plugins.MyMetrixLiteOther.ExtendedinfoStyle, _("helptext")))
 		section = _("Skin Design Buttons")
 		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
-		list.append(getConfigListEntry(tab + _("Skin Design Buttons"),config.plugins.MyMetrixLiteOther.SkinDesignButtons, _("helptext"), "BUTTON"))
+		list.append(getConfigListEntry(tab + _("Skin Design Buttons"), config.plugins.MyMetrixLiteOther.SkinDesignButtons, _("helptext"), "BUTTON"))
 		if config.plugins.MyMetrixLiteOther.SkinDesignButtons.value:
-			list.append(getConfigListEntry(tab + _("Back Color"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsBackColor, _("helptext"), "BUTTON"))
-			list.append(getConfigListEntry(tab + _("Back Color Transparency"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsBackColorTransparency, _("helptext"), "BUTTON"))
-			list.append(getConfigListEntry(tab + _("Frame Size"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameSize, _("helptext"), "BUTTON"))
+			list.append(getConfigListEntry(tab + _("Back Color"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsBackColor, _("helptext"), "BUTTON"))
+			list.append(getConfigListEntry(tab + _("Back Color Transparency"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsBackColorTransparency, _("helptext"), "BUTTON"))
+			list.append(getConfigListEntry(tab + _("Frame Size"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameSize, _("helptext"), "BUTTON"))
 			if config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameSize.value:
-				list.append(getConfigListEntry(tab + _("Frame Color"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameColor, _("helptext"), "BUTTON"))
-				list.append(getConfigListEntry(tab + _("Frame Color Transparency"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameColorTransparency, _("helptext"), "BUTTON"))
-			list.append(getConfigListEntry(tab + _("Text Color"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextColor, _("helptext"), "BUTTON"))
-			list.append(getConfigListEntry(tab + _("Text Color Transparency"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextColorTransparency, _("helptext"), "BUTTON"))
-			list.append(getConfigListEntry(tab + _("Text Font"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextFont, _("helptext"), "BUTTON"))
-			list.append(getConfigListEntry(tab + _("Text Size"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextSize, _("helptext"), "BUTTON"))
-			list.append(getConfigListEntry(tab + _("Text Position"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition, _("helptext"), "BUTTON"))
-			list.append(getConfigListEntry(tab + _("Glossy Effect"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect, _("helptext"), "BUTTON"))
+				list.append(getConfigListEntry(tab + _("Frame Color"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameColor, _("helptext"), "BUTTON"))
+				list.append(getConfigListEntry(tab + _("Frame Color Transparency"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameColorTransparency, _("helptext"), "BUTTON"))
+			list.append(getConfigListEntry(tab + _("Text Color"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextColor, _("helptext"), "BUTTON"))
+			list.append(getConfigListEntry(tab + _("Text Color Transparency"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextColorTransparency, _("helptext"), "BUTTON"))
+			list.append(getConfigListEntry(tab + _("Text Font"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextFont, _("helptext"), "BUTTON"))
+			list.append(getConfigListEntry(tab + _("Text Size"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextSize, _("helptext"), "BUTTON"))
+			list.append(getConfigListEntry(tab + _("Text Position"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition, _("helptext"), "BUTTON"))
+			list.append(getConfigListEntry(tab + _("Glossy Effect"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect, _("helptext"), "BUTTON"))
 			if config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value != 'no':
-				list.append(getConfigListEntry(tab + _("Glossy Effect Size"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectSize, _("helptext"), "BUTTON"))
+				list.append(getConfigListEntry(tab + _("Glossy Effect Size"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectSize, _("helptext"), "BUTTON"))
 				if 'circle' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value:
-					list.append(getConfigListEntry(tab + _("Glossy Effect Position X"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectPosX, _("helptext"), "BUTTON"))
-					list.append(getConfigListEntry(tab + _("Glossy Effect Position Y"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectPosY, _("helptext"), "BUTTON"))
-				list.append(getConfigListEntry(tab + _("Glossy Effect Color"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectColor, _("helptext"), "BUTTON"))
-				list.append(getConfigListEntry(tab + _("Glossy Effect Intensity"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity, _("helptext"), "BUTTON"))
-				list.append(getConfigListEntry(tab + _("Glossy Effect Over Text"),config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectOverText, _("helptext"), "BUTTON"))
+					list.append(getConfigListEntry(tab + _("Glossy Effect Position X"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectPosX, _("helptext"), "BUTTON"))
+					list.append(getConfigListEntry(tab + _("Glossy Effect Position Y"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectPosY, _("helptext"), "BUTTON"))
+				list.append(getConfigListEntry(tab + _("Glossy Effect Color"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectColor, _("helptext"), "BUTTON"))
+				list.append(getConfigListEntry(tab + _("Glossy Effect Intensity"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity, _("helptext"), "BUTTON"))
+				list.append(getConfigListEntry(tab + _("Glossy Effect Over Text"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectOverText, _("helptext"), "BUTTON"))
 		return list
 
 	def getButtonPreview(self):
@@ -679,7 +679,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			imga = Image.open('/tmp/button.png')
 			imgwidth, imgheight = img.size
 			imgawidth, imgaheight = imga.size
-			img.paste(imga,((imgwidth-imgawidth)/2,(imgheight-imgaheight)/3))
+			img.paste(imga, ((imgwidth-imgawidth)/2, (imgheight-imgaheight)/3))
 			img.save("/tmp/template.png")
 
 	def GetPicturePath(self):
@@ -700,7 +700,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 				self.getButtonPreview()
 			self["helperimage"].instance.setPixmapFromFile("/tmp/template.png")
 		else:
-			self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
+			self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), self.Scale[0], self.Scale[1], 0, 1, "#00000000"])
 			self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 

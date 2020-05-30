@@ -75,7 +75,7 @@ class MetrixHDSTBinfo(Converter, object):
 			temp = f.readline(4)
 			f.close()
 			#info = "CPU-Load: " + temp
-			info = temp.replace('\n', '').replace(' ','')
+			info = temp.replace('\n', '').replace(' ', '')
 			info = _("CPU-Load: %s") % info
 		return info
 
@@ -110,7 +110,7 @@ class MetrixHDSTBinfo(Converter, object):
 				temp = ""
 		if temp and int(temp.replace('\n', '')) > 0:
 			#info ="CPU-Temp: " + temp.replace('\n', '')  + str('\xc2\xb0') + "C"
-			info = temp.replace('\n', '').replace(' ','') + str('\xc2\xb0') + "C"
+			info = temp.replace('\n', '').replace(' ', '') + str('\xc2\xb0') + "C"
 			info = _("CPU-Temp: %s") % info
 		return info
 
@@ -131,7 +131,7 @@ class MetrixHDSTBinfo(Converter, object):
 			f.close()
 		if temp and int(temp.replace('\n', '')) > 0:
 			#info ="SYS-Temp: " + temp.replace('\n', '') + str('\xc2\xb0') + "C"
-			info = temp.replace('\n', '').replace(' ','') + str('\xc2\xb0') + "C"
+			info = temp.replace('\n', '').replace(' ', '') + str('\xc2\xb0') + "C"
 			info = _("SYS-Temp: %s") % info
 		return info
 
@@ -162,7 +162,7 @@ class MetrixHDSTBinfo(Converter, object):
 				lisp = lines.split()
 				if lisp[5] == "/":
 					#info = "Flash Memory free: " + lisp[3] + " MByte"
-					info = lisp[3].replace(' ','')
+					info = lisp[3].replace(' ', '')
 					info = _("Flash Memory free: %s MByte") % info
 					break
 		except:

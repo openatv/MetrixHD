@@ -9,6 +9,7 @@
 #
 #######################################################################
 
+from __future__ import print_function
 from Renderer import Renderer
 from Components.VariableText import VariableText
 #import library to do http requests:
@@ -93,15 +94,15 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 					datavalid = 2
 				if datavalid == 1:
 					if config.plugins.MetrixWeather.weatherservice.value == "MSN":
-						print "MetrixHDWeatherStandalone lookup for City " + str(self.cityname) + " paused 5 mins, to many errors ..."
+						print("MetrixHDWeatherStandalone lookup for City " + str(self.cityname) + " paused 5 mins, to many errors ...")
 					else:
-						print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " paused 5 mins, to many errors ..."
+						print("MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " paused 5 mins, to many errors ...")
 					seconds = 300
 				else:
 					if config.plugins.MetrixWeather.weatherservice.value == "MSN":
-						print "MetrixHDWeatherStandalone lookup for City " + str(self.cityname) + " aborted, to many errors ..."
+						print("MetrixHDWeatherStandalone lookup for City " + str(self.cityname) + " aborted, to many errors ...")
 					else:
-						print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " aborted, to many errors ..."
+						print("MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " aborted, to many errors ...")
 					seconds = pausetime
 
 			self.setWeatherDataValid(datavalid)
@@ -142,9 +143,9 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 
 		if g_updateRunning:
 			if config.plugins.MetrixWeather.weatherservice.value == "MSN":
-				print "MetrixHDWeatherStandalone lookup for City " + str(self.cityname) + " skipped, allready running..."
+				print("MetrixHDWeatherStandalone lookup for City " + str(self.cityname) + " skipped, allready running...")
 			else:
-				print "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " skipped, allready running..."
+				print("MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " skipped, allready running...")
 			return
 		g_updateRunning = True
 		g_isRunning = True
@@ -158,13 +159,13 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			errormessage = str(error.getErrorMessage())
 		elif message is not None:
 			errormessage = str(message)
-		print "MetrixHDWeatherStandalone get weather data failed - Error code: %s" %errormessage
+		print("MetrixHDWeatherStandalone get weather data failed - Error code: %s" %errormessage)
 		if self.check:
 			self.writeCheckFile(errormessage)
 		else:
 			nextcall = 30
 			if not self.once:
-				print "MetrixHDWeatherStandalone try next in %d sec ..." %nextcall
+				print("MetrixHDWeatherStandalone try next in %d sec ..." %nextcall)
 			self.startTimer(True, nextcall)
 
 	def getWeatherThread(self):
@@ -180,7 +181,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			text = "MetrixHDWeatherStandalone lookup for ID " + str(self.woeid)
 		if self.check:
 			self.writeCheckFile(text)
-		print text
+		print(text)
 
 		if config.plugins.MetrixWeather.weatherservice.value == "MSN":
 			units = 'C'
@@ -190,7 +191,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			if language == 'en-EN':
 				language = 'en-US'
 			city="%s" % self.cityname
-			feedurl = "http://weather.service.msn.com/data.aspx?weadegreetype=%s&culture=%s&weasearchstr=%s&src=outlook" % (units,language,urllib2_quote(city))
+			feedurl = "http://weather.service.msn.com/data.aspx?weadegreetype=%s&culture=%s&weasearchstr=%s&src=outlook" % (units, language, urllib2_quote(city))
 			msnrequest = Request(feedurl, None, std_headers)
 			try:
 				msnpage = urlopen2(msnrequest)
@@ -307,10 +308,10 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				currentWeathershortday = currentWeather.getAttributeNode('shortday')
 				config.plugins.MetrixWeather.forecastTomorrowshortday3.value = currentWeathershortday.nodeValue
 				if self.check:
-					text = "%s|%s|%s°|%s°|%s°" %(id,name,temp,temp_max,temp_min)
+					text = "%s|%s|%s°|%s°|%s°" %(id, name, temp, temp_max, temp_min)
 					self.writeCheckFile(text)
 					return
-			except IndexError, err:
+			except IndexError as err:
 				self.errorCallback(message = str(err))
 				return
 			self.setWeatherDataValid(3)
@@ -322,8 +323,8 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			apikey = "&appid=%s" % config.plugins.MetrixWeather.apikey.value
 			city="id=%s" % self.woeid
 			cnt = (24 + (24 - int(datetime.now().strftime('%H')))) / 3 + 1
-			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=%s&cnt=%d%s" % (city,language[:2],units,cnt,apikey)
-			print feedurl
+			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=%s&cnt=%d%s" % (city, language[:2], units, cnt, apikey)
+			print(feedurl)
 			getPage(feedurl).addCallback(self.jsonCallback).addErrback(self.errorCallback)
 
 	def jsonCallback(self, jsonstring):
@@ -383,7 +384,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				tmax_tomorrow = str(max(tmax_tomorrow))
 
 			if self.check:
-				text = "%s|%s|%s°|%s°|%s°" %(id,name,temp,tmax_today,tmin_today)
+				text = "%s|%s|%s°|%s°|%s°" %(id, name, temp, tmax_today, tmin_today)
 				self.writeCheckFile(text)
 				return
 
@@ -399,12 +400,12 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			config.plugins.MetrixWeather.forecastTomorrowCode.value = self.ConvertCondition(code_tomorrow)
 			config.plugins.MetrixWeather.forecastTomorrowTempMin.value = tmin_tomorrow
 			config.plugins.MetrixWeather.forecastTomorrowTempMax.value = tmax_tomorrow
-		except IndexError, err:
+		except IndexError as err:
 			self.errorCallback(message = str(err))
 			return
 		self.setWeatherDataValid(3)
 
-	def getText(self,nodelist):
+	def getText(self, nodelist):
 		rc = []
 		for node in nodelist:
 			if node.nodeType == node.TEXT_NODE:
@@ -501,7 +502,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			condition = ")"
 		return str(condition)
 
-	def writeCheckFile(self,text):
+	def writeCheckFile(self, text):
 		f = open('/tmp/weathercheck.txt', 'w')
 		f.write(text)
 		f.close()

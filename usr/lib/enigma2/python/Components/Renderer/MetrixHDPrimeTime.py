@@ -30,9 +30,9 @@ class MetrixHDPrimeTime(Renderer, VariableText):
 		if evt:
 			now = localtime(time())
 			try:
-				hour,minute = config.epgselection.graph_primetimehour.value,config.epgselection.graph_primetimemins.value
+				hour, minute = config.epgselection.graph_primetimehour.value, config.epgselection.graph_primetimemins.value
 			except:
-				hour,minute = 20,15
+				hour, minute = 20, 15
 			dt = datetime(now.tm_year, now.tm_mon, now.tm_mday, hour, minute)
 			primetime = int(mktime(dt.timetuple()))
 			next = False
