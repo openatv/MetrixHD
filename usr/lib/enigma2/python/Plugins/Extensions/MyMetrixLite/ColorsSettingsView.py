@@ -327,35 +327,35 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab + _("Additional Layer"),))
 		list.append(getConfigListEntry(tab*2 + _("Skin Design Examples"), config.plugins.MyMetrixLiteOther.SkinDesignExamples, _("helptext"), "PRESET2"))
 		list.append(getConfigListEntry(tab*2 + _("Show upper left Corner Layer"), config.plugins.MyMetrixLiteOther.SkinDesignLUC, _("helptext"), "ENABLED"))
-		if config.plugins.MyMetrixLiteOther.SkinDesignLUC.getValue() is not "no":
+		if config.plugins.MyMetrixLiteOther.SkinDesignLUC.getValue() != "no":
 			list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.upperleftcornerbackground, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("Transparency"), config.plugins.MyMetrixLiteColors.upperleftcornertransparency, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignLUCwidth, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignLUCheight, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignLUCposz, _("helptext")))
 		list.append(getConfigListEntry(tab*2 + _("Show lower left Corner Layer"), config.plugins.MyMetrixLiteOther.SkinDesignLLC, _("helptext"), "ENABLED"))
-		if config.plugins.MyMetrixLiteOther.SkinDesignLLC.getValue() is not "no":
+		if config.plugins.MyMetrixLiteOther.SkinDesignLLC.getValue() != "no":
 			list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.lowerleftcornerbackground, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("Transparency"), config.plugins.MyMetrixLiteColors.lowerleftcornertransparency, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignLLCwidth, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignLLCheight, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignLLCposz, _("helptext")))
 		list.append(getConfigListEntry(tab*2 + _("Show upper right Corner Layer"), config.plugins.MyMetrixLiteOther.SkinDesignRUC, _("helptext"), "ENABLED"))
-		if config.plugins.MyMetrixLiteOther.SkinDesignRUC.getValue() is not "no":
+		if config.plugins.MyMetrixLiteOther.SkinDesignRUC.getValue() != "no":
 			list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.upperrightcornerbackground, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("Transparency"), config.plugins.MyMetrixLiteColors.upperrightcornertransparency, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignRUCwidth, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignRUCheight, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignRUCposz, _("helptext")))
 		list.append(getConfigListEntry(tab*2 + _("Show lower right Corner Layer"), config.plugins.MyMetrixLiteOther.SkinDesignRLC, _("helptext"), "ENABLED"))
-		if config.plugins.MyMetrixLiteOther.SkinDesignRLC.getValue() is not "no":
+		if config.plugins.MyMetrixLiteOther.SkinDesignRLC.getValue() != "no":
 			list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.lowerrightcornerbackground, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("Transparency"), config.plugins.MyMetrixLiteColors.lowerrightcornertransparency, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignRLCwidth, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("height"), config.plugins.MyMetrixLiteOther.SkinDesignRLCheight, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignRLCposz, _("helptext")))
 		list.append(getConfigListEntry(tab*2 + _("Show optional horizontal Layer"), config.plugins.MyMetrixLiteOther.SkinDesignOLH, _("helptext"), "ENABLED"))
-		if config.plugins.MyMetrixLiteOther.SkinDesignOLH.getValue() is not "no":
+		if config.plugins.MyMetrixLiteOther.SkinDesignOLH.getValue() != "no":
 			list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.optionallayerhorizontalbackground, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("Transparency"), config.plugins.MyMetrixLiteColors.optionallayerhorizontaltransparency, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignOLHwidth, _("helptext")))
@@ -364,7 +364,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 			list.append(getConfigListEntry(tab*3 + _("pos y"), config.plugins.MyMetrixLiteOther.SkinDesignOLHposy, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("pos z"), config.plugins.MyMetrixLiteOther.SkinDesignOLHposz, _("helptext")))
 		list.append(getConfigListEntry(tab*2 + _("Show optional vertical Layer"), config.plugins.MyMetrixLiteOther.SkinDesignOLV, _("helptext"), "ENABLED"))
-		if config.plugins.MyMetrixLiteOther.SkinDesignOLV.getValue() is not "no":
+		if config.plugins.MyMetrixLiteOther.SkinDesignOLV.getValue() != "no":
 			list.append(getConfigListEntry(tab*3 + _("Color"), config.plugins.MyMetrixLiteColors.optionallayerverticalbackground, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("Transparency"), config.plugins.MyMetrixLiteColors.optionallayerverticaltransparency, _("helptext")))
 			list.append(getConfigListEntry(tab*3 + _("width"), config.plugins.MyMetrixLiteOther.SkinDesignOLVwidth, _("helptext")))
