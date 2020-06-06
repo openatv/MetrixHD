@@ -10,6 +10,7 @@ from Tools.Directories import fileExists, SCOPE_SKIN_IMAGE, SCOPE_CURRENT_SKIN, 
 from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
 from Components.config import config
 from PIL import Image, ImageFile, PngImagePlugin, ImageEnhance
+import six
 
 initOtherConfig()
 
@@ -93,7 +94,7 @@ class MetrixHDXPicon(Renderer):
 							pngname = self.findPicon('_'.join(fields))
 					if not pngname: # picon by channel name
 						name = ServiceReference(self.source.text).getServiceName()
-						name = unicodedata.normalize('NFKD', unicode(name, 'utf_8', errors='ignore')).encode('ASCII', 'ignore')
+						name = unicodedata.normalize('NFKD', six.text_type(name))
 						name = re.sub('[^a-z0-9]', '', name.replace('&', 'and').replace('+', 'plus').replace('*', 'star').lower())
 						if len(name) > 0:
 							pngname = self.findPicon(name)
