@@ -17,7 +17,7 @@
 #
 #
 #######################################################################
-
+from __future__ import absolute_import
 from . import _, MAIN_IMAGE_PATH
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -31,13 +31,13 @@ from Components.Sources.StaticText import StaticText
 from Components.Label import Label
 from enigma import ePicLoad, eListboxPythonMultiContent, gFont, getDesktop, eTimer
 from os import path, remove
-from ColorsSettingsView import ColorsSettingsView
-from WeatherSettingsView import WeatherSettingsView
-from OtherSettingsView import OtherSettingsView
-from FontsSettingsView import FontsSettingsView
-from BackupSettingsView import BackupSettingsView
-from SkinpartSettingsView import SkinpartSettingsView
-from ActivateSkinSettings import ActivateSkinSettings
+from .ColorsSettingsView import ColorsSettingsView
+from .WeatherSettingsView import WeatherSettingsView
+from .OtherSettingsView import OtherSettingsView
+from .FontsSettingsView import FontsSettingsView
+from .BackupSettingsView import BackupSettingsView
+from .SkinpartSettingsView import SkinpartSettingsView
+from .ActivateSkinSettings import ActivateSkinSettings
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 #############################################################

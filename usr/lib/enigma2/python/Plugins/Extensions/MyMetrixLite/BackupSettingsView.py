@@ -18,7 +18,7 @@
 #
 #
 #######################################################################
-
+from __future__ import absolute_import
 from . import _, MAIN_IMAGE_PATH, BACKUP_FILE
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -34,11 +34,11 @@ from enigma import ePicLoad, eTimer
 from os import path
 import pickle
 from time import time, localtime, strftime
-from ColorsSettingsView import ColorsSettingsView
-from WeatherSettingsView import WeatherSettingsView
-from OtherSettingsView import OtherSettingsView
-from FontsSettingsView import FontsSettingsView
-from ActivateSkinSettings import ActivateSkinSettings
+from .ColorsSettingsView import ColorsSettingsView
+from .WeatherSettingsView import WeatherSettingsView
+from .OtherSettingsView import OtherSettingsView
+from .FontsSettingsView import FontsSettingsView
+from .ActivateSkinSettings import ActivateSkinSettings
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 #############################################################

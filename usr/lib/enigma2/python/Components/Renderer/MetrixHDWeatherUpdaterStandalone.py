@@ -10,12 +10,9 @@
 #######################################################################
 
 from __future__ import print_function
-from Renderer import Renderer
+from Components.Renderer import Renderer
 from Components.VariableText import VariableText
-#import library to do http requests:
-from urllib2 import Request, URLError, HTTPError, urlopen as urlopen2, quote as urllib2_quote, unquote as urllib2_unquote
 from enigma import eLabel
-#import easy to use xml parser called minidom:
 from xml.dom.minidom import parseString
 from Components.config import config, configfile
 from Plugins.Extensions.MyMetrixLite.__init__ import initWeatherConfig
@@ -23,6 +20,9 @@ from threading import Timer, Thread
 from time import time, strftime, localtime
 from twisted.web.client import getPage
 from datetime import datetime, timedelta
+from six.moves.urllib.request import Request, urlopen
+from six.moves.urllib.error import URLError, HTTPError
+from six.moves.urllib.parse import quote
 
 import sys
 #from twisted.python import log
@@ -191,10 +191,10 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			if language == 'en-EN':
 				language = 'en-US'
 			city="%s" % self.cityname
-			feedurl = "http://weather.service.msn.com/data.aspx?weadegreetype=%s&culture=%s&weasearchstr=%s&src=outlook" % (units, language, urllib2_quote(city))
+			feedurl = "http://weather.service.msn.com/data.aspx?weadegreetype=%s&culture=%s&weasearchstr=%s&src=outlook" % (units, language, quote(city))
 			msnrequest = Request(feedurl, None, std_headers)
 			try:
-				msnpage = urlopen2(msnrequest)
+				msnpage = urlopen(msnrequest)
 			except (URLError) as err:
 				self.errorCallback(message = str(err))
 				return

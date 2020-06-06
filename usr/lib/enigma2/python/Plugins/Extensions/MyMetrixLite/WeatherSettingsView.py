@@ -27,7 +27,6 @@ from Screens.VirtualKeyBoard import VirtualKeyBoard
 from Screens.MessageBox import MessageBox
 from Components.MenuList import MenuList
 from Components.ActionMap import ActionMap
-from urllib2 import Request, urlopen, URLError, HTTPError
 from xml.etree.cElementTree import fromstring as cet_fromstring
 from Tools.Directories import fileExists
 from Components.AVSwitch import AVSwitch
@@ -40,6 +39,8 @@ from enigma import ePicLoad, eTimer
 from os import path, listdir, system
 from Components.Renderer.MetrixHDWeatherUpdaterStandalone import MetrixHDWeatherUpdaterStandalone
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
+from six.moves.urllib.request import Request, urlopen
+from six.moves.urllib.error import URLError, HTTPError
 
 #############################################################
 

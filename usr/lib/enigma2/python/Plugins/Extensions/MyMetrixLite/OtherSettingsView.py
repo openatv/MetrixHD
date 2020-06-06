@@ -18,7 +18,7 @@
 #
 #
 #######################################################################
-
+from __future__ import absolute_import
 from . import _, MAIN_IMAGE_PATH
 from boxbranding import getBoxType, getMachineBrand, getMachineName
 from Screens.Screen import Screen
@@ -34,7 +34,7 @@ from Components.Label import Label
 from enigma import ePicLoad
 from os import path, statvfs, remove
 from enigma import gMainDC, getDesktop
-from ActivateSkinSettings import ActivateSkinSettings
+from .ActivateSkinSettings import ActivateSkinSettings
 from PIL import Image
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
