@@ -3,7 +3,7 @@ from __future__ import print_function
 ## Picon renderer by Gruffy .. some speedups by Ghost
 ## XPicon mod by iMaxxx
 ##
-from Renderer import Renderer
+from Components.Renderer.Renderer import Renderer
 from enigma import ePixmap
 from enigma import iServiceInformation, iPlayableService, iPlayableServicePtr
 from Tools.Directories import fileExists, SCOPE_SKIN_IMAGE, SCOPE_CURRENT_SKIN, resolveFilename

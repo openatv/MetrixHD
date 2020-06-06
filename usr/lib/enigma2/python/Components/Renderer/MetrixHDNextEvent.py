@@ -28,7 +28,7 @@ from Components.config import config
 from Components.Language import language
 from os import environ
 from Tools.Directories import resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS
-from Renderer import Renderer
+from Components.Renderer.Renderer import Renderer
 from time import localtime
 import gettext
 

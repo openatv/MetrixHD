@@ -10,7 +10,7 @@
 #######################################################################
 
 from __future__ import print_function
-from Components.Renderer import Renderer
+from Components.Renderer.Renderer import Renderer
 from Components.VariableText import VariableText
 from enigma import eLabel
 from xml.dom.minidom import parseString

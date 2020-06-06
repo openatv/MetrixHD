@@ -3,7 +3,7 @@
 #        <convert type="MetrixHDWeather">currentWeatherCode</convert>
 #    </widget>
 from Tools.LoadPixmap import LoadPixmap 
-from Renderer import Renderer 
+from Components.Renderer.Renderer import Renderer 
 from enigma import ePixmap, eTimer 
 from Tools.Directories import fileExists, pathExists
 from Components.config import config
