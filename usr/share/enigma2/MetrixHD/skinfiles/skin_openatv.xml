@@ -2583,7 +2583,8 @@ self['config'].l.setSeperation(int(300*f))
 		<widget name="list" position="20,95" size="760,330" itemHeight="30" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<applet type="onLayoutFinish">
 # this should be factored out into some helper code,but currently demonstrates applets.
-from enigma import eSize,ePoint
+from __future__ import division
+from enigma import eSize, ePoint
 orgwidth = self.instance.size().width()
 orgpos = self.instance.position()
 textsize = self["text"].getSize()
@@ -2611,7 +2612,7 @@ self["list"].instance.resize(eSize(*listsize))
 
 # center window
 newwidth = wsize[0]
-self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
+self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)//2,orgpos.y()))
 		</applet>
 	</screen>
 	<screen name="MessageBox-template-1">
@@ -2623,7 +2624,8 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2,orgpos.y()))
 		<widget name="list" position="10,113" size="780,260" itemHeight="30" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<applet type="onLayoutFinish">
 # this should be factored out into some helper code,but currently demonstrates applets.
-from enigma import eSize,ePoint, getDesktop
+from __future__ import division
+from enigma import eSize, ePoint, getDesktop
 #orgwidth = self.instance.size().width()
 #orgheight = self.instance.size().height()
 #---
@@ -2696,7 +2698,7 @@ self["list"].instance.resize(eSize(*listsize))
 # center window
 newwidth = wsize[0]
 newheight = wsize[1]
-self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight)/2))
+self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheight)//2))
 		</applet>
 	</screen>
 	<screen name="MessageBox-template-2">
@@ -2710,7 +2712,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="list" position="10,183" size="780,210" itemHeight="30" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<applet type="onLayoutFinish">
 # this should be factored out into some helper code,but currently demonstrates applets.
-from enigma import eSize,ePoint, getDesktop
+from __future__ import division
+from enigma import eSize, ePoint, getDesktop
 #orgwidth = self.instance.size().width()
 #orgheight = self.instance.size().height()
 #---
@@ -2783,7 +2786,7 @@ self["list"].instance.resize(eSize(*listsize))
 # center window
 newwidth = wsize[0]
 newheight = wsize[1]
-self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight)/2))
+self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheight)//2))
 		</applet>
 	</screen>
 	<screen name="MessageBox-template-3">
@@ -2798,7 +2801,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="list" position="10,140" size="780,240" itemHeight="30" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<applet type="onLayoutFinish">
 # this should be factored out into some helper code,but currently demonstrates applets.
-from enigma import eSize,ePoint, getDesktop
+from __future__ import division
+from enigma import eSize, ePoint, getDesktop
 #orgwidth = self.instance.size().width()
 #orgheight = self.instance.size().height()
 #---
@@ -2871,7 +2875,7 @@ self["list"].instance.resize(eSize(*listsize))
 # center window
 newwidth = wsize[0]
 newheight = wsize[1]
-self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight)/2))
+self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheight)//2))
 		</applet>
 	</screen>
 	<!--screen name="MessageBox" position="240,178" size="800,10" zPosition="1" title="Message" backgroundColor="layer-a-background">

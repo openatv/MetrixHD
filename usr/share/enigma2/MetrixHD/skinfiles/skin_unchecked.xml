@@ -1072,6 +1072,7 @@
 		<widget name="list" position="65,65" size="380,375" transparent="1" />
 		<applet type="onLayoutFinish">
 # this should be factored out into some helper code, but currently demonstrates applets.
+from __future__ import division
 from enigma import eSize, ePoint
 
 orgwidth = self.instance.size().width()
@@ -1103,7 +1104,7 @@ self["list"].instance.resize(eSize(*listsize))
 
 # center window
 newwidth = wsize[0]
-self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)/2, orgpos.y()))
+self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)//2, orgpos.y()))
 		</applet>
 	</screen>
 	<!-- VTI Device Manager-->
