@@ -1,7 +1,7 @@
 from enigma import iServiceInformation
 from Components.Converter.Converter import Converter
 from Components.Element import cached
-from Poll import Poll
+from Components.Converter.Poll import Poll
 import os
 ECM_INFO = '/tmp/ecm.info'
 old_ecm_mtime = None

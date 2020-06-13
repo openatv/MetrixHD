@@ -9,7 +9,7 @@ from __future__ import print_function
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 from enigma import eServiceCenter, eServiceReference, iServiceInformation
-from Poll import Poll
+from Components.Converter.Poll import Poll
 
 ##########################################################################
 

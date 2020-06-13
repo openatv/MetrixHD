@@ -4,7 +4,7 @@ from Components.Converter.Converter import Converter
 from enigma import iServiceInformation, iPlayableService, iPlayableServicePtr, eServiceReference, eServiceCenter, eTimer
 from Components.Element import cached
 from Components.config import config
-from Poll import Poll
+from Components.Converter.Poll import Poll
 
 class MetrixHDServiceName2(Poll, Converter, object):
 	NAME = 0
