@@ -231,15 +231,25 @@
 		<widget source="LabelBSSID" render="Label" position="160,180" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="LabelESSID" render="Label" position="160,220" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="LabelQuality" render="Label" position="160,260" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="LabelSignal" render="Label" position="160,300" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="LabelBitrate" render="Label" position="160,340" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="LabelEnc" render="Label" position="160,380" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="LabelChannel" render="Label" position="160,300" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="LabelFrequency" render="Label" position="160,340" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="LabelFrequencyNorm" render="Label" position="160,380" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="LabelSignal" render="Label" position="160,420" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="LabelBitrate" render="Label" position="160,460" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="LabelEnc" render="Label" position="160,500" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="LabelEncType" render="Label" position="160,540" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+
 		<widget source="BSSID" render="Label" position="470,180" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="ESSID" render="Label" position="470,220" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="quality" render="Label" position="470,260" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="signal" render="Label" position="470,300" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="bitrate" render="Label" position="470,340" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="enc" render="Label" position="470,380" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="channel" render="Label" position="470,300" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="frequency" render="Label" position="470,340" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="frequency_norm" render="Label" position="470,380" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="signal" render="Label" position="470,420" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="bitrate" render="Label" position="470,460" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="enc" render="Label" position="470,500" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="encryption_type" render="Label" position="470,540" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
+
 		<panel name="template1_2layer" />
 		<panel name="r___-buttons_template1" />
 		<panel name="r___-keys_template1-source" />
@@ -255,6 +265,7 @@
 				{"template": [
 						MultiContentEntryText(pos = (10, 2), size = (650, 40), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the essid
 						MultiContentEntryText(pos = (10, 42), size = (210, 30), font=1, flags = RT_HALIGN_LEFT, text = 5), # index 5 is the interface
+						MultiContentEntryText(pos = (300, 8), size = (220, 30), font=1, flags = RT_HALIGN_LEFT, text = 6), # index 6 is the frequency_norm
 						MultiContentEntryText(pos = (230, 42), size = (210, 30), font=1, flags = RT_HALIGN_LEFT, text = 4), # index 0 is the encryption
 						MultiContentEntryText(pos = (450, 8), size = (220, 30), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 0 is the signal
 						MultiContentEntryText(pos = (450, 42), size = (220, 30), font=1, flags = RT_HALIGN_LEFT, text = 3), # index 0 is the maxrate
