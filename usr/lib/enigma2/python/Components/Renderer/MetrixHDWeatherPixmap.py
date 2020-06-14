@@ -69,7 +69,7 @@ class MetrixHDWeatherPixmap(Renderer):
 					animokicon = True
 		if animokicon == True:
 			self.picsicon = []
-			for x in range(self.slideicon):
+			for x in list(range(self.slideicon)):
 				self.picsicon.append(LoadPixmap(pathanimicon + str(x) + '.png'))
 
 			if not self.pixdelay_overwrite:

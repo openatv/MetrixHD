@@ -451,7 +451,7 @@ def initColorsConfig():
 	config.plugins.MyMetrixLiteColors.cologradient = ConfigSelection(default='0', choices = [('0', _('disabled'))] + ColorList)
 	config.plugins.MyMetrixLiteColors.cologradient_show_background = ConfigYesNo(default=True)
 	choicelist = []
-	for x in range(0, 105, 5):
+	for x in list(range(0, 105, 5)):
 		choicelist.append(('%d' %x, '%d%s' %(x, '%')))
 	config.plugins.MyMetrixLiteColors.cologradient_size = ConfigSelection(default='25', choices = choicelist)
 	config.plugins.MyMetrixLiteColors.cologradient_position = ConfigSelection(default='25', choices = choicelist)
@@ -685,7 +685,7 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.piconresize_experimental = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.EHDoldlinechanger = ConfigYesNo(default=False)
 	sharpness = []
-	for i in range(0, 525, 25):
+	for i in list(range(0, 525, 25)):
 		x = str(format(float(i)/100, '.2f'))
 		sharpness.append((x, x))
 	config.plugins.MyMetrixLiteOther.piconsharpness_experimental = ConfigSelection(default = '1.00', choices = sharpness)
@@ -756,12 +756,12 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.showEMCSelectionRows = ConfigSelection(default = "0", choices = [("-4", _("-4")), ("-2", _("-2")), ("0", _("No")), ("+2", _("+2")), ("+4", _("+4")), ("+6", _("+6")), ("+8", _("+8"))])
 	config.plugins.MyMetrixLiteOther.showEMCSelectionPicon = ConfigSelection(default = "no", choices = [("no", _("No")), ("left", _("left")), ("right", _("right"))])
 	choicelist = [("0", _("off"))]
-	for x in range(50, 202, 2):
+	for x in list(range(50, 202, 2)):
 		choicelist.append(('%d' %x, '%d' %x))
 	config.plugins.MyMetrixLiteOther.setEMCdatesize = ConfigSelection(default = "104", choices = choicelist)
 	config.plugins.MyMetrixLiteOther.setEMCdirinfosize = ConfigSelection(default = "140", choices = choicelist)
 	choicelist = [("0", _("off"))]
-	for x in range(20, 82, 2):
+	for x in list(range(20, 82, 2)):
 		choicelist.append(('%d' %x, '%d' %x))
 	config.plugins.MyMetrixLiteOther.setEMCbarsize = ConfigSelection(default = "50", choices = choicelist)
 	#SkinDesign

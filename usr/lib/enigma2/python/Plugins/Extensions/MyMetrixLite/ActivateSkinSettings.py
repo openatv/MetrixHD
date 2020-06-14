@@ -44,6 +44,7 @@ from boxbranding import getBoxType
 import math
 import re
 from time import time
+from six.moves import range
 
 #############################################################
 

@@ -5,6 +5,7 @@ from enigma import iServiceInformation, iPlayableService, iPlayableServicePtr, e
 from Components.Element import cached
 from Components.config import config
 from Components.Converter.Poll import Poll
+from six.moves import range
 
 class MetrixHDServiceName2(Poll, Converter, object):
 	NAME = 0
