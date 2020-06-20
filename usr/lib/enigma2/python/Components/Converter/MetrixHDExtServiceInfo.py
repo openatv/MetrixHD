@@ -61,7 +61,7 @@ class MetrixHDExtServiceInfo(Converter, object):
 			return ""
 
 		text = ""
-		name = info.getName().replace('\xc2\x86', '').replace('\xc2\x87', '')
+		name = info.getName().replace('\xc2\x86', '').replace('\xc2\x87', '').replace('\x86', '').replace('\x87', '')
 		try:
 			service = self.source.serviceref
 			num = service and service.getChannelNum() or None
@@ -125,7 +125,7 @@ class MetrixHDExtServiceInfo(Converter, object):
 			channels = services and services.getContent("SN", True)
 			for channel in channels:
 				if not channel[0].startswith("1:64:"): # Ignore marker
-					list.append(channel[1].replace('\xc2\x86', '').replace('\xc2\x87', ''))
+					list.append(channel[1].replace('\xc2\x86', '').replace('\xc2\x87', '').replace('\x86', '').replace('\x87', ''))
 
 		return list
 

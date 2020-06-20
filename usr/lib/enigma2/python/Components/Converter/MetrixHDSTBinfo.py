@@ -1,3 +1,4 @@
+from __future__ import division
 from Components.Converter.Converter import Converter
 from Components.config import config
 from Components.Element import cached
@@ -7,6 +8,7 @@ from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
 from Tools.Directories import resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS
 import Screens.Standby
 import gettext
+import six
 #from time import time
 
 lang = language.getLanguage()
@@ -14,6 +16,8 @@ environ["LANGUAGE"] = lang[:2]
 gettext.bindtextdomain("enigma2", resolveFilename(SCOPE_LANGUAGE))
 gettext.textdomain("enigma2")
 gettext.bindtextdomain("MyMetrixLite", "%s%s" % (resolveFilename(SCOPE_PLUGINS), "Extensions/MyMetrixLite/locale/"))
+
+TEMPSIGN = '°C' if six.PY3 else str('\xc2\xb0C')
 
 def _(txt):
 	t = gettext.dgettext("MyMetrixLite", txt)
@@ -110,7 +114,7 @@ class MetrixHDSTBinfo(Converter, object):
 				temp = ""
 		if temp and int(temp.replace('\n', '')) > 0:
 			#info ="CPU-Temp: " + temp.replace('\n', '')  + str('\xc2\xb0') + "C"
-			info = temp.replace('\n', '').replace(' ', '') + str('\xc2\xb0') + "C"
+			info = temp.replace('\n', '').replace(' ', '') + TEMPSIGN
 			info = _("CPU-Temp: %s") % info
 		return info
 
@@ -131,7 +135,7 @@ class MetrixHDSTBinfo(Converter, object):
 			f.close()
 		if temp and int(temp.replace('\n', '')) > 0:
 			#info ="SYS-Temp: " + temp.replace('\n', '') + str('\xc2\xb0') + "C"
-			info = temp.replace('\n', '').replace(' ', '') + str('\xc2\xb0') + "C"
+			info = temp.replace('\n', '').replace(' ', '') + TEMPSIGN
 			info = _("SYS-Temp: %s") % info
 		return info
 
@@ -146,7 +150,7 @@ class MetrixHDSTBinfo(Converter, object):
 					lisp = lines.split()
 					if lisp[0] == "MemFree:":
 						#info = "RAM-Free: " + str(int(lisp[1]) / 1024) + " MB"
-						info = str(int(lisp[1]) / 1024)
+						info = str(int(lisp[1]) // 1024)
 						info = _("RAM-Free: %s MB") % info
 						break
 			except:

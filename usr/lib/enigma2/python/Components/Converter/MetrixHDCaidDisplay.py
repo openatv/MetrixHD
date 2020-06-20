@@ -24,6 +24,7 @@ from Components.Element import cached
 from Components.Converter.Poll import Poll
 from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
 from Components.config import config
+import six
 initOtherConfig()
 
 class MetrixHDCaidDisplay(Poll, Converter, object):
@@ -289,6 +290,7 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 					except: pass
 			if ecm:
 				for line in ecm:
+					line = six.ensure_str(line)
 					x = line.lower().find("msec")
 					if x != -1:
 						info["ecm time"] = line[0:x+4]
