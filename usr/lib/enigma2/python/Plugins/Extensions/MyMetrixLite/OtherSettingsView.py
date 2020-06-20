@@ -37,7 +37,7 @@ from enigma import gMainDC, getDesktop
 from .ActivateSkinSettings import ActivateSkinSettings
 from PIL import Image
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
-
+import six
 BoxType = getBoxType()
 
 #############################################################
@@ -276,6 +276,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.resetEHD()
 
 	def checkNetworkState(self, str, retval, extra_args):
+		str = six.ensure_str(str)
 		if 'Collected errors' in str:
 			self.session.open(MessageBox, _("A background update check is in progress, please wait a few minutes and try again."), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
 			self.resetEHD()
@@ -287,6 +288,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.CheckConsole.ePopen(cmd1, self.checkNetworkStateFinished)
 
 	def checkNetworkStateFinished(self, result, retval,extra_args=None):
+		result = six.ensure_str(result)
 		if 'bad address' in result:
 			self.session.openWithCallback(self.InstallPackageFailed, MessageBox, _("Your %s %s is not connected to the internet, please check your network settings and try again.") % (getMachineBrand(), getMachineName()), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
 		elif ('wget returned 1' or 'wget returned 255' or '404 Not Found') in result:
@@ -311,6 +313,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		self.Console.ePopen('/usr/bin/opkg install ' + pkgname, callback)
 
 	def installComplete(self, result, retval = None, extra_args = None):
+		result = six.ensure_str(result)
 		if 'Unknown package' in result:
 			self.session.open(MessageBox, _("Install Package not found!"), MessageBox.TYPE_ERROR, timeout=10)
 			self.resetEHD()
