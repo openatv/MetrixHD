@@ -18,7 +18,7 @@
 #
 #
 #######################################################################
-from __future__ import absolute_import
+from __future__ import absolute_import, division
 from . import _, MAIN_IMAGE_PATH
 from boxbranding import getBoxType, getMachineBrand, getMachineName
 from Screens.Screen import Screen
@@ -682,7 +682,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			imga = Image.open('/tmp/button.png')
 			imgwidth, imgheight = img.size
 			imgawidth, imgaheight = imga.size
-			img.paste(imga, ((imgwidth-imgawidth)/2, (imgheight-imgaheight)/3))
+			img.paste(imga, ((imgwidth-imgawidth)//2, (imgheight-imgaheight)//3))
 			img.save("/tmp/template.png")
 
 	def GetPicturePath(self):
