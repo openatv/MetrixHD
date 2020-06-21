@@ -6,6 +6,9 @@ from Components.Element import cached
 from Components.config import config
 from Components.Converter.Poll import Poll
 from six.moves import range
+import six
+
+SIGN = '°' if six.PY3 else str('\xc2\xb0')
 
 class MetrixHDServiceName2(Poll, Converter, object):
 	NAME = 0
@@ -214,7 +217,7 @@ class MetrixHDServiceName2(Poll, Converter, object):
 			elif f == 'O':
 				if type == 'DVB-S':
 					x = self.tpdata.get('orbital_position', 0)
-					result += x > 1800 and '%d.%d\xc2\xb0W' % ((3600 - x) / 10, (3600 - x) % 10) or '%d.%d\xc2\xb0E' % (x / 10, x % 10)
+					result += x > 1800 and '%d.%d' + SIGN + 'W' % ((3600 - x) / 10, (3600 - x) % 10) or '%d.%d' + SIGN + 'E' % (x / 10, x % 10)
 			elif f == 'M':
 				x = self.tpdata.get('modulation', 1)
 				if type == 'DVB-S':
@@ -329,7 +332,7 @@ class MetrixHDServiceName2(Poll, Converter, object):
 					from Components.NimManager import nimmanager
 					name = str(nimmanager.getSatDescription(orbpos))
 				except:
-					name = orbpos > 1800 and '%d.%d\xc2\xb0W' % ((3600 - orbpos) / 10, (3600 - orbpos) % 10) or '%d.%d\xc2\xb0E' % (orbpos / 10, orbpos % 10)
+					name = orbpos > 1800 and '%d.%d' + SIGN + 'W' % ((3600 - orbpos) / 10, (3600 - orbpos) % 10) or '%d.%d' + SIGN + 'E' % (orbpos / 10, orbpos % 10)
 
 		return name
 
