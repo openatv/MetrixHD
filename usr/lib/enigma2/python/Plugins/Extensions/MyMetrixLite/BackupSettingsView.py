@@ -204,7 +204,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 
 	def writeFile(self):
 		try:
-			f = file(BACKUP_FILE, 'wb')
+			f = open(BACKUP_FILE, 'wb')
 			pickle.dump(self.file, f)
 			f.close()
 			self.changedEntry(True)
@@ -215,7 +215,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 
 		if path.exists(BACKUP_FILE):
 			try:
-				f = file(BACKUP_FILE, "rb")
+				f = open(BACKUP_FILE, "rb")
 				self.file = pickle.load(f)
 				f.close()
 				return True
