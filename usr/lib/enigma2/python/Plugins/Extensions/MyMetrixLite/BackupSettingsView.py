@@ -216,7 +216,12 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		if path.exists(BACKUP_FILE):
 			try:
 				f = open(BACKUP_FILE, "rb")
-				self.file = pickle.load(f)
+				try:
+					self.file = pickle.load(f)
+				except UnicodeDecodeError:
+					f.seek(0) # Read old Python2 pickle
+					t = f.read()
+					self.file = pickle.loads(t,fix_imports=True, encoding="UTF-8", errors="strict", buffers=None)
 				f.close()
 				return True
 			except EOFError:
