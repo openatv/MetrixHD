@@ -37,6 +37,7 @@ from os import path, statvfs, listdir, remove
 from enigma import gMainDC, getDesktop
 from shutil import move, copy
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
+import six
 
 #############################################################
 
@@ -217,8 +218,14 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			lines = f.readlines()
 			f.close()
 			if path.isfile(partpath + partname + '.txt'):
-				f = open(partpath + partname + '.txt', 'r')
-				description = f.read()
+				try:
+					f = open(partpath + sname + '.txt', 'r')
+					description = f.read()
+				except UnicodeDecodeError:
+					f.close()
+					f = open(partpath + sname + '.txt', 'rb')
+					description = f.read()
+					description = six.ensure_str(description)
 				f.close()
 			if path.isfile(partpath + partname + '.png'):
 				previewfile = partname + '.png'
@@ -253,8 +260,14 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 				#//
 				sname = name.replace('#deactivated#', '')
 				if path.isfile(partpath + sname + '.txt'):
-					f = open(partpath + sname + '.txt', 'r')
-					description = f.read()
+					try:
+						f = open(partpath + sname + '.txt', 'r')
+						description = f.read()
+					except UnicodeDecodeError:
+						f.close()
+						f = open(partpath + sname + '.txt', 'rb')
+						description = f.read()
+						description = six.ensure_str(description)
 					f.close()
 				if path.isfile(partpath + sname + '.png'):
 					previewfile =sname + '.png'
