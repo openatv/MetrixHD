@@ -23,6 +23,7 @@ from datetime import datetime, timedelta
 from six.moves.urllib.request import Request, urlopen
 from six.moves.urllib.error import URLError, HTTPError
 from six.moves.urllib.parse import quote
+import six
 
 import sys
 #from twisted.python import log
@@ -158,6 +159,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 		if error is not None:
 			errormessage = str(error.getErrorMessage())
 		elif message is not None:
+			message = six.ensure_str(message)
 			errormessage = str(message)
 		print("MetrixHDWeatherStandalone get weather data failed - Error code: %s" %errormessage)
 		if self.check:
@@ -325,10 +327,12 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			cnt = (24 + (24 - int(datetime.now().strftime('%H')))) / 3 + 1
 			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=%s&cnt=%d%s" % (city, language[:2], units, cnt, apikey)
 			print(feedurl)
-			getPage(feedurl).addCallback(self.jsonCallback).addErrback(self.errorCallback)
+			feedurl = six.ensure_binary(feedurl)
+			getPage(feedurl).addCallback(self.jsonCallback).addErrback(self.errorCallback) # FIXME getPage is deprecated
 
 	def jsonCallback(self, jsonstring):
 		global g_updateRunning
+		jsonstring = six.ensure_str(jsonstring)
 		d = json.loads(jsonstring)
 		if 'code' in d and d['cod'] != "200":
 			self.errorCallback(message = d['message'])
