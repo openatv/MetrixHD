@@ -219,11 +219,11 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			f.close()
 			if path.isfile(partpath + partname + '.txt'):
 				try:
-					f = open(partpath + sname + '.txt', 'r')
+					f = open(partpath + partname + '.txt', 'r')
 					description = f.read()
 				except UnicodeDecodeError:
 					f.close()
-					f = open(partpath + sname + '.txt', 'rb')
+					f = open(partpath + partname + '.txt', 'rb')
 					description = f.read()
 					description = six.ensure_str(description)
 				f.close()
