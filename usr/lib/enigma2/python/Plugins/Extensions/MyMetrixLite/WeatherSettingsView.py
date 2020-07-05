@@ -41,6 +41,7 @@ from Components.Renderer.MetrixHDWeatherUpdaterStandalone import MetrixHDWeather
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 from six.moves.urllib.request import Request, urlopen
 from six.moves.urllib.error import URLError, HTTPError
+import six
 
 #############################################################
 
@@ -336,13 +337,13 @@ def search_title(id):
 		print('[WeatherSettingsView] Error: Unable to retrieve page - Error code: ', str(err))
 		return "error"
 
-	content = msnpage.read()
+	content = six.ensure_str(msnpage.read())
 	msnpage.close()
 	root = cet_fromstring(content)
 	search_results = []
 	if content:
 		for childs in root:
 			if childs.tag == 'weather':
-				locationcode = childs.attrib.get('weatherlocationname').encode('utf-8', 'ignore')
+				locationcode = six.ensure_str(childs.attrib.get('weatherlocationname'), errors='ignore')
 				search_results.append(locationcode)
 	return search_results

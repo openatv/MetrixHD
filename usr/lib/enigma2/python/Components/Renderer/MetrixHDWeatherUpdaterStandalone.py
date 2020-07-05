@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: iso-8859-1 -*-
 #######################################################################
 #
 #    MetrixMODWeather for openTV
@@ -24,6 +23,8 @@ from six.moves.urllib.request import Request, urlopen
 from six.moves.urllib.error import URLError, HTTPError
 from six.moves.urllib.parse import quote
 import six
+
+SIGN = '°' if six.PY3 else str('\xc2\xb0')
 
 import sys
 #from twisted.python import log
@@ -310,7 +311,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				currentWeathershortday = currentWeather.getAttributeNode('shortday')
 				config.plugins.MetrixWeather.forecastTomorrowshortday3.value = currentWeathershortday.nodeValue
 				if self.check:
-					text = "%s|%s|%s°|%s°|%s°" %(id, name, temp, temp_max, temp_min)
+					text = "%s|%s|%s%s|%s%s|%s%s" %(id, name, temp,SIGN, temp_max,SIGN, temp_min,SIGN)
 					self.writeCheckFile(text)
 					return
 			except IndexError as err:
@@ -388,7 +389,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				tmax_tomorrow = str(max(tmax_tomorrow))
 
 			if self.check:
-				text = "%s|%s|%s°|%s°|%s°" %(id, name, temp, tmax_today, tmin_today)
+				text = "%s|%s|%s%s|%s%s|%s%s" %(id, name, temp,SIGN, tmax_today,SIGN, tmin_today,SIGN)
 				self.writeCheckFile(text)
 				return
 
