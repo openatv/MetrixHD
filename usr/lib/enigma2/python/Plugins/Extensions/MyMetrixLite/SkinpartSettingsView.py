@@ -222,11 +222,16 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 					f = open(partpath + partname + '.txt', 'r')
 					description = f.read()
 				except UnicodeDecodeError:
+					print("[MetrixHD] - WARNING : (" + partpath + partname + ") should be UTF-8")
 					f.close()
 					f = open(partpath + partname + '.txt', 'rb')
 					description = f.read()
-					description = six.ensure_str(description)
-				f.close()
+					f.close()
+					try:
+						description = description.decode("latin-1")
+					except UnicodeDecodeError:
+						print("[MetrixHD] - WARNING : (" + partpath + partname + ") must be UTF-8 or latin-1")
+						description = description.decode("utf-8","ignore")
 			if path.isfile(partpath + partname + '.png'):
 				previewfile = partname + '.png'
 			elif path.isfile(partpath + partname + '.jpg'):
@@ -264,11 +269,17 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 						f = open(partpath + sname + '.txt', 'r')
 						description = f.read()
 					except UnicodeDecodeError:
+						print("[MetrixHD] - WARNING : (" + partpath + sname + ") should be UTF-8")
 						f.close()
 						f = open(partpath + sname + '.txt', 'rb')
 						description = f.read()
+						f.close()
+						try:
+							description = description.decode("latin-1")
+						except UnicodeDecodeError:
+							print("[MetrixHD] - WARNING : (" + partpath + sname + ") must be UTF-8 or latin-1")
+							description = description.decode("utf-8","ignore")
 						description = six.ensure_str(description)
-					f.close()
 				if path.isfile(partpath + sname + '.png'):
 					previewfile =sname + '.png'
 				elif path.isfile(partpath + sname + '.jpg'):
