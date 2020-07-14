@@ -128,7 +128,7 @@ class MainSettingsView(Screen):
 		list.append(MenuEntryItem(_("Weather settings"), "WEATHER", _("Powered by\n-----------------\nmsn weather\n(https://www.msn.com)\nand\nOpenWeatherMap\n(https://openweathermap.org)")))
 		list.append(MenuEntryItem(_("Other settings"), "OTHER", _("helptext")))
 		if path.isfile("/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/DesignSettings.py"):
-			from DesignSettingsView import DesignSettingsView
+			from .DesignSettingsView import DesignSettingsView
 			list.append(MenuEntryItem(_("Design settings"), "DESIGN", _("helptext")))
 		list.append(MenuEntryItem(_("Skinpart settings"), "SKINPART", _("helptext")))
 		list.append("")
