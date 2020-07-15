@@ -1,4 +1,4 @@
-from __future__ import print_function, division
+from __future__ import print_function
 #######################################################################
 #
 #    MyMetrixLite by arn354 & svox
@@ -142,7 +142,7 @@ class ActivateSkinSettings:
 					self.ErrorCode = 'checkEHDsettings', _("Your enhanced hd settings are inconsistent. Please check this.")
 				elif self.silent:
 					stat = statvfs("/usr/share/enigma2/MetrixHD/")
-					freeflash = stat.f_bavail * stat.f_bsize // 1024 // 1024
+					freeflash = stat.f_bavail * stat.f_bsize / 1024 / 1024
 					filesize = 10
 					if self.EHDres == 'UHD':
 						filesize = 25
@@ -215,7 +215,7 @@ class ActivateSkinSettings:
 			################
 
 			stat = statvfs("/usr/share/enigma2/MetrixHD/")
-			freeflash = stat.f_bavail * stat.f_bsize // 1024
+			freeflash = stat.f_bavail * stat.f_bsize / 1024
 
 			filesize = 0
 			for file in skinfiles:
@@ -455,47 +455,47 @@ class ActivateSkinSettings:
 			sizeH = 480
 			gap = 5
 			margin = 2
-			scale = config.plugins.MyMetrixLiteFonts.epgtext_scale.value // 95.0 # 95% standard scale
+			scale = config.plugins.MyMetrixLiteFonts.epgtext_scale.value / 95.0 # 95% standard scale
 			if config.plugins.MyMetrixLiteOther.showMovieListScrollbar.value:
 				sizeW -= margin + config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth.value + config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value*2 # place for scrollbar
 				EMCSkinSearchAndReplace.append(['scrollbarMode="showNever"', 'scrollbarMode="showOnDemand"' ])
 
 			if config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "+8":
 				itemHeight = 20
-				rowfactor = itemHeight // 30.0
+				rowfactor = itemHeight / 30.0
 				offsetHicon = 0
 				offsetPosIcon = 6
 				offsetHbar = -2
 			elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "+6":
 				sizeH = 484
 				itemHeight = 22
-				rowfactor = itemHeight // 30.0
+				rowfactor = itemHeight / 30.0
 				offsetHicon = 0
 				offsetPosIcon = 4
 				offsetHbar = -2
 			elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "+4":
 				itemHeight = 24
-				rowfactor = itemHeight // 30.0
+				rowfactor = itemHeight / 30.0
 				offsetHicon = 0
 				offsetPosIcon = 2
 				offsetHbar = -2
 			elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "+2":
 				sizeH = 486
 				itemHeight = 27
-				rowfactor = itemHeight // 30.0
+				rowfactor = itemHeight / 30.0
 				offsetPosIcon = 0
 				offsetHicon = 1
 				offsetHbar = -1
 			elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "-2":
 				sizeH = 476
 				itemHeight = 34
-				rowfactor = itemHeight // 30.0
+				rowfactor = itemHeight / 30.0
 				offsetHicon = 1
 				offsetPosIcon = 0
 				offsetHbar = 1
 			elif config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "-4":
 				itemHeight = 40
-				rowfactor = itemHeight // 30.0
+				rowfactor = itemHeight / 30.0
 				offsetPosIcon = 0
 				offsetHicon = 3
 				offsetHbar = 4
@@ -1533,7 +1533,7 @@ class ActivateSkinSettings:
 						imga = Image.new("RGBA", (sx, sy))
 						for y in range(sy):
 							for x in range(sx):
-								s = a*(float(math.sqrt((x - epx) ** 2 + (y - epy) ** 2)) // math.sqrt((esx ** 2) + (esy ** 2)))
+								s = a*(float(math.sqrt((x - epx) ** 2 + (y - epy) ** 2)) / math.sqrt((esx ** 2) + (esy ** 2)))
 								imga.putpixel((x, y), (glossycolor[0], glossycolor[1], glossycolor[2], a-int(s)))
 					self.ButtonEffect = imga
 				img.paste(self.ButtonEffect, (fs, fs), self.ButtonEffect)
