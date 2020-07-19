@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import print_function
 #######################################################################
 #
@@ -39,6 +40,7 @@ from Components.NimManager import nimmanager
 from shutil import move, copy, rmtree, copytree
 from enigma import getDesktop
 from os import path, remove, statvfs, listdir, system, mkdir, unlink, symlink, rename
+from subprocess import getoutput
 from PIL import Image, ImageFont, ImageDraw
 from boxbranding import getBoxType
 import math
@@ -137,7 +139,8 @@ class ActivateSkinSettings:
 
 		if self.EHDenabled:
 			self.service_name = 'enigma2-plugin-skins-metrix-atv-%s-icons' % self.EHDres.lower()
-			if system('/usr/bin/opkg list-installed ' + self.service_name + ' | grep ' + self.service_name):
+			return_value = getoutput("/usr/bin/opkg list-installed " + self.service_name)
+			if self.service_name not in return_value:
 				if onlyCheck or not self.silent:
 					self.ErrorCode = 'checkEHDsettings', _("Your enhanced hd settings are inconsistent. Please check this.")
 				elif self.silent:
