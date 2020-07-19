@@ -1477,6 +1477,8 @@ class ActivateSkinSettings:
 			while fontx > sizex:
 				font = ImageFont.truetype(fonttyp, fontsize-x)
 				fontx, fonty = font.getsize(text)
+				#fixme fonty size factor different with new pillow 6.2.1 
+				fonty = fonty+7
 				x += 1
 			#frame
 			img = Image.new("RGBA", (sizex, sizey), framecolor)
