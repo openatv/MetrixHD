@@ -32,7 +32,7 @@ PngImagePlugin.PngStream.chunk_tRNS = patched_chunk_tRNS
 
 def patched_load(self):
 	if self.im and self.palette and self.palette.dirty:
-		apply(self.im.putpalette, self.palette.getdata())
+		self.im.putpalette(*self.palette.getdata())
 		self.palette.dirty = 0
 		self.palette.rawmode = None
 		try:
