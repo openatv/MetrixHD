@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+from __future__ import print_function, division
 #######################################################################
 #
 #    MyMetrixLite by arn354 & svox
@@ -548,7 +548,7 @@ class ActivateSkinSettings:
 											, 'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' %(sizeH, itemHeight, CoolFont, CoolSelectFont, CoolDateFont) ])
 
 			EMCSkinSearchAndReplace.append(['size="700,240" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"'\
-											, 'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' %(sizeH/2, itemHeight, CoolFont, CoolSelectFont, CoolDateFont) ])
+											, 'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' %(sizeH//2, itemHeight, CoolFont, CoolSelectFont, CoolDateFont) ])
 
 			EMCSkinSearchAndReplace.append(['CoolProgressHPos="2" CoolIconPos="4" CoolIconHPos="2" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90"'\
 											, 'CoolProgressHPos="%s" CoolIconPos="%s" CoolIconHPos="%s" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="%s" CoolBarSize="%s,%s" CoolBarSizeSa="%s,%s" CoolMoviePos="%s"' %(CoolProgressHPos, CoolIconPos, CoolIconHPos, CoolBarHPos, CoolBarSizeH, CoolBarSizeV, CoolBarSizeH, CoolBarSizeV, CoolMoviePos - margin) ])
@@ -1868,7 +1868,7 @@ class ActivateSkinSettings:
 		if ret[0].startswith('name="underline"'):
 			ulsize = config.plugins.MyMetrixLiteOther.layeraunderlinesize.value
 			ulposy = config.plugins.MyMetrixLiteOther.layeraunderlineposy.value
-			ret[3] = str(int(ret[3]) - ulsize/2 + ulposy)
+			ret[3] = str(int(ret[3]) - ulsize//2 + ulposy)
 			ret[7] = str(ulsize)
 			return ''.join(ret)
 		i = 0
