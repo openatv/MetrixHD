@@ -22,7 +22,7 @@ def patched_chunk_tRNS(self, pos, len):
 	i16 = PngImagePlugin.i16
 	s = ImageFile._safe_read(self.fp, len)
 	if self.im_mode == "P":
-		self.im_info["transparency"] = map(ord, s)
+		self.im_info["transparency"] = list(map(ord, s))
 	elif self.im_mode == "L":
 		self.im_info["transparency"] = i16(s)
 	elif self.im_mode == "RGB":
@@ -116,26 +116,21 @@ class MetrixHDXPicon(Renderer):
 				if self.pngname != pngname:
 					if config.plugins.MyMetrixLiteOther.piconresize_experimental.value:
 						try:
+							ImageFile.LOAD_TRUNCATED_IMAGES = True
 							im = Image.open(pngname).convert('RGBA')
-						except:
-							print("[MetrixHDXPicon] cant load image:", pngname)
-							tmp = resolveFilename(SCOPE_CURRENT_SKIN, "picon_default.png")
-							if fileExists(tmp):
-								pngname = tmp
+							imw, imh = im.size
+							inh = self.instance.size().height()
+							if imh != inh:
+								sf = float(inh)/imh
+								im = im.resize((int(imw*sf), int(imh*sf)), Image.ANTIALIAS)
+								ims = ImageEnhance.Sharpness(im)
+								im = ims.enhance(float(config.plugins.MyMetrixLiteOther.piconsharpness_experimental.value))
+								tempfile = '/tmp/picon.png'
+								im.save(tempfile)
+								self.instance.setPixmapFromFile(tempfile)
 							else:
-								pngname = resolveFilename(SCOPE_SKIN_IMAGE, "skin_default/picon_default.png")
-							im = Image.open(pngname).convert('RGBA')
-						imw, imh = im.size
-						inh = self.instance.size().height()
-						if imh != inh:
-							sf = float(inh)/imh
-							im = im.resize((int(imw*sf), int(imh*sf)), Image.ANTIALIAS)
-							ims = ImageEnhance.Sharpness(im)
-							im = ims.enhance(float(config.plugins.MyMetrixLiteOther.piconsharpness_experimental.value))
-							tempfile = '/tmp/picon.png'
-							im.save(tempfile)
-							self.instance.setPixmapFromFile(tempfile)
-						else:
+								self.instance.setPixmapFromFile(pngname)
+						except:
 							self.instance.setPixmapFromFile(pngname)
 					else:
 						self.instance.setPixmapFromFile(pngname)
