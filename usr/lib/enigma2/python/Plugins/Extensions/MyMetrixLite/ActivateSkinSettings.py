@@ -50,6 +50,10 @@ from six.moves import range
 
 #############################################################
 
+def round_half_up(n, decimals=0):
+	multiplier = 10 ** decimals
+	return math.floor(n*multiplier + 0.5) / multiplier
+
 class ActivateSkinSettings:
 
 	def __init__(self):
@@ -1429,7 +1433,7 @@ class ActivateSkinSettings:
 			config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")
 		config.skin.primary_skin.save()
 		configfile.save()
-		print("MyMetrixLite apply Changes - duration time: %ss" % (round(time()-apply_starttime, 1)))
+		print("MyMetrixLite apply Changes - duration time: %ss" % (round_half_up(time()-apply_starttime, 1)))
 
 	def makeButtons(self, button, text, extern = True):
 		try:
@@ -1875,9 +1879,9 @@ class ActivateSkinSettings:
 		for x in ret:
 			if re.match('[0-9]\d{%d,}' %(len(x)-1), x):
 				if ret[0].startswith('size="') and (self.xpos or self.ypos):
-					x = int(round(int(x) * self.picon_zoom, self.round_par))
+					x = int(round_half_up(int(x) * self.picon_zoom, self.round_par))
 				else:
-					x = int(round(int(x) * self.EHDfactor, self.round_par))
+					x = int(round_half_up(int(x) * self.EHDfactor, self.round_par))
 				if ret[0].startswith('position="') and (self.xpos or self.ypos):
 					if i == 1:
 						x += self.xpos
@@ -1905,8 +1909,8 @@ class ActivateSkinSettings:
 				if pos:
 					xpos = int(pos[0][0]+pos[0][1]) if not re.match('[ce]', pos[0][0]) else pos[0][1] if pos[0][1] else 0
 					ypos = int(pos[0][2]+pos[0][3]) if not re.match('[ce]', pos[0][2]) else pos[0][3] if pos[0][3] else 0
-					self.xpos = int(round((xpos*self.EHDfactor-xpos*self.picon_zoom)/2.0, self.round_par)) if xpos else 0
-					self.ypos = int(round((ypos*self.EHDfactor-ypos*self.picon_zoom)/2.0, self.round_par)) if ypos else 0
+					self.xpos = int(round_half_up((xpos*self.EHDfactor-xpos*self.picon_zoom)/2.0, self.round_par)) if xpos else 0
+					self.ypos = int(round_half_up((ypos*self.EHDfactor-ypos*self.picon_zoom)/2.0, self.round_par)) if ypos else 0
 			line = re.sub('(size *= *["(][ ce+-]*)(\d*)( *, *)([ ce+-]+|\d+)(\d+|[")]*)', self.linereplacer, line)
 #position="423,460"
 #(pos = (40, 5)
@@ -2054,45 +2058,45 @@ class ActivateSkinSettings:
 				parcount = len(line[n2:n12+1].split(','))
 			strnew = ""
 			if parcount == 1:
-				p1 = int(round(float(int(line[(n2+1):n12])*FACT), r_par))
+				p1 = int(round_half_up(float(int(line[(n2+1):n12])*FACT), r_par))
 				strnew = 'value="%d"' %(p1)
 			elif parcount == 2:
 				if 'Font' in line:
 					n3 = line.find(';', n2) 
 					p1 = line[(n2+1):n3]
-					p2 = int(f_offset + round(float(int(line[(n3+1):n12])*FACT), r_par))
+					p2 = int(f_offset + round_half_up(float(int(line[(n3+1):n12])*FACT), r_par))
 					strnew = 'value="%s;%d"' %(p1, p2)
 				else:
 					n3 = line.find(',', n2) 
-					p1 = int(round(float(int(line[(n2+1):n3])*FACT), r_par))
-					p2 = int(round(float(int(line[(n3+1):n12])*FACT), r_par))
+					p1 = int(round_half_up(float(int(line[(n2+1):n3])*FACT), r_par))
+					p2 = int(round_half_up(float(int(line[(n3+1):n12])*FACT), r_par))
 					strnew = 'value="%d,%d"' %(p1, p2)
 			elif parcount == 3:
 				n3 = line.find(',', n2) 
 				n4 = line.find(',', n3+1) 
-				p1 = int(round(float(int(line[(n2+1):n3])*FACT), r_par))
-				p2 = int(round(float(int(line[(n3+1):n4])*FACT), r_par))
-				p3 = int(round(float(int(line[(n4+1):n12])*FACT), r_par))
+				p1 = int(round_half_up(float(int(line[(n2+1):n3])*FACT), r_par))
+				p2 = int(round_half_up(float(int(line[(n3+1):n4])*FACT), r_par))
+				p3 = int(round_half_up(float(int(line[(n4+1):n12])*FACT), r_par))
 				strnew = 'value="%d,%d,%d"' %(p1, p2, p3)
 			elif parcount == 4:
 				n3 = line.find(',', n2) 
 				n4 = line.find(',', n3+1) 
 				n5 = line.find(',', n4+1) 
-				p1 = int(round(float(int(line[(n2+1):n3])*FACT), r_par))
-				p2 = int(round(float(int(line[(n3+1):n4])*FACT), r_par))
-				p3 = int(round(float(int(line[(n4+1):n5])*FACT), r_par))
-				p4 = int(round(float(int(line[(n5+1):n12])*FACT), r_par))
+				p1 = int(round_half_up(float(int(line[(n2+1):n3])*FACT), r_par))
+				p2 = int(round_half_up(float(int(line[(n3+1):n4])*FACT), r_par))
+				p3 = int(round_half_up(float(int(line[(n4+1):n5])*FACT), r_par))
+				p4 = int(round_half_up(float(int(line[(n5+1):n12])*FACT), r_par))
 				strnew = 'value="%d,%d,%d,%d"' %(p1, p2, p3, p4)
 			elif parcount == 5:
 				n3 = line.find(',', n2) 
 				n4 = line.find(',', n3+1) 
 				n5 = line.find(',', n4+1) 
 				n6 = line.find(',', n5+1) 
-				p1 = int(round(float(int(line[(n2+1):n3])*FACT), r_par))
-				p2 = int(round(float(int(line[(n3+1):n4])*FACT), r_par))
-				p3 = int(round(float(int(line[(n4+1):n5])*FACT), r_par))
-				p4 = int(round(float(int(line[(n5+1):n6])*FACT), r_par))
-				p5 = int(round(float(int(line[(n6+1):n12])*FACT), r_par))
+				p1 = int(round_half_up(float(int(line[(n2+1):n3])*FACT), r_par))
+				p2 = int(round_half_up(float(int(line[(n3+1):n4])*FACT), r_par))
+				p3 = int(round_half_up(float(int(line[(n4+1):n5])*FACT), r_par))
+				p4 = int(round_half_up(float(int(line[(n5+1):n6])*FACT), r_par))
+				p5 = int(round_half_up(float(int(line[(n6+1):n12])*FACT), r_par))
 				strnew = 'value="%d,%d,%d,%d,%d"' %(p1, p2, p3, p4, p5)
 			elif parcount == 6:
 				n3 = line.find(',', n2) 
@@ -2100,12 +2104,12 @@ class ActivateSkinSettings:
 				n5 = line.find(',', n4+1) 
 				n6 = line.find(',', n5+1) 
 				n7 = line.find(',', n6+1) 
-				p1 = int(round(float(int(line[(n2+1):n3])*FACT), r_par))
-				p2 = int(round(float(int(line[(n3+1):n4])*FACT), r_par))
-				p3 = int(round(float(int(line[(n4+1):n5])*FACT), r_par))
-				p4 = int(round(float(int(line[(n5+1):n6])*FACT), r_par))
-				p5 = int(round(float(int(line[(n6+1):n7])*FACT), r_par))
-				p6 = int(round(float(int(line[(n7+1):n12])*FACT), r_par))
+				p1 = int(round_half_up(float(int(line[(n2+1):n3])*FACT), r_par))
+				p2 = int(round_half_up(float(int(line[(n3+1):n4])*FACT), r_par))
+				p3 = int(round_half_up(float(int(line[(n4+1):n5])*FACT), r_par))
+				p4 = int(round_half_up(float(int(line[(n5+1):n6])*FACT), r_par))
+				p5 = int(round_half_up(float(int(line[(n6+1):n7])*FACT), r_par))
+				p6 = int(round_half_up(float(int(line[(n7+1):n12])*FACT), r_par))
 				strnew = 'value="%d,%d,%d,%d,%d,%d"' %(p1, p2, p3, p4, p5, p6)
 			elif parcount == 7:
 				n3 = line.find(',', n2) 
@@ -2114,13 +2118,13 @@ class ActivateSkinSettings:
 				n6 = line.find(',', n5+1) 
 				n7 = line.find(',', n6+1) 
 				n8 = line.find(',', n7+1) 
-				p1 = int(round(float(int(line[(n2+1):n3])*FACT), r_par))
-				p2 = int(round(float(int(line[(n3+1):n4])*FACT), r_par))
-				p3 = int(round(float(int(line[(n4+1):n5])*FACT), r_par))
-				p4 = int(round(float(int(line[(n5+1):n6])*FACT), r_par))
-				p5 = int(round(float(int(line[(n6+1):n7])*FACT), r_par))
-				p6 = int(round(float(int(line[(n7+1):n8])*FACT), r_par))
-				p7 = int(round(float(int(line[(n8+1):n12])*FACT), r_par))
+				p1 = int(round_half_up(float(int(line[(n2+1):n3])*FACT), r_par))
+				p2 = int(round_half_up(float(int(line[(n3+1):n4])*FACT), r_par))
+				p3 = int(round_half_up(float(int(line[(n4+1):n5])*FACT), r_par))
+				p4 = int(round_half_up(float(int(line[(n5+1):n6])*FACT), r_par))
+				p5 = int(round_half_up(float(int(line[(n6+1):n7])*FACT), r_par))
+				p6 = int(round_half_up(float(int(line[(n7+1):n8])*FACT), r_par))
+				p7 = int(round_half_up(float(int(line[(n8+1):n12])*FACT), r_par))
 				strnew = 'value="%d,%d,%d,%d,%d,%d,%d"' %(p1, p2, p3, p4, p5, p6, p7)
 			elif parcount == 8:
 				n3 = line.find(',', n2) 
@@ -2130,14 +2134,14 @@ class ActivateSkinSettings:
 				n7 = line.find(',', n6+1) 
 				n8 = line.find(',', n7+1) 
 				n9 = line.find(',', n8+1) 
-				p1 = int(round(float(int(line[(n2+1):n3])*FACT), r_par))
-				p2 = int(round(float(int(line[(n3+1):n4])*FACT), r_par))
-				p3 = int(round(float(int(line[(n4+1):n5])*FACT), r_par))
-				p4 = int(round(float(int(line[(n5+1):n6])*FACT), r_par))
-				p5 = int(round(float(int(line[(n6+1):n7])*FACT), r_par))
-				p6 = int(round(float(int(line[(n7+1):n8])*FACT), r_par))
-				p7 = int(round(float(int(line[(n8+1):n9])*FACT), r_par))
-				p8 = int(round(float(int(line[(n9+1):n12])*FACT), r_par))
+				p1 = int(round_half_up(float(int(line[(n2+1):n3])*FACT), r_par))
+				p2 = int(round_half_up(float(int(line[(n3+1):n4])*FACT), r_par))
+				p3 = int(round_half_up(float(int(line[(n4+1):n5])*FACT), r_par))
+				p4 = int(round_half_up(float(int(line[(n5+1):n6])*FACT), r_par))
+				p5 = int(round_half_up(float(int(line[(n6+1):n7])*FACT), r_par))
+				p6 = int(round_half_up(float(int(line[(n7+1):n8])*FACT), r_par))
+				p7 = int(round_half_up(float(int(line[(n8+1):n9])*FACT), r_par))
+				p8 = int(round_half_up(float(int(line[(n9+1):n12])*FACT), r_par))
 				strnew = 'value="%d,%d,%d,%d,%d,%d,%d,%d"' %(p1, p2, p3, p4, p5, p6, p7, p8)
 
 			if strnew:
@@ -2151,7 +2155,7 @@ class ActivateSkinSettings:
 				n2 = line.find('="', n1)
 				n3 = line.find('"', n2+2) 
 				y = line[(n2+2):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+2] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #rowHeight="25"
@@ -2161,7 +2165,7 @@ class ActivateSkinSettings:
 			n3 = line.find('"', n2+1) 
 			y = line[(n2+1):n3]
 
-			ynew = str(int(round(float(int(y)*FACT), r_par)))
+			ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 			strnew = line[n1:n2+1] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3+1):]
 #satPosLeft="160" 
@@ -2171,7 +2175,7 @@ class ActivateSkinSettings:
 			n3 = line.find('"', n2+1) 
 			y = line[(n2+1):n3]
 
-			ynew = str(int(round(float(int(y)*FACT), r_par)))
+			ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 			strnew = line[n1:n2+1] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3+1):]
 
@@ -2182,7 +2186,7 @@ class ActivateSkinSettings:
 			n3 = line.find('"', n2+1) 
 			y = line[(n2+1):n3]
 
-			ynew = str(int(round(float(int(y)*FACT), r_par)))
+			ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 			strnew = line[n1:n2+1] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3+1):]
 #size="200,100"
@@ -2197,41 +2201,41 @@ class ActivateSkinSettings:
 			y = line[(n3+1):n4]
 			if "c+" in x:
 				x1 = x.replace("c+", "")
-				xpos = int(round(float((int(x1)*FACT - int(x1)*PFACT)/2), r_par))
-				x1new = str(int(round(float(int(x1)*PFACT), r_par)))
+				xpos = int(round_half_up(float((int(x1)*FACT - int(x1)*PFACT)/2), r_par))
+				x1new = str(int(round_half_up(float(int(x1)*PFACT), r_par)))
 				xnew = "c+" + x1new
 			elif "c-" in x:
 				x1 = x.replace("c-", "")
-				xpos = int(round(float((int(x1)*FACT - int(x1)*PFACT)/2), r_par))
-				x1new = str(int(round(float(int(x1)*PFACT), r_par)))
+				xpos = int(round_half_up(float((int(x1)*FACT - int(x1)*PFACT)/2), r_par))
+				x1new = str(int(round_half_up(float(int(x1)*PFACT), r_par)))
 				xnew = "c-" + x1new
 			elif "e-" in x:
 				x1 = x.replace("e-", "")
-				xpos = int(round(float((int(x1)*FACT - int(x1)*PFACT)/2), r_par))
-				x1new = str(int(round(float(int(x1)*PFACT), r_par)))
+				xpos = int(round_half_up(float((int(x1)*FACT - int(x1)*PFACT)/2), r_par))
+				x1new = str(int(round_half_up(float(int(x1)*PFACT), r_par)))
 				xnew = "e-" + x1new
 			else:
-				xpos = int(round(float((int(x)*FACT - int(x)*PFACT)/2), r_par))
-				xnew = str(int(round(float(int(x)*PFACT), r_par)))
+				xpos = int(round_half_up(float((int(x)*FACT - int(x)*PFACT)/2), r_par))
+				xnew = str(int(round_half_up(float(int(x)*PFACT), r_par)))
 
 			if "c+" in y:
 				y1 = y.replace("c+", "")
-				ypos = int(round(float((int(y1)*FACT - int(y1)*PFACT)/2), r_par))
-				y1new = str(int(round(float(int(y1)*PFACT), r_par)))
+				ypos = int(round_half_up(float((int(y1)*FACT - int(y1)*PFACT)/2), r_par))
+				y1new = str(int(round_half_up(float(int(y1)*PFACT), r_par)))
 				ynew = "c+" + y1new
 			elif "c-" in y:
 				y1 = y.replace("c-", "")
-				ypos = int(round(float((int(y1)*FACT - int(y1)*PFACT)/2), r_par))
-				y1new = str(int(round(float(int(y1)*PFACT), r_par)))
+				ypos = int(round_half_up(float((int(y1)*FACT - int(y1)*PFACT)/2), r_par))
+				y1new = str(int(round_half_up(float(int(y1)*PFACT), r_par)))
 				ynew = "c-" + y1new
 			elif "e-" in y:
 				y1 = y.replace("e-", "")
-				ypos = int(round(float((int(y1)*FACT - int(y1)*PFACT)/2), r_par))
-				y1new = str(int(round(float(int(y1)*PFACT), r_par)))
+				ypos = int(round_half_up(float((int(y1)*FACT - int(y1)*PFACT)/2), r_par))
+				y1new = str(int(round_half_up(float(int(y1)*PFACT), r_par)))
 				ynew = "e-" + y1new
 			else:
-				ypos = int(round(float((int(y)*FACT - int(y)*PFACT)/2), r_par))
-				ynew = str(int(round(float(int(y)*PFACT), r_par)))
+				ypos = int(round_half_up(float((int(y)*FACT - int(y)*PFACT)/2), r_par))
+				ynew = str(int(round_half_up(float(int(y)*PFACT), r_par)))
 
 			strnew = 'size="' + xnew + ',' + ynew + '"'
 			line = line[:n1] + strnew + line[(n4+1):]
@@ -2249,37 +2253,37 @@ class ActivateSkinSettings:
 			y = line[(n3+1):n4]
 			if "c+" in x:
 				x1 = x.replace("c+", "")
-				x1new = str(int(round(float(int(x1)*FACT+xpos), r_par)))
+				x1new = str(int(round_half_up(float(int(x1)*FACT+xpos), r_par)))
 				xnew = "c+" + x1new
 			elif "c-" in x:
 				x1 = x.replace("c-", "")
-				x1new = str(int(round(float(int(x1)*FACT+xpos), r_par)))
+				x1new = str(int(round_half_up(float(int(x1)*FACT+xpos), r_par)))
 				xnew = "c-" + x1new
 			elif "e-" in x:
 				x1 = x.replace("e-", "")
-				x1new = str(int(round(float(int(x1)*FACT+xpos), r_par)))
+				x1new = str(int(round_half_up(float(int(x1)*FACT+xpos), r_par)))
 				xnew = "e-" + x1new
 			elif 'ente' in x:
 				xnew = 'center'
 			else:
-				xnew = str(int(round(float(int(x)*FACT+xpos), r_par)))
+				xnew = str(int(round_half_up(float(int(x)*FACT+xpos), r_par)))
 
 			if "c+" in y:
 				y1 = y.replace("c+", "")
-				y1new = str(int(round(float(int(y1)*FACT+ypos), r_par)))
+				y1new = str(int(round_half_up(float(int(y1)*FACT+ypos), r_par)))
 				ynew = "c+" + y1new
 			elif "c-" in y:
 				y1 = y.replace("c-", "")
-				y1new = str(int(round(float(int(y1)*FACT+ypos), r_par)))
+				y1new = str(int(round_half_up(float(int(y1)*FACT+ypos), r_par)))
 				ynew = "c-" + y1new
 			elif "e-" in y:
 				y1 = y.replace("e-", "")
-				y1new = str(int(round(float(int(y1)*FACT+ypos), r_par)))
+				y1new = str(int(round_half_up(float(int(y1)*FACT+ypos), r_par)))
 				ynew = "e-" + y1new
 			elif 'ente' in y:
 				ynew = 'center'
 			else:
-				ynew = str(int(round(float(int(y)*FACT+ypos), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT+ypos), r_par)))
 
 			strnew = 'position="' + xnew + ',' + ynew + '"'
 			line = line[:n1] + strnew + line[(n4+1):]
@@ -2289,7 +2293,7 @@ class ActivateSkinSettings:
 			n2 = line.find(';', n1) 
 			n3 = line.find('"', n2) 
 			y = line[(n2+1):n3]
-			ynew = str(int(f_offset + round(float(int(y)*FACT), r_par)))
+			ynew = str(int(f_offset + round_half_up(float(int(y)*FACT), r_par)))
 			strnew = line[n1:(n2+1)] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3+1):]
 #Font="Regular;20"
@@ -2301,7 +2305,7 @@ class ActivateSkinSettings:
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2) 
 				y = line[(n2+1):n3]
-				ynew = str(int(f_offset + round(float(int(y)*FACT), r_par)))
+				ynew = str(int(f_offset + round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #ServiceFontGraphical="epg_text;20" EntryFontGraphical="epg_text;20"
@@ -2313,7 +2317,7 @@ class ActivateSkinSettings:
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2) 
 				y = line[(n2+1):n3]
-				ynew = str(int(f_offset + round(float(int(y)*FACT), r_par)))
+				ynew = str(int(f_offset + round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #ServiceFontInfobar="epg_text;20" EntryFontInfobar="epg_text;20"
@@ -2325,7 +2329,7 @@ class ActivateSkinSettings:
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2) 
 				y = line[(n2+1):n3]
-				ynew = str(int(f_offset + round(float(int(y)*FACT), r_par)))
+				ynew = str(int(f_offset + round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #EventFontSingle="epg_event;22"
@@ -2337,7 +2341,7 @@ class ActivateSkinSettings:
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2) 
 				y = line[(n2+1):n3]
-				ynew = str(int(f_offset + round(float(int(y)*FACT), r_par)))
+				ynew = str(int(f_offset + round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #EventFontMulti="epg_event;22"
@@ -2349,7 +2353,7 @@ class ActivateSkinSettings:
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2) 
 				y = line[(n2+1):n3]
-				ynew = str(int(f_offset + round(float(int(y)*FACT), r_par)))
+				ynew = str(int(f_offset + round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #TimeFontVertical="epg_event;22" EventFontVertical="epg_event;18"
@@ -2361,7 +2365,7 @@ class ActivateSkinSettings:
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2) 
 				y = line[(n2+1):n3]
-				ynew = str(int(f_offset + round(float(int(y)*FACT), r_par)))
+				ynew = str(int(f_offset + round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #<alias name="Body" font="screen_text" size="20" height="25" />
@@ -2370,7 +2374,7 @@ class ActivateSkinSettings:
 			n2 = line.find('"', n1) 
 			n3 = line.find('"', n2+1) 
 			y = line[(n2+1):n3]
-			ynew = str(int(f_offset + round(float(int(y)*FACT), r_par)))
+			ynew = str(int(f_offset + round_half_up(float(int(y)*FACT), r_par)))
 			strnew = line[n1:(n2+1)] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3+1):]
 #<alias name="Body" font="screen_text" size="20" height="25" />
@@ -2379,7 +2383,7 @@ class ActivateSkinSettings:
 			n2 = line.find('"', n1) 
 			n3 = line.find('"', n2+1) 
 			y = line[(n2+1):n3]
-			ynew = str(int(f_offset + round(float(int(y)*FACT), r_par)))
+			ynew = str(int(f_offset + round_half_up(float(int(y)*FACT), r_par)))
 			strnew = line[n1:(n2+1)] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3+1):]
 #"fonts": [gFont("Regular",18),gFont("Regular",14),gFont("Regular",24),gFont("Regular",20)]
@@ -2391,7 +2395,7 @@ class ActivateSkinSettings:
 				n2 = line.find(',', n1)
 				n3 = line.find(')', n2) 
 				y = line[(n2+1):n3]
-				ynew = str(int(f_offset + round(float(int(y)*FACT), r_par)))
+				ynew = str(int(f_offset + round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + " " + ynew
 				line = line[:n1] + strnew + line[n3:]
 #(pos = (40, 5)
@@ -2404,37 +2408,37 @@ class ActivateSkinSettings:
 			y = line[(n3+1):n4]
 			if "c+" in x:
 				x1 = x.replace("c+", "")
-				x1new = str(int(round(float(int(x1)*FACT), r_par)))
+				x1new = str(int(round_half_up(float(int(x1)*FACT), r_par)))
 				xnew = "c+" + x1new
 			elif "c-" in x:
 				x1 = x.replace("c-", "")
-				x1new = str(int(round(float(int(x1)*FACT), r_par)))
+				x1new = str(int(round_half_up(float(int(x1)*FACT), r_par)))
 				xnew = "c-" + x1new
 			elif "e-" in x:
 				x1 = x.replace("e-", "")
-				x1new = str(int(round(float(int(x1)*FACT), r_par)))
+				x1new = str(int(round_half_up(float(int(x1)*FACT), r_par)))
 				xnew = "e-" + x1new      
 			elif 'ente' in x:
 				xnew = 'center'
 			else:
-				xnew = str(int(round(float(int(x)*FACT), r_par)))
+				xnew = str(int(round_half_up(float(int(x)*FACT), r_par)))
 
 			if "c+" in y:
 				y1 = y.replace("c+", "")
-				y1new = str(int(round(float(int(y1)*FACT), r_par)))
+				y1new = str(int(round_half_up(float(int(y1)*FACT), r_par)))
 				ynew = "c+" + y1new
 			elif "c-" in y:
 				y1 = y.replace("c-", "")
-				y1new = str(int(round(float(int(y1)*FACT), r_par)))
+				y1new = str(int(round_half_up(float(int(y1)*FACT), r_par)))
 				ynew = "c-" + y1new
 			elif "e-" in y:
 				y1 = y.replace("e-", "")
-				y1new = str(int(round(float(int(y1)*FACT), r_par)))
+				y1new = str(int(round_half_up(float(int(y1)*FACT), r_par)))
 				ynew = "e-" + y1new
 			elif 'ente' in y:
 				ynew = 'center'
 			else:
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 
 			strnew = '(pos = (' + xnew + ', ' + ynew + ')'
 			line = line[:n1] + strnew + line[(n4+1):]
@@ -2448,37 +2452,37 @@ class ActivateSkinSettings:
 				y = line[(n3+1):n4]
 				if "c+" in x:
 					x1 = x.replace("c+", "")
-					x1new = str(int(round(float(int(x1)*FACT), r_par)))
+					x1new = str(int(round_half_up(float(int(x1)*FACT), r_par)))
 					xnew = "c+" + x1new
 				elif "c-" in x:
 					x1 = x.replace("c-", "")
-					x1new = str(int(round(float(int(x1)*FACT), r_par)))
+					x1new = str(int(round_half_up(float(int(x1)*FACT), r_par)))
 					xnew = "c-" + x1new
 				elif "e-" in x:
 					x1 = x.replace("e-", "")
-					x1new = str(int(round(float(int(x1)*FACT), r_par)))
+					x1new = str(int(round_half_up(float(int(x1)*FACT), r_par)))
 					xnew = "e-" + x1new
 				elif 'ente' in x:
 					xnew = 'center'
 				else:
-					xnew = str(int(round(float(int(x)*FACT), r_par)))
+					xnew = str(int(round_half_up(float(int(x)*FACT), r_par)))
 
 				if "c+" in y:
 					y1 = y.replace("c+", "")
-					y1new = str(int(round(float(int(y1)*FACT), r_par)))
+					y1new = str(int(round_half_up(float(int(y1)*FACT), r_par)))
 					ynew = "c+" + y1new
 				elif "c-" in y:
 					y1 = y.replace("c-", "")
-					y1new = str(int(round(float(int(y1)*FACT), r_par)))
+					y1new = str(int(round_half_up(float(int(y1)*FACT), r_par)))
 					ynew = "c-" + y1new
 				elif "e-" in y:
 					y1 = y.replace("e-", "")
-					y1new = str(int(round(float(int(y1)*FACT), r_par)))
+					y1new = str(int(round_half_up(float(int(y1)*FACT), r_par)))
 					ynew = "e-" + y1new
 				elif 'ente' in y:
 					ynew = 'center'
 				else:
-					ynew = str(int(round(float(int(y)*FACT), r_par)))
+					ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 
 				strnew = 'size = (' + xnew + ', ' + ynew + ')'
 				line = line[:n1] + strnew + line[(n4+1):]
@@ -2490,8 +2494,8 @@ class ActivateSkinSettings:
 			n4 = line.find('"', n3) 
 			x = line[(n2+1):n3]
 			y = line[(n3+1):n4]
-			xnew = str(int(round(float(int(x)*FACT), r_par)))
-			ynew = str(int(round(float(int(y)*FACT), r_par)))
+			xnew = str(int(round_half_up(float(int(x)*FACT), r_par)))
+			ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 
 			strnew = ' offset="' + xnew + ',' + ynew + '"'
 			line = line[:n1] + strnew + line[(n4+1):]
@@ -2502,7 +2506,7 @@ class ActivateSkinSettings:
 			n3 = line.find('"', n2+1) 
 			y = line[(n2+1):n3]
 
-			ynew = str(int(round(float(int(y)*FACT), r_par)))
+			ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 			strnew = line[n1:n2+1] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3+1):]
 #itemsDistances="10"
@@ -2512,7 +2516,7 @@ class ActivateSkinSettings:
 			n3 = line.find('"', n2+1) 
 			y = line[(n2+1):n3]
 
-			ynew = str(int(round(float(int(y)*FACT), r_par)))
+			ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 			strnew = line[n1:n2+1] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3+1):]
 #progressbarHeight="10"
@@ -2522,7 +2526,7 @@ class ActivateSkinSettings:
 			n3 = line.find('"', n2+1) 
 			y = line[(n2+1):n3]
 
-			ynew = str(int(round(float(int(y)*FACT), r_par)))
+			ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 			strnew = line[n1:n2+1] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3+1):]
 #progressBarWidth="50" 
@@ -2532,7 +2536,7 @@ class ActivateSkinSettings:
 			n3 = line.find('"', n2+1) 
 			y = line[(n2+1):n3]
 
-			ynew = str(int(round(float(int(y)*FACT), r_par)))
+			ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 			strnew = line[n1:n2+1] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3+1):]
 #progressbarBorderWidth="1" -> deactivated (channel list)
@@ -2542,17 +2546,18 @@ class ActivateSkinSettings:
 		#	n3 = line.find('"', n2+1) 
 		#	y = line[(n2+1):n3]
 
-		#	ynew = str(int(round(float(int(y)*FACT),r_par)))
+		#	ynew = str(int(round_half_up(float(int(y)*FACT),r_par)))
 		#	strnew = line[n1:n2+1] + ynew + '"'
 		#	line = line[:n1] + strnew + line[(n3+1):]
 #itemHeight="25"
 		if 'itemHeight="' in line:
+			print('################################################ 1')
 			n1 = line.find('itemHeight="', 0)
 			n2 = line.find('"', n1)
 			n3 = line.find('"', n2+1) 
 			y = line[(n2+1):n3]
 
-			ynew = str(int(round(float(int(y)*FACT), r_par)))
+			ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 			strnew = line[n1:n2+1] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3+1):]
 #"itemHeight": 45
@@ -2566,7 +2571,7 @@ class ActivateSkinSettings:
 					n3 = line.find('}', n2)
 			y = line[(n2+1):n3]
 
-			ynew = str(int(round(float(int(y)*FACT), r_par)))
+			ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 			strnew = line[n1:n2+1] + " " + ynew
 			line = line[:n1] + strnew + line[n3:]
 #": (90,[
@@ -2576,7 +2581,7 @@ class ActivateSkinSettings:
 			n3 = line.find(',', n2+1) 
 			y = line[(n2+1):n3]
 
-			ynew = str(int(round(float(int(y)*FACT), r_par)))
+			ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 			strnew = line[n1:n2+1] + ynew
 			line = line[:n1] + strnew + line[n3:]
 
@@ -2599,7 +2604,7 @@ class ActivateSkinSettings:
 				if n3 == -1:
 					n3 = line.find('}', n2)
 			x = line[(n2+1):n3]
-			xnew = str(int(round(float(int(x)*FACT), r_par)))
+			xnew = str(int(round_half_up(float(int(x)*FACT), r_par)))
 			strnew = line[n1:n2+1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 		elif 'offset_listposy =' in line:
@@ -2611,7 +2616,7 @@ class ActivateSkinSettings:
 				if n3 == -1:
 					n3 = line.find('}', n2)
 			y = line[(n2+1):n3]
-			xnew = str(int(round(float(int(y)*FACT), r_par)))
+			xnew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 			strnew = line[n1:n2+1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 		elif 'offset_listwidth =' in line:
@@ -2623,7 +2628,7 @@ class ActivateSkinSettings:
 				if n3 == -1:
 					n3 = line.find('}', n2)
 			x = line[(n2+1):n3]
-			xnew = str(int(round(float(int(x)*FACT), r_par)))
+			xnew = str(int(round_half_up(float(int(x)*FACT), r_par)))
 			strnew = line[n1:n2+1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 		elif 'offset_listheight =' in line:
@@ -2635,7 +2640,7 @@ class ActivateSkinSettings:
 				if n3 == -1:
 					n3 = line.find('}', n2)
 			y = line[(n2+1):n3]
-			xnew = str(int(round(float(int(y)*FACT), r_par)))
+			xnew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 			strnew = line[n1:n2+1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 		elif 'offset_textwidth =' in line:
@@ -2647,7 +2652,7 @@ class ActivateSkinSettings:
 				if n3 == -1:
 					n3 = line.find('}', n2)
 			x = line[(n2+1):n3]
-			xnew = str(int(round(float(int(x)*FACT), r_par)))
+			xnew = str(int(round_half_up(float(int(x)*FACT), r_par)))
 			strnew = line[n1:n2+1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 		elif 'offset_textheight =' in line:
@@ -2659,7 +2664,7 @@ class ActivateSkinSettings:
 				if n3 == -1:
 					n3 = line.find('}', n2)
 			y = line[(n2+1):n3]
-			xnew = str(int(round(float(int(y)*FACT), r_par)))
+			xnew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 			strnew = line[n1:n2+1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 		elif 'min_width =' in line:
@@ -2671,7 +2676,7 @@ class ActivateSkinSettings:
 				if n3 == -1:
 					n3 = line.find('}', n2)
 			x = line[(n2+1):n3]
-			xnew = str(int(round(float(int(x)*FACT), r_par)))
+			xnew = str(int(round_half_up(float(int(x)*FACT), r_par)))
 			strnew = line[n1:n2+1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 		elif 'min_height =' in line:
@@ -2683,7 +2688,7 @@ class ActivateSkinSettings:
 				if n3 == -1:
 					n3 = line.find('}', n2)
 			y = line[(n2+1):n3]
-			xnew = str(int(round(float(int(y)*FACT), r_par)))
+			xnew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 			strnew = line[n1:n2+1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 		elif 'offset =' in line:
@@ -2695,7 +2700,7 @@ class ActivateSkinSettings:
 				if n3 == -1:
 					n3 = line.find('}', n2)
 			y = line[(n2+1):n3]
-			xnew = str(int(round(float(int(y)*FACT), r_par)))
+			xnew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 			strnew = line[n1:n2+1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 #emc special start
@@ -2706,7 +2711,7 @@ class ActivateSkinSettings:
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2)
 				y = line[(n2+1):n3]
-				ynew = str(int(f_offset + round(float(int(y)*FACT), r_par)))
+				ynew = str(int(f_offset + round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 			if 'CoolSelectFont="' in line:
@@ -2714,7 +2719,7 @@ class ActivateSkinSettings:
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2)
 				y = line[(n2+1):n3]
-				ynew = str(int(f_offset + round(float(int(y)*FACT), r_par)))
+				ynew = str(int(f_offset + round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 			if 'CoolDateFont=' in line:
@@ -2722,7 +2727,7 @@ class ActivateSkinSettings:
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2)
 				y = line[(n2+1):n3]
-				ynew = str(int(f_offset + round(float(int(y)*FACT), r_par)))
+				ynew = str(int(f_offset + round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolSelNumTxtWidth="26" 
@@ -2731,7 +2736,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolDateHPos="1" 
@@ -2740,7 +2745,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolProgressHPos="1" 
@@ -2749,7 +2754,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolMovieHPos="1" 
@@ -2758,7 +2763,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolDirInfoWidth="110" 
@@ -2767,7 +2772,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolCSWidth="110" 
@@ -2776,7 +2781,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolProgressPos="35" 
@@ -2785,7 +2790,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolIconPos="35"
@@ -2794,7 +2799,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolIconHPos="35"
@@ -2803,7 +2808,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolBarPos="35"
@@ -2812,7 +2817,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolBarHPos="10"
@@ -2821,7 +2826,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolMoviePos="110"
@@ -2830,7 +2835,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolDatePos="590"
@@ -2839,7 +2844,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolCSPos"590"
@@ -2848,7 +2853,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolMovieSize="490"
@@ -2857,7 +2862,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolFolderSize="490"
@@ -2866,7 +2871,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolDateWidth="110"
@@ -2875,7 +2880,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolPiconPos="100" 
@@ -2884,7 +2889,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1) 
 				n3 = line.find('"', n2+1) 
 				y = line[(n2+1):n3] 
-				ynew = str(int(round(float(int(y)*FACT), r_par))) 
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par))) 
 				strnew = line[n1:n2+1] + ynew + '"' 
 				line = line[:n1] + strnew + line[(n3+1):] 
 #CoolPiconHPos="2" 
@@ -2893,7 +2898,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1) 
 				n3 = line.find('"', n2+1) 
 				y = line[(n2+1):n3] 
-				ynew = str(int(round(float(int(y)*FACT), r_par))) 
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par))) 
 				strnew = line[n1:n2+1] + ynew + '"' 
 				line = line[:n1] + strnew + line[(n3+1):] 
 #CoolPiconWidth="60" 
@@ -2902,7 +2907,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1) 
 				n3 = line.find('"', n2+1) 
 				y = line[(n2+1):n3] 
-				ynew = str(int(round(float(int(y)*FACT), r_par))) 
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par))) 
 				strnew = line[n1:n2+1] + ynew + '"' 
 				line = line[:n1] + strnew + line[(n3+1):] 
 #CoolPiconHeight="26" 
@@ -2911,7 +2916,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1) 
 				n3 = line.find('"', n2+1) 
 				y = line[(n2+1):n3] 
-				ynew = str(int(round(float(int(y)*FACT), r_par))) 
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par))) 
 				strnew = line[n1:n2+1] + ynew + '"' 
 				line = line[:n1] + strnew + line[(n3+1):] 
 #CoolMoviePiconPos="160" 
@@ -2920,7 +2925,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1) 
 				n3 = line.find('"', n2+1) 
 				y = line[(n2+1):n3] 
-				ynew = str(int(round(float(int(y)*FACT), r_par))) 
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par))) 
 				strnew = line[n1:n2+1] + ynew + '"' 
 				line = line[:n1] + strnew + line[(n3+1):] 
 #CoolMoviePiconSize="425" 
@@ -2929,7 +2934,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1) 
 				n3 = line.find('"', n2+1) 
 				y = line[(n2+1):n3] 
-				ynew = str(int(round(float(int(y)*FACT), r_par))) 
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par))) 
 				strnew = line[n1:n2+1] + ynew + '"' 
 				line = line[:n1] + strnew + line[(n3+1):] 
 #CoolIconSize="24,24"
@@ -2940,8 +2945,8 @@ class ActivateSkinSettings:
 				n4 = line.find('"', n3) 
 				x = line[(n2+1):n3]
 				y = line[(n3+1):n4]
-				xnew = str(int(round(float(int(x)*FACT), r_par)))
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				xnew = str(int(round_half_up(float(int(x)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = 'CoolIconSize="' + xnew + ',' + ynew + '"'
 				line = line[:n1] + strnew + line[(n4+1):]
 #CoolBarSize="65,10"
@@ -2952,8 +2957,8 @@ class ActivateSkinSettings:
 				n4 = line.find('"', n3) 
 				x = line[(n2+1):n3]
 				y = line[(n3+1):n4]
-				xnew = str(int(round(float(int(x)*FACT), r_par)))
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				xnew = str(int(round_half_up(float(int(x)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = 'CoolBarSize="' + xnew + ',' + ynew + '"'
 				line = line[:n1] + strnew + line[(n4+1):]
 #CoolBarSizeSa="65,10"
@@ -2964,8 +2969,8 @@ class ActivateSkinSettings:
 				n4 = line.find('"', n3) 
 				x = line[(n2+1):n3]
 				y = line[(n3+1):n4]
-				xnew = str(int(round(float(int(x)*FACT), r_par)))
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				xnew = str(int(round_half_up(float(int(x)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = 'CoolBarSizeSa="' + xnew + ',' + ynew + '"'
 				line = line[:n1] + strnew + line[(n4+1):]
 #/CoolPointerRec.png:980,0"
@@ -2976,8 +2981,8 @@ class ActivateSkinSettings:
 				n4 = line.find('"', n3) 
 				x = line[(n2+1):n3]
 				y = line[(n3+1):n4]
-				xnew = str(int(round(float(int(x)*FACT), r_par)))
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				xnew = str(int(round_half_up(float(int(x)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = '/CoolPointerRec.png:' + xnew + ',' + ynew + '"'
 				line = line[:n1] + strnew + line[(n4+1):]
 #/CoolPointerRec2.png:1080,0"
@@ -2988,8 +2993,8 @@ class ActivateSkinSettings:
 				n4 = line.find('"', n3) 
 				x = line[(n2+1):n3]
 				y = line[(n3+1):n4]
-				xnew = str(int(round(float(int(x)*FACT), r_par)))
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				xnew = str(int(round_half_up(float(int(x)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = '/CoolPointerRec2.png:' + xnew + ',' + ynew + '"'
 				line = line[:n1] + strnew + line[(n4+1):]
 
@@ -3002,7 +3007,7 @@ class ActivateSkinSettings:
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2)
 				y = line[(n2+1):n3]
-				ynew = str(int(f_offset + round(float(int(y)*FACT), r_par)))
+				ynew = str(int(f_offset + round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 			if 'CoolServiceFont="' in line:
@@ -3010,7 +3015,7 @@ class ActivateSkinSettings:
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2)
 				y = line[(n2+1):n3]
-				ynew = str(int(f_offset + round(float(int(y)*FACT), r_par)))
+				ynew = str(int(f_offset + round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 			if 'CoolEventFont="' in line:
@@ -3018,7 +3023,7 @@ class ActivateSkinSettings:
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2)
 				y = line[(n2+1):n3]
-				ynew = str(int(f_offset + round(float(int(y)*FACT), r_par)))
+				ynew = str(int(f_offset + round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolServiceSize="220"
@@ -3027,7 +3032,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolEventSize="720"
@@ -3036,7 +3041,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolServicePos="4"
@@ -3045,7 +3050,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolServiceHPos="1"
@@ -3054,7 +3059,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolEventPos="355"
@@ -3063,7 +3068,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolEventHPos="1"
@@ -3072,7 +3077,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolBarPos="240"
@@ -3081,7 +3086,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolBarHPos="10"
@@ -3090,7 +3095,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolBarSize="100"
@@ -3099,7 +3104,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolBarHigh="10"
@@ -3108,7 +3113,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolTimePos="225"
@@ -3117,7 +3122,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolTimeHPos="2"
@@ -3126,7 +3131,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolTimeSize="120"
@@ -3135,7 +3140,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolDurationPos="1055"
@@ -3144,7 +3149,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolDurationSize="100"
@@ -3153,7 +3158,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolPico="35"
@@ -3162,7 +3167,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolDaySize="100"
@@ -3171,7 +3176,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolDayPos="0"
@@ -3180,7 +3185,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolDayHPos="2"
@@ -3189,7 +3194,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolDayHPos="2"
@@ -3198,7 +3203,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolDatePos="0"
@@ -3207,7 +3212,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolDateHPos="0"
@@ -3216,7 +3221,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolDateSize="0"
@@ -3225,7 +3230,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolMarkerHPos="200"
@@ -3234,7 +3239,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolMarkerPicPos="2"
@@ -3243,7 +3248,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolMarkerPicHPos="2"
@@ -3252,7 +3257,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolPicoPos="2"
@@ -3261,7 +3266,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #CoolPicoHPos="2"
@@ -3270,7 +3275,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2+1)
 				y = line[(n2+1):n3]
-				ynew = str(int(round(float(int(y)*FACT), r_par)))
+				ynew = str(int(round_half_up(float(int(y)*FACT), r_par)))
 				strnew = line[n1:n2+1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3+1):]
 #cool tv guide special end
