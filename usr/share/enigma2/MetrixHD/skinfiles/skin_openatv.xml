@@ -451,6 +451,19 @@
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_netsabnzbd_setup.png" transparent="1" alphatest="blend" />
 	</screen>
+	<screen name="NetworkSATPI" title="SATPI Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="lab1" position="70,130" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="labactive" position="320,130" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="layer-a-background" zPosition="2" />
+		<widget name="lab2" position="70,190" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="labstop" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="red" zPosition="1" />
+		<widget name="labrun" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="green" zPosition="2" />
+		<panel name="rgy_-buttons_template1" />
+		<panel name="rgy_-keys_template1" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_scan_satip.png" transparent="1" alphatest="blend" />
+	</screen>
 	<screen name="NetworkAfp" position="0,0" size="1280,720" title="AFP Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="lab1" position="70,130" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -1186,6 +1199,10 @@
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="icons/menu_network_netsabnzbd_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
 			<convert type="MenuEntryCompare">netsabnzbd_setup</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="menu" render="Pixmap" pixmap="icons/menu_scan_satip.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
+			<convert type="MenuEntryCompare">netsatpi_setup</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="icons/menu_network_netsmba_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
@@ -4223,16 +4240,16 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 		<eLabel text="Software Update" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget name="packagetext" position="70,115" size="250,35" zPosition="1" font="Regular;24" halign="right" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="packagenr" position="324,115" size="50,35" zPosition="1" font="Regular;24" halign="right" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="list" render="Listbox" position="70,170" size="700,450" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
+		<widget source="list" render="Listbox" position="70,180" size="700,416" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryText(pos = (5, 1), size = (590, 28), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
-						MultiContentEntryText(pos = (5, 26), size = (590, 20), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
+						MultiContentEntryText(pos = (5, 26), size = (590, 21), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
 						MultiContentEntryPixmapAlphaBlend(pos = (605, 2), size = (48, 48), png = 4, flags = BT_SCALE), # index 4 is the status pixmap
 						MultiContentEntryPixmapAlphaBlend(pos = (0, 50), size = (700, 2), png = 5), # index 5 is the div pixmap
 					],
 				"fonts": [gFont("Regular",22),gFont("Regular",16)],
-				"itemHeight": 50
+				"itemHeight": 52
 				}
 			</convert>
 		</widget>
