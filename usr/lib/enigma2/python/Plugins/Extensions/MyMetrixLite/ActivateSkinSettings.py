@@ -97,7 +97,7 @@ class ActivateSkinSettings:
 		initWeatherConfig()
 		initFontsConfig()
 
-	def RefreshIcons(self,restore=False):
+	def RefreshIcons(self, restore=False):
 		# called from SystemPlugins/SoftwareManager/plugin.py after software update and from Screens/SkinSelector.py after changing skin
 		self.initConfigs()
 		self.getEHDSettings()
@@ -215,7 +215,7 @@ class ActivateSkinSettings:
 						('ok.png', _('OK')),
 						('text.png', _('TEXT'))
 						]
-			buttonpath = {'HD':'/usr/share/enigma2/MetrixHD/buttons/', 'FHD':'/usr/share/enigma2/MetrixHD/FHD/buttons/', 'UHD':'/usr/share/enigma2/MetrixHD/UHD/buttons/'}
+			buttonpath = {'HD': '/usr/share/enigma2/MetrixHD/buttons/', 'FHD': '/usr/share/enigma2/MetrixHD/FHD/buttons/', 'UHD': '/usr/share/enigma2/MetrixHD/UHD/buttons/'}
 
 			################
 			# check free flash for _TARGET and _TMP files 
@@ -548,21 +548,21 @@ class ActivateSkinSettings:
 			CoolCSPos = sizeW - CoolCSDirInfoWidth - margin
 			CoolIconPos = 4 + offsetPosIcon
 
-			EMCSkinSearchAndReplace.append(['size="700,480" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"'											, 'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' % (sizeH, itemHeight, CoolFont, CoolSelectFont, CoolDateFont)])
+			EMCSkinSearchAndReplace.append(['size="700,480" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"', 'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' % (sizeH, itemHeight, CoolFont, CoolSelectFont, CoolDateFont)])
 
-			EMCSkinSearchAndReplace.append(['size="700,240" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"'											, 'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' % (sizeH // 2, itemHeight, CoolFont, CoolSelectFont, CoolDateFont)])
+			EMCSkinSearchAndReplace.append(['size="700,240" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"', 'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' % (sizeH // 2, itemHeight, CoolFont, CoolSelectFont, CoolDateFont)])
 
-			EMCSkinSearchAndReplace.append(['CoolProgressHPos="2" CoolIconPos="4" CoolIconHPos="2" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90"'											, 'CoolProgressHPos="%s" CoolIconPos="%s" CoolIconHPos="%s" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="%s" CoolBarSize="%s,%s" CoolBarSizeSa="%s,%s" CoolMoviePos="%s"' % (CoolProgressHPos, CoolIconPos, CoolIconHPos, CoolBarHPos, CoolBarSizeH, CoolBarSizeV, CoolBarSizeH, CoolBarSizeV, CoolMoviePos - margin)])
+			EMCSkinSearchAndReplace.append(['CoolProgressHPos="2" CoolIconPos="4" CoolIconHPos="2" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90"', 'CoolProgressHPos="%s" CoolIconPos="%s" CoolIconHPos="%s" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="%s" CoolBarSize="%s,%s" CoolBarSizeSa="%s,%s" CoolMoviePos="%s"' % (CoolProgressHPos, CoolIconPos, CoolIconHPos, CoolBarHPos, CoolBarSizeH, CoolBarSizeV, CoolBarSizeH, CoolBarSizeV, CoolMoviePos - margin)])
 
 			CoolMoviePiconPos = CoolMoviePos + CoolPiconWidth + gap - margin
 			CoolPiconPos = CoolMoviePos - margin
-			EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'											, 'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' % (CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos)])
+			EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"', 'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' % (CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos)])
 
 			CoolMoviePiconPos = CoolMoviePos - margin
 			CoolPiconPos = CoolDatePos - CoolPiconWidth - gap - margin
 			if not CoolDateWidth:
 				CoolPiconPos = CoolDatePos - CoolPiconWidth
-			EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="540" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'											, 'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' % (CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos)])
+			EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="540" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"', 'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' % (CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos)])
 
 			if posNR:
 				EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionList_picon_left" />', '<panel name="EMCSelectionList_picon_right" />'])

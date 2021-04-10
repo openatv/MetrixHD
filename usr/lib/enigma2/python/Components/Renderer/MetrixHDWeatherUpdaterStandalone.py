@@ -311,7 +311,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				currentWeathershortday = currentWeather.getAttributeNode('shortday')
 				config.plugins.MetrixWeather.forecastTomorrowshortday3.value = currentWeathershortday.nodeValue
 				if self.check:
-					text = "%s|%s|%s%s|%s%s|%s%s" % (id, name, temp,SIGN, temp_max,SIGN, temp_min,SIGN)
+					text = "%s|%s|%s%s|%s%s|%s%s" % (id, name, temp, SIGN, temp_max, SIGN, temp_min, SIGN)
 					self.writeCheckFile(text)
 					return
 			except IndexError as err:
@@ -389,7 +389,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				tmax_tomorrow = str(max(tmax_tomorrow))
 
 			if self.check:
-				text = "%s|%s|%s%s|%s%s|%s%s" % (id, name, temp,SIGN, tmax_today,SIGN, tmin_today,SIGN)
+				text = "%s|%s|%s%s|%s%s|%s%s" % (id, name, temp, SIGN, tmax_today, SIGN, tmin_today, SIGN)
 				self.writeCheckFile(text)
 				return
 

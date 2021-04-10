@@ -231,7 +231,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 						description = description.decode("latin-1")
 					except UnicodeDecodeError:
 						print("[MetrixHD] - WARNING : (" + partpath + partname + ") must be UTF-8 or latin-1")
-						description = description.decode("utf-8","ignore")
+						description = description.decode("utf-8", "ignore")
 			if path.isfile(partpath + partname + '.png'):
 				previewfile = partname + '.png'
 			elif path.isfile(partpath + partname + '.jpg'):
@@ -278,7 +278,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 							description = description.decode("latin-1")
 						except UnicodeDecodeError:
 							print("[MetrixHD] - WARNING : (" + partpath + sname + ") must be UTF-8 or latin-1")
-							description = description.decode("utf-8","ignore")
+							description = description.decode("utf-8", "ignore")
 						description = six.ensure_str(description)
 				if path.isfile(partpath + sname + '.png'):
 					previewfile = sname + '.png'
@@ -325,7 +325,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 				picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteSkinpart"
 
 		if zoomEnable and not "blue" in self["actions"].actions:
-			self["actions"].actions.update({"blue":self.zoom})
+			self["actions"].actions.update({"blue": self.zoom})
 			self["zoomBtn"].setText(_("Zoom"))
 		elif not zoomEnable and "blue" in self["actions"].actions:
 			del self["actions"].actions["blue"]

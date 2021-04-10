@@ -222,7 +222,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 				except UnicodeDecodeError:
 					f.seek(0) # Read old Python2 pickle
 					t = f.read()
-					self.file = pickle.loads(t,fix_imports=True, encoding="UTF-8", errors="strict", buffers=None)
+					self.file = pickle.loads(t, fix_imports=True, encoding="UTF-8", errors="strict", buffers=None)
 				f.close()
 				return True
 			except EOFError:
