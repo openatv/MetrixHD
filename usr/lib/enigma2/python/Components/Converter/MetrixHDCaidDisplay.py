@@ -32,16 +32,16 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 		Converter.__init__(self, type)
 		self.type = type
 		self.systemCaids = {
-			"26" : "BiSS",
-			"01" : "SEC",
-			"06" : "IRD",
-			"17" : "BET",
-			"05" : "VIA",
-			"18" : "NAG",
-			"09" : "NDS",
-			"0B" : "CON",
-			"0D" : "CRW",
-			"4A" : "DRE" }
+			"26": "BiSS",
+			"01": "SEC",
+			"06": "IRD",
+			"17": "BET",
+			"05": "VIA",
+			"18": "NAG",
+			"09": "NDS",
+			"0B": "CON",
+			"0D": "CRW",
+			"4A": "DRE"}
 
 		self.poll_interval = 1000
 		self.poll_enabled = True

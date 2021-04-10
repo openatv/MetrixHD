@@ -97,7 +97,7 @@ class MetrixHDVideoInfo(Poll, Converter, object):
 					text = info.getInfoString(iServiceInformation.sAspect)
 				elif text == -1:
 					text = _("N/A")
-				if text in ( 1, 2, 5, 6, 9, 0xA, 0xD, 0xE ):
+				if text in (1, 2, 5, 6, 9, 0xA, 0xD, 0xE):
 					text = "4:3"
 				else:
 					text = "16:9"

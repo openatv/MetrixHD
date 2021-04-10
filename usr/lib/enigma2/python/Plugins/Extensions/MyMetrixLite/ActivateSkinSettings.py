@@ -267,19 +267,19 @@ class ActivateSkinSettings:
 				infobarSkinSearchAndReplace.append(['<panel name="INFOBARSNR" />', '']) 
 			else:
 				if (config.plugins.MyMetrixLiteOther.showOrbitalposition.getValue() and config.plugins.MyMetrixLiteOther.showInfoBarResolution.getValue() and config.plugins.MyMetrixLiteOther.showInfoBarResolutionExtended.getValue()) is True:
-					infobarSkinSearchAndReplace.append(['<panel name="INFOBARSNR" />', '<panel name="INFOBARSNR-2" />' ])
+					infobarSkinSearchAndReplace.append(['<panel name="INFOBARSNR" />', '<panel name="INFOBARSNR-2" />'])
 
 			if config.plugins.MyMetrixLiteOther.showOrbitalposition.getValue() is False: 
 				infobarSkinSearchAndReplace.append(['<panel name="INFOBARORBITALPOSITION" />', '']) 
 			else:
 				if (config.plugins.MyMetrixLiteOther.showInfoBarResolution.getValue() and config.plugins.MyMetrixLiteOther.showInfoBarResolutionExtended.getValue()) is True:
-					infobarSkinSearchAndReplace.append(['<panel name="INFOBARORBITALPOSITION" />', '<panel name="INFOBARORBITALPOSITION-2" />' ])
+					infobarSkinSearchAndReplace.append(['<panel name="INFOBARORBITALPOSITION" />', '<panel name="INFOBARORBITALPOSITION-2" />'])
 
 			if config.plugins.MyMetrixLiteOther.showInfoBarResolution.getValue() is False:
 				infobarSkinSearchAndReplace.append(['<panel name="INFOBARRESOLUTION" />', ''])
 			else:
 				if config.plugins.MyMetrixLiteOther.showInfoBarResolutionExtended.getValue() is True:
-					infobarSkinSearchAndReplace.append(['<panel name="INFOBARRESOLUTION" />', '<panel name="INFOBARRESOLUTION-2" />' ])
+					infobarSkinSearchAndReplace.append(['<panel name="INFOBARRESOLUTION" />', '<panel name="INFOBARRESOLUTION-2" />'])
 
 			if config.plugins.MyMetrixLiteOther.showSTBinfo.getValue() is True:
 				infobarSkinSearchAndReplace.append(['<!--panel name="STBINFO" /-->', '<panel name="STBINFO" />'])
@@ -355,7 +355,7 @@ class ActivateSkinSettings:
 			namepos = "30,465"
 			if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
 				if config.plugins.MyMetrixLiteOther.showMoviePlayerResolutionExtended.getValue() is True:
-					moviePlayerSkinSearchAndReplace.append(['<panel name="RESOLUTIONMOVIEPLAYER" />', '<panel name="RESOLUTIONMOVIEPLAYER-2" />' ])
+					moviePlayerSkinSearchAndReplace.append(['<panel name="RESOLUTIONMOVIEPLAYER" />', '<panel name="RESOLUTIONMOVIEPLAYER-2" />'])
 			else:
 				moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_2" />', '<panel name="MoviePlayer_%s" />'  %(config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.value)])
 				if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "3":
@@ -371,9 +371,9 @@ class ActivateSkinSettings:
 			moviePlayerSkinSearchAndReplace.append(['<panel name="MOVIENAME" />', channelNameXML])
 
 			if config.plugins.MyMetrixLiteOther.showMovieTime.getValue() == "2":
-				moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_2_time" />', '<panel name="MoviePlayer_' + config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() + '_time" />' ])
+				moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_2_time" />', '<panel name="MoviePlayer_' + config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() + '_time" />'])
 			else:
-				moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_2_time" />', '' ])
+				moviePlayerSkinSearchAndReplace.append(['<panel name="MoviePlayer_2_time" />', ''])
 
 			if config.plugins.MyMetrixLiteOther.showMovieListScrollbar.value:
 				moviePlayerSkinSearchAndReplace.append(['scrollbarMode="showNever"', 'scrollbarMode="showOnDemand"'])
@@ -384,7 +384,7 @@ class ActivateSkinSettings:
 				moviePlayerSkinSearchAndReplace.append(['movetype=none,startdelay=600,steptime=60', 'movetype=running,startdelay=%s,steptime=%s' %(delay,speed)])
 
 			if config.plugins.MyMetrixLiteOther.movielistStyle.value == 'right':
-				moviePlayerSkinSearchAndReplace.append(['<panel name="MovieSelection_left"/>', '<panel name="MovieSelection_right"/>' ])
+				moviePlayerSkinSearchAndReplace.append(['<panel name="MovieSelection_left"/>', '<panel name="MovieSelection_right"/>'])
 
 			skin_lines = appendSkinFile(SKIN_MOVIEPLAYER_SOURCE, moviePlayerSkinSearchAndReplace)
 
@@ -456,7 +456,7 @@ class ActivateSkinSettings:
 			scale = config.plugins.MyMetrixLiteFonts.epgtext_scale.value / 95.0 # 95% standard scale
 			if config.plugins.MyMetrixLiteOther.showMovieListScrollbar.value:
 				sizeW -= margin + config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth.value + config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value*2 # place for scrollbar
-				EMCSkinSearchAndReplace.append(['scrollbarMode="showNever"', 'scrollbarMode="showOnDemand"' ])
+				EMCSkinSearchAndReplace.append(['scrollbarMode="showNever"', 'scrollbarMode="showOnDemand"'])
 
 			if config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value == "+8":
 				itemHeight = 20
@@ -539,26 +539,21 @@ class ActivateSkinSettings:
 			CoolCSPos = sizeW - CoolCSDirInfoWidth - margin
 			CoolIconPos = 4 + offsetPosIcon
 
-			EMCSkinSearchAndReplace.append(['size="700,480" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"'
-											,'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' %(sizeH, itemHeight, CoolFont, CoolSelectFont, CoolDateFont) ])
+			EMCSkinSearchAndReplace.append(['size="700,480" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"'											,'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' %(sizeH, itemHeight, CoolFont, CoolSelectFont, CoolDateFont)])
 
-			EMCSkinSearchAndReplace.append(['size="700,240" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"'
-											,'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' %(sizeH/2, itemHeight, CoolFont, CoolSelectFont, CoolDateFont) ])
+			EMCSkinSearchAndReplace.append(['size="700,240" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"'											,'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' %(sizeH/2, itemHeight, CoolFont, CoolSelectFont, CoolDateFont)])
 
-			EMCSkinSearchAndReplace.append(['CoolProgressHPos="2" CoolIconPos="4" CoolIconHPos="2" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90"'
-											,'CoolProgressHPos="%s" CoolIconPos="%s" CoolIconHPos="%s" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="%s" CoolBarSize="%s,%s" CoolBarSizeSa="%s,%s" CoolMoviePos="%s"' %(CoolProgressHPos, CoolIconPos, CoolIconHPos, CoolBarHPos, CoolBarSizeH, CoolBarSizeV, CoolBarSizeH, CoolBarSizeV, CoolMoviePos - margin) ])
+			EMCSkinSearchAndReplace.append(['CoolProgressHPos="2" CoolIconPos="4" CoolIconHPos="2" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90"'											,'CoolProgressHPos="%s" CoolIconPos="%s" CoolIconHPos="%s" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="%s" CoolBarSize="%s,%s" CoolBarSizeSa="%s,%s" CoolMoviePos="%s"' %(CoolProgressHPos, CoolIconPos, CoolIconHPos, CoolBarHPos, CoolBarSizeH, CoolBarSizeV, CoolBarSizeH, CoolBarSizeV, CoolMoviePos - margin)])
 
 			CoolMoviePiconPos = CoolMoviePos + CoolPiconWidth + gap - margin
 			CoolPiconPos = CoolMoviePos - margin
-			EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'
-											,'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' %(CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos) ])
+			EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'											,'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' %(CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos)])
 
 			CoolMoviePiconPos = CoolMoviePos - margin
 			CoolPiconPos = CoolDatePos - CoolPiconWidth - gap - margin
 			if not CoolDateWidth:
 				CoolPiconPos = CoolDatePos - CoolPiconWidth
-			EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="540" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'
-											,'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' %(CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos) ])
+			EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="540" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'											,'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' %(CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos)])
 
 			if posNR:
 				EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionList_picon_left" />', '<panel name="EMCSelectionList_picon_right" />'])
@@ -567,7 +562,7 @@ class ActivateSkinSettings:
 			namepos = "30,465"
 			if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
 				if config.plugins.MyMetrixLiteOther.showMoviePlayerResolutionExtended.getValue() is True:
-					EMCSkinSearchAndReplace.append(['<panel name="RESOLUTIONMOVIEPLAYER" />', '<panel name="RESOLUTIONMOVIEPLAYER-2" />' ])
+					EMCSkinSearchAndReplace.append(['<panel name="RESOLUTIONMOVIEPLAYER" />', '<panel name="RESOLUTIONMOVIEPLAYER-2" />'])
 			else:
 				EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_2" />', '<panel name="EMCMediaCenter_%s" />' %(config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.value)])
 				if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "3": 
@@ -583,16 +578,16 @@ class ActivateSkinSettings:
 			EMCSkinSearchAndReplace.append(['<panel name="MOVIENAME" />', channelNameXML])
 
 			if config.plugins.MyMetrixLiteOther.showMovieTime.getValue() == "2":
-				EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_2_time" />', '<panel name="EMCMediaCenter_' + config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() + '_time" />' ])
+				EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_2_time" />', '<panel name="EMCMediaCenter_' + config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() + '_time" />'])
 			else:
-				EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_2_time" />', '' ])
+				EMCSkinSearchAndReplace.append(['<panel name="EMCMediaCenter_2_time" />', ''])
 
-			EMCSkinSearchAndReplace.append(['WatchingColor="#D8C100"', 'WatchingColor="#' + config.plugins.MyMetrixLiteColors.emcWatchingColor.value + '"' ])
-			EMCSkinSearchAndReplace.append(['FinishedColor="#5FA816"', 'FinishedColor="#' + config.plugins.MyMetrixLiteColors.emcFinishedColor.value + '"' ])
-			EMCSkinSearchAndReplace.append(['RecordingColor="#E51400"', 'RecordingColor="#' + config.plugins.MyMetrixLiteColors.emcRecordingColor.value + '"' ])
+			EMCSkinSearchAndReplace.append(['WatchingColor="#D8C100"', 'WatchingColor="#' + config.plugins.MyMetrixLiteColors.emcWatchingColor.value + '"'])
+			EMCSkinSearchAndReplace.append(['FinishedColor="#5FA816"', 'FinishedColor="#' + config.plugins.MyMetrixLiteColors.emcFinishedColor.value + '"'])
+			EMCSkinSearchAndReplace.append(['RecordingColor="#E51400"', 'RecordingColor="#' + config.plugins.MyMetrixLiteColors.emcRecordingColor.value + '"'])
 
 			if config.plugins.MyMetrixLiteColors.emcCoolHighlightColor.getValue() is False:
-				EMCSkinSearchAndReplace.append(['CoolHighlightColor="1"', 'CoolHighlightColor="0"' ])
+				EMCSkinSearchAndReplace.append(['CoolHighlightColor="1"', 'CoolHighlightColor="0"'])
 
 			if config.plugins.MyMetrixLiteOther.showMovieListRunningtext.value:
 				delay = str(config.plugins.MyMetrixLiteOther.runningTextStartdelay.value)
@@ -624,12 +619,12 @@ class ActivateSkinSettings:
 				newlines = (('<eLabel name="upperleftcorner-s" position="%s,%s" zPosition="%s" size="%s,%s" backgroundColor="#%s" />') % (posx, posy, posz, width, height, color))
 				newlinem = (('<eLabel name="upperleftcorner-m" position="%s,%s" zPosition="%s" size="%s,%s" backgroundColor="#%s" />') % (posx, posy, posz, width, height, color))
 				if confvalue == "both": 
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="upperleftcorner-s" position="0,0" zPosition="-105" size="40,25" backgroundColor="#1A27408B" /-->', newlines ])
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="upperleftcorner-m" position="0,0" zPosition="-105" size="40,25" backgroundColor="#1A27408B" /-->', newlinem ])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="upperleftcorner-s" position="0,0" zPosition="-105" size="40,25" backgroundColor="#1A27408B" /-->', newlines])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="upperleftcorner-m" position="0,0" zPosition="-105" size="40,25" backgroundColor="#1A27408B" /-->', newlinem])
 				elif confvalue == "screens":
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="upperleftcorner-s" position="0,0" zPosition="-105" size="40,25" backgroundColor="#1A27408B" /-->', newlines ])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="upperleftcorner-s" position="0,0" zPosition="-105" size="40,25" backgroundColor="#1A27408B" /-->', newlines])
 				elif confvalue == "menus":
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="upperleftcorner-m" position="0,0" zPosition="-105" size="40,25" backgroundColor="#1A27408B" /-->', newlinem ])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="upperleftcorner-m" position="0,0" zPosition="-105" size="40,25" backgroundColor="#1A27408B" /-->', newlinem])
 
 			confvalue = config.plugins.MyMetrixLiteOther.SkinDesignLLC.getValue()
 			if  confvalue != "no": 
@@ -642,12 +637,12 @@ class ActivateSkinSettings:
 				newlines = (('<eLabel name="lowerleftcorner-s" position="%s,%s" zPosition="%s" size="%s,%s" backgroundColor="#%s" />') % (posx, posy, posz, width, height, color))
 				newlinem = (('<eLabel name="lowerleftcorner-m" position="%s,%s" zPosition="%s" size="%s,%s" backgroundColor="#%s" />') % (posx, posy, posz, width, height, color))
 				if confvalue == "both": 
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="lowerleftcorner-s" position="0,675" zPosition="-105" size="40,45" backgroundColor="#1A27408B" /-->', newlines ])
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="lowerleftcorner-m" position="0,675" zPosition="-105" size="40,45" backgroundColor="#1A27408B" /-->', newlinem ])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="lowerleftcorner-s" position="0,675" zPosition="-105" size="40,45" backgroundColor="#1A27408B" /-->', newlines])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="lowerleftcorner-m" position="0,675" zPosition="-105" size="40,45" backgroundColor="#1A27408B" /-->', newlinem])
 				elif confvalue == "screens":
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="lowerleftcorner-s" position="0,675" zPosition="-105" size="40,45" backgroundColor="#1A27408B" /-->', newlines ])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="lowerleftcorner-s" position="0,675" zPosition="-105" size="40,45" backgroundColor="#1A27408B" /-->', newlines])
 				elif confvalue == "menus":
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="lowerleftcorner-m" position="0,675" zPosition="-105" size="40,45" backgroundColor="#1A27408B" /-->', newlinem ])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="lowerleftcorner-m" position="0,675" zPosition="-105" size="40,45" backgroundColor="#1A27408B" /-->', newlinem])
 
 			confvalue = config.plugins.MyMetrixLiteOther.SkinDesignRUC.getValue()
 			if  confvalue != "no": 
@@ -660,12 +655,12 @@ class ActivateSkinSettings:
 				newlines = (('<eLabel name="upperrightcorner-s" position="%s,%s" zPosition="%s" size="%s,%s" backgroundColor="#%s" />') % (posx, posy, posz, width, height, color))
 				newlinem = (('<eLabel name="upperrightcorner-m" position="%s,%s" zPosition="%s" size="%s,%s" backgroundColor="#%s" />') % (posx, posy, posz, width, height, color))
 				if confvalue == "both": 
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="upperrightcorner-s" position="1240,0" zPosition="-105" size="40,60" backgroundColor="#1A0F0F0F" /-->', newlines ])
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="upperrightcorner-m" position="1240,0" zPosition="-105" size="40,60" backgroundColor="#1A0F0F0F" /-->', newlinem ])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="upperrightcorner-s" position="1240,0" zPosition="-105" size="40,60" backgroundColor="#1A0F0F0F" /-->', newlines])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="upperrightcorner-m" position="1240,0" zPosition="-105" size="40,60" backgroundColor="#1A0F0F0F" /-->', newlinem])
 				elif confvalue == "screens":
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="upperrightcorner-s" position="1240,0" zPosition="-105" size="40,60" backgroundColor="#1A0F0F0F" /-->', newlines ])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="upperrightcorner-s" position="1240,0" zPosition="-105" size="40,60" backgroundColor="#1A0F0F0F" /-->', newlines])
 				elif confvalue == "menus":
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="upperrightcorner-m" position="1240,0" zPosition="-105" size="40,60" backgroundColor="#1A0F0F0F" /-->', newlinem ])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="upperrightcorner-m" position="1240,0" zPosition="-105" size="40,60" backgroundColor="#1A0F0F0F" /-->', newlinem])
 
 			confvalue = config.plugins.MyMetrixLiteOther.SkinDesignRLC.getValue()
 			if  confvalue != "no": 
@@ -678,12 +673,12 @@ class ActivateSkinSettings:
 				newlines = (('<eLabel name="lowerrightcorner-s" position="%s,%s" zPosition="%s" size="%s,%s" backgroundColor="#%s" />') % (posx, posy, posz, width, height, color))
 				newlinem = (('<eLabel name="lowerrightcorner-m" position="%s,%s" zPosition="%s" size="%s,%s" backgroundColor="#%s" />') % (posx, posy, posz, width, height, color))
 				if confvalue == "both": 
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="lowerrightcorner-s" position="1240,640" zPosition="-105" size="40,80" backgroundColor="#1A0F0F0F" /-->', newlines ])
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="lowerrightcorner-m" position="1240,640" zPosition="-105" size="40,80" backgroundColor="#1A0F0F0F" /-->', newlinem ])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="lowerrightcorner-s" position="1240,640" zPosition="-105" size="40,80" backgroundColor="#1A0F0F0F" /-->', newlines])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="lowerrightcorner-m" position="1240,640" zPosition="-105" size="40,80" backgroundColor="#1A0F0F0F" /-->', newlinem])
 				elif confvalue == "screens":
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="lowerrightcorner-s" position="1240,640" zPosition="-105" size="40,80" backgroundColor="#1A0F0F0F" /-->', newlines ])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="lowerrightcorner-s" position="1240,640" zPosition="-105" size="40,80" backgroundColor="#1A0F0F0F" /-->', newlines])
 				elif confvalue == "menus":
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="lowerrightcorner-m" position="1240,640" zPosition="-105" size="40,80" backgroundColor="#1A0F0F0F" /-->', newlinem ])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="lowerrightcorner-m" position="1240,640" zPosition="-105" size="40,80" backgroundColor="#1A0F0F0F" /-->', newlinem])
 
 			confvalue = config.plugins.MyMetrixLiteOther.SkinDesignOLH.getValue()
 			if  confvalue != "no": 
@@ -696,12 +691,12 @@ class ActivateSkinSettings:
 				newlines = (('<eLabel name="optionallayerhorizontal-s" position="%s,%s" zPosition="%s" size="%s,%s" backgroundColor="#%s" />') % (posx, posy, posz, width, height, color))
 				newlinem = (('<eLabel name="optionallayerhorizontal-m" position="%s,%s" zPosition="%s" size="%s,%s" backgroundColor="#%s" />') % (posx, posy, posz, width, height, color))
 				if confvalue == "both": 
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="optionallayerhorizontal-s" position="0,655" zPosition="-105" size="1127,30" backgroundColor="#1A27408B" /-->', newlines ])
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="optionallayerhorizontal-m" position="0,655" zPosition="-105" size="1127,30" backgroundColor="#1A27408B" /-->', newlinem ])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="optionallayerhorizontal-s" position="0,655" zPosition="-105" size="1127,30" backgroundColor="#1A27408B" /-->', newlines])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="optionallayerhorizontal-m" position="0,655" zPosition="-105" size="1127,30" backgroundColor="#1A27408B" /-->', newlinem])
 				elif confvalue == "screens":
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="optionallayerhorizontal-s" position="0,655" zPosition="-105" size="1127,30" backgroundColor="#1A27408B" /-->', newlines ])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="optionallayerhorizontal-s" position="0,655" zPosition="-105" size="1127,30" backgroundColor="#1A27408B" /-->', newlines])
 				elif confvalue == "menus":
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="optionallayerhorizontal-m" position="0,655" zPosition="-105" size="1127,30" backgroundColor="#1A27408B" /-->', newlinem ])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="optionallayerhorizontal-m" position="0,655" zPosition="-105" size="1127,30" backgroundColor="#1A27408B" /-->', newlinem])
 
 			confvalue = config.plugins.MyMetrixLiteOther.SkinDesignOLV.getValue()
 			if  confvalue != "no": 
@@ -714,57 +709,57 @@ class ActivateSkinSettings:
 				newlines = (('<eLabel name="optionallayervertical-s" position="%s,%s" zPosition="%s" size="%s,%s" backgroundColor="#%s" />') % (posx, posy, posz, width, height, color))
 				newlinem = (('<eLabel name="optionallayervertical-m" position="%s,%s" zPosition="%s" size="%s,%s" backgroundColor="#%s" />') % (posx, posy, posz, width, height, color))
 				if confvalue == "both": 
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="optionallayervertical-s" position="102,51" zPosition="-105" size="60,669" backgroundColor="#1A27408B" /-->', newlines ])
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="optionallayervertical-m" position="102,51" zPosition="-105" size="60,669" backgroundColor="#1A27408B" /-->', newlinem ])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="optionallayervertical-s" position="102,51" zPosition="-105" size="60,669" backgroundColor="#1A27408B" /-->', newlines])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="optionallayervertical-m" position="102,51" zPosition="-105" size="60,669" backgroundColor="#1A27408B" /-->', newlinem])
 				elif confvalue == "screens":
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="optionallayervertical-s" position="102,51" zPosition="-105" size="60,669" backgroundColor="#1A27408B" /-->', newlines ])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="optionallayervertical-s" position="102,51" zPosition="-105" size="60,669" backgroundColor="#1A27408B" /-->', newlines])
 				elif confvalue == "menus":
-					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="optionallayervertical-m" position="102,51" zPosition="-105" size="60,669" backgroundColor="#1A27408B" /-->', newlinem ])
+					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="optionallayervertical-m" position="102,51" zPosition="-105" size="60,669" backgroundColor="#1A27408B" /-->', newlinem])
 
 			if config.plugins.MyMetrixLiteOther.layeraunderlineshowmainlayer.value:
-			   DESIGNSkinSearchAndReplace.append(['<!--eLabel name="underline" position="40,88" size="1200,1" backgroundColor="layer-a-underline" zPosition="-1" /-->', '<eLabel name="underline" position="40,88" size="1200,1" backgroundColor="layer-a-underline" zPosition="-1" />' ])
-			   DESIGNSkinSearchAndReplace.append(['<!--eLabel name="underline" position="40,88" size="755,1" backgroundColor="layer-a-underline" zPosition="-1" /-->', '<eLabel name="underline" position="40,88" size="755,1" backgroundColor="layer-a-underline" zPosition="-1" />' ])
+			   DESIGNSkinSearchAndReplace.append(['<!--eLabel name="underline" position="40,88" size="1200,1" backgroundColor="layer-a-underline" zPosition="-1" /-->', '<eLabel name="underline" position="40,88" size="1200,1" backgroundColor="layer-a-underline" zPosition="-1" />'])
+			   DESIGNSkinSearchAndReplace.append(['<!--eLabel name="underline" position="40,88" size="755,1" backgroundColor="layer-a-underline" zPosition="-1" /-->', '<eLabel name="underline" position="40,88" size="755,1" backgroundColor="layer-a-underline" zPosition="-1" />'])
 
 			if config.plugins.MyMetrixLiteOther.SkinDesignSpace.getValue() is True:
 				newline1 = ('<panel name="template1_2layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + 's" />')
 				newline2 = ('<panel name="INFOBAREPGWIDGET_Layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + 's" />')
 				newline3 = ('<panel name="QuickMenu_Layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + 's" />')
-				DESIGNSkinSearchAndReplace.append(['eLabel name="underline" position="40,88" size="755,1"', 'eLabel name="underline" position="40,88" size="750,1"' ])
+				DESIGNSkinSearchAndReplace.append(['eLabel name="underline" position="40,88" size="755,1"', 'eLabel name="underline" position="40,88" size="750,1"'])
 			else:
 				newline1 = ('<panel name="template1_2layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + '" />')
 				newline2 = ('<panel name="INFOBAREPGWIDGET_Layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + '" />')
 				newline3 = ('<panel name="QuickMenu_Layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + '" />')
-			DESIGNSkinSearchAndReplace.append(['<panel name="template1_2layer-1" />', newline1 ])
-			DESIGNSkinSearchAndReplace.append(['<panel name="INFOBAREPGWIDGET_Layer-1" />', newline2 ])
-			DESIGNSkinSearchAndReplace.append(['<panel name="QuickMenu_Layer-1" />', newline3 ])
+			DESIGNSkinSearchAndReplace.append(['<panel name="template1_2layer-1" />', newline1])
+			DESIGNSkinSearchAndReplace.append(['<panel name="INFOBAREPGWIDGET_Layer-1" />', newline2])
+			DESIGNSkinSearchAndReplace.append(['<panel name="QuickMenu_Layer-1" />', newline3])
 
 			if int(config.plugins.MyMetrixLiteOther.SkinDesign.value) > 1:
-				DESIGNSkinSearchAndReplace.append(['<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="buttons/', '<ePixmap position="950,635" size="81,40" zPosition="10" pixmap="buttons/' ])
-				DESIGNSkinSearchAndReplace.append(['<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="buttons/', '<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/' ])
-				DESIGNSkinSearchAndReplace.append(['<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="buttons/', '<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/' ])
+				DESIGNSkinSearchAndReplace.append(['<ePixmap position="950,600" size="81,40" zPosition="10" pixmap="buttons/', '<ePixmap position="950,635" size="81,40" zPosition="10" pixmap="buttons/'])
+				DESIGNSkinSearchAndReplace.append(['<ePixmap position="1045,600" size="81,40" zPosition="10" pixmap="buttons/', '<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/'])
+				DESIGNSkinSearchAndReplace.append(['<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="buttons/', '<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/'])
 
-			DESIGNSkinSearchAndReplace.append(['<panel name="INFOBAREXTENDEDINFO-1" />', '<panel name="INFOBAREXTENDEDINFO-' + config.plugins.MyMetrixLiteOther.ExtendedinfoStyle.value + '" />' ])
+			DESIGNSkinSearchAndReplace.append(['<panel name="INFOBAREXTENDEDINFO-1" />', '<panel name="INFOBAREXTENDEDINFO-' + config.plugins.MyMetrixLiteOther.ExtendedinfoStyle.value + '" />'])
 
 			# color gradient for ib,sib,mb,ibepg and quickemenu
 			if config.plugins.MyMetrixLiteColors.cologradient.value != '0':
 				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_bottom_ib.png" position="0,560" size="1280,160" zPosition="-1" /-->'
 				new = '<ePixmap alphatest="blend" pixmap="colorgradient_bottom_ib.png" position="0,560" size="1280,160" zPosition="-1" />'
-				DESIGNSkinSearchAndReplace.append([old, new ])
+				DESIGNSkinSearchAndReplace.append([old, new])
 				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_bottom_epg.png" position="0,10" size="1280,220" zPosition="-1" /-->'
 				new = '<ePixmap alphatest="blend" pixmap="colorgradient_bottom_epg.png" position="0,10" size="1280,220" zPosition="-1" />'
-				DESIGNSkinSearchAndReplace.append([old, new ])
+				DESIGNSkinSearchAndReplace.append([old, new])
 				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_top_ib.png" position="0,0" size="1280,30" zPosition="-1" /-->'
 				new = '<ePixmap alphatest="blend" pixmap="colorgradient_top_ib.png" position="0,0" size="1280,30" zPosition="-1" />'
-				DESIGNSkinSearchAndReplace.append([old, new ])
+				DESIGNSkinSearchAndReplace.append([old, new])
 				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_top_qm.png" position="0,0" size="1280,94" zPosition="-1" /-->'
 				new = '<ePixmap alphatest="blend" pixmap="colorgradient_top_qm.png" position="0,0" size="1280,94" zPosition="-1" />'
-				DESIGNSkinSearchAndReplace.append([old, new ])
+				DESIGNSkinSearchAndReplace.append([old, new])
 				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_bottom_mb.png" position="0,570" size="1280,150" zPosition="-1" /-->'
 				new = '<ePixmap alphatest="blend" pixmap="colorgradient_bottom_mb.png" position="0,570" size="1280,150" zPosition="-1" />'
-				DESIGNSkinSearchAndReplace.append([old, new ])
+				DESIGNSkinSearchAndReplace.append([old, new])
 				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_bottom_pb.png" position="0,640" size="1280,80" zPosition="-1" /-->'
 				new = '<ePixmap alphatest="blend" pixmap="colorgradient_bottom_pb.png" position="0,640" size="1280,80" zPosition="-1" />'
-				DESIGNSkinSearchAndReplace.append([old, new ])
+				DESIGNSkinSearchAndReplace.append([old, new])
 
 			#picon
 			if config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon.value == "1":
@@ -779,25 +774,25 @@ class ActivateSkinSettings:
 				posy = 560 + config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconPosY.value
 				old = '<widget alphatest="blend" position="0,560" size="267,160" render="MetrixHDXPicon" source="session.CurrentService" transparent="1" zPosition="4">'
 				new = '<widget alphatest="blend" position="' + str(posx) + ',' + str(posy) + '" size="' + str(sizex) + ',' + str(sizey) + '" render="MetrixHDXPicon" source="session.CurrentService" transparent="1" zPosition="4">'
-				DESIGNSkinSearchAndReplace.append(['<panel name="IB_XPicon" />', '<panel name="IB_ZZZPicon" />' ])
-			DESIGNSkinSearchAndReplace.append([old, new ])
+				DESIGNSkinSearchAndReplace.append(['<panel name="IB_XPicon" />', '<panel name="IB_ZZZPicon" />'])
+			DESIGNSkinSearchAndReplace.append([old, new])
 
 			#pvr state
 			if config.plugins.MyMetrixLiteOther.showPVRState.getValue() > "1":
-				DESIGNSkinSearchAndReplace.append(['<screen name="PVRState" position="230,238"', '<screen name="PVRState_Standard" position="230,238"' ])
-				DESIGNSkinSearchAndReplace.append(['<screen name="PVRState_Top" position="0,0"', '<screen name="PVRState" position="0,0"' ])
+				DESIGNSkinSearchAndReplace.append(['<screen name="PVRState" position="230,238"', '<screen name="PVRState_Standard" position="230,238"'])
+				DESIGNSkinSearchAndReplace.append(['<screen name="PVRState_Top" position="0,0"', '<screen name="PVRState" position="0,0"'])
 				if config.plugins.MyMetrixLiteOther.showPVRState.getValue() == "3":
-					DESIGNSkinSearchAndReplace.append(['<!--panel name="PVRState_3_ct" /-->', '<panel name="PVRState_3_ct" />' ])
+					DESIGNSkinSearchAndReplace.append(['<!--panel name="PVRState_3_ct" /-->', '<panel name="PVRState_3_ct" />'])
 				if config.plugins.MyMetrixLiteOther.showMovieTime.getValue() == "3":
-					DESIGNSkinSearchAndReplace.append(['<!--panel name="PVRState_3_mt" /-->', '<panel name="PVRState_3_mt" />' ])
+					DESIGNSkinSearchAndReplace.append(['<!--panel name="PVRState_3_mt" /-->', '<panel name="PVRState_3_mt" />'])
 			else:
 				if config.plugins.MyMetrixLiteOther.showMovieTime.getValue() == "3":
-					DESIGNSkinSearchAndReplace.append(['<panel name="PVRState_1" />', '<panel name="PVRState_2" />' ])
+					DESIGNSkinSearchAndReplace.append(['<panel name="PVRState_1" />', '<panel name="PVRState_2" />'])
 
 			#graphical epg style
 			if config.plugins.MyMetrixLiteOther.graphicalEpgStyle.getValue() == "2":
-				DESIGNSkinSearchAndReplace.append(['<panel name="GraphicalEPG_1" />', '<panel name="GraphicalEPG_2" />' ])
-				DESIGNSkinSearchAndReplace.append(['<panel name="GraphicalEPGPIG_1" />', '<panel name="GraphicalEPGPIG_2" />' ])
+				DESIGNSkinSearchAndReplace.append(['<panel name="GraphicalEPG_1" />', '<panel name="GraphicalEPG_2" />'])
+				DESIGNSkinSearchAndReplace.append(['<panel name="GraphicalEPGPIG_1" />', '<panel name="GraphicalEPGPIG_2" />'])
 
 			if config.plugins.MyMetrixLiteOther.showChannelListScrollbar.value:
 				mode = "showOnDemand"
@@ -816,7 +811,7 @@ class ActivateSkinSettings:
 
 			#show menu buttons
 			if not config.plugins.MyMetrixLiteOther.SkinDesignMenuButtons.value:
-				DESIGNSkinSearchAndReplace.append(['<panel name="MenuButtons_template"/>', '<!--panel name="MenuButtons_template"/-->' ])
+				DESIGNSkinSearchAndReplace.append(['<panel name="MenuButtons_template"/>', '<!--panel name="MenuButtons_template"/-->'])
 
 			skin_lines = appendSkinFile(SKIN_DESIGN_SOURCE, DESIGNSkinSearchAndReplace)
 
@@ -907,76 +902,76 @@ class ActivateSkinSettings:
 			skinSearchAndReplace.append(['<!-- original file -->',''])
 			orgskinSearchAndReplace.append(['<!-- original file -->','<!-- !!!copied and changed file!!! -->'])
 
-			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground" value="#00FFFFFF"', channelselectionservice ])
-			skinSearchAndReplace.append(['name="layer-a-channelselection-foregroundColorSelected" value="#00FFFFFF"', channelselectionserviceselected ])
-			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-ServiceDescription" value="#00BDBDBD"', channelselectionservicedescription ])
-			skinSearchAndReplace.append(['name="layer-a-channelselection-progressbar" value="#00BDBDBD"', channelselectionprogress ])
-			skinSearchAndReplace.append(['name="layer-a-channelselection-progressbarborder" value="#00BDBDBD"', channelselectionprogressborder ])
-			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-ServiceDescriptionSelected" value="#00FFFFFF"', channelselectionservicedescriptionselected ])
-			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-colorServiceRecorded" value="#00E51400"', channelselectioncolorServiceRecorded ])
-			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-colorServicePseudoRecorded" value="#000000CD"', channelselectioncolorServicePseudoRecorded ])
-			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-colorServiceStreamed" value="#00E51400"', channelselectioncolorServiceStreamed ])
+			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground" value="#00FFFFFF"', channelselectionservice])
+			skinSearchAndReplace.append(['name="layer-a-channelselection-foregroundColorSelected" value="#00FFFFFF"', channelselectionserviceselected])
+			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-ServiceDescription" value="#00BDBDBD"', channelselectionservicedescription])
+			skinSearchAndReplace.append(['name="layer-a-channelselection-progressbar" value="#00BDBDBD"', channelselectionprogress])
+			skinSearchAndReplace.append(['name="layer-a-channelselection-progressbarborder" value="#00BDBDBD"', channelselectionprogressborder])
+			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-ServiceDescriptionSelected" value="#00FFFFFF"', channelselectionservicedescriptionselected])
+			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-colorServiceRecorded" value="#00E51400"', channelselectioncolorServiceRecorded])
+			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-colorServicePseudoRecorded" value="#000000CD"', channelselectioncolorServicePseudoRecorded])
+			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-colorServiceStreamed" value="#00E51400"', channelselectioncolorServiceStreamed])
 
-			skinSearchAndReplace.append(['name="layer-a-background" value="#1A0F0F0F"', layerabackground ])
-			skinSearchAndReplace.append(['name="layer-a-foreground" value="#00FFFFFF"', layeraforeground ])
-			skinSearchAndReplace.append(['name="layer-a-selection-background" value="#1A27408B"', layeraselectionbackground ])
-			skinSearchAndReplace.append(['name="layer-a-selection-foreground" value="#00FFFFFF"', layeraselectionforeground ])
-			skinSearchAndReplace.append(['name="layer-a-accent1" value="#00BDBDBD"', layeraaccent1 ])
-			skinSearchAndReplace.append(['name="layer-a-accent2" value="#006E6E6E"', layeraaccent2 ])
-			skinSearchAndReplace.append(['name="layer-a-extendedinfo1" value="#00BDBDBD"', layeraextendedinfo1 ])
-			skinSearchAndReplace.append(['name="layer-a-extendedinfo2" value="#006E6E6E"', layeraextendedinfo2 ])
-			skinSearchAndReplace.append(['name="layer-a-progress" value="#1A27408B"', layeraprogress ])
-			skinSearchAndReplace.append(['name="layer-a-underline" value="#00BDBDBD"', layeraunderline ])
+			skinSearchAndReplace.append(['name="layer-a-background" value="#1A0F0F0F"', layerabackground])
+			skinSearchAndReplace.append(['name="layer-a-foreground" value="#00FFFFFF"', layeraforeground])
+			skinSearchAndReplace.append(['name="layer-a-selection-background" value="#1A27408B"', layeraselectionbackground])
+			skinSearchAndReplace.append(['name="layer-a-selection-foreground" value="#00FFFFFF"', layeraselectionforeground])
+			skinSearchAndReplace.append(['name="layer-a-accent1" value="#00BDBDBD"', layeraaccent1])
+			skinSearchAndReplace.append(['name="layer-a-accent2" value="#006E6E6E"', layeraaccent2])
+			skinSearchAndReplace.append(['name="layer-a-extendedinfo1" value="#00BDBDBD"', layeraextendedinfo1])
+			skinSearchAndReplace.append(['name="layer-a-extendedinfo2" value="#006E6E6E"', layeraextendedinfo2])
+			skinSearchAndReplace.append(['name="layer-a-progress" value="#1A27408B"', layeraprogress])
+			skinSearchAndReplace.append(['name="layer-a-underline" value="#00BDBDBD"', layeraunderline])
 
-			skinSearchAndReplace.append(['name="layer-b-background" value="#1A27408B"', layerbbackground ])
-			skinSearchAndReplace.append(['name="layer-b-foreground" value="#00FFFFFF"', layerbforeground ])
-			skinSearchAndReplace.append(['name="layer-b-selection-background" value="#1A0F0F0F"', layerbselectionbackground ])
-			skinSearchAndReplace.append(['name="layer-b-selection-foreground" value="#00FFFFFF"', layerbselectionforeground ])
-			skinSearchAndReplace.append(['name="layer-b-accent1" value="#00BDBDBD"', layerbaccent1 ])
-			skinSearchAndReplace.append(['name="layer-b-accent2" value="#006E6E6E"', layerbaccent2 ])
-			skinSearchAndReplace.append(['name="layer-b-progress" value="#1AFFFFFF"', layerbprogress ])
+			skinSearchAndReplace.append(['name="layer-b-background" value="#1A27408B"', layerbbackground])
+			skinSearchAndReplace.append(['name="layer-b-foreground" value="#00FFFFFF"', layerbforeground])
+			skinSearchAndReplace.append(['name="layer-b-selection-background" value="#1A0F0F0F"', layerbselectionbackground])
+			skinSearchAndReplace.append(['name="layer-b-selection-foreground" value="#00FFFFFF"', layerbselectionforeground])
+			skinSearchAndReplace.append(['name="layer-b-accent1" value="#00BDBDBD"', layerbaccent1])
+			skinSearchAndReplace.append(['name="layer-b-accent2" value="#006E6E6E"', layerbaccent2])
+			skinSearchAndReplace.append(['name="layer-b-progress" value="#1AFFFFFF"', layerbprogress])
 
-			skinSearchAndReplace.append(['name="title-foreground" value="#00FFFFFF"', windowtitletext ])
-			skinSearchAndReplace.append(['name="title-background" value="#000F0F0F"', windowtitletextback ])
-			skinSearchAndReplace.append(['name="background-text" value="#34FFFFFF"', backgroundtext ])
-			skinSearchAndReplace.append(['name="text-background" value="#67FFFFFF"', backgroundtextback ])
+			skinSearchAndReplace.append(['name="title-foreground" value="#00FFFFFF"', windowtitletext])
+			skinSearchAndReplace.append(['name="title-background" value="#000F0F0F"', windowtitletextback])
+			skinSearchAndReplace.append(['name="background-text" value="#34FFFFFF"', backgroundtext])
+			skinSearchAndReplace.append(['name="text-background" value="#67FFFFFF"', backgroundtextback])
 
-			skinSearchAndReplace.append(['name="epg-eventdescription-background" value="#1A27408B"', epgeventdescriptionbackground ])
-			skinSearchAndReplace.append(['name="epg-eventdescription-foreground" value="#00FFFFFF"', epgeventdescriptionforeground ])
-			skinSearchAndReplace.append(['name="epg-background" value="#1A0F0F0F"', epgbackground ])
-			skinSearchAndReplace.append(['name="epg-borderlines" value="#1ABDBDBD"', epgborderlines ])
-			skinSearchAndReplace.append(['name="epg-event-foreground" value="#00FFFFFF"', epgeventforeground ])
-			skinSearchAndReplace.append(['name="epg-event-background" value="#1A0F0F0F"', epgeventbackground ])
-			skinSearchAndReplace.append(['name="epg-primetime-foreground" value="#00008A00"', epgprimetimeforeground ])
-			skinSearchAndReplace.append(['name="epg-primetime-background" value="#1A0F0F0F"', epgprimetimebackground ])
-			skinSearchAndReplace.append(['name="epg-event-now-foreground" value="#00FFFFFF"', epgeventnowforeground ])
-			skinSearchAndReplace.append(['name="epg-event-now-background" value="#1A000000"', epgeventnowbackground ])
-			skinSearchAndReplace.append(['name="epg-event-selected-foreground" value="#00FFFFFF"', epgeventselectedforeground ])
-			skinSearchAndReplace.append(['name="epg-event-selected-background" value="#1A27408B"', epgeventselectedbackground ])
-			skinSearchAndReplace.append(['name="epg-service-foreground" value="#00FFFFFF"', epgserviceforeground ])
-			skinSearchAndReplace.append(['name="epg-service-background" value="#1A0F0F0F"', epgservicebackground ])
-			skinSearchAndReplace.append(['name="epg-service-now-foreground" value="#00FFFFFF"', epgservicenowforeground ])
-			skinSearchAndReplace.append(['name="epg-service-now-background" value="#1A27408B"', epgservicenowbackground ])
-			skinSearchAndReplace.append(['name="epg-timeline-foreground" value="#00F0A30A"', epgtimelineforeground ])
-			skinSearchAndReplace.append(['name="epg-timeline-background" value="#1A000000"', epgtimelinebackground ])
+			skinSearchAndReplace.append(['name="epg-eventdescription-background" value="#1A27408B"', epgeventdescriptionbackground])
+			skinSearchAndReplace.append(['name="epg-eventdescription-foreground" value="#00FFFFFF"', epgeventdescriptionforeground])
+			skinSearchAndReplace.append(['name="epg-background" value="#1A0F0F0F"', epgbackground])
+			skinSearchAndReplace.append(['name="epg-borderlines" value="#1ABDBDBD"', epgborderlines])
+			skinSearchAndReplace.append(['name="epg-event-foreground" value="#00FFFFFF"', epgeventforeground])
+			skinSearchAndReplace.append(['name="epg-event-background" value="#1A0F0F0F"', epgeventbackground])
+			skinSearchAndReplace.append(['name="epg-primetime-foreground" value="#00008A00"', epgprimetimeforeground])
+			skinSearchAndReplace.append(['name="epg-primetime-background" value="#1A0F0F0F"', epgprimetimebackground])
+			skinSearchAndReplace.append(['name="epg-event-now-foreground" value="#00FFFFFF"', epgeventnowforeground])
+			skinSearchAndReplace.append(['name="epg-event-now-background" value="#1A000000"', epgeventnowbackground])
+			skinSearchAndReplace.append(['name="epg-event-selected-foreground" value="#00FFFFFF"', epgeventselectedforeground])
+			skinSearchAndReplace.append(['name="epg-event-selected-background" value="#1A27408B"', epgeventselectedbackground])
+			skinSearchAndReplace.append(['name="epg-service-foreground" value="#00FFFFFF"', epgserviceforeground])
+			skinSearchAndReplace.append(['name="epg-service-background" value="#1A0F0F0F"', epgservicebackground])
+			skinSearchAndReplace.append(['name="epg-service-now-foreground" value="#00FFFFFF"', epgservicenowforeground])
+			skinSearchAndReplace.append(['name="epg-service-now-background" value="#1A27408B"', epgservicenowbackground])
+			skinSearchAndReplace.append(['name="epg-timeline-foreground" value="#00F0A30A"', epgtimelineforeground])
+			skinSearchAndReplace.append(['name="epg-timeline-background" value="#1A000000"', epgtimelinebackground])
 
-			skinSearchAndReplace.append(['name="layer-a-title-foreground" value="#00FFFFFF"', layeratitleforeground ])
-			skinSearchAndReplace.append(['name="layer-a-button-foreground" value="#00FFFFFF"', layerabuttonforeground ])
-			skinSearchAndReplace.append(['name="layer-a-clock-foreground" value="#00FFFFFF"', layeraclockforeground ])
-			skinSearchAndReplace.append(['name="layer-b-clock-foreground" value="#00FFFFFF"', layerbclockforeground ])
+			skinSearchAndReplace.append(['name="layer-a-title-foreground" value="#00FFFFFF"', layeratitleforeground])
+			skinSearchAndReplace.append(['name="layer-a-button-foreground" value="#00FFFFFF"', layerabuttonforeground])
+			skinSearchAndReplace.append(['name="layer-a-clock-foreground" value="#00FFFFFF"', layeraclockforeground])
+			skinSearchAndReplace.append(['name="layer-b-clock-foreground" value="#00FFFFFF"', layerbclockforeground])
 
-			skinSearchAndReplace.append(['name="menufont" value="#00FFFFFF"', menufont ])
-			skinSearchAndReplace.append(['name="menufontselected" value="#00FFFFFF"', menufontselected ])
-			skinSearchAndReplace.append(['name="menubackground" value="#1A0F0F0F"', menubackground ])
-			skinSearchAndReplace.append(['name="menusymbolbackground" value="#1A27408B"', menusymbolbackground ])
-			skinSearchAndReplace.append(['name="infobarbackground" value="#1A0F0F0F"', infobarbackground ])
-			skinSearchAndReplace.append(['name="infobarprogress" value="#1A27408B"', infobarprogress ])
-			skinSearchAndReplace.append(['name="infobarfont1" value="#00FFFFFF"', infobarfont1 ])
-			skinSearchAndReplace.append(['name="infobarfont2" value="#00BDBDBD"', infobarfont2 ])
-			skinSearchAndReplace.append(['name="infobaraccent1" value="#00BDBDBD"', infobaraccent1 ])
-			skinSearchAndReplace.append(['name="infobaraccent2" value="#006E6E6E"', infobaraccent2 ])
-			skinSearchAndReplace.append(['name="scrollbarSlidercolor" value="#00FFFFFF"', scrollbarSlidercolor ])
-			skinSearchAndReplace.append(['name="scrollbarSliderbordercolor" value="#0027408B"', scrollbarSliderbordercolor ])
+			skinSearchAndReplace.append(['name="menufont" value="#00FFFFFF"', menufont])
+			skinSearchAndReplace.append(['name="menufontselected" value="#00FFFFFF"', menufontselected])
+			skinSearchAndReplace.append(['name="menubackground" value="#1A0F0F0F"', menubackground])
+			skinSearchAndReplace.append(['name="menusymbolbackground" value="#1A27408B"', menusymbolbackground])
+			skinSearchAndReplace.append(['name="infobarbackground" value="#1A0F0F0F"', infobarbackground])
+			skinSearchAndReplace.append(['name="infobarprogress" value="#1A27408B"', infobarprogress])
+			skinSearchAndReplace.append(['name="infobarfont1" value="#00FFFFFF"', infobarfont1])
+			skinSearchAndReplace.append(['name="infobarfont2" value="#00BDBDBD"', infobarfont2])
+			skinSearchAndReplace.append(['name="infobaraccent1" value="#00BDBDBD"', infobaraccent1])
+			skinSearchAndReplace.append(['name="infobaraccent2" value="#006E6E6E"', infobaraccent2])
+			skinSearchAndReplace.append(['name="scrollbarSlidercolor" value="#00FFFFFF"', scrollbarSlidercolor])
+			skinSearchAndReplace.append(['name="scrollbarSliderbordercolor" value="#0027408B"', scrollbarSliderbordercolor])
 
 			#Borderset screens
 			w = 5
@@ -990,23 +985,23 @@ class ActivateSkinSettings:
 			color = config.plugins.MyMetrixLiteColors.windowborder_top.value
 			if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width_top, color)):
 				newline = (('<pixmap pos="bpTop" filename="MetrixHD/border/%s/%s.png" />') % (width_top, color))
-				skinSearchAndReplace.append(['<pixmap pos="bpTop" filename="MetrixHD/border/50px/0F0F0F.png" />', newline ])
-				orgskinSearchAndReplace.append(['<pixmap pos="bpTop" filename="MetrixHD/border/50px/0F0F0F.png" />', newline ])
+				skinSearchAndReplace.append(['<pixmap pos="bpTop" filename="MetrixHD/border/50px/0F0F0F.png" />', newline])
+				orgskinSearchAndReplace.append(['<pixmap pos="bpTop" filename="MetrixHD/border/50px/0F0F0F.png" />', newline])
 			color = config.plugins.MyMetrixLiteColors.windowborder_bottom.value
 			if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
 				newline = (('<pixmap pos="bpBottom" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
-				skinSearchAndReplace.append(['<pixmap pos="bpBottom" filename="MetrixHD/border/5px/0F0F0F.png" />', newline ])
-				orgskinSearchAndReplace.append(['<pixmap pos="bpBottom" filename="MetrixHD/border/5px/0F0F0F.png" />', newline ])
+				skinSearchAndReplace.append(['<pixmap pos="bpBottom" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
+				orgskinSearchAndReplace.append(['<pixmap pos="bpBottom" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
 			color = config.plugins.MyMetrixLiteColors.windowborder_left.value
 			if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
 				newline = (('<pixmap pos="bpLeft" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
-				skinSearchAndReplace.append(['<pixmap pos="bpLeft" filename="MetrixHD/border/5px/0F0F0F.png" />', newline ])
-				orgskinSearchAndReplace.append(['<pixmap pos="bpLeft" filename="MetrixHD/border/5px/0F0F0F.png" />', newline ])
+				skinSearchAndReplace.append(['<pixmap pos="bpLeft" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
+				orgskinSearchAndReplace.append(['<pixmap pos="bpLeft" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
 			color = config.plugins.MyMetrixLiteColors.windowborder_right.value
 			if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
 				newline = (('<pixmap pos="bpRight" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
-				skinSearchAndReplace.append(['<pixmap pos="bpRight" filename="MetrixHD/border/5px/0F0F0F.png" />', newline ])
-				orgskinSearchAndReplace.append(['<pixmap pos="bpRight" filename="MetrixHD/border/5px/0F0F0F.png" />', newline ])
+				skinSearchAndReplace.append(['<pixmap pos="bpRight" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
+				orgskinSearchAndReplace.append(['<pixmap pos="bpRight" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
 
 			#Border listbox
 			width = config.plugins.MyMetrixLiteColors.listboxborder_topwidth.value
@@ -1014,29 +1009,29 @@ class ActivateSkinSettings:
 				color = config.plugins.MyMetrixLiteColors.listboxborder_top.value
 				if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
 					newline = (('<pixmap pos="bpTop" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
-					skinSearchAndReplace.append(['<!--lb pixmap pos="bpTop" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
-					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpTop" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
+					skinSearchAndReplace.append(['<!--lb pixmap pos="bpTop" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
+					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpTop" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 			width = config.plugins.MyMetrixLiteColors.listboxborder_bottomwidth.value
 			if width != "no":
 				color = config.plugins.MyMetrixLiteColors.listboxborder_bottom.value
 				if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
 					newline = (('<pixmap pos="bpBottom" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
-					skinSearchAndReplace.append(['<!--lb pixmap pos="bpBottom" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
-					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpBottom" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
+					skinSearchAndReplace.append(['<!--lb pixmap pos="bpBottom" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
+					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpBottom" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 			width = config.plugins.MyMetrixLiteColors.listboxborder_leftwidth.value
 			if width != "no":
 				color = config.plugins.MyMetrixLiteColors.listboxborder_left.value
 				if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
 					newline = (('<pixmap pos="bpLeft" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
-					skinSearchAndReplace.append(['<!--lb pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
-					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
+					skinSearchAndReplace.append(['<!--lb pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
+					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 			width = config.plugins.MyMetrixLiteColors.listboxborder_rightwidth.value
 			if width != "no":
 				color = config.plugins.MyMetrixLiteColors.listboxborder_right.value
 				if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
 					newline = (('<pixmap pos="bpRight" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
-					skinSearchAndReplace.append(['<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
-					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline ])
+					skinSearchAndReplace.append(['<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
+					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 
 			#fonts system
 			type = config.plugins.MyMetrixLiteFonts.Lcd_type.value
@@ -1044,35 +1039,35 @@ class ActivateSkinSettings:
 			old = '<font filename="/usr/share/fonts/lcd.ttf" name="LCD" scale="100" />'
 			new = '<font filename="' + type + '" name="LCD" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.Replacement_type.value
 			scale = config.plugins.MyMetrixLiteFonts.Replacement_scale.value
 			old = '<font filename="/usr/share/fonts/ae_AlMateen.ttf" name="Replacement" scale="100" replacement="1" />'
 			new = '<font filename="' + type + '" name="Replacement" scale="' + str(scale) + '" replacement="1" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.Console_type.value
 			scale = config.plugins.MyMetrixLiteFonts.Console_scale.value
 			old = '<font filename="/usr/share/fonts/tuxtxt.ttf" name="Console" scale="100" />'
 			new = '<font filename="' + type + '" name="Console" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.Fixed_type.value
 			scale = config.plugins.MyMetrixLiteFonts.Fixed_scale.value
 			old = '<font filename="/usr/share/fonts/andale.ttf" name="Fixed" scale="100" />'
 			new = '<font filename="' + type + '" name="Fixed" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.Arial_type.value
 			scale = config.plugins.MyMetrixLiteFonts.Arial_scale.value
 			old = '<font filename="/usr/share/fonts/nmsbd.ttf" name="Arial" scale="100" />'
 			new = '<font filename="' + type + '" name="Arial" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			#fonts skin
 			type = config.plugins.MyMetrixLiteFonts.Regular_type.value
@@ -1080,27 +1075,27 @@ class ActivateSkinSettings:
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="Regular" scale="95" />'
 			new = '<font filename="' + type + '" name="Regular" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.RegularLight_type.value
 			scale = config.plugins.MyMetrixLiteFonts.RegularLight_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="RegularLight" scale="95" />'
 			new = '<font filename="' + type + '" name="RegularLight" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.SetrixHD_type.value
 			scale = config.plugins.MyMetrixLiteFonts.SetrixHD_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="SetrixHD" scale="100" />'
 			new = '<font filename="' + type + '" name="SetrixHD" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			scale = config.plugins.MyMetrixLiteFonts.Meteo_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/meteocons.ttf" name="Meteo" scale="100" />'
 			new = '<font filename="/usr/share/enigma2/MetrixHD/fonts/meteocons.ttf" name="Meteo" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			#global
 			type = config.plugins.MyMetrixLiteFonts.globaltitle_type.value
@@ -1108,73 +1103,73 @@ class ActivateSkinSettings:
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_title" scale="100" />'
 			new = '<font filename="' + type + '" name="global_title" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.globalbutton_type.value
 			scale = config.plugins.MyMetrixLiteFonts.globalbutton_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_button" scale="90" />'
 			new = '<font filename="' + type + '" name="global_button" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.globalclock_type.value
 			scale = config.plugins.MyMetrixLiteFonts.globalclock_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_clock" scale="100" />'
 			new = '<font filename="' + type + '" name="global_clock" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.globallarge_type.value
 			scale = config.plugins.MyMetrixLiteFonts.globallarge_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large" scale="100" />'
 			new = '<font filename="' + type + '" name="global_large" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 			else:
 				type = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 
 			if config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText.value == "both":
 				old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_menu" scale="100" />'
 				new = '<font filename="' + type + '" name="global_large_menu" scale="' + str(scale) + '" />'
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 				old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_screen" scale="100" />'
 				new = '<font filename="' + type + '" name="global_large_screen" scale="' + str(scale) + '" />'
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 			elif config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText.value == "menus":
 				old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_menu" scale="100" />'
 				new = '<font filename="' + type + '" name="global_large_menu" scale="' + str(scale) + '" />'
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 				old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_screen" scale="100" />'
 				new = '<font filename="' + type + '" name="global_large_screen" scale="0" />'
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 			elif config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText.value == "screens":
 				old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_menu" scale="100" />'
 				new = '<font filename="' + type + '" name="global_large_menu" scale="0" />'
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 				old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_screen" scale="100" />'
 				new = '<font filename="' + type + '" name="global_large_screen" scale="' + str(scale) + '" />'
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 			else:
 				old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_menu" scale="100" />'
 				new = '<font filename="' + type + '" name="global_large_menu" scale="0" />'
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 				old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large_screen" scale="100" />'
 				new = '<font filename="' + type + '" name="global_large_screen" scale="0" />'
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.globalsmall_type.value
 			scale = config.plugins.MyMetrixLiteFonts.globalsmall_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="global_small" scale="95" />'
 			new = '<font filename="' + type + '" name="global_small" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.globalmenu_type.value
 			scale = config.plugins.MyMetrixLiteFonts.globalmenu_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_menu" scale="100" />'
 			new = '<font filename="' + type + '" name="global_menu" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			#screens
 			type = config.plugins.MyMetrixLiteFonts.screenlabel_type.value
@@ -1182,21 +1177,21 @@ class ActivateSkinSettings:
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="screen_label" scale="95" />'
 			new = '<font filename="' + type + '" name="screen_label" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.screentext_type.value
 			scale = config.plugins.MyMetrixLiteFonts.screentext_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="screen_text" scale="95" />'
 			new = '<font filename="' + type + '" name="screen_text" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.screeninfo_type.value
 			scale = config.plugins.MyMetrixLiteFonts.screeninfo_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="screen_info" scale="100" />'
 			new = '<font filename="' + type + '" name="screen_info" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			#channellist
 			type = config.plugins.MyMetrixLiteFonts.epgevent_type.value
@@ -1204,21 +1199,21 @@ class ActivateSkinSettings:
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_event" scale="95" />'
 			new = '<font filename="' + type + '" name="epg_event" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.epgtext_type.value
 			scale = config.plugins.MyMetrixLiteFonts.epgtext_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_text" scale="95" />'
 			new = '<font filename="' + type + '" name="epg_text" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.epginfo_type.value
 			scale = config.plugins.MyMetrixLiteFonts.epginfo_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_info" scale="95" />'
 			new = '<font filename="' + type + '" name="epg_info" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			#infobar
 			type = config.plugins.MyMetrixLiteFonts.infobarevent_type.value
@@ -1226,14 +1221,14 @@ class ActivateSkinSettings:
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="infobar_event" scale="100" />'
 			new = '<font filename="' + type + '" name="infobar_event" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.infobartext_type.value
 			scale = config.plugins.MyMetrixLiteFonts.infobartext_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="infobar_text" scale="95" />'
 			new = '<font filename="' + type + '" name="infobar_text" scale="' + str(scale) + '" />'
 			if path.exists(type):
-				skinSearchAndReplace.append([old, new ])
+				skinSearchAndReplace.append([old, new])
 
 			#skinfiles
 			skinSearchAndReplace.append([SKIN_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET])
