@@ -1436,7 +1436,7 @@ class ActivateSkinSettings:
 		configfile.save()
 		print("MyMetrixLite apply Changes - duration time: %ss" % (round_half_up(time()-apply_starttime, 1)))
 
-	def makeButtons(self, button, text, extern = True):
+	def makeButtons(self, button, text, extern=True):
 		try:
 			#makeButtons
 			if extern:
@@ -1659,7 +1659,7 @@ class ActivateSkinSettings:
 		else:
 			return color
 
-	def makeColorGradient(self, name, sizex, sizey, color, begin, height, direction, alphaA = None, alphaB = None):
+	def makeColorGradient(self, name, sizex, sizey, color, begin, height, direction, alphaA=None, alphaB=None):
 		#print name
 		if alphaA is None:
 			alphaA = 255-int(config.plugins.MyMetrixLiteColors.cologradient_transparencyA.value, 16)
@@ -1692,7 +1692,7 @@ class ActivateSkinSettings:
 		imga = Image.new("RGBA", (sizex, sizey), rgba)
 		imga.save(name)
 
-	def updateIcons(self, target = "HD"):
+	def updateIcons(self, target="HD"):
 		# backward compatibility - remove old icon files ---------------------------
 		dpathlist = ["/usr/share/enigma2/MetrixHD/",
 					"/usr/share/enigma2/MetrixHD/skin_default/buttons/",

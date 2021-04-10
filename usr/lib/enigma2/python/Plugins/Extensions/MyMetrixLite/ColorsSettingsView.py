@@ -53,7 +53,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 	</screen>
 """
 
-	def __init__(self, session, args = None):
+	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.session = session
 		self.picPath = COLOR_IMAGE_PATH % "FFFFFF"
@@ -83,8 +83,8 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 		ConfigListScreen.__init__(
 			self,
 			self.getMenuItemList(),
-			session = session,
-			on_change = self.selectionChanged
+			session=session,
+			on_change=self.selectionChanged
 		)
 
 		self["actions"] = ActionMap(
@@ -108,12 +108,12 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 		self.onLayoutFinish.append(self.UpdatePicture)
 
 	def initQuickColorSetup(self):
-		self.colorA = ConfigSelection(default=config.plugins.MyMetrixLiteColors.layerabackground.value, choices = ColorList)
-		self.colorAtransparency = ConfigSelection(default=config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value, choices = TransparencyList)
-		self.colorAfont = ConfigSelection(default=config.plugins.MyMetrixLiteColors.layeraforeground.value, choices = ColorList)
-		self.colorB = ConfigSelection(default=config.plugins.MyMetrixLiteColors.layerbbackground.value, choices = ColorList)
-		self.colorBtransparency = ConfigSelection(default=config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value, choices = TransparencyList)
-		self.colorBfont = ConfigSelection(default=config.plugins.MyMetrixLiteColors.layerbforeground.value, choices = ColorList)
+		self.colorA = ConfigSelection(default=config.plugins.MyMetrixLiteColors.layerabackground.value, choices=ColorList)
+		self.colorAtransparency = ConfigSelection(default=config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value, choices=TransparencyList)
+		self.colorAfont = ConfigSelection(default=config.plugins.MyMetrixLiteColors.layeraforeground.value, choices=ColorList)
+		self.colorB = ConfigSelection(default=config.plugins.MyMetrixLiteColors.layerbbackground.value, choices=ColorList)
+		self.colorBtransparency = ConfigSelection(default=config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value, choices=TransparencyList)
+		self.colorBfont = ConfigSelection(default=config.plugins.MyMetrixLiteColors.layerbforeground.value, choices=ColorList)
 
 	def getMenuItemList(self):
 		char = 150
@@ -1232,7 +1232,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 		self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 
-	def DecodePicture(self, PicInfo = ""):
+	def DecodePicture(self, PicInfo=""):
 		ptr = self.PicLoad.getData()
 		self["helperimage"].instance.setPixmap(ptr)
 
@@ -1250,7 +1250,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 		self["config"].instance.moveSelection(self["config"].instance.moveUp)
 		self.ShowPicture()
 
-	def defaults(self, SAVE = False):
+	def defaults(self, SAVE=False):
 		for x in self["config"].list:
 			if len(x) > 1:
 				self.setInputToDefault(x[1])

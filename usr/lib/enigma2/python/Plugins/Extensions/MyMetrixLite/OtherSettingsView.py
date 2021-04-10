@@ -61,7 +61,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 	</screen>
 """
 
-	def __init__(self, session, args = None):
+	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.session = session
 		self.Scale = AVSwitch().getFramebufferScale()
@@ -112,8 +112,8 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		ConfigListScreen.__init__(
 			self,
 			self.getMenuItemList(),
-			session = session,
-			on_change = self.selectionChanged
+			session=session,
+			on_change=self.selectionChanged
 		)
 
 		self.onLayoutFinish.append(self.UpdatePicture)
@@ -213,7 +213,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			plustext = _("You have the'HbbTV Plugin' installed.\n")
 		if plustext:
 			text = plustext + _("\nMaybe is a compatibility issue with %s resolution.\nAttention: The osd-error occurs first after gui or system restart!\n\nDo you want really change from %s to %s - skin?") % (self.EHDtxt, self.EHDtext_old, self.EHDtxt)
-			self.session.openWithCallback(self.resolutionQuestion, MessageBox, text, default = False, timeout = 10)
+			self.session.openWithCallback(self.resolutionQuestion, MessageBox, text, default=False, timeout=10)
 		else:
 			self.resolutionQuestion(True)
 
@@ -227,14 +227,14 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		plustext = ""
 		if rec:
 			plustext = _("!!! Recording(s) are in progress or coming up in few minutes !!!") + '\n'
-		self.session.openWithCallback(self.resolutionTest, MessageBox, plustext + _("!!! If your receiver not compatible is a crash possible !!!\n\nChoose 'yes', then starts the resolution test.\nThe old resolution will automatically restored after 10 seconds."), default = False)
+		self.session.openWithCallback(self.resolutionTest, MessageBox, plustext + _("!!! If your receiver not compatible is a crash possible !!!\n\nChoose 'yes', then starts the resolution test.\nThe old resolution will automatically restored after 10 seconds."), default=False)
 
 	def resolutionTest(self, result):
 		if not result:
 			self.resetEHD()
 			return
 		gMainDC.getInstance().setResolution(int(1280*self.EHDfactor), int(720*self.EHDfactor))
-		self.session.openWithCallback(self.resolutionCheck, MessageBox, _("If you can see this then is your receiver compatible.\nDo you want change from %s to %s - skin resolution?") % (self.EHDtext_old, self.EHDtxt), default = False, timeout = 10)
+		self.session.openWithCallback(self.resolutionCheck, MessageBox, _("If you can see this then is your receiver compatible.\nDo you want change from %s to %s - skin resolution?") % (self.EHDtext_old, self.EHDtxt), default=False, timeout=10)
 
 	def resolutionCheck(self, result):
 		gMainDC.getInstance().setResolution(self.x, self.y)
@@ -281,7 +281,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.session.open(MessageBox, _("A background update check is in progress, please wait a few minutes and try again."), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
 			self.resetEHD()
 		elif not str:
-			self.feedscheck = self.session.open(MessageBox, _('Please wait whilst feeds state is checked.'), MessageBox.TYPE_INFO, enable_input = False)
+			self.feedscheck = self.session.open(MessageBox, _('Please wait whilst feeds state is checked.'), MessageBox.TYPE_INFO, enable_input=False)
 			self.feedscheck.setTitle(_('Checking Feeds'))
 			cmd1 = "opkg update"
 			self.CheckConsole = Console()
@@ -308,11 +308,11 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		self.resetEHD()
 
 	def doInstall(self, callback, pkgname):
-		self.message = self.session.open(MessageBox, _("please wait..."), MessageBox.TYPE_INFO, enable_input = False)
+		self.message = self.session.open(MessageBox, _("please wait..."), MessageBox.TYPE_INFO, enable_input=False)
 		self.message.setTitle(_('Installing ...'))
 		self.Console.ePopen('/usr/bin/opkg install ' + pkgname, callback)
 
-	def installComplete(self, result, retval = None, extra_args = None):
+	def installComplete(self, result, retval=None, extra_args=None):
 		result = six.ensure_str(result)
 		if 'Unknown package' in result:
 			self.session.open(MessageBox, _("Install Package not found!"), MessageBox.TYPE_ERROR, timeout=10)
@@ -329,7 +329,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
 	def RemovedataAvail(self, str, retval, extra_args):
 		if str:
-			self.session.openWithCallback(self.RemovePackage, MessageBox, _('Ready to remove %s ?') % self.service_name, MessageBox.TYPE_YESNO, default = False)
+			self.session.openWithCallback(self.RemovePackage, MessageBox, _('Ready to remove %s ?') % self.service_name, MessageBox.TYPE_YESNO, default=False)
 
 	def RemovePackage(self, val):
 		if val:
@@ -339,11 +339,11 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.doRemove(self.removeComplete, self.service_name)
 
 	def doRemove(self, callback, pkgname):
-		self.message = self.session.open(MessageBox, _("please wait..."), MessageBox.TYPE_INFO, enable_input = False)
+		self.message = self.session.open(MessageBox, _("please wait..."), MessageBox.TYPE_INFO, enable_input=False)
 		self.message.setTitle(_('Removing ...'))
 		self.Console.ePopen('/usr/bin/opkg remove ' + pkgname + ' --force-remove --autoremove', callback)
 
-	def removeComplete(self,result = None, retval = None, extra_args = None):
+	def removeComplete(self,result=None, retval=None, extra_args=None):
 		self.message.close()
 
 	def getPreset(self):
@@ -707,7 +707,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 
-	def DecodePicture(self, PicInfo = ""):
+	def DecodePicture(self, PicInfo=""):
 		ptr = self.PicLoad.getData()
 		self["helperimage"].instance.setPixmap(ptr)
 
@@ -744,7 +744,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			remove("/tmp/template.png")
 		self.close()
 
-	def defaults(self, SAVE = False):
+	def defaults(self, SAVE=False):
 		for x in self["config"].list:
 			if len(x) > 1:
 				self.setInputToDefault(x[1])

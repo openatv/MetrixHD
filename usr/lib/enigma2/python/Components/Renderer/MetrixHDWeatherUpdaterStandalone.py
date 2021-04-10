@@ -151,9 +151,9 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			return
 		g_updateRunning = True
 		g_isRunning = True
-		Thread(target = self.getWeatherThread).start()
+		Thread(target=self.getWeatherThread).start()
 
-	def errorCallback(self, error = None, message = None):
+	def errorCallback(self, error=None, message=None):
 		global g_updateRunning
 		g_updateRunning = False
 		errormessage = "unknown error"
@@ -199,7 +199,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			try:
 				msnpage = urlopen(msnrequest)
 			except (URLError) as err:
-				self.errorCallback(message = str(err))
+				self.errorCallback(message=str(err))
 				return
 			g_updateRunning = False
 			try:
@@ -315,7 +315,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 					self.writeCheckFile(text)
 					return
 			except IndexError as err:
-				self.errorCallback(message = str(err))
+				self.errorCallback(message=str(err))
 				return
 			self.setWeatherDataValid(3)
 		else:
@@ -336,7 +336,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 		jsonstring = six.ensure_str(jsonstring)
 		d = json.loads(jsonstring)
 		if 'code' in d and d['cod'] != "200":
-			self.errorCallback(message = d['message'])
+			self.errorCallback(message=d['message'])
 			return
 		g_updateRunning = False
 		try:
@@ -407,7 +407,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			config.plugins.MetrixWeather.forecastTomorrowTempMin.value = tmin_tomorrow
 			config.plugins.MetrixWeather.forecastTomorrowTempMax.value = tmax_tomorrow
 		except IndexError as err:
-			self.errorCallback(message = str(err))
+			self.errorCallback(message=str(err))
 			return
 		self.setWeatherDataValid(3)
 
