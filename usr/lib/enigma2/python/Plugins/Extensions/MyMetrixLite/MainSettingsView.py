@@ -42,24 +42,26 @@ from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 #############################################################
 
+
 class MainMenuList(MenuList):
-	def __init__(self, list, font0 = 24, font1 = 16, itemHeight = 50, enableWrapAround = True):
+	def __init__(self, list, font0=24, font1=16, itemHeight=50, enableWrapAround=True):
 		MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
 		screenwidth = getDesktop(0).size().width()
 		if screenwidth and screenwidth == 3840:
-			self.l.setFont(0, gFont("Regular", int(font0*3)))
-			self.l.setFont(1, gFont("Regular", int(font1*3)))
-			self.l.setItemHeight(int(itemHeight*3))
+			self.l.setFont(0, gFont("Regular", int(font0 * 3)))
+			self.l.setFont(1, gFont("Regular", int(font1 * 3)))
+			self.l.setItemHeight(int(itemHeight * 3))
 		elif screenwidth and screenwidth == 1920:
-			self.l.setFont(0, gFont("Regular", int(font0*1.5)))
-			self.l.setFont(1, gFont("Regular", int(font1*1.5)))
-			self.l.setItemHeight(int(itemHeight*1.5))
+			self.l.setFont(0, gFont("Regular", int(font0 * 1.5)))
+			self.l.setFont(1, gFont("Regular", int(font1 * 1.5)))
+			self.l.setItemHeight(int(itemHeight * 1.5))
 		else:
 			self.l.setFont(0, gFont("Regular", font0))
 			self.l.setFont(1, gFont("Regular", font1))
 			self.l.setItemHeight(itemHeight)
 
 #############################################################
+
 
 def MenuEntryItem(itemDescription, key, helptext):
 	res = [(itemDescription, key, helptext)]
@@ -73,6 +75,7 @@ def MenuEntryItem(itemDescription, key, helptext):
 	return res
 
 #############################################################
+
 
 class MainSettingsView(Screen):
 	skin = """
@@ -89,7 +92,7 @@ class MainSettingsView(Screen):
   </screen>
 """
 
-	def __init__(self, session, args = None):
+	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.session = session
 		self.Scale = AVSwitch().getFramebufferScale()
@@ -189,7 +192,7 @@ class MainSettingsView(Screen):
 			picturepath = MAIN_IMAGE_PATH % pic
 		return picturepath
 
-	def DecodePicture(self, PicInfo = ""):
+	def DecodePicture(self, PicInfo=""):
 		ptr = self.PicLoad.getData()
 		self["helperimage"].instance.setPixmap(ptr)
 
@@ -232,10 +235,10 @@ class MainSettingsView(Screen):
 		if isinstance(ret, tuple) and ret[0] == 'checkEHDsettings':
 			self.session.openWithCallback(self.checkEHDsettingsCallback, MessageBox, ret[1], MessageBox.TYPE_INFO, timeout=10)
 
-	def checkEHDsettingsCallback(self, ret = None):
+	def checkEHDsettingsCallback(self, ret=None):
 		self.session.open(OtherSettingsView)
 
-	def reboot(self, message = None):
+	def reboot(self, message=None):
 		if message is None:
 			message = _("Do you really want to reboot now?")
 

@@ -16,7 +16,9 @@ initOtherConfig()
 
 # For SNP
 from ServiceReference import ServiceReference
-import re, unicodedata
+import re
+import unicodedata
+
 
 class MetrixHDXPicon(Renderer):
 	searchPaths = ('/media/mmc/%s/', '/media/usb/XPicons/%s/', '/media/usb/%s/', '/%s/', '/%sx/', '/usr/share/enigma2/XPicons/%s/', '/usr/share/enigma2/%s/', '/usr/%s/', '/media/hdd/XPicons/%s/', '/media/hdd/%s/')
@@ -24,11 +26,11 @@ class MetrixHDXPicon(Renderer):
 	def __init__(self):
 		Renderer.__init__(self)
 		self.path = "picon"
-		self.nameCache = { }
+		self.nameCache = {}
 		self.pngname = ""
 
 	def applySkin(self, desktop, parent):
-		attribs = [ ]
+		attribs = []
 		for (attrib, value) in self.skinAttributes:
 			if attrib == "path":
 				self.path = value
@@ -89,8 +91,8 @@ class MetrixHDXPicon(Renderer):
 							imw, imh = im.size
 							inh = self.instance.size().height()
 							if imh != inh:
-								sf = float(inh)/imh
-								im = im.resize((int(imw*sf), int(imh*sf)), Image.ANTIALIAS)
+								sf = float(inh) / imh
+								im = im.resize((int(imw * sf), int(imh * sf)), Image.ANTIALIAS)
 								ims = ImageEnhance.Sharpness(im)
 								im = ims.enhance(float(config.plugins.MyMetrixLiteOther.piconsharpness_experimental.value))
 								tempfile = '/tmp/picon.png'

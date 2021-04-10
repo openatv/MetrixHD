@@ -26,8 +26,10 @@ config.plugins.MetrixWeather.currentWeatherDataValid.setValue(0)
 
 #############################################################
 
+
 def main(session, **kwargs):
 	session.open(MainSettingsView)
 
+
 def Plugins(**kwargs):
-	return PluginDescriptor(name="MyMetrixLite", description=_("openATV configuration tool for MetrixHD"), where = PluginDescriptor.WHERE_PLUGINMENU, icon="plugin.png", fnc=main)
+	return PluginDescriptor(name="MyMetrixLite", description=_("openATV configuration tool for MetrixHD"), where=PluginDescriptor.WHERE_PLUGINMENU, icon="plugin.png", fnc=main)

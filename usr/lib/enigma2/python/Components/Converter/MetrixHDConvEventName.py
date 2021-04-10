@@ -1,12 +1,13 @@
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 
+
 class MetrixHDConvEventName(Converter, object):
 	NAME = 0
 	SHORT_DESCRIPTION = 1
 	EXTENDED_DESCRIPTION = 2
 	ID = 3
-	
+
 	def __init__(self, type):
 		Converter.__init__(self, type)
 		if type == "Description":
@@ -23,7 +24,7 @@ class MetrixHDConvEventName(Converter, object):
 		event = self.source.event
 		if event is None:
 			return ""
-			
+
 		if self.type == self.NAME:
 			ret_str = event.getEventName()
 		elif self.type == self.SHORT_DESCRIPTION:
@@ -36,7 +37,7 @@ class MetrixHDConvEventName(Converter, object):
 			elif exten_desc == "":
 				ret_str = short_desc
 			else:
-				ret_str = short_desc +"\n\n"+ exten_desc
+				ret_str = short_desc + "\n\n" + exten_desc
 		elif self.type == self.ID:
 			ret_str = str(event.getEventId())
 

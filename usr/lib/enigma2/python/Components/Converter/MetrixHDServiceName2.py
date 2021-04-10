@@ -10,6 +10,7 @@ import six
 
 SIGN = '°' if six.PY3 else str('\xc2\xb0')
 
+
 class MetrixHDServiceName2(Poll, Converter, object):
 	NAME = 0
 	NUMBER = 1

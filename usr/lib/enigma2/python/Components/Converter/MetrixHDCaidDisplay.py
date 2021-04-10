@@ -4,8 +4,8 @@
 #  Coded by Dr.Best & weazle (c) 2010
 #  Support: www.dreambox-tools.info
 #
-#  This plugin is licensed under the Creative Commons 
-#  Attribution-NonCommercial-ShareAlike 3.0 Unported 
+#  This plugin is licensed under the Creative Commons
+#  Attribution-NonCommercial-ShareAlike 3.0 Unported
 #  License. To view a copy of this license, visit
 #  http://creativecommons.org/licenses/by-nc-sa/3.0/ or send a letter to Creative
 #  Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
@@ -14,7 +14,7 @@
 #  is licensed by Dream Multimedia GmbH.
 #
 #  This plugin is NOT free software. It is open source, you are allowed to
-#  modify it (if you keep the license), but it may not be commercially 
+#  modify it (if you keep the license), but it may not be commercially
 #  distributed other than under the conditions noted above.
 #
 
@@ -27,22 +27,23 @@ from Components.config import config
 import six
 initOtherConfig()
 
+
 class MetrixHDCaidDisplay(Poll, Converter, object):
 	def __init__(self, type):
 		Poll.__init__(self)
 		Converter.__init__(self, type)
 		self.type = type
 		self.systemCaids = {
-			"26" : "BiSS",
-			"01" : "SEC",
-			"06" : "IRD",
-			"17" : "BET",
-			"05" : "VIA",
-			"18" : "NAG",
-			"09" : "NDS",
-			"0B" : "CON",
-			"0D" : "CRW",
-			"4A" : "DRE" }
+			"26": "BiSS",
+			"01": "SEC",
+			"06": "IRD",
+			"17": "BET",
+			"05": "VIA",
+			"18": "NAG",
+			"09": "NDS",
+			"0B": "CON",
+			"0D": "CRW",
+			"4A": "DRE"}
 
 		self.poll_interval = 1000
 		self.poll_enabled = True
@@ -97,7 +98,7 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 						# hops
 						hops = ecm_info.get("hops", None)
 						hops = "HOPS: %s" % hops
-						# ecm time	
+						# ecm time
 						ecm_time = ecm_info.get("ecm time", None)
 						if ecm_time:
 							if "msec" in ecm_time:
@@ -148,7 +149,7 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 							if not using:
 								source = ecm_info.get("source", None)
 								if not source:
-									decode= ecm_info.get("decode", None)
+									decode = ecm_info.get("decode", None)
 									if not decode:
 										return textvalue
 						show_caid = config.plugins.MyMetrixLiteOther.showExtended_caid.value
@@ -270,7 +271,7 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 								else:
 									decode = ""
 								textvalue = "%s%s" % (caid, decode)
-		return textvalue 
+		return textvalue
 
 	text = property(getText)
 
@@ -287,13 +288,14 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 				except:
 					try:
 						ecm = open("/tmp/ecm.info", "rb").readlines()
-					except: pass
+					except:
+						pass
 			if ecm:
 				for line in ecm:
 					line = six.ensure_str(line)
 					x = line.lower().find("msec")
 					if x != -1:
-						info["ecm time"] = line[0:x+4]
+						info["ecm time"] = line[0:x + 4]
 					else:
 						item = line.split(":", 1)
 						if len(item) > 1:
@@ -304,7 +306,7 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 								if x != -1:
 									y = line.find(",")
 									if y != -1:
-										info["caid"] = line[x+5:y]
+										info["caid"] = line[x + 5:y]
 
 		return info
 

@@ -20,6 +20,7 @@ from xml.etree.cElementTree import parse
 
 ##########################################################################
 
+
 class MetrixHDExtServiceInfo(Converter, object):
 	SERVICENAME = 0
 	SERVICENUMBER = 1
@@ -75,7 +76,8 @@ class MetrixHDExtServiceInfo(Converter, object):
 		orbital = self.getOrbitalPosition(info)
 		satName = self.satNames.get(orbital, orbital)
 
-		if len(number) > 5: number=''
+		if len(number) > 5:
+			number = ''
 		if self.type == self.SERVICENAME:
 			text = name
 		elif self.type == self.SERVICENUMBER:
@@ -161,7 +163,7 @@ class MetrixHDExtServiceInfo(Converter, object):
 		number = ""
 		if name in _list:
 			for idx in list(range(1, len(_list))):
-				if name == _list[idx-1]:
+				if name == _list[idx - 1]:
 					number = str(idx)
 					break
 		return number
@@ -177,8 +179,8 @@ class MetrixHDExtServiceInfo(Converter, object):
 					orbital = transponderData["orbital_position"]
 					orbital = int(orbital)
 					if orbital > 1800:
-						orbital = str((float(3600 - orbital))/10.0) + "W"
+						orbital = str((float(3600 - orbital)) / 10.0) + "W"
 					else:
-						orbital = str((float(orbital))/10.0) + "E"
+						orbital = str((float(orbital)) / 10.0) + "E"
 					return orbital
 		return ""

@@ -5,6 +5,7 @@ from time import localtime, mktime, time
 from datetime import datetime
 from Components.config import config
 
+
 class MetrixHDPrimeTime(Renderer, VariableText):
 
 	def __init__(self):
@@ -39,7 +40,7 @@ class MetrixHDPrimeTime(Renderer, VariableText):
 			for x in evt:
 				if x[4]:
 					begin = x[1]
-					end = x[1]+x[2]
+					end = x[1] + x[2]
 					if begin <= primetime and end > primetime or next:
 						if not next and end <= primetime + 1200: # 20 mins tolerance to starting next event
 							next = True

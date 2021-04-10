@@ -42,6 +42,7 @@ std_headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) App
 
 initWeatherConfig()
 
+
 class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 
 	def __init__(self, once=False, check=False):
@@ -151,9 +152,9 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			return
 		g_updateRunning = True
 		g_isRunning = True
-		Thread(target = self.getWeatherThread).start()
+		Thread(target=self.getWeatherThread).start()
 
-	def errorCallback(self, error = None, message = None):
+	def errorCallback(self, error=None, message=None):
 		global g_updateRunning
 		g_updateRunning = False
 		errormessage = "unknown error"
@@ -162,13 +163,13 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 		elif message is not None:
 			message = six.ensure_str(message)
 			errormessage = str(message)
-		print("MetrixHDWeatherStandalone get weather data failed - Error code: %s" %errormessage)
+		print("MetrixHDWeatherStandalone get weather data failed - Error code: %s" % errormessage)
 		if self.check:
 			self.writeCheckFile(errormessage)
 		else:
 			nextcall = 30
 			if not self.once:
-				print("MetrixHDWeatherStandalone try next in %d sec ..." %nextcall)
+				print("MetrixHDWeatherStandalone try next in %d sec ..." % nextcall)
 			self.startTimer(True, nextcall)
 
 	def getWeatherThread(self):
@@ -189,17 +190,17 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 		if config.plugins.MetrixWeather.weatherservice.value == "MSN":
 			units = 'C'
 			if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit":
-				units ='F'
+				units = 'F'
 			language = config.osd.language.value.replace('_', '-')
 			if language == 'en-EN':
 				language = 'en-US'
-			city="%s" % self.cityname
+			city = "%s" % self.cityname
 			feedurl = "http://weather.service.msn.com/data.aspx?weadegreetype=%s&culture=%s&weasearchstr=%s&src=outlook" % (units, language, quote(city))
 			msnrequest = Request(feedurl, None, std_headers)
 			try:
 				msnpage = urlopen(msnrequest)
 			except (URLError) as err:
-				self.errorCallback(message = str(err))
+				self.errorCallback(message=str(err))
 				return
 			g_updateRunning = False
 			try:
@@ -210,7 +211,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				titlemy = currentWeather.getAttributeNode('weatherlocationname')
 				config.plugins.MetrixWeather.currentLocation.value = titlemy.nodeValue
 				name = titlemy.nodeValue
-				idmy =  currentWeather.getAttributeNode('weatherlocationcode')
+				idmy = currentWeather.getAttributeNode('weatherlocationcode')
 				id = idmy.nodeValue
 				currentWeather = dom.getElementsByTagName('current')[0]
 				currentWeatherCode = currentWeather.getAttributeNode('skycode')
@@ -247,7 +248,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				else:
 					config.plugins.MetrixWeather.forecastTodayCode.value = self.ConvertConditionMSN(currentWeatherCode.nodeValue)
 				currentWeatherTemp = currentWeather.getAttributeNode('high')
-				temp_max  = currentWeatherTemp.nodeValue
+				temp_max = currentWeatherTemp.nodeValue
 				config.plugins.MetrixWeather.forecastTodayTempMax.value = currentWeatherTemp.nodeValue
 				currentWeatherTemp = currentWeather.getAttributeNode('low')
 				temp_min = currentWeatherTemp.nodeValue
@@ -311,20 +312,20 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				currentWeathershortday = currentWeather.getAttributeNode('shortday')
 				config.plugins.MetrixWeather.forecastTomorrowshortday3.value = currentWeathershortday.nodeValue
 				if self.check:
-					text = "%s|%s|%s%s|%s%s|%s%s" %(id, name, temp,SIGN, temp_max,SIGN, temp_min,SIGN)
+					text = "%s|%s|%s%s|%s%s|%s%s" % (id, name, temp, SIGN, temp_max, SIGN, temp_min, SIGN)
 					self.writeCheckFile(text)
 					return
 			except IndexError as err:
-				self.errorCallback(message = str(err))
+				self.errorCallback(message=str(err))
 				return
 			self.setWeatherDataValid(3)
 		else:
 			units = 'metric'
 			if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit":
-				units ='imperial'
+				units = 'imperial'
 			language = config.osd.language.value
 			apikey = "&appid=%s" % config.plugins.MetrixWeather.apikey.value
-			city="id=%s" % self.woeid
+			city = "id=%s" % self.woeid
 			cnt = (24 + (24 - int(datetime.now().strftime('%H')))) / 3 + 1
 			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=%s&cnt=%d%s" % (city, language[:2], units, cnt, apikey)
 			print(feedurl)
@@ -336,7 +337,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 		jsonstring = six.ensure_str(jsonstring)
 		d = json.loads(jsonstring)
 		if 'code' in d and d['cod'] != "200":
-			self.errorCallback(message = d['message'])
+			self.errorCallback(message=d['message'])
 			return
 		g_updateRunning = False
 		try:
@@ -349,10 +350,10 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			temp_min = str(int(round(d['list'][0]['main']['temp_min'])))
 			temp_max = str(int(round(d['list'][0]['main']['temp_max'])))
 
-			tmin_today =[]
-			tmax_today =[]
-			tmin_tomorrow =[]
-			tmax_tomorrow =[]
+			tmin_today = []
+			tmax_today = []
+			tmin_tomorrow = []
+			tmax_tomorrow = []
 			now = datetime.now().strftime('%Y-%m-%d')
 			tomorrow = (datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d')
 			code_tomorrow = tmp = ''
@@ -389,7 +390,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				tmax_tomorrow = str(max(tmax_tomorrow))
 
 			if self.check:
-				text = "%s|%s|%s%s|%s%s|%s%s" %(id, name, temp,SIGN, tmax_today,SIGN, tmin_today,SIGN)
+				text = "%s|%s|%s%s|%s%s|%s%s" % (id, name, temp, SIGN, tmax_today, SIGN, tmin_today, SIGN)
 				self.writeCheckFile(text)
 				return
 
@@ -401,12 +402,13 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			config.plugins.MetrixWeather.forecastTodayTempMin.value = tmin_today
 			config.plugins.MetrixWeather.forecastTodayTempMax.value = tmax_today
 			#tomrorrow
-			if not code_tomorrow: code_tomorrow = tmp
+			if not code_tomorrow:
+				code_tomorrow = tmp
 			config.plugins.MetrixWeather.forecastTomorrowCode.value = self.ConvertCondition(code_tomorrow)
 			config.plugins.MetrixWeather.forecastTomorrowTempMin.value = tmin_tomorrow
 			config.plugins.MetrixWeather.forecastTomorrowTempMax.value = tmax_tomorrow
 		except IndexError as err:
-			self.errorCallback(message = str(err))
+			self.errorCallback(message=str(err))
 			return
 		self.setWeatherDataValid(3)
 
@@ -420,9 +422,9 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 	def ConvertCondition(self, c):
 		c = int(c)
 		if c == 800:
-			condition = "B" # Sonne am Tag 
+			condition = "B" # Sonne am Tag
 		elif c == 801:
-			condition = "H" # Bewoelkt Sonning 
+			condition = "H" # Bewoelkt Sonning
 		elif c == 802:
 			condition = "J" # Nebel Sonning
 		elif c == 711 or c == 721:
@@ -435,7 +437,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			condition = "O" # Gewitter
 		elif c == 200 or c == 200 or c == 210 or c == 230 or c == 231 or c == 232:
 			condition = "P " # Gewitter leicht
-		elif c == 500 or  c == 501:
+		elif c == 500 or c == 501:
 			condition = "Q" # Leicher Regen
 		elif c == 520 or c == 521 or c == 531 or c == 300 or c == 301 or c == 302 or c == 310 or c == 311 or c == 312 or c == 313 or c == 314 or c == 321:
 			condition = "R" # Mittlere Regen
@@ -469,7 +471,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			condition = "S"
 		elif c == 3 or c == 4:
 			condition = "Z"
-		elif c == 5  or c == 6 or c == 7 or c == 18:
+		elif c == 5 or c == 6 or c == 7 or c == 18:
 			condition = "U"
 		elif c == 8 or c == 10 or c == 25:
 			condition = "G"

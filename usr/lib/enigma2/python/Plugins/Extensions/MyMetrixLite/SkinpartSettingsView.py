@@ -41,6 +41,7 @@ import six
 
 #############################################################
 
+
 class SkinpartSettingsView(ConfigListScreen, Screen):
 	skin = """
 	<screen name="MyMetrixLiteOtherView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
@@ -60,7 +61,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 	</screen>
 """
 
-	def __init__(self, session, args = None):
+	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.session = session
 		self.Scale = AVSwitch().getFramebufferScale()
@@ -89,8 +90,8 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		ConfigListScreen.__init__(
 			self,
 			self.getMenuItemList(),
-			session = session,
-			on_change = self.selectionChanged
+			session=session,
+			on_change=self.selectionChanged
 		)
 
 		self["actions"] = ActionMap(
@@ -124,17 +125,17 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 	def getMenuItemList(self):
 		list = []
 		char = 150
-		tab = " "*10
+		tab = " " * 10
 		sep = "-"
 		nodesc = _("No description available.")
 		noprev = _("\n(No preview picture available.)")
 
 		section = _("/usr/share/enigma2/MetrixHD/skinparts/[part]/[part].xml")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		pidx = 0
 		for part in self.partlist:
 			if not path.isfile(self.parts[pidx][0][0] + self.parts[pidx][0][1] + '.xml'):
-				part.value='0'
+				part.value = '0'
 				itext = _("Skinpart are not available - can't be activated.")
 			else:
 				if not self.parts[pidx][0][3]:
@@ -155,7 +156,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 					if not self.screens[pidx][sidx][2]:
 						itext += noprev
 					preview = self.parts[pidx][0][0] + '/' + self.screens[pidx][sidx][2]
-					list.append(getConfigListEntry(tab*2 + self.screens[pidx][sidx][1], screen, itext, 'ENABLED', preview))
+					list.append(getConfigListEntry(tab * 2 + self.screens[pidx][sidx][1], screen, itext, 'ENABLED', preview))
 					sidx += 1
 			pidx += 1
 
@@ -198,9 +199,9 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 					enabled = '1'
 				self.readSkinPartScreens(partpath, partname)
 				if len(self.screenlist[self.idx]):
-					self.partlist.append(ConfigSelection(default = '0', choices = [("0", _("No")), ("2", _("Yes, show screens")), ("1", _("Yes")), ("3", _("Yes, show screens"))]))
+					self.partlist.append(ConfigSelection(default='0', choices=[("0", _("No")), ("2", _("Yes, show screens")), ("1", _("Yes")), ("3", _("Yes, show screens"))]))
 				else:
-					self.partlist.append(ConfigSelection(default = '0', choices = [("0", _("No")), ("1", _("Yes"))]))
+					self.partlist.append(ConfigSelection(default='0', choices=[("0", _("No")), ("1", _("Yes"))]))
 				self.partlist[self.idx].value = enabled
 				self.idx += 1
 
@@ -231,7 +232,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 						description = description.decode("latin-1")
 					except UnicodeDecodeError:
 						print("[MetrixHD] - WARNING : (" + partpath + partname + ") must be UTF-8 or latin-1")
-						description = description.decode("utf-8","ignore")
+						description = description.decode("utf-8", "ignore")
 			if path.isfile(partpath + partname + '.png'):
 				previewfile = partname + '.png'
 			elif path.isfile(partpath + partname + '.jpg'):
@@ -256,10 +257,10 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 				p_nfo = True
 			if '<screen' in line and not '#hide#' in line:
 				s_nfo = True
-				a=line.find('name=')
-				b=line.find('"', a)
-				c=line.find('"', b+1)
-				name = line[b+1:c]
+				a = line.find('name=')
+				b = line.find('"', a)
+				c = line.find('"', b + 1)
+				name = line[b + 1:c]
 				#// fix old typo
 				name = name.replace('#deactivatd#', '#deactivated#')
 				#//
@@ -278,10 +279,10 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 							description = description.decode("latin-1")
 						except UnicodeDecodeError:
 							print("[MetrixHD] - WARNING : (" + partpath + sname + ") must be UTF-8 or latin-1")
-							description = description.decode("utf-8","ignore")
+							description = description.decode("utf-8", "ignore")
 						description = six.ensure_str(description)
 				if path.isfile(partpath + sname + '.png'):
-					previewfile =sname + '.png'
+					previewfile = sname + '.png'
 				elif path.isfile(partpath + sname + '.jpg'):
 					previewfile = sname + '.jpg'
 
@@ -294,11 +295,11 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 				lidx = idx
 
 			if '#description#' in line:
-				a=line.find('#description#')
-				description += line[a+13:]
+				a = line.find('#description#')
+				description += line[a + 13:]
 			elif '#previewfile#' in line:
-				a=line.find('#previewfile#')
-				file = line[a+13:].replace('\n', '').replace('\t', '').lstrip('/').strip()
+				a = line.find('#previewfile#')
+				file = line[a + 13:].replace('\n', '').replace('\t', '').lstrip('/').strip()
 				if path.isfile(partpath + file):
 					previewfile = file
 
@@ -325,7 +326,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 				picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteSkinpart"
 
 		if zoomEnable and not "blue" in self["actions"].actions:
-			self["actions"].actions.update({"blue":self.zoom})
+			self["actions"].actions.update({"blue": self.zoom})
 			self["zoomBtn"].setText(_("Zoom"))
 		elif not zoomEnable and "blue" in self["actions"].actions:
 			del self["actions"].actions["blue"]
@@ -342,7 +343,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 
-	def DecodePicture(self, PicInfo = ""):
+	def DecodePicture(self, PicInfo=""):
 		ptr = self.PicLoad.getData()
 		self["helperimage"].instance.setPixmap(ptr)
 
@@ -390,10 +391,10 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 							line = source[idx]
 							screenname = ''
 							if '<screen' in line:
-								a=line.find('name=')
-								b=line.find('"', a)
-								c=line.find('"', b+1)
-								name = line[b+1:c]
+								a = line.find('name=')
+								b = line.find('"', a)
+								c = line.find('"', b + 1)
+								name = line[b + 1:c]
 								#// fix old typo
 								if '#deactivatd#' in name:
 									screenname = name = name.replace('#deactivatd#', '#deactivated#')
@@ -404,25 +405,28 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 									elif screen.value and'#deactivated#' in name:
 										screenname = name.replace('#deactivated#', '')
 									if screenname:
-										line = line[:b+1] + screenname + line[c:]
+										line = line[:b + 1] + screenname + line[c:]
 										source[idx] = line
 								else:
 									idxerr = True
-									if idxerrcnt: idxerrtxt += '\n'
+									if idxerrcnt:
+										idxerrtxt += '\n'
 									idxerrcnt += 1
-									idxerrtxt += '%d. name error - file: %s, line: %s, screen: %s (%s)' %(idxerrcnt, self.parts[pidx][0][1] + '.xml', self.screens[pidx][sidx][0], self.screens[pidx][sidx][1], name)
+									idxerrtxt += '%d. name error - file: %s, line: %s, screen: %s (%s)' % (idxerrcnt, self.parts[pidx][0][1] + '.xml', self.screens[pidx][sidx][0], self.screens[pidx][sidx][1], name)
 									break
 							else:
 								idxerr = True
-								if idxerrcnt: idxerrtxt += '\n'
+								if idxerrcnt:
+									idxerrtxt += '\n'
 								idxerrcnt += 1
-								idxerrtxt += '%d. index error - file: %s, line: %s, screen: %s' %(idxerrcnt, self.parts[pidx][0][1] + '.xml', self.screens[pidx][sidx][0], self.screens[pidx][sidx][1])
+								idxerrtxt += '%d. index error - file: %s, line: %s, screen: %s' % (idxerrcnt, self.parts[pidx][0][1] + '.xml', self.screens[pidx][sidx][0], self.screens[pidx][sidx][1])
 								break
 						else:
 							idxerr = True
-							if idxerrcnt: idxerrtxt += '\n'
+							if idxerrcnt:
+								idxerrtxt += '\n'
 							idxerrcnt += 1
-							idxerrtxt +=  '%d. file error - file: %s (index > lines)\n' %(sfile)
+							idxerrtxt += '%d. file error - file: %s (index > lines)\n' % (sfile)
 							break
 						sidx += 1
 					if not idxerr:
@@ -479,14 +483,15 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		else:
 			self["helpertext"].setText(" ")
 
+
 class zoomPreview(Screen):
 	x = getDesktop(0).size().width()
 	y = getDesktop(0).size().height()
-	skin = """<screen flags="wfNoBorder" position="0,0" size="%d,%d" title="zoomPreview" backgroundColor="#00000000">""" %(x, y)
-	skin += """<widget name="preview" position="0,0" size="%d,%d" zPosition="1" alphatest="on" />""" %(x, y)
+	skin = """<screen flags="wfNoBorder" position="0,0" size="%d,%d" title="zoomPreview" backgroundColor="#00000000">""" % (x, y)
+	skin += """<widget name="preview" position="0,0" size="%d,%d" zPosition="1" alphatest="on" />""" % (x, y)
 	skin += """</screen>"""
 
-	def __init__(self, session, previewPic = None):
+	def __init__(self, session, previewPic=None):
 		self.skin = zoomPreview.skin
 		Screen.__init__(self, session)
 		self.session = session
@@ -504,7 +509,7 @@ class zoomPreview(Screen):
 		self.PicLoad.PictureData.get().append(self.DecodePicture)
 		self.onLayoutFinish.append(self.ShowPicture)
 
-	def DecodePicture(self, PicInfo = ""):
+	def DecodePicture(self, PicInfo=""):
 		ptr = self.PicLoad.getData()
 		self["preview"].instance.setPixmap(ptr)
 

@@ -45,6 +45,7 @@ import six
 
 #############################################################
 
+
 class WeatherSettingsView(ConfigListScreen, Screen):
 	skin = """
 	<screen name="MyMetrixLiteWeatherView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
@@ -65,7 +66,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 	</screen>
 """
 
-	def __init__(self, session, args = None):
+	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.session = session
 		self.Scale = AVSwitch().getFramebufferScale()
@@ -93,7 +94,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		self.checkTimer = eTimer()
 		self.checkTimer.callback.append(self.readCheckFile)
 
-		ConfigListScreen.__init__(self, self.getMenuItemList(), session = session, on_change = self.changedEntry)
+		ConfigListScreen.__init__(self, self.getMenuItemList(), session=session, on_change=self.changedEntry)
 
 		self["actions"] = ActionMap(
 		[
@@ -119,7 +120,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		self.onLayoutFinish.append(self.UpdatePicture)
 
 	def getMenuItemList(self):
-		list = [ ]
+		list = []
 
 		list.append(getConfigListEntry(_("Enabled"), config.plugins.MetrixWeather.enabled, _("Cycle/failure indicator colors on widget:\ngreen - 6 times try to fetch weather data\nyellow - fetch weather data paused 5 mins\nred - fetch weather data aborted after 6 times green and yellow\n(if red -> press 'save' for refresh)"), "ENABLED"))
 		self.check_enable = False
@@ -161,7 +162,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 
-	def DecodePicture(self, PicInfo = ""):
+	def DecodePicture(self, PicInfo=""):
 		ptr = self.PicLoad.getData()
 		self["helperimage"].instance.setPixmap(ptr)
 
@@ -188,18 +189,18 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			text = f.read()
 			f.close()
 		except Exception as error:
-			text = _("Get weather data failure:\n%s") %str(error)
+			text = _("Get weather data failure:\n%s") % str(error)
 
 		if not "MetrixHDWeatherStandalone lookup for ID" in text:
 			tmp = text.split('|')
 			if tmp and len(tmp) > 2:
-				text = _("Current weather id:   %s\n") %tmp[0]
-				text += _("City:   %s,   ") %tmp[1]
-				text += _("Temp:   %s,   ") %tmp[2]
-				text += _("max:   %s,   ") %tmp[3]
-				text += _("min:   %s") %tmp[4]
+				text = _("Current weather id:   %s\n") % tmp[0]
+				text += _("City:   %s,   ") % tmp[1]
+				text += _("Temp:   %s,   ") % tmp[2]
+				text += _("max:   %s,   ") % tmp[3]
+				text += _("min:   %s") % tmp[4]
 			elif tmp and len(tmp) > 1:
-				text = _("Cant get weather id:\n%s") %tmp[0]
+				text = _("Cant get weather id:\n%s") % tmp[0]
 
 			self["resulttext"].setText(text)
 			self.checkTimer.stop()
@@ -214,7 +215,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 	def loadAPIdata(self):
 		ret = True
 		for file in listdir('/tmp/'):
-			if path.isfile('/tmp/'+file) and file.endswith('.apidata'):
+			if path.isfile('/tmp/' + file) and file.endswith('.apidata'):
 				try:
 					id, key = file.replace('.apidata', '').split('_')
 				except:
@@ -245,11 +246,12 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		MetrixHDWeatherUpdaterStandalone(once=True)
 		self.exit()
 
-	def defaults(self, SAVE = False):
+	def defaults(self, SAVE=False):
 		for x in self["config"].list:
 			if len(x) > 1:
 				self.setInputToDefault(x[1])
-				if SAVE: x[1].save()
+				if SAVE:
+					x[1].save()
 		if self.session:
 			self["config"].setList(self.getMenuItemList())
 			self.ShowPicture()
@@ -276,6 +278,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			self["helpertext"].setText(cur[2])
 		else:
 			self["helpertext"].setText(" ")
+
 
 class WeatherSettingsLocation(Screen):
 	skin = """
@@ -327,6 +330,7 @@ class WeatherSettingsLocation(Screen):
 			if fileExists('/tmp/weathermsn.xml'):
 				system('rm /tmp/weathermsn.xml')
 			self.close()
+
 
 def search_title(id):
 	url = 'http://weather.service.msn.com/find.aspx?outputview=search&weasearchstr=%s&culture=en-US&src=outlook' % id

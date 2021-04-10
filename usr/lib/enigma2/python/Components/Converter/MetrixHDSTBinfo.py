@@ -19,13 +19,16 @@ gettext.bindtextdomain("MyMetrixLite", "%s%s" % (resolveFilename(SCOPE_PLUGINS),
 
 TEMPSIGN = '°C' if six.PY3 else str('\xc2\xb0C')
 
+
 def _(txt):
 	t = gettext.dgettext("MyMetrixLite", txt)
 	if t == txt:
 		t = gettext.gettext(txt)
 	return t
 
+
 initOtherConfig()
+
 
 class MetrixHDSTBinfo(Converter, object):
 
@@ -45,7 +48,7 @@ class MetrixHDSTBinfo(Converter, object):
 			return self.getCPUtemp()
 		elif self.type == "SYStemp":
 			return self.getSYStemp()
-		elif self.type =="MyMetrixConfig":
+		elif self.type == "MyMetrixConfig":
 			return self.getMyMetrixConfig()
 		elif self.type == "FLASHfree":
 			return self.getFLASHfree()
