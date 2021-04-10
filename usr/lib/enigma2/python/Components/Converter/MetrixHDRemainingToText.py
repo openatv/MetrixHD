@@ -19,9 +19,9 @@ class MetrixHDRemainingToText(Converter, object):
 		elif type == "ShowHours":
 			self.type = self.SHOWHOURS
 		elif type == "InSeconds":
-			self.type = self.IN_SECONDS	
+			self.type = self.IN_SECONDS
 		elif type == "ShowHoursNegate":
-			self.type = self.SHOWHOURS_NEGATE	
+			self.type = self.SHOWHOURS_NEGATE
 		else:
 			self.type = self.DEFAULT
 
