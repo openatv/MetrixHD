@@ -4,6 +4,7 @@ from Components.Element import cached
 
 ##########################################################################
 
+
 class MetrixHDTextfilter(Converter):
 
 	EMC_PATHINFO = 0
@@ -26,7 +27,7 @@ class MetrixHDTextfilter(Converter):
 	def getText(self):
 		text = self.source.getText()
 		if self.type == self.EMC_PATHINFO:
-			ts = text.split(' - ',1)
+			ts = text.split(' - ', 1)
 			if len(ts) == 2 and 'emc git' in text.lower():
 				return ts[1]
 			else:

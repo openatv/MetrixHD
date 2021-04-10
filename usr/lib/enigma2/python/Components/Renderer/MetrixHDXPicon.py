@@ -14,7 +14,9 @@ initOtherConfig()
 
 # For SNP
 from ServiceReference import ServiceReference
-import re, unicodedata
+import re
+import unicodedata
+
 
 def patched_chunk_tRNS(self, pos, len):
 	i16 = PngImagePlugin.i16
@@ -26,7 +28,10 @@ def patched_chunk_tRNS(self, pos, len):
 	elif self.im_mode == "RGB":
 		self.im_info["transparency"] = i16(s), i16(s[2:]), i16(s[4:])
 	return s
+
+
 PngImagePlugin.PngStream.chunk_tRNS = patched_chunk_tRNS
+
 
 def patched_load(self):
 	if self.im and self.palette and self.palette.dirty:
@@ -46,24 +51,27 @@ def patched_load(self):
 			self.palette.mode = "RGBA"
 	if self.im:
 		return self.im.pixel_access(self.readonly)
+
+
 Image.Image.load = patched_load
 
+
 class MetrixHDXPicon(Renderer):
-	searchPaths = ('/media/mmc/%s/','/media/usb/XPicons/%s/','/media/usb/%s/','/%s/','/%sx/','/usr/share/enigma2/XPicons/%s/','/usr/share/enigma2/%s/','/usr/%s/','/media/hdd/XPicons/%s/','/media/hdd/%s/')
+	searchPaths = ('/media/mmc/%s/', '/media/usb/XPicons/%s/', '/media/usb/%s/', '/%s/', '/%sx/', '/usr/share/enigma2/XPicons/%s/', '/usr/share/enigma2/%s/', '/usr/%s/', '/media/hdd/XPicons/%s/', '/media/hdd/%s/')
 
 	def __init__(self):
 		Renderer.__init__(self)
 		self.path = "picon"
-		self.nameCache = { }
+		self.nameCache = {}
 		self.pngname = ""
 
 	def applySkin(self, desktop, parent):
-		attribs = [ ]
+		attribs = []
 		for (attrib, value) in self.skinAttributes:
 			if attrib == "path":
 				self.path = value
 			else:
-				attribs.append((attrib,value))
+				attribs.append((attrib, value))
 		self.skinAttributes = attribs
 		return Renderer.applySkin(self, desktop, parent)
 
@@ -77,7 +85,7 @@ class MetrixHDXPicon(Renderer):
 				sname = self.source.text
 				pos = sname.rfind(':')
 				if pos != -1:
-					sname = sname[:pos].rstrip(':').replace(':','_')
+					sname = sname[:pos].rstrip(':').replace(':', '_')
 					sname = sname.split("_http")[0]
 				pngname = self.nameCache.get(sname, "")
 				if pngname == "" or not fileExists(pngname):
@@ -116,7 +124,7 @@ class MetrixHDXPicon(Renderer):
 						try:
 							im = Image.open(pngname).convert('RGBA')
 						except:
-							print "[MetrixHDXPicon] cant load image:",pngname
+							print "[MetrixHDXPicon] cant load image:", pngname
 							tmp = resolveFilename(SCOPE_CURRENT_SKIN, "picon_default.png")
 							if fileExists(tmp):
 								pngname = tmp
@@ -126,8 +134,8 @@ class MetrixHDXPicon(Renderer):
 						imw, imh = im.size
 						inh = self.instance.size().height()
 						if imh != inh:
-							sf = float(inh)/imh
-							im = im.resize((int(imw*sf),int(imh*sf)), Image.ANTIALIAS)
+							sf = float(inh) / imh
+							im = im.resize((int(imw * sf), int(imh * sf)), Image.ANTIALIAS)
 							ims = ImageEnhance.Sharpness(im)
 							im = ims.enhance(float(config.plugins.MyMetrixLiteOther.piconsharpness_experimental.value))
 							tempfile = '/tmp/picon.png'

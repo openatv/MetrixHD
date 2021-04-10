@@ -5,6 +5,7 @@ from time import localtime, mktime, time
 from datetime import datetime
 from Components.config import config
 
+
 class MetrixHDPrimeTime(Renderer, VariableText):
 
 	def __init__(self):
@@ -30,16 +31,16 @@ class MetrixHDPrimeTime(Renderer, VariableText):
 		if evt:
 			now = localtime(time())
 			try:
-				hour,minute = config.epgselection.graph_primetimehour.value,config.epgselection.graph_primetimemins.value
+				hour, minute = config.epgselection.graph_primetimehour.value, config.epgselection.graph_primetimemins.value
 			except:
-				hour,minute = 20,15
+				hour, minute = 20, 15
 			dt = datetime(now.tm_year, now.tm_mon, now.tm_mday, hour, minute)
 			primetime = int(mktime(dt.timetuple()))
 			next = False
 			for x in evt:
 				if x[4]:
 					begin = x[1]
-					end = x[1]+x[2]
+					end = x[1] + x[2]
 					if begin <= primetime and end > primetime or next:
 						if not next and end <= primetime + 1200: # 20 mins tolerance to starting next event
 							next = True

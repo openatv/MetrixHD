@@ -42,6 +42,7 @@ from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 #############################################################
 
+
 class WeatherSettingsView(ConfigListScreen, Screen):
 	skin = """
 	<screen name="MyMetrixLiteWeatherView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
@@ -62,7 +63,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 	</screen>
 """
 
-	def __init__(self, session, args = None):
+	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.session = session
 		self.Scale = AVSwitch().getFramebufferScale()
@@ -90,7 +91,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		self.checkTimer = eTimer()
 		self.checkTimer.callback.append(self.readCheckFile)
 
-		ConfigListScreen.__init__(self, self.getMenuItemList(), session = session, on_change = self.changedEntry)
+		ConfigListScreen.__init__(self, self.getMenuItemList(), session=session, on_change=self.changedEntry)
 
 		self["actions"] = ActionMap(
 		[
@@ -116,7 +117,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		self.onLayoutFinish.append(self.UpdatePicture)
 
 	def getMenuItemList(self):
-		list = [ ]
+		list = []
 
 		list.append(getConfigListEntry(_("Enabled"), config.plugins.MetrixWeather.enabled, _("Cycle/failure indicator colors on widget:\ngreen - 6 times try to fetch weather data\nyellow - fetch weather data paused 5 mins\nred - fetch weather data aborted after 6 times green and yellow\n(if red -> press 'save' for refresh)"), "ENABLED"))
 		self.check_enable = False
@@ -124,19 +125,19 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		if config.plugins.MetrixWeather.enabled.getValue() is True:
 			list.append(getConfigListEntry(_("Show in MoviePlayer"), config.plugins.MetrixWeather.MoviePlayer, _("helptext")))
 
-			list.append(getConfigListEntry(_("MetrixWeather Service"), config.plugins.MetrixWeather.weatherservice , _("Choose your preferred weather service"),"ENABLED"))
+			list.append(getConfigListEntry(_("MetrixWeather Service"), config.plugins.MetrixWeather.weatherservice, _("Choose your preferred weather service"), "ENABLED"))
 			if config.plugins.MetrixWeather.weatherservice.value == "MSN":
-				list.append(getConfigListEntry(_("MetrixWeather City Name"), config.plugins.MetrixWeather.weathercity , _("Your place for weather determination. Press TEXT or OK to enter the city name")))
+				list.append(getConfigListEntry(_("MetrixWeather City Name"), config.plugins.MetrixWeather.weathercity, _("Your place for weather determination. Press TEXT or OK to enter the city name")))
 				#list.append(getConfigListEntry(_("Show '+' before temperature"), config.plugins.MetrixWeather.tempplus, _("If actively output '+' before temperature.") + norestart))
 				info = ""
 			else:
-				list.append(getConfigListEntry(_("MetrixWeather ID"), config.plugins.MetrixWeather.woeid , _("Get your local MetrixWeather ID from https://openweathermap.org/")))
-				list.append(getConfigListEntry(_("MetrixWeather APIKEY"), config.plugins.MetrixWeather.apikey , _("Get your local MetrixWeather APIKEY from https://openweathermap.org/")))
+				list.append(getConfigListEntry(_("MetrixWeather ID"), config.plugins.MetrixWeather.woeid, _("Get your local MetrixWeather ID from https://openweathermap.org/")))
+				list.append(getConfigListEntry(_("MetrixWeather APIKEY"), config.plugins.MetrixWeather.apikey, _("Get your local MetrixWeather APIKEY from https://openweathermap.org/")))
 				info = _("If the file 'ID_APIKEY.apidata' exists in the '/tmp/' folder,\nimported these data automatically on '") + _("Check ID") + _("' function.\n\n(e.g. '2911298_a4bd84726035d0ce2c6185740617d8c5.apidata')")
 			list.append(getConfigListEntry(_("Unit"), config.plugins.MetrixWeather.tempUnit, _("Set your preferred temperature unit.") + norestart))
-			list.append(getConfigListEntry(_("MetrixWeather animatedWeather type"), config.plugins.MetrixWeather.type, _("Get your MetrixWeather AnimatedWeather."),"ENABLED"))
+			list.append(getConfigListEntry(_("MetrixWeather animatedWeather type"), config.plugins.MetrixWeather.type, _("Get your MetrixWeather AnimatedWeather."), "ENABLED"))
 			if config.plugins.MetrixWeather.type.value:
-				list.append(getConfigListEntry(_("MetrixWeather animations speed"),config.plugins.MetrixWeather.animationspeed, _("Set your animations speed.") + norestart))
+				list.append(getConfigListEntry(_("MetrixWeather animations speed"), config.plugins.MetrixWeather.animationspeed, _("Set your animations speed.") + norestart))
 			list.append(getConfigListEntry(_("Refresh Interval (min)"), config.plugins.MetrixWeather.refreshInterval, _("If set to '0', fetch weather data only at system(gui) start.")))
 			#list.append(getConfigListEntry(_("Check is Weather date local date"), config.plugins.MetrixWeather.verifyDate, _("helptext")))
 			self["resulttext"].setText(info)
@@ -154,11 +155,11 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		self.onLayoutFinish.append(self.ShowPicture)
 
 	def ShowPicture(self):
-		self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
+		self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), self.Scale[0], self.Scale[1], 0, 1, "#00000000"])
 		self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 
-	def DecodePicture(self, PicInfo = ""):
+	def DecodePicture(self, PicInfo=""):
 		ptr = self.PicLoad.getData()
 		self["helperimage"].instance.setPixmap(ptr)
 
@@ -185,18 +186,18 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			text = f.read()
 			f.close()
 		except Exception as error:
-			text = _("Get weather data failure:\n%s") %str(error)
+			text = _("Get weather data failure:\n%s") % str(error)
 
 		if not "MetrixHDWeatherStandalone lookup for ID" in text:
 			tmp = text.split('|')
 			if tmp and len(tmp) > 2:
-				text = _("Current weather id:   %s\n") %tmp[0]
-				text += _("City:   %s,   ") %tmp[1]
-				text += _("Temp:   %s,   ") %tmp[2]
-				text += _("max:   %s,   ") %tmp[3]
-				text += _("min:   %s") %tmp[4]
+				text = _("Current weather id:   %s\n") % tmp[0]
+				text += _("City:   %s,   ") % tmp[1]
+				text += _("Temp:   %s,   ") % tmp[2]
+				text += _("max:   %s,   ") % tmp[3]
+				text += _("min:   %s") % tmp[4]
 			elif tmp and len(tmp) > 1:
-				text = _("Cant get weather id:\n%s") %tmp[0]
+				text = _("Cant get weather id:\n%s") % tmp[0]
 
 			self["resulttext"].setText(text)
 			self.checkTimer.stop()
@@ -206,14 +207,14 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			return
 		self["resulttext"].setText(_("Please wait, get weather data ..."))
 		MetrixHDWeatherUpdaterStandalone(check=True)
-		self.checkTimer.start(3000,False)
+		self.checkTimer.start(3000, False)
 
 	def loadAPIdata(self):
 		ret = True
 		for file in listdir('/tmp/'):
-			if path.isfile('/tmp/'+file) and file.endswith('.apidata'):
+			if path.isfile('/tmp/' + file) and file.endswith('.apidata'):
 				try:
-					id, key = file.replace('.apidata','').split('_')
+					id, key = file.replace('.apidata', '').split('_')
 				except:
 					self["resulttext"].setText(_("Wrong import file ..."))
 					ret = False
@@ -242,11 +243,12 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		MetrixHDWeatherUpdaterStandalone(once=True)
 		self.exit()
 
-	def defaults(self, SAVE = False):
+	def defaults(self, SAVE=False):
 		for x in self["config"].list:
 			if len(x) > 1:
 				self.setInputToDefault(x[1])
-				if SAVE: x[1].save()
+				if SAVE:
+					x[1].save()
 		if self.session:
 			self["config"].setList(self.getMenuItemList())
 			self.ShowPicture()
@@ -273,6 +275,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			self["helpertext"].setText(cur[2])
 		else:
 			self["helpertext"].setText(" ")
+
 
 class WeatherSettingsLocation(Screen):
 	skin = """
@@ -324,6 +327,7 @@ class WeatherSettingsLocation(Screen):
 			if fileExists('/tmp/weathermsn.xml'):
 				system('rm /tmp/weathermsn.xml')
 			self.close()
+
 
 def search_title(id):
 	url = 'http://weather.service.msn.com/find.aspx?outputview=search&weasearchstr=%s&culture=en-US&src=outlook' % id

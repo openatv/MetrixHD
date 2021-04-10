@@ -12,6 +12,7 @@ from Poll import Poll
 
 ##########################################################################
 
+
 class MetrixHDVideoInfo(Poll, Converter, object):
 
 	VIDEOMODE = 0
@@ -61,12 +62,12 @@ class MetrixHDVideoInfo(Poll, Converter, object):
 		if self.type == self.VIDEOMODE:
 			if width > 0 and height > 0:
 				f = open("/proc/stb/video/videomode")
-				text = f.read()[:-1].replace('\n','')
+				text = f.read()[:-1].replace('\n', '')
 				f.close()
 		elif self.type == self.VIDEOSIZE:
 			if width > 0 and height > 0:
 				sProgressive = info.getInfo(iServiceInformation.sProgressive)
-				text = "%dx%d" % (width,height)
+				text = "%dx%d" % (width, height)
 				#text += ("i", "p", " ")[sProgressive]
 				if sProgressive:
 					text += "p" + str((info.getInfo(iServiceInformation.sFrameRate) + 499) / 1000)
@@ -86,7 +87,7 @@ class MetrixHDVideoInfo(Poll, Converter, object):
 					text += "i" + str((info.getInfo(iServiceInformation.sFrameRate) + 499) / 500)
 		elif self.type == self.VIDEOSIZESHORT:
 			if width > 0 and height > 0:
-				text = "%dx%d" % (width,height)
+				text = "%dx%d" % (width, height)
 		elif self.type == self.VIDEOCODEC:
 			from Components.Converter.PliExtraInfo import codec_data
 			text = codec_data.get(self.info.getInfo(iServiceInformation.sVideoType), "N/A")
@@ -97,7 +98,7 @@ class MetrixHDVideoInfo(Poll, Converter, object):
 					text = info.getInfoString(iServiceInformation.sAspect)
 				elif text == -1:
 					text = _("N/A")
-				if text in ( 1, 2, 5, 6, 9, 0xA, 0xD, 0xE ):
+				if text in (1, 2, 5, 6, 9, 0xA, 0xD, 0xE):
 					text = "4:3"
 				else:
 					text = "16:9"

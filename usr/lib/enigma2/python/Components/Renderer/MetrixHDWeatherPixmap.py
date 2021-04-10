@@ -2,12 +2,13 @@
 #    <widget source="session.CurrentService" render="MetrixHDWeatherPixmap" position="156,50" size="50,50" alphatest="blend" zPosition="9">
 #        <convert type="MetrixHDWeather">currentWeatherCode</convert>
 #    </widget>
-from Tools.LoadPixmap import LoadPixmap 
-from Renderer import Renderer 
-from enigma import ePixmap, eTimer 
+from Tools.LoadPixmap import LoadPixmap
+from Renderer import Renderer
+from enigma import ePixmap, eTimer
 from Tools.Directories import fileExists, pathExists
 from Components.config import config
 import os
+
 
 class MetrixHDWeatherPixmap(Renderer):
 	__module__ = __name__
@@ -60,9 +61,9 @@ class MetrixHDWeatherPixmap(Renderer):
 				self.slideicon = total
 				animokicon = True
 			else:
-				if fileExists('%sNA' % (path % self.path)):    
+				if fileExists('%sNA' % (path % self.path)):
 					pathanimicon = '%sNA/a' % (path % self.path)
-					path2 = '%sNA'  % (path % self.path)
+					path2 = '%sNA' % (path % self.path)
 					dir_work = os.listdir(path2)
 					total = len(dir_work)
 					self.slideicon = total
