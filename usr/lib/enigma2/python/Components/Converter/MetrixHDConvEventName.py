@@ -36,7 +36,7 @@ class MetrixHDConvEventName(Converter, object):
 			elif exten_desc == "":
 				ret_str = short_desc
 			else:
-				ret_str = short_desc +"\n\n"+ exten_desc
+				ret_str = short_desc + "\n\n" + exten_desc
 		elif self.type == self.ID:
 			ret_str = str(event.getEventId())
 

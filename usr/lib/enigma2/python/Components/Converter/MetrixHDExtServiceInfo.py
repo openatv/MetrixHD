@@ -76,7 +76,7 @@ class MetrixHDExtServiceInfo(Converter, object):
 		satName = self.satNames.get(orbital, orbital)
 
 		if len(number) > 5:
-			number=''
+			number = ''
 		if self.type == self.SERVICENAME:
 			text = name
 		elif self.type == self.SERVICENUMBER:
@@ -162,7 +162,7 @@ class MetrixHDExtServiceInfo(Converter, object):
 		number = ""
 		if name in list:
 			for idx in range(1, len(list)):
-				if name == list[idx-1]:
+				if name == list[idx - 1]:
 					number = str(idx)
 					break
 		return number
@@ -178,8 +178,8 @@ class MetrixHDExtServiceInfo(Converter, object):
 					orbital = transponderData["orbital_position"]
 					orbital = int(orbital)
 					if orbital > 1800:
-						orbital = str((float(3600 - orbital))/10.0) + "W"
+						orbital = str((float(3600 - orbital)) / 10.0) + "W"
 					else:
-						orbital = str((float(orbital))/10.0) + "E"
+						orbital = str((float(orbital)) / 10.0) + "E"
 					return orbital
 		return ""

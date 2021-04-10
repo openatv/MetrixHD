@@ -166,7 +166,7 @@ ColorList = [
 		("FFFFFF", _("White"))
 	]
 
-TransparencyList=[
+TransparencyList = [
 		("00", _("0%")),
 		("0D", _("5%")),
 		("1A", _("10%")),
@@ -452,7 +452,7 @@ def initColorsConfig():
 	config.plugins.MyMetrixLiteColors.cologradient_show_background = ConfigYesNo(default=True)
 	choicelist = []
 	for x in range(0,105,5):
-		choicelist.append(('%d' %x, '%d%s' %(x,'%')))
+		choicelist.append(('%d' % x, '%d%s' % (x,'%')))
 	config.plugins.MyMetrixLiteColors.cologradient_size = ConfigSelection(default='25', choices=choicelist)
 	config.plugins.MyMetrixLiteColors.cologradient_position = ConfigSelection(default='25', choices=choicelist)
 	config.plugins.MyMetrixLiteColors.cologradient_transparencyA = ConfigSelection(default='1A', choices=TransparencyList)
@@ -642,7 +642,7 @@ def initOtherConfig():
 	#OtherSettings
 	#EHD-Option -> Enhanced HD
 	BoxType = getBoxType()
-	config.plugins.MyMetrixLiteOther.EHDtested = ConfigText(default="%s_|_0" %BoxType)
+	config.plugins.MyMetrixLiteOther.EHDtested = ConfigText(default="%s_|_0" % BoxType)
 
 	skinmodes = [("0", _("Standard HD (1280x720)"))]
 	mode1080p = mode2160p = risk = False
@@ -665,16 +665,16 @@ def initOtherConfig():
 		if BoxType in tested[0] and '1' in tested[1]:
 			skinmodes.append(("1", _("Full HD (1920x1080)")))
 		elif mode1080p or risk:
-			skinmodes.append(("1", _("Full HD (1920x1080) %s") %risktxt))
+			skinmodes.append(("1", _("Full HD (1920x1080) %s") % risktxt))
 		if BoxType in tested[0] and '2' in tested[1]:
 			skinmodes.append(("2", _("Ultra HD (3840x2160)")))
 		elif mode2160p or risk:
-			skinmodes.append(("2", _("Ultra HD (3840x2160) %s") %risktxt))
+			skinmodes.append(("2", _("Ultra HD (3840x2160) %s") % risktxt))
 	else:
 		if mode1080p or risk:
-			skinmodes.append(("1", _("Full HD (1920x1080) %s") %risktxt))
+			skinmodes.append(("1", _("Full HD (1920x1080) %s") % risktxt))
 		if mode2160p or risk:
-			skinmodes.append(("2", _("Ultra HD (3840x2160) %s") %risktxt))
+			skinmodes.append(("2", _("Ultra HD (3840x2160) %s") % risktxt))
 	###no box supports at time uhd skins ...###
 	if '2' in skinmodes[-1]:
 		del skinmodes[-1]#
@@ -682,12 +682,12 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.EHDenabled = ConfigSelection(default="0", choices=skinmodes)
 	config.plugins.MyMetrixLiteOther.EHDrounddown = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.EHDfontoffset = ConfigSelectionNumber(-10, 5, 1, default=0)
-	config.plugins.MyMetrixLiteOther.EHDpiconzoom =  ConfigSelection(default="1.0", choices=[("0", _("No")), ("0.2", _("20%")), ("0.4", _("40%")), ("0.6", _("60%")), ("0.8", _("80%")), ("1.0", _("100%"))])
+	config.plugins.MyMetrixLiteOther.EHDpiconzoom = ConfigSelection(default="1.0", choices=[("0", _("No")), ("0.2", _("20%")), ("0.4", _("40%")), ("0.6", _("60%")), ("0.8", _("80%")), ("1.0", _("100%"))])
 	config.plugins.MyMetrixLiteOther.piconresize_experimental = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.EHDoldlinechanger = ConfigYesNo(default=False)
 	sharpness = []
 	for i in range(0,525,25):
-		x = str(format(float(i)/100, '.2f'))
+		x = str(format(float(i) / 100, '.2f'))
 		sharpness.append((x,x))
 	config.plugins.MyMetrixLiteOther.piconsharpness_experimental = ConfigSelection(default='1.00', choices=sharpness)
 	#STB-Info
@@ -758,12 +758,12 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.showEMCSelectionPicon = ConfigSelection(default="no", choices=[("no", _("No")), ("left", _("left")), ("right", _("right"))])
 	choicelist = [("0", _("off"))]
 	for x in range(50,202,2):
-		choicelist.append(('%d' %x,'%d' %x))
+		choicelist.append(('%d' % x,'%d' % x))
 	config.plugins.MyMetrixLiteOther.setEMCdatesize = ConfigSelection(default="104", choices=choicelist)
 	config.plugins.MyMetrixLiteOther.setEMCdirinfosize = ConfigSelection(default="140", choices=choicelist)
 	choicelist = [("0", _("off"))]
 	for x in range(20,82,2):
-		choicelist.append(('%d' %x,'%d' %x))
+		choicelist.append(('%d' % x,'%d' % x))
 	config.plugins.MyMetrixLiteOther.setEMCbarsize = ConfigSelection(default="50", choices=choicelist)
 	#SkinDesign
 	config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth = ConfigSelectionNumber(0, 15, 1, default=10)

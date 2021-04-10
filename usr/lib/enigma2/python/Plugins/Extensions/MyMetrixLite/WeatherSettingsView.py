@@ -185,18 +185,18 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			text = f.read()
 			f.close()
 		except Exception as error:
-			text = _("Get weather data failure:\n%s") %str(error)
+			text = _("Get weather data failure:\n%s") % str(error)
 
 		if not "MetrixHDWeatherStandalone lookup for ID" in text:
 			tmp = text.split('|')
 			if tmp and len(tmp) > 2:
-				text = _("Current weather id:   %s\n") %tmp[0]
-				text += _("City:   %s,   ") %tmp[1]
-				text += _("Temp:   %s,   ") %tmp[2]
-				text += _("max:   %s,   ") %tmp[3]
-				text += _("min:   %s") %tmp[4]
+				text = _("Current weather id:   %s\n") % tmp[0]
+				text += _("City:   %s,   ") % tmp[1]
+				text += _("Temp:   %s,   ") % tmp[2]
+				text += _("max:   %s,   ") % tmp[3]
+				text += _("min:   %s") % tmp[4]
 			elif tmp and len(tmp) > 1:
-				text = _("Cant get weather id:\n%s") %tmp[0]
+				text = _("Cant get weather id:\n%s") % tmp[0]
 
 			self["resulttext"].setText(text)
 			self.checkTimer.stop()
@@ -211,7 +211,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 	def loadAPIdata(self):
 		ret = True
 		for file in listdir('/tmp/'):
-			if path.isfile('/tmp/'+file) and file.endswith('.apidata'):
+			if path.isfile('/tmp/' + file) and file.endswith('.apidata'):
 				try:
 					id, key = file.replace('.apidata','').split('_')
 				except:

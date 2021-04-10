@@ -41,7 +41,7 @@ class MetrixHDSTBinfo(Converter, object):
 			return self.getCPUtemp()
 		elif self.type == "SYStemp":
 			return self.getSYStemp()
-		elif self.type =="MyMetrixConfig":
+		elif self.type == "MyMetrixConfig":
 			return self.getMyMetrixConfig()
 		elif self.type == "FLASHfree":
 			return self.getFLASHfree()
