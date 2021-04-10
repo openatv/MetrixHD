@@ -53,7 +53,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 	</screen>
 """
 
-	def __init__(self, session, args = None):
+	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.session = session
 		self.picPath = FONT_IMAGE_PATH % "FFFFFF"
@@ -77,8 +77,8 @@ class FontsSettingsView(ConfigListScreen, Screen):
 		ConfigListScreen.__init__(
 			self,
 			self.getMenuItemList(),
-			session = session,
-			on_change = self.selectionChanged
+			session=session,
+			on_change=self.selectionChanged
 		)
 
 		self["actions"] = ActionMap(
@@ -604,7 +604,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 		self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 
-	def DecodePicture(self, PicInfo = ""):
+	def DecodePicture(self, PicInfo=""):
 		ptr = self.PicLoad.getData()
 		self["helperimage"].instance.setPixmap(ptr)
 
@@ -622,7 +622,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 		self["config"].instance.moveSelection(self["config"].instance.moveUp)
 		self.ShowPicture()
 
-	def defaults(self, SAVE = False):
+	def defaults(self, SAVE=False):
 		for x in self["config"].list:
 			if len(x) > 1:
 				self.setInputToDefault(x[1])

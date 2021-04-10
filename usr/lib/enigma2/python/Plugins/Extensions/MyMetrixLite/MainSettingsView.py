@@ -43,7 +43,7 @@ from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 #############################################################
 
 class MainMenuList(MenuList):
-	def __init__(self, list, font0 = 24, font1 = 16, itemHeight = 50, enableWrapAround = True):
+	def __init__(self, list, font0=24, font1=16, itemHeight=50, enableWrapAround=True):
 		MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
 		screenwidth = getDesktop(0).size().width()
 		if screenwidth and screenwidth == 3840:
@@ -89,7 +89,7 @@ class MainSettingsView(Screen):
   </screen>
 """
 
-	def __init__(self, session, args = None):
+	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.session = session
 		self.Scale = AVSwitch().getFramebufferScale()
@@ -189,7 +189,7 @@ class MainSettingsView(Screen):
 			picturepath = MAIN_IMAGE_PATH % pic
 		return picturepath
 
-	def DecodePicture(self, PicInfo = ""):
+	def DecodePicture(self, PicInfo=""):
 		ptr = self.PicLoad.getData()
 		self["helperimage"].instance.setPixmap(ptr)
 
@@ -232,10 +232,10 @@ class MainSettingsView(Screen):
 		if type(ret) == tuple and ret[0] == 'checkEHDsettings':
 			self.session.openWithCallback(self.checkEHDsettingsCallback, MessageBox, ret[1], MessageBox.TYPE_INFO, timeout=10)
 
-	def checkEHDsettingsCallback(self, ret = None):
+	def checkEHDsettingsCallback(self, ret=None):
 		self.session.open(OtherSettingsView)
 
-	def reboot(self, message = None):
+	def reboot(self, message=None):
 		if message is None:
 			message = _("Do you really want to reboot now?")
 

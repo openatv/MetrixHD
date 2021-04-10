@@ -58,7 +58,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 	</screen>
 """
 
-	def __init__(self, session, args = None):
+	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.session = session
 		self.Scale = AVSwitch().getFramebufferScale()
@@ -87,8 +87,8 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		ConfigListScreen.__init__(
 			self,
 			self.getMenuItemList(),
-			session = session,
-			on_change = self.selectionChanged
+			session=session,
+			on_change=self.selectionChanged
 		)
 
 		self["actions"] = ActionMap(
@@ -196,9 +196,9 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 					enabled = '1'
 				self.readSkinPartScreens(partpath, partname)
 				if len(self.screenlist[self.idx]):
-					self.partlist.append(ConfigSelection(default = '0', choices = [("0", _("No")), ("2", _("Yes, show screens")), ("1", _("Yes")), ("3", _("Yes, show screens"))]))
+					self.partlist.append(ConfigSelection(default='0', choices=[("0", _("No")), ("2", _("Yes, show screens")), ("1", _("Yes")), ("3", _("Yes, show screens"))]))
 				else:
-					self.partlist.append(ConfigSelection(default = '0', choices = [("0", _("No")), ("1", _("Yes"))]))
+					self.partlist.append(ConfigSelection(default='0', choices=[("0", _("No")), ("1", _("Yes"))]))
 				self.partlist[self.idx].value = enabled
 				self.idx += 1
 
@@ -317,7 +317,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 
-	def DecodePicture(self, PicInfo = ""):
+	def DecodePicture(self, PicInfo=""):
 		ptr = self.PicLoad.getData()
 		self["helperimage"].instance.setPixmap(ptr)
 
@@ -464,7 +464,7 @@ class zoomPreview(Screen):
 	skin += """<widget name="preview" position="0,0" size="%d,%d" zPosition="1" alphatest="on" />""" %(x,y)
 	skin += """</screen>"""
 
-	def __init__(self, session, previewPic = None):
+	def __init__(self, session, previewPic=None):
 		self.skin = zoomPreview.skin
 		Screen.__init__(self, session)
 		self.session = session
@@ -482,7 +482,7 @@ class zoomPreview(Screen):
 		self.PicLoad.PictureData.get().append(self.DecodePicture)
 		self.onLayoutFinish.append(self.ShowPicture)
 
-	def DecodePicture(self, PicInfo = ""):
+	def DecodePicture(self, PicInfo=""):
 		ptr = self.PicLoad.getData()
 		self["preview"].instance.setPixmap(ptr)
 

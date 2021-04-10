@@ -63,7 +63,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 	</screen>
 """
 
-	def __init__(self, session, args = None):
+	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.session = session
 		self.Scale = AVSwitch().getFramebufferScale()
@@ -90,8 +90,8 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		self["deleteBtn"] = StaticText("")
 		self["deleteBtn"].setText(_("Delete"))
 
-		self.myset = ConfigSelectionNumber(1, 99, 1, default = 1, wraparound = True)
-		self.myname = ConfigText(default = _("My Backup No. %d") % self.myset.value, visible_width = 50, fixed_size = False)
+		self.myset = ConfigSelectionNumber(1, 99, 1, default=1, wraparound=True)
+		self.myname = ConfigText(default=_("My Backup No. %d") % self.myset.value, visible_width=50, fixed_size=False)
 		self.mydate = ""
 		self.mylastBackup = ""
 		self.mylastRestore = ""
@@ -100,8 +100,8 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		ConfigListScreen.__init__(
 			self,
 			self.getMenuItemList(),
-			session = session,
-			on_change = self.changedEntry
+			session=session,
+			on_change=self.changedEntry
 		)
 
 		self["actions"] = ActionMap(
@@ -183,7 +183,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 
-	def DecodePicture(self, PicInfo = ""):
+	def DecodePicture(self, PicInfo=""):
 		ptr = self.PicLoad.getData()
 		self["helperimage"].instance.setPixmap(ptr)
 
@@ -268,7 +268,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 			elif "set%dweather" %set in entries:
 				config.plugins.MetrixWeather.setSavedValue(entries[1])
 
-		self.delete(writeFile = False, restore = True)
+		self.delete(writeFile=False, restore=True)
 		self.file+=[("myLastRestore", set)]
 		self.writeFile()
 		configfile.save()
@@ -277,11 +277,11 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		self.exit()
 
 	def message(self, text, type):
-		self.session.open(MessageBox, text, type, timeout = 5)
+		self.session.open(MessageBox, text, type, timeout=5)
 
 	def messageQ(self, text, type, default, runnext):
 		self.runnext = runnext
-		self.session.openWithCallback(self.showHelpWindowQ, MessageBox, text, type, default = default, timeout = 5)
+		self.session.openWithCallback(self.showHelpWindowQ, MessageBox, text, type, default=default, timeout=5)
 
 	def showHelpWindowQ(self, result):
 		if result:
@@ -297,7 +297,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 				self.delay.callback.append(self.restore)
 				self.delay.start(500, True)
 
-	def delete(self, writeFile = True, restore = False):
+	def delete(self, writeFile=True, restore=False):
 		self.readFile()
 		set = self.myset.value
 		data = []
@@ -368,7 +368,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		name= self.myname.value
 		date = strftime("%a, %d.%m.%Y, %H:%M:%S", localtime(time()))
 
-		self.delete(writeFile = False)
+		self.delete(writeFile=False)
 
 		self.file+=[("myLastBackup", set)]
 		self.file+=[("set%dname" %set, name)]
@@ -388,7 +388,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		OtherSettingsView(None).defaults(True)
 		WeatherSettingsView(None).defaults(True)
 
-	def changedEntry(self, refresh = False):
+	def changedEntry(self, refresh=False):
 		if not self.file:
 			self.readFile()
 
