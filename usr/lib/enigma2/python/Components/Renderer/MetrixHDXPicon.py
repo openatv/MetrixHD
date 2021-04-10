@@ -50,7 +50,7 @@ def patched_load(self):
 Image.Image.load = patched_load
 
 class MetrixHDXPicon(Renderer):
-	searchPaths = ('/media/mmc/%s/','/media/usb/XPicons/%s/','/media/usb/%s/','/%s/','/%sx/','/usr/share/enigma2/XPicons/%s/','/usr/share/enigma2/%s/','/usr/%s/','/media/hdd/XPicons/%s/','/media/hdd/%s/')
+	searchPaths = ('/media/mmc/%s/', '/media/usb/XPicons/%s/', '/media/usb/%s/', '/%s/', '/%sx/', '/usr/share/enigma2/XPicons/%s/', '/usr/share/enigma2/%s/', '/usr/%s/', '/media/hdd/XPicons/%s/', '/media/hdd/%s/')
 
 	def __init__(self):
 		Renderer.__init__(self)
@@ -64,7 +64,7 @@ class MetrixHDXPicon(Renderer):
 			if attrib == "path":
 				self.path = value
 			else:
-				attribs.append((attrib,value))
+				attribs.append((attrib, value))
 		self.skinAttributes = attribs
 		return Renderer.applySkin(self, desktop, parent)
 
@@ -78,7 +78,7 @@ class MetrixHDXPicon(Renderer):
 				sname = self.source.text
 				pos = sname.rfind(':')
 				if pos != -1:
-					sname = sname[:pos].rstrip(':').replace(':','_')
+					sname = sname[:pos].rstrip(':').replace(':', '_')
 					sname = sname.split("_http")[0]
 				pngname = self.nameCache.get(sname, "")
 				if pngname == "" or not fileExists(pngname):
@@ -117,7 +117,7 @@ class MetrixHDXPicon(Renderer):
 						try:
 							im = Image.open(pngname).convert('RGBA')
 						except:
-							print "[MetrixHDXPicon] cant load image:",pngname
+							print "[MetrixHDXPicon] cant load image:", pngname
 							tmp = resolveFilename(SCOPE_CURRENT_SKIN, "picon_default.png")
 							if fileExists(tmp):
 								pngname = tmp
@@ -128,7 +128,7 @@ class MetrixHDXPicon(Renderer):
 						inh = self.instance.size().height()
 						if imh != inh:
 							sf = float(inh) / imh
-							im = im.resize((int(imw * sf),int(imh * sf)), Image.ANTIALIAS)
+							im = im.resize((int(imw * sf), int(imh * sf)), Image.ANTIALIAS)
 							ims = ImageEnhance.Sharpness(im)
 							im = ims.enhance(float(config.plugins.MyMetrixLiteOther.piconsharpness_experimental.value))
 							tempfile = '/tmp/picon.png'

@@ -229,12 +229,12 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			idx += 1
 			if '<screen' in line or '</screen>' in line:
 				if p_nfo:
-					description = description.replace('\t','').lstrip('\n').rstrip('\n').strip()
+					description = description.replace('\t', '').lstrip('\n').rstrip('\n').strip()
 					part.append((partpath, partname, previewfile, description))
 					previewfile = description = ''
 					p_nfo = False
 				elif s_nfo:
-					description = description.replace('\t','').lstrip('\n').rstrip('\n').strip()
+					description = description.replace('\t', '').lstrip('\n').rstrip('\n').strip()
 					screen.append((lidx, screenname, previewfile, description.rstrip('\n'), enabled))
 					lidx = screenname = previewfile = description = ''
 					enabled = s_nfo = False
@@ -244,13 +244,13 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			if '<screen' in line and not '#hide#' in line:
 				s_nfo = True
 				a = line.find('name=')
-				b = line.find('"',a)
-				c = line.find('"',b + 1)
+				b = line.find('"', a)
+				c = line.find('"', b + 1)
 				name = line[b + 1:c]
 				#// fix old typo
-				name = name.replace('#deactivatd#','#deactivated#')
+				name = name.replace('#deactivatd#', '#deactivated#')
 				#//
-				sname = name.replace('#deactivated#','')
+				sname = name.replace('#deactivated#', '')
 				if path.isfile(partpath + sname + '.txt'):
 					f = open(partpath + sname + '.txt', 'r')
 					description = f.read()
@@ -261,7 +261,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 					previewfile = sname + '.jpg'
 
 				if '#deactivated#' in name:
-					screenname = name.replace('#deactivated#','')
+					screenname = name.replace('#deactivated#', '')
 					enabled = False
 				else:
 					screenname = name
@@ -273,7 +273,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 				description += line[a + 13:]
 			elif '#previewfile#' in line:
 				a = line.find('#previewfile#')
-				file = line[a + 13:].replace('\n','').replace('\t','').lstrip('/').strip()
+				file = line[a + 13:].replace('\n', '').replace('\t', '').lstrip('/').strip()
 				if path.isfile(partpath + file):
 					previewfile = file
 
@@ -300,7 +300,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 				picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteSkinpart"
 
 		if zoomEnable and not "blue" in self["actions"].actions:
-			self["actions"].actions.update({"blue":self.zoom})
+			self["actions"].actions.update({"blue": self.zoom})
 			self["zoomBtn"].setText(_("Zoom"))
 		elif not zoomEnable and "blue" in self["actions"].actions:
 			del self["actions"].actions["blue"]
@@ -313,7 +313,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		self.onLayoutFinish.append(self.ShowPicture)
 
 	def ShowPicture(self):
-		self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
+		self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), self.Scale[0], self.Scale[1], 0, 1, "#00000000"])
 		self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 
@@ -366,18 +366,18 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 							screenname = ''
 							if '<screen' in line:
 								a = line.find('name=')
-								b = line.find('"',a)
-								c = line.find('"',b + 1)
+								b = line.find('"', a)
+								c = line.find('"', b + 1)
 								name = line[b + 1:c]
 								#// fix old typo
 								if '#deactivatd#' in name:
-									screenname = name = name.replace('#deactivatd#','#deactivated#')
+									screenname = name = name.replace('#deactivatd#', '#deactivated#')
 								#//
-								if name.replace('#deactivated#','') == self.screens[pidx][sidx][1]:
+								if name.replace('#deactivated#', '') == self.screens[pidx][sidx][1]:
 									if not screen.value and not '#deactivated#' in name:
 										screenname = '#deactivated#' + name
 									elif screen.value and'#deactivated#' in name:
-										screenname = name.replace('#deactivated#','')
+										screenname = name.replace('#deactivated#', '')
 									if screenname:
 										line = line[:b + 1] + screenname + line[c:]
 										source[idx] = line
@@ -411,7 +411,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 				if path.isfile(efile):
 					remove(efile)
 			if not idxerr and path.isfile(tfile) and path.isfile(sfile):
-				copy(tfile,sfile)
+				copy(tfile, sfile)
 				remove(tfile)
 			pidx += 1
 
@@ -460,8 +460,8 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 class zoomPreview(Screen):
 	x = getDesktop(0).size().width()
 	y = getDesktop(0).size().height()
-	skin = """<screen flags="wfNoBorder" position="0,0" size="%d,%d" title="zoomPreview" backgroundColor="#00000000">""" % (x,y)
-	skin += """<widget name="preview" position="0,0" size="%d,%d" zPosition="1" alphatest="on" />""" % (x,y)
+	skin = """<screen flags="wfNoBorder" position="0,0" size="%d,%d" title="zoomPreview" backgroundColor="#00000000">""" % (x, y)
+	skin += """<widget name="preview" position="0,0" size="%d,%d" zPosition="1" alphatest="on" />""" % (x, y)
 	skin += """</screen>"""
 
 	def __init__(self, session, previewPic=None):
@@ -472,7 +472,7 @@ class zoomPreview(Screen):
 		self.Scale = AVSwitch().getFramebufferScale()
 		self.PicLoad = ePicLoad()
 		self["preview"] = Pixmap()
-		self["actions"] = ActionMap(["OkCancelActions","ColorActions"],
+		self["actions"] = ActionMap(["OkCancelActions", "ColorActions"],
 		{
 			"ok": self.close,
 			"cancel": self.close,
@@ -487,5 +487,5 @@ class zoomPreview(Screen):
 		self["preview"].instance.setPixmap(ptr)
 
 	def ShowPicture(self):
-		self.PicLoad.setPara([self["preview"].instance.size().width(),self["preview"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
+		self.PicLoad.setPara([self["preview"].instance.size().width(), self["preview"].instance.size().height(), self.Scale[0], self.Scale[1], 0, 1, "#00000000"])
 		self.PicLoad.startDecode(self.previewPic)

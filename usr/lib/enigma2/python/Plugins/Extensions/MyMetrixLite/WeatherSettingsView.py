@@ -124,7 +124,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		if config.plugins.MetrixWeather.enabled.getValue() is True:
 			list.append(getConfigListEntry(_("Show in MoviePlayer"), config.plugins.MetrixWeather.MoviePlayer, _("helptext")))
 
-			list.append(getConfigListEntry(_("MetrixWeather Service"), config.plugins.MetrixWeather.weatherservice, _("Choose your preferred weather service"),"ENABLED"))
+			list.append(getConfigListEntry(_("MetrixWeather Service"), config.plugins.MetrixWeather.weatherservice, _("Choose your preferred weather service"), "ENABLED"))
 			if config.plugins.MetrixWeather.weatherservice.value == "MSN":
 				list.append(getConfigListEntry(_("MetrixWeather City Name"), config.plugins.MetrixWeather.weathercity, _("Your place for weather determination. Press TEXT or OK to enter the city name")))
 				#list.append(getConfigListEntry(_("Show '+' before temperature"), config.plugins.MetrixWeather.tempplus, _("If actively output '+' before temperature.") + norestart))
@@ -134,9 +134,9 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 				list.append(getConfigListEntry(_("MetrixWeather APIKEY"), config.plugins.MetrixWeather.apikey, _("Get your local MetrixWeather APIKEY from https://openweathermap.org/")))
 				info = _("If the file 'ID_APIKEY.apidata' exists in the '/tmp/' folder,\nimported these data automatically on '") + _("Check ID") + _("' function.\n\n(e.g. '2911298_a4bd84726035d0ce2c6185740617d8c5.apidata')")
 			list.append(getConfigListEntry(_("Unit"), config.plugins.MetrixWeather.tempUnit, _("Set your preferred temperature unit.") + norestart))
-			list.append(getConfigListEntry(_("MetrixWeather animatedWeather type"), config.plugins.MetrixWeather.type, _("Get your MetrixWeather AnimatedWeather."),"ENABLED"))
+			list.append(getConfigListEntry(_("MetrixWeather animatedWeather type"), config.plugins.MetrixWeather.type, _("Get your MetrixWeather AnimatedWeather."), "ENABLED"))
 			if config.plugins.MetrixWeather.type.value:
-				list.append(getConfigListEntry(_("MetrixWeather animations speed"),config.plugins.MetrixWeather.animationspeed, _("Set your animations speed.") + norestart))
+				list.append(getConfigListEntry(_("MetrixWeather animations speed"), config.plugins.MetrixWeather.animationspeed, _("Set your animations speed.") + norestart))
 			list.append(getConfigListEntry(_("Refresh Interval (min)"), config.plugins.MetrixWeather.refreshInterval, _("If set to '0', fetch weather data only at system(gui) start.")))
 			#list.append(getConfigListEntry(_("Check is Weather date local date"), config.plugins.MetrixWeather.verifyDate, _("helptext")))
 			self["resulttext"].setText(info)
@@ -154,7 +154,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		self.onLayoutFinish.append(self.ShowPicture)
 
 	def ShowPicture(self):
-		self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
+		self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), self.Scale[0], self.Scale[1], 0, 1, "#00000000"])
 		self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 
@@ -206,14 +206,14 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			return
 		self["resulttext"].setText(_("Please wait, get weather data ..."))
 		MetrixHDWeatherUpdaterStandalone(check=True)
-		self.checkTimer.start(3000,False)
+		self.checkTimer.start(3000, False)
 
 	def loadAPIdata(self):
 		ret = True
 		for file in listdir('/tmp/'):
 			if path.isfile('/tmp/' + file) and file.endswith('.apidata'):
 				try:
-					id, key = file.replace('.apidata','').split('_')
+					id, key = file.replace('.apidata', '').split('_')
 				except:
 					self["resulttext"].setText(_("Wrong import file ..."))
 					ret = False

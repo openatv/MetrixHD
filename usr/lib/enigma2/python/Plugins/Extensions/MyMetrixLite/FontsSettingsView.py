@@ -106,7 +106,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 		tab = " " * 10
 		sep = "-"
 		list = []
-		list.append(getConfigListEntry(_("Font Examples"),config.plugins.MyMetrixLiteFonts.SkinFontExamples, _("helptext"),"PRESET"))
+		list.append(getConfigListEntry(_("Font Examples"), config.plugins.MyMetrixLiteFonts.SkinFontExamples, _("helptext"), "PRESET"))
 		section = _("in Image included Fonts")
 		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("LCD"), ))
@@ -600,7 +600,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 		self.onLayoutFinish.append(self.ShowPicture)
 
 	def ShowPicture(self):
-		self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
+		self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), self.Scale[0], self.Scale[1], 0, 1, "#00000000"])
 		self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 

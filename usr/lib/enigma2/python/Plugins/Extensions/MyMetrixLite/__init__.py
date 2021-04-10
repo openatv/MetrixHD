@@ -451,8 +451,8 @@ def initColorsConfig():
 	config.plugins.MyMetrixLiteColors.cologradient = ConfigSelection(default='0', choices=[('0', _('disabled'))] + ColorList)
 	config.plugins.MyMetrixLiteColors.cologradient_show_background = ConfigYesNo(default=True)
 	choicelist = []
-	for x in range(0,105,5):
-		choicelist.append(('%d' % x, '%d%s' % (x,'%')))
+	for x in range(0, 105, 5):
+		choicelist.append(('%d' % x, '%d%s' % (x, '%')))
 	config.plugins.MyMetrixLiteColors.cologradient_size = ConfigSelection(default='25', choices=choicelist)
 	config.plugins.MyMetrixLiteColors.cologradient_position = ConfigSelection(default='25', choices=choicelist)
 	config.plugins.MyMetrixLiteColors.cologradient_transparencyA = ConfigSelection(default='1A', choices=TransparencyList)
@@ -529,7 +529,7 @@ def initWeatherConfig():
 
 	config.plugins.MetrixWeather.enabled = ConfigYesNo(default=True)
 	config.plugins.MetrixWeather.type = ConfigYesNo(default=False)
-	config.plugins.MetrixWeather.animationspeed = ConfigSelection(default="100", choices=[("0", _("Off")),("20", _("+ 4")), ("40", _("+ 3")),("60", _("+ 2")),("80", _("+ 1")),("100", _("Default")),("125", _("- 1")),("150", _("- 2")),("200", _("- 3")),("300", _("- 4"))])
+	config.plugins.MetrixWeather.animationspeed = ConfigSelection(default="100", choices=[("0", _("Off")), ("20", _("+ 4")), ("40", _("+ 3")), ("60", _("+ 2")), ("80", _("+ 1")), ("100", _("Default")), ("125", _("- 1")), ("150", _("- 2")), ("200", _("- 3")), ("300", _("- 4"))])
 	config.plugins.MetrixWeather.tempplus = ConfigYesNo(default=False)
 	config.plugins.MetrixWeather.MoviePlayer = ConfigYesNo(default=True)
 	config.plugins.MetrixWeather.verifyDate = ConfigYesNo(default=True)
@@ -686,9 +686,9 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.piconresize_experimental = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.EHDoldlinechanger = ConfigYesNo(default=False)
 	sharpness = []
-	for i in range(0,525,25):
+	for i in range(0, 525, 25):
 		x = str(format(float(i) / 100, '.2f'))
-		sharpness.append((x,x))
+		sharpness.append((x, x))
 	config.plugins.MyMetrixLiteOther.piconsharpness_experimental = ConfigSelection(default='1.00', choices=sharpness)
 	#STB-Info
 	config.plugins.MyMetrixLiteOther.STBDistance = ConfigSelectionNumber(1, 50, 1, default=10)
@@ -722,7 +722,7 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.showSTBinfo = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.showTunerinfo = ConfigYesNo(default=True)
 	config.plugins.MyMetrixLiteOther.setTunerAuto = ConfigYesNo(default=True)
-	config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelection(default='2', choices=[('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'),('8','8'),('10','10'),('12','12'),('16','16'),('18','18'),('19','19')])
+	config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelection(default='2', choices=[('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6'), ('7', '7'), ('8', '8'), ('10', '10'), ('12', '12'), ('16', '16'), ('18', '18'), ('19', '19')])
 	config.plugins.MyMetrixLiteOther.showInfoBarRunningtext = ConfigYesNo(default=False)
 	#pig
 	config.plugins.MyMetrixLiteOther.movielist_pig = ConfigYesNo(default=False)
@@ -757,13 +757,13 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.showEMCSelectionRows = ConfigSelection(default="0", choices=[("-4", _("-4")), ("-2", _("-2")), ("0", _("No")), ("+2", _("+2")), ("+4", _("+4")), ("+6", _("+6")), ("+8", _("+8"))])
 	config.plugins.MyMetrixLiteOther.showEMCSelectionPicon = ConfigSelection(default="no", choices=[("no", _("No")), ("left", _("left")), ("right", _("right"))])
 	choicelist = [("0", _("off"))]
-	for x in range(50,202,2):
-		choicelist.append(('%d' % x,'%d' % x))
+	for x in range(50, 202, 2):
+		choicelist.append(('%d' % x, '%d' % x))
 	config.plugins.MyMetrixLiteOther.setEMCdatesize = ConfigSelection(default="104", choices=choicelist)
 	config.plugins.MyMetrixLiteOther.setEMCdirinfosize = ConfigSelection(default="140", choices=choicelist)
 	choicelist = [("0", _("off"))]
-	for x in range(20,82,2):
-		choicelist.append(('%d' % x,'%d' % x))
+	for x in range(20, 82, 2):
+		choicelist.append(('%d' % x, '%d' % x))
 	config.plugins.MyMetrixLiteOther.setEMCbarsize = ConfigSelection(default="50", choices=choicelist)
 	#SkinDesign
 	config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth = ConfigSelectionNumber(0, 15, 1, default=10)

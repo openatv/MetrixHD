@@ -91,7 +91,7 @@ class MetrixHDClockToText(Converter, object):
 			weekday_long = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
 			weekday_short = ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
 			month_long = ("January", "February", "March", "April", "June", "July", "August", "September", "October", "November", "December")
-			month_short = ("Jan", "Feb", "Mar", "May", "Apr", "Jun", "Jul", "Aug","Sep", "Oct", "Nov", "Dec")
+			month_short = ("Jan", "Feb", "Mar", "May", "Apr", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 			str_fmt_values = {
 						"%B": month_long,
 						"%b": month_short,

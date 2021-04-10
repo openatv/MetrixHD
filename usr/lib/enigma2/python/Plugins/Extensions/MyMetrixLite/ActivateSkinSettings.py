@@ -89,7 +89,7 @@ class ActivateSkinSettings:
 		initWeatherConfig()
 		initFontsConfig()
 
-	def RefreshIcons(self,restore=False):
+	def RefreshIcons(self, restore=False):
 		# called from SystemPlugins/SoftwareManager/plugin.py after software update and from Screens/SkinSelector.py after changing skin
 		self.initConfigs()
 		self.getEHDSettings()
@@ -172,7 +172,7 @@ class ActivateSkinSettings:
 			firstline = f.readline()
 			f.close()
 			if '<!-- original file -->' in firstline:
-				copy(SKIN_SOURCE,SKIN_SOURCE + bname)
+				copy(SKIN_SOURCE, SKIN_SOURCE + bname)
 			else:
 				copy(SKIN_SOURCE + bname, SKIN_SOURCE)
 
@@ -206,7 +206,7 @@ class ActivateSkinSettings:
 						('ok.png', _('OK')),
 						('text.png', _('TEXT'))
 						]
-			buttonpath = {'HD':'/usr/share/enigma2/MetrixHD/buttons/', 'FHD':'/usr/share/enigma2/MetrixHD/FHD/buttons/', 'UHD':'/usr/share/enigma2/MetrixHD/UHD/buttons/'}
+			buttonpath = {'HD': '/usr/share/enigma2/MetrixHD/buttons/', 'FHD': '/usr/share/enigma2/MetrixHD/FHD/buttons/', 'UHD': '/usr/share/enigma2/MetrixHD/UHD/buttons/'}
 
 			################
 			# check free flash for _TARGET and _TMP files 
@@ -320,7 +320,7 @@ class ActivateSkinSettings:
 			primetime = ""
 			if int(config.plugins.MyMetrixLiteOther.SkinDesign.value) > 1 and (config.plugins.MyMetrixLiteOther.channelSelectionStyle.value == "CHANNELSELECTION-1" or config.plugins.MyMetrixLiteOther.channelSelectionStyle.value == "CHANNELSELECTION-2") and config.plugins.MyMetrixLiteOther.channelSelectionShowPrimeTime.value:
 				primetime = "P"
-			channelSelectionSkinSearchAndReplace.append(['<panel name="CHANNELSELECTION-1" />', '<panel name="%s%s" />' % (config.plugins.MyMetrixLiteOther.channelSelectionStyle.getValue(),primetime)])
+			channelSelectionSkinSearchAndReplace.append(['<panel name="CHANNELSELECTION-1" />', '<panel name="%s%s" />' % (config.plugins.MyMetrixLiteOther.channelSelectionStyle.getValue(), primetime)])
 
 			skin_lines = appendSkinFile(SKIN_CHANNEL_SELECTION_SOURCE, channelSelectionSkinSearchAndReplace)
 
@@ -381,7 +381,7 @@ class ActivateSkinSettings:
 			if config.plugins.MyMetrixLiteOther.showMovieListRunningtext.value:
 				delay = str(config.plugins.MyMetrixLiteOther.runningTextStartdelay.value)
 				speed = str(config.plugins.MyMetrixLiteOther.runningTextSpeed.value)
-				moviePlayerSkinSearchAndReplace.append(['movetype=none,startdelay=600,steptime=60', 'movetype=running,startdelay=%s,steptime=%s' % (delay,speed)])
+				moviePlayerSkinSearchAndReplace.append(['movetype=none,startdelay=600,steptime=60', 'movetype=running,startdelay=%s,steptime=%s' % (delay, speed)])
 
 			if config.plugins.MyMetrixLiteOther.movielistStyle.value == 'right':
 				moviePlayerSkinSearchAndReplace.append(['<panel name="MovieSelection_left"/>', '<panel name="MovieSelection_right"/>'])
@@ -539,21 +539,21 @@ class ActivateSkinSettings:
 			CoolCSPos = sizeW - CoolCSDirInfoWidth - margin
 			CoolIconPos = 4 + offsetPosIcon
 
-			EMCSkinSearchAndReplace.append(['size="700,480" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"'											,'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' % (sizeH, itemHeight, CoolFont, CoolSelectFont, CoolDateFont)])
+			EMCSkinSearchAndReplace.append(['size="700,480" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"', 'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' % (sizeH, itemHeight, CoolFont, CoolSelectFont, CoolDateFont)])
 
-			EMCSkinSearchAndReplace.append(['size="700,240" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"'											,'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' % (sizeH / 2, itemHeight, CoolFont, CoolSelectFont, CoolDateFont)])
+			EMCSkinSearchAndReplace.append(['size="700,240" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"', 'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' % (sizeH / 2, itemHeight, CoolFont, CoolSelectFont, CoolDateFont)])
 
-			EMCSkinSearchAndReplace.append(['CoolProgressHPos="2" CoolIconPos="4" CoolIconHPos="2" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90"'											,'CoolProgressHPos="%s" CoolIconPos="%s" CoolIconHPos="%s" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="%s" CoolBarSize="%s,%s" CoolBarSizeSa="%s,%s" CoolMoviePos="%s"' % (CoolProgressHPos, CoolIconPos, CoolIconHPos, CoolBarHPos, CoolBarSizeH, CoolBarSizeV, CoolBarSizeH, CoolBarSizeV, CoolMoviePos - margin)])
+			EMCSkinSearchAndReplace.append(['CoolProgressHPos="2" CoolIconPos="4" CoolIconHPos="2" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90"', 'CoolProgressHPos="%s" CoolIconPos="%s" CoolIconHPos="%s" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="%s" CoolBarSize="%s,%s" CoolBarSizeSa="%s,%s" CoolMoviePos="%s"' % (CoolProgressHPos, CoolIconPos, CoolIconHPos, CoolBarHPos, CoolBarSizeH, CoolBarSizeV, CoolBarSizeH, CoolBarSizeV, CoolMoviePos - margin)])
 
 			CoolMoviePiconPos = CoolMoviePos + CoolPiconWidth + gap - margin
 			CoolPiconPos = CoolMoviePos - margin
-			EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'											,'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' % (CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos)])
+			EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"', 'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' % (CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos)])
 
 			CoolMoviePiconPos = CoolMoviePos - margin
 			CoolPiconPos = CoolDatePos - CoolPiconWidth - gap - margin
 			if not CoolDateWidth:
 				CoolPiconPos = CoolDatePos - CoolPiconWidth
-			EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="540" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'											,'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' % (CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos)])
+			EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="540" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"', 'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' % (CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos)])
 
 			if posNR:
 				EMCSkinSearchAndReplace.append(['<panel name="EMCSelectionList_picon_left" />', '<panel name="EMCSelectionList_picon_right" />'])
@@ -592,7 +592,7 @@ class ActivateSkinSettings:
 			if config.plugins.MyMetrixLiteOther.showMovieListRunningtext.value:
 				delay = str(config.plugins.MyMetrixLiteOther.runningTextStartdelay.value)
 				speed = str(config.plugins.MyMetrixLiteOther.runningTextSpeed.value)
-				EMCSkinSearchAndReplace.append(['movetype=none,startdelay=600,steptime=60', 'movetype=running,startdelay=%s,steptime=%s' % (delay,speed)])
+				EMCSkinSearchAndReplace.append(['movetype=none,startdelay=600,steptime=60', 'movetype=running,startdelay=%s,steptime=%s' % (delay, speed)])
 
 			skin_lines = appendSkinFile(SKIN_EMC_SOURCE, EMCSkinSearchAndReplace)
 
@@ -800,14 +800,14 @@ class ActivateSkinSettings:
 				mode = "showNever"
 			margin = str(config.plugins.MyMetrixLiteOther.setFieldMargin.value)
 			distance = str(config.plugins.MyMetrixLiteOther.setItemDistance.value)
-			DESIGNSkinSearchAndReplace.append(['scrollbarMode="showNever" fieldMargins="5" itemsDistances="5"', 'scrollbarMode="%s" fieldMargins="%s" itemsDistances="%s"' % (mode,margin,distance)])
+			DESIGNSkinSearchAndReplace.append(['scrollbarMode="showNever" fieldMargins="5" itemsDistances="5"', 'scrollbarMode="%s" fieldMargins="%s" itemsDistances="%s"' % (mode, margin, distance)])
 
 			delay = config.plugins.MyMetrixLiteOther.runningTextStartdelay.value
 			speed = config.plugins.MyMetrixLiteOther.runningTextSpeed.value
 			if config.plugins.MyMetrixLiteOther.showChannelListRunningtext.value:
-				DESIGNSkinSearchAndReplace.append(['movetype=none,startdelay=600,steptime=60', 'movetype=running,startdelay=%s,steptime=%s' % (delay,speed)]) #event description
+				DESIGNSkinSearchAndReplace.append(['movetype=none,startdelay=600,steptime=60', 'movetype=running,startdelay=%s,steptime=%s' % (delay, speed)]) #event description
 			if config.plugins.MyMetrixLiteOther.showInfoBarRunningtext.value:
-				DESIGNSkinSearchAndReplace.append(['movetype=none,startdelay=900,steptime=1,step=3', 'movetype=running,startdelay=%s,steptime=%s,step=2' % (int(delay * 1.5),speed)]) #infobar
+				DESIGNSkinSearchAndReplace.append(['movetype=none,startdelay=900,steptime=1,step=3', 'movetype=running,startdelay=%s,steptime=%s,step=2' % (int(delay * 1.5), speed)]) #infobar
 
 			#show menu buttons
 			if not config.plugins.MyMetrixLiteOther.SkinDesignMenuButtons.value:
@@ -899,8 +899,8 @@ class ActivateSkinSettings:
 
 			skinSearchAndReplace = []
 			orgskinSearchAndReplace = [] # needed for some attributes (e.g. borderset setting was lost after using plugin media portal - because restored settings from skin.xml and not from skin.MySkin.xml)
-			skinSearchAndReplace.append(['<!-- original file -->',''])
-			orgskinSearchAndReplace.append(['<!-- original file -->','<!-- !!!copied and changed file!!! -->'])
+			skinSearchAndReplace.append(['<!-- original file -->', ''])
+			orgskinSearchAndReplace.append(['<!-- original file -->', '<!-- !!!copied and changed file!!! -->'])
 
 			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground" value="#00FFFFFF"', channelselectionservice])
 			skinSearchAndReplace.append(['name="layer-a-channelselection-foregroundColorSelected" value="#00FFFFFF"', channelselectionserviceselected])
@@ -1295,8 +1295,8 @@ class ActivateSkinSettings:
 						TARGETpath = mySkindir + 'skin_' + skinpart + '.mySkin.xml'
 						TMPpath = skinpartdir + skinpart + '/' + skinpart + '.mySkin.xml.tmp'
 						#remove old MySkin files
-						if path.isfile(TMPpath.replace('.tmp','')):
-							remove(TMPpath.replace('.tmp',''))
+						if path.isfile(TMPpath.replace('.tmp', '')):
+							remove(TMPpath.replace('.tmp', ''))
 					if file == 'enabled':
 						enabled = True
 				if partname and enabled:
@@ -1324,9 +1324,9 @@ class ActivateSkinSettings:
 				if self.skinline_error:
 					break
 				if path.exists(file[2]):
-					self.optionEHD(file[2],file[1])
+					self.optionEHD(file[2], file[1])
 				else:
-					self.optionEHD(file[0],file[1])
+					self.optionEHD(file[0], file[1])
 
 			if self.skinline_error:
 				print "--------   force HD-skin   --------"
@@ -1338,9 +1338,9 @@ class ActivateSkinSettings:
 				self.skinline_error = False
 				for file in skinfiles:
 					if path.exists(file[2]):
-						self.optionEHD(file[2],file[1])
+						self.optionEHD(file[2], file[1])
 					else:
-						self.optionEHD(file[0],file[1])
+						self.optionEHD(file[0], file[1])
 				self.skinline_error = skinline_error
 				self.updateIcons()
 				self.makeGraphics(1)
@@ -1360,8 +1360,8 @@ class ActivateSkinSettings:
 					buttonfile = buttonpath[self.EHDres] + button[0]
 					buttonbackupfile = buttonfile + '.backup'
 					if path.exists(buttonfile) and not path.exists(buttonbackupfile):
-						copy(buttonfile,buttonbackupfile)
-					self.makeButtons(buttonfile,button[1], False)
+						copy(buttonfile, buttonbackupfile)
+					self.makeButtons(buttonfile, button[1], False)
 				self.ButtonEffect = None
 			else:
 				#restore
@@ -1369,7 +1369,7 @@ class ActivateSkinSettings:
 					buttonfile = buttonpath[self.EHDres] + button[0]
 					buttonbackupfile = buttonfile + '.backup'
 					if path.exists(buttonbackupfile):
-						move(buttonbackupfile,buttonfile)
+						move(buttonbackupfile, buttonfile)
 
 			################
 			# info message
@@ -1400,7 +1400,7 @@ class ActivateSkinSettings:
 				self.ErrorCode = 'error', _("Error creating Skin!") + '\n< %s >' % error
 			#restore skinfiles
 			if path.exists(SKIN_SOURCE + bname):
-				 move(SKIN_SOURCE + bname,SKIN_SOURCE)
+				 move(SKIN_SOURCE + bname, SKIN_SOURCE)
 			for file in skinfiles:
 				if path.exists(file[1]):
 					remove(file[1])
@@ -1411,7 +1411,7 @@ class ActivateSkinSettings:
 				buttonfile = buttonpath["HD"] + button[0]
 				buttonbackupfile = buttonfile + '.backup'
 				if path.exists(buttonbackupfile):
-					move(buttonbackupfile,buttonfile)
+					move(buttonbackupfile, buttonfile)
 			#restore icons
 			self.updateIcons()
 			#restore default hd skin
@@ -1420,7 +1420,7 @@ class ActivateSkinSettings:
 			config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")
 		config.skin.primary_skin.save()
 		configfile.save()
-		print "MyMetrixLite apply Changes - duration time: %ss" % (round(time() - apply_starttime,1))
+		print "MyMetrixLite apply Changes - duration time: %ss" % (round(time() - apply_starttime, 1))
 
 	def makeButtons(self, button, text, extern=True):
 		try:
@@ -1436,16 +1436,16 @@ class ActivateSkinSettings:
 
 			color = config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameColor.value
 			trans = config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameColorTransparency.value
-			framecolor = rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), 255 - int(trans,16))
+			framecolor = rgba = (int(color[-6:][:2], 16), int(color[-4:][:2], 16), int(color[-2:][:2], 16), 255 - int(trans, 16))
 			color = config.plugins.MyMetrixLiteOther.SkinDesignButtonsBackColor.value
 			trans = config.plugins.MyMetrixLiteOther.SkinDesignButtonsBackColorTransparency.value
-			backcolor = rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), 255 - int(trans,16))
+			backcolor = rgba = (int(color[-6:][:2], 16), int(color[-4:][:2], 16), int(color[-2:][:2], 16), 255 - int(trans, 16))
 			color = config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextColor.value
 			trans = config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextColorTransparency.value
-			textcolor = rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), 255 - int(trans,16))
+			textcolor = rgba = (int(color[-6:][:2], 16), int(color[-4:][:2], 16), int(color[-2:][:2], 16), 255 - int(trans, 16))
 			color = config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectColor.value
 			trans = config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity.value
-			glossycolor = rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), int(trans,16))
+			glossycolor = rgba = (int(color[-6:][:2], 16), int(color[-4:][:2], 16), int(color[-2:][:2], 16), int(trans, 16))
 
 			#symbols
 			symbolpos = 0
@@ -1473,12 +1473,12 @@ class ActivateSkinSettings:
 				fontx, fonty = font.getsize(text)
 				x += 1
 			#frame
-			img = Image.new("RGBA",(sizex, sizey), framecolor)
+			img = Image.new("RGBA", (sizex, sizey), framecolor)
 			draw = ImageDraw.Draw(img)
 			#button
-			draw.rectangle(((framesize, framesize), (sizex - framesize - 1, sizey - framesize - 1)),fill=backcolor)
+			draw.rectangle(((framesize, framesize), (sizex - framesize - 1, sizey - framesize - 1)), fill=backcolor)
 			#text
-			imgtxt = Image.new("RGBA",(sizex, sizey), (textcolor[0],textcolor[1],textcolor[2],0))
+			imgtxt = Image.new("RGBA", (sizex, sizey), (textcolor[0], textcolor[1], textcolor[2], 0))
 			drawtxt = ImageDraw.Draw(imgtxt)
 			drawtxt.text((int((sizex - fontx) / 2), int((sizey - fonty) / 2) + symbolpos + config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition.value), text, fill=textcolor, font=font)
 			#rotate updown
@@ -1490,14 +1490,14 @@ class ActivateSkinSettings:
 				rightb = leftb + font.getsize('<')[0]
 				upper = int((sizey - fonty + font.getsize('<')[1]) / 2) - top
 				lower = upper + font.getsize('<')[0]
-				imga = imgtxt.crop((lefta,upper,righta,lower)).rotate(-90)
-				imgb = imgtxt.crop((leftb,upper,rightb,lower)).rotate(-90)
-				drawtxt.rectangle(((0, 0), (sizex, sizey)),fill=(textcolor[0],textcolor[1],textcolor[2],0))
-				imgtxt.paste(imga,(lefta,top + 1))
-				imgtxt.paste(imgb,(leftb,top + 1))
+				imga = imgtxt.crop((lefta, upper, righta, lower)).rotate(-90)
+				imgb = imgtxt.crop((leftb, upper, rightb, lower)).rotate(-90)
+				drawtxt.rectangle(((0, 0), (sizex, sizey)), fill=(textcolor[0], textcolor[1], textcolor[2], 0))
+				imgtxt.paste(imga, (lefta, top + 1))
+				imgtxt.paste(imgb, (leftb, top + 1))
 			#text under glossy
 			if config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectOverText.value:
-				img.paste(imgtxt,(0,0),imgtxt)
+				img.paste(imgtxt, (0, 0), imgtxt)
 			#glossy effect
 			if config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value != 'no':
 				if 'frame' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value:
@@ -1512,28 +1512,28 @@ class ActivateSkinSettings:
 					a = glossycolor[3]
 					esy = sy * float(config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectSize.value)
 					if 'solid' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value:
-						imga = Image.new("RGBA",(sizex - fs * 2, int(esy)), glossycolor)
+						imga = Image.new("RGBA", (sizex - fs * 2, int(esy)), glossycolor)
 					elif 'gradient' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value:
-						imga = Image.new("RGBA",(sizex - fs * 2, int(esy)), (glossycolor[0],glossycolor[1],glossycolor[2],0))
+						imga = Image.new("RGBA", (sizex - fs * 2, int(esy)), (glossycolor[0], glossycolor[1], glossycolor[2], 0))
 						draw = ImageDraw.Draw(imga)
 						s = a / esy
-						for l in range(0,int(esy + 1)):
-							draw.line([(0,l), (sizex - fs * 2,l)], fill=(glossycolor[0],glossycolor[1],glossycolor[2],int(a)))
+						for l in range(0, int(esy + 1)):
+							draw.line([(0, l), (sizex - fs * 2, l)], fill=(glossycolor[0], glossycolor[1], glossycolor[2], int(a)))
 							a -= s
 					elif 'circle' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value:
 						epx = sx * float(config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectPosX.value)
 						epy = sy * float(config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectPosY.value)
 						esx = sx * float(config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectSize.value)
-						imga = Image.new("RGBA",(sx, sy))
+						imga = Image.new("RGBA", (sx, sy))
 						for y in range(sy):
 							for x in range(sx):
 								s = a * (float(math.sqrt((x - epx) ** 2 + (y - epy) ** 2)) / math.sqrt((esx ** 2) + (esy ** 2)))
-								imga.putpixel((x, y), (glossycolor[0],glossycolor[1],glossycolor[2],a - int(s)))
+								imga.putpixel((x, y), (glossycolor[0], glossycolor[1], glossycolor[2], a - int(s)))
 					self.ButtonEffect = imga
-				img.paste(self.ButtonEffect,(fs,fs),self.ButtonEffect)
+				img.paste(self.ButtonEffect, (fs, fs), self.ButtonEffect)
 			#text over glossy
 			if not config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectOverText.value:
-				img.paste(imgtxt,(0,0),imgtxt)
+				img.paste(imgtxt, (0, 0), imgtxt)
 			img.save(button)
 			return 1
 		except:
@@ -1616,7 +1616,7 @@ class ActivateSkinSettings:
 		# file commander image viewer background
 		color = config.plugins.MyMetrixLiteColors.layerabackground.value
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_imageviewer.png"
-		self.makeColorGradient(cgfile, int(30 * factor), int(640 * factor), color, 0, int(640 * factor), 'right', 255,0)
+		self.makeColorGradient(cgfile, int(30 * factor), int(640 * factor), color, 0, int(640 * factor), 'right', 255, 0)
 
 	def makeNewColor(self, color, coloroption):
 		if coloroption == '0':
@@ -1625,11 +1625,11 @@ class ActivateSkinSettings:
 			return color
 		elif len(coloroption) < 6: #modify current color
 			coloroption = int(coloroption)
-			r = int(color[-6:][:2],16)
+			r = int(color[-6:][:2], 16)
 			r -= r * 0.01 * int(coloroption)
-			g = int(color[-4:][:2],16)
+			g = int(color[-4:][:2], 16)
 			g -= g * 0.01 * int(coloroption)
-			b = int(color[-2:][:2],16)
+			b = int(color[-2:][:2], 16)
 			b -= b * 0.01 * int(coloroption)
 			if r < 0:
 				r = 0
@@ -1649,14 +1649,14 @@ class ActivateSkinSettings:
 			alphaA = 255 - int(config.plugins.MyMetrixLiteColors.cologradient_transparencyA.value, 16)
 		if alphaB is None:
 			alphaB = 255 - int(config.plugins.MyMetrixLiteColors.cologradient_transparencyB.value, 16)
-		rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), 0)
-		imga = Image.new("RGBA",(sizex, sizey), rgba)
-		rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), alphaA)
-		imgb = Image.new("RGBA",(sizex, begin), rgba)
-		imgc = Image.new("RGBA",(sizex, height), rgba)
-		gradient = Image.new('L', (1,alphaA - alphaB + 1))
-		for y in range(0,alphaA - alphaB + 1):
-			gradient.putpixel((0,y),alphaB + y)
+		rgba = (int(color[-6:][:2], 16), int(color[-4:][:2], 16), int(color[-2:][:2], 16), 0)
+		imga = Image.new("RGBA", (sizex, sizey), rgba)
+		rgba = (int(color[-6:][:2], 16), int(color[-4:][:2], 16), int(color[-2:][:2], 16), alphaA)
+		imgb = Image.new("RGBA", (sizex, begin), rgba)
+		imgc = Image.new("RGBA", (sizex, height), rgba)
+		gradient = Image.new('L', (1, alphaA - alphaB + 1))
+		for y in range(0, alphaA - alphaB + 1):
+			gradient.putpixel((0, y), alphaB + y)
 		gradient = gradient.resize(imgc.size)
 		imgc.putalpha(gradient)
 		imga.paste(imgb, (0, imga.size[1] - begin))
@@ -1672,8 +1672,8 @@ class ActivateSkinSettings:
 		imga.save(name)
 
 	def makeColorField(self, name, sizex, sizey, color, alpha):
-		rgba = (int(color[-6:][:2],16), int(color[-4:][:2],16), int(color[-2:][:2],16), 255 - int(alpha,16))
-		imga = Image.new("RGBA",(sizex, sizey), rgba)
+		rgba = (int(color[-6:][:2], 16), int(color[-4:][:2], 16), int(color[-2:][:2], 16), 255 - int(alpha, 16))
+		imga = Image.new("RGBA", (sizex, sizey), rgba)
 		imga.save(name)
 
 	def updateIcons(self, target="HD"):
@@ -1695,7 +1695,7 @@ class ActivateSkinSettings:
 			if path.isdir(dpath):
 				for file in listdir(dpath):
 					if file.endswith('.png.hd') and path.isfile(dpath + file):
-						move(dpath + file,dpath + file[:-3])
+						move(dpath + file, dpath + file[:-3])
 					elif file.endswith('.png.del') and path.isfile(dpath + file):
 						remove(dpath + file)
 					elif dpath == "/usr/share/enigma2/MetrixHD/" and file.startswith("skin_00") and path.isfile(dpath + file):
@@ -1704,7 +1704,7 @@ class ActivateSkinSettings:
 		npath = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images_hd/"
 		if path.isdir(dpath) and path.isdir(npath):
 			rmtree(dpath)
-			rename(npath,dpath)
+			rename(npath, dpath)
 		# --------------------------------------------------------------------------
 
 		spath = '/usr/share/enigma2/MetrixHD/%s' % target
@@ -2053,59 +2053,59 @@ class ActivateSkinSettings:
 				parcount = len(line[n2:n12 + 1].split(','))
 			strnew = ""
 			if parcount == 1:
-				p1 = int(round(float(int(line[(n2 + 1):n12]) * FACT),r_par))
+				p1 = int(round(float(int(line[(n2 + 1):n12]) * FACT), r_par))
 				strnew = 'value="%d"' % (p1)
 			elif parcount == 2:
 				if 'Font' in line:
 					n3 = line.find(';', n2) 
 					p1 = line[(n2 + 1):n3]
-					p2 = int(f_offset + round(float(int(line[(n3 + 1):n12]) * FACT),r_par))
-					strnew = 'value="%s;%d"' % (p1,p2)
+					p2 = int(f_offset + round(float(int(line[(n3 + 1):n12]) * FACT), r_par))
+					strnew = 'value="%s;%d"' % (p1, p2)
 				else:
 					n3 = line.find(',', n2) 
-					p1 = int(round(float(int(line[(n2 + 1):n3]) * FACT),r_par))
-					p2 = int(round(float(int(line[(n3 + 1):n12]) * FACT),r_par))
-					strnew = 'value="%d,%d"' % (p1,p2)
+					p1 = int(round(float(int(line[(n2 + 1):n3]) * FACT), r_par))
+					p2 = int(round(float(int(line[(n3 + 1):n12]) * FACT), r_par))
+					strnew = 'value="%d,%d"' % (p1, p2)
 			elif parcount == 3:
 				n3 = line.find(',', n2) 
 				n4 = line.find(',', n3 + 1) 
-				p1 = int(round(float(int(line[(n2 + 1):n3]) * FACT),r_par))
-				p2 = int(round(float(int(line[(n3 + 1):n4]) * FACT),r_par))
-				p3 = int(round(float(int(line[(n4 + 1):n12]) * FACT),r_par))
-				strnew = 'value="%d,%d,%d"' % (p1,p2,p3)
+				p1 = int(round(float(int(line[(n2 + 1):n3]) * FACT), r_par))
+				p2 = int(round(float(int(line[(n3 + 1):n4]) * FACT), r_par))
+				p3 = int(round(float(int(line[(n4 + 1):n12]) * FACT), r_par))
+				strnew = 'value="%d,%d,%d"' % (p1, p2, p3)
 			elif parcount == 4:
 				n3 = line.find(',', n2) 
 				n4 = line.find(',', n3 + 1) 
 				n5 = line.find(',', n4 + 1) 
-				p1 = int(round(float(int(line[(n2 + 1):n3]) * FACT),r_par))
-				p2 = int(round(float(int(line[(n3 + 1):n4]) * FACT),r_par))
-				p3 = int(round(float(int(line[(n4 + 1):n5]) * FACT),r_par))
-				p4 = int(round(float(int(line[(n5 + 1):n12]) * FACT),r_par))
-				strnew = 'value="%d,%d,%d,%d"' % (p1,p2,p3,p4)
+				p1 = int(round(float(int(line[(n2 + 1):n3]) * FACT), r_par))
+				p2 = int(round(float(int(line[(n3 + 1):n4]) * FACT), r_par))
+				p3 = int(round(float(int(line[(n4 + 1):n5]) * FACT), r_par))
+				p4 = int(round(float(int(line[(n5 + 1):n12]) * FACT), r_par))
+				strnew = 'value="%d,%d,%d,%d"' % (p1, p2, p3, p4)
 			elif parcount == 5:
 				n3 = line.find(',', n2) 
 				n4 = line.find(',', n3 + 1) 
 				n5 = line.find(',', n4 + 1) 
 				n6 = line.find(',', n5 + 1) 
-				p1 = int(round(float(int(line[(n2 + 1):n3]) * FACT),r_par))
-				p2 = int(round(float(int(line[(n3 + 1):n4]) * FACT),r_par))
-				p3 = int(round(float(int(line[(n4 + 1):n5]) * FACT),r_par))
-				p4 = int(round(float(int(line[(n5 + 1):n6]) * FACT),r_par))
-				p5 = int(round(float(int(line[(n6 + 1):n12]) * FACT),r_par))
-				strnew = 'value="%d,%d,%d,%d,%d"' % (p1,p2,p3,p4,p5)
+				p1 = int(round(float(int(line[(n2 + 1):n3]) * FACT), r_par))
+				p2 = int(round(float(int(line[(n3 + 1):n4]) * FACT), r_par))
+				p3 = int(round(float(int(line[(n4 + 1):n5]) * FACT), r_par))
+				p4 = int(round(float(int(line[(n5 + 1):n6]) * FACT), r_par))
+				p5 = int(round(float(int(line[(n6 + 1):n12]) * FACT), r_par))
+				strnew = 'value="%d,%d,%d,%d,%d"' % (p1, p2, p3, p4, p5)
 			elif parcount == 6:
 				n3 = line.find(',', n2) 
 				n4 = line.find(',', n3 + 1) 
 				n5 = line.find(',', n4 + 1) 
 				n6 = line.find(',', n5 + 1) 
 				n7 = line.find(',', n6 + 1) 
-				p1 = int(round(float(int(line[(n2 + 1):n3]) * FACT),r_par))
-				p2 = int(round(float(int(line[(n3 + 1):n4]) * FACT),r_par))
-				p3 = int(round(float(int(line[(n4 + 1):n5]) * FACT),r_par))
-				p4 = int(round(float(int(line[(n5 + 1):n6]) * FACT),r_par))
-				p5 = int(round(float(int(line[(n6 + 1):n7]) * FACT),r_par))
-				p6 = int(round(float(int(line[(n7 + 1):n12]) * FACT),r_par))
-				strnew = 'value="%d,%d,%d,%d,%d,%d"' % (p1,p2,p3,p4,p5,p6)
+				p1 = int(round(float(int(line[(n2 + 1):n3]) * FACT), r_par))
+				p2 = int(round(float(int(line[(n3 + 1):n4]) * FACT), r_par))
+				p3 = int(round(float(int(line[(n4 + 1):n5]) * FACT), r_par))
+				p4 = int(round(float(int(line[(n5 + 1):n6]) * FACT), r_par))
+				p5 = int(round(float(int(line[(n6 + 1):n7]) * FACT), r_par))
+				p6 = int(round(float(int(line[(n7 + 1):n12]) * FACT), r_par))
+				strnew = 'value="%d,%d,%d,%d,%d,%d"' % (p1, p2, p3, p4, p5, p6)
 			elif parcount == 7:
 				n3 = line.find(',', n2) 
 				n4 = line.find(',', n3 + 1) 
@@ -2113,14 +2113,14 @@ class ActivateSkinSettings:
 				n6 = line.find(',', n5 + 1) 
 				n7 = line.find(',', n6 + 1) 
 				n8 = line.find(',', n7 + 1) 
-				p1 = int(round(float(int(line[(n2 + 1):n3]) * FACT),r_par))
-				p2 = int(round(float(int(line[(n3 + 1):n4]) * FACT),r_par))
-				p3 = int(round(float(int(line[(n4 + 1):n5]) * FACT),r_par))
-				p4 = int(round(float(int(line[(n5 + 1):n6]) * FACT),r_par))
-				p5 = int(round(float(int(line[(n6 + 1):n7]) * FACT),r_par))
-				p6 = int(round(float(int(line[(n7 + 1):n8]) * FACT),r_par))
-				p7 = int(round(float(int(line[(n8 + 1):n12]) * FACT),r_par))
-				strnew = 'value="%d,%d,%d,%d,%d,%d,%d"' % (p1,p2,p3,p4,p5,p6,p7)
+				p1 = int(round(float(int(line[(n2 + 1):n3]) * FACT), r_par))
+				p2 = int(round(float(int(line[(n3 + 1):n4]) * FACT), r_par))
+				p3 = int(round(float(int(line[(n4 + 1):n5]) * FACT), r_par))
+				p4 = int(round(float(int(line[(n5 + 1):n6]) * FACT), r_par))
+				p5 = int(round(float(int(line[(n6 + 1):n7]) * FACT), r_par))
+				p6 = int(round(float(int(line[(n7 + 1):n8]) * FACT), r_par))
+				p7 = int(round(float(int(line[(n8 + 1):n12]) * FACT), r_par))
+				strnew = 'value="%d,%d,%d,%d,%d,%d,%d"' % (p1, p2, p3, p4, p5, p6, p7)
 			elif parcount == 8:
 				n3 = line.find(',', n2) 
 				n4 = line.find(',', n3 + 1) 
@@ -2129,15 +2129,15 @@ class ActivateSkinSettings:
 				n7 = line.find(',', n6 + 1) 
 				n8 = line.find(',', n7 + 1) 
 				n9 = line.find(',', n8 + 1) 
-				p1 = int(round(float(int(line[(n2 + 1):n3]) * FACT),r_par))
-				p2 = int(round(float(int(line[(n3 + 1):n4]) * FACT),r_par))
-				p3 = int(round(float(int(line[(n4 + 1):n5]) * FACT),r_par))
-				p4 = int(round(float(int(line[(n5 + 1):n6]) * FACT),r_par))
-				p5 = int(round(float(int(line[(n6 + 1):n7]) * FACT),r_par))
-				p6 = int(round(float(int(line[(n7 + 1):n8]) * FACT),r_par))
-				p7 = int(round(float(int(line[(n8 + 1):n9]) * FACT),r_par))
-				p8 = int(round(float(int(line[(n9 + 1):n12]) * FACT),r_par))
-				strnew = 'value="%d,%d,%d,%d,%d,%d,%d,%d"' % (p1,p2,p3,p4,p5,p6,p7,p8)
+				p1 = int(round(float(int(line[(n2 + 1):n3]) * FACT), r_par))
+				p2 = int(round(float(int(line[(n3 + 1):n4]) * FACT), r_par))
+				p3 = int(round(float(int(line[(n4 + 1):n5]) * FACT), r_par))
+				p4 = int(round(float(int(line[(n5 + 1):n6]) * FACT), r_par))
+				p5 = int(round(float(int(line[(n6 + 1):n7]) * FACT), r_par))
+				p6 = int(round(float(int(line[(n7 + 1):n8]) * FACT), r_par))
+				p7 = int(round(float(int(line[(n8 + 1):n9]) * FACT), r_par))
+				p8 = int(round(float(int(line[(n9 + 1):n12]) * FACT), r_par))
+				strnew = 'value="%d,%d,%d,%d,%d,%d,%d,%d"' % (p1, p2, p3, p4, p5, p6, p7, p8)
 
 			if strnew:
 				line = line[:n1] + strnew + line[(n12 + 1):]
@@ -2145,12 +2145,12 @@ class ActivateSkinSettings:
 		if 'rowSplit' in line:
 			s = 0
 			n3 = 0
-			for s in range(0,line.count('rowSplit')):
+			for s in range(0, line.count('rowSplit')):
 				n1 = line.find('rowSplit', n3)
 				n2 = line.find('="', n1)
 				n3 = line.find('"', n2 + 2) 
 				y = line[(n2 + 2):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 2] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #rowHeight="25"
@@ -2160,7 +2160,7 @@ class ActivateSkinSettings:
 			n3 = line.find('"', n2 + 1) 
 			y = line[(n2 + 1):n3]
 
-			ynew = str(int(round(float(int(y) * FACT),r_par)))
+			ynew = str(int(round(float(int(y) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3 + 1):]
 #satPosLeft="160" 
@@ -2170,7 +2170,7 @@ class ActivateSkinSettings:
 			n3 = line.find('"', n2 + 1) 
 			y = line[(n2 + 1):n3]
 
-			ynew = str(int(round(float(int(y) * FACT),r_par)))
+			ynew = str(int(round(float(int(y) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3 + 1):]
 
@@ -2181,7 +2181,7 @@ class ActivateSkinSettings:
 			n3 = line.find('"', n2 + 1) 
 			y = line[(n2 + 1):n3]
 
-			ynew = str(int(round(float(int(y) * FACT),r_par)))
+			ynew = str(int(round(float(int(y) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3 + 1):]
 #size="200,100"
@@ -2196,41 +2196,41 @@ class ActivateSkinSettings:
 			y = line[(n3 + 1):n4]
 			if "c+" in x:
 				x1 = x.replace("c+", "")
-				xpos = int(round(float((int(x1) * FACT - int(x1) * PFACT) / 2),r_par))
-				x1new = str(int(round(float(int(x1) * PFACT),r_par)))
+				xpos = int(round(float((int(x1) * FACT - int(x1) * PFACT) / 2), r_par))
+				x1new = str(int(round(float(int(x1) * PFACT), r_par)))
 				xnew = "c+" + x1new
 			elif "c-" in x:
 				x1 = x.replace("c-", "")
-				xpos = int(round(float((int(x1) * FACT - int(x1) * PFACT) / 2),r_par))
-				x1new = str(int(round(float(int(x1) * PFACT),r_par)))
+				xpos = int(round(float((int(x1) * FACT - int(x1) * PFACT) / 2), r_par))
+				x1new = str(int(round(float(int(x1) * PFACT), r_par)))
 				xnew = "c-" + x1new
 			elif "e-" in x:
 				x1 = x.replace("e-", "")
-				xpos = int(round(float((int(x1) * FACT - int(x1) * PFACT) / 2),r_par))
-				x1new = str(int(round(float(int(x1) * PFACT),r_par)))
+				xpos = int(round(float((int(x1) * FACT - int(x1) * PFACT) / 2), r_par))
+				x1new = str(int(round(float(int(x1) * PFACT), r_par)))
 				xnew = "e-" + x1new
 			else:
-				xpos = int(round(float((int(x) * FACT - int(x) * PFACT) / 2),r_par))
-				xnew = str(int(round(float(int(x) * PFACT),r_par)))
+				xpos = int(round(float((int(x) * FACT - int(x) * PFACT) / 2), r_par))
+				xnew = str(int(round(float(int(x) * PFACT), r_par)))
 
 			if "c+" in y:
 				y1 = y.replace("c+", "")
-				ypos = int(round(float((int(y1) * FACT - int(y1) * PFACT) / 2),r_par))
-				y1new = str(int(round(float(int(y1) * PFACT),r_par)))
+				ypos = int(round(float((int(y1) * FACT - int(y1) * PFACT) / 2), r_par))
+				y1new = str(int(round(float(int(y1) * PFACT), r_par)))
 				ynew = "c+" + y1new
 			elif "c-" in y:
 				y1 = y.replace("c-", "")
-				ypos = int(round(float((int(y1) * FACT - int(y1) * PFACT) / 2),r_par))
-				y1new = str(int(round(float(int(y1) * PFACT),r_par)))
+				ypos = int(round(float((int(y1) * FACT - int(y1) * PFACT) / 2), r_par))
+				y1new = str(int(round(float(int(y1) * PFACT), r_par)))
 				ynew = "c-" + y1new
 			elif "e-" in y:
 				y1 = y.replace("e-", "")
-				ypos = int(round(float((int(y1) * FACT - int(y1) * PFACT) / 2),r_par))
-				y1new = str(int(round(float(int(y1) * PFACT),r_par)))
+				ypos = int(round(float((int(y1) * FACT - int(y1) * PFACT) / 2), r_par))
+				y1new = str(int(round(float(int(y1) * PFACT), r_par)))
 				ynew = "e-" + y1new
 			else:
-				ypos = int(round(float((int(y) * FACT - int(y) * PFACT) / 2),r_par))
-				ynew = str(int(round(float(int(y) * PFACT),r_par)))
+				ypos = int(round(float((int(y) * FACT - int(y) * PFACT) / 2), r_par))
+				ynew = str(int(round(float(int(y) * PFACT), r_par)))
 
 			strnew = 'size="' + xnew + ',' + ynew + '"'
 			line = line[:n1] + strnew + line[(n4 + 1):]
@@ -2248,37 +2248,37 @@ class ActivateSkinSettings:
 			y = line[(n3 + 1):n4]
 			if "c+" in x:
 				x1 = x.replace("c+", "")
-				x1new = str(int(round(float(int(x1) * FACT + xpos),r_par)))
+				x1new = str(int(round(float(int(x1) * FACT + xpos), r_par)))
 				xnew = "c+" + x1new
 			elif "c-" in x:
 				x1 = x.replace("c-", "")
-				x1new = str(int(round(float(int(x1) * FACT + xpos),r_par)))
+				x1new = str(int(round(float(int(x1) * FACT + xpos), r_par)))
 				xnew = "c-" + x1new
 			elif "e-" in x:
 				x1 = x.replace("e-", "")
-				x1new = str(int(round(float(int(x1) * FACT + xpos),r_par)))
+				x1new = str(int(round(float(int(x1) * FACT + xpos), r_par)))
 				xnew = "e-" + x1new
 			elif 'ente' in x:
 				xnew = 'center'
 			else:
-				xnew = str(int(round(float(int(x) * FACT + xpos),r_par)))
+				xnew = str(int(round(float(int(x) * FACT + xpos), r_par)))
 
 			if "c+" in y:
 				y1 = y.replace("c+", "")
-				y1new = str(int(round(float(int(y1) * FACT + ypos),r_par)))
+				y1new = str(int(round(float(int(y1) * FACT + ypos), r_par)))
 				ynew = "c+" + y1new
 			elif "c-" in y:
 				y1 = y.replace("c-", "")
-				y1new = str(int(round(float(int(y1) * FACT + ypos),r_par)))
+				y1new = str(int(round(float(int(y1) * FACT + ypos), r_par)))
 				ynew = "c-" + y1new
 			elif "e-" in y:
 				y1 = y.replace("e-", "")
-				y1new = str(int(round(float(int(y1) * FACT + ypos),r_par)))
+				y1new = str(int(round(float(int(y1) * FACT + ypos), r_par)))
 				ynew = "e-" + y1new
 			elif 'ente' in y:
 				ynew = 'center'
 			else:
-				ynew = str(int(round(float(int(y) * FACT + ypos),r_par)))
+				ynew = str(int(round(float(int(y) * FACT + ypos), r_par)))
 
 			strnew = 'position="' + xnew + ',' + ynew + '"'
 			line = line[:n1] + strnew + line[(n4 + 1):]
@@ -2288,79 +2288,79 @@ class ActivateSkinSettings:
 			n2 = line.find(';', n1) 
 			n3 = line.find('"', n2) 
 			y = line[(n2 + 1):n3]
-			ynew = str(int(f_offset + round(float(int(y) * FACT),r_par)))
+			ynew = str(int(f_offset + round(float(int(y) * FACT), r_par)))
 			strnew = line[n1:(n2 + 1)] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3 + 1):]
 #Font="Regular;20"
 		if 'Font="' in line and not ' Cool' in line:
 			s = 0
 			n3 = 0
-			for s in range(0,line.count('Font="')):
+			for s in range(0, line.count('Font="')):
 				n1 = line.find('Font="', n3)
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2) 
 				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round(float(int(y) * FACT),r_par)))
+				ynew = str(int(f_offset + round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #ServiceFontGraphical="epg_text;20" EntryFontGraphical="epg_text;20"
 		if 'FontGraphical="' in line and not ' Cool' in line:
 			s = 0
 			n3 = 0
-			for s in range(0,line.count('FontGraphical="')):
+			for s in range(0, line.count('FontGraphical="')):
 				n1 = line.find('FontGraphical="', n3)
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2) 
 				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round(float(int(y) * FACT),r_par)))
+				ynew = str(int(f_offset + round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #ServiceFontInfobar="epg_text;20" EntryFontInfobar="epg_text;20"
 		if 'FontInfobar=' in line and not ' Cool' in line:
 			s = 0
 			n3 = 0
-			for s in range(0,line.count('FontInfobar="')):
+			for s in range(0, line.count('FontInfobar="')):
 				n1 = line.find('FontInfobar="', n3)
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2) 
 				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round(float(int(y) * FACT),r_par)))
+				ynew = str(int(f_offset + round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #EventFontSingle="epg_event;22"
 		if 'FontSingle=' in line and not ' Cool' in line:
 			s = 0
 			n3 = 0
-			for s in range(0,line.count('FontSingle="')):
+			for s in range(0, line.count('FontSingle="')):
 				n1 = line.find('FontSingle="', n3)
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2) 
 				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round(float(int(y) * FACT),r_par)))
+				ynew = str(int(f_offset + round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #EventFontMulti="epg_event;22"
 		if 'FontMulti=' in line and not ' Cool' in line:
 			s = 0
 			n3 = 0
-			for s in range(0,line.count('FontMulti="')):
+			for s in range(0, line.count('FontMulti="')):
 				n1 = line.find('FontMulti="', n3)
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2) 
 				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round(float(int(y) * FACT),r_par)))
+				ynew = str(int(f_offset + round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #TimeFontVertical="epg_event;22" EventFontVertical="epg_event;18"
 		if 'FontVertical=' in line and not ' Cool' in line:
 			s = 0
 			n3 = 0
-			for s in range(0,line.count('FontVertical="')):
+			for s in range(0, line.count('FontVertical="')):
 				n1 = line.find('FontVertical="', n3)
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2) 
 				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round(float(int(y) * FACT),r_par)))
+				ynew = str(int(f_offset + round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #<alias name="Body" font="screen_text" size="20" height="25" />
@@ -2369,7 +2369,7 @@ class ActivateSkinSettings:
 			n2 = line.find('"', n1) 
 			n3 = line.find('"', n2 + 1) 
 			y = line[(n2 + 1):n3]
-			ynew = str(int(f_offset + round(float(int(y) * FACT),r_par)))
+			ynew = str(int(f_offset + round(float(int(y) * FACT), r_par)))
 			strnew = line[n1:(n2 + 1)] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3 + 1):]
 #<alias name="Body" font="screen_text" size="20" height="25" />
@@ -2378,19 +2378,19 @@ class ActivateSkinSettings:
 			n2 = line.find('"', n1) 
 			n3 = line.find('"', n2 + 1) 
 			y = line[(n2 + 1):n3]
-			ynew = str(int(f_offset + round(float(int(y) * FACT),r_par)))
+			ynew = str(int(f_offset + round(float(int(y) * FACT), r_par)))
 			strnew = line[n1:(n2 + 1)] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3 + 1):]
 #"fonts": [gFont("Regular",18),gFont("Regular",14),gFont("Regular",24),gFont("Regular",20)]
 		if '"fonts":' in line and 'gFont' in line:
 			s = 0
 			n3 = 0
-			for s in range(0,line.count('gFont(')):
+			for s in range(0, line.count('gFont(')):
 				n1 = line.find('gFont(', n3)
 				n2 = line.find(',', n1)
 				n3 = line.find(')', n2) 
 				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round(float(int(y) * FACT),r_par)))
+				ynew = str(int(f_offset + round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + " " + ynew
 				line = line[:n1] + strnew + line[n3:]
 #(pos = (40, 5)
@@ -2403,37 +2403,37 @@ class ActivateSkinSettings:
 			y = line[(n3 + 1):n4]
 			if "c+" in x:
 				x1 = x.replace("c+", "")
-				x1new = str(int(round(float(int(x1) * FACT),r_par)))
+				x1new = str(int(round(float(int(x1) * FACT), r_par)))
 				xnew = "c+" + x1new
 			elif "c-" in x:
 				x1 = x.replace("c-", "")
-				x1new = str(int(round(float(int(x1) * FACT),r_par)))
+				x1new = str(int(round(float(int(x1) * FACT), r_par)))
 				xnew = "c-" + x1new
 			elif "e-" in x:
 				x1 = x.replace("e-", "")
-				x1new = str(int(round(float(int(x1) * FACT),r_par)))
+				x1new = str(int(round(float(int(x1) * FACT), r_par)))
 				xnew = "e-" + x1new      
 			elif 'ente' in x:
 				xnew = 'center'
 			else:
-				xnew = str(int(round(float(int(x) * FACT),r_par)))
+				xnew = str(int(round(float(int(x) * FACT), r_par)))
 
 			if "c+" in y:
 				y1 = y.replace("c+", "")
-				y1new = str(int(round(float(int(y1) * FACT),r_par)))
+				y1new = str(int(round(float(int(y1) * FACT), r_par)))
 				ynew = "c+" + y1new
 			elif "c-" in y:
 				y1 = y.replace("c-", "")
-				y1new = str(int(round(float(int(y1) * FACT),r_par)))
+				y1new = str(int(round(float(int(y1) * FACT), r_par)))
 				ynew = "c-" + y1new
 			elif "e-" in y:
 				y1 = y.replace("e-", "")
-				y1new = str(int(round(float(int(y1) * FACT),r_par)))
+				y1new = str(int(round(float(int(y1) * FACT), r_par)))
 				ynew = "e-" + y1new
 			elif 'ente' in y:
 				ynew = 'center'
 			else:
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 
 			strnew = '(pos = (' + xnew + ', ' + ynew + ')'
 			line = line[:n1] + strnew + line[(n4 + 1):]
@@ -2447,37 +2447,37 @@ class ActivateSkinSettings:
 				y = line[(n3 + 1):n4]
 				if "c+" in x:
 					x1 = x.replace("c+", "")
-					x1new = str(int(round(float(int(x1) * FACT),r_par)))
+					x1new = str(int(round(float(int(x1) * FACT), r_par)))
 					xnew = "c+" + x1new
 				elif "c-" in x:
 					x1 = x.replace("c-", "")
-					x1new = str(int(round(float(int(x1) * FACT),r_par)))
+					x1new = str(int(round(float(int(x1) * FACT), r_par)))
 					xnew = "c-" + x1new
 				elif "e-" in x:
 					x1 = x.replace("e-", "")
-					x1new = str(int(round(float(int(x1) * FACT),r_par)))
+					x1new = str(int(round(float(int(x1) * FACT), r_par)))
 					xnew = "e-" + x1new
 				elif 'ente' in x:
 					xnew = 'center'
 				else:
-					xnew = str(int(round(float(int(x) * FACT),r_par)))
+					xnew = str(int(round(float(int(x) * FACT), r_par)))
 
 				if "c+" in y:
 					y1 = y.replace("c+", "")
-					y1new = str(int(round(float(int(y1) * FACT),r_par)))
+					y1new = str(int(round(float(int(y1) * FACT), r_par)))
 					ynew = "c+" + y1new
 				elif "c-" in y:
 					y1 = y.replace("c-", "")
-					y1new = str(int(round(float(int(y1) * FACT),r_par)))
+					y1new = str(int(round(float(int(y1) * FACT), r_par)))
 					ynew = "c-" + y1new
 				elif "e-" in y:
 					y1 = y.replace("e-", "")
-					y1new = str(int(round(float(int(y1) * FACT),r_par)))
+					y1new = str(int(round(float(int(y1) * FACT), r_par)))
 					ynew = "e-" + y1new
 				elif 'ente' in y:
 					ynew = 'center'
 				else:
-					ynew = str(int(round(float(int(y) * FACT),r_par)))
+					ynew = str(int(round(float(int(y) * FACT), r_par)))
 
 				strnew = 'size = (' + xnew + ', ' + ynew + ')'
 				line = line[:n1] + strnew + line[(n4 + 1):]
@@ -2489,8 +2489,8 @@ class ActivateSkinSettings:
 			n4 = line.find('"', n3) 
 			x = line[(n2 + 1):n3]
 			y = line[(n3 + 1):n4]
-			xnew = str(int(round(float(int(x) * FACT),r_par)))
-			ynew = str(int(round(float(int(y) * FACT),r_par)))
+			xnew = str(int(round(float(int(x) * FACT), r_par)))
+			ynew = str(int(round(float(int(y) * FACT), r_par)))
 
 			strnew = ' offset="' + xnew + ',' + ynew + '"'
 			line = line[:n1] + strnew + line[(n4 + 1):]
@@ -2501,7 +2501,7 @@ class ActivateSkinSettings:
 			n3 = line.find('"', n2 + 1) 
 			y = line[(n2 + 1):n3]
 
-			ynew = str(int(round(float(int(y) * FACT),r_par)))
+			ynew = str(int(round(float(int(y) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3 + 1):]
 #itemsDistances="10"
@@ -2511,7 +2511,7 @@ class ActivateSkinSettings:
 			n3 = line.find('"', n2 + 1) 
 			y = line[(n2 + 1):n3]
 
-			ynew = str(int(round(float(int(y) * FACT),r_par)))
+			ynew = str(int(round(float(int(y) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3 + 1):]
 #progressbarHeight="10"
@@ -2521,7 +2521,7 @@ class ActivateSkinSettings:
 			n3 = line.find('"', n2 + 1) 
 			y = line[(n2 + 1):n3]
 
-			ynew = str(int(round(float(int(y) * FACT),r_par)))
+			ynew = str(int(round(float(int(y) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3 + 1):]
 #progressBarWidth="50" 
@@ -2531,7 +2531,7 @@ class ActivateSkinSettings:
 			n3 = line.find('"', n2 + 1) 
 			y = line[(n2 + 1):n3]
 
-			ynew = str(int(round(float(int(y) * FACT),r_par)))
+			ynew = str(int(round(float(int(y) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3 + 1):]
 #progressbarBorderWidth="1" -> deactivated (channel list)
@@ -2551,7 +2551,7 @@ class ActivateSkinSettings:
 			n3 = line.find('"', n2 + 1) 
 			y = line[(n2 + 1):n3]
 
-			ynew = str(int(round(float(int(y) * FACT),r_par)))
+			ynew = str(int(round(float(int(y) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3 + 1):]
 #"itemHeight": 45
@@ -2565,7 +2565,7 @@ class ActivateSkinSettings:
 					n3 = line.find('}', n2)
 			y = line[(n2 + 1):n3]
 
-			ynew = str(int(round(float(int(y) * FACT),r_par)))
+			ynew = str(int(round(float(int(y) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + " " + ynew
 			line = line[:n1] + strnew + line[n3:]
 #": (90,[
@@ -2575,7 +2575,7 @@ class ActivateSkinSettings:
 			n3 = line.find(',', n2 + 1) 
 			y = line[(n2 + 1):n3]
 
-			ynew = str(int(round(float(int(y) * FACT),r_par)))
+			ynew = str(int(round(float(int(y) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + ynew
 			line = line[:n1] + strnew + line[n3:]
 
@@ -2598,7 +2598,7 @@ class ActivateSkinSettings:
 				if n3 == -1:
 					n3 = line.find('}', n2)
 			x = line[(n2 + 1):n3]
-			xnew = str(int(round(float(int(x) * FACT),r_par)))
+			xnew = str(int(round(float(int(x) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 		elif 'offset_listposy =' in line:
@@ -2610,7 +2610,7 @@ class ActivateSkinSettings:
 				if n3 == -1:
 					n3 = line.find('}', n2)
 			y = line[(n2 + 1):n3]
-			xnew = str(int(round(float(int(y) * FACT),r_par)))
+			xnew = str(int(round(float(int(y) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 		elif 'offset_listwidth =' in line:
@@ -2622,7 +2622,7 @@ class ActivateSkinSettings:
 				if n3 == -1:
 					n3 = line.find('}', n2)
 			x = line[(n2 + 1):n3]
-			xnew = str(int(round(float(int(x) * FACT),r_par)))
+			xnew = str(int(round(float(int(x) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 		elif 'offset_listheight =' in line:
@@ -2634,7 +2634,7 @@ class ActivateSkinSettings:
 				if n3 == -1:
 					n3 = line.find('}', n2)
 			y = line[(n2 + 1):n3]
-			xnew = str(int(round(float(int(y) * FACT),r_par)))
+			xnew = str(int(round(float(int(y) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 		elif 'offset_textwidth =' in line:
@@ -2646,7 +2646,7 @@ class ActivateSkinSettings:
 				if n3 == -1:
 					n3 = line.find('}', n2)
 			x = line[(n2 + 1):n3]
-			xnew = str(int(round(float(int(x) * FACT),r_par)))
+			xnew = str(int(round(float(int(x) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 		elif 'offset_textheight =' in line:
@@ -2658,7 +2658,7 @@ class ActivateSkinSettings:
 				if n3 == -1:
 					n3 = line.find('}', n2)
 			y = line[(n2 + 1):n3]
-			xnew = str(int(round(float(int(y) * FACT),r_par)))
+			xnew = str(int(round(float(int(y) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 		elif 'min_width =' in line:
@@ -2670,7 +2670,7 @@ class ActivateSkinSettings:
 				if n3 == -1:
 					n3 = line.find('}', n2)
 			x = line[(n2 + 1):n3]
-			xnew = str(int(round(float(int(x) * FACT),r_par)))
+			xnew = str(int(round(float(int(x) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 		elif 'min_height =' in line:
@@ -2682,7 +2682,7 @@ class ActivateSkinSettings:
 				if n3 == -1:
 					n3 = line.find('}', n2)
 			y = line[(n2 + 1):n3]
-			xnew = str(int(round(float(int(y) * FACT),r_par)))
+			xnew = str(int(round(float(int(y) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 		elif 'offset =' in line:
@@ -2694,7 +2694,7 @@ class ActivateSkinSettings:
 				if n3 == -1:
 					n3 = line.find('}', n2)
 			y = line[(n2 + 1):n3]
-			xnew = str(int(round(float(int(y) * FACT),r_par)))
+			xnew = str(int(round(float(int(y) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 #emc special start
@@ -2705,7 +2705,7 @@ class ActivateSkinSettings:
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round(float(int(y) * FACT),r_par)))
+				ynew = str(int(f_offset + round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 			if 'CoolSelectFont="' in line:
@@ -2713,7 +2713,7 @@ class ActivateSkinSettings:
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round(float(int(y) * FACT),r_par)))
+				ynew = str(int(f_offset + round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 			if 'CoolDateFont=' in line:
@@ -2721,7 +2721,7 @@ class ActivateSkinSettings:
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round(float(int(y) * FACT),r_par)))
+				ynew = str(int(f_offset + round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolSelNumTxtWidth="26" 
@@ -2730,7 +2730,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolDateHPos="1" 
@@ -2739,7 +2739,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolProgressHPos="1" 
@@ -2748,7 +2748,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolMovieHPos="1" 
@@ -2757,7 +2757,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolDirInfoWidth="110" 
@@ -2766,7 +2766,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolCSWidth="110" 
@@ -2775,7 +2775,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolProgressPos="35" 
@@ -2784,7 +2784,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolIconPos="35"
@@ -2793,7 +2793,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolIconHPos="35"
@@ -2802,7 +2802,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolBarPos="35"
@@ -2811,7 +2811,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolBarHPos="10"
@@ -2820,7 +2820,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolMoviePos="110"
@@ -2829,7 +2829,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolDatePos="590"
@@ -2838,7 +2838,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolCSPos"590"
@@ -2847,7 +2847,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolMovieSize="490"
@@ -2856,7 +2856,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolFolderSize="490"
@@ -2865,7 +2865,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolDateWidth="110"
@@ -2874,7 +2874,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolPiconPos="100" 
@@ -2883,7 +2883,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1) 
 				n3 = line.find('"', n2 + 1) 
 				y = line[(n2 + 1):n3] 
-				ynew = str(int(round(float(int(y) * FACT),r_par))) 
+				ynew = str(int(round(float(int(y) * FACT), r_par))) 
 				strnew = line[n1:n2 + 1] + ynew + '"' 
 				line = line[:n1] + strnew + line[(n3 + 1):] 
 #CoolPiconHPos="2" 
@@ -2892,7 +2892,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1) 
 				n3 = line.find('"', n2 + 1) 
 				y = line[(n2 + 1):n3] 
-				ynew = str(int(round(float(int(y) * FACT),r_par))) 
+				ynew = str(int(round(float(int(y) * FACT), r_par))) 
 				strnew = line[n1:n2 + 1] + ynew + '"' 
 				line = line[:n1] + strnew + line[(n3 + 1):] 
 #CoolPiconWidth="60" 
@@ -2901,7 +2901,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1) 
 				n3 = line.find('"', n2 + 1) 
 				y = line[(n2 + 1):n3] 
-				ynew = str(int(round(float(int(y) * FACT),r_par))) 
+				ynew = str(int(round(float(int(y) * FACT), r_par))) 
 				strnew = line[n1:n2 + 1] + ynew + '"' 
 				line = line[:n1] + strnew + line[(n3 + 1):] 
 #CoolPiconHeight="26" 
@@ -2910,7 +2910,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1) 
 				n3 = line.find('"', n2 + 1) 
 				y = line[(n2 + 1):n3] 
-				ynew = str(int(round(float(int(y) * FACT),r_par))) 
+				ynew = str(int(round(float(int(y) * FACT), r_par))) 
 				strnew = line[n1:n2 + 1] + ynew + '"' 
 				line = line[:n1] + strnew + line[(n3 + 1):] 
 #CoolMoviePiconPos="160" 
@@ -2919,7 +2919,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1) 
 				n3 = line.find('"', n2 + 1) 
 				y = line[(n2 + 1):n3] 
-				ynew = str(int(round(float(int(y) * FACT),r_par))) 
+				ynew = str(int(round(float(int(y) * FACT), r_par))) 
 				strnew = line[n1:n2 + 1] + ynew + '"' 
 				line = line[:n1] + strnew + line[(n3 + 1):] 
 #CoolMoviePiconSize="425" 
@@ -2928,7 +2928,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1) 
 				n3 = line.find('"', n2 + 1) 
 				y = line[(n2 + 1):n3] 
-				ynew = str(int(round(float(int(y) * FACT),r_par))) 
+				ynew = str(int(round(float(int(y) * FACT), r_par))) 
 				strnew = line[n1:n2 + 1] + ynew + '"' 
 				line = line[:n1] + strnew + line[(n3 + 1):] 
 #CoolIconSize="24,24"
@@ -2939,8 +2939,8 @@ class ActivateSkinSettings:
 				n4 = line.find('"', n3) 
 				x = line[(n2 + 1):n3]
 				y = line[(n3 + 1):n4]
-				xnew = str(int(round(float(int(x) * FACT),r_par)))
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				xnew = str(int(round(float(int(x) * FACT), r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = 'CoolIconSize="' + xnew + ',' + ynew + '"'
 				line = line[:n1] + strnew + line[(n4 + 1):]
 #CoolBarSize="65,10"
@@ -2951,8 +2951,8 @@ class ActivateSkinSettings:
 				n4 = line.find('"', n3) 
 				x = line[(n2 + 1):n3]
 				y = line[(n3 + 1):n4]
-				xnew = str(int(round(float(int(x) * FACT),r_par)))
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				xnew = str(int(round(float(int(x) * FACT), r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = 'CoolBarSize="' + xnew + ',' + ynew + '"'
 				line = line[:n1] + strnew + line[(n4 + 1):]
 #CoolBarSizeSa="65,10"
@@ -2963,8 +2963,8 @@ class ActivateSkinSettings:
 				n4 = line.find('"', n3) 
 				x = line[(n2 + 1):n3]
 				y = line[(n3 + 1):n4]
-				xnew = str(int(round(float(int(x) * FACT),r_par)))
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				xnew = str(int(round(float(int(x) * FACT), r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = 'CoolBarSizeSa="' + xnew + ',' + ynew + '"'
 				line = line[:n1] + strnew + line[(n4 + 1):]
 #/CoolPointerRec.png:980,0"
@@ -2975,8 +2975,8 @@ class ActivateSkinSettings:
 				n4 = line.find('"', n3) 
 				x = line[(n2 + 1):n3]
 				y = line[(n3 + 1):n4]
-				xnew = str(int(round(float(int(x) * FACT),r_par)))
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				xnew = str(int(round(float(int(x) * FACT), r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = '/CoolPointerRec.png:' + xnew + ',' + ynew + '"'
 				line = line[:n1] + strnew + line[(n4 + 1):]
 #/CoolPointerRec2.png:1080,0"
@@ -2987,8 +2987,8 @@ class ActivateSkinSettings:
 				n4 = line.find('"', n3) 
 				x = line[(n2 + 1):n3]
 				y = line[(n3 + 1):n4]
-				xnew = str(int(round(float(int(x) * FACT),r_par)))
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				xnew = str(int(round(float(int(x) * FACT), r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = '/CoolPointerRec2.png:' + xnew + ',' + ynew + '"'
 				line = line[:n1] + strnew + line[(n4 + 1):]
 
@@ -3001,7 +3001,7 @@ class ActivateSkinSettings:
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round(float(int(y) * FACT),r_par)))
+				ynew = str(int(f_offset + round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 			if 'CoolServiceFont="' in line:
@@ -3009,7 +3009,7 @@ class ActivateSkinSettings:
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round(float(int(y) * FACT),r_par)))
+				ynew = str(int(f_offset + round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 			if 'CoolEventFont="' in line:
@@ -3017,7 +3017,7 @@ class ActivateSkinSettings:
 				n2 = line.find(';', n1)
 				n3 = line.find('"', n2)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round(float(int(y) * FACT),r_par)))
+				ynew = str(int(f_offset + round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolServiceSize="220"
@@ -3026,7 +3026,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolEventSize="720"
@@ -3035,7 +3035,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolServicePos="4"
@@ -3044,7 +3044,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolServiceHPos="1"
@@ -3053,7 +3053,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolEventPos="355"
@@ -3062,7 +3062,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolEventHPos="1"
@@ -3071,7 +3071,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolBarPos="240"
@@ -3080,7 +3080,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolBarHPos="10"
@@ -3089,7 +3089,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolBarSize="100"
@@ -3098,7 +3098,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolBarHigh="10"
@@ -3107,7 +3107,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolTimePos="225"
@@ -3116,7 +3116,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolTimeHPos="2"
@@ -3125,7 +3125,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolTimeSize="120"
@@ -3134,7 +3134,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolDurationPos="1055"
@@ -3143,7 +3143,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolDurationSize="100"
@@ -3152,7 +3152,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolPico="35"
@@ -3161,7 +3161,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolDaySize="100"
@@ -3170,7 +3170,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolDayPos="0"
@@ -3179,7 +3179,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolDayHPos="2"
@@ -3188,7 +3188,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolDayHPos="2"
@@ -3197,7 +3197,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolDatePos="0"
@@ -3206,7 +3206,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolDateHPos="0"
@@ -3215,7 +3215,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolDateSize="0"
@@ -3224,7 +3224,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolMarkerHPos="200"
@@ -3233,7 +3233,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolMarkerPicPos="2"
@@ -3242,7 +3242,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolMarkerPicHPos="2"
@@ -3251,7 +3251,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolPicoPos="2"
@@ -3260,7 +3260,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #CoolPicoHPos="2"
@@ -3269,7 +3269,7 @@ class ActivateSkinSettings:
 				n2 = line.find('"', n1)
 				n3 = line.find('"', n2 + 1)
 				y = line[(n2 + 1):n3]
-				ynew = str(int(round(float(int(y) * FACT),r_par)))
+				ynew = str(int(round(float(int(y) * FACT), r_par)))
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #cool tv guide special end

@@ -190,7 +190,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			if language == 'en-EN':
 				language = 'en-US'
 			city = "%s" % self.cityname
-			feedurl = "http://weather.service.msn.com/data.aspx?weadegreetype=%s&culture=%s&weasearchstr=%s&src=outlook" % (units,language,urllib2_quote(city))
+			feedurl = "http://weather.service.msn.com/data.aspx?weadegreetype=%s&culture=%s&weasearchstr=%s&src=outlook" % (units, language, urllib2_quote(city))
 			msnrequest = Request(feedurl, None, std_headers)
 			try:
 				msnpage = urlopen2(msnrequest)
@@ -307,7 +307,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				currentWeathershortday = currentWeather.getAttributeNode('shortday')
 				config.plugins.MetrixWeather.forecastTomorrowshortday3.value = currentWeathershortday.nodeValue
 				if self.check:
-					text = "%s|%s|%s°|%s°|%s°" % (id,name,temp,temp_max,temp_min)
+					text = "%s|%s|%s°|%s°|%s°" % (id, name, temp, temp_max, temp_min)
 					self.writeCheckFile(text)
 					return
 			except IndexError, err:
@@ -322,7 +322,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			apikey = "&appid=%s" % config.plugins.MetrixWeather.apikey.value
 			city = "id=%s" % self.woeid
 			cnt = (24 + (24 - int(datetime.now().strftime('%H')))) / 3 + 1
-			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=%s&cnt=%d%s" % (city,language[:2],units,cnt,apikey)
+			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=%s&cnt=%d%s" % (city, language[:2], units, cnt, apikey)
 			print feedurl
 			getPage(feedurl).addCallback(self.jsonCallback).addErrback(self.errorCallback)
 
@@ -383,7 +383,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				tmax_tomorrow = str(max(tmax_tomorrow))
 
 			if self.check:
-				text = "%s|%s|%s°|%s°|%s°" % (id,name,temp,tmax_today,tmin_today)
+				text = "%s|%s|%s°|%s°|%s°" % (id, name, temp, tmax_today, tmin_today)
 				self.writeCheckFile(text)
 				return
 
@@ -405,7 +405,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			return
 		self.setWeatherDataValid(3)
 
-	def getText(self,nodelist):
+	def getText(self, nodelist):
 		rc = []
 		for node in nodelist:
 			if node.nodeType == node.TEXT_NODE:
@@ -502,7 +502,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			condition = ")"
 		return str(condition)
 
-	def writeCheckFile(self,text):
+	def writeCheckFile(self, text):
 		f = open('/tmp/weathercheck.txt', 'w')
 		f.write(text)
 		f.close()

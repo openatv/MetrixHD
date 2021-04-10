@@ -179,7 +179,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		self.onLayoutFinish.append(self.ShowPicture)
 
 	def ShowPicture(self):
-		self.PicLoad.setPara([self["helperimage"].instance.size().width(),self["helperimage"].instance.size().height(),self.Scale[0],self.Scale[1],0,1,"#00000000"])
+		self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), self.Scale[0], self.Scale[1], 0, 1, "#00000000"])
 		self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 
@@ -205,7 +205,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 
 	def writeFile(self):
 		try:
-			f = file(BACKUP_FILE,'wb')
+			f = file(BACKUP_FILE, 'wb')
 			pickle.dump(self.file, f)
 			f.close()
 			self.changedEntry(True)
