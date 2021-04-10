@@ -12,6 +12,7 @@ from Poll import Poll
 
 ##########################################################################
 
+
 class MetrixHDVideoInfo(Poll, Converter, object):
 
 	VIDEOMODE = 0

@@ -5,6 +5,7 @@ from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
 
 initOtherConfig()
 
+
 class MetrixHDMenuEntryCompare(Converter, object):
 	def __init__(self, type):
 		Converter.__init__(self, type)

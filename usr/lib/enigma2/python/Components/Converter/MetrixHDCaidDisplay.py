@@ -26,6 +26,7 @@ from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
 from Components.config import config
 initOtherConfig()
 
+
 class MetrixHDCaidDisplay(Poll, Converter, object):
 	def __init__(self, type):
 		Poll.__init__(self)

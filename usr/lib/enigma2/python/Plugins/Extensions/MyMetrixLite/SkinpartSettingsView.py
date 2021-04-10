@@ -39,6 +39,7 @@ from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 #############################################################
 
+
 class SkinpartSettingsView(ConfigListScreen, Screen):
 	skin = """
 	<screen name="MyMetrixLiteOtherView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
@@ -456,6 +457,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			self["helpertext"].setText(cur[2])
 		else:
 			self["helpertext"].setText(" ")
+
 
 class zoomPreview(Screen):
 	x = getDesktop(0).size().width()

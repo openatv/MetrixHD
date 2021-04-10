@@ -42,6 +42,7 @@ BoxType = getBoxType()
 
 #############################################################
 
+
 class OtherSettingsView(ConfigListScreen, Screen):
 	skin = """
 	<screen name="MyMetrixLiteOtherView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">

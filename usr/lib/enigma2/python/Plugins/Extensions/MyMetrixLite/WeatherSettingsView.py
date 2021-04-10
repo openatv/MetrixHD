@@ -42,6 +42,7 @@ from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 #############################################################
 
+
 class WeatherSettingsView(ConfigListScreen, Screen):
 	skin = """
 	<screen name="MyMetrixLiteWeatherView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
@@ -275,6 +276,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		else:
 			self["helpertext"].setText(" ")
 
+
 class WeatherSettingsLocation(Screen):
 	skin = """
 		<screen position="center,center" size="380,80" title="%s">
@@ -325,6 +327,7 @@ class WeatherSettingsLocation(Screen):
 			if fileExists('/tmp/weathermsn.xml'):
 				system('rm /tmp/weathermsn.xml')
 			self.close()
+
 
 def search_title(id):
 	url = 'http://weather.service.msn.com/find.aspx?outputview=search&weasearchstr=%s&culture=en-US&src=outlook' % id

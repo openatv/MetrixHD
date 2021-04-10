@@ -25,6 +25,7 @@ from Components.config import config, ConfigText, ConfigNumber, ConfigDateTime
 from Components.Element import cached
 from Poll import Poll
 
+
 class MetrixHDWeather(Poll, Converter, object):
 
 	def __init__(self, type):
