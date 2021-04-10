@@ -383,19 +383,22 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 										source[idx] = line
 								else:
 									idxerr = True
-									if idxerrcnt: idxerrtxt += '\n'
+									if idxerrcnt:
+										idxerrtxt += '\n'
 									idxerrcnt += 1
 									idxerrtxt += '%d. name error - file: %s, line: %s, screen: %s (%s)' %(idxerrcnt, self.parts[pidx][0][1] + '.xml', self.screens[pidx][sidx][0], self.screens[pidx][sidx][1], name)
 									break
 							else:
 								idxerr = True
-								if idxerrcnt: idxerrtxt += '\n'
+								if idxerrcnt:
+									idxerrtxt += '\n'
 								idxerrcnt += 1
 								idxerrtxt += '%d. index error - file: %s, line: %s, screen: %s' %(idxerrcnt, self.parts[pidx][0][1] + '.xml', self.screens[pidx][sidx][0], self.screens[pidx][sidx][1])
 								break
 						else:
 							idxerr = True
-							if idxerrcnt: idxerrtxt += '\n'
+							if idxerrcnt:
+								idxerrtxt += '\n'
 							idxerrcnt += 1
 							idxerrtxt +=  '%d. file error - file: %s (index > lines)\n' %(sfile)
 							break
