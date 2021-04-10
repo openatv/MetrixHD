@@ -548,25 +548,25 @@ class ActivateSkinSettings:
 			CoolCSPos = sizeW - CoolCSDirInfoWidth - margin
 			CoolIconPos = 4 + offsetPosIcon
 
-			EMCSkinSearchAndReplace.append(['size="700,480" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"'\
+			EMCSkinSearchAndReplace.append(['size="700,480" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"'
 											, 'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' %(sizeH, itemHeight, CoolFont, CoolSelectFont, CoolDateFont) ])
 
-			EMCSkinSearchAndReplace.append(['size="700,240" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"'\
+			EMCSkinSearchAndReplace.append(['size="700,240" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"'
 											, 'size="700,%s" itemHeight="%s" CoolFont="epg_text;%s" CoolSelectFont="epg_text;%s" CoolDateFont="epg_text;%s"' %(sizeH//2, itemHeight, CoolFont, CoolSelectFont, CoolDateFont) ])
 
-			EMCSkinSearchAndReplace.append(['CoolProgressHPos="2" CoolIconPos="4" CoolIconHPos="2" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90"'\
+			EMCSkinSearchAndReplace.append(['CoolProgressHPos="2" CoolIconPos="4" CoolIconHPos="2" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90"'
 											, 'CoolProgressHPos="%s" CoolIconPos="%s" CoolIconHPos="%s" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="%s" CoolBarSize="%s,%s" CoolBarSizeSa="%s,%s" CoolMoviePos="%s"' %(CoolProgressHPos, CoolIconPos, CoolIconHPos, CoolBarHPos, CoolBarSizeH, CoolBarSizeV, CoolBarSizeH, CoolBarSizeV, CoolMoviePos - margin) ])
 
 			CoolMoviePiconPos = CoolMoviePos + CoolPiconWidth + gap - margin
 			CoolPiconPos = CoolMoviePos - margin
-			EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'\
+			EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="90" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="140" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'
 											, 'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' %(CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos) ])
 
 			CoolMoviePiconPos = CoolMoviePos - margin
 			CoolPiconPos = CoolDatePos - CoolPiconWidth - gap - margin
 			if not CoolDateWidth:
 				CoolPiconPos = CoolDatePos - CoolPiconWidth
-			EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="540" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'\
+			EMCSkinSearchAndReplace.append(['CoolMovieHPos="2" CoolMovieSize="494" CoolFolderSize="475" CoolDatePos="592" CoolDateHPos="2" CoolDateWidth="104" CoolPiconPos="540" CoolPiconHPos="2" CoolPiconWidth="45" CoolPiconHeight="26" CoolMoviePiconPos="90" CoolMoviePiconSize="445" CoolCSWidth="140" CoolDirInfoWidth="140" CoolCSPos="555"'
 											, 'CoolMovieHPos="%s" CoolMovieSize="%s" CoolFolderSize="%s" CoolDatePos="%s" CoolDateHPos="%s" CoolDateWidth="%s" CoolPiconPos="%s" CoolPiconHPos="%s" CoolPiconWidth="%s" CoolPiconHeight="%s" CoolMoviePiconPos="%s" CoolMoviePiconSize="%s" CoolCSWidth="%s" CoolDirInfoWidth="%s" CoolCSPos="%s"' %(CoolMovieHPos, CoolMovieSize, CoolFolderSize, CoolDatePos, CoolDateHPos, CoolDateWidth, CoolPiconPos, CoolPiconHPos, CoolPiconWidth, CoolPiconHeight, CoolMoviePiconPos, CoolMoviePiconSize, CoolCSDirInfoWidth, CoolCSDirInfoWidth, CoolCSPos) ])
 
 			if posNR:
@@ -1327,7 +1327,8 @@ class ActivateSkinSettings:
 			self.font_offset = config.plugins.MyMetrixLiteOther.EHDfontoffset.value
 			if config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon.value == "1":
 				self.picon_zoom = 1 + ((self.EHDfactor - 1) * float(config.plugins.MyMetrixLiteOther.EHDpiconzoom.value))
-				if not self.picon_zoom: self.picon_zoom = 1
+				if not self.picon_zoom:
+					self.picon_zoom = 1
 			else:
 				self.picon_zoom = self.EHDfactor
 
@@ -1564,7 +1565,8 @@ class ActivateSkinSettings:
 		if color:
 			self.makeColorGradient(cgfile, int(1280*factor), int(size*factor), color, int(gpos*factor), int(gsize*factor), 'up')
 		else:
-			if path.isfile(cgfile): remove(cgfile)
+			if path.isfile(cgfile):
+				remove(cgfile)
 		# ib
 		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.infobarbackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_bottom_ib.png"
@@ -1574,7 +1576,8 @@ class ActivateSkinSettings:
 		if color:
 			self.makeColorGradient(cgfile, int(1280*factor), int(size*factor), color, int(gpos*factor), int(gsize*factor), 'up')
 		else:
-			if path.isfile(cgfile): remove(cgfile)
+			if path.isfile(cgfile):
+				remove(cgfile)
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_top_ib.png"
 		size = 30
 		gpos = size - size * ((100-int(config.plugins.MyMetrixLiteColors.cologradient_position.value))*0.01)
@@ -1582,7 +1585,8 @@ class ActivateSkinSettings:
 		if color:
 			self.makeColorGradient(cgfile, int(1280*factor), int(size*factor), color, int(gpos*factor), int(gsize*factor), 'down')
 		else:
-			if path.isfile(cgfile): remove(cgfile)
+			if path.isfile(cgfile):
+				remove(cgfile)
 		# mb
 		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.infobarbackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_bottom_mb.png"
@@ -1595,7 +1599,8 @@ class ActivateSkinSettings:
 		if color:
 			self.makeColorGradient(cgfile, int(1280*factor), int(150*factor), color, int(gpos*factor), int(gsize*factor), 'up')
 		else:
-			if path.isfile(cgfile): remove(cgfile)
+			if path.isfile(cgfile):
+				remove(cgfile)
 		# db
 		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.infobarbackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_bottom_pb.png"
@@ -1605,7 +1610,8 @@ class ActivateSkinSettings:
 		if color:
 			self.makeColorGradient(cgfile, int(1280*factor), int(size*factor), color, int(gpos*factor), int(gsize*factor), 'up')
 		else:
-			if path.isfile(cgfile): remove(cgfile)
+			if path.isfile(cgfile):
+				remove(cgfile)
 		# layer a
 		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.layerabackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_top_qm.png"
@@ -1615,12 +1621,14 @@ class ActivateSkinSettings:
 		if color:
 			self.makeColorGradient(cgfile, int(1280*factor), int(size*factor), color, int(gpos*factor), int(gsize*factor), 'down')
 		else:
-			if path.isfile(cgfile): remove(cgfile)
+			if path.isfile(cgfile):
+				remove(cgfile)
 		# ibts background
 		color = config.plugins.MyMetrixLiteColors.layerabackground.value
 		alpha = config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value
 		cgfile = "/usr/share/enigma2/MetrixHD/ibts/background.png"
-		if path.isdir("/usr/share/enigma2/MetrixHD/ibts"): self.makeColorField(cgfile, int(1280*factor), int(32*factor), color, alpha)
+		if path.isdir("/usr/share/enigma2/MetrixHD/ibts"):
+			self.makeColorField(cgfile, int(1280*factor), int(32*factor), color, alpha)
 		# file commander image viewer background
 		color = config.plugins.MyMetrixLiteColors.layerabackground.value
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_imageviewer.png"
@@ -1639,9 +1647,12 @@ class ActivateSkinSettings:
 			g -= g * 0.01 * int(coloroption)
 			b = int(color[-2:][:2], 16)
 			b -= b * 0.01 * int(coloroption)
-			if r < 0: r = 0
-			if g < 0: g = 0
-			if b < 0: b = 0
+			if r < 0:
+				r = 0
+			if g < 0:
+				g = 0
+			if b < 0:
+				b = 0
 			return "%.2x%.2x%.2x" %(int(r), int(g), int(b))
 		elif len(coloroption) == 6:
 			return coloroption

@@ -144,7 +144,8 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		return list
 
 	def renameName(self):
-		if not isinstance(self["config"].getCurrent()[1], ConfigText): return
+		if not isinstance(self["config"].getCurrent()[1], ConfigText):
+			return
 		self.oldname = self.myname.value
 		self.session.openWithCallback(self.renameNameCB, VirtualKeyBoard, title=_("Please enter new name:"), text=self.myname.value)
 

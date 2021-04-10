@@ -401,7 +401,8 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			config.plugins.MetrixWeather.forecastTodayTempMin.value = tmin_today
 			config.plugins.MetrixWeather.forecastTodayTempMax.value = tmax_today
 			#tomrorrow
-			if not code_tomorrow: code_tomorrow = tmp
+			if not code_tomorrow:
+				code_tomorrow = tmp
 			config.plugins.MetrixWeather.forecastTomorrowCode.value = self.ConvertCondition(code_tomorrow)
 			config.plugins.MetrixWeather.forecastTomorrowTempMin.value = tmin_tomorrow
 			config.plugins.MetrixWeather.forecastTomorrowTempMax.value = tmax_tomorrow

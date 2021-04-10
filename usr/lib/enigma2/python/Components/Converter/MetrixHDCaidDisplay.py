@@ -287,7 +287,8 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 				except:
 					try:
 						ecm = open("/tmp/ecm.info", "rb").readlines()
-					except: pass
+					except:
+						pass
 			if ecm:
 				for line in ecm:
 					line = six.ensure_str(line)
