@@ -119,7 +119,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		self.onLayoutFinish.append(self.UpdatePicture)
 
 	def getMenuItemList(self):
-		list = [ ]
+		list = []
 
 		list.append(getConfigListEntry(_("Enabled"), config.plugins.MetrixWeather.enabled, _("Cycle/failure indicator colors on widget:\ngreen - 6 times try to fetch weather data\nyellow - fetch weather data paused 5 mins\nred - fetch weather data aborted after 6 times green and yellow\n(if red -> press 'save' for refresh)"), "ENABLED"))
 		self.check_enable = False
