@@ -131,7 +131,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		list = []
 		char = 150
 		sep = "-"
-		tab = " "*10
+		tab = " " * 10
 
 		list.append(getConfigListEntry(_("My Backup Number"), self.myset, _("You can create up to 99 Backup-Sets.\nStored in:\n%s") % BACKUP_FILE, 'REFRESH'))
 		list.append(getConfigListEntry(_("My Backup Description"), self.myname, _("You can here assign an individual name.") + _("\nPress 'OK-Button'")))
@@ -154,12 +154,12 @@ class BackupSettingsView(ConfigListScreen, Screen):
 			self.myname.value = name
 
 			set = self.myset.value
-			name= self.myname.value
+			name = self.myname.value
 			newname = False
 			data = []
 			for entries in self.file:
-				if "set%dname" %set in entries:
-					data +=[("set%dname" %set, name)]
+				if "set%dname" % set in entries:
+					data += [("set%dname" % set, name)]
 					newname = True
 				else:
 					data += [entries]
@@ -210,7 +210,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 			f.close()
 			self.changedEntry(True)
 		except IOError:
-			self.message(_("Can't create Backup-File!\n( %s )")% BACKUP_FILE, MessageBox.TYPE_ERROR)
+			self.message(_("Can't create Backup-File!\n( %s )") % BACKUP_FILE, MessageBox.TYPE_ERROR)
 
 	def readFile(self):
 
@@ -232,25 +232,25 @@ class BackupSettingsView(ConfigListScreen, Screen):
 	def restore(self):
 		self["titleText"].setText(_("Backup & Restore my settings"))
 		if not self.readFile():
-			self.message(_("No Backup-File found!\n( %s )")% BACKUP_FILE, MessageBox.TYPE_ERROR)
+			self.message(_("No Backup-File found!\n( %s )") % BACKUP_FILE, MessageBox.TYPE_ERROR)
 			return
 		set = self.myset.value
-		s=0
+		s = 0
 
 		# test backup-set
 		for entries in self.file:
-			if "set%dname" %set in entries:
-				s+=1
-			elif "set%ddate" %set in entries:
-				s+=1
-			elif "set%dcolor" %set in entries:
-				s+=1
-			elif "set%dfont" %set in entries:
-				s+=1
-			elif "set%dother" %set in entries:
-				s+=1
-			elif "set%dweather" %set in entries:
-				s+=1
+			if "set%dname" % set in entries:
+				s += 1
+			elif "set%ddate" % set in entries:
+				s += 1
+			elif "set%dcolor" % set in entries:
+				s += 1
+			elif "set%dfont" % set in entries:
+				s += 1
+			elif "set%dother" % set in entries:
+				s += 1
+			elif "set%dweather" % set in entries:
+				s += 1
 
 		if s == 6:
 			pass
@@ -264,17 +264,17 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		self.defaults()
 
 		for entries in self.file:
-			if "set%dcolor" %set in entries:
+			if "set%dcolor" % set in entries:
 				config.plugins.MyMetrixLiteColors.setSavedValue(entries[1])
-			elif "set%dfont" %set in entries:
+			elif "set%dfont" % set in entries:
 				config.plugins.MyMetrixLiteFonts.setSavedValue(entries[1])
-			elif "set%dother" %set in entries:
+			elif "set%dother" % set in entries:
 				config.plugins.MyMetrixLiteOther.setSavedValue(entries[1])
-			elif "set%dweather" %set in entries:
+			elif "set%dweather" % set in entries:
 				config.plugins.MetrixWeather.setSavedValue(entries[1])
 
 		self.delete(writeFile=False, restore=True)
-		self.file+=[("myLastRestore", set)]
+		self.file += [("myLastRestore", set)]
 		self.writeFile()
 		configfile.save()
 		self.message(_("Settings successfully restored."), MessageBox.TYPE_INFO)
@@ -297,8 +297,8 @@ class BackupSettingsView(ConfigListScreen, Screen):
 			elif self.runnext == "backup":
 				self.delay.callback.append(self.backup)
 				self.delay.start(500, True)
-			elif  self.runnext == "restore":
-				self["titleText"].setText(_("Restoring Backup-Set %d ...") %self.myset.value)
+			elif self.runnext == "restore":
+				self["titleText"].setText(_("Restoring Backup-Set %d ...") % self.myset.value)
 				self.delay.callback.append(self.restore)
 				self.delay.start(500, True)
 
@@ -308,17 +308,17 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		data = []
 
 		for entries in self.file:
-			if "set%dname" %set in entries and not restore:
+			if "set%dname" % set in entries and not restore:
 				pass
-			elif "set%ddate" %set in entries and not restore:
+			elif "set%ddate" % set in entries and not restore:
 				pass
-			elif "set%dcolor" %set in entries and not restore:
+			elif "set%dcolor" % set in entries and not restore:
 				pass
-			elif "set%dfont" %set in entries and not restore:
+			elif "set%dfont" % set in entries and not restore:
 				pass
-			elif "set%dother" %set in entries and not restore:
+			elif "set%dother" % set in entries and not restore:
 				pass
-			elif "set%dweather" %set in entries and not restore:
+			elif "set%dweather" % set in entries and not restore:
 				pass
 			elif "myLastBackup" in entries and not restore and not writeFile:
 				pass
@@ -339,7 +339,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		run = True
 		set = self.myset.value
 		for entries in self.file:
-			if "set%dname" %set in entries:
+			if "set%dname" % set in entries:
 				self.messageQ(_("Delete current Backup-Set?"), MessageBox.TYPE_YESNO, False, "delete")
 				run = False
 				break
@@ -350,7 +350,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		run = True
 		set = self.myset.value
 		for entries in self.file:
-			if "set%dname" %set in entries:
+			if "set%dname" % set in entries:
 				self.messageQ(_("Overwrite current Backup-Set?"), MessageBox.TYPE_YESNO, False, "backup")
 				run = False
 				break
@@ -361,7 +361,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		run = True
 		set = self.myset.value
 		for entries in self.file:
-			if "set%dname" %set in entries:
+			if "set%dname" % set in entries:
 				self.messageQ(_("Overwrite current Settings?"), MessageBox.TYPE_YESNO, False, "restore")
 				run = False
 				break
@@ -370,18 +370,18 @@ class BackupSettingsView(ConfigListScreen, Screen):
 
 	def backup(self):
 		set = self.myset.value
-		name= self.myname.value
+		name = self.myname.value
 		date = strftime("%a, %d.%m.%Y, %H:%M:%S", localtime(time()))
 
 		self.delete(writeFile=False)
 
-		self.file+=[("myLastBackup", set)]
-		self.file+=[("set%dname" %set, name)]
-		self.file+=[("set%ddate" %set, date)]
-		self.file+=[("set%dcolor" %set, config.plugins.MyMetrixLiteColors.getSavedValue())]
-		self.file+=[("set%dfont" %set, config.plugins.MyMetrixLiteFonts.getSavedValue())]
-		self.file+=[("set%dother" %set, config.plugins.MyMetrixLiteOther.getSavedValue())]
-		self.file+=[("set%dweather" %set, config.plugins.MetrixWeather.getSavedValue())]
+		self.file += [("myLastBackup", set)]
+		self.file += [("set%dname" % set, name)]
+		self.file += [("set%ddate" % set, date)]
+		self.file += [("set%dcolor" % set, config.plugins.MyMetrixLiteColors.getSavedValue())]
+		self.file += [("set%dfont" % set, config.plugins.MyMetrixLiteFonts.getSavedValue())]
+		self.file += [("set%dother" % set, config.plugins.MyMetrixLiteOther.getSavedValue())]
+		self.file += [("set%dweather" % set, config.plugins.MetrixWeather.getSavedValue())]
 		self.writeFile()
 
 	def exit(self):
@@ -409,11 +409,11 @@ class BackupSettingsView(ConfigListScreen, Screen):
 			if self.file:
 				set = self.myset.value
 				for entries in self.file:
-					if "set%sname" %set in entries:
+					if "set%sname" % set in entries:
 						name = entries[1]
-					elif "set%sdate" %set in entries:
+					elif "set%sdate" % set in entries:
 						date = entries[1]
-					elif "set%sdate" %set in entries:
+					elif "set%sdate" % set in entries:
 						date = entries[1]
 					elif "myLastBackup" in entries:
 						backup = entries[1]

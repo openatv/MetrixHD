@@ -47,13 +47,13 @@ class MainMenuList(MenuList):
 		MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
 		screenwidth = getDesktop(0).size().width()
 		if screenwidth and screenwidth == 3840:
-			self.l.setFont(0, gFont("Regular", int(font0*3)))
-			self.l.setFont(1, gFont("Regular", int(font1*3)))
-			self.l.setItemHeight(int(itemHeight*3))
+			self.l.setFont(0, gFont("Regular", int(font0 * 3)))
+			self.l.setFont(1, gFont("Regular", int(font1 * 3)))
+			self.l.setItemHeight(int(itemHeight * 3))
 		elif screenwidth and screenwidth == 1920:
-			self.l.setFont(0, gFont("Regular", int(font0*1.5)))
-			self.l.setFont(1, gFont("Regular", int(font1*1.5)))
-			self.l.setItemHeight(int(itemHeight*1.5))
+			self.l.setFont(0, gFont("Regular", int(font0 * 1.5)))
+			self.l.setFont(1, gFont("Regular", int(font1 * 1.5)))
+			self.l.setItemHeight(int(itemHeight * 1.5))
 		else:
 			self.l.setFont(0, gFont("Regular", font0))
 			self.l.setFont(1, gFont("Regular", font1))

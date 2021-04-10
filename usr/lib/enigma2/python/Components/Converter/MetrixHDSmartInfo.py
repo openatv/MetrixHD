@@ -48,7 +48,7 @@ class MetrixHDSmartInfo(Poll, Converter, object):
 			xresol = info.getInfo(iServiceInformation.sVideoWidth)
 			yresol = info.getInfo(iServiceInformation.sVideoHeight)
 			feinfo = (service and service.frontendInfo())
-			if (feinfo is not None) and (xresol>0):
+			if (feinfo is not None) and (xresol > 0):
 				#Ret_Text = str(xresol) + "x" + str(yresol) + "   "
 				#if (yresol > 580):
 					#Ret_Text = "HD     "
@@ -153,7 +153,7 @@ class MetrixHDSmartInfo(Poll, Converter, object):
 								elif orbital_pos == 2120:
 									orb_pos = 'Echostar 2 (148.0W)'
 								else:
-									orb_pos = str((float(3600 - orbital_pos))/10.0) + "W"
+									orb_pos = str((float(3600 - orbital_pos)) / 10.0) + "W"
 							elif orbital_pos > 0:
 								if orbital_pos == 192:
 									orb_pos = 'Astra 1F (19.2E)'
@@ -274,7 +274,7 @@ class MetrixHDSmartInfo(Poll, Converter, object):
 								elif orbital_pos == 30:
 									orb_pos = 'Telecom 2 (3.0E)'
 								else:
-									orb_pos = str((float(orbital_pos))/10.0) + "E"
+									orb_pos = str((float(orbital_pos)) / 10.0) + "E"
 						Ret_Text = Ret_Text + "" + orb_pos + ""
 					elif (frontendData.get("tuner_type") == "DVB-T"):
 						frequency = (str((frontendData.get("frequency") / 1000)) + " MHz")
@@ -293,8 +293,8 @@ class MetrixHDSmartInfo(Poll, Converter, object):
 		Converter.changed(self, what)
 
 	def kurz(self, langTxt):
-		if (len(langTxt)>23):
-			retT = langTxt[:20]+"..."
+		if (len(langTxt) > 23):
+			retT = langTxt[:20] + "..."
 			return retT
 		else:
 			return langTxt

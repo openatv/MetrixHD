@@ -148,7 +148,7 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 							if not using:
 								source = ecm_info.get("source", None)
 								if not source:
-									decode= ecm_info.get("decode", None)
+									decode = ecm_info.get("decode", None)
 									if not decode:
 										return textvalue
 						show_caid = config.plugins.MyMetrixLiteOther.showExtended_caid.value
@@ -294,7 +294,7 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 					line = six.ensure_str(line)
 					x = line.lower().find("msec")
 					if x != -1:
-						info["ecm time"] = line[0:x+4]
+						info["ecm time"] = line[0:x + 4]
 					else:
 						item = line.split(":", 1)
 						if len(item) > 1:
@@ -305,7 +305,7 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 								if x != -1:
 									y = line.find(",")
 									if y != -1:
-										info["caid"] = line[x+5:y]
+										info["caid"] = line[x + 5:y]
 
 		return info
 

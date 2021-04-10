@@ -117,7 +117,7 @@ class MetrixHDClockToText(Converter, object):
 		elif self.type == self.ANALOG_MIN:
 			return "%02d" % t.tm_min
 		elif self.type == self.ANALOG_HOUR:
-			ret = (t.tm_hour*5)+(t.tm_min/12)
+			ret = (t.tm_hour * 5) + (t.tm_min / 12)
 			return "%02d" % ret
 		else:
 			return "???"

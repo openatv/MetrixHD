@@ -162,7 +162,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.EHDvalue_old = "1"
 			self.EHDres_old = 'FHD'
 			self.EHDtext_old = 'Full HD'
-		elif screenwidth and screenwidth == 3840  and not config.plugins.MyMetrixLiteOther.EHDenabled.value == '2':
+		elif screenwidth and screenwidth == 3840 and not config.plugins.MyMetrixLiteOther.EHDenabled.value == '2':
 			self.EHDvalue_old = "2"
 			self.EHDres_old = 'UHD'
 			self.EHDtext_old = 'Ultra HD'
@@ -207,7 +207,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 				self.UninstallCheck()
 
 	def test(self):
-		plustext=""
+		plustext = ""
 		#check hbbtv plugin - is sometimes or with some boxes not compatible with EHD-skin!
 		if path.exists("/usr/lib/enigma2/python/Plugins/Extensions/HbbTV/plugin.pyo"):
 			plustext = _("You have the'HbbTV Plugin' installed.\n")
@@ -233,7 +233,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		if not result:
 			self.resetEHD()
 			return
-		gMainDC.getInstance().setResolution(int(1280*self.EHDfactor), int(720*self.EHDfactor))
+		gMainDC.getInstance().setResolution(int(1280 * self.EHDfactor), int(720 * self.EHDfactor))
 		self.session.openWithCallback(self.resolutionCheck, MessageBox, _("If you can see this then is your receiver compatible.\nDo you want change from %s to %s - skin resolution?") % (self.EHDtext_old, self.EHDtxt), default=False, timeout=10)
 
 	def resolutionCheck(self, result):
@@ -501,11 +501,11 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
 	def getMenuItemList(self):
 		char = 150
-		tab = " "*10
+		tab = " " * 10
 		sep = "-"
 		list = []
 		section = _("Enhanced HD Option")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Choose skin resolution"), config.plugins.MyMetrixLiteOther.EHDenabled, _("helptext"), "ENABLED_EHD"))
 		if self.EHDenabled:
 			list.append(getConfigListEntry(tab + _("Use simple calculation"), config.plugins.MyMetrixLiteOther.EHDoldlinechanger, _("Alternative calculation, recommened for slow boxes or for a fast settings testing.")))
@@ -515,7 +515,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		if config.plugins.MyMetrixLiteOther.piconresize_experimental.value:
 			list.append(getConfigListEntry(tab + _("Set picon sharpness"), config.plugins.MyMetrixLiteOther.piconsharpness_experimental, _("Change the picon sharpness with the scaling.\nInfo: < 1 = blurred and > 1 = sharpened\n(no restart required)")))
 		section = _("STB-Info")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Distance between the STB-Infos"), config.plugins.MyMetrixLiteOther.STBDistance, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Show free RAM"), config.plugins.MyMetrixLiteOther.showRAMfree, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Show CPU-Load"), config.plugins.MyMetrixLiteOther.showCPULoad, _("helptext")))
@@ -530,21 +530,21 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteOther.showSYSTemp.setValue(False)
 			config.plugins.MyMetrixLiteOther.save()
 		section = _("InfoBar")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Show Extended-Info"), config.plugins.MyMetrixLiteOther.showExtendedinfo, _("After enabling, 'Apply changes' and restart needs never press 'Apply changes' (and restart) when you change subordinate options."), "ENABLED"))
 		itext = _("Show only if available.\n\nPositions:\n")
 		if config.plugins.MyMetrixLiteOther.showExtendedinfo.value:
 			oscam = path.exists('/tmp/.oscam')
-			list.append(getConfigListEntry(tab*2 + _("Show CAID"), config.plugins.MyMetrixLiteOther.showExtended_caid, itext + "(CAID - pid - source - protocol - hops - ecm time)", "ENABLED"))
+			list.append(getConfigListEntry(tab * 2 + _("Show CAID"), config.plugins.MyMetrixLiteOther.showExtended_caid, itext + "(CAID - pid - source - protocol - hops - ecm time)", "ENABLED"))
 			if config.plugins.MyMetrixLiteOther.showExtended_caid.value and oscam:
-				list.append(getConfigListEntry(tab*3 + _("Show PROV"), config.plugins.MyMetrixLiteOther.showExtended_prov, itext + "(caid:PROV - pid - source - protocol - hops - ecm time)"))
-			list.append(getConfigListEntry(tab*2 + _("Show PID"), config.plugins.MyMetrixLiteOther.showExtended_pid, itext + "(caid - PID - source - protocol - hops - ecm time)"))
-			list.append(getConfigListEntry(tab*2 + _("Show SOURCE"), config.plugins.MyMetrixLiteOther.showExtended_source, itext + "(caid - pid - SOURCE - protocol - hops - ecm time)", "ENABLED"))
+				list.append(getConfigListEntry(tab * 3 + _("Show PROV"), config.plugins.MyMetrixLiteOther.showExtended_prov, itext + "(caid:PROV - pid - source - protocol - hops - ecm time)"))
+			list.append(getConfigListEntry(tab * 2 + _("Show PID"), config.plugins.MyMetrixLiteOther.showExtended_pid, itext + "(caid - PID - source - protocol - hops - ecm time)"))
+			list.append(getConfigListEntry(tab * 2 + _("Show SOURCE"), config.plugins.MyMetrixLiteOther.showExtended_source, itext + "(caid - pid - SOURCE - protocol - hops - ecm time)", "ENABLED"))
 			if config.plugins.MyMetrixLiteOther.showExtended_source.value and oscam:
-				list.append(getConfigListEntry(tab*3 + _("Show READER"), config.plugins.MyMetrixLiteOther.showExtended_reader, itext + "(caid - pid - READER - protocol - hops - ecm time)"))
-			list.append(getConfigListEntry(tab*2 + _("Show PROTOCOL"), config.plugins.MyMetrixLiteOther.showExtended_protocol, itext + "(caid - pid - source - PROTOCOL - hops - ecm time)"))
-			list.append(getConfigListEntry(tab*2 + _("Show HOPS"), config.plugins.MyMetrixLiteOther.showExtended_hops,  itext + "(caid - pid - source - protocol - HOPS - ecm time)"))
-			list.append(getConfigListEntry(tab*2 + _("Show ECM TIME"), config.plugins.MyMetrixLiteOther.showExtended_ecmtime, itext + "(caid - pid - source - protocol - hops - ECM TIME)"))
+				list.append(getConfigListEntry(tab * 3 + _("Show READER"), config.plugins.MyMetrixLiteOther.showExtended_reader, itext + "(caid - pid - READER - protocol - hops - ecm time)"))
+			list.append(getConfigListEntry(tab * 2 + _("Show PROTOCOL"), config.plugins.MyMetrixLiteOther.showExtended_protocol, itext + "(caid - pid - source - PROTOCOL - hops - ecm time)"))
+			list.append(getConfigListEntry(tab * 2 + _("Show HOPS"), config.plugins.MyMetrixLiteOther.showExtended_hops, itext + "(caid - pid - source - protocol - HOPS - ecm time)"))
+			list.append(getConfigListEntry(tab * 2 + _("Show ECM TIME"), config.plugins.MyMetrixLiteOther.showExtended_ecmtime, itext + "(caid - pid - source - protocol - hops - ECM TIME)"))
 		list.append(getConfigListEntry(tab + _("Choose Picon Type"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon, _("helptext"), "ENABLED"))
 		if config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon.value == "1":
 			if self.EHDenabled:
@@ -556,7 +556,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			list.append(getConfigListEntry(tab + _("Offset picon position x"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconPosX, _("helptext")))
 			list.append(getConfigListEntry(tab + _("Offset picon position y"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarZZZPiconPosY, _("helptext")))
 		section = _("InfoBar/SecondInfobar")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Show Clock"), config.plugins.MyMetrixLiteOther.showInfoBarClock, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Show ChannelName"), config.plugins.MyMetrixLiteOther.showChannelName, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Show ChannelNumber"), config.plugins.MyMetrixLiteOther.showChannelNumber, _("helptext")))
@@ -574,18 +574,18 @@ class OtherSettingsView(ConfigListScreen, Screen):
 				list.append(getConfigListEntry(tab + _("Set number of tuner manually"), config.plugins.MyMetrixLiteOther.setTunerManual, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfo, _("After enabling, 'Apply changes' and restart needs never press 'Apply changes' (and restart) when you change subordinate entrys in 'STB-Info'.")))
 		section = _("InfoBar/SecondInfobar/Moviebar")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		helptext = _("Show running text for event. If it flickers, try increasing the start delay.")
 		list.append(getConfigListEntry(tab + _("Show running text?"), config.plugins.MyMetrixLiteOther.showInfoBarRunningtext, helptext, "ENABLED"))
 		list.append(getConfigListEntry(tab + _("ChannelName/Number FontSize"), config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize, _("helptext")))
 		section = _("mini TV")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Show in Channel selection?"), config.usage.use_pig, _("Setting is the same as\n'") + _("Channel list show MiniTV*") + _("'\nin the\n'") + _("Channel selection settings") + "'.", "ENABLED"))
 		#list.append(getConfigListEntry(tab + _("Show in graphical EPG?"), config.epgselection.graph_pig, _("Setting is the same as\n'") + _("Picture in graphics") + _("'\nin the\n'") + _("GraphicalEPG settings") + "'."))
 		list.append(getConfigListEntry(tab + _("Show in Movie Center?"), config.plugins.MyMetrixLiteOther.movielist_pig, _("helptext"), "ENABLED"))
 		list.append(getConfigListEntry(tab + _("Show in EMC?"), config.plugins.MyMetrixLiteOther.emc_pig, _("helptext"), "ENABLED"))
 		section = _("EMC")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Show Cover in Media Center"), config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover, _("helptext"), "ENABLED"))
 		if config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover.getValue() == "small" and config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
 			list.append(getConfigListEntry(tab + _("Show Cover in Infobar"), config.plugins.MyMetrixLiteOther.showEMCMediaCenterCoverInfobar, _("helptext")))
@@ -599,7 +599,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab + _("Change field size 'Count/Size' in Movie Selection"), config.plugins.MyMetrixLiteOther.setEMCdirinfosize, _("Change field size or hide")))
 		list.append(getConfigListEntry(tab + _("Change field size 'Progressbar' in Movie Selection"), config.plugins.MyMetrixLiteOther.setEMCbarsize, _("Change field size or hide")))
 		section = _("EMC/MovieList")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		if not config.plugins.MyMetrixLiteOther.movielist_pig.value:
 			list.append(getConfigListEntry(tab + _("Movie List style"), config.plugins.MyMetrixLiteOther.movielistStyle, _("Info: Setting applies not for EMC.")))
 		help_scrollbar = _("Show Scrollbar if more than one pages are available.")
@@ -607,19 +607,19 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab + _("Show scrollbar?"), config.plugins.MyMetrixLiteOther.showMovieListScrollbar, help_scrollbar))
 		list.append(getConfigListEntry(tab + _("Show running text?"), config.plugins.MyMetrixLiteOther.showMovieListRunningtext, help_runningtext, "ENABLED"))
 		section = _("EMC/MoviePlayer")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Hide PVR State"), config.usage.movieplayer_pvrstate, _("Setting is the same as\n'") + _("Show PVR status in MoviePlayer infobar") + _("'\nin the\n'") + _("OSD settings") + "'.", "ENABLED"))
 		if not config.usage.movieplayer_pvrstate.value:
-			list.append(getConfigListEntry(tab*2 + _("Position PVR State"), config.plugins.MyMetrixLiteOther.showPVRState, _("helptext")))
+			list.append(getConfigListEntry(tab * 2 + _("Position PVR State"), config.plugins.MyMetrixLiteOther.showPVRState, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Style"), config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign, _("helptext"), "ENABLED"))
 		if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
 			list.append(getConfigListEntry(tab + _("Show extended Screen-Resolution"), config.plugins.MyMetrixLiteOther.showMoviePlayerResolutionExtended, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Show Clock"), config.plugins.MyMetrixLiteOther.showInfoBarClockMoviePlayer, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Show MovieName"), config.plugins.MyMetrixLiteOther.showMovieName, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Show Movie Playback Time"), config.plugins.MyMetrixLiteOther.showMovieTime, _("helptext")))
-		list.append(getConfigListEntry(tab + _("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer,  _("After enabling, 'Apply changes' and restart needs never press 'Apply changes' (and restart) when you change subordinate entrys in 'STB-Info'.")))
+		list.append(getConfigListEntry(tab + _("Show STB-Info"), config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer, _("After enabling, 'Apply changes' and restart needs never press 'Apply changes' (and restart) when you change subordinate entrys in 'STB-Info'.")))
 		section = _("ChannelSelection") + ", " + _("graphical EPG")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		if not config.usage.use_pig.value:
 			list.append(getConfigListEntry(tab + _("Channel selection style"), config.plugins.MyMetrixLiteOther.channelSelectionStyle, _("helptext"), "ENABLED"))
 		list.append(getConfigListEntry(tab + _("Item Distance"), config.plugins.MyMetrixLiteOther.setItemDistance, _("Distance between Servicename and Eventname.")))
@@ -631,11 +631,11 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab + _("Show running text?"), config.plugins.MyMetrixLiteOther.showChannelListRunningtext, help_runningtext, "ENABLED"))
 		section = _("Running Text Parameter")
 		if config.plugins.MyMetrixLiteOther.showChannelListRunningtext.value or config.plugins.MyMetrixLiteOther.showMovieListRunningtext.value or config.plugins.MyMetrixLiteOther.showInfoBarRunningtext.value:
-			list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+			list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 			list.append(getConfigListEntry(tab + _("Startdelay"), config.plugins.MyMetrixLiteOther.runningTextStartdelay, _("helptext")))
 			list.append(getConfigListEntry(tab + _("Speed"), config.plugins.MyMetrixLiteOther.runningTextSpeed, _("A higher value results in a slow movement.")))
 		section = _("Skin Design")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Chose Skin Design"), config.plugins.MyMetrixLiteOther.SkinDesign, _("helptext"), "ENABLED"))
 		list.append(getConfigListEntry(tab + _("Scrollbar Slider width"), config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Scrollbar Border width"), config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth, _("helptext")))
@@ -645,7 +645,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab + _("Show large Text on bottom of the screen"), config.plugins.MyMetrixLiteOther.SkinDesignShowLargeText, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Chose Extended-Info Style"), config.plugins.MyMetrixLiteOther.ExtendedinfoStyle, _("helptext")))
 		section = _("Skin Design Buttons")
-		list.append(getConfigListEntry(section + tab + sep*(char-len(section)-len(tab)), ))
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Skin Design Buttons"), config.plugins.MyMetrixLiteOther.SkinDesignButtons, _("helptext"), "BUTTON"))
 		if config.plugins.MyMetrixLiteOther.SkinDesignButtons.value:
 			list.append(getConfigListEntry(tab + _("Back Color"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsBackColor, _("helptext"), "BUTTON"))
@@ -682,7 +682,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			imga = Image.open('/tmp/button.png')
 			imgwidth, imgheight = img.size
 			imgawidth, imgaheight = imga.size
-			img.paste(imga, ((imgwidth-imgawidth)//2, (imgheight-imgaheight)//3))
+			img.paste(imga, ((imgwidth - imgawidth) // 2, (imgheight - imgaheight) // 3))
 			img.save("/tmp/template.png")
 
 	def GetPicturePath(self):

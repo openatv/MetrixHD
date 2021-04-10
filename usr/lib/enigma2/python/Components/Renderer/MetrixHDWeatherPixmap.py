@@ -62,7 +62,7 @@ class MetrixHDWeatherPixmap(Renderer):
 			else:
 				if fileExists('%sNA' % (path % self.path)):    
 					pathanimicon = '%sNA/a' % (path % self.path)
-					path2 = '%sNA'  % (path % self.path)
+					path2 = '%sNA' % (path % self.path)
 					dir_work = os.listdir(path2)
 					total = len(dir_work)
 					self.slideicon = total
