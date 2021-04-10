@@ -43,6 +43,7 @@ from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 #############################################################
 
+
 class BackupSettingsView(ConfigListScreen, Screen):
 	skin = """
 	<screen name="MyMetrixLiteBackupView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">

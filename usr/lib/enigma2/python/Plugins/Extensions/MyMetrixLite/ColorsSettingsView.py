@@ -36,6 +36,7 @@ from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 #######################################################################
 
+
 class ColorsSettingsView(ConfigListScreen, Screen):
 	skin = """
 	<screen name="MyMetrixLiteColorsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
@@ -74,7 +75,6 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 		self["defaultsBtn"] = StaticText("")
 		self["defaultsBtn"].setText(_("Defaults"))
 
-		
 		self.refreshTimer = eTimer()
 		self.refreshTimer.callback.append(self.refreshList)
 

@@ -9,6 +9,7 @@ from Tools.Directories import fileExists, pathExists
 from Components.config import config
 import os
 
+
 class MetrixHDWeatherPixmap(Renderer):
 	__module__ = __name__
 	searchPaths = ('/usr/share/enigma2/MetrixHD/%s/', '/usr/share/enigma2/%s/', '/media/hdd/%s/', '/media/usb/%s/')

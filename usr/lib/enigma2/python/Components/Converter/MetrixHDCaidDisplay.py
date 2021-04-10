@@ -27,6 +27,7 @@ from Components.config import config
 import six
 initOtherConfig()
 
+
 class MetrixHDCaidDisplay(Poll, Converter, object):
 	def __init__(self, type):
 		Poll.__init__(self)

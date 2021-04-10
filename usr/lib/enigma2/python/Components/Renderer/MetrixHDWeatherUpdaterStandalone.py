@@ -42,6 +42,7 @@ std_headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) App
 
 initWeatherConfig()
 
+
 class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 
 	def __init__(self, once=False, check=False):

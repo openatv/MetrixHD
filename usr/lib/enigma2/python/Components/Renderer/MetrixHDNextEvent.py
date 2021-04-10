@@ -38,12 +38,14 @@ gettext.bindtextdomain("enigma2", resolveFilename(SCOPE_LANGUAGE))
 gettext.textdomain("enigma2")
 gettext.bindtextdomain("MyMetrixLite", "%s%s" % (resolveFilename(SCOPE_PLUGINS), "Extensions/MyMetrixLite/locale/"))
 
+
 def _(txt):
 	t = gettext.dgettext("MyMetrixLite", txt)
 	if t == txt:
 		t = gettext.gettext(txt)
 	return t
 	
+
 class MetrixHDNextEvent(Renderer, VariableText):
 	def __init__(self):
 		Renderer.__init__(self)
