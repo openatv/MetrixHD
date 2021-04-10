@@ -7,7 +7,7 @@ class MetrixHDConvEventName(Converter, object):
 	SHORT_DESCRIPTION = 1
 	EXTENDED_DESCRIPTION = 2
 	ID = 3
-	
+
 	def __init__(self, type):
 		Converter.__init__(self, type)
 		if type == "Description":
@@ -24,7 +24,7 @@ class MetrixHDConvEventName(Converter, object):
 		event = self.source.event
 		if event is None:
 			return ""
-			
+
 		if self.type == self.NAME:
 			ret_str = event.getEventName()
 		elif self.type == self.SHORT_DESCRIPTION:

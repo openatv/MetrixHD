@@ -416,9 +416,9 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 	def ConvertCondition(self, c):
 		c = int(c)
 		if c == 800:
-			condition = "B" # Sonne am Tag 
+			condition = "B" # Sonne am Tag
 		elif c == 801:
-			condition = "H" # Bewoelkt Sonning 
+			condition = "H" # Bewoelkt Sonning
 		elif c == 802:
 			condition = "J" # Nebel Sonning
 		elif c == 711 or c == 721:

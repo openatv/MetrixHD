@@ -4,8 +4,8 @@
 #  Coded by Dr.Best & weazle (c) 2010
 #  Support: www.dreambox-tools.info
 #
-#  This plugin is licensed under the Creative Commons 
-#  Attribution-NonCommercial-ShareAlike 3.0 Unported 
+#  This plugin is licensed under the Creative Commons
+#  Attribution-NonCommercial-ShareAlike 3.0 Unported
 #  License. To view a copy of this license, visit
 #  http://creativecommons.org/licenses/by-nc-sa/3.0/ or send a letter to Creative
 #  Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
@@ -14,7 +14,7 @@
 #  is licensed by Dream Multimedia GmbH.
 #
 #  This plugin is NOT free software. It is open source, you are allowed to
-#  modify it (if you keep the license), but it may not be commercially 
+#  modify it (if you keep the license), but it may not be commercially
 #  distributed other than under the conditions noted above.
 #
 
@@ -97,7 +97,7 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 						# hops
 						hops = ecm_info.get("hops", None)
 						hops = "HOPS: %s" % hops
-						# ecm time	
+						# ecm time
 						ecm_time = ecm_info.get("ecm time", None)
 						if ecm_time:
 							if "msec" in ecm_time:
@@ -270,7 +270,7 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 								else:
 									decode = ""
 								textvalue = "%s%s" % (caid, decode)
-		return textvalue 
+		return textvalue
 
 	text = property(getText)
 

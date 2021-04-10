@@ -59,14 +59,14 @@ class MetrixHDWeather(Poll, Converter, object):
 				return config.plugins.MetrixWeather.currentWeatherText.value
 			elif self.type == "currentWeatherTempheigh_low":
 				if config.plugins.MetrixWeather.tempplus.value:
-					tempmax = "" 
+					tempmax = ""
 					templov = ""
 					if config.plugins.MetrixWeather.forecastTodayTempMax.value.startswith("-") or config.plugins.MetrixWeather.forecastTodayTempMax.value.startswith("0"):
-						tempmax = config.plugins.MetrixWeather.forecastTodayTempMax.value 
+						tempmax = config.plugins.MetrixWeather.forecastTodayTempMax.value
 					else:
 						tempmax = "+" + config.plugins.MetrixWeather.forecastTodayTempMax.value
 					if config.plugins.MetrixWeather.forecastTodayTempMin.value.startswith("-") or config.plugins.MetrixWeather.forecastTodayTempMin.value.startswith("0"):
-						templov = config.plugins.MetrixWeather.forecastTodayTempMin.value 
+						templov = config.plugins.MetrixWeather.forecastTodayTempMin.value
 					else:
 						templov = "+" + config.plugins.MetrixWeather.forecastTodayTempMin.value
 					return tempmax + " " + self.getCF() + " - " + templov + " " + self.getCF()
@@ -174,7 +174,7 @@ class MetrixHDWeather(Poll, Converter, object):
 			elif self.type == "title":
 				return self.getCF() + " | " + config.plugins.MetrixWeather.currentLocation.value
 			elif self.type == "CF":
-				return self.getCF() 
+				return self.getCF()
 			else:
 				return ""
 		except:
@@ -192,7 +192,7 @@ class MetrixHDWeather(Poll, Converter, object):
 	def getCF(self):
 		if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit":
 			return "°F"
-		else: 
+		else:
 			return "°C"
 
 	value = property(getValue)
