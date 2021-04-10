@@ -14,7 +14,8 @@ initOtherConfig()
 
 # For SNP
 from ServiceReference import ServiceReference
-import re, unicodedata
+import re
+import unicodedata
 
 def patched_chunk_tRNS(self, pos, len):
 	i16 = PngImagePlugin.i16
