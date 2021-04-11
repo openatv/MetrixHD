@@ -63,7 +63,7 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 						if len(c) == 3:
 							c = "0%s" % c
 						c = c[:2].upper()
-						if self.systemCaids.has_key(c):
+						if c in self.systemCaids:
 							caidlist[c] = (self.systemCaids.get(c), 1)
 					ecm_info = self.ecmfile()
 					if ecm_info:
@@ -299,7 +299,7 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 						if len(item) > 1:
 							info[item[0].strip().lower()] = item[1].strip()
 						else:
-							if not info.has_key("caid"):
+							if "caid" not in info:
 								x = line.lower().find("caid")
 								if x != -1:
 									y = line.find(",")
