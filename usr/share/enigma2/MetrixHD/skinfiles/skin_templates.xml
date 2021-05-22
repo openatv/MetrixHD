@@ -605,7 +605,6 @@
 			<widget render="MetrixHDWeatherUpdaterStandalone" source="global.CurrentTime" position="0,0" size="0,0" transparent="1" />
 			<!-- NEEDED WITHOUT OPENSTORE INSTALLED */ -->
 			<eLabel backgroundColor="layer-a-background" position="40,40" size="219,71"/>
-			<eLabel backgroundColor="layer-b-background" position="259,45" size="116,61"/>
 			<widget backgroundColor="green" position="41,41" size="2,69" source="session.CurrentService" render="FixedLabel" zPosition="10">
 				<convert type="MetrixHDWeather">currentDataValid</convert>
 				<convert type="ValueRange">0,0</convert>
@@ -633,30 +632,277 @@
 			<widget backgroundColor="layer-a-background" font="global_clock;16" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="200,72" render="Label" size="49,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
 				<convert type="MetrixHDWeather">forecastTodayTempMin</convert>
 			</widget>
+			<!-- WEATHER WIDGET */ -->
+		</screen>
+		<screen name="INFOBARWEATHERWIDGET+0">
+			<panel name="INFOBARWEATHERWIDGET_base"/>
+			<widget font="Meteo;45" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" halign="left" noWrap="1" position="156,50" render="Label" size="50,50" source="session.CurrentService" transparent="1" valign="center" zPosition="9">
+				<convert type="MetrixHDWeather">currentWeatherCode</convert>
+			</widget>
+		</screen>
+		<screen name="INFOBARWEATHERWIDGET+0-2">
+			<panel name="INFOBARWEATHERWIDGET_base"/>
+			<widget render="MetrixHDWeatherPixmap" position="156,50" size="50,50" source="session.CurrentService" alphatest="blend" zPosition="9">
+				<convert type="MetrixHDWeather">currentWeatherCode</convert>
+			</widget>
+		</screen>
+		<screen name="INFOBARWEATHERWIDGET+0_weekday">
+			<panel name="INFOBARWEATHERWIDGET+0"/>
+		</screen>
+		<screen name="INFOBARWEATHERWIDGET+0-2_weekday">
+			<panel name="INFOBARWEATHERWIDGET+0-2"/>
+		</screen>
+		<screen name="INFOBARWEATHERWIDGET+1_base">
+			<eLabel backgroundColor="layer-b-background" position="259,45" size="116,61"/>
 			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="317,42" render="Label" size="49,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
 				<convert type="MetrixHDWeather">forecastTomorrowTempMax</convert>
 			</widget>
 			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="317,72" render="Label" size="49,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
 				<convert type="MetrixHDWeather">forecastTomorrowTempMin</convert>
 			</widget>
-			<!-- WEATHER WIDGET */ -->
 		</screen>
-		<screen name="INFOBARWEATHERWIDGET">
-			<panel name="INFOBARWEATHERWIDGET_base"/>
-			<widget font="Meteo;45" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" halign="left" noWrap="1" position="156,50" render="Label" size="50,50" source="session.CurrentService" transparent="1" valign="center" zPosition="9">
-				<convert type="MetrixHDWeather">currentWeatherCode</convert>
-			</widget>
+		<screen name="INFOBARWEATHERWIDGET+1">
+			<panel name="INFOBARWEATHERWIDGET+0"/>
+			<panel name="INFOBARWEATHERWIDGET+1_base"/>
 			<widget font="Meteo;45" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="270,50" render="Label" size="50,50" source="session.CurrentService" transparent="1" valign="center" zPosition="9">
 				<convert type="MetrixHDWeather">forecastTomorrowCode</convert>
 			</widget>
 		</screen>
-		<screen name="INFOBARWEATHERWIDGET-2">
-			<panel name="INFOBARWEATHERWIDGET_base"/>
-			<widget render="MetrixHDWeatherPixmap" position="156,50" size="50,50" source="session.CurrentService" alphatest="blend" zPosition="9">
-				<convert type="MetrixHDWeather">currentWeatherCode</convert>
-			</widget>
+		<screen name="INFOBARWEATHERWIDGET+1-2">
+			<panel name="INFOBARWEATHERWIDGET+0-2"/>
+			<panel name="INFOBARWEATHERWIDGET+1_base"/>
 			<widget render="MetrixHDWeatherPixmap" position="270,50" size="50,50" source="session.CurrentService" alphatest="blend" zPosition="9">
 				<convert type="MetrixHDWeather">forecastTomorrowCode</convert>
+			</widget>
+		</screen>
+		<!-- <screen name="INFOBARWEATHERWIDGET+1_base_weekday">
+			<eLabel backgroundColor="layer-b-background" position="259,45" size="163,61"/>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="262,42" render="Label" size="52,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowshortday</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="262,72" render="Label" size="52,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowshortdate</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="364,42" render="Label" size="49,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowTempMax</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="364,72" render="Label" size="49,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowTempMin</convert>
+			</widget>
+		</screen> -->
+		<screen name="INFOBARWEATHERWIDGET+1_base_weekday">
+			<eLabel backgroundColor="layer-b-background" position="259,40" size="125,71"/>
+			<widget backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="326,44" render="Label" size="49,21" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowshortday</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="326,65" render="Label" size="49,21" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowTempMax</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="326,86" render="Label" size="49,21" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowTempMin</convert>
+			</widget>
+		</screen>
+		<!-- <screen name="INFOBARWEATHERWIDGET+1_weekday">
+			<panel name="INFOBARWEATHERWIDGET+0"/>
+			<panel name="INFOBARWEATHERWIDGET+1_base_weekday"/>
+			<widget font="Meteo;45" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="center" noWrap="1" position="317,50" render="Label" size="50,50" source="session.CurrentService" transparent="1" valign="center" zPosition="9">
+				<convert type="MetrixHDWeather">forecastTomorrowCode</convert>
+			</widget>
+		</screen> -->
+		<screen name="INFOBARWEATHERWIDGET+1_weekday">
+			<panel name="INFOBARWEATHERWIDGET+0"/>
+			<panel name="INFOBARWEATHERWIDGET+1_base_weekday"/>
+			<widget font="Meteo;50" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="270,46" render="Label" size="59,59" source="session.CurrentService" transparent="1" valign="center" zPosition="9">
+				<convert type="MetrixHDWeather">forecastTomorrowCode</convert>
+			</widget>
+		</screen>
+		<!-- <screen name="INFOBARWEATHERWIDGET+1-2_weekday">
+			<panel name="INFOBARWEATHERWIDGET+0-2"/>
+			<panel name="INFOBARWEATHERWIDGET+1_base_weekday"/>
+			<widget render="MetrixHDWeatherPixmap" position="317,50" size="50,50" source="session.CurrentService" alphatest="blend" zPosition="9">
+				<convert type="MetrixHDWeather">forecastTomorrowCode</convert>
+			</widget>
+		</screen> -->
+		<screen name="INFOBARWEATHERWIDGET+1-2_weekday">
+			<panel name="INFOBARWEATHERWIDGET+0-2"/>
+			<panel name="INFOBARWEATHERWIDGET+1_base_weekday"/>
+			<widget render="MetrixHDWeatherPixmap" position="270,46" size="59,59" source="session.CurrentService" alphatest="blend" zPosition="9">
+				<convert type="MetrixHDWeather">forecastTomorrowCode</convert>
+			</widget>
+		</screen>
+		<screen name="INFOBARWEATHERWIDGET+2_base">
+			<eLabel backgroundColor="layer-b-background" position="375,45" size="116,61" />
+			<eLabel backgroundColor="weather-borderlines" position="375,45" size="1,61"/>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="433,42" render="Label" size="49,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowTempMax2</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="433,72" render="Label" size="49,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowTempMin2</convert>
+			</widget>
+		</screen>
+		<screen name="INFOBARWEATHERWIDGET+2">
+			<panel name="INFOBARWEATHERWIDGET+1"/>
+			<panel name="INFOBARWEATHERWIDGET+2_base"/>
+			<widget font="Meteo;45" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="386,50" render="Label" size="50,50" source="session.CurrentService" transparent="1" valign="center" zPosition="9">
+				<convert type="MetrixHDWeather">forecastTomorrowCode2</convert>
+			</widget>
+		</screen>
+		<screen name="INFOBARWEATHERWIDGET+2-2">
+			<panel name="INFOBARWEATHERWIDGET+1-2"/>
+			<panel name="INFOBARWEATHERWIDGET+2_base"/>
+			<widget render="MetrixHDWeatherPixmap" position="386,50" size="50,50" source="session.CurrentService" alphatest="blend" zPosition="9">
+				<convert type="MetrixHDWeather">forecastTomorrowCode2</convert>
+			</widget>
+		</screen>
+		<!-- <screen name="INFOBARWEATHERWIDGET+2_base_weekday">
+			<eLabel backgroundColor="layer-b-background" position="422,45" size="163,61" />
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="425,42" render="Label" size="52,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowshortday2</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="425,72" render="Label" size="52,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowshortdate2</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="527,42" render="Label" size="49,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowTempMax2</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="527,72" render="Label" size="49,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowTempMin2</convert>
+			</widget>
+		</screen> -->
+		<screen name="INFOBARWEATHERWIDGET+2_base_weekday">
+			<eLabel backgroundColor="layer-b-background" position="384,40" size="125,71" />
+			<eLabel backgroundColor="weather-borderlines" position="384,40" size="1,71"/>
+			<widget backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="451,44" render="Label" size="49,21" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowshortday2</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="451,65" render="Label" size="49,21" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowTempMax2</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="451,86" render="Label" size="49,21" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowTempMin2</convert>
+			</widget>
+		</screen>
+		<!-- <screen name="INFOBARWEATHERWIDGET+2_weekday">
+			<panel name="INFOBARWEATHERWIDGET+1_weekday"/>
+			<panel name="INFOBARWEATHERWIDGET+2_base_weekday"/>
+			<widget font="Meteo;45" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="center" noWrap="1" position="480,50" render="Label" size="50,50" source="session.CurrentService" transparent="1" valign="center" zPosition="9">
+				<convert type="MetrixHDWeather">forecastTomorrowCode2</convert>
+			</widget>
+		</screen> -->
+		<screen name="INFOBARWEATHERWIDGET+2_weekday">
+			<panel name="INFOBARWEATHERWIDGET+1_weekday"/>
+			<panel name="INFOBARWEATHERWIDGET+2_base_weekday"/>
+			<widget font="Meteo;50" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="395,46" render="Label" size="59,59" source="session.CurrentService" transparent="1" valign="center" zPosition="9">
+				<convert type="MetrixHDWeather">forecastTomorrowCode2</convert>
+			</widget>
+		</screen>
+		<!-- <screen name="INFOBARWEATHERWIDGET+2-2_weekday">
+			<panel name="INFOBARWEATHERWIDGET+1-2_weekday"/>
+			<panel name="INFOBARWEATHERWIDGET+2_base_weekday"/>
+			<widget render="MetrixHDWeatherPixmap" position="480,50" size="50,50" source="session.CurrentService" alphatest="blend" zPosition="9">
+				<convert type="MetrixHDWeather">forecastTomorrowCode2</convert>
+			</widget>
+		</screen> -->
+		<screen name="INFOBARWEATHERWIDGET+2-2_weekday">
+			<panel name="INFOBARWEATHERWIDGET+1-2_weekday"/>
+			<panel name="INFOBARWEATHERWIDGET+2_base_weekday"/>
+			<widget render="MetrixHDWeatherPixmap" position="395,46" size="59,59" source="session.CurrentService" alphatest="blend" zPosition="9">
+				<convert type="MetrixHDWeather">forecastTomorrowCode2</convert>
+			</widget>
+		</screen>
+		<screen name="INFOBARWEATHERWIDGET+3_base">
+			<eLabel backgroundColor="layer-b-background" position="491,45" size="116,61" />
+			<eLabel backgroundColor="weather-borderlines" position="491,45" size="1,61"/>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="549,42" render="Label" size="49,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowTempMax3</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="549,72" render="Label" size="49,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowTempMin3</convert>
+			</widget>
+		</screen>
+		<screen name="INFOBARWEATHERWIDGET+3">
+			<panel name="INFOBARWEATHERWIDGET+2"/>
+			<panel name="INFOBARWEATHERWIDGET+3_base"/>
+			<widget font="Meteo;45" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="502,50" render="Label" size="50,50" source="session.CurrentService" transparent="1" valign="center" zPosition="9">
+				<convert type="MetrixHDWeather">forecastTomorrowCode3</convert>
+			</widget>
+		</screen>
+		<screen name="INFOBARWEATHERWIDGET+3-2">
+			<panel name="INFOBARWEATHERWIDGET+2-2"/>
+			<panel name="INFOBARWEATHERWIDGET+3_base"/>
+			<widget render="MetrixHDWeatherPixmap" position="502,50" size="50,50" source="session.CurrentService" alphatest="blend" zPosition="9">
+				<convert type="MetrixHDWeather">forecastTomorrowCode3</convert>
+			</widget>
+		</screen>
+		<!-- <screen name="INFOBARWEATHERWIDGET+3_base_weekday">
+			<eLabel backgroundColor="layer-b-background" position="585,45" size="163,61" />
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="588,42" render="Label" size="52,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowshortday3</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="588,72" render="Label" size="52,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowshortdate3</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="690,42" render="Label" size="49,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowTempMax3</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="690,72" render="Label" size="49,30" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowTempMin3</convert>
+			</widget>
+		</screen> -->
+		<screen name="INFOBARWEATHERWIDGET+3_base_weekday">
+			<eLabel backgroundColor="layer-b-background" position="509,40" size="125,71" />
+			<eLabel backgroundColor="weather-borderlines" position="509,40" size="1,71"/>
+			<widget backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="576,44" render="Label" size="49,21" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowshortday3</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="576,65" render="Label" size="49,21" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+					<convert type="MetrixHDWeather">forecastTomorrowTempMax3</convert>
+			</widget>
+			<widget backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="576,86" render="Label" size="49,21" source="session.CurrentService" transparent="1" valign="bottom" zPosition="10">
+				<convert type="MetrixHDWeather">forecastTomorrowTempMin3</convert>
+			</widget>
+		</screen>
+		<!-- <screen name="INFOBARWEATHERWIDGET+3_weekday">
+			<panel name="INFOBARWEATHERWIDGET+2_weekday"/>
+			<panel name="INFOBARWEATHERWIDGET+3_base_weekday"/>
+			<widget font="Meteo;45" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="center" noWrap="1" position="643,50" render="Label" size="50,50" source="session.CurrentService" transparent="1" valign="center" zPosition="9">
+				<convert type="MetrixHDWeather">forecastTomorrowCode3</convert>
+			</widget>
+		</screen> -->
+		<screen name="INFOBARWEATHERWIDGET+3_weekday">
+			<panel name="INFOBARWEATHERWIDGET+2_weekday"/>
+			<panel name="INFOBARWEATHERWIDGET+3_base_weekday"/>
+			<widget font="Meteo;50" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="520,46" render="Label" size="59,59" source="session.CurrentService" transparent="1" valign="center" zPosition="9">
+				<convert type="MetrixHDWeather">forecastTomorrowCode3</convert>
+			</widget>
+		</screen>
+		<!-- <screen name="INFOBARWEATHERWIDGET+3-2_weekday">
+			<panel name="INFOBARWEATHERWIDGET+2-2_weekday"/>
+			<panel name="INFOBARWEATHERWIDGET+3_base_weekday"/>
+			<widget render="MetrixHDWeatherPixmap" position="643,50" size="50,50" source="session.CurrentService" alphatest="blend" zPosition="9">
+				<convert type="MetrixHDWeather">forecastTomorrowCode3</convert>
+			</widget>
+		</screen> -->
+		<screen name="INFOBARWEATHERWIDGET+3-2_weekday">
+			<panel name="INFOBARWEATHERWIDGET+2-2_weekday"/>
+			<panel name="INFOBARWEATHERWIDGET+3_base_weekday"/>
+			<widget render="MetrixHDWeatherPixmap" position="520,46" size="59,59" source="session.CurrentService" alphatest="blend" zPosition="9">
+				<convert type="MetrixHDWeather">forecastTomorrowCode3</convert>
+			</widget>
+		</screen>
+		<screen name="INFOBARWEATHERWIDGET_detail">
+			<eLabel backgroundColor="layer-b-background" position="45,111" size="209,52" />
+			<eLabel font="Meteo;22" text="F" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="54,115" size="22,22" noWrap="1" halign="center" valign="center" source="session.CurrentService" transparent="1" zPosition="9" />
+			<widget font="global_clock;16" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="79,115" size="170,20" noWrap="1" halign="left" valign="center" render="Label" source="session.CurrentService" transparent="1" zPosition="10">
+				<convert type="MetrixHDWeather">currentwinddisplay</convert>
+			</widget>
+			<eLabel font="Meteo;22" text="'" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="54,139" size="22,22" noWrap="1" halign="center" valign="center" source="session.CurrentService" transparent="1" zPosition="9" />
+			<widget font="global_clock;16" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="79,139" size="45,20" noWrap="1" halign="left" valign="center" render="Label" source="session.CurrentService" transparent="1" zPosition="10">
+				<convert type="MetrixHDWeather">currentfeelslike</convert>
+			</widget>
+			<eLabel font="Meteo;22" text="M" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="158,139" size="22,22" noWrap="1" halign="center" valign="center" source="session.CurrentService" transparent="1" zPosition="9" />
+			<widget font="global_clock;16" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="183,139" size="45,20" noWrap="1" halign="left" valign="center" render="Label" source="session.CurrentService" transparent="1" zPosition="10">
+				<convert type="MetrixHDWeather">currenthumidity</convert>
 			</widget>
 		</screen>
 		<screen name="CHANNELNAME">

@@ -155,6 +155,9 @@ class FontsSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab + _("Clock text"), ))
 		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.globalclock_type, _("helptext")))
 		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.globalclock_scale, _("helptext")))
+		list.append(getConfigListEntry(tab + _("Weather week text"), ))
+		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.globalweatherweek_type, _("helptext")))
+		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.globalweatherweek_scale, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Large text"), ))
 		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.globallarge_type, _("helptext")))
 		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.globallarge_scale, _("helptext")))
@@ -236,6 +239,8 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalbutton_scale.value = 90
 			config.plugins.MyMetrixLiteFonts.globalclock_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.globalclock_scale.value = 100
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Bold.ttf"
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.globallarge_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalsmall_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
@@ -287,6 +292,8 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalbutton_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.globalclock_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.globalclock_scale.value = 105
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Bold.ttf"
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.globallarge_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.globalsmall_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
@@ -341,6 +348,8 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalbutton_scale.value = 95
 			config.plugins.MyMetrixLiteFonts.globalclock_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf"
 			config.plugins.MyMetrixLiteFonts.globalclock_scale.value = 100
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Bold.ttf"
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf"
 			config.plugins.MyMetrixLiteFonts.globallarge_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalsmall_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans.ttf"
@@ -395,6 +404,8 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalbutton_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalclock_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf"
 			config.plugins.MyMetrixLiteFonts.globalclock_scale.value = 105
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Channel.ttf"
 			config.plugins.MyMetrixLiteFonts.globallarge_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalsmall_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
@@ -449,6 +460,8 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalbutton_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalclock_type.value = "/usr/share/fonts/lcd.ttf"
 			config.plugins.MyMetrixLiteFonts.globalclock_scale.value = 120
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_type.value = "/usr/share/fonts/lcd.ttf"
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_scale.value = 120
 			config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/fonts/lcd.ttf"
 			config.plugins.MyMetrixLiteFonts.globallarge_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalsmall_type.value = "/usr/share/fonts/lcd.ttf"
@@ -503,6 +516,8 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalbutton_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalclock_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.globalclock_scale.value = 105
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.globallarge_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalsmall_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
@@ -557,6 +572,8 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalbutton_scale.value = 95
 			config.plugins.MyMetrixLiteFonts.globalclock_type.value = "/usr/share/fonts/nmsbd.ttf"
 			config.plugins.MyMetrixLiteFonts.globalclock_scale.value = 100
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_type.value = "/usr/share/fonts/nmsbd.ttf"
+			config.plugins.MyMetrixLiteFonts.globalweatherweek_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf"
 			config.plugins.MyMetrixLiteFonts.globallarge_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalsmall_type.value = "/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf"
