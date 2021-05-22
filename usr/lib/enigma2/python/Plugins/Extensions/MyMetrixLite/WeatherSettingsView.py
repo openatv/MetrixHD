@@ -142,6 +142,10 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			if config.plugins.MetrixWeather.type.value:
 				list.append(getConfigListEntry(_("MetrixWeather animations speed"), config.plugins.MetrixWeather.animationspeed, _("Set your animations speed.") + norestart))
 			list.append(getConfigListEntry(_("Refresh Interval (min)"), config.plugins.MetrixWeather.refreshInterval, _("If set to '0', fetch weather data only at system(gui) start.")))
+			list.append(getConfigListEntry(_("Forecast"), config.plugins.MetrixWeather.forecast, _("Set the number of days for the weather forecast.")))
+			if config.plugins.MetrixWeather.forecast.value != 0:
+				list.append(getConfigListEntry(_("Weekday"), config.plugins.MetrixWeather.weekday, _("Show week days.")))
+			list.append(getConfigListEntry(_("Detail"), config.plugins.MetrixWeather.detail, _("Show wind speed and direction, feels like temperature and humidity.")))
 			#list.append(getConfigListEntry(_("Check is Weather date local date"), config.plugins.MetrixWeather.verifyDate, _("helptext")))
 			self["resulttext"].setText(info)
 			self.check_enable = True
@@ -270,6 +274,10 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		cur = cur and len(cur) > 3 and cur[3]
 
 		if cur == "ENABLED":
+			self["config"].setList(self.getMenuItemList())
+
+		currentEntry = self.getCurrentEntry()
+		if currentEntry == _("Forecast"):
 			self["config"].setList(self.getMenuItemList())
 
 	def showHelperText(self):

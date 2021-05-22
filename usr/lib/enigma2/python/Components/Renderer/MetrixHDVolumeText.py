@@ -27,6 +27,7 @@ from enigma import eLabel, eDVBVolumecontrol, eTimer
 from Components.Renderer.Renderer import Renderer
 
 
+
 class MetrixHDVolumeText(Renderer, VariableText):
 	def __init__(self):
 		Renderer.__init__(self)

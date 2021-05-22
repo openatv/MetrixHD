@@ -16,7 +16,7 @@ from xml.dom.minidom import parseString
 from Components.config import config, configfile
 from Plugins.Extensions.MyMetrixLite.__init__ import initWeatherConfig
 from threading import Timer, Thread
-from time import time, strftime, localtime
+from time import time, strftime, localtime, strptime
 from twisted.web.client import getPage
 from datetime import datetime, timedelta
 from six.moves.urllib.request import Request, urlopen
@@ -327,7 +327,8 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			apikey = "&appid=%s" % config.plugins.MetrixWeather.apikey.value
 			city = "id=%s" % self.woeid
 			cnt = (24 + (24 - int(datetime.now().strftime('%H')))) / 3 + 1
-			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=%s&cnt=%d%s" % (city, language[:2], units, cnt, apikey)
+			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=%s%s" % (city, language[:2], units, apikey)
+#			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=%s&cnt=%d%s" % (city, language[:2], units, cnt, apikey)
 			print(feedurl)
 			feedurl = six.ensure_binary(feedurl)
 			getPage(feedurl).addCallback(self.jsonCallback).addErrback(self.errorCallback) # FIXME getPage is deprecated
@@ -349,14 +350,50 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			temp = str(int(round(d['list'][0]['main']['temp'])))
 			temp_min = str(int(round(d['list'][0]['main']['temp_min'])))
 			temp_max = str(int(round(d['list'][0]['main']['temp_max'])))
+			feelslike = str(int(round(d['list'][0]['main']['feels_like'])))
+			humidity = str(int(round(d['list'][0]['main']['humidity'])))
+			windspeed = str(int(round(d['list'][0]['wind']['speed'])))
+			winddirectiondegree = str(int(round(d['list'][0]['wind']['deg'])))
+
+			winddirection = "·"
+			if int(winddirectiondegree) >= 0:
+				if int(winddirectiondegree) <= 360:
+					winddirection = "↓" # North
+				if int(winddirectiondegree) < 345:
+					winddirection = "↘" # North West
+				if int(winddirectiondegree) <= 285:
+					winddirection = "→" # West
+				if int(winddirectiondegree) < 255:
+					winddirection = "↗" # South West
+				if int(winddirectiondegree) <= 195:
+					winddirection = "↑" # South
+				if int(winddirectiondegree) < 165:
+					winddirection = "↖" # South East
+				if int(winddirectiondegree) <= 105:
+					winddirection = "←" # East
+				if int(winddirectiondegree) < 75:
+					winddirection = "↙" # North East
+				if int(winddirectiondegree) <= 15:
+					winddirection = "↓" # North
 
 			tmin_today = []
 			tmax_today = []
 			tmin_tomorrow = []
 			tmax_tomorrow = []
+			tmin_tomorrow2 = []
+			tmax_tomorrow2 = []
+			tmin_tomorrow3 = []
+			tmax_tomorrow3 = []
 			now = datetime.now().strftime('%Y-%m-%d')
 			tomorrow = (datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d')
+			shortdaytomorrow = "N/A"
+			tomorrow2 = (datetime.now() + timedelta(days=2)).strftime('%Y-%m-%d')
+			shortdaytomorrow2 = "N/A"
+			tomorrow3 = (datetime.now() + timedelta(days=3)).strftime('%Y-%m-%d')
+			shortdaytomorrow3 = "N/A"
 			code_tomorrow = tmp = ''
+			code_tomorrow2 = tmp2 = ''
+			code_tomorrow3 = tmp3 = ''
 			for dict in d['list']:
 				if now in dict['dt_txt']:
 					tmin_today.append(int(round(dict['main']['temp_min'])))
@@ -370,6 +407,27 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 					tmp = dict['weather'][0]['id']
 					if '12:00:00' in dict['dt_txt']:
 						code_tomorrow = tmp
+					shortdaytomorrow = strftime('%a', strptime(tomorrow, '%Y-%m-%d'))
+				elif tomorrow2 in dict['dt_txt']:
+					if '00:00:00' in dict['dt_txt']:
+						tmin_tomorrow.append(int(round(dict['main']['temp_min'])))
+						tmax_tomorrow.append(int(round(dict['main']['temp_max'])))
+					tmin_tomorrow2.append(int(round(dict['main']['temp_min'])))
+					tmax_tomorrow2.append(int(round(dict['main']['temp_max'])))
+					tmp2 = dict['weather'][0]['id']
+					if '12:00:00' in dict['dt_txt']:
+						code_tomorrow2 = tmp2
+					shortdaytomorrow2 = strftime('%a', strptime(tomorrow2, '%Y-%m-%d'))
+				elif tomorrow3 in dict['dt_txt']:
+					if '00:00:00' in dict['dt_txt']:
+						tmin_tomorrow2.append(int(round(dict['main']['temp_min'])))
+						tmax_tomorrow2.append(int(round(dict['main']['temp_max'])))
+					tmin_tomorrow3.append(int(round(dict['main']['temp_min'])))
+					tmax_tomorrow3.append(int(round(dict['main']['temp_max'])))
+					tmp3 = dict['weather'][0]['id']
+					if '12:00:00' in dict['dt_txt']:
+						code_tomorrow3 = tmp3
+					shortdaytomorrow3 = strftime('%a', strptime(tomorrow3, '%Y-%m-%d'))
 
 			#no forecast temp data
 			if not tmin_today:
@@ -388,9 +446,25 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				tmax_tomorrow = tmax_today
 			else:
 				tmax_tomorrow = str(max(tmax_tomorrow))
+			if not tmin_tomorrow2:
+				tmin_tomorrow2 = tmin_today
+			else:
+				tmin_tomorrow2 = str(min(tmin_tomorrow2))
+			if not tmax_tomorrow2:
+				tmax_tomorrow2 = tmax_today
+			else:
+				tmax_tomorrow2 = str(max(tmax_tomorrow2))
+			if not tmin_tomorrow3:
+				tmin_tomorrow3 = tmin_today
+			else:
+				tmin_tomorrow3 = str(min(tmin_tomorrow3))
+			if not tmax_tomorrow3:
+				tmax_tomorrow3 = tmax_today
+			else:
+				tmax_tomorrow3 = str(max(tmax_tomorrow3))
 
 			if self.check:
-				text = "%s|%s|%s%s|%s%s|%s%s" % (id, name, temp, SIGN, tmax_today, SIGN, tmin_today, SIGN)
+				text = "%s|%s|%s%s|%s%s|%s%s|%s%s|%s%s|%s%s|%s%s|%s%s|%s%s" % (id, name, temp, SIGN, tmax_today, SIGN, tmin_today, SIGN, tmax_tomorrow, SIGN, tmin_tomorrow, SIGN, tmax_tomorrow2, SIGN, tmin_tomorrow2, SIGN, tmax_tomorrow3, SIGN, tmin_tomorrow3, SIGN)
 				self.writeCheckFile(text)
 				return
 
@@ -401,12 +475,34 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			config.plugins.MetrixWeather.currentWeatherCode.value = self.ConvertCondition(code)
 			config.plugins.MetrixWeather.forecastTodayTempMin.value = tmin_today
 			config.plugins.MetrixWeather.forecastTodayTempMax.value = tmax_today
+			config.plugins.MetrixWeather.currentWeatherfeelslike.value = feelslike
+			config.plugins.MetrixWeather.currentWeatherhumidity.value = humidity
+			config.plugins.MetrixWeather.currentWeatherwindspeed.value = windspeed
+			if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit":
+				config.plugins.MetrixWeather.currentWeatherwinddisplay.value = windspeed + " mph " + winddirection
+			else:
+				config.plugins.MetrixWeather.currentWeatherwinddisplay.value = windspeed + " m/s " + winddirection
 			#tomrorrow
 			if not code_tomorrow:
 				code_tomorrow = tmp
 			config.plugins.MetrixWeather.forecastTomorrowCode.value = self.ConvertCondition(code_tomorrow)
 			config.plugins.MetrixWeather.forecastTomorrowTempMin.value = tmin_tomorrow
 			config.plugins.MetrixWeather.forecastTomorrowTempMax.value = tmax_tomorrow
+			config.plugins.MetrixWeather.forecastTomorrowshortday.value = shortdaytomorrow
+			#tomrorrow2
+			if not code_tomorrow2:
+				code_tomorrow2 = tmp2
+			config.plugins.MetrixWeather.forecastTomorrowCode2.value = self.ConvertCondition(code_tomorrow2)
+			config.plugins.MetrixWeather.forecastTomorrowTempMin2.value = tmin_tomorrow2
+			config.plugins.MetrixWeather.forecastTomorrowTempMax2.value = tmax_tomorrow2
+			config.plugins.MetrixWeather.forecastTomorrowshortday2.value = shortdaytomorrow2
+			#tomrorrow3
+			if not code_tomorrow3:
+				code_tomorrow3 = tmp3
+			config.plugins.MetrixWeather.forecastTomorrowCode3.value = self.ConvertCondition(code_tomorrow3)
+			config.plugins.MetrixWeather.forecastTomorrowTempMin3.value = tmin_tomorrow3
+			config.plugins.MetrixWeather.forecastTomorrowTempMax3.value = tmax_tomorrow3
+			config.plugins.MetrixWeather.forecastTomorrowshortday3.value = shortdaytomorrow3
 		except IndexError as err:
 			self.errorCallback(message=str(err))
 			return

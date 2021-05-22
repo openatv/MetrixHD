@@ -434,6 +434,8 @@ def initColorsConfig():
 	config.plugins.MyMetrixLiteColors.buttonforeground = ConfigSelection(default="FFFFFF", choices=ColorList)
 	config.plugins.MyMetrixLiteColors.layeraclockforeground = ConfigSelection(default="FFFFFF", choices=ColorList)
 	config.plugins.MyMetrixLiteColors.layerbclockforeground = ConfigSelection(default="FFFFFF", choices=ColorList)
+	config.plugins.MyMetrixLiteColors.weatherborderlines = ConfigSelection(default="FFFFFF", choices=ColorList)
+	config.plugins.MyMetrixLiteColors.weatherborderlinestransparency = ConfigSelection(default="00", choices=TransparencyList)
 
 	config.plugins.MyMetrixLiteColors.upperleftcornerbackground = ConfigSelection(default="27408B", choices=ColorList)
 	config.plugins.MyMetrixLiteColors.upperleftcornertransparency = ConfigSelection(default="1A", choices=TransparencyList)
@@ -500,6 +502,8 @@ def initFontsConfig():
 	config.plugins.MyMetrixLiteFonts.globalbutton_scale = ConfigSelectionNumber(50, 150, 1, default=90)
 	config.plugins.MyMetrixLiteFonts.globalclock_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices=FontTypeList)
 	config.plugins.MyMetrixLiteFonts.globalclock_scale = ConfigSelectionNumber(50, 150, 1, default=100)
+	config.plugins.MyMetrixLiteFonts.globalweatherweek_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Bold.ttf", choices=FontTypeList)
+	config.plugins.MyMetrixLiteFonts.globalweatherweek_scale = ConfigSelectionNumber(50, 150, 1, default=100)
 	config.plugins.MyMetrixLiteFonts.globallarge_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices=FontTypeList)
 	config.plugins.MyMetrixLiteFonts.globallarge_scale = ConfigSelectionNumber(50, 150, 1, default=80)
 	config.plugins.MyMetrixLiteFonts.globalsmall_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf", choices=FontTypeList)
@@ -558,6 +562,9 @@ def initWeatherConfig():
 		("MSN", _("MSN")),
 		("openweather", _("openweather"))
 	])
+	config.plugins.MetrixWeather.forecast = ConfigSelectionNumber(0, 3, 1, default=1, wraparound=True)
+	config.plugins.MetrixWeather.weekday = ConfigYesNo(default=False)
+	config.plugins.MetrixWeather.detail = ConfigYesNo(default=False)
 
 	## RENDERER CONFIG:
 

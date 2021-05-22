@@ -261,12 +261,23 @@ class ActivateSkinSettings:
 				infobarSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
 
 			if config.plugins.MetrixWeather.enabled.getValue() is False:
-				infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
-
-			if config.plugins.MetrixWeather.type.getValue() is False:
-				infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET-2" />', '<panel name="INFOBARWEATHERWIDGET" />'])
+				infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', ''])
+				infobarSkinSearchAndReplace.append(['<!-- <panel name="INFOBARWEATHERWIDGET_detail" /> -->', ''])
 			else:
-				infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', '<panel name="INFOBARWEATHERWIDGET-2" />'])
+				if config.plugins.MetrixWeather.type.getValue() is False:
+					if config.plugins.MetrixWeather.weekday.getValue() is False:
+						infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s" />' % config.plugins.MetrixWeather.forecast.value])
+					else:
+						infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s_weekday" />' % config.plugins.MetrixWeather.forecast.value])
+				else:
+					if config.plugins.MetrixWeather.weekday.getValue() is False:
+						infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s-2" />' % config.plugins.MetrixWeather.forecast.value])
+					else:
+						infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s-2_weekday" />' % config.plugins.MetrixWeather.forecast.value])
+				if config.plugins.MetrixWeather.detail.getValue() is False:
+					infobarSkinSearchAndReplace.append(['<!-- <panel name="INFOBARWEATHERWIDGET_detail" /> -->', ''])
+				else:
+					infobarSkinSearchAndReplace.append(['<!-- <panel name="INFOBARWEATHERWIDGET_detail" /> -->', '<panel name="INFOBARWEATHERWIDGET_detail" />'])
 
 			if config.plugins.MyMetrixLiteOther.showInfoBarServiceIcons.getValue() is False:
 				infobarSkinSearchAndReplace.append(['<panel name="INFOBARSERVICEINFO" />', ''])
@@ -347,12 +358,23 @@ class ActivateSkinSettings:
 			moviePlayerSkinSearchAndReplace = []
 
 			if config.plugins.MetrixWeather.MoviePlayer.getValue() is False or config.plugins.MetrixWeather.enabled.getValue() is False:
-				moviePlayerSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
-
-			if config.plugins.MetrixWeather.type.getValue() is False:
-				moviePlayerSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET-2" />', '<panel name="INFOBARWEATHERWIDGET" />'])
+				moviePlayerSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', ''])
+				moviePlayerSkinSearchAndReplace.append(['<!-- <panel name="INFOBARWEATHERWIDGET_detail" /> -->', ''])
 			else:
-				moviePlayerSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', '<panel name="INFOBARWEATHERWIDGET-2" />'])
+				if config.plugins.MetrixWeather.type.getValue() is False:
+					if config.plugins.MetrixWeather.weekday.getValue() is False:
+						moviePlayerSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s" />' % config.plugins.MetrixWeather.forecast.value])
+					else:
+						moviePlayerSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s_weekday" />' % config.plugins.MetrixWeather.forecast.value])
+				else:
+					if config.plugins.MetrixWeather.weekday.getValue() is False:
+						moviePlayerSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s-2" />' % config.plugins.MetrixWeather.forecast.value])
+					else:
+						moviePlayerSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s-2_weekday" />' % config.plugins.MetrixWeather.forecast.value])
+				if config.plugins.MetrixWeather.detail.getValue() is False:
+					moviePlayerSkinSearchAndReplace.append(['<!-- <panel name="INFOBARWEATHERWIDGET_detail" /> -->', ''])
+				else:
+					moviePlayerSkinSearchAndReplace.append(['<!-- <panel name="INFOBARWEATHERWIDGET_detail" /> -->', '<panel name="INFOBARWEATHERWIDGET_detail" />'])
 
 			if config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer.getValue() is True:
 				if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "1":
@@ -411,12 +433,23 @@ class ActivateSkinSettings:
 			EMCSkinSearchAndReplace = []
 
 			if config.plugins.MetrixWeather.MoviePlayer.getValue() is False or config.plugins.MetrixWeather.enabled.getValue() is False:
-				EMCSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', ''])
-
-			if config.plugins.MetrixWeather.type.getValue() is False:
-				EMCSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET-2" />', '<panel name="INFOBARWEATHERWIDGET" />'])
+				EMCSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', ''])
+				EMCSkinSearchAndReplace.append(['<!-- <panel name="INFOBARWEATHERWIDGET_detail" /> -->', ''])
 			else:
-				EMCSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET" />', '<panel name="INFOBARWEATHERWIDGET-2" />'])
+				if config.plugins.MetrixWeather.type.getValue() is False:
+					if config.plugins.MetrixWeather.weekday.getValue() is False:
+						EMCSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s" />' % config.plugins.MetrixWeather.forecast.value])
+					else:
+						EMCSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s_weekday" />' % config.plugins.MetrixWeather.forecast.value])
+				else:
+					if config.plugins.MetrixWeather.weekday.getValue() is False:
+						EMCSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s-2" />' % config.plugins.MetrixWeather.forecast.value])
+					else:
+						EMCSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s-2_weekday" />' % config.plugins.MetrixWeather.forecast.value])
+				if config.plugins.MetrixWeather.detail.getValue() is False:
+					EMCSkinSearchAndReplace.append(['<!-- <panel name="INFOBARWEATHERWIDGET_detail" /> -->', ''])
+				else:
+					EMCSkinSearchAndReplace.append(['<!-- <panel name="INFOBARWEATHERWIDGET_detail" /> -->', '<panel name="INFOBARWEATHERWIDGET_detail" />'])
 
 			if config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer.getValue() is True:
 				if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "1":
@@ -894,6 +927,7 @@ class ActivateSkinSettings:
 			layerabuttonforeground = ('name="layer-a-button-foreground" value="#00' + config.plugins.MyMetrixLiteColors.buttonforeground.value + '"')
 			layeraclockforeground = ('name="layer-a-clock-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layeraclockforeground.value + '"')
 			layerbclockforeground = ('name="layer-b-clock-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layerbclockforeground.value + '"')
+			weatherborderlines = ('name="weather-borderlines" value="#' + config.plugins.MyMetrixLiteColors.weatherborderlinestransparency.value + config.plugins.MyMetrixLiteColors.weatherborderlines.value + '"')
 
 			menufont = ('name="menufont" value="#00' + config.plugins.MyMetrixLiteColors.menufont.value + '"')
 			menufontselected = ('name="menufontselected" value="#00' + config.plugins.MyMetrixLiteColors.menufontselected.value + '"')
@@ -970,6 +1004,7 @@ class ActivateSkinSettings:
 			skinSearchAndReplace.append(['name="layer-a-button-foreground" value="#00FFFFFF"', layerabuttonforeground])
 			skinSearchAndReplace.append(['name="layer-a-clock-foreground" value="#00FFFFFF"', layeraclockforeground])
 			skinSearchAndReplace.append(['name="layer-b-clock-foreground" value="#00FFFFFF"', layerbclockforeground])
+			skinSearchAndReplace.append(['name="weather-borderlines" value="#00FFFFFF"', weatherborderlines])
 
 			skinSearchAndReplace.append(['name="menufont" value="#00FFFFFF"', menufont])
 			skinSearchAndReplace.append(['name="menufontselected" value="#00FFFFFF"', menufontselected])
@@ -1127,6 +1162,13 @@ class ActivateSkinSettings:
 			scale = config.plugins.MyMetrixLiteFonts.globalclock_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_clock" scale="100" />'
 			new = '<font filename="' + type + '" name="global_clock" scale="' + str(scale) + '" />'
+			if path.exists(type):
+				skinSearchAndReplace.append([old, new])
+
+			type = config.plugins.MyMetrixLiteFonts.globalweatherweek_type.value
+			scale = config.plugins.MyMetrixLiteFonts.globalweatherweek_scale.value
+			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Bold.ttf" name="global_weather_bold" scale="100" />'
+			new = '<font filename="' + type + '" name="global_weather_bold" scale="' + str(scale) + '" />'
 			if path.exists(type):
 				skinSearchAndReplace.append([old, new])
 

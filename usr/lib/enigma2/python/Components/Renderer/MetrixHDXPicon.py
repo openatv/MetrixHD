@@ -20,6 +20,44 @@ import re
 import unicodedata
 
 
+def patched_chunk_tRNS(self, pos, len):
+	i16 = PngImagePlugin.i16
+	s = ImageFile._safe_read(self.fp, len)
+	if self.im_mode == "P":
+		self.im_info["transparency"] = map(ord, s)
+	elif self.im_mode == "L":
+		self.im_info["transparency"] = i16(s)
+	elif self.im_mode == "RGB":
+		self.im_info["transparency"] = i16(s), i16(s[2:]), i16(s[4:])
+	return s
+
+
+PngImagePlugin.PngStream.chunk_tRNS = patched_chunk_tRNS
+
+
+def patched_load(self):
+	if self.im and self.palette and self.palette.dirty:
+		apply(self.im.putpalette, self.palette.getdata())
+		self.palette.dirty = 0
+		self.palette.rawmode = None
+		try:
+			trans = self.info["transparency"]
+		except KeyError:
+			self.palette.mode = "RGB"
+		else:
+			try:
+				for i, a in enumerate(trans):
+					self.im.putpalettealpha(i, a)
+			except TypeError:
+				self.im.putpalettealpha(trans, 0)
+			self.palette.mode = "RGBA"
+	if self.im:
+		return self.im.pixel_access(self.readonly)
+
+
+Image.Image.load = patched_load
+
+
 class MetrixHDXPicon(Renderer):
 	searchPaths = ('/media/mmc/%s/', '/media/usb/XPicons/%s/', '/media/usb/%s/', '/%s/', '/%sx/', '/usr/share/enigma2/XPicons/%s/', '/usr/share/enigma2/%s/', '/usr/%s/', '/media/hdd/XPicons/%s/', '/media/hdd/%s/')
 
@@ -88,19 +126,25 @@ class MetrixHDXPicon(Renderer):
 						try:
 							ImageFile.LOAD_TRUNCATED_IMAGES = True
 							im = Image.open(pngname).convert('RGBA')
-							imw, imh = im.size
-							inh = self.instance.size().height()
-							if imh != inh:
-								sf = float(inh) / imh
-								im = im.resize((int(imw * sf), int(imh * sf)), Image.ANTIALIAS)
-								ims = ImageEnhance.Sharpness(im)
-								im = ims.enhance(float(config.plugins.MyMetrixLiteOther.piconsharpness_experimental.value))
-								tempfile = '/tmp/picon.png'
-								im.save(tempfile)
-								self.instance.setPixmapFromFile(tempfile)
-							else:
-								self.instance.setPixmapFromFile(pngname)
 						except:
+							print("[MetrixHDXPicon] cant load image:", pngname)
+							tmp = resolveFilename(SCOPE_CURRENT_SKIN, "picon_default.png")
+							if fileExists(tmp):
+								pngname = tmp
+							else:
+								pngname = resolveFilename(SCOPE_SKIN_IMAGE, "skin_default/picon_default.png")
+							im = Image.open(pngname).convert('RGBA')
+						imw, imh = im.size
+						inh = self.instance.size().height()
+						if imh != inh:
+							sf = float(inh) / imh
+							im = im.resize((int(imw * sf), int(imh * sf)), Image.ANTIALIAS)
+							ims = ImageEnhance.Sharpness(im)
+							im = ims.enhance(float(config.plugins.MyMetrixLiteOther.piconsharpness_experimental.value))
+							tempfile = '/tmp/picon.png'
+							im.save(tempfile)
+							self.instance.setPixmapFromFile(tempfile)
+						else:
 							self.instance.setPixmapFromFile(pngname)
 					else:
 						self.instance.setPixmapFromFile(pngname)
