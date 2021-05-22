@@ -119,7 +119,7 @@ class MetrixHDWeatherPixmap(Renderer):
 			condition = "20"
 		elif c == "S":
 			condition = "23"
-		elif c == "N":
+		elif c == "N" or c == "Y":
 			condition = "26"
 		elif c == "I":
 			condition = "27"

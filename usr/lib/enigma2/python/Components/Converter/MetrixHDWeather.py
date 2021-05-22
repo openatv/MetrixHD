@@ -74,7 +74,7 @@ class MetrixHDWeather(Poll, Converter, object):
 			elif self.type == "currentWeatherCode":
 				return config.plugins.MetrixWeather.currentWeatherCode.value
 			elif self.type == "currenthumidity":
-				return config.plugins.MetrixWeather.currentWeatherhumidity.value
+				return config.plugins.MetrixWeather.currentWeatherhumidity.value + " %"
 			elif self.type == "currentwinddisplay":
 				return config.plugins.MetrixWeather.currentWeatherwinddisplay.value
 			elif self.type == "currentwindspeed":
