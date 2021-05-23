@@ -250,20 +250,56 @@ class ActivateSkinSettings:
 			if config.plugins.MyMetrixLiteOther.showInfoBarClock.getValue() is False:
 				infobarSkinSearchAndReplace.append(['<panel name="CLOCKWIDGET" />', ''])
 
-			if config.plugins.MetrixWeather.enabled.getValue() is False:
+			if config.plugins.MetrixWeather.enabled.getValue() is False: # Weather disabled
 				infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', ''])
 				infobarSkinSearchAndReplace.append(['<!-- <panel name="INFOBARWEATHERWIDGET_detail" /> -->', ''])
-			else:
-				if config.plugins.MetrixWeather.type.getValue() is False:
-					if config.plugins.MetrixWeather.weekday.getValue() is False:
-						infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s" />' % config.plugins.MetrixWeather.forecast.value])
-					else:
-						infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s_weekday" />' % config.plugins.MetrixWeather.forecast.value])
+			else: # Weather enabled
+				if config.plugins.MetrixWeather.type.getValue() is False: # Weather enabled with normal symbols
+					if config.plugins.MyMetrixLiteOther.showExtendedinfo.getValue() is False: # Weather enabled with normal symbols and extended info disabled
+						if config.plugins.MetrixWeather.weekday.getValue() is False: # Weather enabled with normal symbols and extended info disabled and weekday disabled
+							infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s" />' % config.plugins.MetrixWeather.forecast.value])
+						else: # Weather enabled with normal symbols and extended info disabled and weekday enabled
+							infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s_weekday" />' % config.plugins.MetrixWeather.forecast.value])
+					else: # Weather enabled with normal symbols and extended info enabled
+						if config.plugins.MyMetrixLiteOther.ExtendedinfoStyle.getValue() == "2": # Weather enabled with normal symbols and extended info enabled between clock and weather enclosed
+							if config.plugins.MetrixWeather.weekday.getValue() is False: # Weather enabled with normal symbols and extended info enabled between clock and weather enclosed and weekday disabled
+								if config.plugins.MetrixWeather.forecast.getValue() > 0: # Weather enabled with normal symbols and extended info enabled between clock and weather enclosed and weekday disabled and forecast greater than one days
+									infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+1" />'])
+								else: # Weather enabled with normal symbols and extended info enabled between clock and weather enclosed and weekday disabled and forecast for zero days
+									infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s" />' % config.plugins.MetrixWeather.forecast.value])
+							else: # Weather enabled with normal symbols and extended info enabled between clock and weather enclosed and weekday enabled
+								if config.plugins.MetrixWeather.forecast.getValue() > 0: # Weather enabled with normal symbols and extended info enabled between clock and weather enclosed and weekday enabled and forecast greater than one days
+									infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+1_weekday" />'])
+								else: # Weather enabled with normal symbols and extended info enabled between clock and weather enclosed and weekday enabled and forecast for zero days
+									infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s_weekday" />' % config.plugins.MetrixWeather.forecast.value])
+						else: # Weather enabled with normal symbols and extended info disabled
+							if config.plugins.MetrixWeather.weekday.getValue() is False: # Weather enabled with normal symbols and extended info disabled and weekday disabled
+								infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s" />' % config.plugins.MetrixWeather.forecast.value])
+							else: # Weather enabled with normal symbols and extended info disabled and weekday enabled
+								infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s_weekday" />' % config.plugins.MetrixWeather.forecast.value])
 				else:
-					if config.plugins.MetrixWeather.weekday.getValue() is False:
-						infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s-2" />' % config.plugins.MetrixWeather.forecast.value])
-					else:
-						infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s-2_weekday" />' % config.plugins.MetrixWeather.forecast.value])
+					if config.plugins.MyMetrixLiteOther.showExtendedinfo.getValue() is False: # Weather enabled with animated symbols and extended info disabled
+						if config.plugins.MetrixWeather.weekday.getValue() is False: # Weather enabled with animated symbols and extended info disabled and weekday disabled
+							infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s-2" />' % config.plugins.MetrixWeather.forecast.value])
+						else: # Weather enabled with animated symbols and extended info disabled and weekday enabled
+							infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s-2_weekday" />' % config.plugins.MetrixWeather.forecast.value])
+					else: # Weather enabled with animated symbols and extended info enabled
+						if config.plugins.MyMetrixLiteOther.ExtendedinfoStyle.getValue() == "2": # Weather enabled with animated symbols and extended info enabled between clock and weather enclosed
+							if config.plugins.MetrixWeather.weekday.getValue() is False: # Weather enabled with animated symbols and extended info enabled between clock and weather enclosed and weekday disabled
+								if config.plugins.MetrixWeather.forecast.getValue() > 0: # Weather enabled with animated symbols and extended info enabled between clock and weather enclosed and weekday disabled and forecast greater than one days
+									infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+1" />'])
+								else: # Weather enabled with animated symbols and extended info enabled between clock and weather enclosed and weekday disabled and forecast for zero days
+									infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s-2" />' % config.plugins.MetrixWeather.forecast.value])
+							else: # Weather enabled with animated symbols and extended info enabled between clock and weather enclosed and weekday enabled
+								if config.plugins.MetrixWeather.forecast.getValue() > 0: # Weather enabled with animated symbols and extended info enabled between clock and weather enclosed and weekday enabled and forecast greater than one days
+									infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+1_weekday" />'])
+								else: # Weather enabled with animated symbols and extended info enabled between clock and weather enclosed and weekday enabled and forecast for zero days
+									infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s-2_weekday" />' % config.plugins.MetrixWeather.forecast.value])
+						else: # Weather enabled with animated symbols and extended info disabled
+							if config.plugins.MetrixWeather.weekday.getValue() is False: # Weather enabled with animated symbols and extended info disabled and weekday disabled
+								infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s-2" />' % config.plugins.MetrixWeather.forecast.value])
+							else: # Weather enabled with animated symbols and extended info disabled and weekday enabled
+								infobarSkinSearchAndReplace.append(['<panel name="INFOBARWEATHERWIDGET+1" />', '<panel name="INFOBARWEATHERWIDGET+%s-2_weekday" />' % config.plugins.MetrixWeather.forecast.value])
 				if config.plugins.MetrixWeather.detail.getValue() is False:
 					infobarSkinSearchAndReplace.append(['<!-- <panel name="INFOBARWEATHERWIDGET_detail" /> -->', ''])
 				else:
