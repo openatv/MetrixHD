@@ -31,8 +31,8 @@ def patched_chunk_tRNS(self, pos, len):
 		self.im_info["transparency"] = i16(s), i16(s[2:]), i16(s[4:])
 	return s
 
-
-PngImagePlugin.PngStream.chunk_tRNS = patched_chunk_tRNS
+if six.PY2:
+	PngImagePlugin.PngStream.chunk_tRNS = patched_chunk_tRNS
 
 
 def patched_load(self):
@@ -55,7 +55,8 @@ def patched_load(self):
 		return self.im.pixel_access(self.readonly)
 
 
-Image.Image.load = patched_load
+if six.PY2:
+	Image.Image.load = patched_load
 
 
 class MetrixHDXPicon(Renderer):
