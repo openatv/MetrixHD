@@ -345,7 +345,10 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			temp_max = str(int(round(d['list'][0]['main']['temp_max'])))
 			feelslike = str(int(round(d['list'][0]['main']['feels_like'])))
 			humidity = str(int(round(d['list'][0]['main']['humidity'])))
-			windspeed = str(int(round(d['list'][0]['wind']['speed'])))
+			if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit":
+				windspeed = str(int(round(d['list'][0]['wind']['speed'])))
+			else:
+				windspeed = str(int(round(float(d['list'][0]['wind']['speed']) * 3.6)))
 			winddirectiondegree = str(int(round(d['list'][0]['wind']['deg'])))
 
 			winddirection = "·"
@@ -470,11 +473,12 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			config.plugins.MetrixWeather.forecastTodayTempMax.value = tmax_today
 			config.plugins.MetrixWeather.currentWeatherfeelslike.value = feelslike
 			config.plugins.MetrixWeather.currentWeatherhumidity.value = humidity
-			config.plugins.MetrixWeather.currentWeatherwindspeed.value = windspeed
 			if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit":
+				config.plugins.MetrixWeather.currentWeatherwindspeed.value = windspeed + " mph"
 				config.plugins.MetrixWeather.currentWeatherwinddisplay.value = windspeed + " mph " + winddirection
 			else:
-				config.plugins.MetrixWeather.currentWeatherwinddisplay.value = windspeed + " m/s " + winddirection
+				config.plugins.MetrixWeather.currentWeatherwindspeed.value = windspeed + " km/h"
+				config.plugins.MetrixWeather.currentWeatherwinddisplay.value = windspeed + " km/h " + winddirection
 			#tomrorrow
 			if not code_tomorrow:
 				code_tomorrow = tmp
