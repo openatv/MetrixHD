@@ -1,0 +1,54 @@
+name: MetrixHD
+
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
+
+jobs:
+  build:
+    name: Build oe-alliance plugins
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install prerequisites
+        run: |
+          sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+          sudo apt-get -q update
+          sudo apt-get install automake
+          sudo apt-get install build-essential
+          sudo apt-get install gettext
+
+      - uses: actions/checkout@v2
+        with:
+          ref: 'master'
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '2.7'
+
+      - name: Build, python 2.7
+        run: |
+          python -m compileall .
+
+      - uses: actions/checkout@v2
+        with:
+          ref: 'dev'
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      - name: Build, python 3.8
+        run: |
+          python -m compileall .
+
+      - uses: actions/checkout@v2
+        with:
+          ref: 'dev'
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Build, python 3.9
+        run: |
+          sudo apt-get install python3.9-dev
+          python -m compileall .
