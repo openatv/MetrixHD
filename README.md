@@ -1,7 +1,9 @@
 MetrixHD
 ========
 
-## **openATV 6.3 default skin**
+[![MetrixHD build](https://github.com/openatv/MetrixHD/actions/workflows/MetrixHD.yml/badge.svg?branch=dev)](https://github.com/openatv/MetrixHD/actions/workflows/MetrixHD.yml)
+
+## **openATV 6.5 / 7.0 default skin**
 
 MetrixHD is created by iMaxxx 
 
