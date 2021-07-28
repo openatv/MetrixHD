@@ -94,8 +94,6 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 		self.checkTimer = eTimer()
 		self.checkTimer.callback.append(self.readCheckFile)
 
-		ConfigListScreen.__init__(self, self.getMenuItemList(), session=session, on_change=self.changedEntry)
-
 		self["actions"] = ActionMap(
 		[
 			"OkCancelActions",
@@ -118,6 +116,8 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 			"cancel": self.exit
 		}, -1)
 		self.onLayoutFinish.append(self.UpdatePicture)
+
+		ConfigListScreen.__init__(self, self.getMenuItemList(), session=session, on_change=self.changedEntry)
 
 	def getMenuItemList(self):
 		list = []
