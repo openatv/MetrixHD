@@ -4862,17 +4862,17 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 				    "default": [
 				      30,  # itemHeight
 				      [
-					MultiContentEntryText(pos=(0, 0), size=(503, 30), font=1, text=1),
+					MultiContentEntryText(pos=(0, 0), size=(700, 30), font=1, text=1),
 				      ]
 				    ],
 				    # Simple help with headings
 				    # data[1:] = [heading, None]  # For heading entries
 				    # data[1:] = [None, helpText]  # For help entries
 				    "default+headings": [  # data[1:] = [helpText]
-				      38,  # itemHeight
+				      30,  # itemHeight
 				      [
-					MultiContentEntryText(pos=(0, 0), size=(503, 30), font=0, text=1),
-					MultiContentEntryText(pos=(20, 0), size=(483, 30), font=1, text=2),
+					MultiContentEntryText(pos=(0, 0), size=(700, 30), font=0, text=1),
+					MultiContentEntryText(pos=(20, 0), size=(650, 30), font=1, text=2),
 				      ]
 				    ],
 				    # Extended help with no headings
@@ -4880,8 +4880,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 				    "extended": [
 				      57,  # itemHeight
 				      [
-					MultiContentEntryText(pos=(0, 0), size=(503, 30), font=2, text=1),
-					MultiContentEntryText(pos=(0, 40), size=(503, 30), color=0x009e9fa4, font=3, text=2),
+					MultiContentEntryText(pos=(0, 0), size=(700, 30), font=2, text=1),
+					MultiContentEntryText(pos=(0, 40), size=(700, 30), color=0x009e9fa4, font=3, text=2),
 				      ],
 				    ],
 				    # Extended help with headings
@@ -4890,9 +4890,9 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 				    "extended+headings": [
 				      57,  # itemHeight
 				      [
-					MultiContentEntryText(pos=(0, 9), size=(503, 30), font=0, text=1),
-					MultiContentEntryText(pos=(20, 0), size=(483, 30), font=2, text=2),
-					MultiContentEntryText(pos=(20, 30), size=(483, 30), color=0x009e9fa4, font=3, text=3),
+					MultiContentEntryText(pos=(0, 9), size=(700, 30), font=0, text=1),
+					MultiContentEntryText(pos=(20, 0), size=(650, 30), font=2, text=2),
+					MultiContentEntryText(pos=(20, 30), size=(650, 30), color=0x009e9fa4, font=3, text=3),
 				      ],
 				    ],
 				  },
@@ -4901,7 +4901,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 				}
 			</convert>
 		</widget>
-		<widget name="long_key" position="70,630" size="700,34" font="SetrixHD;25" halign="center" zPosition="2" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="0" />
+		<widget name="buttonlist" position="70,630" size="700,34" font="SetrixHD;25" halign="center" zPosition="2" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="0"/>
 		<panel name="wizard_rc_templateNew" />
 		<panel name="_he-buttons_template1" />
 		<panel name="template1_2layer" />
