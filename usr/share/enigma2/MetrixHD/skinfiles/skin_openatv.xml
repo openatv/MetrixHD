@@ -5011,6 +5011,30 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 		<panel name="__e-buttons_template1" />
 		<panel name="template1_2layer" />
 	</screen>
+	<screen name="LocaleWizard" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<widget name="icons" position="0,0" size="30,27" pixmaps="icons/menu_off.png,icons/menu_download.png,icons/menu_on.png" alphatest="blend" />
+		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="locales" render="Listbox" position="70,105" size="700,238" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{
+				"template":
+					[
+					MultiContentEntryPixmapAlphaBlend(pos = (5, 3), size = (56, 28), flags = BT_SCALE, png = 0),
+					MultiContentEntryText(pos = (80, 0), size = (265, 34), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 1),
+					#MultiContentEntryText(pos = (345, 0), size = (225, 34), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2),
+					#MultiContentEntryText(pos = (570, 0), size = (75, 34), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),
+					#MultiContentEntryPixmapAlphaBlend(pos = (645, 10), size = (40, 14), flags = BT_SCALE, png = 4)
+					],
+				"fonts": [gFont("SetrixHD",20)],
+				"itemHeight": 34
+				}
+			</convert>
+		</widget>
+		<panel name="wizard_template" /> 
+		<panel name="wizard_rc_templateNew" />
+		<panel name="rg__-buttons_template1" />
+		<panel name="rg__-keys_template1-source" />
+	</screen>
 	<screen name="StartWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
 		<!--eLabel text="StartWizard" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /-->
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
