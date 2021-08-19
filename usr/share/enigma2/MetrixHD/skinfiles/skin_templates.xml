@@ -42,6 +42,45 @@
 			<widget name="key_yellow" position="810,633" size="130,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 			<widget name="key_blue" position="981,633" size="130,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		</screen>
+		<!--/* NEW-Automatic-BUTTONS /> -->
+		<screen name="ScreenTemplateButtonRed_template1">
+			<ePixmap pixmap="buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" objectTypes="key_red,Button,Label" transparent="1" />
+			<widget source="key_red" render="Pixmap" pixmap="buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" objectTypes="key_red,StaticText" transparent="1">
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget name="key_red" position="70,638" size="170,30" noWrap="1" zPosition="+1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" objectTypes="key_red,Button,Label" transparent="1" />
+			<widget source="key_red" render="Label" position="70,638" size="170,30" noWrap="1" zPosition="+1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" objectTypes="key_red,StaticText" transparent="1" />
+		</screen>
+		<screen name="ScreenTemplateButtonGreen_template1">
+			<ePixmap pixmap="buttons/key_green.png" position="218,635" size="30,40" alphatest="blend" objectTypes="key_green,Button,Label" transparent="1" />
+			<widget source="key_green" render="Pixmap" pixmap="buttons/key_green.png" position="218,635" size="30,40" alphatest="blend" objectTypes="key_green,StaticText" transparent="1">
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget name="key_green" position="253,638" size="170,30" noWrap="1" zPosition="+1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" objectTypes="key_green,Button,Label" transparent="1" />
+			<widget source="key_green" render="Label" position="253,638" size="170,30" noWrap="1" zPosition="+1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" objectTypes="key_green,StaticText" transparent="1" />
+		</screen>
+		<screen name="ScreenTemplateButtonYellow_template1">
+			<ePixmap pixmap="buttons/key_yellow.png" position="401,635" size="30,40" alphatest="blend" objectTypes="key_yellow,Button,Label" transparent="1" />
+			<widget source="key_yellow" render="Pixmap" pixmap="buttons/key_yellow.png" position="401,635" size="30,40" alphatest="blend" objectTypes="key_yellow,StaticText" transparent="1">
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget name="key_yellow" position="436,638" size="170,30" noWrap="1" zPosition="+1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" objectTypes="key_yellow,Button,Label" transparent="1" />
+			<widget source="key_yellow" render="Label" position="436,638" size="170,30" noWrap="1" zPosition="+1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" objectTypes="key_yellow,StaticText" transparent="1" />
+		</screen>
+		<screen name="ScreenTemplateButtonBlue_template1">
+			<ePixmap pixmap="buttons/key_blue.png" position="584,635" size="30,40" alphatest="blend" objectTypes="key_blue,Button,Label" transparent="1" />
+			<widget source="key_blue" render="Pixmap" pixmap="buttons/key_blue.png" position="584,635" size="30,40" alphatest="blend" objectTypes="key_blue,StaticText" transparent="1">
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget name="key_blue" position="619,638" size="170,30" noWrap="1" zPosition="+1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" objectTypes="key_blue,Button,Label" transparent="1" />
+			<widget source="key_blue" render="Label" position="619,638" size="170,30" noWrap="1" zPosition="+1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" objectTypes="key_blue,StaticText" transparent="1" />
+		</screen>
+		<screen name="ScreenTemplateAllColorButtons_template1">
+			<panel name="ScreenTemplateButtonRed_template1" />
+			<panel name="ScreenTemplateButtonGreen_template1" />
+			<panel name="ScreenTemplateButtonYellow_template1" />
+			<panel name="ScreenTemplateButtonBlue_template1" />
+		</screen>
 		<screen name="rgyb-buttons_template1">
 			<ePixmap pixmap="buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" />
 			<ePixmap pixmap="buttons/key_green.png" position="218,635" size="30,40" alphatest="blend" />
