@@ -214,21 +214,26 @@ class BackupSettingsView(ConfigListScreen, Screen):
 			self.message(_("Can't create Backup-File!\n( %s )") % BACKUP_FILE, MessageBox.TYPE_ERROR)
 
 	def readFile(self):
-
 		if path.exists(BACKUP_FILE):
 			try:
 				f = file(BACKUP_FILE, "rb")
 				self.file = pickle.load(f)
 				f.close()
-				return True
+				return 0
+			except ValueError: # Backup from newer version
+				return 2
 			except EOFError:
 				pass
-		return False
+		return 1
 
 	def restore(self):
 		self["titleText"].setText(_("Backup & Restore my settings"))
-		if not self.readFile():
+		ret = self.readFile()
+		if ret == 1:
 			self.message(_("No Backup-File found!\n( %s )") % BACKUP_FILE, MessageBox.TYPE_ERROR)
+			return
+		elif ret == 2:
+			self.message(_("The Backup-File was created by a newer version and cannot used!\n( %s )") % BACKUP_FILE, MessageBox.TYPE_ERROR)
 			return
 		set = self.myset.value
 		s = 0
