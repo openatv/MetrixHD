@@ -4825,15 +4825,15 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 						),
 						# Extended help with no headings
 						# data[1:] = [helpText, extendedHelpText]
-						"extended": (57,[
-							MultiContentEntryText(pos=(0, 0), size=(700, 30), font=2, text=1),
-							MultiContentEntryText(pos=(0, 40), size=(700, 30), color=0x009e9fa4, font=3, text=2),
+						"extended": (170,[
+							MultiContentEntryText(pos=(0, 0), size=(700, 79), font=1, flags=RT_WRAP | RT_VALIGN_CENTER,  text=1),
+							MultiContentEntryText(pos=(0, 80), size=(700, 90), color=0x009e9fa4, font=3, flags=RT_WRAP | RT_VALIGN_TOP,  text=2),
 							],
 						),
 						# Extended help with headings
 						# data[1:] = [heading, None, None]  # For heading entries
 						# data[1:] = [None, helpText, extendedHelpText]  # For help entries
-						"extended+headings": (57,[
+						"extended+headings": (60,[
 							MultiContentEntryText(pos=(0, 9), size=(700, 30), font=0, text=1),
 							MultiContentEntryText(pos=(20, 0), size=(650, 30), font=2, text=2),
 							MultiContentEntryText(pos=(20, 30), size=(650, 30), color=0x009e9fa4, font=3, text=3),
