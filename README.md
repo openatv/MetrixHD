@@ -1,7 +1,7 @@
 MetrixHD
 ========
 
-[![MetrixHD build](https://github.com/openatv/MetrixHD/actions/workflows/MetrixHD.yml/badge.svg?branch=dev)](https://github.com/openatv/MetrixHD/actions/workflows/MetrixHD.yml) [![Translation status](https://hosted.weblate.org/widgets/openatv/-/svg-badge.svg)](https://hosted.weblate.org/engage/openatv/)
+[![MetrixHD build](https://github.com/openatv/MetrixHD/actions/workflows/MetrixHD.yml/badge.svg?branch=dev)](https://github.com/openatv/MetrixHD/actions/workflows/MetrixHD.yml) [![Translation status](https://hosted.weblate.org/widgets/openatv/-/metrixhd/svg-badge.svg)](https://hosted.weblate.org/engage/openatv/)
 
 ## **openATV 6.5 / 7.0 default skin**
 
