@@ -1921,7 +1921,7 @@ self['config'].l.setSeperation(int(300*f))
 					MultiContentEntryPixmapAlphaBlend(pos = (5, 3), size = (56, 28), flags = BT_SCALE, png = 0),
 					MultiContentEntryText(pos = (80, 0), size = (265, 34), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 1),
 					MultiContentEntryText(pos = (345, 0), size = (225, 34), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2),
-					MultiContentEntryText(pos = (570, 0), size = (75, 34), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),
+					MultiContentEntryText(pos = (570, 0), size = (75, 34), font = 0, flags = RT_HALIGN_CENTER | RT_VALIGN_CENTER, text = 3),
 					MultiContentEntryPixmapAlphaBlend(pos = (645, 10), size = (40, 14), flags = BT_SCALE, png = 4)
 					],
 				"fonts": [gFont("SetrixHD",20)],
@@ -4826,17 +4826,17 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 						# Extended help with no headings
 						# data[1:] = [helpText, extendedHelpText]
 						"extended": (170,[
-							MultiContentEntryText(pos=(0, 0), size=(700, 79), font=1, flags=RT_WRAP | RT_VALIGN_CENTER, text=1),
-							MultiContentEntryText(pos=(0, 80), size=(700, 90), color=0x009e9fa4, color_sel=0x009e9fa4, font=3, flags=RT_WRAP | RT_VALIGN_TOP, text=2),
+							MultiContentEntryText(pos=(5, 0), size=(690, 79), font=1, flags=RT_WRAP | RT_VALIGN_CENTER, text=1),
+							MultiContentEntryText(pos=(5, 80), size=(690, 90), color=0x009e9fa4, color_sel=0x009e9fa4, font=3, flags=RT_WRAP | RT_VALIGN_TOP, text=2),
 							],
 						),
 						# Extended help with headings
 						# data[1:] = [heading, None, None]  # For heading entries
 						# data[1:] = [None, helpText, extendedHelpText]  # For help entries
-						"extended+headings": (60,[
-							MultiContentEntryText(pos=(0, 9), size=(700, 30), font=0, text=1),
-							MultiContentEntryText(pos=(20, 0), size=(650, 30), font=2, text=2),
-							MultiContentEntryText(pos=(20, 30), size=(650, 30), color=0x009e9fa4, font=3, text=3),
+						"extended+headings": (170,[
+							MultiContentEntryText(pos=(5, 0), size=(690, 170), font=0, flags=RT_WRAP | RT_VALIGN_CENTER, text=1),
+							MultiContentEntryText(pos=(28, 0), size=(662, 56), font=1, flags=RT_WRAP | RT_VALIGN_CENTER, text=2),
+							MultiContentEntryText(pos=(28, 60), size=(662, 90), color=0x009e9fa4, color_sel=0x009e9fa4, font=3, flags=RT_WRAP | RT_VALIGN_TOP, text=3),
 							],
 						),
 					},
