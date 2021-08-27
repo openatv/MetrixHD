@@ -1038,7 +1038,7 @@
 			<convert type="ConditionalShowHide" />
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="icons/menu_osd_menu_osd3dsetup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">osd3dsetup</convert>
+			<convert type="MenuEntryCompare">setup_osd3d</convert>
 			<convert type="ConditionalShowHide" />
 		</widget>
 		<widget source="menu" render="Pixmap" pixmap="icons/usage_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
@@ -1723,11 +1723,6 @@ self.instance.move(ePoint(0,0))
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/setup.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="setup_osd3d" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
-		<panel name="setup_common"/>
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_osd_menu_osd3dsetup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="VideoSetup" position="0,0" size="1280,720" title="Video Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
@@ -5281,5 +5276,6 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 		<setup key="logs" image="icons/menu_extended_logs_setup.png" />
 		<setup key="dvdplayer" image="icons/menu_extended_dvdplayer_setup.png" />
 		<setup key="specialfeatures" image="icons/menu_extended_specialfeatures_menu.png" />
+		<setup key="osd3d" image="icons/menu_osd_menu_osd3dsetup.png" />
 	</setups>
 </skin>
