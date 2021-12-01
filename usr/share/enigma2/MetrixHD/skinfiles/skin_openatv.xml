@@ -1855,7 +1855,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="setup_common"/>
 		<widget source="current_address" render="Label" position="825,150" size="380,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<widget source="fixed_address" render="Label" position="825,175" size="380,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/hdmicec.png" transparent="1" alphatest="blend" />
+		<widget name="setupimage" position="890,175" size="256,256" alphatest="blend" conditional="setupimage" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="HdmiCECSetupScreen" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
@@ -4550,11 +4550,11 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 
 	<!--TagEditor /-->
 	<screen name="TagEditor" position="0,0" size="1280,720" title="" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="taglist" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="mhe-buttons_template1" />
+		<panel name="template1_2layer" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
 
@@ -5298,5 +5298,6 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 		<setup key="specialfeatures" image="icons/menu_extended_specialfeatures_menu.png" />
 		<setup key="osd3d" image="icons/menu_osd_menu_osd3dsetup.png" />
 		<setup key="OscamInfo" image="icons/softcam.png" />
+		<setup key="HdmiCec" image="icons/hdmicec.png" />
 	</setups>
 </skin>
