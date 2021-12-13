@@ -2455,6 +2455,16 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="tie-buttons_template1" />
 	</screen>
+
+	<screen name="MessageBox-template-4">
+		<!-- new version 4 /-->
+		<widget source="Title" render="Label" position="67,8" foregroundColor="layer-a-title-foreground" size="623,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1"/>
+		<panel name="ul-messagebox" />
+		<widget name="icon" position="8,8" size="53,53" pixmaps="icons/message/question-53.png,icons/message/info-53.png,icons/message/info-53.png,icons/message/attention-53.png,icons/message/info-53.png" alphatest="blend" conditional="icon" scale="1" transparent="1" />
+		<widget name="text" position="10,80" size="780,50" font="screen_text;22" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+		<widget name="list" position="10,140" size="780,240" itemHeight="30" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+	</screen>
+
 	<screen name="MessageBox-template-3">
 		<!-- new version 3 /-->
 		<widget source="Title" render="Label" position="67,8" foregroundColor="layer-a-title-foreground" size="623,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1"/>
@@ -2545,13 +2555,16 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 		</applet>
 	</screen>
 	<screen name="MessageBox" position="240,160" size="800,400" zPosition="10" title="Message" flags="wfNoBorder" backgroundColor="layer-a-background">
-		<panel name="MessageBox-template-3" />
+		<panel name="MessageBox-template-3" conditional="QuestionPixmap"/>
+		<panel name="MessageBox-template-4" conditional="icon"/>
 	</screen>
 	<screen name="MessageBoxExt" position="240,160" size="800,400" zPosition="10" title="Message" flags="wfNoBorder" backgroundColor="layer-a-background">
-		<panel name="MessageBox-template-3" />
+		<panel name="MessageBox-template-3" conditional="QuestionPixmap"/>
+		<panel name="MessageBox-template-4" conditional="icon"/>
 	</screen>
 	<screen name="MessageBoxSimple" position="240,160" size="800,400" zPosition="10" title="Message" flags="wfNoBorder" backgroundColor="layer-a-background">
-		<panel name="MessageBox-template-3" />
+		<panel name="MessageBox-template-3" conditional="QuestionPixmap"/>
+		<panel name="MessageBox-template-4" conditional="icon"/>
 	</screen>
 	<screen name="RemoveTimerQuestion" position="240,160" size="800,400" zPosition="10" title="Message" flags="wfNoBorder" backgroundColor="layer-a-background">
 		<ePixmap pixmap="icons/message/question-53.png" position="8,8" size="53,53" alphatest="blend" />
