@@ -2674,16 +2674,22 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 		<eLabel position="0,0" size="335,71" backgroundColor="layer-b-background" zPosition="-2" transparent="0" />
 		<eLabel text="PiP-Zap" position="1,1" zPosition="2" size="333,59" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" font="screen_info;40" halign="center" valign="bottom" />
 	</screen>
-	<screen name="ChoiceBox" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="ChoiceBoxBase" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="windowtitle" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<!--widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" transparent="1" backgroundColor="layer-a-background"/-->
 		<widget source="Title" render="Label" position="70,100" size="700,30" noWrap="0" font="screen_text;24" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background"/>
 		<widget name="list" position="70,150" size="700,459" itemHeight="35" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="text" position="810,385" size="415,220" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" excludes="key_text"/>
 		<panel name="toe-buttons_template1" includes="key_text" />
+	<screen>
+	<screen name="ChoiceBox" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="ChoiceBoxBase" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/setup.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="EventViewContextMenuChoiceBox" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="ChoiceBoxBase" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/service_info.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="RecordTimerQuestion" position="0,0" size="502,82" zPosition="99" flags="wfNoBorder" backgroundColor="layer-b-background">
 		<widget name="text" position="1,1" size="500,80" backgroundColor="layer-a-background" zPosition="-1" transparent="0" />
