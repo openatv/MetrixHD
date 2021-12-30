@@ -2692,7 +2692,6 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/service_info.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="RecordTimerQuestion" position="0,0" size="502,82" zPosition="99" flags="wfNoBorder" backgroundColor="layer-b-background">
-		<widget source="windowtitle" render="Label" position="0,0" foregroundColor="layer-a-title-foreground" size="0,0" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="text" position="1,1" size="500,80" backgroundColor="layer-a-background" zPosition="-1" transparent="0" />
 		<widget name="list" position="11,11" size="480,60" itemHeight="30" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<applet type="onLayoutFinish">
@@ -2711,6 +2710,7 @@ if len(listitems.list) &gt; 2:
 	pos = self["text"].instance.position().x() * 2
 	wwsize = (wsize[0]-pos,wsize[1]-pos)
 	self["text"].instance.resize(eSize(*wwsize))
+	self["text"].setText("")
 	self.instance.resize(eSize(*wsize))
 		</applet>
 	</screen>
