@@ -3858,6 +3858,39 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
 	</screen>
+	<screen name="SoftwareUpdate" position="0,0" size="1280,720" title="Software Update" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Software Update" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<widget name="package_text" position="70,115" size="250,35" zPosition="1" font="Regular;24" halign="right" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="package_count" position="324,115" size="50,35" zPosition="1" font="Regular;24" halign="right" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="feedmessage" position="70,130" size="310,50" font="Regular;20" transparent="1" />
+		<widget name="activity" position="70,170" size="310,5" />
+		<widget source="list" render="Listbox" position="70,180" size="700,416" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+						MultiContentEntryText(pos = (5, 1), size = (590, 28), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
+						MultiContentEntryText(pos = (5, 26), size = (590, 21), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
+						MultiContentEntryPixmapAlphaBlend(pos = (605, 2), size = (48, 48), png = 4, flags = BT_SCALE), # index 4 is the status pixmap
+						MultiContentEntryPixmapAlphaBlend(pos = (0, 50), size = (700, 2), png = 5), # index 5 is the div pixmap
+					],
+				"fonts": [gFont("Regular",22),gFont("Regular",16)],
+				"itemHeight": 52
+				}
+			</convert>
+		</widget>
+		<widget name="traffic_off" position="1000,90" zPosition="1" size="36,97" pixmap="icons/aoff.png" alphatest="on" />
+		<widget name="traffic_red" position="1000,90" zPosition="1" size="36,97" pixmap="icons/ared.png" alphatest="on" />
+		<widget name="traffic_yellow" position="1000,90" zPosition="1" size="36,97" pixmap="icons/ayellow.png" alphatest="on" />
+		<widget name="traffic_green" position="1000,90" zPosition="1" size="36,97" pixmap="icons/agreen.png" alphatest="on" />
+		<widget name="feedstatus_off" position="1043,123" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
+		<widget name="feedstatus_red" position="1043,91" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
+		<widget name="feedstatus_yellow" position="1043,123" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
+		<widget name="feedstatus_greed" position="1043,155" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
+		<ePixmap position="890,175" size="256,256" pixmap="icons/swupdate.png" transparent="1" alphatest="blend" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="__e-buttons_template1" />
+	</screen>
 	<screen name="UpdatePlugin" position="0,0" size="1280,720" title="Software Update..." flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Software Update" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
