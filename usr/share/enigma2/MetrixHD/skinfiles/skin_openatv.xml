@@ -3863,7 +3863,7 @@ if len(listitems.list) &gt; 2:
 		<eLabel text="Software Update" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget name="package_text" position="70,115" size="250,35" zPosition="1" font="Regular;24" halign="right" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="package_count" position="324,115" size="50,35" zPosition="1" font="Regular;24" halign="right" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="feedmessage" position="70,130" size="310,50" font="Regular;20" transparent="1" />
+		<widget name="feedmessage" position="810,385" size="415,220" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<widget name="activity" position="70,170" size="310,5" />
 		<widget source="list" render="Listbox" position="70,180" size="700,416" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
@@ -3885,11 +3885,21 @@ if len(listitems.list) &gt; 2:
 		<widget name="feedstatus_off" position="1043,123" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
 		<widget name="feedstatus_red" position="1043,91" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
 		<widget name="feedstatus_yellow" position="1043,123" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
-		<widget name="feedstatus_greed" position="1043,155" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
+		<widget name="feedstatus_green" position="1043,155" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
 		<ePixmap position="890,175" size="256,256" pixmap="icons/swupdate.png" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
+	</screen>
+	<screen name="RunSoftwareUpdate" position="0,0" size="1280,720" title="Software Update..." flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Software Update" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<widget name="activity" position="70,160" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
+		<widget source="package" render="Label" position="70,280" size="700,30" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="status" render="Label" position="70,330" size="700,30" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<ePixmap position="890,175" size="256,256" pixmap="icons/swupdate.png" transparent="1" alphatest="blend" />
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="UpdatePlugin" position="0,0" size="1280,720" title="Software Update..." flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
