@@ -3894,9 +3894,8 @@ if len(listitems.list) &gt; 2:
 	<screen name="RunSoftwareUpdate" position="0,0" size="1280,720" title="Software Update..." flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Software Update" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget name="activity" position="70,160" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
-		<widget source="package" render="Label" position="70,280" size="700,30" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="status" render="Label" position="70,330" size="700,30" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="activity" position="70,120" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
+		<widget name="update" position="70,160" size="700,426" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand"/>
 		<ePixmap position="890,175" size="256,256" pixmap="icons/swupdate.png" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
