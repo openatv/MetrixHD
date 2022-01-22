@@ -2114,6 +2114,11 @@ class ActivateSkinSettings:
 		if ('widget name="list"' in line or 'widget name="CoolEvent"' in line) and ' CoolEvent' in line:
 			line = re.sub('(Cool\w+=" *)(\d+)', self.linereplacer, line)
 #cool tv guide special end
+
+#colPosition="240"
+		if ' colPosition="' in line:
+			line = re.sub('(colPosition=" *)(\d+)', self.linereplacer, line)
+
 		return line
 
 	def linerchanger_old(self, line, next_picon_zoom): # faster than with regex :(
@@ -3365,6 +3370,17 @@ class ActivateSkinSettings:
 				strnew = line[n1:n2 + 1] + ynew + '"'
 				line = line[:n1] + strnew + line[(n3 + 1):]
 #cool tv guide special end
+
+#colPosition="240"
+			if 'colPosition="' in line:
+				n1 = line.find('colPosition=', 0)
+				n2 = line.find('"', n1)
+				n3 = line.find('"', n2 + 1)
+				y = line[(n2 + 1):n3]
+				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
+				strnew = line[n1:n2 + 1] + ynew + '"'
+				line = line[:n1] + strnew + line[(n3 + 1):]
+
 		return line
 
 	@staticmethod
