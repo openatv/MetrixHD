@@ -19,10 +19,31 @@
 		<panel name="_ie-buttons_template1" />
 	</screen>
 
-	<screen name="Information" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="information_common">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="OPEN SOURCE" position="825,110" size="380,60" font="screen_info;50" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
+		<widget name="description" position="810,385" size="415,220" font="screen_info;20" conditional="description" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<widget name="information" position="70,100" size="700,480" colPosition="280" conditional="information" divideChar="|" font="Regular;20" noWrap="1" leftColAlign="left" rightColAlign="left" split="1" backgroundColor="layer-a-background" transparent="1" />
-		<panel name="OPEN_SOURCE_INFO" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+	</screen>
+
+	<screen name="ImageInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="information_common" />
 		<panel name="_he-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_information_about.png" transparent="1" alphatest="blend" />
+	</screen>
+
+	<screen name="SystemInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="information_common" />
+		<panel name="mhe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/info.png" transparent="1" alphatest="blend" />
+	</screen>
+
+	<screen name="Information" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="information_common" />
+		<panel name="_he-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_information_device.png" transparent="1" alphatest="blend" />
 	</screen>
 
 	<screen name="TranslationInfo" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
