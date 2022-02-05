@@ -35,9 +35,12 @@
 	</screen>
 
 	<screen name="SystemInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="mhe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/info.png" transparent="1" alphatest="blend" />
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="description" position="70,590" size="1140,25" font="screen_info;20" conditional="description" foregroundColor="layer-a-title-foreground" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
+		<widget name="information" position="70,100" size="1140,485" colPosition="280" conditional="information" divideChar="|" font="Console;17" noWrap="1" leftColAlign="left" rightColAlign="left" split="1" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="template1_1layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="mhe-buttons_template2" />
 	</screen>
 
 	<screen name="Information" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
