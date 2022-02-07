@@ -1042,26 +1042,26 @@
 		<widget render="Label" source="currentTemp" font="Regular;50" position="230,170" size="400,120" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center" />
 		<widget render="Label" source="feelsliketemp" font="Regular;22" position="310,258" size="240,40" backgroundColor="#363b38" zPosition="3" transparent="1" valign="center" halign="center" />
 		<widget render="Label" source="condition" font="Regular;24" position="310,294" size="240,45" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center"/>
-		<widget render="Label" source="caption" font="Regular;28" position="590,20" size="370,55" backgroundColor="transBlack" zPosition="3" transparent="1" halign="center" valign="top" />
-		<widget render="Label" source="observationpoint" font="Regular;22" position="590,75" size="370,55" backgroundColor="transBlack" zPosition="3" transparent="1" halign="center" valign="top" />
+		<widget render="Label" source="caption" font="Regular;28" position="590,20" size="370,55" backgroundColor="transpBlack" zPosition="3" transparent="1" halign="center" valign="top" />
+		<widget render="Label" source="observationpoint" font="Regular;22" position="590,75" size="370,55" backgroundColor="transpBlack" zPosition="3" transparent="1" halign="center" valign="top" />
 		<ePixmap pixmap="msn_weather_icons/overlay.png" position="310,19" size="240,320" zPosition="2" transparent="1" alphatest="blend" />
 		<widget render="MSNWeatherPixmap" source="session.MSNWeather" position="310,19" size="240,320" zPosition="1" transparent="1" alphatest="blend">
 			<convert type="MSNWeather">weathericon,current,/etc/enigma2/weather_icons_special/,png</convert>
 		</widget>
 		<ePixmap pixmap="msn_weather_icons/temp_high_low.png" position="815,136" size="28,70" zPosition="3" transparent="1" alphatest="blend" />
-		<widget source="session.MSNWeather" render="Label" font="Regular;35" position="625,126" size="300,40" backgroundColor="transBlack" zPosition="3" transparent="1" valign="center" halign="center">
+		<widget source="session.MSNWeather" render="Label" font="Regular;35" position="625,126" size="300,40" backgroundColor="transpBlack" zPosition="3" transparent="1" valign="center" halign="center">
 			<convert type="MSNWeather">temperature_high,current</convert>
 		</widget>
-		<widget source="session.MSNWeather" render="Label" font="Regular;35" position="625,169" size="300,40" backgroundColor="transBlack" zPosition="3" transparent="1" valign="center" halign="center">
+		<widget source="session.MSNWeather" render="Label" font="Regular;35" position="625,169" size="300,40" backgroundColor="transpBlack" zPosition="3" transparent="1" valign="center" halign="center">
 			<convert type="MSNWeather">temperature_low,current</convert>
 		</widget>
-		<widget source="session.MSNWeather" render="Label" font="Regular;23" noWrap="1" position="625,214" size="300,40" backgroundColor="transBlack" zPosition="3" transparent="1" halign="center" valign="center" >
+		<widget source="session.MSNWeather" render="Label" font="Regular;23" noWrap="1" position="625,214" size="300,40" backgroundColor="transpBlack" zPosition="3" transparent="1" halign="center" valign="center" >
 			<convert type="MSNWeather">temperature_text,day1</convert>
 		</widget>
 		<ePixmap pixmap="msn_weather_icons/wind.png" position="610,258" size="60,60" zPosition="3" transparent="1" alphatest="blend" />
-		<widget render="Label" source="wind_condition" font="Regular;24" position="628,260" size="300,30" backgroundColor="transBlack" zPosition="3" transparent="1" valign="center" halign="center" />
+		<widget render="Label" source="wind_condition" font="Regular;24" position="628,260" size="300,30" backgroundColor="transpBlack" zPosition="3" transparent="1" valign="center" halign="center" />
 		<ePixmap pixmap="msn_weather_icons/umbrella.png" position="907,280" size="50,54" zPosition="3" transparent="1" alphatest="blend" />
-		<widget render="Label" source="humidity" font="Regular;24" position="628,297" size="300,35" backgroundColor="transBlack" zPosition="3" transparent="1" valign="center" halign="center" />
+		<widget render="Label" source="humidity" font="Regular;24" position="628,297" size="300,35" backgroundColor="transpBlack" zPosition="3" transparent="1" valign="center" halign="center" />
 		<!--day2 -->
 		<widget source="session.MSNWeather" render="Label" font="Regular;28" position="65,376" size="180,45" backgroundColor="#363b38" zPosition="3" transparent="1" halign="center" valign="center">
 			<convert type="MSNWeather">weekshortday,day2</convert>
