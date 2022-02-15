@@ -1941,6 +1941,8 @@ class ActivateSkinSettings:
 						line_disabled = False
 				except Exception as error:
 					self.skinline_error = error
+					import traceback
+					traceback.print_exc()
 					print("error in line:", i, line, error)
 					print("--------")
 			f1.write(line)
@@ -2139,6 +2141,10 @@ class ActivateSkinSettings:
 			n3 = line.find('"', (n2 + 1))
 			line = line[:(n2 + 1)] + "1080" + line[(n3):]
 #<parameter name="AutotimerEnabledIcon" value="6,2,24,25"
+		# ignore colors
+		if '<parameter name="' in line and 'value="0x00' in line:
+			return line
+
 		if '<parameter name="' in line and 'value="' in line:
 			n1 = line.find('value="', 0)
 			n2 = line.find('"', n1)
