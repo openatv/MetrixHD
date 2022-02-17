@@ -473,7 +473,7 @@
 	<screen name="AddScreen" position="0,0" size="1280,720" title="Add entry to phonebook" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" nableWrapAround="1" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/fritz.png" transparent="1" alphatest="blend" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
@@ -1697,7 +1697,7 @@
 		<widget name="rec_pic" position="75,104" pixmap="icons/ico_rec_on.png" size="34,21" zPosition="2" alphatest="blend" />
 		<widget name="dummy" position="3,35" zPosition="0" size="0,45" backgroundColor="#000000" alphatest="blend" />
 		<widget source="streamlist" render="Listbox" position="70,145" size="700,390" selectionDisabled="0" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" zPosition="2" enableWrapAround="1" >
-			<convert type="TemplatedMultiContent" transparent="0">
+			<convert type="TemplatedMultiContent">
 				{"templates": 
 								{"default": (30,[
 						MultiContentEntryPixmapAlphaTest(pos = (5, 3), size = (30, 30), png = 2, flags = BT_SCALE), # index 2: picture
@@ -3197,7 +3197,7 @@
 		<widget source="TxtTemp0" render="Label" position="20,24" size="200,30" zPosition="1" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="TxtTemp1" render="Label" position="20,54" size="200,30" zPosition="1" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="TxtTemp2" render="Label" position="20,84" size="200,30" zPosition="1" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="TxtTemp3" render="Label" position="20,114" size="200,30" zPosition="1" font="screen_label;20" halign="left"  ackgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="TxtTemp3" render="Label" position="20,114" size="200,30" zPosition="1" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="TxtTemp4" render="Label" position="20,144" size="200,30" zPosition="1" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="TxtTemp5" render="Label" position="20,174" size="200,30" zPosition="1" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="TxtTemp6" render="Label" position="20,204" size="200,30" zPosition="1" font="screen_label;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
