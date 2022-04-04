@@ -5077,6 +5077,17 @@ if len(listitems.list) &gt; 2:
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<!-- MultiBootWizard -->
+	<!-- MultiBootManager -->
+	<screen name="MultiBootManager" position="0,0" size="1280,720" title="Multiboot Image Manager" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="slotlist" position="70,50" size="700,390" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand"/>
+		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/restart.png" transparent="1" alphatest="blend" />
+		<widget name="description" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
+	<!-- MultiBootManager -->
 	<!-- SoftcamSetup -->
 	<screen name="SoftcamSetup" position="0,0" size="1280,720" title="Softcam Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
