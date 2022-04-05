@@ -2648,7 +2648,7 @@ class ActivateSkinSettings:
 		#	line = line[:n1] + strnew + line[(n3+1):]
 #itemHeight="25"
 		if 'itemHeight="' in line:
-			print('################################################ 1')
+			# print('################################################ 1')
 			n1 = line.find('itemHeight="', 0)
 			n2 = line.find('"', n1)
 			n3 = line.find('"', n2 + 1)
@@ -3378,14 +3378,14 @@ class ActivateSkinSettings:
 #cool tv guide special end
 
 #colPosition="240"
-			if 'colPosition="' in line:
-				n1 = line.find('colPosition=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
+		if 'colPosition="' in line:
+			n1 = line.find('colPosition=', 0)
+			n2 = line.find('"', n1)
+			n3 = line.find('"', n2 + 1)
+			y = line[(n2 + 1):n3]
+			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
+			strnew = line[n1:n2 + 1] + ynew + '"'
+			line = line[:n1] + strnew + line[(n3 + 1):]
 
 		return line
 
