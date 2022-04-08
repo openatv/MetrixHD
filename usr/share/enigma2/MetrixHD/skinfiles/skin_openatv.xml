@@ -123,7 +123,7 @@
 	</screen>
 	<!-- Network Adapter -->
 	<screen name="AdapterSetup" position="0,0" size="1280,720" title="Network Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Network Setup" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="Adapter" render="Label" position="70,115" size="495,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,165" size="700,240" itemHeight="30" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -148,7 +148,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="AdapterSetupConfiguration" position="0,0" size="1280,720" title="Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Network setup" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="IF" render="Label" position="70,115" size="495,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="Statustext" render="Label" position="576,115" size="160,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="statuspic" position="740,117" size="30,30" pixmaps="buttons/key_green.png,buttons/grey.png" transparent="1" alphatest="blend" />
@@ -161,7 +161,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="NetworkMacSetup" position="0,0" size="1280,720" title="MAC-address settings" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="MAC-address settings" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,130" size="700,390" itemHeight="30" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="introduction" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -179,7 +179,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_netmounts_setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="NameserverSetup" position="0,0" size="1280,720" title="Nameserver Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Nameserver settings" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,100" size="700,450" itemHeight="30" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="introduction" position="70,600" size="700,25" font="SetrixHD;22" halign="center" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -188,7 +188,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="NetworkAdapterSelection" position="0,0" size="1280,720" title="Select Network Adapter" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Network Setup" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="list" render="Listbox" position="70,100" size="700,450" enableWrapAround="1" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
@@ -209,7 +209,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="NetworkAdapterTest" position="0,0" size="1280,720" title="Network test..." flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Network test..." position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="Adaptertext" position="70,120" size="400,30" zPosition="1" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="Adapter" position="70,150" size="400,30" zPosition="1" font="SetrixHD;22" foregroundColors="#8c8c93,#f23d21,#1cff1c" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="AdapterInfo_OK" position="535,133" size="30,30" pixmap="buttons/key_green.png" zPosition="2" alphatest="blend" />
@@ -249,7 +249,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
 	</screen>	
 	<screen name="WlanStatus" position="0,0" size="1280,720" title="Wireless Network State" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="W-LAN Status" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="IF" render="Label" position="70,115" size="495,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="Statustext" render="Label" position="576,115" size="160,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="statuspic" position="740,117" size="30,30" pixmaps="buttons/key_green.png,buttons/grey.png" transparent="1" alphatest="blend" />
@@ -282,7 +282,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/wlan.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="WlanScan" position="0,0" size="1280,720" title="Choose a Wireless Network" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Scan wireless networks" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="info" render="Label" position="70,100" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget source="list" render="Listbox" position="70,165" size="700,455" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1">
