@@ -2420,21 +2420,79 @@
 			</widget>
 			<!--ClockWidget */-->
 		</screen>
+		<!-- template1_2layer -->
+		<screen name="MENUDescription">
+			<widget source="description" render="Label" position="265,500" size="340,110" conditional="description" font="Regular;18" valign="center" halign="center" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background">
+				<convert type="ConditionalShowHide" />
+			</widget>
+		</screen>
+
+		<screen name="MenuButtons_template_greenold">
+			<ePixmap pixmap="buttons/key_green.png" position="448,0" size="30,20" alphatest="blend" />
+			<widget name="green" position="483,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" />
+		</screen>
+
+		<screen name="MenuButtons_template_yellowold">
+			<ePixmap pixmap="buttons/key_yellow.png" position="631,0" size="30,20" alphatest="blend" />
+			<widget name="yellow" position="666,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" />
+		</screen>
+
+		<screen name="MenuButtons_template_blueold">
+			<ePixmap pixmap="buttons/key_blue.png" position="814,0" size="30,20" alphatest="blend" />
+			<widget name="blue" position="849,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1"  />
+		</screen>
+
+		<screen name="MenuButtons_template_red">
+			<widget source="key_red" render="Pixmap" pixmap="buttons/key_red.png" position="265,0" size="30,20" alphatest="blend">
+ 				<convert type="ConditionalShowHide" />
+	 		</widget>
+			<widget source="key_red" render="Label" position="300,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1">
+				<convert type="ConditionalShowHide" />
+			</widget>
+		</screen>
+
+		<screen name="MenuButtons_template_green">
+			<widget source="key_green" render="Pixmap" pixmap="buttons/key_green.png" position="448,0" size="30,20" alphatest="blend">
+ 				<convert type="ConditionalShowHide" />
+	 		</widget>
+			<widget source="key_green" render="Label" position="483,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1">
+				<convert type="ConditionalShowHide" />
+			</widget>
+		</screen>
+
+		<screen name="MenuButtons_template_yellow">
+			<widget source="key_yellow" render="Pixmap" pixmap="buttons/key_yellow.png" position="631,0" size="30,20" alphatest="blend">
+ 				<convert type="ConditionalShowHide" />
+	 		</widget>
+			<widget source="key_yellow" render="Label" position="666,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1">
+				<convert type="ConditionalShowHide" />
+			</widget>
+		</screen>
+
+		<screen name="MenuButtons_template_blue">
+			<widget source="key_blue" render="Pixmap" pixmap="buttons/key_blue.png" position="814,0" size="30,20" alphatest="blend">
+ 				<convert type="ConditionalShowHide" />
+	 		</widget>
+			<widget source="key_blue" render="Label" position="849,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1">
+				<convert type="ConditionalShowHide" />
+			</widget>
+		</screen>
+
 		<screen name="MenuButtons_template">
 			<eLabel backgroundColor="menubackground" position="0,0" size="1280,22" transparent="0" zPosition="-1"/>
-			<!--ePixmap pixmap="buttons/key_red.png" position="265,0" size="30,20" alphatest="blend" /-->
-			<ePixmap pixmap="buttons/key_green.png" position="448,0" size="30,20" alphatest="blend" />
-			<ePixmap pixmap="buttons/key_yellow.png" position="631,0" size="30,20" alphatest="blend" />
-			<ePixmap pixmap="buttons/key_blue.png" position="814,0" size="30,20" alphatest="blend" />
-			<!--widget name="key" position="300,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" /-->
-			<widget name="green" position="483,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" />
-			<widget name="yellow" position="666,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" />
-			<widget name="blue" position="849,0" size="170,22" zPosition="1" valign="center" font="global_button;18" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="menubackground" transparent="1" />
+			<panel name="MenuButtons_template_red" conditional="key_red"/>
+			<panel name="MenuButtons_template_greenold" conditional="green"/>
+			<panel name="MenuButtons_template_green" conditional="key_green"/>
+			<panel name="MenuButtons_template_yellowold" conditional="yellow"/>
+			<panel name="MenuButtons_template_yellow" conditional="key_yellow"/>
+			<panel name="MenuButtons_template_blueold" conditional="blue"/>
+			<panel name="MenuButtons_template_blue" conditional="key_blue"/>
 		</screen>
+
 		<screen name="MENU_template-1">
-			<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="menubackground" transparent="0" />
+			<eLabel position="645,51" zPosition="-11" size="522,558" backgroundColor="menubackground" transparent="0" />
 			<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="menusymbolbackground" transparent="0" />
-			<widget source="menu" render="Listbox" position="636,60" size="500,540" backgroundColor="menubackground" foregroundColor="menufont" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="menufontselected" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
+			<widget source="menu" render="Listbox" position="636,60" size="540,540" backgroundColor="menubackground" foregroundColor="menufont" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="menufontselected" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
 				<convert type="TemplatedMultiContent">
 					{"template": [ MultiContentEntryText(pos = (30, 8), size = (465, 50), flags = RT_HALIGN_LEFT, text = 0) ],
 					"fonts": [gFont("global_menu", 30)],
@@ -2456,6 +2514,7 @@
 			</widget>
 
 			<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
+			<panel name="MENUDescription" />
 			<panel name="SKINPART_menu"/>
 			<panel name="MenuButtons"/>
 		</screen>
