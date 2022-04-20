@@ -797,8 +797,8 @@ class ActivateSkinSettings:
 					DESIGNSkinSearchAndReplace.append(['<!--eLabel name="optionallayervertical-m" position="102,51" zPosition="-105" size="60,669" backgroundColor="#1A27408B" /-->', newlinem])
 
 			if config.plugins.MyMetrixLiteOther.layeraunderlineshowmainlayer.value:
-			   DESIGNSkinSearchAndReplace.append(['<!--eLabel name="underline" position="40,88" size="1200,1" backgroundColor="layer-a-underline" zPosition="-1" /-->', '<eLabel name="underline" position="40,88" size="1200,1" backgroundColor="layer-a-underline" zPosition="-1" />'])
-			   DESIGNSkinSearchAndReplace.append(['<!--eLabel name="underline" position="40,88" size="755,1" backgroundColor="layer-a-underline" zPosition="-1" /-->', '<eLabel name="underline" position="40,88" size="755,1" backgroundColor="layer-a-underline" zPosition="-1" />'])
+				DESIGNSkinSearchAndReplace.append(['<!--eLabel name="underline" position="40,88" size="1200,1" backgroundColor="layer-a-underline" zPosition="-1" /-->', '<eLabel name="underline" position="40,88" size="1200,1" backgroundColor="layer-a-underline" zPosition="-1" />'])
+				DESIGNSkinSearchAndReplace.append(['<!--eLabel name="underline" position="40,88" size="755,1" backgroundColor="layer-a-underline" zPosition="-1" /-->', '<eLabel name="underline" position="40,88" size="755,1" backgroundColor="layer-a-underline" zPosition="-1" />'])
 
 			if config.plugins.MyMetrixLiteOther.SkinDesignSpace.getValue() is True:
 				newline1 = ('<panel name="template1_2layer-' + config.plugins.MyMetrixLiteOther.SkinDesign.value + 's" />')
@@ -1489,7 +1489,7 @@ class ActivateSkinSettings:
 				self.ErrorCode = 'error', _("Error creating Skin!") + '\n< %s >' % error
 			#restore skinfiles
 			if path.exists(SKIN_SOURCE + bname):
-				 move(SKIN_SOURCE + bname, SKIN_SOURCE)
+				move(SKIN_SOURCE + bname, SKIN_SOURCE)
 			for file in skinfiles:
 				if path.exists(file[1]):
 					remove(file[1])
