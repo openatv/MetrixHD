@@ -18,26 +18,29 @@
 #
 #
 #######################################################################
-from __future__ import absolute_import, division
-from . import _, MAIN_IMAGE_PATH
+from __future__ import division
+from PIL import Image
+from os import remove, statvfs
+from os.path import exists
+from six import ensure_str
 from boxbranding import getBoxType, getMachineBrand, getMachineName
-from Screens.Screen import Screen
-from Screens.MessageBox import MessageBox
+from enigma import gMainDC, ePicLoad, getDesktop
+
 from Components.ActionMap import ActionMap
 from Components.AVSwitch import AVSwitch
 from Components.config import config, configfile, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
-from Components.Sources.StaticText import StaticText
-from Components.Pixmap import Pixmap
 from Components.Console import Console
 from Components.Label import Label
-from enigma import ePicLoad
-from os import path, statvfs, remove
-from enigma import gMainDC, getDesktop
+from Components.Pixmap import Pixmap
+from Components.Sources.StaticText import StaticText
+from Screens.MessageBox import MessageBox
+from Screens.Screen import Screen
+from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN
+
+from . import _, MAIN_IMAGE_PATH
 from .ActivateSkinSettings import ActivateSkinSettings
-from PIL import Image
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
-import six
+
 BoxType = getBoxType()
 
 #############################################################
@@ -210,7 +213,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 	def test(self):
 		plustext = ""
 		#check hbbtv plugin - is sometimes or with some boxes not compatible with EHD-skin!
-		if path.exists("/usr/lib/enigma2/python/Plugins/Extensions/HbbTV/plugin.pyo"):
+		if exists("/usr/lib/enigma2/python/Plugins/Extensions/HbbTV/plugin.pyo"):
 			plustext = _("You have the'HbbTV Plugin' installed.\n")
 		if plustext:
 			text = plustext + _("\nMaybe is a compatibility issue with %s resolution.\nAttention: The osd-error occurs first after gui or system restart!\n\nDo you want really change from %s to %s - skin?") % (self.EHDtxt, self.EHDtext_old, self.EHDtxt)
@@ -277,7 +280,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.resetEHD()
 
 	def checkNetworkState(self, str, retval, extra_args):
-		str = six.ensure_str(str)
+		str = ensure_str(str)
 		if 'Collected errors' in str:
 			self.session.open(MessageBox, _("A background update check is in progress, please wait a few minutes and try again."), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
 			self.resetEHD()
@@ -289,7 +292,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.CheckConsole.ePopen(cmd1, self.checkNetworkStateFinished)
 
 	def checkNetworkStateFinished(self, result, retval, extra_args=None):
-		result = six.ensure_str(result)
+		result = ensure_str(result)
 		if 'bad address' in result:
 			self.session.openWithCallback(self.InstallPackageFailed, MessageBox, _("Your %s %s is not connected to the internet, please check your network settings and try again.") % (getMachineBrand(), getMachineName()), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
 		elif ('wget returned 1' or 'wget returned 255' or '404 Not Found') in result:
@@ -314,7 +317,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		self.Console.ePopen('/usr/bin/opkg install ' + pkgname, callback)
 
 	def installComplete(self, result, retval=None, extra_args=None):
-		result = six.ensure_str(result)
+		result = ensure_str(result)
 		if 'Unknown package' in result:
 			self.session.open(MessageBox, _("Install Package not found!"), MessageBox.TYPE_ERROR, timeout=10)
 			self.resetEHD()
@@ -450,15 +453,15 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
 	def getCPUSensor(self):
 		temp = ""
-		if path.exists('/proc/stb/fp/temp_sensor_avs'):
+		if exists('/proc/stb/fp/temp_sensor_avs'):
 			f = open('/proc/stb/fp/temp_sensor_avs', 'r')
 			temp = f.read()
 			f.close()
-		elif path.exists('/proc/stb/power/avs'):
+		elif exists('/proc/stb/power/avs'):
 			f = open('/proc/stb/power/avs', 'r')
 			temp = f.read()
 			f.close()
-		elif path.exists('/sys/devices/virtual/thermal/thermal_zone0/temp'):
+		elif exists('/sys/devices/virtual/thermal/thermal_zone0/temp'):
 			try:
 				f = open('/sys/devices/virtual/thermal/thermal_zone0/temp', 'r')
 				temp = f.read()
@@ -466,7 +469,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 				f.close()
 			except:
 				temp = ""
-		elif path.exists('/proc/hisi/msp/pm_cpu'):
+		elif exists('/proc/hisi/msp/pm_cpu'):
 			try:
 				for line in open('/proc/hisi/msp/pm_cpu').readlines():
 					line = [x.strip() for x in line.strip().split(":")]
@@ -483,15 +486,15 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
 	def getSYSSensor(self):
 		temp = ""
-		if path.exists('/proc/stb/sensors/temp0/value'):
+		if exists('/proc/stb/sensors/temp0/value'):
 			f = open('/proc/stb/sensors/temp0/value', 'r')
 			temp = f.read()
 			f.close()
-		elif path.exists('/proc/stb/fp/temp_sensor'):
+		elif exists('/proc/stb/fp/temp_sensor'):
 			f = open('/proc/stb/fp/temp_sensor', 'r')
 			temp = f.read()
 			f.close()
-		elif path.exists('/proc/stb/sensors/temp/value'):
+		elif exists('/proc/stb/sensors/temp/value'):
 			f = open('/proc/stb/sensors/temp/value', 'r')
 			temp = f.read()
 			f.close()
@@ -535,7 +538,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab + _("Show Extended-Info"), config.plugins.MyMetrixLiteOther.showExtendedinfo, _("After enabling, 'Apply changes' and restart needs never press 'Apply changes' (and restart) when you change subordinate options."), "ENABLED"))
 		itext = _("Show only if available.\n\nPositions:\n")
 		if config.plugins.MyMetrixLiteOther.showExtendedinfo.value:
-			oscam = path.exists('/tmp/.oscam')
+			oscam = exists('/tmp/.oscam')
 			list.append(getConfigListEntry(tab * 2 + _("Show CAID"), config.plugins.MyMetrixLiteOther.showExtended_caid, itext + "(CAID - pid - source - protocol - hops - ecm time)", "ENABLED"))
 			if config.plugins.MyMetrixLiteOther.showExtended_caid.value and oscam:
 				list.append(getConfigListEntry(tab * 3 + _("Show PROV"), config.plugins.MyMetrixLiteOther.showExtended_prov, itext + "(caid:PROV - pid - source - protocol - hops - ecm time)"))
@@ -675,7 +678,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/other/template.png")
 		if not fileExists(picturepath):
 			picturepath = MAIN_IMAGE_PATH % "other/template"
-		if not config.plugins.MyMetrixLiteOther.SkinDesignButtons.value or not path.exists(picturepath):
+		if not config.plugins.MyMetrixLiteOther.SkinDesignButtons.value or not exists(picturepath):
 			return
 		ret = ActivateSkinSettings().makeButtons('/tmp/button.png', _('TEST'))
 		if ret:
@@ -700,7 +703,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		cur = self["config"].getCurrent()
 		cur = cur and len(cur) > 3 and cur[3]
 		if cur == "BUTTON" and config.plugins.MyMetrixLiteOther.SkinDesignButtons.value:
-			if not path.exists("/tmp/template.png") or update:
+			if not exists("/tmp/template.png") or update:
 				self.getButtonPreview()
 			self["helperimage"].instance.setPixmapFromFile("/tmp/template.png")
 		else:
@@ -741,7 +744,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		for x in self["config"].list:
 			if len(x) > 1:
 					x[1].cancel()
-		if path.exists("/tmp/template.png"):
+		if exists("/tmp/template.png"):
 			remove("/tmp/template.png")
 		self.close()
 

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import print_function, division
+from __future__ import division
 #######################################################################
 #
 #    MyMetrixLite by arn354 & svox
@@ -20,6 +20,23 @@ from __future__ import print_function, division
 #
 #######################################################################
 
+from math import floor, sqrt
+from os import remove, statvfs, listdir, system, mkdir, unlink, symlink, rename
+from os.path import exists, getsize, isdir, isfile, islink, join as pathjoin, realpath
+from re import sub, match, findall
+from shutil import move, copy, rmtree, copytree
+from six.moves import range
+from subprocess import getoutput
+from time import time
+
+from PIL import Image, ImageFont, ImageDraw
+
+from Components.config import config, configfile
+from Components.NimManager import nimmanager
+
+from enigma import getDesktop
+from boxbranding import getBoxType
+
 from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, initFontsConfig, getTunerPositionList, appendSkinFile, \
 	SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, \
 	SKIN_TEMPLATES_SOURCE, SKIN_TEMPLATES_TARGET, SKIN_TEMPLATES_TARGET_TMP, \
@@ -35,25 +52,13 @@ from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, initFonts
 	SKIN_UNCHECKED_SOURCE, SKIN_UNCHECKED_TARGET, SKIN_UNCHECKED_TARGET_TMP, \
 	SKIN_DESIGN_SOURCE, SKIN_DESIGN_TARGET, SKIN_DESIGN_TARGET_TMP
 
-from Components.config import config, configfile
-from Components.NimManager import nimmanager
-from shutil import move, copy, rmtree, copytree
-from enigma import getDesktop
-from os import path, remove, statvfs, listdir, system, mkdir, unlink, symlink, rename
-from subprocess import getoutput
-from PIL import Image, ImageFont, ImageDraw
-from boxbranding import getBoxType
-import math
-import re
-from time import time
-from six.moves import range
 
 #############################################################
 
 
 def round_half_up(n, decimals=0):
 	multiplier = 10 ** decimals
-	return math.floor(n * multiplier + 0.5) / multiplier
+	return floor(n * multiplier + 0.5) / multiplier
 
 
 class ActivateSkinSettings:
@@ -228,11 +233,11 @@ class ActivateSkinSettings:
 
 			filesize = 0
 			for file in skinfiles:
-				if path.exists(file[1]):
-					filesize += path.getsize(file[1])
+				if exists(file[1]):
+					filesize += getsize(file[1])
 				else:
-					if path.exists(file[0]):
-						filesize += path.getsize(file[0]) * 2
+					if exists(file[0]):
+						filesize += getsize(file[0]) * 2
 
 			reserve = 256
 			filesize = filesize / 1024 + reserve
@@ -898,7 +903,7 @@ class ActivateSkinSettings:
 			xFile = open(SKIN_DESIGN_TARGET_TMP, "w")
 			for xx in skin_lines:
 				if '<eLabel name="underline"' in xx:
-					xx = re.sub('(name="underline" +position=" *)(\d+)( *, *)(\d+)(" +size=" *)(\d+)( *, *)(\d+)', self.linereplacer, xx)
+					xx = sub('(name="underline" +position=" *)(\d+)( *, *)(\d+)(" +size=" *)(\d+)( *, *)(\d+)', self.linereplacer, xx)
 				xFile.writelines(xx)
 			xFile.close()
 
@@ -1065,22 +1070,22 @@ class ActivateSkinSettings:
 			width_top = "%dpx" % wt
 
 			color = config.plugins.MyMetrixLiteColors.windowborder_top.value
-			if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width_top, color)):
+			if exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width_top, color)):
 				newline = (('<pixmap pos="bpTop" filename="MetrixHD/border/%s/%s.png" />') % (width_top, color))
 				skinSearchAndReplace.append(['<pixmap pos="bpTop" filename="MetrixHD/border/50px/0F0F0F.png" />', newline])
 				orgskinSearchAndReplace.append(['<pixmap pos="bpTop" filename="MetrixHD/border/50px/0F0F0F.png" />', newline])
 			color = config.plugins.MyMetrixLiteColors.windowborder_bottom.value
-			if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
+			if exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
 				newline = (('<pixmap pos="bpBottom" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
 				skinSearchAndReplace.append(['<pixmap pos="bpBottom" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
 				orgskinSearchAndReplace.append(['<pixmap pos="bpBottom" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
 			color = config.plugins.MyMetrixLiteColors.windowborder_left.value
-			if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
+			if exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
 				newline = (('<pixmap pos="bpLeft" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
 				skinSearchAndReplace.append(['<pixmap pos="bpLeft" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
 				orgskinSearchAndReplace.append(['<pixmap pos="bpLeft" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
 			color = config.plugins.MyMetrixLiteColors.windowborder_right.value
-			if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
+			if exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
 				newline = (('<pixmap pos="bpRight" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
 				skinSearchAndReplace.append(['<pixmap pos="bpRight" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
 				orgskinSearchAndReplace.append(['<pixmap pos="bpRight" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
@@ -1089,28 +1094,28 @@ class ActivateSkinSettings:
 			width = config.plugins.MyMetrixLiteColors.listboxborder_topwidth.value
 			if width != "no":
 				color = config.plugins.MyMetrixLiteColors.listboxborder_top.value
-				if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
+				if exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
 					newline = (('<pixmap pos="bpTop" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
 					skinSearchAndReplace.append(['<!--lb pixmap pos="bpTop" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpTop" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 			width = config.plugins.MyMetrixLiteColors.listboxborder_bottomwidth.value
 			if width != "no":
 				color = config.plugins.MyMetrixLiteColors.listboxborder_bottom.value
-				if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
+				if exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
 					newline = (('<pixmap pos="bpBottom" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
 					skinSearchAndReplace.append(['<!--lb pixmap pos="bpBottom" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpBottom" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 			width = config.plugins.MyMetrixLiteColors.listboxborder_leftwidth.value
 			if width != "no":
 				color = config.plugins.MyMetrixLiteColors.listboxborder_left.value
-				if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
+				if exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
 					newline = (('<pixmap pos="bpLeft" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
 					skinSearchAndReplace.append(['<!--lb pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 			width = config.plugins.MyMetrixLiteColors.listboxborder_rightwidth.value
 			if width != "no":
 				color = config.plugins.MyMetrixLiteColors.listboxborder_right.value
-				if path.exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
+				if exists(("/usr/share/enigma2/MetrixHD/border/%s/%s.png") % (width, color)):
 					newline = (('<pixmap pos="bpRight" filename="MetrixHD/border/%s/%s.png" />') % (width, color))
 					skinSearchAndReplace.append(['<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
@@ -1120,35 +1125,35 @@ class ActivateSkinSettings:
 			scale = config.plugins.MyMetrixLiteFonts.Lcd_scale.value
 			old = '<font filename="/usr/share/fonts/lcd.ttf" name="LCD" scale="100" />'
 			new = '<font filename="' + type + '" name="LCD" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.Replacement_type.value
 			scale = config.plugins.MyMetrixLiteFonts.Replacement_scale.value
 			old = '<font filename="/usr/share/fonts/ae_AlMateen.ttf" name="Replacement" scale="100" replacement="1" />'
 			new = '<font filename="' + type + '" name="Replacement" scale="' + str(scale) + '" replacement="1" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.Console_type.value
 			scale = config.plugins.MyMetrixLiteFonts.Console_scale.value
 			old = '<font filename="/usr/share/fonts/tuxtxt.ttf" name="Console" scale="100" />'
 			new = '<font filename="' + type + '" name="Console" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.Fixed_type.value
 			scale = config.plugins.MyMetrixLiteFonts.Fixed_scale.value
 			old = '<font filename="/usr/share/fonts/andale.ttf" name="Fixed" scale="100" />'
 			new = '<font filename="' + type + '" name="Fixed" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.Arial_type.value
 			scale = config.plugins.MyMetrixLiteFonts.Arial_scale.value
 			old = '<font filename="/usr/share/fonts/nmsbd.ttf" name="Arial" scale="100" />'
 			new = '<font filename="' + type + '" name="Arial" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			#fonts skin
@@ -1156,27 +1161,27 @@ class ActivateSkinSettings:
 			scale = config.plugins.MyMetrixLiteFonts.Regular_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="Regular" scale="95" />'
 			new = '<font filename="' + type + '" name="Regular" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.RegularLight_type.value
 			scale = config.plugins.MyMetrixLiteFonts.RegularLight_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="RegularLight" scale="95" />'
 			new = '<font filename="' + type + '" name="RegularLight" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.SetrixHD_type.value
 			scale = config.plugins.MyMetrixLiteFonts.SetrixHD_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="SetrixHD" scale="100" />'
 			new = '<font filename="' + type + '" name="SetrixHD" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			scale = config.plugins.MyMetrixLiteFonts.Meteo_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/meteocons.ttf" name="Meteo" scale="100" />'
 			new = '<font filename="/usr/share/enigma2/MetrixHD/fonts/meteocons.ttf" name="Meteo" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			#global
@@ -1184,35 +1189,35 @@ class ActivateSkinSettings:
 			scale = config.plugins.MyMetrixLiteFonts.globaltitle_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_title" scale="100" />'
 			new = '<font filename="' + type + '" name="global_title" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.globalbutton_type.value
 			scale = config.plugins.MyMetrixLiteFonts.globalbutton_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_button" scale="90" />'
 			new = '<font filename="' + type + '" name="global_button" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.globalclock_type.value
 			scale = config.plugins.MyMetrixLiteFonts.globalclock_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_clock" scale="100" />'
 			new = '<font filename="' + type + '" name="global_clock" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.globalweatherweek_type.value
 			scale = config.plugins.MyMetrixLiteFonts.globalweatherweek_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf" name="global_weather_bold" scale="100" />'
 			new = '<font filename="' + type + '" name="global_weather_bold" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.globallarge_type.value
 			scale = config.plugins.MyMetrixLiteFonts.globallarge_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_large" scale="100" />'
 			new = '<font filename="' + type + '" name="global_large" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 			else:
 				type = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
@@ -1250,14 +1255,14 @@ class ActivateSkinSettings:
 			scale = config.plugins.MyMetrixLiteFonts.globalsmall_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="global_small" scale="95" />'
 			new = '<font filename="' + type + '" name="global_small" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.globalmenu_type.value
 			scale = config.plugins.MyMetrixLiteFonts.globalmenu_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_menu" scale="100" />'
 			new = '<font filename="' + type + '" name="global_menu" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			#screens
@@ -1265,21 +1270,21 @@ class ActivateSkinSettings:
 			scale = config.plugins.MyMetrixLiteFonts.screenlabel_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="screen_label" scale="95" />'
 			new = '<font filename="' + type + '" name="screen_label" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.screentext_type.value
 			scale = config.plugins.MyMetrixLiteFonts.screentext_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="screen_text" scale="95" />'
 			new = '<font filename="' + type + '" name="screen_text" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.screeninfo_type.value
 			scale = config.plugins.MyMetrixLiteFonts.screeninfo_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="screen_info" scale="100" />'
 			new = '<font filename="' + type + '" name="screen_info" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			#channellist
@@ -1287,21 +1292,21 @@ class ActivateSkinSettings:
 			scale = config.plugins.MyMetrixLiteFonts.epgevent_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_event" scale="95" />'
 			new = '<font filename="' + type + '" name="epg_event" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.epgtext_type.value
 			scale = config.plugins.MyMetrixLiteFonts.epgtext_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_text" scale="95" />'
 			new = '<font filename="' + type + '" name="epg_text" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.epginfo_type.value
 			scale = config.plugins.MyMetrixLiteFonts.epginfo_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_info" scale="95" />'
 			new = '<font filename="' + type + '" name="epg_info" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			#infobar
@@ -1309,14 +1314,14 @@ class ActivateSkinSettings:
 			scale = config.plugins.MyMetrixLiteFonts.infobarevent_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="infobar_event" scale="100" />'
 			new = '<font filename="' + type + '" name="infobar_event" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.infobartext_type.value
 			scale = config.plugins.MyMetrixLiteFonts.infobartext_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="infobar_text" scale="95" />'
 			new = '<font filename="' + type + '" name="infobar_text" scale="' + str(scale) + '" />'
-			if path.exists(type):
+			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			#skinfiles
@@ -1363,20 +1368,20 @@ class ActivateSkinSettings:
 			mySkindir = '/usr/share/enigma2/MetrixHD/mySkin/'
 			skinpartdir = '/usr/share/enigma2/MetrixHD/skinparts/'
 			skinparts = ''
-			if not path.exists(mySkindir):
+			if not exists(mySkindir):
 				mkdir(mySkindir)
 			else:
 				for file in listdir(mySkindir):
-					if path.isfile(mySkindir + file):
+					if isfile(mySkindir + file):
 						remove(mySkindir + file)
 			for skinpart in listdir(skinpartdir):
-				if path.isfile(skinpartdir + skinpart):
+				if isfile(skinpartdir + skinpart):
 					continue
 				enabled = False
 				partname = partpath = ''
 				for file in listdir(skinpartdir + skinpart):
-					filepath = path.join(skinpartdir + skinpart, file)
-					if not path.isfile(filepath):
+					filepath = pathjoin(skinpartdir + skinpart, file)
+					if not isfile(filepath):
 						continue
 					if file == skinpart + '.xml':
 						partname = skinpart
@@ -1384,7 +1389,7 @@ class ActivateSkinSettings:
 						TARGETpath = mySkindir + 'skin_' + skinpart + '.mySkin.xml'
 						TMPpath = skinpartdir + skinpart + '/' + skinpart + '.mySkin.xml.tmp'
 						#remove old MySkin files
-						if path.isfile(TMPpath.replace('.tmp', '')):
+						if isfile(TMPpath.replace('.tmp', '')):
 							remove(TMPpath.replace('.tmp', ''))
 					if file == 'enabled':
 						enabled = True
@@ -1412,7 +1417,7 @@ class ActivateSkinSettings:
 			for file in skinfiles:
 				if self.skinline_error:
 					break
-				if path.exists(file[2]):
+				if exists(file[2]):
 					self.optionEHD(file[2], file[1])
 				else:
 					self.optionEHD(file[0], file[1])
@@ -1426,7 +1431,7 @@ class ActivateSkinSettings:
 				skinline_error = self.skinline_error
 				self.skinline_error = False
 				for file in skinfiles:
-					if path.exists(file[2]):
+					if exists(file[2]):
 						self.optionEHD(file[2], file[1])
 					else:
 						self.optionEHD(file[0], file[1])
@@ -1436,7 +1441,7 @@ class ActivateSkinSettings:
 
 			#remove *_TMP files
 			for file in skinfiles:
-				if path.exists(file[2]):
+				if exists(file[2]):
 					remove(file[2])
 
 			################
@@ -1448,7 +1453,7 @@ class ActivateSkinSettings:
 				for button in buttons:
 					buttonfile = buttonpath[self.EHDres] + button[0]
 					buttonbackupfile = buttonfile + '.backup'
-					if path.exists(buttonfile) and not path.exists(buttonbackupfile):
+					if exists(buttonfile) and not exists(buttonbackupfile):
 						copy(buttonfile, buttonbackupfile)
 					self.makeButtons(buttonfile, button[1], False)
 				self.ButtonEffect = None
@@ -1457,7 +1462,7 @@ class ActivateSkinSettings:
 				for button in buttons:
 					buttonfile = buttonpath[self.EHDres] + button[0]
 					buttonbackupfile = buttonfile + '.backup'
-					if path.exists(buttonbackupfile):
+					if exists(buttonbackupfile):
 						move(buttonbackupfile, buttonfile)
 
 			################
@@ -1483,23 +1488,23 @@ class ActivateSkinSettings:
 				self.ErrorCode = 'reboot', text
 
 		except Exception as error:
-			print('[ActivateSkinSettings - applyChanges]', error)
+			print('[ActivateSkinSettings - applyChanges] %s' % str(error))
 			self.ErrorCode = 1
 			if not self.silent:
 				self.ErrorCode = 'error', _("Error creating Skin!") + '\n< %s >' % error
 			#restore skinfiles
-			if path.exists(SKIN_SOURCE + bname):
+			if exists(SKIN_SOURCE + bname):
 				move(SKIN_SOURCE + bname, SKIN_SOURCE)
 			for file in skinfiles:
-				if path.exists(file[1]):
+				if exists(file[1]):
 					remove(file[1])
-				if path.exists(file[2]):
+				if exists(file[2]):
 					remove(file[2])
 			#restore buttons
 			for button in buttons:
 				buttonfile = buttonpath["HD"] + button[0]
 				buttonbackupfile = buttonfile + '.backup'
-				if path.exists(buttonbackupfile):
+				if exists(buttonbackupfile):
 					move(buttonbackupfile, buttonfile)
 			#restore icons
 			self.updateIcons()
@@ -1618,7 +1623,7 @@ class ActivateSkinSettings:
 						imga = Image.new("RGBA", (sx, sy))
 						for y in range(sy):
 							for x in range(sx):
-								s = a * (float(math.sqrt((x - epx) ** 2 + (y - epy) ** 2)) / math.sqrt((esx ** 2) + (esy ** 2)))
+								s = a * (float(sqrt((x - epx) ** 2 + (y - epy) ** 2)) / sqrt((esx ** 2) + (esy ** 2)))
 								imga.putpixel((x, y), (glossycolor[0], glossycolor[1], glossycolor[2], a - int(s)))
 					self.ButtonEffect = imga
 				img.paste(self.ButtonEffect, (fs, fs), self.ButtonEffect)
@@ -1640,7 +1645,7 @@ class ActivateSkinSettings:
 		if color:
 			self.makeColorGradient(cgfile, int(1280 * factor), int(size * factor), color, int(gpos * factor), int(gsize * factor), 'up')
 		else:
-			if path.isfile(cgfile):
+			if isfile(cgfile):
 				remove(cgfile)
 		# ib
 		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.infobarbackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
@@ -1651,7 +1656,7 @@ class ActivateSkinSettings:
 		if color:
 			self.makeColorGradient(cgfile, int(1280 * factor), int(size * factor), color, int(gpos * factor), int(gsize * factor), 'up')
 		else:
-			if path.isfile(cgfile):
+			if isfile(cgfile):
 				remove(cgfile)
 		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_top_ib.png"
 		size = 30
@@ -1660,7 +1665,7 @@ class ActivateSkinSettings:
 		if color:
 			self.makeColorGradient(cgfile, int(1280 * factor), int(size * factor), color, int(gpos * factor), int(gsize * factor), 'down')
 		else:
-			if path.isfile(cgfile):
+			if isfile(cgfile):
 				remove(cgfile)
 		# mb
 		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.infobarbackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
@@ -1674,7 +1679,7 @@ class ActivateSkinSettings:
 		if color:
 			self.makeColorGradient(cgfile, int(1280 * factor), int(150 * factor), color, int(gpos * factor), int(gsize * factor), 'up')
 		else:
-			if path.isfile(cgfile):
+			if isfile(cgfile):
 				remove(cgfile)
 		# db
 		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.infobarbackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
@@ -1685,7 +1690,7 @@ class ActivateSkinSettings:
 		if color:
 			self.makeColorGradient(cgfile, int(1280 * factor), int(size * factor), color, int(gpos * factor), int(gsize * factor), 'up')
 		else:
-			if path.isfile(cgfile):
+			if isfile(cgfile):
 				remove(cgfile)
 		# layer a
 		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.layerabackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
@@ -1696,13 +1701,13 @@ class ActivateSkinSettings:
 		if color:
 			self.makeColorGradient(cgfile, int(1280 * factor), int(size * factor), color, int(gpos * factor), int(gsize * factor), 'down')
 		else:
-			if path.isfile(cgfile):
+			if isfile(cgfile):
 				remove(cgfile)
 		# ibts background
 		color = config.plugins.MyMetrixLiteColors.layerabackground.value
 		alpha = config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value
 		cgfile = "/usr/share/enigma2/MetrixHD/ibts/background.png"
-		if path.isdir("/usr/share/enigma2/MetrixHD/ibts"):
+		if isdir("/usr/share/enigma2/MetrixHD/ibts"):
 			self.makeColorField(cgfile, int(1280 * factor), int(32 * factor), color, alpha)
 		# file commander image viewer background
 		color = config.plugins.MyMetrixLiteColors.layerabackground.value
@@ -1783,17 +1788,17 @@ class ActivateSkinSettings:
 					"/usr/share/enigma2/MetrixHD/ibts/",
 					"/usr/share/enigma2/MetrixHD/emc/"]
 		for dpath in dpathlist:
-			if path.isdir(dpath):
+			if isdir(dpath):
 				for file in listdir(dpath):
-					if file.endswith('.png.hd') and path.isfile(dpath + file):
+					if file.endswith('.png.hd') and isfile(dpath + file):
 						move(dpath + file, dpath + file[:-3])
-					elif file.endswith('.png.del') and path.isfile(dpath + file):
+					elif file.endswith('.png.del') and isfile(dpath + file):
 						remove(dpath + file)
-					elif dpath == "/usr/share/enigma2/MetrixHD/" and file.startswith("skin_00") and path.isfile(dpath + file):
+					elif dpath == "/usr/share/enigma2/MetrixHD/" and file.startswith("skin_00") and isfile(dpath + file):
 						remove(dpath + file)
 		dpath = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/"
 		npath = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images_hd/"
-		if path.isdir(dpath) and path.isdir(npath):
+		if isdir(dpath) and isdir(npath):
 			rmtree(dpath)
 			rename(npath, dpath)
 		# --------------------------------------------------------------------------
@@ -1802,33 +1807,33 @@ class ActivateSkinSettings:
 		dpath = '/usr/share/enigma2/MetrixHD'
 
 		# first reset / set hd icons
-		if not path.isdir(dpath):
+		if not isdir(dpath):
 			return
 		for x in listdir(dpath):
-			dest = path.join(dpath, x)
-			if path.islink(dest):
+			dest = pathjoin(dpath, x)
+			if islink(dest):
 				unlink(dest)
 		for x in listdir(dpath):
-			src = path.join(dpath, x)
-			dest = path.join(dpath, x[1:-3])
-			if x.startswith('.') and x.endswith('_hd') and not path.exists(dest):
+			src = pathjoin(dpath, x)
+			dest = pathjoin(dpath, x[1:-3])
+			if x.startswith('.') and x.endswith('_hd') and not exists(dest):
 				rename(src, dest)
 
 		# set other res icons
-		if target == "HD" or not path.isdir(spath):
+		if target == "HD" or not isdir(spath):
 			return
 		for x in listdir(spath):
 			if x == "Plugins": #folder is current placeholder for unused icons
 				continue
-			src = path.join(spath, x)
-			dest = path.join(dpath, x)
-			hd = path.join(dpath, '.' + x + '_hd')
+			src = pathjoin(spath, x)
+			dest = pathjoin(dpath, x)
+			hd = pathjoin(dpath, '.' + x + '_hd')
 			if x == 'emc' and int(config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value) > 3:
 				if target == 'FHD':
 					continue
-				elif target == 'UHD' and path.isdir('/usr/share/enigma2/MetrixHD/FHD/emc'):
+				elif target == 'UHD' and isdir('/usr/share/enigma2/MetrixHD/FHD/emc'):
 					src = '/usr/share/enigma2/MetrixHD/FHD/emc'
-			if path.exists(dest) and not path.exists(hd):
+			if exists(dest) and not exists(hd):
 				rename(dest, hd)
 			try:
 				symlink(src, dest)
@@ -1892,7 +1897,7 @@ class ActivateSkinSettings:
 							if '#_' + self.EHDres + 'screen' in line:
 								line = line.replace('#_%sscreen' % self.EHDres, "")
 							elif 'name="' in line and not '#_' in line and not 'HDscreen' in line:
-									line = re.sub('(name=")(\w+)', r'\1\2#_HDscreen', line)
+									line = sub('(name=")(\w+)', r'\1\2#_HDscreen', line)
 							next_rename = False
 #control flags
 						if '<!-- cf#_#begin -->' in line or '<!-- cf#_#start -->' in line:
@@ -1915,18 +1920,18 @@ class ActivateSkinSettings:
 								next_picon_zoom = False
 								next_pixmap_ignore = False
 #line disabled on
-					if not 'cf#_#' in line and re.match('<!--|#+', line.lstrip()):
+					if not 'cf#_#' in line and match('<!--|#+', line.lstrip()):
 						#print 'line disabled on', i, line
 						line_disabled = True
 #test pixmap path
 					if not line_disabled and not next_pixmap_ignore and 'MetrixHD/' in line and '.png' in line:
-						pics = re.findall('Metrix[-/\w]+.png', line)
+						pics = findall('Metrix[-/\w]+.png', line)
 						for pic in pics:
 							if not pic.startswith('/usr/share/enigma2/'):
 								pic = '/usr/share/enigma2/' + pic
-							if not path.isfile(pic):
-								pic = path.realpath(pic)
-								print("pixmap missing - line:", i, pic)
+							if not isfile(pic):
+								pic = realpath(pic)
+								print("pixmap missing - line:%d / %s" % (i, pic))
 								self.pixmap_error = pic
 								self.skinline_error = True
 								break
@@ -1936,14 +1941,15 @@ class ActivateSkinSettings:
 						else:
 							line = self.linerchanger_new(line, next_picon_zoom)
 #line disabled off
-					if line_disabled and not 'cf#_#' in line and (re.match('#+', line.lstrip()) or re.match('.*-->.*', line.rstrip())):
+					if line_disabled and not 'cf#_#' in line and (match('#+', line.lstrip()) or match('.*-->.*', line.rstrip())):
 						#print 'line disabled off', i, line
 						line_disabled = False
 				except Exception as error:
 					self.skinline_error = error
 					import traceback
 					traceback.print_exc()
-					print("error in line:", i, line, error)
+					print("error in line: %d / %s" % (i, str(error)))
+					print(line)
 					print("--------")
 			f1.write(line)
 			if self.skinline_error:
@@ -1965,7 +1971,7 @@ class ActivateSkinSettings:
 			return ''.join(ret)
 		i = 0
 		for x in ret:
-			if re.match('[0-9]\d{%d,}' % (len(x) - 1), x):
+			if match('[0-9]\d{%d,}' % (len(x) - 1), x):
 				if ret[0].startswith('size="') and (self.xpos or self.ypos):
 					x = int(round_half_up(int(x) * self.picon_zoom, self.round_par))
 				else:
@@ -1984,26 +1990,26 @@ class ActivateSkinSettings:
 	def linerchanger_new(self, line, next_picon_zoom): # with regex
 #<resolution xres="1280" yres="720"
 		if '<resolution ' in line:
-			line = re.sub('(xres=")(\d+)(" *yres=")(\d+)', self.linereplacer, line)
+			line = sub('(xres=")(\d+)(" *yres=")(\d+)', self.linereplacer, line)
 #<parameter name="AutotimerEnabledIcon" value="6,2,24,25"
 #<parameter name="ServiceInfoFont" value="screen_text;20"/>
 		if '<parameter name="' in line and 'value="' in line:
-			line = re.sub('(value=")(\d+|\w+)([,;"])(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)("*)', self.linereplacer, line) # prepared for max 10 values
+			line = sub('(value=")(\d+|\w+)([,;"])(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)("*)', self.linereplacer, line) # prepared for max 10 values
 #size="200,100"
 #size = (500, 45)
 		if ('size="' in line and not 'alias name="' in line) or ('size' in line and '(' in line and ')' in line):
 			if next_picon_zoom:
-				pos = re.findall('(?<= size=")([\w]*[+-]*)(\d*),([\w]*[+-]*)(\d*)', line)
+				pos = findall('(?<= size=")([\w]*[+-]*)(\d*),([\w]*[+-]*)(\d*)', line)
 				if pos:
-					xpos = int(pos[0][0] + pos[0][1]) if not re.match('[ce]', pos[0][0]) else pos[0][1] if pos[0][1] else 0
-					ypos = int(pos[0][2] + pos[0][3]) if not re.match('[ce]', pos[0][2]) else pos[0][3] if pos[0][3] else 0
+					xpos = int(pos[0][0] + pos[0][1]) if not match('[ce]', pos[0][0]) else pos[0][1] if pos[0][1] else 0
+					ypos = int(pos[0][2] + pos[0][3]) if not match('[ce]', pos[0][2]) else pos[0][3] if pos[0][3] else 0
 					self.xpos = int(round_half_up((xpos * self.EHDfactor - xpos * self.picon_zoom) / 2.0, self.round_par)) if xpos else 0
 					self.ypos = int(round_half_up((ypos * self.EHDfactor - ypos * self.picon_zoom) / 2.0, self.round_par)) if ypos else 0
-			line = re.sub('(size *= *["(][ ce+-]*)(\d*)( *, *)([ ce+-]+|\d+)(\d+|[")]*)', self.linereplacer, line)
+			line = sub('(size *= *["(][ ce+-]*)(\d*)( *, *)([ ce+-]+|\d+)(\d+|[")]*)', self.linereplacer, line)
 #position="423,460"
 #(pos = (40, 5)
 		if 'position="' in line or ('(pos' in line and ')' in line):
-			line = re.sub('(pos[ition]* *= *["(][ center+-]*)(\d*)( *, *)([ center+-]+|\d+)(\d+|[")]*)', self.linereplacer, line)
+			line = sub('(pos[ition]* *= *["(][ center+-]*)(\d*)( *, *)([ center+-]+|\d+)(\d+|[")]*)', self.linereplacer, line)
 #font="Regular;20"
 #Font="Regular;20"
 #ServiceFontGraphical="epg_text;20" EntryFontGraphical="epg_text;20"
@@ -2014,16 +2020,16 @@ class ActivateSkinSettings:
 #CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;30"
 #CoolFont="Regular;19" CoolServiceFont="Regular;19" CoolEventFont="Regular;19"
 		if ('font' in line or 'Font' in line) and not 'alias name="' in line:
-			line = re.sub('(\w*[Ff]ont\w*=" *)(\w+; *)(\d+)', self.linereplacer, line)
+			line = sub('(\w*[Ff]ont\w*=" *)(\w+; *)(\d+)', self.linereplacer, line)
 #<alias name="Body" font="screen_text" size="20" height="25" />
 		if 'font="' in line and 'alias name="' in line:
-			line = re.sub('(font="\w+" +size=" *)(\d+)(" *height=" *|)(\d*)', self.linereplacer, line)
+			line = sub('(font="\w+" +size=" *)(\d+)(" *height=" *|)(\d*)', self.linereplacer, line)
 #"fonts": [gFont("Regular",18),gFont("Regular",14),gFont("Regular",24),gFont("Regular",20)]
 		if '"fonts":' in line and 'gFont' in line:
-			line = re.sub('(gFont[(]"\w+", *)(\d+)', self.linereplacer, line)
+			line = sub('(gFont[(]"\w+", *)(\d+)', self.linereplacer, line)
 #offset="5,0"
 		if ' offset="' in line or 'shadowOffset="' in line:
-			line = re.sub('([shadow]*[Oo]ffset=")(\d+)(,)(\d+)', self.linereplacer, line)
+			line = sub('([shadow]*[Oo]ffset=")(\d+)(,)(\d+)', self.linereplacer, line)
 #rowSplit="25"
 #rowSplit1="25"
 #rowSplit2="25"
@@ -2039,7 +2045,7 @@ class ActivateSkinSettings:
 #"itemHeight": 45
 #": (90,[
 		if 'rowSplit' in line or 'rowHeight="' in line or 'satPosLeft="' in line or 'iconMargin="' in line or 'fieldMargins="' in line or 'itemsDistances="' in line or 'progressbarHeight="' in line or 'progressBarWidth="' in line or 'itemHeight="' in line or '"itemHeight":' in line or ('": (' in line and '[' in line):
-			line = re.sub('([iconfeld]+Margin[s]*=" *|itemsDistances="|progress[Bb]ar[HeightWd]+=" *|"*itemHeight[=":]+ *|": *[(]|row[HeightSpl]+\d*=" *|satPosLeft=" *)(\d+)', self.linereplacer, line)
+			line = sub('([iconfeld]+Margin[s]*=" *|itemsDistances="|progress[Bb]ar[HeightWd]+=" *|"*itemHeight[=":]+ *|": *[(]|row[HeightSpl]+\d*=" *|satPosLeft=" *)(\d+)', self.linereplacer, line)
 #messagebox start
 #offset_listposx = 10
 #offset_listposy = 10
@@ -2051,7 +2057,7 @@ class ActivateSkinSettings:
 #min_height = 50
 #offset = 21
 		if 'offset_listposx =' in line or 'offset_listposy =' in line or 'offset_listwidth =' in line or 'offset_listheight =' in line or 'offset_textwidth =' in line or 'offset_textheight =' in line or 'min_width =' in line or 'min_height =' in line or 'offset =' in line:
-			line = re.sub('(offset_*\w* *= *|min_\w+ *= *)(\d+)', self.linereplacer, line)
+			line = sub('(offset_*\w* *= *|min_\w+ *= *)(\d+)', self.linereplacer, line)
 #messagebox end
 #emc special start
 #CoolSelNumTxtWidth="26"
@@ -2083,7 +2089,7 @@ class ActivateSkinSettings:
 #/CoolPointerRec.png:980,0"
 #/CoolPointerRec2.png:1080,0"
 		if 'widget name="list"' in line and ' Cool' in line and not ' CoolEvent' in line or 'render="EMCPositionGauge"' in line:
-			line = re.sub('(Cool\w+=" *|Cool\w+.png: *)(\d+)([,"])(\d+|)', self.linereplacer, line)
+			line = sub('(Cool\w+=" *|Cool\w+.png: *)(\d+)([,"])(\d+|)', self.linereplacer, line)
 #emc special end
 #cool tv guide special start
 #CoolServiceSize="220"
@@ -2114,12 +2120,12 @@ class ActivateSkinSettings:
 #CoolPicoPos="2"
 #CoolPicoHPos="2"
 		if ('widget name="list"' in line or 'widget name="CoolEvent"' in line) and ' CoolEvent' in line:
-			line = re.sub('(Cool\w+=" *)(\d+)', self.linereplacer, line)
+			line = sub('(Cool\w+=" *)(\d+)', self.linereplacer, line)
 #cool tv guide special end
 
 #colPosition="240"
 		if ' colPosition="' in line:
-			line = re.sub('(colPosition=" *)(\d+)', self.linereplacer, line)
+			line = sub('(colPosition=" *)(\d+)', self.linereplacer, line)
 
 		return line
 

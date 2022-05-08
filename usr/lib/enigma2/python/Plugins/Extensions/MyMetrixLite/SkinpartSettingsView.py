@@ -19,11 +19,13 @@
 #
 #######################################################################
 
-from __future__ import print_function
-from . import _, MAIN_IMAGE_PATH
 from boxbranding import getBoxType, getMachineBrand, getMachineName
-from Screens.Screen import Screen
-from Screens.MessageBox import MessageBox
+from enigma import gMainDC, ePicLoad, getDesktop
+from os import statvfs, listdir, remove
+from os.path import exists, isdir, isfile, islink
+from shutil import move, copy
+from six import ensure_str
+
 from Components.ActionMap import ActionMap
 from Components.AVSwitch import AVSwitch
 from Components.config import config, configfile, getConfigListEntry, ConfigYesNo, ConfigSubList, ConfigSubDict, ConfigSelection
@@ -32,12 +34,11 @@ from Components.Sources.StaticText import StaticText
 from Components.Pixmap import Pixmap
 from Components.Console import Console
 from Components.Label import Label
-from enigma import ePicLoad
-from os import path, statvfs, listdir, remove
-from enigma import gMainDC, getDesktop
-from shutil import move, copy
+from Screens.Screen import Screen
+from Screens.MessageBox import MessageBox
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
-import six
+
+from . import _, MAIN_IMAGE_PATH
 
 #############################################################
 
@@ -134,7 +135,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		pidx = 0
 		for part in self.partlist:
-			if not path.isfile(self.parts[pidx][0][0] + self.parts[pidx][0][1] + '.xml'):
+			if not isfile(self.parts[pidx][0][0] + self.parts[pidx][0][1] + '.xml'):
 				part.value = '0'
 				itext = _("Skinpart are not available - can't be activated.")
 			else:
@@ -166,17 +167,17 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		from os import symlink, makedirs
 		dir_global_skinparts = "/usr/share/enigma2/skinparts"
 		dir_local_skinparts = "/usr/share/enigma2/MetrixHD/skinparts"
-		if path.exists(dir_global_skinparts):
+		if exists(dir_global_skinparts):
 			for pack in listdir(dir_global_skinparts):
-				if path.isdir(dir_global_skinparts + "/" + pack):
+				if isdir(dir_global_skinparts + "/" + pack):
 					for d in listdir(dir_global_skinparts + "/" + pack):
-						if path.exists(dir_global_skinparts + "/" + pack + "/" + d + "/" + d + ".xml"):
-							if not path.exists(dir_local_skinparts + "/" + d):
+						if exists(dir_global_skinparts + "/" + pack + "/" + d + "/" + d + ".xml"):
+							if not exists(dir_local_skinparts + "/" + d):
 								makedirs(dir_local_skinparts + "/" + d)
 							for f in listdir(dir_global_skinparts + "/" + pack + "/" + d):
 								print(dir_local_skinparts + "/" + d + "/" + f)
 								print(dir_global_skinparts + "/" + pack + "/" + d + "/" + f)
-								if (not path.islink(dir_local_skinparts + "/" + d + "/" + f)) and (not path.exists(dir_local_skinparts + "/" + d + "/" + f)):
+								if (not islink(dir_local_skinparts + "/" + d + "/" + f)) and (not exists(dir_local_skinparts + "/" + d + "/" + f)):
 									print("1")
 									symlink(dir_global_skinparts + "/" + pack + "/" + d + "/" + f, dir_local_skinparts + "/" + d + "/" + f)
 
@@ -194,8 +195,8 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			partname = skinpart
 			partpath = skinpartdir + skinpart + '/'
 			partfile = partpath + skinpart + '.xml'
-			if not path.isfile(partpath[:-1]):
-				if path.isfile(partpath + 'enabled'):
+			if not isfile(partpath[:-1]):
+				if isfile(partpath + 'enabled'):
 					enabled = '1'
 				self.readSkinPartScreens(partpath, partname)
 				if len(self.screenlist[self.idx]):
@@ -214,11 +215,11 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		lidx = screenname = previewfile = description = ''
 		enabled = p_nfo = s_nfo = False
 
-		if path.isfile(partpath + partname + '.xml'):
+		if isfile(partpath + partname + '.xml'):
 			f = open(partpath + partname + '.xml', 'r')
 			lines = f.readlines()
 			f.close()
-			if path.isfile(partpath + partname + '.txt'):
+			if isfile(partpath + partname + '.txt'):
 				try:
 					f = open(partpath + partname + '.txt', 'r')
 					description = f.read()
@@ -233,9 +234,9 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 					except UnicodeDecodeError:
 						print("[MetrixHD] - WARNING : (" + partpath + partname + ") must be UTF-8 or latin-1")
 						description = description.decode("utf-8", "ignore")
-			if path.isfile(partpath + partname + '.png'):
+			if isfile(partpath + partname + '.png'):
 				previewfile = partname + '.png'
-			elif path.isfile(partpath + partname + '.jpg'):
+			elif isfile(partpath + partname + '.jpg'):
 				previewfile = partname + '.jpg'
 
 		idx = 0
@@ -265,7 +266,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 				name = name.replace('#deactivatd#', '#deactivated#')
 				#//
 				sname = name.replace('#deactivated#', '')
-				if path.isfile(partpath + sname + '.txt'):
+				if isfile(partpath + sname + '.txt'):
 					try:
 						f = open(partpath + sname + '.txt', 'r')
 						description = f.read()
@@ -280,10 +281,10 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 						except UnicodeDecodeError:
 							print("[MetrixHD] - WARNING : (" + partpath + sname + ") must be UTF-8 or latin-1")
 							description = description.decode("utf-8", "ignore")
-						description = six.ensure_str(description)
-				if path.isfile(partpath + sname + '.png'):
+						description = ensure_str(description)
+				if isfile(partpath + sname + '.png'):
 					previewfile = sname + '.png'
-				elif path.isfile(partpath + sname + '.jpg'):
+				elif isfile(partpath + sname + '.jpg'):
 					previewfile = sname + '.jpg'
 
 				if '#deactivated#' in name:
@@ -300,7 +301,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			elif '#previewfile#' in line:
 				a = line.find('#previewfile#')
 				file = line[a + 13:].replace('\n', '').replace('\t', '').lstrip('/').strip()
-				if path.isfile(partpath + file):
+				if isfile(partpath + file):
 					previewfile = file
 
 		if not part:
@@ -318,9 +319,9 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		zoomEnable = False
 		if len(self["config"].getCurrent()) > 3:
 			picturepath = self["config"].getCurrent()[4]
-			if path.isfile(picturepath):
+			if isfile(picturepath):
 				zoomEnable = True
-		if not zoomEnable or not path.isfile(picturepath):
+		if not zoomEnable or not isfile(picturepath):
 			picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/MyMetrixLiteSkinpart.png")
 			if not fileExists(picturepath):
 				picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteSkinpart"
@@ -380,7 +381,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			tfile = self.parts[pidx][0][0] + self.parts[pidx][0][1] + '.xml.tmp'
 			if part.value != '0':
 				f = open(efile, 'w').close()
-				if path.isfile(sfile):
+				if isfile(sfile):
 					f = open(sfile, 'r')
 					source = f.readlines()
 					f.close()
@@ -434,9 +435,9 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 						f.writelines(source)
 						f.close()
 			else:
-				if path.isfile(efile):
+				if isfile(efile):
 					remove(efile)
-			if not idxerr and path.isfile(tfile) and path.isfile(sfile):
+			if not idxerr and isfile(tfile) and isfile(sfile):
 				copy(tfile, sfile)
 				remove(tfile)
 			pidx += 1

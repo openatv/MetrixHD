@@ -19,20 +19,21 @@
 #
 #######################################################################
 
-from . import _, FONT_IMAGE_PATH, MAIN_IMAGE_PATH
-from Screens.Screen import Screen
-from Screens.MessageBox import MessageBox
+from os.path import exists
+from enigma import ePicLoad
+
 from Components.ActionMap import ActionMap
 from Components.AVSwitch import AVSwitch
 from Components.config import config, configfile, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
-from Components.Sources.StaticText import StaticText
 from Components.Label import Label
-from skin import parseColor
 from Components.Pixmap import Pixmap
-from enigma import ePicLoad
-from os import path
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
+from Components.Sources.StaticText import StaticText
+from Screens.MessageBox import MessageBox
+from Screens.Screen import Screen
+from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN
+
+from . import _, FONT_IMAGE_PATH, MAIN_IMAGE_PATH
 
 #######################################################################
 
@@ -320,7 +321,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.infobartext_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.infobartext_scale.value = 100
 		elif config.plugins.MyMetrixLiteFonts.SkinFontExamples.value == "preset_2":
-			if not path.exists("/usr/share/enigma2/MetrixHD/fonts/DroidSans.ttf") or not path.exists("/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf"):
+			if not exists("/usr/share/enigma2/MetrixHD/fonts/DroidSans.ttf") or not exists("/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf"):
 				self.showPresetError()
 				return
 			config.plugins.MyMetrixLiteFonts.Lcd_type.value = "/usr/share/fonts/lcd.ttf"
@@ -376,7 +377,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.infobartext_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans.ttf"
 			config.plugins.MyMetrixLiteFonts.infobartext_scale.value = 105
 		elif config.plugins.MyMetrixLiteFonts.SkinFontExamples.value == "preset_3":
-			if not path.exists("/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf") or not path.exists("/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf") or not path.exists("/usr/share/enigma2/MetrixHD/fonts/Raleway-Channel.ttf"):
+			if not exists("/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf") or not exists("/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf") or not exists("/usr/share/enigma2/MetrixHD/fonts/Raleway-Channel.ttf"):
 				self.showPresetError()
 				return
 			config.plugins.MyMetrixLiteFonts.Lcd_type.value = "/usr/share/fonts/lcd.ttf"
@@ -432,7 +433,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.infobartext_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.infobartext_scale.value = 105
 		elif config.plugins.MyMetrixLiteFonts.SkinFontExamples.value == "preset_4":
-			if not path.exists("/usr/share/enigma2/MetrixHD/fonts/digi.ttf"):
+			if not exists("/usr/share/enigma2/MetrixHD/fonts/digi.ttf"):
 				self.showPresetError()
 				return
 			config.plugins.MyMetrixLiteFonts.Lcd_type.value = "/usr/share/fonts/lcd.ttf"
@@ -488,7 +489,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.infobartext_type.value = "/usr/share/enigma2/MetrixHD/fonts/digi.ttf"
 			config.plugins.MyMetrixLiteFonts.infobartext_scale.value = 100
 		elif config.plugins.MyMetrixLiteFonts.SkinFontExamples.value == "preset_5":
-			if not path.exists("/usr/share/enigma2/MetrixHD/fonts/analog.ttf"):
+			if not exists("/usr/share/enigma2/MetrixHD/fonts/analog.ttf"):
 				self.showPresetError()
 				return
 			config.plugins.MyMetrixLiteFonts.Lcd_type.value = "/usr/share/fonts/lcd.ttf"
@@ -544,7 +545,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.infobartext_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.infobartext_scale.value = 100
 		elif config.plugins.MyMetrixLiteFonts.SkinFontExamples.value == "preset_6":
-			if not path.exists("/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf") or not path.exists("/usr/share/enigma2/MetrixHD/fonts/HandelGotDBol.ttf") or not path.exists("/usr/share/fonts/nmsbd.ttf"):
+			if not exists("/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf") or not exists("/usr/share/enigma2/MetrixHD/fonts/HandelGotDBol.ttf") or not exists("/usr/share/fonts/nmsbd.ttf"):
 				self.showPresetError()
 				return
 			config.plugins.MyMetrixLiteFonts.Lcd_type.value = "/usr/share/fonts/lcd.ttf"

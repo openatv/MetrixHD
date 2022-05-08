@@ -19,13 +19,14 @@
 #
 #######################################################################
 
-from __future__ import print_function
+from boxbranding import getBoxType
+from gettext import bindtextdomain, dgettext, gettext
+from os.path import exists
+from shutil import move
+
+from Components.config import config, ConfigSubsection, ConfigSelection, ConfigNumber, ConfigSelectionNumber, ConfigYesNo, ConfigText, ConfigInteger
 from Components.Language import language
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS
-from Components.config import config, ConfigSubsection, ConfigSelection, ConfigNumber, ConfigSelectionNumber, ConfigYesNo, ConfigText, ConfigInteger
-from os import path
-import gettext
-from boxbranding import getBoxType
 #############################################################
 
 PLUGIN_PATH = resolveFilename(SCOPE_PLUGINS, "Extensions/MyMetrixLite")
@@ -38,14 +39,14 @@ PluginLanguageDomain = "MyMetrixLite"
 
 
 def localeInit():
-	gettext.bindtextdomain(PluginLanguageDomain, PLUGIN_PATH + "/locale")
+	bindtextdomain(PluginLanguageDomain, PLUGIN_PATH + "/locale")
 
 
 def _(txt):
-	if gettext.dgettext(PluginLanguageDomain, txt):
-		return gettext.dgettext(PluginLanguageDomain, txt)
+	if dgettext(PluginLanguageDomain, txt):
+		return dgettext(PluginLanguageDomain, txt)
 	else:
-		return gettext.gettext(txt)
+		return gettext(txt)
 
 
 localeInit()
@@ -113,9 +114,7 @@ FONT_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/image
 OLD_BACKUP_FILE = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/MyMetrixLiteBackup.dat"
 BACKUP_FILE = "/etc/enigma2/MyMetrixLiteBackup.dat"
 
-from shutil import move
-from os import path
-if path.exists(OLD_BACKUP_FILE) and not path.exists(BACKUP_FILE):
+if exists(OLD_BACKUP_FILE) and not exists(BACKUP_FILE):
 	move(OLD_BACKUP_FILE, BACKUP_FILE)
 
 #############################################################
@@ -236,11 +235,11 @@ SkinFontPresetList = [
 FontTypeList = []
 
 for lines in SysFontTypeList:
-	if path.exists(lines[0]):
+	if exists(lines[0]):
 		FontTypeList.append(lines)
 
 for lines in SkinFontTypeList:
-	if path.exists(lines[0]):
+	if exists(lines[0]):
 		FontTypeList.append(lines)
 
 
@@ -456,15 +455,15 @@ def initColorsConfig():
 	config.plugins.MyMetrixLiteColors.scrollbarSliderbordercolor = ConfigSelection(default="27408B", choices=ColorList)
 	config.plugins.MyMetrixLiteColors.scrollbarSliderbordertransparency = ConfigSelection(default="00", choices=TransparencyList)
 
-	config.plugins.MyMetrixLiteColors.cologradient = ConfigSelection(default='0', choices=[('0', _('disabled'))] + ColorList)
+	config.plugins.MyMetrixLiteColors.cologradient = ConfigSelection(default="0", choices=[("0", _("disabled"))] + ColorList)
 	config.plugins.MyMetrixLiteColors.cologradient_show_background = ConfigYesNo(default=True)
 	choicelist = []
 	for x in list(range(0, 105, 5)):
-		choicelist.append(('%d' % x, '%d%s' % (x, '%')))
-	config.plugins.MyMetrixLiteColors.cologradient_size = ConfigSelection(default='25', choices=choicelist)
-	config.plugins.MyMetrixLiteColors.cologradient_position = ConfigSelection(default='25', choices=choicelist)
-	config.plugins.MyMetrixLiteColors.cologradient_transparencyA = ConfigSelection(default='1A', choices=TransparencyList)
-	config.plugins.MyMetrixLiteColors.cologradient_transparencyB = ConfigSelection(default='FF', choices=TransparencyList)
+		choicelist.append(("%d" % x, "%d%s" % (x, "%")))
+	config.plugins.MyMetrixLiteColors.cologradient_size = ConfigSelection(default="25", choices=choicelist)
+	config.plugins.MyMetrixLiteColors.cologradient_position = ConfigSelection(default="25", choices=choicelist)
+	config.plugins.MyMetrixLiteColors.cologradient_transparencyA = ConfigSelection(default="1A", choices=TransparencyList)
+	config.plugins.MyMetrixLiteColors.cologradient_transparencyB = ConfigSelection(default="FF", choices=TransparencyList)
 
 #############################################################
 
@@ -662,11 +661,11 @@ def initOtherConfig():
 	skinmodes = [("0", _("Standard HD (1280x720)"))]
 	mode1080p = mode2160p = risk = False
 	try:
-		if path.exists("/proc/stb/video/videomode_choices"):
+		if exists("/proc/stb/video/videomode_choices"):
 			vmodes = open("/proc/stb/video/videomode_choices").read()
-			if '1080p' in vmodes:
+			if "1080p" in vmodes:
 				mode1080p = True
-			if '2160p' in vmodes:
+			if "2160p" in vmodes:
 				mode2160p = True
 		else:
 			risk = True
@@ -674,14 +673,14 @@ def initOtherConfig():
 		print("[MyMetrixLite] - can't read video modes")
 		risk = True
 
-	tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
+	tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split("_|_")
 	risktxt = _(" - box support unknown")
 	if len(tested) == 2:
-		if BoxType in tested[0] and '1' in tested[1]:
+		if BoxType in tested[0] and "1" in tested[1]:
 			skinmodes.append(("1", _("Full HD (1920x1080)")))
 		elif mode1080p or risk:
 			skinmodes.append(("1", _("Full HD (1920x1080) %s") % risktxt))
-		if BoxType in tested[0] and '2' in tested[1]:
+		if BoxType in tested[0] and "2" in tested[1]:
 			skinmodes.append(("2", _("Ultra HD (3840x2160)")))
 		elif mode2160p or risk:
 			skinmodes.append(("2", _("Ultra HD (3840x2160) %s") % risktxt))
@@ -691,7 +690,7 @@ def initOtherConfig():
 		if mode2160p or risk:
 			skinmodes.append(("2", _("Ultra HD (3840x2160) %s") % risktxt))
 	###no box supports at time uhd skins ...###
-	if '2' in skinmodes[-1]:
+	if "2" in skinmodes[-1]:
 		del skinmodes[-1]#
 	###########################################
 	config.plugins.MyMetrixLiteOther.EHDenabled = ConfigSelection(default="0", choices=skinmodes)
@@ -702,9 +701,9 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.EHDoldlinechanger = ConfigYesNo(default=False)
 	sharpness = []
 	for i in list(range(0, 525, 25)):
-		x = str(format(float(i) / 100, '.2f'))
+		x = str(format(float(i) / 100, ".2f"))
 		sharpness.append((x, x))
-	config.plugins.MyMetrixLiteOther.piconsharpness_experimental = ConfigSelection(default='1.00', choices=sharpness)
+	config.plugins.MyMetrixLiteOther.piconsharpness_experimental = ConfigSelection(default="1.00", choices=sharpness)
 	#STB-Info
 	config.plugins.MyMetrixLiteOther.STBDistance = ConfigSelectionNumber(1, 50, 1, default=10)
 	config.plugins.MyMetrixLiteOther.showCPULoad = ConfigYesNo(default=True)
@@ -737,7 +736,7 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.showSTBinfo = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.showTunerinfo = ConfigYesNo(default=True)
 	config.plugins.MyMetrixLiteOther.setTunerAuto = ConfigYesNo(default=True)
-	config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelection(default='2', choices=[('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'), ('6', '6'), ('7', '7'), ('8', '8'), ('10', '10'), ('12', '12'), ('16', '16'), ('18', '18'), ('19', '19')])
+	config.plugins.MyMetrixLiteOther.setTunerManual = ConfigSelection(default="2", choices=[("1", "1"), ("2", "2"), ("3", "3"), ("4", "4"), ("5", "5"), ("6", "6"), ("7", "7"), ("8", "8"), ("10", "10"), ("12", "12"), ("16", "16"), ("18", "18"), ("19", "19")])
 	config.plugins.MyMetrixLiteOther.showInfoBarRunningtext = ConfigYesNo(default=False)
 	#pig
 	config.plugins.MyMetrixLiteOther.movielist_pig = ConfigYesNo(default=False)
@@ -773,12 +772,12 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.showEMCSelectionPicon = ConfigSelection(default="no", choices=[("no", _("No")), ("left", _("left")), ("right", _("right"))])
 	choicelist = [("0", _("off"))]
 	for x in list(range(50, 202, 2)):
-		choicelist.append(('%d' % x, '%d' % x))
+		choicelist.append(("%d" % x, "%d" % x))
 	config.plugins.MyMetrixLiteOther.setEMCdatesize = ConfigSelection(default="104", choices=choicelist)
 	config.plugins.MyMetrixLiteOther.setEMCdirinfosize = ConfigSelection(default="140", choices=choicelist)
 	choicelist = [("0", _("off"))]
 	for x in list(range(20, 82, 2)):
-		choicelist.append(('%d' % x, '%d' % x))
+		choicelist.append(("%d" % x, "%d" % x))
 	config.plugins.MyMetrixLiteOther.setEMCbarsize = ConfigSelection(default="50", choices=choicelist)
 	#SkinDesign
 	config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth = ConfigSelectionNumber(0, 15, 1, default=10)

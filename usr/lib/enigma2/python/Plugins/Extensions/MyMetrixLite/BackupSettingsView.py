@@ -18,28 +18,29 @@
 #
 #
 #######################################################################
-from __future__ import absolute_import
-from . import _, MAIN_IMAGE_PATH, BACKUP_FILE
-from Screens.Screen import Screen
-from Screens.MessageBox import MessageBox
-from Screens.VirtualKeyBoard import VirtualKeyBoard
+from os.path import exists
+from pickle import dump, load, loads
+from time import localtime, strftime, time
+from enigma import ePicLoad, eTimer
+
 from Components.ActionMap import ActionMap
 from Components.AVSwitch import AVSwitch
 from Components.config import config, configfile, getConfigListEntry, ConfigSelectionNumber, ConfigText
 from Components.ConfigList import ConfigListScreen
 from Components.Label import Label
-from Components.Sources.StaticText import StaticText
 from Components.Pixmap import Pixmap
-from enigma import ePicLoad, eTimer
-from os import path
-import pickle
-from time import time, localtime, strftime
+from Components.Sources.StaticText import StaticText
+from Screens.MessageBox import MessageBox
+from Screens.Screen import Screen
+from Screens.VirtualKeyBoard import VirtualKeyBoard
+from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN
+
+from . import _, MAIN_IMAGE_PATH, BACKUP_FILE
 from .ColorsSettingsView import ColorsSettingsView
 from .WeatherSettingsView import WeatherSettingsView
 from .OtherSettingsView import OtherSettingsView
 from .FontsSettingsView import FontsSettingsView
 from .ActivateSkinSettings import ActivateSkinSettings
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 #############################################################
 
@@ -207,7 +208,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 	def writeFile(self):
 		try:
 			f = open(BACKUP_FILE, 'wb')
-			pickle.dump(self.file, f)
+			dump(self.file, f)
 			f.close()
 			self.changedEntry(True)
 		except IOError:
@@ -215,15 +216,15 @@ class BackupSettingsView(ConfigListScreen, Screen):
 
 	def readFile(self):
 
-		if path.exists(BACKUP_FILE):
+		if exists(BACKUP_FILE):
 			try:
 				f = open(BACKUP_FILE, "rb")
 				try:
-					self.file = pickle.load(f)
+					self.file = load(f)
 				except UnicodeDecodeError:
 					f.seek(0) # Read old Python2 pickle
 					t = f.read()
-					self.file = pickle.loads(t, fix_imports=True, encoding="UTF-8", errors="strict", buffers=None)
+					self.file = loads(t, fix_imports=True, encoding="UTF-8", errors="strict", buffers=None)
 				f.close()
 				return True
 			except EOFError:
