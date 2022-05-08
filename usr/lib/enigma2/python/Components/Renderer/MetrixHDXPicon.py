@@ -1,23 +1,21 @@
-from __future__ import print_function
 ##
 ## Picon renderer by Gruffy .. some speedups by Ghost
 ## XPicon mod by iMaxxx
 ##
-from Components.Renderer.Renderer import Renderer
+from re import sub
+from unicodedata import normalize
+from six import PY2, text_type
 from enigma import ePixmap
-from enigma import iServiceInformation, iPlayableService, iPlayableServicePtr
+
+from PIL import Image, ImageFile, PngImagePlugin, ImageEnhance
+
+from Components.config import config
+from Components.Renderer.Renderer import Renderer
+from ServiceReference import ServiceReference
 from Tools.Directories import fileExists, SCOPE_SKIN_IMAGE, SCOPE_CURRENT_SKIN, resolveFilename
 from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
-from Components.config import config
-from PIL import Image, ImageFile, PngImagePlugin, ImageEnhance
-import six
 
 initOtherConfig()
-
-# For SNP
-from ServiceReference import ServiceReference
-import re
-import unicodedata
 
 
 def patched_chunk_tRNS(self, pos, len):
@@ -31,7 +29,7 @@ def patched_chunk_tRNS(self, pos, len):
 		self.im_info["transparency"] = i16(s), i16(s[2:]), i16(s[4:])
 	return s
 
-if six.PY2:
+if PY2:
 	PngImagePlugin.PngStream.chunk_tRNS = patched_chunk_tRNS
 
 
@@ -55,7 +53,7 @@ def patched_load(self):
 		return self.im.pixel_access(self.readonly)
 
 
-if six.PY2:
+if PY2:
 	Image.Image.load = patched_load
 
 
@@ -103,8 +101,8 @@ class MetrixHDXPicon(Renderer):
 							pngname = self.findPicon('_'.join(fields))
 					if not pngname: # picon by channel name
 						name = ServiceReference(self.source.text).getServiceName()
-						name = unicodedata.normalize('NFKD', six.text_type(name))
-						name = re.sub('[^a-z0-9]', '', name.replace('&', 'and').replace('+', 'plus').replace('*', 'star').lower())
+						name = normalize('NFKD', text_type(name))
+						name = sub('[^a-z0-9]', '', name.replace('&', 'and').replace('+', 'plus').replace('*', 'star').lower())
 						if len(name) > 0:
 							pngname = self.findPicon(name)
 							if not pngname and len(name) > 2 and name.endswith('hd'):
@@ -128,7 +126,7 @@ class MetrixHDXPicon(Renderer):
 							ImageFile.LOAD_TRUNCATED_IMAGES = True
 							im = Image.open(pngname).convert('RGBA')
 						except:
-							print("[MetrixHDXPicon] cant load image:", pngname)
+							print("[MetrixHDXPicon] cant load image: %s" % pngname)
 							tmp = resolveFilename(SCOPE_CURRENT_SKIN, "picon_default.png")
 							if fileExists(tmp):
 								pngname = tmp

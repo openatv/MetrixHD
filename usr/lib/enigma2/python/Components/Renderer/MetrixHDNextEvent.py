@@ -22,28 +22,11 @@
 #
 #######################################################################
 
-from Components.VariableText import VariableText
-from enigma import eLabel, eEPGCache
-from Components.config import config
-from Components.Language import language
-from os import environ
-from Tools.Directories import resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS
-from Components.Renderer.Renderer import Renderer
 from time import localtime
-import gettext
+from enigma import eLabel, eEPGCache
 
-lang = language.getLanguage()
-environ["LANGUAGE"] = lang[:2]
-gettext.bindtextdomain("enigma2", resolveFilename(SCOPE_LANGUAGE))
-gettext.textdomain("enigma2")
-gettext.bindtextdomain("MyMetrixLite", "%s%s" % (resolveFilename(SCOPE_PLUGINS), "Extensions/MyMetrixLite/locale/"))
-
-
-def _(txt):
-	t = gettext.dgettext("MyMetrixLite", txt)
-	if t == txt:
-		t = gettext.gettext(txt)
-	return t
+from Components.Renderer.Renderer import Renderer
+from Components.VariableText import VariableText
 
 
 class MetrixHDNextEvent(Renderer, VariableText):
@@ -66,6 +49,6 @@ class MetrixHDNextEvent(Renderer, VariableText):
 				if eventNext[0][4]:
 					t = localtime(eventNext[0][1])
 					duration = "%d min" % (eventNext[0][2] / 60)
-					ENext = _("Next:") + ' ' + "%02d:%02d  %s\n%s" % (t[3], t[4], duration, eventNext[0][4])
+					ENext = "%s: %02d:%02d  %s\n%s" % (_("Next"), t[3], t[4], duration, eventNext[0][4])
 
 			self.text = ENext

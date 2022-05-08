@@ -2,12 +2,13 @@
 #    <widget source="session.CurrentService" render="MetrixHDWeatherPixmap" position="156,50" size="50,50" alphatest="blend" zPosition="9">
 #        <convert type="MetrixHDWeather">currentWeatherCode</convert>
 #    </widget>
-from Tools.LoadPixmap import LoadPixmap
-from Components.Renderer.Renderer import Renderer
+from os import listdir
 from enigma import ePixmap, eTimer
-from Tools.Directories import fileExists, pathExists
+
 from Components.config import config
-import os
+from Components.Renderer.Renderer import Renderer
+from Tools.Directories import fileExists, pathExists
+from Tools.LoadPixmap import LoadPixmap
 
 
 class MetrixHDWeatherPixmap(Renderer):
@@ -56,7 +57,7 @@ class MetrixHDWeatherPixmap(Renderer):
 			if fileExists('%s%s' % ((path % self.path), id)):
 				pathanimicon = '%s%s/a' % ((path % self.path), id)
 				path2 = '%s%s' % ((path % self.path), id)
-				dir_work = os.listdir(path2)
+				dir_work = listdir(path2)
 				total = len(dir_work)
 				self.slideicon = total
 				animokicon = True
@@ -64,13 +65,13 @@ class MetrixHDWeatherPixmap(Renderer):
 				if fileExists('%sNA' % (path % self.path)):
 					pathanimicon = '%sNA/a' % (path % self.path)
 					path2 = '%sNA' % (path % self.path)
-					dir_work = os.listdir(path2)
+					dir_work = listdir(path2)
 					total = len(dir_work)
 					self.slideicon = total
 					animokicon = True
 		if animokicon == True:
 			self.picsicon = []
-			for x in list(range(self.slideicon)):
+			for x in range(self.slideicon):
 				self.picsicon.append(LoadPixmap(pathanimicon + str(x) + '.png'))
 
 			if not self.pixdelay_overwrite:

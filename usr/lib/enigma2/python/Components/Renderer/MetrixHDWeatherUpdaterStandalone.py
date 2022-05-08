@@ -8,29 +8,25 @@
 #
 #######################################################################
 
-from __future__ import print_function
+from datetime import datetime, timedelta
+from json import loads
+from threading import Timer, Thread
+from time import strftime, strptime
+from six import ensure_str, ensure_binary, PY3
+from six.moves.urllib.request import Request, urlopen
+from six.moves.urllib.error import URLError
+from six.moves.urllib.parse import quote
+from xml.dom.minidom import parseString
+from enigma import eLabel
+
 from Components.Renderer.Renderer import Renderer
 from Components.VariableText import VariableText
-from enigma import eLabel
-from xml.dom.minidom import parseString
-from Components.config import config, configfile
-from Plugins.Extensions.MyMetrixLite.__init__ import initWeatherConfig
-from threading import Timer, Thread
-from time import time, strftime, localtime, strptime
+from Components.config import config
 from twisted.web.client import getPage
-from datetime import datetime, timedelta
-from six.moves.urllib.request import Request, urlopen
-from six.moves.urllib.error import URLError, HTTPError
-from six.moves.urllib.parse import quote
-import six
+from Plugins.Extensions.MyMetrixLite.__init__ import initWeatherConfig
 
-SIGN = '°' if six.PY3 else str('\xc2\xb0')
+SIGN = '°' if PY3 else str('\xc2\xb0')
 
-import sys
-#from twisted.python import log
-#log.startLogging(sys.stdout)
-
-import json
 
 g_updateRunning = False
 g_isRunning = False
@@ -97,15 +93,15 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 					datavalid = 2
 				if datavalid == 1:
 					if config.plugins.MetrixWeather.weatherservice.value == "MSN":
-						print("MetrixHDWeatherStandalone lookup for City " + str(self.cityname) + " paused 5 mins, to many errors ...")
+						print("MetrixHDWeatherStandalone lookup for City %s paused 5 mins, to many errors ..." % str(self.cityname))
 					else:
-						print("MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " paused 5 mins, to many errors ...")
+						print("MetrixHDWeatherStandalone lookup for ID %s paused 5 mins, to many errors ..." % str(self.woeid))
 					seconds = 300
 				else:
 					if config.plugins.MetrixWeather.weatherservice.value == "MSN":
-						print("MetrixHDWeatherStandalone lookup for City " + str(self.cityname) + " aborted, to many errors ...")
+						print("MetrixHDWeatherStandalone lookup for City %s aborted, to many errors ..." % str(self.cityname))
 					else:
-						print("MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " aborted, to many errors ...")
+						print("MetrixHDWeatherStandalone lookup for ID %s aborted, to many errors ..." % str(self.woeid))
 					seconds = pausetime
 
 			self.setWeatherDataValid(datavalid)
@@ -146,9 +142,9 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 
 		if g_updateRunning:
 			if config.plugins.MetrixWeather.weatherservice.value == "MSN":
-				print("MetrixHDWeatherStandalone lookup for City " + str(self.cityname) + " skipped, allready running...")
+				print("MetrixHDWeatherStandalone lookup for City %s skipped, allready running..." % str(self.cityname))
 			else:
-				print("MetrixHDWeatherStandalone lookup for ID " + str(self.woeid) + " skipped, allready running...")
+				print("MetrixHDWeatherStandalone lookup for ID %s skipped, allready running..." % str(self.woeid))
 			return
 		g_updateRunning = True
 		g_isRunning = True
@@ -161,7 +157,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 		if error is not None:
 			errormessage = str(error.getErrorMessage())
 		elif message is not None:
-			message = six.ensure_str(message)
+			message = ensure_str(message)
 			errormessage = str(message)
 		print("MetrixHDWeatherStandalone get weather data failed - Error code: %s" % errormessage)
 		if self.check:
@@ -330,13 +326,13 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=%s%s" % (city, language[:2], units, apikey)
 #			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=%s&cnt=%d%s" % (city, language[:2], units, cnt, apikey)
 			print(feedurl)
-			feedurl = six.ensure_binary(feedurl)
+			feedurl = ensure_binary(feedurl)
 			getPage(feedurl).addCallback(self.jsonCallback).addErrback(self.errorCallback) # FIXME getPage is deprecated
 
 	def jsonCallback(self, jsonstring):
 		global g_updateRunning
-		jsonstring = six.ensure_str(jsonstring)
-		d = json.loads(jsonstring)
+		jsonstring = ensure_str(jsonstring)
+		d = loads(jsonstring)
 		if 'code' in d and d['cod'] != "200":
 			self.errorCallback(message=d['message'])
 			return

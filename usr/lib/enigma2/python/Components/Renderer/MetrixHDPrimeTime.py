@@ -1,9 +1,10 @@
-from Components.VariableText import VariableText
-from enigma import eLabel, eEPGCache
-from Components.Renderer.Renderer import Renderer
-from time import localtime, mktime, time
 from datetime import datetime
+from time import localtime, mktime, time
+from enigma import eLabel, eEPGCache
+
 from Components.config import config
+from Components.Renderer.Renderer import Renderer
+from Components.VariableText import VariableText
 
 
 class MetrixHDPrimeTime(Renderer, VariableText):

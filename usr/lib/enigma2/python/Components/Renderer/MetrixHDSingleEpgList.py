@@ -1,7 +1,8 @@
-from Components.VariableText import VariableText
-from enigma import eLabel, eEPGCache
-from Components.Renderer.Renderer import Renderer
 from time import localtime
+from enigma import eLabel, eEPGCache
+
+from Components.Renderer.Renderer import Renderer
+from Components.VariableText import VariableText
 
 
 class MetrixHDSingleEpgList(Renderer, VariableText):
