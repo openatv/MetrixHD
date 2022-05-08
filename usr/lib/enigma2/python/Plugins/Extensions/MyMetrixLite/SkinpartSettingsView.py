@@ -402,7 +402,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 								if name.replace('#deactivated#', '') == self.screens[pidx][sidx][1]:
 									if not screen.value and not '#deactivated#' in name:
 										screenname = '#deactivated#' + name
-									elif screen.value and'#deactivated#' in name:
+									elif screen.value and '#deactivated#' in name:
 										screenname = name.replace('#deactivated#', '')
 									if screenname:
 										line = line[:b + 1] + screenname + line[c:]

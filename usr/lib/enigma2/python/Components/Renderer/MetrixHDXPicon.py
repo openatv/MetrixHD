@@ -29,6 +29,7 @@ def patched_chunk_tRNS(self, pos, len):
 		self.im_info["transparency"] = i16(s), i16(s[2:]), i16(s[4:])
 	return s
 
+
 if PY2:
 	PngImagePlugin.PngStream.chunk_tRNS = patched_chunk_tRNS
 

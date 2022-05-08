@@ -26,7 +26,6 @@ from Components.Element import cached
 from Components.Converter.Poll import Poll
 
 
-
 class MetrixHDWeather(Poll, Converter, object):
 
 	def __init__(self, type):
