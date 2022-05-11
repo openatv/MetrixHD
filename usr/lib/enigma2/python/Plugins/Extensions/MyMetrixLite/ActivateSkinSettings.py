@@ -20,6 +20,7 @@ from __future__ import division
 #
 #######################################################################
 
+from datetime import datetime
 from math import floor, sqrt
 from os import remove, statvfs, listdir, system, mkdir, unlink, symlink, rename
 from os.path import exists, getsize, isdir, isfile, islink, join as pathjoin, realpath
@@ -1852,6 +1853,7 @@ class ActivateSkinSettings:
 		self.xpos = 0
 		self.ypos = 0
 
+		starttime = datetime.now()
 		print("starting   " + sourceFile + "   --->   " + targetFile)
 
 		f = open(sourceFile, "r")
@@ -1859,12 +1861,15 @@ class ActivateSkinSettings:
 
 		i = 0
 		i_save = i
+		sb_width = config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth.value + config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value * 2
+		sb_bwidth = config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value
 		for line in f.readlines():
 			i += 1
 #options for all skin files
-			sb_width = config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth.value + config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value * 2
-			line = line.replace('scrollbarWidth="10"', 'scrollbarWidth="%s"' % (sb_width))
-			line = line.replace('scrollbarSliderBorderWidth="1"', 'scrollbarSliderBorderWidth="%s"' % config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value)
+			if sb_width != 10:
+				line = line.replace('scrollbarWidth="10"', 'scrollbarWidth="%s"' % sb_width)
+			if sb_bwidth != 1:
+				line = line.replace('scrollbarSliderBorderWidth="1"', 'scrollbarSliderBorderWidth="%s"' % sb_bwidth)
 			if config.plugins.MyMetrixLiteColors.backgroundtextborderwidth.value and ' font="global_large' in line and not ' borderWidth=' in line and not ' borderColor=' in line:
 				line = line.replace(' font=', ' borderWidth="%s" borderColor="#%s%s" font=' % (config.plugins.MyMetrixLiteColors.backgroundtextborderwidth.value, config.plugins.MyMetrixLiteColors.backgroundtextbordertransparency.value, config.plugins.MyMetrixLiteColors.backgroundtextbordercolor.value))
 			if not config.plugins.MyMetrixLiteOther.SkinDesignMenuScrollInfo.value and 'name="menu_next_side_marker"' in line:
@@ -1948,16 +1953,14 @@ class ActivateSkinSettings:
 					self.skinline_error = error
 					import traceback
 					traceback.print_exc()
-					print("error in line: %d / %s" % (i, str(error)))
-					print(line)
-					print("--------")
+					print("error in line: %d / %s\n%s\n--------" % (i, str(error), line))
 			f1.write(line)
 			if self.skinline_error:
 				break
 		f.close()
 		f1.close()
 		if not self.skinline_error:
-			print("complete")
+			print("complete in: {}".format(datetime.now() - starttime))
 			print("--------")
 
 	def linereplacer(self, m):
