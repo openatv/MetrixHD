@@ -19,29 +19,29 @@
 #
 #
 #######################################################################
-
-from __future__ import print_function
-from . import _, MAIN_IMAGE_PATH
-from Screens.Screen import Screen
-from Screens.VirtualKeyBoard import VirtualKeyBoard
-from Screens.MessageBox import MessageBox
-from Components.MenuList import MenuList
-from Components.ActionMap import ActionMap
+from enigma import ePicLoad, eTimer
+from os import listdir, system
+from os.path import isfile
 from xml.etree.cElementTree import fromstring as cet_fromstring
-from Tools.Directories import fileExists
+from six.moves.urllib.request import Request, urlopen
+from six.moves.urllib.error import URLError, HTTPError
+from six import ensure_str
+
+from Components.ActionMap import ActionMap
 from Components.AVSwitch import AVSwitch
 from Components.config import config, configfile, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
 from Components.Label import Label
-from Components.Sources.StaticText import StaticText
+from Components.MenuList import MenuList
 from Components.Pixmap import Pixmap
-from enigma import ePicLoad, eTimer
-from os import path, listdir, system
 from Components.Renderer.MetrixHDWeatherUpdaterStandalone import MetrixHDWeatherUpdaterStandalone
+from Components.Sources.StaticText import StaticText
+from Screens.MessageBox import MessageBox
+from Screens.Screen import Screen
+from Screens.VirtualKeyBoard import VirtualKeyBoard
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
-from six.moves.urllib.request import Request, urlopen
-from six.moves.urllib.error import URLError, HTTPError
-import six
+
+from . import _, MAIN_IMAGE_PATH
 
 #############################################################
 
@@ -219,7 +219,7 @@ class WeatherSettingsView(ConfigListScreen, Screen):
 	def loadAPIdata(self):
 		ret = True
 		for file in listdir('/tmp/'):
-			if path.isfile('/tmp/' + file) and file.endswith('.apidata'):
+			if isfile('/tmp/' + file) and file.endswith('.apidata'):
 				try:
 					id, key = file.replace('.apidata', '').split('_')
 				except:
@@ -346,16 +346,16 @@ def search_title(id):
 	try:
 		msnpage = urlopen(msnrequest)
 	except (URLError) as err:
-		print('[WeatherSettingsView] Error: Unable to retrieve page - Error code: ', str(err))
+		print('[WeatherSettingsView] Error: Unable to retrieve page - Error code: %s' % str(err))
 		return "error"
 
-	content = six.ensure_str(msnpage.read())
+	content = ensure_str(msnpage.read())
 	msnpage.close()
 	root = cet_fromstring(content)
 	search_results = []
 	if content:
 		for childs in root:
 			if childs.tag == 'weather':
-				locationcode = six.ensure_str(childs.attrib.get('weatherlocationname'), errors='ignore')
+				locationcode = ensure_str(childs.attrib.get('weatherlocationname'), errors='ignore')
 				search_results.append(locationcode)
 	return search_results

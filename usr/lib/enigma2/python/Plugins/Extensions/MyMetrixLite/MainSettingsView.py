@@ -17,20 +17,22 @@
 #
 #
 #######################################################################
-from __future__ import absolute_import
-from . import _, MAIN_IMAGE_PATH
-from Screens.Screen import Screen
-from Screens.MessageBox import MessageBox
-from Screens.Standby import TryQuitMainloop
+from os.path import isfile
+from enigma import eListboxPythonMultiContent, ePicLoad, eTimer, gFont, getDesktop
+
 from Components.ActionMap import ActionMap
 from Components.AVSwitch import AVSwitch
+from Components.Label import Label
 from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText
 from Components.Pixmap import Pixmap
 from Components.Sources.StaticText import StaticText
-from Components.Label import Label
-from enigma import ePicLoad, eListboxPythonMultiContent, gFont, getDesktop, eTimer
-from os import path, remove
+from Screens.MessageBox import MessageBox
+from Screens.Screen import Screen
+from Screens.Standby import TryQuitMainloop
+from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN
+
+from . import _, MAIN_IMAGE_PATH
 from .ColorsSettingsView import ColorsSettingsView
 from .WeatherSettingsView import WeatherSettingsView
 from .OtherSettingsView import OtherSettingsView
@@ -38,7 +40,6 @@ from .FontsSettingsView import FontsSettingsView
 from .BackupSettingsView import BackupSettingsView
 from .SkinpartSettingsView import SkinpartSettingsView
 from .ActivateSkinSettings import ActivateSkinSettings
-from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
 #############################################################
 
@@ -130,7 +131,7 @@ class MainSettingsView(Screen):
 		list.append(MenuEntryItem(_("Color settings"), "COLOR", _("helptext")))
 		list.append(MenuEntryItem(_("Weather settings"), "WEATHER", _("Powered by\n-----------------\nmsn weather\n(https://www.msn.com)\nand\nOpenWeatherMap\n(https://openweathermap.org)")))
 		list.append(MenuEntryItem(_("Other settings"), "OTHER", _("helptext")))
-		if path.isfile("/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/DesignSettings.py"):
+		if isfile("/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/DesignSettings.py"):
 			from .DesignSettingsView import DesignSettingsView
 			list.append(MenuEntryItem(_("Design settings"), "DESIGN", _("helptext")))
 		list.append(MenuEntryItem(_("Skinpart settings"), "SKINPART", _("helptext")))
