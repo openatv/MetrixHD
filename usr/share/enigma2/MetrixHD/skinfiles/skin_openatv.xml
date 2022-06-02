@@ -57,61 +57,6 @@
 		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_information_device.png" transparent="1" alphatest="blend" />
 	</screen>
 
-	<screen name="TranslationInfo" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="openATV" position="70,100" size="369,40" font="SetrixHD;30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" zPosition="1" />
-		<widget source="TranslationInfo" render="Label" position="70,160" size="370,25" font="Regular;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" zPosition="1" />
-		<widget source="TranslatorName" render="Label" position="70,185" size="369,25" font="Regular;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" zPosition="1" />
-		<panel name="OPEN_SOURCE_INFO" />
-		<panel name="__e-buttons_template1" />
-	</screen>
-	<screen name="SoftwareUpdateChanges" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<widget name="text" position="70,100" size="700,530" font="screen_text;18" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand"/>
-		<panel name="OPEN_SOURCE_INFO" />
-		<panel name="__e-buttons_template1" />
-	</screen>
-	<screen name="Devices" position="0,0" size="1280,720" title="SystemInfo" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="icons/info.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
-<!-- 		<widget source="TunerHeader" render="Label" position="70,100" size="458,36" font="Regular;20" transparent="0" zPosition="1" />
-		<widget source="nims" render="Label" position="70,150" size="700,140" font="Regular;18" transparent="0" zPosition="1" />
-		<widget source="HDDHeader" render="Label" position="70,290" size="458,36" font="Regular;20" transparent="0" zPosition="1" />
-		<widget source="hdd" render="Label" position="70,330" size="700,140" font="Regular;18" transparent="0" zPosition="1" />
-		<widget source="MountsHeader" render="Label" position="70,470" size="458,36" font="Regular;20" transparent="0" zPosition="1" />
-		<widget source="mounts" render="Label" position="70,510" size="700,140" font="Regular;18" transparent="0" zPosition="1" /> -->
-		<widget name="allinonedevices" position="70,100" size="700,550" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="0" zPosition="1" />
-		<panel name="_oe-buttons_template1" />
-	</screen>
-	<screen name="SystemMemoryInfo" position="0,0" size="1280,720" title="SystemInfo" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="icons/info.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
-		<widget name="AboutScrollLabel" position="70,100" size="700,480" transparent="0" zPosition="1" itemHeight="30" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" />
-		<panel name="_oe-buttons_template1" />
-	</screen>
-	<screen name="SystemNetworkInfo" position="0,0" size="1280,720" title="SystemInfo" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap pixmap="icons/info.png" position="890,175" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
-		<widget name="AboutScrollLabel" position="70,100" size="700,480" font="screen_text;20" transparent="0" zPosition="1" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand"/>
-		<!--widget source="LabelBSSID" render="Label" position="70,400" size="200,30" valign="center" font="Regular;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="BSSID" render="Label" position="270,400" size="500,30" valign="center" font="Regular;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="LabelESSID" render="Label" position="430,400" size="200,30" valign="center" font="Regular;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="ESSID" render="Label" position="270,430" size="500,30" valign="center" font="Regular;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="LabelQuality" render="Label" position="70,460" size="200,30" valign="center" font="Regular;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="quality" render="Label" position="270,460" size="500,30" valign="center" font="Regular;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="LabelSignal" render="Label" position="70,490" size="200,30" valign="center" font="Regular;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="signal" render="Label" position="270,490" size="500,30" valign="center" font="Regular;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="LabelBitrate" render="Label" position="70,520" size="200,30" valign="center" font="Regular;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="bitrate" render="Label" position="270,520" size="500,30" valign="center" font="Regular;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="LabelEnc" render="Label" position="70,550" size="200,30" valign="center" font="Regular;20" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="enc" render="Label" position="270,550" size="500,30" valign="center" font="Regular;20" backgroundColor="layer-a-background" transparent="1" /-->
-		<widget source="IFtext" render="Label" position="70,590" size="200,30" zPosition="10" font="screen_text;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="IF" render="Label" position="370,590" size="500,30" zPosition="10" font="screen_text;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Statustext" render="Label" position="70,620" size="115,30" zPosition="10" font="screen_text;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="statuspic" pixmaps="skin_default/buttons/button_green.png,skin_default/buttons/button_green_off.png" position="368,626" zPosition="10" size="15,16" transparent="1" alphatest="blend" />
-		<panel name="_oe-buttons_template1" />
-	</screen>
 	<screen name="ServiceInfo" position="0,0" size="1280,720" title="Serviceinfo" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<eLabel text="Serviceinfo" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -1495,16 +1440,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/info.png" transparent="1" alphatest="blend" />
 		<panel name="__e-buttons_template1" />
 	</screen>
-	<!--Infopanel-->
-	<screen name="Infopanel" position="0,0" size="1280,720" title="Info Panel" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Info Panel" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="Mlist" position="70,100" size="700,500" zPosition="1" itemHeight="50" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" />
-		<!--widget name="label1" position="692,65" size="540,25" zPosition="1" font="Regular;15" halign="right" valign="top" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" /-->
-		<widget name="label1" position="825,425" size="385,175" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<panel name="template1_2layer" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/info.png" transparent="1" alphatest="blend" />
-		<panel name="_oe-buttons_template1" />
-	</screen>
+
 	<screen name="Info" position="0,0" size="1280,720" title="Info" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="label2" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="label1" position="70,100" size="700,530" font="Console;16" zPosition="1" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand"/>
@@ -1553,15 +1489,6 @@
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="mainmenu" position="70,100" size="700,490" enableWrapAround="1" itemHeight="35" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/softcam.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="OscamInfoConfigScreen" position="0,0" size="1280,720" title="OscamInfo Menu" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,100" size="700,510" enableWrapAround="1" itemHeight="30" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
-		<widget name="status" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<panel name="template1_2layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/softcam.png" transparent="1" alphatest="blend" />
 	</screen>
@@ -2274,20 +2201,6 @@ self['config'].l.setSeperation(int(300*f))
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/hdd.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- Timer Screens -->
-	<screen name="SleepTimerEdit" position="center,center" size="500,250"  flags="wfNoBorder" title="Sleep Timer" backgroundColor="transparent" >
-		<eLabel name="b" position="0,0" size="500,250" backgroundColor="layer-b-background" zPosition="-2" />
-		<eLabel name="a" position="1,1" size="498,248" backgroundColor="layer-a-background" zPosition="-1" />
-		<widget source="Title" render="Label" position="10,8" foregroundColor="layer-a-title-foreground" size="480,50" noWrap="1" halign="center" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1"/>
-		<!--eLabel name="line" position="1,69" size="498,1" backgroundColor="layer-a-accent1" zPosition="1" /-->
-		<panel name="ul-sleeptimer" />
-		<widget name="config" position="10,90" size="480,60" itemHeight="30" font="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget name="description" position="10,148" size="480,53" font="screen_text;17" foregroundColor="layer-a-accent1" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
-		<widget source="key_red" render="Label" position="35,212" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget source="key_green" render="Label" position="218,212" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<ePixmap pixmap="buttons/key_red.png" position="0,209" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="buttons/key_green.png" position="183,209" size="30,40" alphatest="blend" />
-		<ePixmap position="398,209" size="81,40" zPosition="10" pixmap="buttons/ok.png" transparent="1" alphatest="blend" />
-	</screen>
 	<screen name="TimerEditList" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="timerlist" position="70,100" size="700,498" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="55" rowSplit="27" iconMargin="5" satPosLeft="160" setFont="screen_text;18" setEventNameFont="screen_text;20" setServiceNameFont="screen_text;20" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
