@@ -193,6 +193,9 @@
 		<color name="WindowTitleBackground" color="title-background"/>
 		<color name="ScrollbarForeground" color="scrollbarSlidercolor" />
 		<color name="ScrollbarBorder" color="scrollbarSliderbordercolor" />
+		<color name="SliderForeground" color="scrollbarSlidercolor" />
+		<color name="SliderBorder" color="scrollbarSliderbordercolor" />
+
 <!-- cf#_#stop -->
 		<borderset name="bsWindow">
 			<!--pixmap pos="bpTopLeft" filename="MetrixHD/border/5px/0F0F0F.png" /-->
@@ -211,8 +214,14 @@
 			<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->
 		</borderset>
 
-		<scrollbar borderWidth="1" />
+		<slider borderWidth="1" />
+		<scrolllabel scrollbarWidth="10" scrollbarBorderWidth="1"/>
 		<listbox scrollbarWidth="10" scrollbarBorderWidth="1" enableWrapAround="1"/>
+		<!-- 
+		TODO TEST showOnDemand as default
+		<scrolllabel scrollbarWidth="10" scrollbarBorderWidth="1" scrollbarMode="showOnDemand"/>
+		<listbox scrollbarWidth="10" scrollbarBorderWidth="1" enableWrapAround="1" scrollbarMode="showOnDemand"/>
+		-->
 
 	</windowstyle>
 	<windowstyle type="skinned" id="1">
