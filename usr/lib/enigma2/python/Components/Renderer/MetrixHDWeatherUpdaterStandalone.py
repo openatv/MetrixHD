@@ -10,9 +10,10 @@
 
 from datetime import datetime, timedelta
 from json import loads
+import requests
 from threading import Timer, Thread
 from time import strftime, strptime
-from six import ensure_str, ensure_binary, PY3
+from six import ensure_str, PY3
 from six.moves.urllib.request import Request, urlopen
 from six.moves.urllib.error import URLError
 from six.moves.urllib.parse import quote
@@ -22,7 +23,7 @@ from enigma import eLabel
 from Components.Renderer.Renderer import Renderer
 from Components.VariableText import VariableText
 from Components.config import config
-from twisted.web.client import getPage
+
 from Plugins.Extensions.MyMetrixLite.__init__ import initWeatherConfig
 
 SIGN = '°' if PY3 else str('\xc2\xb0')
@@ -326,8 +327,12 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=%s%s" % (city, language[:2], units, apikey)
 #			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=%s&cnt=%d%s" % (city, language[:2], units, cnt, apikey)
 			print(feedurl)
-			feedurl = ensure_binary(feedurl)
-			getPage(feedurl).addCallback(self.jsonCallback).addErrback(self.errorCallback) # FIXME getPage is deprecated
+			try:
+				response = requests.get(feedurl, verify=False, timeout=10)
+			except Exception as error:
+				self.errorCallback(message=str(error))
+			else:
+				self.jsonCallback(response.content)
 
 	def jsonCallback(self, jsonstring):
 		global g_updateRunning
