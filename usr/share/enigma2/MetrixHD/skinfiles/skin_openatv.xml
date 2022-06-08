@@ -1790,25 +1790,6 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="__e-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_display_LED_Giga.png" transparent="1" alphatest="blend" />
 	</screen>
-	<screen name="LanguageSelection" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="languages" render="Listbox" position="70,100" size="700,480" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" transparent="1">
-			<convert type="TemplatedMultiContent">
-				{"template": [
-				MultiContentEntryText(pos = (130, 14), size = (570, 60), flags = RT_HALIGN_LEFT, text = 1), # index 1 is the language name,
-				MultiContentEntryPixmap(pos = (20, 10), size = (60, 40), png = 2, flags = BT_SCALE), # index 2 is the pixmap
-				],
-				"fonts": [gFont("SetrixHD",24)],
-				"itemHeight": 60
-				}
-			</convert>
-		</widget>
-		<widget name="description" position="825,425" size="380,175" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1" />
-		<panel name="template1_2layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="moe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_system_language_setup.png" transparent="1" alphatest="blend" />
-	</screen>
 	<!-- Icons PACK_AVAILABLE, PACK_INSTALLED, PACK_IN_USE -->
 	<screen name="LocaleSelection" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="icons" position="0,0" size="30,27" pixmaps="icons/menu_download.png,icons/menu_off.png,icons/menu_on.png" alphatest="blend" />
@@ -4600,26 +4581,6 @@ if len(listitems.list) &gt; 2:
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="wizard_template_2" />
 		<panel name="wizard_rc_templateNew" />
-	</screen>
-	<screen name="LanguageWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
-		<!--eLabel text="LanguageWizard" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /-->
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="text" position="70,100" size="700,300" font="screen_text;20" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<eLabel position="70,420" size="700,1" backgroundColor="layer-a-accent1" />
-		<widget source="languages" render="Listbox" position="70,435" size="700,180" zPosition="13" scrollbarSliderBorderWidth="1" scrollbarWidth="10" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
-			<convert type="TemplatedMultiContent">
-				{"template": [
-				MultiContentEntryText(pos = (90, 16), size = (570, 30), flags = RT_HALIGN_LEFT, text = 1), # index 1 is the language name,
-				MultiContentEntryPixmap(pos = (10, 10), size = (60, 40), png = 2, flags = BT_SCALE), # index 2 is the pixmap
-				],
-				"fonts": [gFont("screen_text",20)],
-				"itemHeight": 60
-				}
-			</convert>
-		</widget>
-		<panel name="wizard_rc_template" />
-		<panel name="__e-buttons_template1" />
-		<panel name="template1_2layer" />
 	</screen>
 	<screen name="LocaleWizard" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="icons" position="0,0" size="30,27" pixmaps="icons/menu_off.png,icons/menu_download.png,icons/menu_on.png" alphatest="blend" />
