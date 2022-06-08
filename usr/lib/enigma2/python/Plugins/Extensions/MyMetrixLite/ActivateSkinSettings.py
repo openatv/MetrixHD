@@ -1871,7 +1871,6 @@ class ActivateSkinSettings:
 			if sb_bwidth != 1:
 				line = line.replace('scrollbarSliderBorderWidth="1"', 'scrollbarSliderBorderWidth="%s"' % sb_bwidth)
 				line = line.replace('scrollbarBorderWidth="1"', 'scrollbarBorderWidth="%s"' % sb_bwidth)
-				line = line.replace('scrollbar borderWidt="1"', 'scrollbar borderWidt="%s"' % sb_bwidth)
 			if config.plugins.MyMetrixLiteColors.backgroundtextborderwidth.value and ' font="global_large' in line and not ' borderWidth=' in line and not ' borderColor=' in line:
 				line = line.replace(' font=', ' borderWidth="%s" borderColor="#%s%s" font=' % (config.plugins.MyMetrixLiteColors.backgroundtextborderwidth.value, config.plugins.MyMetrixLiteColors.backgroundtextbordertransparency.value, config.plugins.MyMetrixLiteColors.backgroundtextbordercolor.value))
 			if not config.plugins.MyMetrixLiteOther.SkinDesignMenuScrollInfo.value and 'name="menu_next_side_marker"' in line:
