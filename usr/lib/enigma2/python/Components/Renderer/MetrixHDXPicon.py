@@ -93,7 +93,7 @@ class MetrixHDXPicon(Renderer):
 					if not pngname:
 						fields = sname.split('_')
 						if len(fields) == 10:
-							if not fields[6].upper().endswith('0000'):
+							if not fields[6].endswith('0000'):
 								no_subnet = "%s_%s_%s" % ('_'.join(fields[:6]), fields[6][:-4] + '0000', '_'.join(fields[7:]))
 								pngname = self.findPicon(no_subnet)			# removed SubNetwork in the right part of the NameSpace field
 							if not pngname and fields[0] != '1':
