@@ -93,15 +93,15 @@ class MetrixHDXPicon(Renderer):
 					if not pngname:
 						fields = sname.split('_')
 						if len(fields) == 10:
-							if fields[6].upper().startswith('EEEE') or fields[6].upper().startswith('FFFF'):
-								no_subnet = "%s_%s_%s" % ('_'.join(fields[:6]), fields[6][:4] + '0000', '_'.join(fields[7:]))
+							if not fields[6].upper().endswith('0000'):
+								no_subnet = "%s_%s_%s" % ('_'.join(fields[:6]), fields[6][:-4] + '0000', '_'.join(fields[7:]))
 								pngname = self.findPicon(no_subnet)			# removed SubNetwork in the right part of the NameSpace field
 							if not pngname and fields[0] != '1':
-								fields[0] = '1'								# fallback to 1 for online streams (4097, 5001, 5002; 5003, etc.)
-								pngname = self.findPicon('_'.join(fields))
+								fields[0] = '1'
+								pngname = self.findPicon('_'.join(fields))	# fallback to 1 for online streams (4097, 5001, 5002; 5003, etc.)
 							if not pngname and fields[2] != '2':
-								fields[2] = '1'								# fallback to 1 for online streams + find an picon with undefined stream quality
-								pngname = self.findPicon('_'.join(fields))
+								fields[2] = '1'
+								pngname = self.findPicon('_'.join(fields))	# fallback to 1 for online streams + find an picon with undefined stream quality
 					if not pngname:		# search picon by channel name
 						name = ServiceReference(self.source.text).getServiceName()
 						name = normalize('NFKD', text_type(name))
