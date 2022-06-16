@@ -85,22 +85,24 @@ class MetrixHDXPicon(Renderer):
 			if what[0] != self.CHANGED_CLEAR:
 				self.instance.show()
 				sname = self.source.text
-				pos = sname.rfind(':')
-				if pos != -1:
-					sname = sname[:pos].rstrip(':').replace(':', '_')
-					sname = sname.split("_http")[0]
+				if sname.count(':') > 9:
+					sname = '_'.join(sname.split(':')[0:10])
 				pngname = self.nameCache.get(sname, "")
-				if pngname == "" or not fileExists(pngname):
+				if not pngname or not fileExists(pngname):
 					pngname = self.findPicon(sname)
-					if pngname == "":
-						fields = sname.split('_', 3)
-						if len(fields) > 0 and fields[0] != '1':                    #fallback to 1 for IPTV streams
-							fields[0] = '1'
-							pngname = self.findPicon('_'.join(fields))
-						if pngname == "" and len(fields) > 2 and fields[2] != '2':  #fallback to 1 for find picons with not defined stream quality
-							fields[2] = '1'
-							pngname = self.findPicon('_'.join(fields))
-					if not pngname: # picon by channel name
+					if not pngname:
+						fields = sname.split('_')
+						if len(fields) == 10:
+							if not fields[6].endswith('0000'):
+								no_subnet = "%s_%s_%s" % ('_'.join(fields[:6]), fields[6][:-4] + '0000', '_'.join(fields[7:]))
+								pngname = self.findPicon(no_subnet)			# removed SubNetwork in the right part of the NameSpace field
+							if not pngname and fields[0] != '1':
+								fields[0] = '1'
+								pngname = self.findPicon('_'.join(fields))	# fallback to 1 for online streams (4097, 5001, 5002; 5003, etc.)
+							if not pngname and fields[2] != '2':
+								fields[2] = '1'
+								pngname = self.findPicon('_'.join(fields))	# fallback to 1 for online streams + find an picon with undefined stream quality
+					if not pngname:		# search picon by channel name
 						name = ServiceReference(self.source.text).getServiceName()
 						name = normalize('NFKD', text_type(name))
 						name = sub('[^a-z0-9]', '', name.replace('&', 'and').replace('+', 'plus').replace('*', 'star').lower())
@@ -110,9 +112,9 @@ class MetrixHDXPicon(Renderer):
 								pngname = self.findPicon(name[:-2])
 					if pngname != "" and sname.split('_', 1)[0] == "1":
 						self.nameCache[sname] = pngname
-				if pngname == "": # no picon for service found
+				if not pngname:			# no picon for service found
 					pngname = self.nameCache.get("default", "")
-					if pngname == "": # no default yet in cache..
+					if not pngname:		# no default yet in cache...
 						pngname = self.findPicon("picon_default")
 						if pngname == "":
 							tmp = resolveFilename(SCOPE_CURRENT_SKIN, "picon_default.png")
