@@ -536,843 +536,7 @@
 	<!--Main Menu Icons-->
 	<screen name="Menu" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MENU_template" />
-	</screen>
-	<screen name="menu_mainmenu" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_mainmenu_vmc.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">vmc_init_startvmc</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_information_about.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">Infopanel</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_mainmenu_openstore.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">OpenStore</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_mainmenu_timer.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">timer_menu</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_mainmenu_scart.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">scart_switch</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/info.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">info_screen</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_mainmenu_pluginmanager.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">plugin_selection</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/setup.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">setup_selection</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/portal.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">Stalker Plugin</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_mainmenu_netflix.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">Netflix Plugin</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/disney.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">Disney Plugin</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/browser.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">Chromium Plugin</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/dazn.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">Dazn</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/prime.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">PrimeVideo</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/reset.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">standby_restart_list</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/pvmc.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">pvmc_mainmenu</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_mainmenu_dmc_mainmenu.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">dmc_mainmenu</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/emc.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">emc</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/google.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">googlemaps</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/media.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">media_player</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/dvd.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">dvd_player</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/dvd.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">play_cd</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/sub.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">subtitle_selection</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/filecom.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">filecommand</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/remotecontrol.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">multi_quick</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/plex.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">dreamplex</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/music.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">merlin_music_player</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/service_info.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">moviebrowser</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_kodi.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">run_kodi</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_kodi.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">start_kodi</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/webradioFS.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">webradioFS</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/youtube.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">youtubetv</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/pplayer.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">iptv_main</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_mainmenu_pluginmanager.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">XStreamity</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_mainmenu_pluginmanager.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">XCplugin</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_mainmenu_pluginmanager.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">IPTV Bouquet Maker</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-	</screen>
-	<screen name="menu_timermenu" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_timermenu_autotimers.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">autotimer_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_timermenu_crontimers.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">crontimer_edit</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_timermenu_timers.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">timer_edit</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_timermenu_powertimers.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">powertimer_edit</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_timermenu_timers.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">remotetimer</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/power_timer.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">sleep</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-	</screen>
-	<screen name="menu_information" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_information_supportchannel.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">supportchannel_YTChannel</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_information_about.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">about_screen</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_information_device.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">receiver_info_screen</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_information_device.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">tuner_screen</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_information_device.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">network_info_screen</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_information_device.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">drives_info_screen</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_information_device.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">memory_info_screen</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_information_device.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">tuner_info_screen</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_information_device.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">multiboot_info_screen</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_information_device.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">build_info_screen</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_information_device.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">device_screen</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/info.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">service_info_screen</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/info.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">streaming_clients_info_screen</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/weather.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">Weather_MSN</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-	</screen>
-	<screen name="menu_setup" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="icons/service_info.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">video_menu</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_setup_audio.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">audio_menu</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_recording_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">rec_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_setup_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">system_selection</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_epg_epg_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">epg_menu</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_setup_tuner.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">service_searching_selection</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_setup_ci.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">cam_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_setup_software_manager.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">software_manager</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_setup_vmc_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">vmc_init_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_system_extended_selection.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">extended_selection</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/alexa.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">startsetup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-	</screen>
-	<screen name="menu_video_menu" position="0,0" size="1280,720" title="Video menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="icons/service_info.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">video_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_system_videoenhancement_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">videoenhancement_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_system_videofinetune_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">video_finetune</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/service_info.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">video_clipping</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_osd_menu_osdsetup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">osdsetup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_osd_menu_osd3dsetup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">setup_osd3d</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-	</screen>
-	<screen name="menu_audio_menu" position="0,0" size="1280,720" title="Audio menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_setup_audio.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">audio_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_system_AutomaticVolumeAdjustment.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">volume_adjust</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_subtitle_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">subtitle_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_system_autolanguage_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">autolanguage_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_system_AutomaticVolumeAdjustment.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">AutomaticVolumeAdjustment</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-	</screen>
-	<screen name="menu_rec" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_timshift_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">timshift_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_recording_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">recording_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_hdmirecord_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">hdmirecord_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-	</screen>
-	<screen name="menu_cam" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="icons/softcam.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">softcam_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_setup_ci.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">ci_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_setup_ci.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">ci_assign</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_setup_parental.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">parental_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-	</screen>
-	<screen name="menu_system" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_osd_menu_user_interface.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">user_interface</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_system_remote_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">remote_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">pip_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_system_channelselection_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">channelselection_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_system_usage_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">usage_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_specialfeatures_menu.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">specialfeatures_menu</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_osd_menu_skin_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">skin_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_display_selection.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">display_selection</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_osd_menu_buttonsetup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">buttonsetup_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/remotecontrol.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">RCU Select</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_osd_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">osd_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_display_LED_Giga.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">LED_Giga</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_numzapext_setup.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">numzapext_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_system_VFD_INI.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">vfd_ew</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_system_language_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">locale_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_dvdplayer_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">dvdplayer_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_system_av_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">av_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_system_autores_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">autores_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_mainmenu_pluginhider.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">pluginhider_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_scan_streamconvert.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">vps</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/remotecontrol.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">remotecontrolcode</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/led.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">ledManager</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<!-- ... for systems with entry in menu_system and not in menu_extended /-->
-		<widget source="menu" render="Pixmap" pixmap="icons/fan.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">tempfancontrol</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/fan.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">fansetup_config</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_time_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">permanent_clock</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/bluetooth.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">bluetooth_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/pplayer.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">serviceapp_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">iptv_config</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-	</screen>
-	<screen name="menu_extended" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_hardisk_selection.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">hardisk_selection</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_system_network_menu.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">network_menu</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_hdmicec.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">hdmicec</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_setup_software_manager.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">script_manager</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_time_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">time_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_logs_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">logs_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/fan.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">fansetup_config</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_setup_reset.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">factory_reset</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/fan.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">tempfancontrol</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_rfmod_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">rfmod_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_remotecode.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">remotecode</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-	</screen>
-	<screen name="menu_display" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_display_display_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">display_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_display_lcd_skin_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">lcd_skin_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_display_lcd_skin_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">lcd4linux</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_system_VFD_INI.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">VFD_INI</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/usage_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">animation_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-	</screen>
-	<screen name="menu_osd_menu" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_input_device_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">input_device_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_keyboard.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">keyboard</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_input_device_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">keymap</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-	</screen>
-	<screen name="menu_harddisk" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_harddisk_harddisk_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">harddisk_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_harddisk_harddisk_init.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">harddisk_init</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_harddisk_harddisk_check.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">harddisk_check</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_harddisk_harddisk_convert.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">harddisk_convert</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_harddisk_ram.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">swap_manager</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_extended_hardisk_selection.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">mount_manager</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-	</screen>
-	<screen name="menu_epg" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_epg_refresh.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">epgrefresh</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_epgloadsave_menu_loadepgcache.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">epgimporter</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_epg_epg_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">epg_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_epg_epgloadsave_menu.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">epgloadsave_menu</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_epg_setup_epgmulti.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">setup_epgmulti</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_epg_setup_epgenhanced.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">setup_epgenhanced</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_epg_setup_epginfobar.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">setup_epginfobar</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_epg_setup_epginfobargraphical.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">setup_epginfobargraphical</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_epg_setup_epggraphical.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">setup_epggraphical</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_epg_setup_epgmulti.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">setup_epgvertical</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-	</screen>
-	<screen name="menu_epgloadsave_menu" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_epgloadsave_menu_saveepgcache.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">saveepgcache</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_epgloadsave_menu_loadepgcache.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">loadepgcache</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_epgloadsave_menu_deleteepgcache.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">deleteepgcache</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-	</screen>
-	<screen name="menu_network" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_network_device_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">device_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_network_netmounts_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">netmounts_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_network_netafp_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">netafp_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_network_passwd_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">password_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_network_netftp_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">netftp_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_network_Inadyn_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">Inadyn_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_network_minidlna_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">minidlna_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_network_netnfs_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">netnfs_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_network_webif.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">openwebif</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_network_netvpn_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">netvpn_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_network_netsabnzbd_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">netsabnzbd_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_scan_satip.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">netsatpi_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_network_netsmba_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">netsmba_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_network_nettelnet_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">nettelnet_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_network_netushare_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">netushare_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_network_netnfs_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">netrts_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-	</screen>
-	<screen name="menu_scan" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_scan_tuner_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">tuner_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_scan_auto_scan.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">auto_scan</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_scan_manual_scan.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">manual_scan</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_scan_satfinder.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">satfinder</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_scan_positioner_setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">positioner_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_scan_autobouquetsmakermaker.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">autobouquetsmakermaker</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_scan_blindscan.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">blindscan</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/fcc.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">FCCSetup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_scan_satip.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">sat_ip_client</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/setup.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">satellite_equipment_setup</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_scan_streamconvert.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">streamconvert</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_scan_fast_scan.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">fastscan</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_mainmenu_pluginmanager.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">sundtek_control_enter</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/search.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">cablescan</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="skin_default/icons/scan-c.png" position="405,290" size="64,64" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">cablescan</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_scan_streamconvert.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">ipbox_client_Start</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/iptvimport.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">startimport</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-	</screen>
-	<screen name="menu_shutdown" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MENU_template" />
-		<widget source="menu" render="Pixmap" pixmap="icons/power_off.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">deep_standby</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/power_off.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">wol_standby</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/power_off.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">shutdown</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/restart.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">restart</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/restart.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">multiboot</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/reboot.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">restart_enigma</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/restart.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">Hardreset</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/power.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">standby</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/power_timer.png" position="305,80" size="256,256" alphatest="blend" zPosition="1">
-			<convert type="MenuEntryCompare">sleep</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/menu_timermenu_powertimers.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">powertimer_edit</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/usage_setup.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">maintenance_mode</convert>
-			<convert type="ConditionalShowHide" />
-		</widget>
-		<widget source="menu" render="Pixmap" pixmap="icons/dualmode.png" position="305,80" size="256,256" alphatest="blend">
-			<convert type="MenuEntryCompare">dual_mode</convert>
+		<widget source="menuimage" render="Pixmap" position="305,80" size="256,256" alphatest="blend" >
 			<convert type="ConditionalShowHide" />
 		</widget>
 	</screen>
@@ -5090,4 +4254,199 @@ if len(listitems.list) &gt; 2:
 		<setup key="SleepTimer" image="icons/power_timer.png" />
 		<setup key="VolumeAdjust" image="icons/menu_system_AutomaticVolumeAdjustment.png" />
 	</setups>
+
+	<menus>
+		<menu key="about_screen" image="icons/menu_information_about.png" />
+		<menu key="animation_setup" image="icons/usage_setup.png" />
+		<menu key="audio_menu" image="icons/menu_setup_audio.png" />
+		<menu key="audio_setup" image="icons/menu_setup_audio.png" />
+		<menu key="auto_scan" image="icons/menu_scan_auto_scan.png" />
+		<menu key="autobouquetsmakermaker" image="icons/menu_scan_autobouquetsmakermaker.png" />
+		<menu key="autolanguage_setup" image="icons/menu_system_autolanguage_setup.png" />
+		<menu key="AutomaticVolumeAdjustment" image="icons/menu_system_AutomaticVolumeAdjustment.png" />
+		<menu key="autores_setup" image="icons/menu_system_autores_setup.png" />
+		<menu key="autotimer_setup" image="icons/menu_timermenu_autotimers.png" />
+		<menu key="av_setup" image="icons/menu_system_av_setup.png" />
+		<menu key="blindscan" image="icons/menu_scan_blindscan.png" />
+		<menu key="bluetooth_setup" image="icons/bluetooth.png" />
+		<menu key="build_info_screen" image="icons/menu_information_device.png" />
+		<menu key="buttonsetup_setup" image="icons/menu_osd_menu_buttonsetup.png" />
+		<menu key="cablescan" image="icons/search.png" />
+		<menu key="cam_setup" image="icons/menu_setup_ci.png" />
+		<menu key="channelselection_setup" image="icons/menu_system_channelselection_setup.png" />
+		<menu key="Chromium Plugin" image="icons/browser.png" />
+		<menu key="ci_assign" image="icons/menu_setup_ci.png" />
+		<menu key="ci_setup" image="icons/menu_setup_ci.png" />
+		<menu key="crontimer_edit" image="icons/menu_timermenu_crontimers.png" />
+		<menu key="Dazn" image="icons/dazn.png" />
+		<menu key="deep_standby" image="icons/power_off.png" />
+		<menu key="deleteepgcache" image="icons/menu_epgloadsave_menu_deleteepgcache.png" />
+		<menu key="device_screen" image="icons/menu_information_device.png" />
+		<menu key="device_setup" image="icons/menu_network_device_setup.png" />
+		<menu key="Disney Plugin" image="icons/disney.png" />
+		<menu key="display_selection" image="icons/menu_extended_display_selection.png" />
+		<menu key="display_setup" image="icons/menu_display_display_setup.png" />
+		<menu key="dmc_mainmenu" image="icons/menu_mainmenu_dmc_mainmenu.png" />
+		<menu key="dreamplex" image="icons/plex.png" />
+		<menu key="drives_info_screen" image="icons/menu_information_device.png" />
+		<menu key="dual_mode" image="icons/dualmode.png" />
+		<menu key="dvd_player" image="icons/dvd.png" />
+		<menu key="dvdplayer_setup" image="icons/menu_extended_dvdplayer_setup.png" />
+		<menu key="emc" image="icons/emc.png" />
+		<menu key="epg_menu" image="icons/menu_epg_epg_setup.png" />
+		<menu key="epg_setup" image="icons/menu_epg_epg_setup.png" />
+		<menu key="epgimporter" image="icons/menu_epgloadsave_menu_loadepgcache.png" />
+		<menu key="epgloadsave_menu" image="icons/menu_epg_epgloadsave_menu.png" />
+		<menu key="epgrefresh" image="icons/menu_epg_refresh.png" />
+		<menu key="extended_selection" image="icons/menu_system_extended_selection.png" />
+		<menu key="factory_reset" image="icons/menu_setup_reset.png" />
+		<menu key="fansetup_config" image="icons/fan.png" />
+		<menu key="fastscan" image="icons/menu_scan_fast_scan.png" />
+		<menu key="FCCSetup" image="icons/fcc.png" />
+		<menu key="filecommand" image="icons/filecom.png" />
+		<menu key="googlemaps" image="icons/google.png" />
+		<menu key="harddisk_check" image="icons/menu_harddisk_harddisk_check.png" />
+		<menu key="harddisk_convert" image="icons/menu_harddisk_harddisk_convert.png" />
+		<menu key="harddisk_init" image="icons/menu_harddisk_harddisk_init.png" />
+		<menu key="harddisk_setup" image="icons/menu_harddisk_harddisk_setup.png" />
+		<menu key="hardisk_selection" image="icons/menu_extended_hardisk_selection.png" />
+		<menu key="Hardreset" image="icons/restart.png" />
+		<menu key="hdmicec" image="icons/menu_extended_hdmicec.png" />
+		<menu key="hdmirecord_setup" image="icons/menu_extended_hdmirecord_setup.png" />
+		<menu key="Inadyn_setup" image="icons/menu_network_Inadyn_setup.png" />
+		<menu key="info_screen" image="icons/info.png" />
+		<menu key="Infopanel" image="icons/menu_information_about.png" />
+		<menu key="input_device_setup" image="icons/menu_extended_input_device_setup.png" />
+		<menu key="ipbox_client_Start" image="icons/menu_scan_streamconvert.png" />
+		<menu key="IPTV Bouquet Maker" image="icons/menu_mainmenu_pluginmanager.png" />
+		<menu key="iptv_config" image="icons/setup.png" />
+		<menu key="iptv_main" image="icons/pplayer.png" />
+		<menu key="keyboard" image="icons/menu_extended_keyboard.png" />
+		<menu key="keymap" image="icons/menu_extended_input_device_setup.png" />
+		<menu key="lcd4linux" image="icons/menu_display_lcd_skin_setup.png" />
+		<menu key="lcd_skin_setup" image="icons/menu_display_lcd_skin_setup.png" />
+		<menu key="LED_Giga" image="icons/menu_display_LED_Giga.png" />
+		<menu key="ledManager" image="icons/led.png" />
+		<menu key="loadepgcache" image="icons/menu_epgloadsave_menu_loadepgcache.png" />
+		<menu key="locale_setup" image="icons/menu_system_language_setup.png" />
+		<menu key="logs_setup" image="icons/menu_extended_logs_setup.png" />
+		<menu key="maintenance_mode" image="icons/usage_setup.png" />
+		<menu key="manual_scan" image="icons/menu_scan_manual_scan.png" />
+		<menu key="media_player" image="icons/media.png" />
+		<menu key="memory_info_screen" image="icons/menu_information_device.png" />
+		<menu key="merlin_music_player" image="icons/music.png" />
+		<menu key="minidlna_setup" image="icons/menu_network_minidlna_setup.png" />
+		<menu key="mount_manager" image="icons/menu_extended_hardisk_selection.png" />
+		<menu key="moviebrowser" image="icons/service_info.png" />
+		<menu key="multi_quick" image="icons/remotecontrol.png" />
+		<menu key="multiboot" image="icons/restart.png" />
+		<menu key="multiboot_info_screen" image="icons/menu_information_device.png" />
+		<menu key="netafp_setup" image="icons/menu_network_netafp_setup.png" />
+		<menu key="Netflix Plugin" image="icons/menu_mainmenu_netflix.png" />
+		<menu key="netftp_setup" image="icons/menu_network_netftp_setup.png" />
+		<menu key="netmounts_setup" image="icons/menu_network_netmounts_setup.png" />
+		<menu key="netnfs_setup" image="icons/menu_network_netnfs_setup.png" />
+		<menu key="netrts_setup" image="icons/menu_network_netnfs_setup.png" />
+		<menu key="netsabnzbd_setup" image="icons/menu_network_netsabnzbd_setup.png" />
+		<menu key="netsatpi_setup" image="icons/menu_scan_satip.png" />
+		<menu key="netsmba_setup" image="icons/menu_network_netsmba_setup.png" />
+		<menu key="nettelnet_setup" image="icons/menu_network_nettelnet_setup.png" />
+		<menu key="netushare_setup" image="icons/menu_network_netushare_setup.png" />
+		<menu key="netvpn_setup" image="icons/menu_network_netvpn_setup.png" />
+		<menu key="network_info_screen" image="icons/menu_information_device.png" />
+		<menu key="network_menu" image="icons/menu_system_network_menu.png" />
+		<menu key="numzapext_setup" image="icons/menu_numzapext_setup.png" />
+		<menu key="OpenStore" image="icons/menu_mainmenu_openstore.png" />
+		<menu key="openwebif" image="icons/menu_network_webif.png" />
+		<menu key="osd_setup" image="icons/menu_extended_osd_setup.png" />
+		<menu key="osdsetup" image="icons/menu_osd_menu_osdsetup.png" />
+		<menu key="parental_setup" image="icons/menu_setup_parental.png" />
+		<menu key="password_setup" image="icons/menu_network_passwd_setup.png" />
+		<menu key="permanent_clock" image="icons/menu_extended_time_setup.png" />
+		<menu key="pip_setup" image="icons/setup.png" />
+		<menu key="play_cd" image="icons/dvd.png" />
+		<menu key="plugin_selection" image="icons/menu_mainmenu_pluginmanager.png" />
+		<menu key="pluginhider_setup" image="icons/menu_mainmenu_pluginhider.png" />
+		<menu key="positioner_setup" image="icons/menu_scan_positioner_setup.png" />
+		<menu key="powertimer_edit" image="icons/menu_timermenu_powertimers.png" />
+		<menu key="PrimeVideo" image="icons/prime.png" />
+		<menu key="pvmc_mainmenu" image="icons/pvmc.png" />
+		<menu key="RCU Select" image="icons/remotecontrol.png" />
+		<menu key="rec_setup" image="icons/menu_extended_recording_setup.png" />
+		<menu key="receiver_info_screen" image="icons/menu_information_device.png" />
+		<menu key="recording_setup" image="icons/menu_extended_recording_setup.png" />
+		<menu key="remote_setup" image="icons/menu_system_remote_setup.png" />
+		<menu key="remotecode" image="icons/menu_extended_remotecode.png" />
+		<menu key="remotecontrolcode" image="icons/remotecontrol.png" />
+		<menu key="remotetimer" image="icons/menu_timermenu_timers.png" />
+		<menu key="restart" image="icons/restart.png" />
+		<menu key="restart_enigma" image="icons/reboot.png" />
+		<menu key="rfmod_setup" image="icons/menu_extended_rfmod_setup.png" />
+		<menu key="run_kodi" image="icons/menu_kodi.png" />
+		<menu key="sat_ip_client" image="icons/menu_scan_satip.png" />
+		<menu key="satellite_equipment_setup" image="icons/setup.png" />
+		<menu key="satfinder" image="icons/menu_scan_satfinder.png" />
+		<menu key="saveepgcache" image="icons/menu_epgloadsave_menu_saveepgcache.png" />
+		<menu key="scart_switch" image="icons/menu_mainmenu_scart.png" />
+		<menu key="script_manager" image="icons/menu_setup_software_manager.png" />
+		<menu key="service_info_screen" image="icons/info.png" />
+		<menu key="service_searching_selection" image="icons/menu_setup_tuner.png" />
+		<menu key="serviceapp_setup" image="icons/pplayer.png" />
+		<menu key="setup_epgenhanced" image="icons/menu_epg_setup_epgenhanced.png" />
+		<menu key="setup_epggraphical" image="icons/menu_epg_setup_epggraphical.png" />
+		<menu key="setup_epginfobar" image="icons/menu_epg_setup_epginfobar.png" />
+		<menu key="setup_epginfobargraphical" image="icons/menu_epg_setup_epginfobargraphical.png" />
+		<menu key="setup_epgmulti" image="icons/menu_epg_setup_epgmulti.png" />
+		<menu key="setup_epgvertical" image="icons/menu_epg_setup_epgmulti.png" />
+		<menu key="setup_osd3d" image="icons/menu_osd_menu_osd3dsetup.png" />
+		<menu key="setup_selection" image="icons/setup.png" />
+		<menu key="shutdown" image="icons/power_off.png" />
+		<menu key="skin_setup" image="icons/menu_osd_menu_skin_setup.png" />
+		<menu key="sleep" image="icons/power_timer.png" />
+		<menu key="softcam_setup" image="icons/softcam.png" />
+		<menu key="software_manager" image="icons/menu_setup_software_manager.png" />
+		<menu key="specialfeatures_menu" image="icons/menu_extended_specialfeatures_menu.png" />
+		<menu key="Stalker Plugin" image="icons/portal.png" />
+		<menu key="standby" image="icons/power.png" />
+		<menu key="standby_restart_list" image="icons/reset.png" />
+		<menu key="start_kodi" image="icons/menu_kodi.png" />
+		<menu key="startimport" image="icons/iptvimport.png" />
+		<menu key="startsetup" image="icons/alexa.png" />
+		<menu key="streamconvert" image="icons/menu_scan_streamconvert.png" />
+		<menu key="streaming_clients_info_screen" image="icons/info.png" />
+		<menu key="subtitle_selection" image="icons/sub.png" />
+		<menu key="subtitle_setup" image="icons/menu_extended_subtitle_setup.png" />
+		<menu key="sundtek_control_enter" image="icons/menu_mainmenu_pluginmanager.png" />
+		<menu key="supportchannel_YTChannel" image="icons/menu_information_supportchannel.png" />
+		<menu key="swap_manager" image="icons/menu_harddisk_ram.png" />
+		<menu key="system_selection" image="icons/menu_setup_setup.png" />
+		<menu key="tempfancontrol" image="icons/fan.png" />
+		<menu key="time_setup" image="icons/menu_extended_time_setup.png" />
+		<menu key="timer_edit" image="icons/menu_timermenu_timers.png" />
+		<menu key="timer_menu" image="icons/menu_mainmenu_timer.png" />
+		<menu key="timshift_setup" image="icons/menu_extended_timshift_setup.png" />
+		<menu key="tuner_info_screen" image="icons/menu_information_device.png" />
+		<menu key="tuner_screen" image="icons/menu_information_device.png" />
+		<menu key="tuner_setup" image="icons/menu_scan_tuner_setup.png" />
+		<menu key="usage_setup" image="icons/menu_system_usage_setup.png" />
+		<menu key="user_interface" image="icons/menu_osd_menu_user_interface.png" />
+		<menu key="vfd_ew" image="icons/menu_system_VFD_INI.png" />
+		<menu key="VFD_INI" image="icons/menu_system_VFD_INI.png" />
+		<menu key="video_clipping" image="icons/service_info.png" />
+		<menu key="video_finetune" image="icons/menu_system_videofinetune_setup.png" />
+		<menu key="video_menu" image="icons/service_info.png" />
+		<menu key="video_setup" image="icons/service_info.png" />
+		<menu key="videoenhancement_setup" image="icons/menu_system_videoenhancement_setup.png" />
+		<menu key="vmc_init_setup" image="icons/menu_setup_vmc_setup.png" />
+		<menu key="vmc_init_startvmc" image="icons/menu_mainmenu_vmc.png" />
+		<menu key="volume_adjust" image="icons/menu_system_AutomaticVolumeAdjustment.png" />
+		<menu key="vps" image="icons/menu_scan_streamconvert.png" />
+		<menu key="Weather_MSN" image="icons/weather.png" />
+		<menu key="webradioFS" image="icons/webradioFS.png" />
+		<menu key="wol_standby" image="icons/power_off.png" />
+		<menu key="XCplugin" image="icons/menu_mainmenu_pluginmanager.png" />
+		<menu key="XStreamity" image="icons/menu_mainmenu_pluginmanager.png" />
+		<menu key="youtubetv" image="icons/youtube.png" />
+	</menus>
+
 </skin>
