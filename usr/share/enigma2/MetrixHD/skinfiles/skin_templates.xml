@@ -2494,7 +2494,34 @@
 			<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="menusymbolbackground" transparent="0" />
 			<widget source="menu" render="Listbox" position="636,60" size="540,540" backgroundColor="menubackground" foregroundColor="menufont" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="menufontselected" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
 				<convert type="TemplatedMultiContent">
-					{"template": [ MultiContentEntryText(pos = (30, 8), size = (465, 50), flags = RT_HALIGN_LEFT, text = 0) ],
+					{
+					"templates":
+						{
+						"default": (60,
+							[
+							MultiContentEntryText(pos = (20, 8), size = (465, 50), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0)
+							]),
+						"text": (60,
+							[
+							MultiContentEntryText(pos = (20, 8), size = (465, 50), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 4)
+							]),
+						"number": (60,
+							[
+							MultiContentEntryText(pos = (20, 8), size = (30, 50), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),
+							MultiContentEntryText(pos = (50, 8), size = (465, 50), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 4),
+							]),
+						"image": (60,
+							[
+							MultiContentEntryPixmapAlphaBlend(pos = (15, 4), size = (50, 50), png = 6, flags = BT_SCALE | BT_KEEP_ASPECT_RATIO),
+							MultiContentEntryText(pos = (75, 8), size = (465, 50), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 4),
+							]),
+						"both": (60,
+							[
+							MultiContentEntryPixmapAlphaBlend(pos = (15, 4), size = (50, 50), png = 6, flags = BT_SCALE | BT_KEEP_ASPECT_RATIO),
+							MultiContentEntryText(pos = (75, 8), size = (30, 50), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),
+							MultiContentEntryText(pos = (105, 8), size = (465, 50), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 4),
+							])
+						},
 					"fonts": [gFont("global_menu", 30)],
 					"itemHeight": 60
 					}
@@ -2518,6 +2545,7 @@
 			<panel name="SKINPART_menu"/>
 			<panel name="MenuButtons"/>
 		</screen>
+		
 	<screen name="CONTEXTMENU_template-1" >
 		<eLabel position="645,51" zPosition="-11" size="482,558" backgroundColor="menubackground" transparent="0" />
 		<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="menusymbolbackground" transparent="0" />
