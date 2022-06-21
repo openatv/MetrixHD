@@ -2421,11 +2421,6 @@
 			<!--ClockWidget */-->
 		</screen>
 		<!-- template1_2layer -->
-		<screen name="MENUDescription">
-			<widget source="description" render="Label" position="265,500" size="340,110" conditional="description" font="Regular;18" valign="center" halign="center" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background">
-				<convert type="ConditionalShowHide" />
-			</widget>
-		</screen>
 
 		<screen name="MenuButtons_template_greenold">
 			<ePixmap pixmap="buttons/key_green.png" position="448,0" size="30,20" alphatest="blend" />
@@ -2494,36 +2489,6 @@
 			<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="menusymbolbackground" transparent="0" />
 			<widget source="menu" render="Listbox" position="636,60" size="580,540" backgroundColor="menubackground" foregroundColor="menufont" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="menufontselected" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
 				<convert type="TemplatedMultiContent">
-					{"template": [ MultiContentEntryText(pos = (20, 5), size = (540, 50), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0) ],
-					"fonts": [gFont("global_menu", 30),gFont("global_menu", 29),gFont("global_menu", 28)],
-					"itemHeight": 60
-					}
-				</convert>
-			</widget>
-
-			<!--widget source="menu" render="Pixmap" pixmap="buttons/key_up.png" position="871,36" size="30,30" alphatest="blend">
-				<convert type="MetrixHDMenuEntryCompare" />
-				<convert type="ValueRange">0,9</convert>
-				<convert type="ConditionalShowHide">Invert</convert>
-			</widget>
-			<widget source="menu" render="Pixmap" pixmap="buttons/key_down.png" position="871,594" size="30,30" alphatest="blend"-->
-			<widget source="menu" render="FixedLabel" text="&#x25ba;" position="1107,596" size="20,20" font="SetrixHD;16" foregroundColor="menufont" backgroundColor="menubackground" halign="right" valign="bottom" transparent="1">
-				<convert type="MetrixHDMenuEntryCompare" />
-				<convert type="ValueRange">0,9</convert>
-				<convert type="ConditionalShowHide">Invert</convert>
-			</widget>
-
-			<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
-			<panel name="MENUDescription" />
-			<panel name="SKINPART_menu"/>
-			<panel name="MenuButtons"/>
-		</screen>
-
-		<screen name="MENU_template-1-NEW">
-			<eLabel position="645,51" zPosition="-11" size="562,558" backgroundColor="menubackground" transparent="0" />
-			<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="menusymbolbackground" transparent="0" />
-			<widget source="menu" render="Listbox" position="636,60" size="580,540" backgroundColor="menubackground" foregroundColor="menufont" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="menufontselected" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
-				<convert type="TemplatedMultiContent">
 					{"templates":
 						{"default": (60,[
 							MultiContentEntryText(pos = (20, 5), size = (540, 50), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0)
@@ -2557,14 +2522,16 @@
 				<convert type="ConditionalShowHide">Invert</convert>
 			</widget>
 			<widget source="menu" render="Pixmap" pixmap="buttons/key_down.png" position="871,594" size="30,30" alphatest="blend"-->
-			<widget source="menu" render="FixedLabel" text="&#x25ba;" position="1107,596" size="20,20" font="SetrixHD;16" foregroundColor="menufont" backgroundColor="menubackground" halign="right" valign="bottom" transparent="1">
+			<widget source="menu" render="FixedLabel" text="&#x25ba;" position="1180,596" size="20,20" font="SetrixHD;16" foregroundColor="menufont" backgroundColor="menubackground" halign="right" valign="bottom" transparent="1">
 				<convert type="MetrixHDMenuEntryCompare" />
 				<convert type="ValueRange">0,9</convert>
 				<convert type="ConditionalShowHide">Invert</convert>
 			</widget>
 
 			<panel name="MENUCLOCKWIDGET_screen_pos265_410_size_340_70" />
-			<panel name="MENUDescription" />
+			<widget source="description" render="Label" position="265,500" size="340,110" conditional="description" font="SetrixHD;18" valign="center" halign="center" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background">
+				<convert type="ConditionalShowHide" />
+			</widget>
 			<panel name="SKINPART_menu"/>
 			<panel name="MenuButtons"/>
 		</screen>
