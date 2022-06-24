@@ -1838,9 +1838,9 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 		<panel name="ChoiceBoxBase" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/service_info.png" transparent="1" alphatest="blend" />
 	</screen>
-	<screen name="RecordTimerQuestion" position="0,0" size="502,82" zPosition="99" flags="wfNoBorder" backgroundColor="layer-b-background">
-		<widget name="text" position="1,1" size="500,80" backgroundColor="layer-a-background" zPosition="-1" transparent="0" />
-		<widget name="list" position="11,11" size="480,60" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+	<screen name="RecordTimerQuestion" position="0,0" size="502,92" zPosition="99" flags="wfNoBorder" backgroundColor="layer-b-background">
+		<widget name="text" position="1,1" size="500,90" backgroundColor="layer-a-background" zPosition="-1" transparent="0" />
+		<widget name="list" position="11,11" size="480,71" itemHeight="35" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<applet type="onLayoutFinish">
 from enigma import eSize
 listitems = self["list"]
