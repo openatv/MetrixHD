@@ -30,17 +30,28 @@
 	<screen name="information_common2">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="description" position="70,590" size="1140,30" font="screen_info;20" conditional="description" foregroundColor="layer-a-title-foreground" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
-		<widget name="information" position="70,100" size="1140,485" colPosition="280" conditional="information" divideChar="|" font="Console;17" noWrap="1" leftColAlign="left" rightColAlign="left" split="1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="information" position="70,100" size="1140,485" conditional="information" font="Fixed;17" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="template1_1layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="mhe-buttons_template2" />
 	</screen>
 
-	<screen name="ImageInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="DistributionInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="OPEN SOURCE" position="825,110" size="380,60" font="screen_info;50" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
 		<panel name="information_common" />
 		<panel name="_he-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_information_about.png" transparent="1" alphatest="blend" />
+	</screen>
+
+	<screen name="InformationImage" position="0,0" size="1280,720" title="Receiver Images" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="description" position="810,385" size="415,220" font="screen_info;20" conditional="description" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<widget name="name" position="810,385" size="415,220" font="screen_info;20" conditional="description" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<widget name="image" position="70,100" size="700,480" alphatest="blend" scaleFlags="scaleCenter" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_he-buttons_template2" />
+		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_images_info.png" transparent="1" alphatest="blend" />
 	</screen>
 
 	<screen name="SystemInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
@@ -51,17 +62,69 @@
 		<panel name="information_common2" />
 	</screen>
 
+	<screen name="DebugInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="information_common2" />
+	</screen>
+
 	<screen name="Information" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="information_common" />
 		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_information_device.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_information.png" transparent="1" alphatest="blend" />
+	</screen>
+
+	<screen name="NetworkInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="information_common" />
+		<panel name="_he-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_network_info.png" transparent="1" alphatest="blend" />
+	</screen>
+
+	<screen name="ReceiverInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="information_common" />
+		<panel name="_he-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_receiver_info.png" transparent="1" alphatest="blend" />
+	</screen>
+
+	<screen name="TunerInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="information_common" />
+		<panel name="_he-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_tuner_info.png" transparent="1" alphatest="blend" />
+	</screen>
+
+	<screen name="StorageInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="information_common" />
+		<panel name="_he-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_storage_info.png" transparent="1" alphatest="blend" />
+	</screen>
+
+	<screen name="MemoryInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="information_common" />
+		<panel name="_he-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_memory_info.png" transparent="1" alphatest="blend" />
+	</screen>
+
+	<screen name="MultiBootInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="information_common" />
+		<panel name="_he-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_multiboot_info.png" transparent="1" alphatest="blend" />
+	</screen>
+
+	<screen name="StreamingInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="information_common" />
+		<panel name="_he-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_streaming_clients_info.png" transparent="1" alphatest="blend" />
+	</screen>
+
+	<screen name="GeolocationInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="information_common" />
+		<panel name="_he-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_geolocation_info.png" transparent="1" alphatest="blend" />
 	</screen>
 
 	<screen name="ServiceInfo" position="0,0" size="1280,720" title="Serviceinfo" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<eLabel text="Serviceinfo" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="infolist" position="70,100" size="710,510" itemHeight="30" selectionDisabled="1" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/info.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_service_info.png" transparent="1" alphatest="blend" />
 		<widget source="Title" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
@@ -4255,7 +4318,6 @@ if len(listitems.list) &gt; 2:
 
 	<menus>
 		<menu key="default" image="icons/default.png" />
-		<menu key="about_screen" image="icons/menu_information_about.png" />
 		<menu key="animation_setup" image="icons/usage_setup.png" />
 		<menu key="audio_menu" image="icons/menu_setup_audio.png" />
 		<menu key="audio_setup" image="icons/menu_setup_audio.png" />
@@ -4285,7 +4347,6 @@ if len(listitems.list) &gt; 2:
 		<menu key="display_setup" image="icons/menu_display_display_setup.png" />
 		<menu key="dmc_mainmenu" image="icons/menu_mainmenu_dmc_mainmenu.png" />
 		<menu key="dreamplex" image="icons/plex.png" />
-		<menu key="drives_info_screen" image="icons/menu_information_device.png" />
 		<menu key="dual_mode" image="icons/dualmode.png" />
 		<menu key="dvd_player" image="icons/dvd.png" />
 		<menu key="dvdplayer_setup" image="icons/menu_extended_dvdplayer_setup.png" />
@@ -4326,14 +4387,12 @@ if len(listitems.list) &gt; 2:
 		<menu key="maintenance_mode" image="icons/usage_setup.png" />
 		<menu key="manual_scan" image="icons/menu_scan_manual_scan.png" />
 		<menu key="media_player" image="icons/media.png" />
-		<menu key="memory_info_screen" image="icons/menu_information_device.png" />
 		<menu key="merlin_music_player" image="icons/music.png" />
 		<menu key="minidlna_setup" image="icons/menu_network_minidlna_setup.png" />
 		<menu key="mount_manager" image="icons/menu_extended_hardisk_selection.png" />
 		<menu key="moviebrowser" image="icons/service_info.png" />
 		<menu key="multi_quick" image="icons/remotecontrol.png" />
 		<menu key="multiboot" image="icons/restart.png" />
-		<menu key="multiboot_info_screen" image="icons/menu_information_device.png" />
 		<menu key="netafp_setup" image="icons/menu_network_netafp_setup.png" />
 		<menu key="Netflix Plugin" image="icons/menu_mainmenu_netflix.png" />
 		<menu key="netftp_setup" image="icons/menu_network_netftp_setup.png" />
@@ -4346,7 +4405,6 @@ if len(listitems.list) &gt; 2:
 		<menu key="nettelnet_setup" image="icons/menu_network_nettelnet_setup.png" />
 		<menu key="netushare_setup" image="icons/menu_network_netushare_setup.png" />
 		<menu key="netvpn_setup" image="icons/menu_network_netvpn_setup.png" />
-		<menu key="network_info_screen" image="icons/menu_information_device.png" />
 		<menu key="numzapext_setup" image="icons/menu_numzapext_setup.png" />
 		<menu key="OpenStore" image="icons/menu_mainmenu_openstore.png" />
 		<menu key="openwebif" image="icons/menu_network_webif.png" />
@@ -4363,7 +4421,6 @@ if len(listitems.list) &gt; 2:
 		<menu key="PrimeVideo" image="icons/prime.png" />
 		<menu key="pvmc_mainmenu" image="icons/pvmc.png" />
 		<menu key="RCU Select" image="icons/remotecontrol.png" />
-		<menu key="receiver_info_screen" image="icons/menu_information_device.png" />
 		<menu key="recording_setup" image="icons/menu_extended_recording_setup.png" />
 		<menu key="remote_setup" image="icons/menu_system_remote_setup.png" />
 		<menu key="remotecode" image="icons/menu_extended_remotecode.png" />
@@ -4379,7 +4436,6 @@ if len(listitems.list) &gt; 2:
 		<menu key="saveepgcache" image="icons/menu_epgloadsave_menu_saveepgcache.png" />
 		<menu key="scart_switch" image="icons/menu_mainmenu_scart.png" />
 		<menu key="script_manager" image="icons/menu_setup_software_manager.png" />
-		<menu key="service_info_screen" image="icons/info.png" />
 		<menu key="serviceapp_setup" image="icons/pplayer.png" />
 		<menu key="setup_epgenhanced" image="icons/menu_epg_setup_epgenhanced.png" />
 		<menu key="setup_epggraphical" image="icons/menu_epg_setup_epggraphical.png" />
@@ -4399,7 +4455,6 @@ if len(listitems.list) &gt; 2:
 		<menu key="startimport" image="icons/iptvimport.png" />
 		<menu key="startsetup" image="icons/alexa.png" />
 		<menu key="streamconvert" image="icons/menu_scan_streamconvert.png" />
-		<menu key="streaming_clients_info_screen" image="icons/info.png" />
 		<menu key="subtitle_selection" image="icons/sub.png" />
 		<menu key="subtitle_setup" image="icons/menu_extended_subtitle_setup.png" />
 		<menu key="sundtek_control_enter" image="icons/menu_mainmenu_pluginmanager.png" />
@@ -4409,7 +4464,6 @@ if len(listitems.list) &gt; 2:
 		<menu key="time_setup" image="icons/menu_extended_time_setup.png" />
 		<menu key="timer_edit" image="icons/menu_timermenu_timers.png" />
 		<menu key="timshift_setup" image="icons/menu_extended_timshift_setup.png" />
-		<menu key="tuner_info_screen" image="icons/menu_information_device.png" />
 		<menu key="tuner_screen" image="icons/menu_information_device.png" />
 		<menu key="tuner_setup" image="icons/menu_scan_tuner_setup.png" />
 		<menu key="usage_setup" image="icons/menu_system_usage_setup.png" />
@@ -4453,7 +4507,6 @@ if len(listitems.list) &gt; 2:
 		<menu key="package_manager" image="icons/menu_package_manager.png" />
 		<menu key="upgrade_source" image="icons/menu_upgrade_source.png" />
 
-		<menu key="information" image="icons/info.png" />
 		<menu key="timermenu" image="icons/menu_mainmenu_timer.png" />
 		<menu key="setup" image="icons/setup.png" />
 		<menu key="rec" image="icons/menu_extended_recording_setup.png" />
@@ -4467,6 +4520,19 @@ if len(listitems.list) &gt; 2:
 		<menu key="shutdown" image="icons/reset.png" />
 		<menu key="epg" image="icons/menu_epg_epg_setup.png" />
 		<menu key="system" image="icons/menu_setup_setup.png" />
+
+		<menu key="information" image="icons/menu_information.png" />
+		<menu key="distribution_info_screen" image="icons/menu_information_about.png" />
+		<menu key="receiver_info_screen" image="icons/menu_receiver_info.png" />
+		<menu key="images_info_screen" image="icons/menu_images_info.png" />
+		<menu key="tuner_info_screen" image="icons/menu_tuner_info.png" />
+		<menu key="network_info_screen" image="icons/menu_network_info.png" />
+		<menu key="storage_info_screen" image="icons/menu_storage_info.png" />
+		<menu key="memory_info_screen" image="icons/menu_memory_info.png" />
+		<menu key="multiboot_info_screen" image="icons/menu_multiboot_info.png" />
+		<menu key="streaming_info_screen" image="icons/menu_streaming_clients_info.png" />
+		<menu key="geolocation_info_screen" image="icons/menu_geolocation_info.png" />
+		<menu key="service_info_screen" image="icons/menu_service_info.png" />
 
 	</menus>
 
