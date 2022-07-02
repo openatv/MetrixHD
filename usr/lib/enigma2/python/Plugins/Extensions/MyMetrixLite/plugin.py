@@ -22,6 +22,7 @@ from Plugins.Plugin import PluginDescriptor
 
 from . import _
 from .MainSettingsView import MainSettingsView
+from .ActivateSkinSettings import applySkinSettings
 
 config.plugins.MetrixWeather.currentWeatherDataValid.setValue(0)
 
@@ -31,6 +32,13 @@ config.plugins.MetrixWeather.currentWeatherDataValid.setValue(0)
 def main(session, **kwargs):
 	session.open(MainSettingsView)
 
+def autostart(reason, **kwargs):
+	if reason == 0:
+		applySkinSettings(fullInit=True)
 
 def Plugins(**kwargs):
-	return PluginDescriptor(name="MyMetrixLite", description=_("openATV configuration tool for MetrixHD"), where=PluginDescriptor.WHERE_PLUGINMENU, icon="plugin.png", fnc=main)
+	pluginList = []
+	if "MetrixHD" in config.skin.primary_skin.value:
+		pluginList.append(PluginDescriptor(where=[PluginDescriptor.WHERE_AUTOSTART], fnc=autostart))
+		pluginList.append(PluginDescriptor(name="MyMetrixLite", description=_("openATV configuration tool for MetrixHD"), icon="plugin.png", where=[PluginDescriptor.WHERE_PLUGINMENU], fnc=main))
+	return pluginList

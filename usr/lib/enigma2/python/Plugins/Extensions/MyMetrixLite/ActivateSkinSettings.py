@@ -37,6 +37,7 @@ from Components.NimManager import nimmanager
 
 from enigma import getDesktop
 from boxbranding import getBoxType
+from skin import colors, domScreens, fonts, reloadWindowStyles
 
 from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, initFontsConfig, getTunerPositionList, appendSkinFile, \
 	SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, \
@@ -912,6 +913,7 @@ class ActivateSkinSettings:
 			# Skin
 			################
 
+			"""
 			channelselectionservice = ('name="layer-a-channelselection-foreground" value="#00' + config.plugins.MyMetrixLiteColors.channelselectionservice.value + '"')
 			channelselectionserviceselected = ('name="layer-a-channelselection-foregroundColorSelected" value="#00' + config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value + '"')
 			channelselectionservicedescription = ('name="layer-a-channelselection-foreground-ServiceDescription" value="#00' + config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value + '"')
@@ -945,6 +947,7 @@ class ActivateSkinSettings:
 			layerbaccent1 = ('name="layer-b-accent1" value="#00' + config.plugins.MyMetrixLiteColors.layerbaccent1.value + '"')
 			layerbaccent2 = ('name="layer-b-accent2" value="#00' + config.plugins.MyMetrixLiteColors.layerbaccent2.value + '"')
 			layerbprogress = ('name="layer-b-progress" value="#' + config.plugins.MyMetrixLiteColors.layerbprogresstransparency.value + config.plugins.MyMetrixLiteColors.layerbprogress.value + '"')
+
 
 			epgeventdescriptionbackground = ('name="epg-eventdescription-background" value="#' + config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value + '"')
 			epgeventdescriptionforeground = ('name="epg-eventdescription-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value + '"')
@@ -983,12 +986,14 @@ class ActivateSkinSettings:
 			infobaraccent2 = ('name="infobaraccent2" value="#00' + config.plugins.MyMetrixLiteColors.infobaraccent2.value + '"')
 			scrollbarSlidercolor = ('name="scrollbarSlidercolor" value="#' + config.plugins.MyMetrixLiteColors.scrollbarSlidertransparency.value + config.plugins.MyMetrixLiteColors.scrollbarSlidercolor.value + '"')
 			scrollbarSliderbordercolor = ('name="scrollbarSliderbordercolor" value="#' + config.plugins.MyMetrixLiteColors.scrollbarSliderbordertransparency.value + config.plugins.MyMetrixLiteColors.scrollbarSliderbordercolor.value + '"')
+			"""
 
 			skinSearchAndReplace = []
 			orgskinSearchAndReplace = [] # needed for some attributes (e.g. borderset setting was lost after using plugin media portal - because restored settings from skin.xml and not from skin.MySkin.xml)
 			skinSearchAndReplace.append(['<!-- original file -->', ''])
 			orgskinSearchAndReplace.append(['<!-- original file -->', '<!-- !!!copied and changed file!!! -->'])
 
+			"""
 			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground" value="#00FFFFFF"', channelselectionservice])
 			skinSearchAndReplace.append(['name="layer-a-channelselection-foregroundColorSelected" value="#00FFFFFF"', channelselectionserviceselected])
 			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-ServiceDescription" value="#00BDBDBD"', channelselectionservicedescription])
@@ -998,6 +1003,12 @@ class ActivateSkinSettings:
 			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-colorServiceRecorded" value="#00E51400"', channelselectioncolorServiceRecorded])
 			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-colorServicePseudoRecorded" value="#000000CD"', channelselectioncolorServicePseudoRecorded])
 			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-colorServiceStreamed" value="#00E51400"', channelselectioncolorServiceStreamed])
+
+			skinSearchAndReplace.append(['name="title-foreground" value="#00FFFFFF"', windowtitletext])
+			skinSearchAndReplace.append(['name="title-background" value="#000F0F0F"', windowtitletextback])
+			skinSearchAndReplace.append(['name="background-text" value="#34FFFFFF"', backgroundtext])
+			skinSearchAndReplace.append(['name="text-background" value="#67FFFFFF"', backgroundtextback])
+
 
 			skinSearchAndReplace.append(['name="layer-a-background" value="#1A0F0F0F"', layerabackground])
 			skinSearchAndReplace.append(['name="layer-a-foreground" value="#00FFFFFF"', layeraforeground])
@@ -1010,6 +1021,7 @@ class ActivateSkinSettings:
 			skinSearchAndReplace.append(['name="layer-a-progress" value="#1A27408B"', layeraprogress])
 			skinSearchAndReplace.append(['name="layer-a-underline" value="#00BDBDBD"', layeraunderline])
 
+
 			skinSearchAndReplace.append(['name="layer-b-background" value="#1A27408B"', layerbbackground])
 			skinSearchAndReplace.append(['name="layer-b-foreground" value="#00FFFFFF"', layerbforeground])
 			skinSearchAndReplace.append(['name="layer-b-selection-background" value="#1A0F0F0F"', layerbselectionbackground])
@@ -1018,10 +1030,6 @@ class ActivateSkinSettings:
 			skinSearchAndReplace.append(['name="layer-b-accent2" value="#006E6E6E"', layerbaccent2])
 			skinSearchAndReplace.append(['name="layer-b-progress" value="#1AFFFFFF"', layerbprogress])
 
-			skinSearchAndReplace.append(['name="title-foreground" value="#00FFFFFF"', windowtitletext])
-			skinSearchAndReplace.append(['name="title-background" value="#000F0F0F"', windowtitletextback])
-			skinSearchAndReplace.append(['name="background-text" value="#34FFFFFF"', backgroundtext])
-			skinSearchAndReplace.append(['name="text-background" value="#67FFFFFF"', backgroundtextback])
 
 			skinSearchAndReplace.append(['name="epg-eventdescription-background" value="#1A27408B"', epgeventdescriptionbackground])
 			skinSearchAndReplace.append(['name="epg-eventdescription-foreground" value="#00FFFFFF"', epgeventdescriptionforeground])
@@ -1060,6 +1068,7 @@ class ActivateSkinSettings:
 			skinSearchAndReplace.append(['name="infobaraccent2" value="#006E6E6E"', infobaraccent2])
 			skinSearchAndReplace.append(['name="scrollbarSlidercolor" value="#00FFFFFF"', scrollbarSlidercolor])
 			skinSearchAndReplace.append(['name="scrollbarSliderbordercolor" value="#0027408B"', scrollbarSliderbordercolor])
+			"""
 
 			#Borderset screens
 			w = 5
@@ -3436,3 +3445,50 @@ class ActivateSkinSettings:
 			</widget>'''
 
 		return ""
+
+
+# applySkinSettings taken from OverlayHD
+def applySkinSettings(fullInit=False):
+
+	colorElements = [
+		("layer-a-channelselection-foreground", "channelselectionservice", ""),
+		("layer-a-channelselection-foregroundColorSelected", "channelselectionserviceselected", ""),
+		("layer-a-channelselection-foreground-ServiceDescription", "channelselectionservicedescription", ""),
+		("layer-a-channelselection-progressbar", "channelselectionprogress", ""),
+		("layer-a-channelselection-progressbarborder", "channelselectionprogressborder", ""),
+		("layer-a-channelselection-foreground-ServiceDescriptionSelected", "channelselectionservicedescriptionselected", ""),
+		("layer-a-channelselection-foreground-colorServiceRecorded", "channelselectioncolorServiceRecorded", ""),
+		("layer-a-channelselection-foreground-colorServicePseudoRecorded", "channelselectioncolorServicePseudoRecorded", ""),
+		("layer-a-channelselection-foreground-colorServiceStreamed", "channelselectioncolorServiceStreamed", ""),
+
+		("title-foreground", "windowtitletext", "windowtitletexttransparency"),
+		("title-background", "windowtitletextback", "windowtitletextbacktransparency"),
+		("background-text", "backgroundtext", "backgroundtexttransparency"),
+		("text-background", "backgroundtextback", "backgroundtextbacktransparency"),
+
+		("layer-a-title-foreground", "windowtitletext", ""),
+		("layer-a-button-foreground", "buttonforeground", ""),
+	]
+
+	for colorElement in ["menufont", "menufontselected", "infobarfont1", "infobarfont2", "infobaraccent1", "infobaraccent2", "layer-a-clock-foreground", "layer-b-clock-foreground", "epg-timeline-foreground", "epg-service-now-foreground", "epg-service-foreground", "epg-event-selected-foreground", "epg-event-now-foreground", "epg-primetime-foreground", "epg-event-foreground", "epg-eventdescription-foreground", "layer-b-accent1", "layer-b-accent2", "layer-b-selection-foreground", "layer-b-foreground", "layer-a-extendedinfo1", "layer-a-extendedinfo2", "layer-a-accent1", "layer-a-accent2", "layer-a-selection-foreground", "layer-a-foreground"]:
+		colorElements.append((colorElement, colorElement.replace("-", ""), ""))
+
+	for colorElement in ["menubackground", "menusymbolbackground", "infobarbackground", "infobarprogress", "scrollbarSlidercolor", "scrollbarSliderbordercolor", "weather-borderlines", "epg-timeline-background", "epg-service-now-background", "epg-service-background", "epg-event-selected-background", "epg-event-now-background", "epg-primetime-background", "epg-event-background", "epg-background", "epg-borderlines", "epg-eventdescription-background", "layer-b-progress", "layer-b-selection-background", "layer-b-background", "layer-a-underline", "layer-a-progress", "layer-a-selection-background", "layer-a-background"]:
+		colorElements.append((colorElement, colorElement.replace("-", ""), "%stransparency" % colorElement.replace("-", "")))
+
+	for (label, color, transparency) in colorElements:
+
+		if color and transparency:
+			colorObject = getattr(config.plugins.MyMetrixLiteColors, color)
+			transObject = getattr(config.plugins.MyMetrixLiteColors, transparency)
+			colorValue = "#%s%s" % (transObject.value,colorObject.value)
+		elif color:
+			colorObject = getattr(config.plugins.MyMetrixLiteColors, color)
+			colorValue = "#00%s" % colorObject.value
+		else:
+			continue
+
+		colors[label] = colorValue
+
+	reloadWindowStyles()
+	return
