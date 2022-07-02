@@ -845,6 +845,8 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectColor = ConfigSelection(default="FFFFFF", choices=ColorList)
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectOverText = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity = ConfigSelection(default="00", choices=TransparencyList)
+	config.plugins.MyMetrixLiteOther.menuDescription = ConfigYesNo(default=True)
+	
 
 #######################################################################
 
