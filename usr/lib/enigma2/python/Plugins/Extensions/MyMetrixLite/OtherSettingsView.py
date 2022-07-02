@@ -672,6 +672,10 @@ class OtherSettingsView(ConfigListScreen, Screen):
 				list.append(getConfigListEntry(tab + _("Glossy Effect Color"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectColor, _("helptext"), "BUTTON"))
 				list.append(getConfigListEntry(tab + _("Glossy Effect Intensity"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity, _("helptext"), "BUTTON"))
 				list.append(getConfigListEntry(tab + _("Glossy Effect Over Text"), config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectOverText, _("helptext"), "BUTTON"))
+
+		section = _("Menu")
+		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
+		list.append(getConfigListEntry(tab + _("Show menu entry description"), config.plugins.MyMetrixLiteOther.menuDescription, _("Enable to display the description of the menu entries."), "ENABLED"))
 		return list
 
 	def getButtonPreview(self):
