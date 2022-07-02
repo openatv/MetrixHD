@@ -1,4 +1,4 @@
-from Components.Converter.Converter import ConditionalShowHide
+from Components.Converter.ConditionalShowHide import ConditionalShowHide
 from Components.config import config
 
 class MetrixMenuDescription(ConditionalShowHide):
@@ -7,4 +7,4 @@ class MetrixMenuDescription(ConditionalShowHide):
 		self.show = config.plugins.MyMetrixLiteOther.menuDescription.value
 
 	def calcVisibility(self):
-		return self.show and ConditionalShowHide.calcVisibility()
+		return self.show and ConditionalShowHide.calcVisibility(self)
