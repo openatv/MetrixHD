@@ -37,7 +37,7 @@ from Components.NimManager import nimmanager
 
 from enigma import getDesktop
 from boxbranding import getBoxType
-from skin import colors, domScreens, fonts, reloadWindowStyles
+from skin import colors, domScreens, fonts, reloadWindowStyles, parseColor
 
 from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, initFontsConfig, getTunerPositionList, appendSkinFile, \
 	SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, \
@@ -3449,7 +3449,7 @@ class ActivateSkinSettings:
 
 # applySkinSettings taken from OverlayHD
 def applySkinSettings(fullInit=False):
-
+	ActivateSkinSettings().initConfigs()
 	colorElements = [
 		("layer-a-channelselection-foreground", "channelselectionservice", ""),
 		("layer-a-channelselection-foregroundColorSelected", "channelselectionserviceselected", ""),
@@ -3468,12 +3468,16 @@ def applySkinSettings(fullInit=False):
 
 		("layer-a-title-foreground", "windowtitletext", ""),
 		("layer-a-button-foreground", "buttonforeground", ""),
+
+		("scrollbarSlidercolor", "scrollbarSlidercolor", "scrollbarSlidertransparency"),
+		("scrollbarSliderbordercolor", "scrollbarSliderbordercolor", "scrollbarSliderbordertransparency"),
+		
 	]
 
 	for colorElement in ["menufont", "menufontselected", "infobarfont1", "infobarfont2", "infobaraccent1", "infobaraccent2", "layer-a-clock-foreground", "layer-b-clock-foreground", "epg-timeline-foreground", "epg-service-now-foreground", "epg-service-foreground", "epg-event-selected-foreground", "epg-event-now-foreground", "epg-primetime-foreground", "epg-event-foreground", "epg-eventdescription-foreground", "layer-b-accent1", "layer-b-accent2", "layer-b-selection-foreground", "layer-b-foreground", "layer-a-extendedinfo1", "layer-a-extendedinfo2", "layer-a-accent1", "layer-a-accent2", "layer-a-selection-foreground", "layer-a-foreground"]:
 		colorElements.append((colorElement, colorElement.replace("-", ""), ""))
 
-	for colorElement in ["menubackground", "menusymbolbackground", "infobarbackground", "infobarprogress", "scrollbarSlidercolor", "scrollbarSliderbordercolor", "weather-borderlines", "epg-timeline-background", "epg-service-now-background", "epg-service-background", "epg-event-selected-background", "epg-event-now-background", "epg-primetime-background", "epg-event-background", "epg-background", "epg-borderlines", "epg-eventdescription-background", "layer-b-progress", "layer-b-selection-background", "layer-b-background", "layer-a-underline", "layer-a-progress", "layer-a-selection-background", "layer-a-background"]:
+	for colorElement in ["menubackground", "menusymbolbackground", "infobarbackground", "infobarprogress", "weather-borderlines", "epg-timeline-background", "epg-service-now-background", "epg-service-background", "epg-event-selected-background", "epg-event-now-background", "epg-primetime-background", "epg-event-background", "epg-background", "epg-borderlines", "epg-eventdescription-background", "layer-b-progress", "layer-b-selection-background", "layer-b-background", "layer-a-underline", "layer-a-progress", "layer-a-selection-background", "layer-a-background"]:
 		colorElements.append((colorElement, colorElement.replace("-", ""), "%stransparency" % colorElement.replace("-", "")))
 
 	for (label, color, transparency) in colorElements:
@@ -3488,7 +3492,7 @@ def applySkinSettings(fullInit=False):
 		else:
 			continue
 
-		colors[label] = colorValue
+		colors[label] = parseColor(colorValue)
 
 	reloadWindowStyles()
 	return
