@@ -1945,7 +1945,7 @@ class ActivateSkinSettings:
 						if oldlinechanger:
 							line = self.linerchanger_old(line, next_picon_zoom)
 						else:
-							line = self.linerchanger_new(line, next_picon_zoom)
+							line = self.linerchanger_new(line, next_picon_zoom, "skin.MySkin.xml" in sourceFile)
 #line disabled off
 					if line_disabled and not 'cf#_#' in line and (match('#+', line.lstrip()) or match('.*-->.*', line.rstrip())):
 						#print 'line disabled off', i, line
@@ -1991,14 +1991,15 @@ class ActivateSkinSettings:
 			i += 1
 		return ''.join(ret)
 
-	def linerchanger_new(self, line, next_picon_zoom): # with regex
+	def linerchanger_new(self, line, next_picon_zoom, rootFile): # with regex
 #<resolution xres="1280" yres="720"
-		if '<resolution ' in line:
-			line = sub('(xres=")(\d+)(" *yres=")(\d+)', self.linereplacer, line)
+		if rootFile:
+			if '<resolution ' in line:
+				return sub('(xres=")(\d+)(" *yres=")(\d+)', self.linereplacer, line)
 #<parameter name="AutotimerEnabledIcon" value="6,2,24,25"
 #<parameter name="ServiceInfoFont" value="screen_text;20"/>
-		if '<parameter name="' in line and 'value="' in line:
-			line = sub('(value=")(\d+|\w+)([,;"])(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)("*)', self.linereplacer, line) # prepared for max 10 values
+			if '<parameter name="' in line and 'value="' in line:
+				return sub('(value=")(\d+|\w+)([,;"])(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)("*)', self.linereplacer, line) # prepared for max 10 values
 #size="200,100"
 #size = (500, 45)
 		if ('size="' in line and not 'alias name="' in line) or ('size' in line and '(' in line and ')' in line):
