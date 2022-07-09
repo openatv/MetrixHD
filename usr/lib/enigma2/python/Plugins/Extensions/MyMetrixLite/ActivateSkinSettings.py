@@ -1954,7 +1954,7 @@ class ActivateSkinSettings:
 						if oldlinechanger:
 							line = self.linerchanger_old(line, next_picon_zoom)
 						else:
-							line = self.linerchanger_new(line, next_picon_zoom, "/skin.xml" in sourceFile)
+							line = self.linerchanger_new(line, next_picon_zoom, "skin.MySkin.xml" in sourceFile)
 #line disabled off
 					if line_disabled and not 'cf#_#' in line and (match('#+', line.lstrip()) or match('.*-->.*', line.rstrip())):
 						#print 'line disabled off', i, line
