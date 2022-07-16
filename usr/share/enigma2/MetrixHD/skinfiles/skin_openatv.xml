@@ -1435,8 +1435,9 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 	<screen name="TimerLog" position="0,0" size="1280,720" title="Timer log" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="logentry" position="70,560" size="1140,60" font="screen_info;20" foregroundColor="layer-a-title-foreground" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
-		<widget name="loglist" position="70,100" size="1140,450" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="logentry" position="70,560" size="1140,60" font="screen_info;20" foregroundColor="layer-a-title-foreground" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1" conditional="logentry" />
+		<widget name="loglist" position="70,100" size="1140,450" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" conditional="loglist" />
+		<widget name="log" position="70,100" size="1140,450" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" conditional="log" />
 		<panel name="template1_1layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template2" />
@@ -4318,6 +4319,7 @@ if len(listitems.list) &gt; 2:
 		<setup key="VolumeAdjust" image="icons/menu_system_AutomaticVolumeAdjustment.png" />
 		<setup key="Tuner" image="icons/menu_tuner_basic_settings.png" />
 		<setup key="CISettings" image="icons/menu_ci_settings.png" />
+		<setup key="RecordTimer" image="icons/timer.png" />
 	</setups>
 
 	<menus>
