@@ -1466,43 +1466,10 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
-
-	<!-- OLD Timer Screens -->
+	<!-- OLD TimerEditList to support old plugins -->
 	<screen name="TimerEditList" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="timerlist" position="70,100" size="700,498" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="55" rowSplit="27" iconMargin="5" satPosLeft="160" setFont="screen_text;18" setEventNameFont="screen_text;20" setServiceNameFont="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
-		<widget name="description" position="810,410" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<panel name="template1_2layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="ioe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
-		<panel name="__e-buttons_template1" />
-	</screen>
-	<screen name="TimerEntry" position="0,0" size="1280,720" title="Timer entry" flags="wfNoBorder" backgroundColor="transparent">
-		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
-		<widget name="canceltext" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="oktext" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="locationdescription" position="810,80" size="415,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<widget name="locationfreespace" position="810,110" size="415,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<widget name="description" position="810,410" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<panel name="rg__-buttons_template1" />
-		<panel name="template1_2layer" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="TimerSanityConflict" position="0,0" size="1280,720" title="Timer sanity error" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="timer1" position="70,100" size="700,50" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="50" rowSplit="26" iconMargin="5" satPosLeft="160" setFont="screen_text;18" setEventNameFont="screen_text;20" setServiceNameFont="screen_text;20" scrollbarMode="showNever" enableWrapAround="1" transparent="1" />
-		<widget name="list" position="70,180" size="700,150" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
-		<widget name="timer2" position="70,350" size="700,250" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="50" rowSplit="26" iconMargin="5" satPosLeft="160" setFont="screen_text;18" setEventNameFont="screen_text;20" setServiceNameFont="screen_text;20" scrollbarMode="showNever" enableWrapAround="1" transparent="1" />
-		<eLabel position="70,170" size="700,1" backgroundColor="layer-a-accent1" />
-		<eLabel position="70,340" size="700,1" backgroundColor="layer-a-accent1" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="template1_2layer" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
+		<panel name="TimerOverviewBase" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_timers.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- CronTimer -->
 	<screen name="CronTimers" position="0,0" size="1280,720" title="Cron Manager" flags="wfNoBorder" backgroundColor="transparent">
