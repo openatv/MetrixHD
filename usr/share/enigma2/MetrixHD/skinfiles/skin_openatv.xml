@@ -1410,26 +1410,30 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 	<!-- Timer Screens -->
 <!-- cf#_#rename --> 
+	<screen name="timerlistcommon">
+		<widget name="timerlist" position="70,100" size="700,498" backgroundColor="layer-a-background" backgroundColorSelected="layer-a-selection-background" bottomHeight="24" detailFont="screen_text;16" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" iconMargin="10" indent="15" itemHeight="50" showSeparator="1" statusFont="screen_text;18" statusOffset="0" timerNameFont="screen_text;20" topHeight="24" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1"/>
+	</screen>
+<!-- cf#_#rename --> 
+	<screen name="timerlistcommon#_FHDscreen">
+		<widget name="timerlist" position="105,150" size="1050,747" backgroundColor="layer-a-background" backgroundColorSelected="layer-a-selection-background" bottomHeight="36" detailFont="screen_text;24" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" iconMargin="15" indent="22" itemHeight="75" showSeparator="1" statusFont="screen_text;27" statusOffset="0" timerNameFont="screen_text;30" topHeight="36" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1"/>
+	</screen>
+<!-- cf#_#start -->
 	<screen name="TimerOverviewBase" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="timerlist" position="70,100" size="700,498" backgroundColor="layer-a-background" backgroundColorSelected="layer-a-selection-background" bottomHeight="24" detailFont="screen_text;16" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" iconMargin="10" indent="15" itemHeight="50" showSeparator="1" statusFont="screen_text;18" statusOffset="20" timerNameFont="screen_text;20" topHeight="24" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1"/>
+		<panel name="timerlistcommon" />
 		<widget name="description" position="810,410" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="ioe-buttons_template1" />
 		<panel name="__e-buttons_template1" />
 	</screen>
-<!-- cf#_#rename --> 
-	<screen name="TimerOverviewBase#_FHDscreen" position="0,0" size="1920,1080" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="87,54" font="global_title;51" foregroundColor="layer-a-title-foreground" size="788,75" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="timerlist" position="105,150" size="1050,747" backgroundColor="layer-a-background" backgroundColorSelected="layer-a-selection-background" bottomHeight="36" detailFont="screen_text;24" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" iconMargin="15" indent="22" itemHeight="75" showSeparator="1" statusFont="screen_text;27" statusOffset="30" timerNameFont="screen_text;30" topHeight="36" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1"/>
-		<widget name="description" position="1215,615" size="623,285" font="screen_info;30" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+	<screen name="TimerSelection" position="0,0" size="1280,720" title="Timer selection" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="ioe-buttons_template1" />
-		<panel name="__e-buttons_template1" />
+		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="timerlistcommon" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_timers.png" transparent="1" alphatest="blend" />
 	</screen>
-<!-- cf#_#start -->
 	<screen name="PowerTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_powertimers.png" transparent="1" alphatest="blend" />
@@ -1450,13 +1454,6 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_1layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template2" />
-	</screen>
-	<screen name="TimerSelection" position="0,0" size="1280,720" title="Timer selection" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="timerlist" position="70,100" size="700,498" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="55" rowSplit="27" iconMargin="5" satPosLeft="160" setFont="screen_text;18" setEventNameFont="screen_text;20" setServiceNameFont="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="TimeDateInput" position="0,0" size="1280,720" title="TimeDateInput" flags="wfNoBorder" backgroundColor="transparent" zPosition="1" >
 		<panel name="template1_2layer" />
