@@ -1779,7 +1779,6 @@ class ActivateSkinSettings:
 					"/usr/share/enigma2/MetrixHD/skin_default/buttons/",
 					"/usr/share/enigma2/MetrixHD/skin_default/icons/",
 					"/usr/share/enigma2/MetrixHD/icons/",
-					"/usr/share/enigma2/MetrixHD/countries/",
 					"/usr/share/enigma2/MetrixHD/buttons/",
 					"/usr/share/enigma2/MetrixHD/extensions/",
 					"/usr/lib/enigma2/python/Plugins/SystemPlugins/SoftwareManager/",
