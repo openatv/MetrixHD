@@ -312,7 +312,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		idx = 0
 		for screen in self.screens[self.idx]:
 			self.screenlist[self.idx].append(ConfigYesNo(default=False))
-			self.screenlist[self.idx][idx].value = self.screens[self.idx][idx][4] #screen[4]
+			self.screenlist[self.idx][idx].value = self.screens[self.idx][idx][4]  # screen[4]
 			idx += 1
 
 	def GetPicturePath(self):

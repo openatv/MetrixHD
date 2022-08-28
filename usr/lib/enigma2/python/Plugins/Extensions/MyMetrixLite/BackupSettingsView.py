@@ -222,7 +222,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 				try:
 					self.file = load(f)
 				except UnicodeDecodeError:
-					f.seek(0) # Read old Python2 pickle
+					f.seek(0)  # Read old Python2 pickle
 					t = f.read()
 					self.file = loads(t, fix_imports=True, encoding="UTF-8", errors="strict", buffers=None)
 				f.close()
@@ -292,7 +292,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 
 	def showHelpWindowQ(self, result):
 		if result:
-			self.delay = eTimer() # delay for closing messagebox
+			self.delay = eTimer()  # delay for closing messagebox
 			if self.runnext == "delete":
 				self.delay.callback.append(self.delete)
 				self.delay.start(500, True)

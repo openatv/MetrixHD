@@ -32,7 +32,7 @@ class MetrixHDSmartInfo(Poll, Converter, object):
 			return ""
 		Ret_Text = ""
 		Sec_Text = ""
-		if (self.type == self.SMART_INFO_H): # HORIZONTAL
+		if (self.type == self.SMART_INFO_H):  # HORIZONTAL
 			decID = ""
 			decCI = "0x000"
 			decFrom = ""

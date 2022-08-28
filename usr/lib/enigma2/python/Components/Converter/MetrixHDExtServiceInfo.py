@@ -126,7 +126,7 @@ class MetrixHDExtServiceInfo(Converter, object):
 			services = serviceHandler.list(eServiceReference(bouquet[0]))
 			channels = services and services.getContent("SN", True)
 			for channel in channels:
-				if not channel[0].startswith("1:64:"): # Ignore marker
+				if not channel[0].startswith("1:64:"):  # Ignore marker
 					list.append(channel[1].replace('\xc2\x86', '').replace('\xc2\x87', '').replace('\x86', '').replace('\x87', ''))
 
 		return list
