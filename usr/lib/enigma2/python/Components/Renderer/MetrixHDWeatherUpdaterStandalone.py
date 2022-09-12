@@ -10,7 +10,7 @@
 
 from datetime import datetime, timedelta
 from json import loads
-import requests
+from requests import get
 from threading import Timer, Thread
 from time import strftime, strptime
 from six import ensure_str, PY3
@@ -237,7 +237,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				config.plugins.MetrixWeather.currentWeatherobservationtime.value = currentobservationtime.nodeValue
 				currentWeatherText = currentWeather.getAttributeNode('skytext')
 				config.plugins.MetrixWeather.currentWeatherText.value = currentWeatherText.nodeValue
-				n = 1
+				n = 0
 				currentWeather = dom.getElementsByTagName('forecast')[n]
 				currentWeatherCode = currentWeather.getAttributeNode('skycodeday')
 				if config.plugins.MetrixWeather.type.value:
@@ -328,7 +328,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 #			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=%s&cnt=%d%s" % (city, language[:2], units, cnt, apikey)
 			print(feedurl)
 			try:
-				response = requests.get(feedurl, verify=False, timeout=10)
+				response = get(feedurl, verify=False, timeout=10)
 			except Exception as error:
 				self.errorCallback(message=str(error))
 			else:
