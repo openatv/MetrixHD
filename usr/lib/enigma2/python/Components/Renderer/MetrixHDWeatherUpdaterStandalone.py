@@ -10,7 +10,7 @@
 
 from datetime import datetime, timedelta
 from json import loads
-from requests import get
+import requests
 from threading import Timer, Thread
 from time import strftime, strptime
 from six import ensure_str, PY3
@@ -328,7 +328,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 #			feedurl = "http://api.openweathermap.org/data/2.5/forecast?%s&lang=%s&units=%s&cnt=%d%s" % (city, language[:2], units, cnt, apikey)
 			print(feedurl)
 			try:
-				response = get(feedurl, verify=False, timeout=10)
+				response = requests.get(feedurl, verify=False, timeout=10)
 			except Exception as error:
 				self.errorCallback(message=str(error))
 			else:
