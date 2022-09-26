@@ -3298,7 +3298,7 @@ class ActivateSkinSettings:
 # applySkinSettings taken from OverlayHD
 def applySkinSettings(fullInit=False):
 	ActivateSkinSettings().initConfigs()
-	colorElements = [
+	colorelements = [
 		("layer-a-channelselection-foreground", "channelselectionservice", ""),
 		("layer-a-channelselection-foregroundColorSelected", "channelselectionserviceselected", ""),
 		("layer-a-channelselection-foreground-ServiceDescription", "channelselectionservicedescription", ""),
@@ -3322,25 +3322,24 @@ def applySkinSettings(fullInit=False):
 
 	]
 
-	for colorElement in ["menufont", "menufontselected", "infobarfont1", "infobarfont2", "infobaraccent1", "infobaraccent2", "layer-a-clock-foreground", "layer-b-clock-foreground", "epg-timeline-foreground", "epg-service-now-foreground", "epg-service-foreground", "epg-event-selected-foreground", "epg-event-now-foreground", "epg-primetime-foreground", "epg-event-foreground", "epg-eventdescription-foreground", "layer-b-accent1", "layer-b-accent2", "layer-b-selection-foreground", "layer-b-foreground", "layer-a-extendedinfo1", "layer-a-extendedinfo2", "layer-a-accent1", "layer-a-accent2", "layer-a-selection-foreground", "layer-a-foreground"]:
-		colorElements.append((colorElement, colorElement.replace("-", ""), ""))
+	for colorelement in ["menufont", "menufontselected", "infobarfont1", "infobarfont2", "infobaraccent1", "infobaraccent2", "layer-a-clock-foreground", "layer-b-clock-foreground", "epg-timeline-foreground", "epg-service-now-foreground", "epg-service-foreground", "epg-event-selected-foreground", "epg-event-now-foreground", "epg-primetime-foreground", "epg-event-foreground", "epg-eventdescription-foreground", "layer-b-accent1", "layer-b-accent2", "layer-b-selection-foreground", "layer-b-foreground", "layer-a-extendedinfo1", "layer-a-extendedinfo2", "layer-a-accent1", "layer-a-accent2", "layer-a-selection-foreground", "layer-a-foreground"]:
+		colorelements.append((colorelement, colorelement.replace("-", ""), ""))
 
-	for colorElement in ["menubackground", "menusymbolbackground", "infobarbackground", "infobarprogress", "weather-borderlines", "epg-timeline-background", "epg-service-now-background", "epg-service-background", "epg-event-selected-background", "epg-event-now-background", "epg-primetime-background", "epg-event-background", "epg-background", "epg-borderlines", "epg-eventdescription-background", "layer-b-progress", "layer-b-selection-background", "layer-b-background", "layer-a-underline", "layer-a-progress", "layer-a-selection-background", "layer-a-background"]:
-		colorElements.append((colorElement, colorElement.replace("-", ""), "%stransparency" % colorElement.replace("-", "")))
+	for colorelement in ["menubackground", "menusymbolbackground", "infobarbackground", "infobarprogress", "weather-borderlines", "epg-timeline-background", "epg-service-now-background", "epg-service-background", "epg-event-selected-background", "epg-event-now-background", "epg-primetime-background", "epg-event-background", "epg-background", "epg-borderlines", "epg-eventdescription-background", "layer-b-progress", "layer-b-selection-background", "layer-b-background", "layer-a-underline", "layer-a-progress", "layer-a-selection-background", "layer-a-background"]:
+		colorelements.append((colorelement, colorelement.replace("-", ""), "%stransparency" % colorelement.replace("-", "")))
 
-	for (label, color, transparency) in colorElements:
+	for (label, color, transparency) in colorelements:
 
 		if color and transparency:
-			colorObject = getattr(config.plugins.MyMetrixLiteColors, color)
-			transObject = getattr(config.plugins.MyMetrixLiteColors, transparency)
-			colorValue = "#%s%s" % (transObject.value, colorObject.value)
+			colorobject = getattr(config.plugins.MyMetrixLiteColors, color)
+			transobject = getattr(config.plugins.MyMetrixLiteColors, transparency)
+			colorvalue = "#%s%s" % (transobject.value, colorobject.value)
 		elif color:
-			colorObject = getattr(config.plugins.MyMetrixLiteColors, color)
-			colorValue = "#00%s" % colorObject.value
+			colorobject = getattr(config.plugins.MyMetrixLiteColors, color)
+			colorvalue = "#00%s" % colorobject.value
 		else:
 			continue
 
-		colors[label] = parseColor(colorValue)
+		colors[label] = parseColor(colorvalue)
 
 	reloadWindowStyles()
-	return
