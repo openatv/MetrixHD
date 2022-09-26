@@ -30,7 +30,7 @@
 	<screen name="information_common2">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="description" position="70,590" size="1140,30" font="screen_info;20" conditional="description" foregroundColor="layer-a-title-foreground" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
-		<widget name="information" position="70,100" size="1140,485" conditional="information" font="Fixed;17" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="information" position="70,100" size="1140,525" conditional="information" font="Fixed;17" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="template1_1layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="mhe-buttons_template2" />
@@ -45,7 +45,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_information_about.png" transparent="1" alphatest="blend" />
 	</screen>
 
-	<screen name="ImageInformation" position="0,0" size="1280,720" title="Receiver Images" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="PictureInformation" position="0,0" size="1280,720" title="Receiver Images" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="description" position="810,385" size="415,220" font="screen_info;20" conditional="description" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<widget name="name" position="810,385" size="415,220" font="screen_info;20" conditional="description" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
@@ -60,7 +60,7 @@
 		<panel name="information_common2" />
 	</screen>
 
-	<screen name="CommitLogInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="CommitInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="information_common2" />
 	</screen>
 
@@ -1409,45 +1409,49 @@ self['config'].l.setSeperation(int(300*f))
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/hdd.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- Timer Screens -->
-	<screen name="TimerEditList" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
+<!-- cf#_#rename --> 
+	<screen name="timerlistcommon">
+		<widget name="timerlist" position="70,100" size="700,513" backgroundColor="layer-a-background" backgroundColorSelected="layer-a-selection-background" bottomHeight="25" detailFont="screen_text;16" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" iconMargin="10" indent="15" itemHeight="57" showSeparator="1" statusFont="screen_text;18" statusOffset="0" timerNameFont="screen_text;20" topHeight="28" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1"/>
+	</screen>
+<!-- cf#_#rename --> 
+	<screen name="timerlistcommon#_FHDscreen">
+		<widget name="timerlist" position="105,150" size="1050,765" backgroundColor="layer-a-background" backgroundColorSelected="layer-a-selection-background" bottomHeight="30" detailFont="screen_text;24" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" iconMargin="15" indent="22" itemHeight="85" showSeparator="1" statusFont="screen_text;27" statusOffset="0" satPosLeft="300" timerNameFont="screen_text;30" topHeight="44" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1"/>
+	</screen>
+<!-- cf#_#start -->
+	<screen name="TimerOverviewBase" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="timerlist" position="70,100" size="700,498" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="55" rowSplit="27" iconMargin="5" satPosLeft="160" setFont="screen_text;18" setEventNameFont="screen_text;20" setServiceNameFont="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
+		<panel name="timerlistcommon" />
 		<widget name="description" position="810,410" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="ioe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
 		<panel name="__e-buttons_template1" />
-	</screen>
-	<screen name="TimerEntry" position="0,0" size="1280,720" title="Timer entry" flags="wfNoBorder" backgroundColor="transparent">
-		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
-		<widget name="canceltext" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="oktext" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="locationdescription" position="810,80" size="415,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<widget name="locationfreespace" position="810,110" size="415,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<widget name="description" position="810,410" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<panel name="rg__-buttons_template1" />
-		<panel name="template1_2layer" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="TimerLog" position="0,0" size="1280,720" title="Timer log" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="logentry" position="70,560" size="1140,60" font="screen_info;20" foregroundColor="layer-a-title-foreground" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1" conditional="logentry" />
-		<widget name="loglist" position="70,100" size="1140,450" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" conditional="loglist" />
-		<widget name="log" position="70,100" size="1140,450" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" conditional="log" />
-		<panel name="template1_1layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="_oe-buttons_template2" />
 	</screen>
 	<screen name="TimerSelection" position="0,0" size="1280,720" title="Timer selection" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="timerlist" position="70,100" size="700,498" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="55" rowSplit="27" iconMargin="5" satPosLeft="160" setFont="screen_text;18" setEventNameFont="screen_text;20" setServiceNameFont="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
+		<panel name="timerlistcommon" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_timers.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="PowerTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="TimerOverviewBase" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_powertimers.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="RecordTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="TimerOverviewBase" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_timers.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="ConflictTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="TimerOverviewBase" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_conflict.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="TimerLog" position="0,0" size="1280,720" title="Timer log" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="log" position="70,100" size="1140,525" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" conditional="log" />
+		<panel name="template1_1layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template2" />
 	</screen>
 	<screen name="TimeDateInput" position="0,0" size="1280,720" title="TimeDateInput" flags="wfNoBorder" backgroundColor="transparent" zPosition="1" >
 		<panel name="template1_2layer" />
@@ -1457,17 +1461,10 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
-	<screen name="TimerSanityConflict" position="0,0" size="1280,720" title="Timer sanity error" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="timer1" position="70,100" size="700,50" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="50" rowSplit="26" iconMargin="5" satPosLeft="160" setFont="screen_text;18" setEventNameFont="screen_text;20" setServiceNameFont="screen_text;20" scrollbarMode="showNever" enableWrapAround="1" transparent="1" />
-		<widget name="list" position="70,180" size="700,150" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
-		<widget name="timer2" position="70,350" size="700,250" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="50" rowSplit="26" iconMargin="5" satPosLeft="160" setFont="screen_text;18" setEventNameFont="screen_text;20" setServiceNameFont="screen_text;20" scrollbarMode="showNever" enableWrapAround="1" transparent="1" />
-		<eLabel position="70,170" size="700,1" backgroundColor="layer-a-accent1" />
-		<eLabel position="70,340" size="700,1" backgroundColor="layer-a-accent1" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="template1_2layer" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
+	<!-- OLD TimerEditList to support old plugins -->
+	<screen name="TimerEditList" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="TimerOverviewBase" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_timers.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- CronTimer -->
 	<screen name="CronTimers" position="0,0" size="1280,720" title="Cron Manager" flags="wfNoBorder" backgroundColor="transparent">
@@ -3412,6 +3409,11 @@ if len(listitems.list) &gt; 2:
 	</screen>	
 	<!-- E2 Bookmarks -->
 	<screen name="LocationBox" position="0,0" size="1280,720" title="Location Box" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="LocationBoxOld" conditional="textbook" />
+		<panel name="LocationBoxNew" conditional="fileheading" />
+	</screen>
+
+	<screen name="LocationBoxOld" position="0,0" size="1280,720" title="Location Box" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="text" position="70,100" size="530,30" font="screen_info;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="targetfreespace" position="600,100" size="170,30" font="screen_info;22" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -3427,6 +3429,25 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="moe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/setup.png" transparent="1" alphatest="blend" />
+	</screen>
+
+	<screen name="LocationBoxNew" position="0,0" size="1280,720" title="Location Box" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="text" position="70,100" size="700,30" font="screen_info;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="targetfreespace" position="610,135" size="160,30" font="screen_info;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="target" position="70,135" size="550,30" font="screen_info;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="fileheading" position="75,165" size="700,30" font="screen_info;21" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
+		<eLabel position="65,195" size="705,2" backgroundColor="layer-a-accent2" />
+		<widget name="filelist" position="70,200" size="700,210" itemHeight="30" font="screen_text;20" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" selection="0" />
+		<widget name="bookmarkheading" position="70,405" size="700,30" font="screen_info;21" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<eLabel position="65,435" size="705,2" backgroundColor="layer-a-accent2" />
+		<widget name="bookmarklist" position="70,440" size="700,190" itemHeight="30" font="screen_text;20" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" selection="0" zPosition="3" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<eLabel position="619,618" size="132,25" zPosition="2" backgroundColor="layer-a-background" />
+		<panel name="template1_2layer" />
+		<panel name="moe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/setup.png" transparent="1" alphatest="blend" />
+		<widget name="quickselect" position="50,80" size="760,525" backgroundColor="text-background" foregroundColor="background-text" font="global_large_screen;100" halign="center" transparent="1" valign="center" zPosition="+1" />
 	</screen>
 	<!-- Button Setup -->
 	<screen name="ButtonSetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
@@ -4319,7 +4340,9 @@ if len(listitems.list) &gt; 2:
 		<setup key="VolumeAdjust" image="icons/menu_system_AutomaticVolumeAdjustment.png" />
 		<setup key="Tuner" image="icons/menu_tuner_basic_settings.png" />
 		<setup key="CISettings" image="icons/menu_ci_settings.png" />
-		<setup key="RecordTimer" image="icons/timer.png" />
+		<setup key="RecordTimer" image="icons/menu_timermenu_timers.png" />
+		<setup key="PowerTimer" image="icons/menu_timermenu_powertimers.png" />
+		<setup key="Playback" image="icons/menu_extended_playback_setup.png" />
 	</setups>
 
 	<menus>
@@ -4420,6 +4443,7 @@ if len(listitems.list) &gt; 2:
 		<menu key="permanent_clock" image="icons/menu_extended_time_setup.png" />
 		<menu key="pip_setup" image="icons/setup.png" />
 		<menu key="play_cd" image="icons/dvd.png" />
+		<menu key="playback_setup" image="icons/menu_extended_playback_setup.png" />
 		<menu key="plugin_selection" image="icons/menu_mainmenu_pluginmanager.png" />
 		<menu key="pluginhider_setup" image="icons/menu_mainmenu_pluginhider.png" />
 		<menu key="positioner_setup" image="icons/menu_scan_positioner_setup.png" />

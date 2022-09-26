@@ -43,13 +43,13 @@ class MetrixHDPrimeTime(Renderer, VariableText):
 					begin = x[1]
 					end = x[1] + x[2]
 					if begin <= primetime and end > primetime or next:
-						if not next and end <= primetime + 1200: # 20 mins tolerance to starting next event
+						if not next and end <= primetime + 1200:  # 20 mins tolerance to starting next event
 							next = True
 							continue
 						t = localtime(begin)
 						text = text + "%02d:%02d %s\n" % (t[3], t[4], x[4])
 						break
-					if begin > primetime: # entry > primetime ? -> primetime not in epg
+					if begin > primetime:  # entry > primetime ? -> primetime not in epg
 						text = text + "n/a"
 						break
 				else:

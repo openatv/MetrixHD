@@ -118,7 +118,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 		self.text = config.plugins.MetrixWeather.currentWeatherCode.value
 
 	def setWeatherDataValid(self, val):
-		config.plugins.MetrixWeather.currentWeatherDataValid.value = val # 0 = try to getting weather data, 1 = try to getting weather data paused, 2 = try to getting weather data aborted (to many error cycles), 3 = weather data valid
+		config.plugins.MetrixWeather.currentWeatherDataValid.value = val  # 0 = try to getting weather data, 1 = try to getting weather data paused, 2 = try to getting weather data aborted (to many error cycles), 3 = weather data valid
 		config.plugins.MetrixWeather.currentWeatherDataValid.save()
 		if val == 3:
 			config.plugins.MetrixWeather.save()
@@ -237,7 +237,7 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 				config.plugins.MetrixWeather.currentWeatherobservationtime.value = currentobservationtime.nodeValue
 				currentWeatherText = currentWeather.getAttributeNode('skytext')
 				config.plugins.MetrixWeather.currentWeatherText.value = currentWeatherText.nodeValue
-				n = 1
+				n = 0
 				currentWeather = dom.getElementsByTagName('forecast')[n]
 				currentWeatherCode = currentWeather.getAttributeNode('skycodeday')
 				if config.plugins.MetrixWeather.type.value:
@@ -362,23 +362,23 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 			winddirection = "·"
 			if int(winddirectiondegree) >= 0:
 				if int(winddirectiondegree) <= 360:
-					winddirection = "↓" # North
+					winddirection = "↓"  # North
 				if int(winddirectiondegree) < 345:
-					winddirection = "↘" # North West
+					winddirection = "↘"  # North West
 				if int(winddirectiondegree) <= 285:
-					winddirection = "→" # West
+					winddirection = "→"  # West
 				if int(winddirectiondegree) < 255:
-					winddirection = "↗" # South West
+					winddirection = "↗"  # South West
 				if int(winddirectiondegree) <= 195:
-					winddirection = "↑" # South
+					winddirection = "↑"  # South
 				if int(winddirectiondegree) < 165:
-					winddirection = "↖" # South East
+					winddirection = "↖"  # South East
 				if int(winddirectiondegree) <= 105:
-					winddirection = "←" # East
+					winddirection = "←"  # East
 				if int(winddirectiondegree) < 75:
-					winddirection = "↙" # North East
+					winddirection = "↙"  # North East
 				if int(winddirectiondegree) <= 15:
-					winddirection = "↓" # North
+					winddirection = "↓"  # North
 
 			tmin_today = []
 			tmax_today = []
@@ -523,41 +523,41 @@ class MetrixHDWeatherUpdaterStandalone(Renderer, VariableText):
 	def ConvertCondition(self, c):
 		c = int(c)
 		if c == 800:
-			condition = "B" # Sonne am Tag
+			condition = "B"  # Sonne am Tag
 		elif c == 801:
-			condition = "H" # Bewoelkt Sonning
+			condition = "H"  # Bewoelkt Sonning
 		elif c == 802:
-			condition = "J" # Nebel Sonning
+			condition = "J"  # Nebel Sonning
 		elif c == 711 or c == 721:
-			condition = "L" # Bewoelkt Nebeling
+			condition = "L"  # Bewoelkt Nebeling
 		elif c == 701 or c == 731 or c == 741 or c == 751 or c == 761 or c == 762:
-			condition = "M" # Nebel
+			condition = "M"  # Nebel
 		elif c == 803 or c == 804:
-			condition = "N" # Bewoelkt
+			condition = "N"  # Bewoelkt
 		elif c == 202 or c == 202 or c == 212 or c == 221:
-			condition = "O" # Gewitter
+			condition = "O"  # Gewitter
 		elif c == 200 or c == 200 or c == 210 or c == 230 or c == 231 or c == 232:
-			condition = "P " # Gewitter leicht
+			condition = "P "  # Gewitter leicht
 		elif c == 500 or c == 501:
-			condition = "Q" # Leicher Regen
+			condition = "Q"  # Leicher Regen
 		elif c == 520 or c == 521 or c == 531 or c == 300 or c == 301 or c == 302 or c == 310 or c == 311 or c == 312 or c == 313 or c == 314 or c == 321:
-			condition = "R" # Mittlere Regen
+			condition = "R"  # Mittlere Regen
 		elif c == 771 or c == 781:
-			condition = "S" # Starker Wind
+			condition = "S"  # Starker Wind
 		elif c == 502:
-			condition = "T" # Wind und Regen
+			condition = "T"  # Wind und Regen
 		elif c == 531 or c == 531:
-			condition = "U" # Normaler Regen
+			condition = "U"  # Normaler Regen
 		elif c == 600 or c == 601 or c == 616 or c == 620:
-			condition = "V" # Schnee
+			condition = "V"  # Schnee
 		elif c == 611 or c == 612 or c == 615:
-			condition = "W" # Schnee gefahr
+			condition = "W"  # Schnee gefahr
 		elif c == 602 or c == 622 or c == 621 or c == 511:
-			condition = "X" # Starker Schnee
+			condition = "X"  # Starker Schnee
 		elif c == 504 or c == 503:
-			condition = "Y" # Stark Regen
+			condition = "Y"  # Stark Regen
 		elif c == 803 or c == 804:
-			condition = "Y" # Stark Bewoelkt
+			condition = "Y"  # Stark Bewoelkt
 		else:
 			condition = ")"
 		return str(condition)

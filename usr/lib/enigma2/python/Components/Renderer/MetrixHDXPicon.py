@@ -98,10 +98,10 @@ class MetrixHDXPicon(Renderer):
 								pngname = self.findPicon(no_subnet)			# removed SubNetwork in the right part of the NameSpace field
 							if not pngname and fields[0] != '1':
 								fields[0] = '1'
-								pngname = self.findPicon('_'.join(fields))	# fallback to 1 for online streams (4097, 5001, 5002; 5003, etc.)
+								pngname = self.findPicon('_'.join(fields))  # fallback to 1 for online streams (4097, 5001, 5002; 5003, etc.)
 							if not pngname and fields[2] != '2':
 								fields[2] = '1'
-								pngname = self.findPicon('_'.join(fields))	# fallback to 1 for online streams + find an picon with undefined stream quality
+								pngname = self.findPicon('_'.join(fields))  # fallback to 1 for online streams + find an picon with undefined stream quality
 					if not pngname:		# search picon by channel name
 						name = ServiceReference(self.source.text).getServiceName()
 						name = normalize('NFKD', text_type(name))

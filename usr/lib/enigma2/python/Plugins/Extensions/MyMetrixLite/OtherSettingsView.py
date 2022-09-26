@@ -328,7 +328,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		self.message.close()
 
 	def UninstallCheck(self):
-		return #uninstall package disabled
+		return  # uninstall package disabled
 		self.Console.ePopen('/usr/bin/opkg list_installed ' + self.service_name, self.RemovedataAvail)
 
 	def RemovedataAvail(self, str, retval, extra_args):

@@ -27,7 +27,7 @@ class MetrixHDSingleEpgList(Renderer, VariableText):
 
 		if self.epgcache is not None:
 			#evt = self.epgcache.lookupEvent(['IBDCT', (service.toString(), 0, -1, -1)])
-			evt = self.epgcache.lookupEvent(['IBDCTM', (service.toString(), 0, -1, -1)]) #returned max 10 events - very faster
+			evt = self.epgcache.lookupEvent(['IBDCTM', (service.toString(), 0, -1, -1)])  # returned max 10 events - very faster
 
 		if evt:
 			maxx = 0

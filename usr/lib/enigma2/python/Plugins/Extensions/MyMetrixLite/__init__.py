@@ -691,7 +691,7 @@ def initOtherConfig():
 			skinmodes.append(("2", _("Ultra HD (3840x2160) %s") % risktxt))
 	###no box supports at time uhd skins ...###
 	if "2" in skinmodes[-1]:
-		del skinmodes[-1]#
+		del skinmodes[-1]
 	###########################################
 	config.plugins.MyMetrixLiteOther.EHDenabled = ConfigSelection(default="0", choices=skinmodes)
 	config.plugins.MyMetrixLiteOther.EHDrounddown = ConfigYesNo(default=False)
@@ -846,7 +846,7 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectOverText = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity = ConfigSelection(default="00", choices=TransparencyList)
 	config.plugins.MyMetrixLiteOther.menuDescription = ConfigYesNo(default=True)
-	
+
 
 #######################################################################
 

@@ -172,10 +172,10 @@
 		<alias name="VirtualKeyBoard" font="screen_text" size="28" height="45" />
 	</fonts>
 	<subtitles>
-		<sub name="Subtitle_TTX" font="Regular;30" shadowColor="#40101010" shadowOffset="3,3" />
-		<sub name="Subtitle_Regular" font="Regular;30" foregroundColor="undcdcdc" shadowColor="#40101010" shadowOffset="3,3" />
-		<sub name="Subtitle_Bold" font="Replacement;30" foregroundColor="undcdcdc" shadowColor="#40101010" shadowOffset="3,3" />
-		<sub name="Subtitle_Italic" font="Regular;30" foregroundColor="undcaaaa" shadowColor="#40101010" shadowOffset="3,3" />
+		<sub name="Subtitle_TTX" font="Regular;30" shadowColor="#40101010" shadowOffset="3,3" borderWidth="3" />
+		<sub name="Subtitle_Regular" font="Regular;30" foregroundColor="undcdcdc" shadowColor="#40101010" shadowOffset="3,3" borderWidth="3" />
+		<sub name="Subtitle_Bold" font="Replacement;30" foregroundColor="undcdcdc" shadowColor="#40101010" shadowOffset="3,3" borderWidth="3" />
+		<sub name="Subtitle_Italic" font="Regular;30" foregroundColor="undcaaaa" shadowColor="#40101010" shadowOffset="3,3" borderWidth="3" />
 	</subtitles>
 	<windowstyle type="skinned" id="0">
 		<title offset="5,0" font="global_title;34" />
@@ -216,8 +216,8 @@
 		</borderset>
 
 		<!-- <slider borderWidth="0" /> -->
-		<scrolllabel scrollbarWidth="10" scrollbarBorderWidth="1"/>
-		<listbox scrollbarWidth="10" scrollbarBorderWidth="1" enableWrapAround="1"/>
+		<scrolllabel scrollbarWidth="10" scrollbarBorderWidth="1" scrollbarOffset="5" />
+		<listbox scrollbarWidth="10" scrollbarBorderWidth="1" pageSize="0" scrollbarOffset="5"/>
 		<!-- 
 		TODO TEST showOnDemand as default
 		<scrolllabel scrollbarWidth="10" scrollbarBorderWidth="1" scrollbarMode="showOnDemand"/>
@@ -308,7 +308,7 @@
 <!-- cf#_#rename -->
 		<parameter name="EpgListSingle#_FHDscreen" value="88,220"/>
 <!-- cf#_#start -->
-		<parameter name="InformationColors" value="0x00ffffff,0x00ffffff,0x00ffffff,0x00cccccc,0x00cccccc,0x00ffff00,0x0000ffff"/>
+		<parameter name="InformationColors" value="0x00ffffff,0x00ffffff,0x00ffffff,0x00cccccc,0x00cccccc,0x00ffffff,0x0000ffff"/>
 	</parameters>
 <!-- SKINFILES -->
 	<include filename="/usr/share/enigma2/MetrixHD/skinfiles/skin_unchecked.xml" />
