@@ -2,9 +2,9 @@ name: MetrixHD
 
 on:
   push:
-    branches: [ master, dev ]
+    branches: [ 7.1 ]
   pull_request:
-    branches: [ master, dev ]
+    branches: [ 7.1 ]
 
 jobs:
   build:
@@ -21,18 +21,8 @@ jobs:
 
       - uses: actions/checkout@v2
         with:
-          ref: 'master'
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '2.7'
+          ref: '7.1'
 
-      - name: Build, python 2.7
-        run: |
-          python -m compileall .
-
-      - uses: actions/checkout@v2
-        with:
-          ref: 'dev'
       - uses: actions/setup-python@v2
         with:
           python-version: '3.8'
@@ -43,7 +33,7 @@ jobs:
 
       - uses: actions/checkout@v2
         with:
-          ref: 'dev'
+          ref: '7.1'
       - uses: actions/setup-python@v2
         with:
           python-version: '3.9'
