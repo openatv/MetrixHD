@@ -37,6 +37,7 @@ from Components.NimManager import nimmanager
 
 from enigma import getDesktop
 from boxbranding import getBoxType
+from skin import colors, domScreens, fonts, reloadWindowStyles, parseColor
 
 from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, initFontsConfig, getTunerPositionList, appendSkinFile, \
 	SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, \
@@ -912,154 +913,10 @@ class ActivateSkinSettings:
 			# Skin
 			################
 
-			channelselectionservice = ('name="layer-a-channelselection-foreground" value="#00' + config.plugins.MyMetrixLiteColors.channelselectionservice.value + '"')
-			channelselectionserviceselected = ('name="layer-a-channelselection-foregroundColorSelected" value="#00' + config.plugins.MyMetrixLiteColors.channelselectionserviceselected.value + '"')
-			channelselectionservicedescription = ('name="layer-a-channelselection-foreground-ServiceDescription" value="#00' + config.plugins.MyMetrixLiteColors.channelselectionservicedescription.value + '"')
-			channelselectionprogress = ('name="layer-a-channelselection-progressbar" value="#00' + config.plugins.MyMetrixLiteColors.channelselectionprogress.value + '"')
-			channelselectionprogressborder = ('name="layer-a-channelselection-progressbarborder" value="#00' + config.plugins.MyMetrixLiteColors.channelselectionprogressborder.value + '"')
-			channelselectionservicedescriptionselected = ('name="layer-a-channelselection-foreground-ServiceDescriptionSelected" value="#00' + config.plugins.MyMetrixLiteColors.channelselectionservicedescriptionselected.value + '"')
-			channelselectioncolorServiceRecorded = ('name="layer-a-channelselection-foreground-colorServiceRecorded" value="#00' + config.plugins.MyMetrixLiteColors.channelselectioncolorServiceRecorded.value + '"')
-			channelselectioncolorServicePseudoRecorded = ('name="layer-a-channelselection-foreground-colorServicePseudoRecorded" value="#00' + config.plugins.MyMetrixLiteColors.channelselectioncolorServicePseudoRecorded.value + '"')
-			channelselectioncolorServiceStreamed = ('name="layer-a-channelselection-foreground-colorServiceStreamed" value="#00' + config.plugins.MyMetrixLiteColors.channelselectioncolorServiceStreamed.value + '"')
-
-			windowtitletext = ('name="title-foreground" value="#' + config.plugins.MyMetrixLiteColors.windowtitletexttransparency.value + config.plugins.MyMetrixLiteColors.windowtitletext.value + '"')
-			windowtitletextback = ('name="title-background" value="#' + config.plugins.MyMetrixLiteColors.windowtitletextbacktransparency.value + config.plugins.MyMetrixLiteColors.windowtitletextback.value + '"')
-			backgroundtext = ('name="background-text" value="#' + config.plugins.MyMetrixLiteColors.backgroundtexttransparency.value + config.plugins.MyMetrixLiteColors.backgroundtext.value + '"')
-			backgroundtextback = ('name="text-background" value="#' + config.plugins.MyMetrixLiteColors.backgroundtextbacktransparency.value + config.plugins.MyMetrixLiteColors.backgroundtextback.value + '"')
-
-			layerabackground = ('name="layer-a-background" value="#' + config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layerabackground.value + '"')
-			layeraforeground = ('name="layer-a-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layeraforeground.value + '"')
-			layeraselectionbackground = ('name="layer-a-selection-background" value="#' + config.plugins.MyMetrixLiteColors.layeraselectionbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layeraselectionbackground.value + '"')
-			layeraselectionforeground = ('name="layer-a-selection-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layeraselectionforeground.value + '"')
-			layeraaccent1 = ('name="layer-a-accent1" value="#00' + config.plugins.MyMetrixLiteColors.layeraaccent1.value + '"')
-			layeraaccent2 = ('name="layer-a-accent2" value="#00' + config.plugins.MyMetrixLiteColors.layeraaccent2.value + '"')
-			layeraextendedinfo1 = ('name="layer-a-extendedinfo1" value="#00' + config.plugins.MyMetrixLiteColors.layeraextendedinfo1.value + '"')
-			layeraextendedinfo2 = ('name="layer-a-extendedinfo2" value="#00' + config.plugins.MyMetrixLiteColors.layeraextendedinfo2.value + '"')
-			layeraprogress = ('name="layer-a-progress" value="#' + config.plugins.MyMetrixLiteColors.layeraprogresstransparency.value + config.plugins.MyMetrixLiteColors.layeraprogress.value + '"')
-			layeraunderline = ('name="layer-a-underline" value="#' + config.plugins.MyMetrixLiteColors.layeraunderlinetransparency.value + config.plugins.MyMetrixLiteColors.layeraunderline.value + '"')
-
-			layerbbackground = ('name="layer-b-background" value="#' + config.plugins.MyMetrixLiteColors.layerbbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layerbbackground.value + '"')
-			layerbforeground = ('name="layer-b-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layerbforeground.value + '"')
-			layerbselectionbackground = ('name="layer-b-selection-background" value="#' + config.plugins.MyMetrixLiteColors.layerbselectionbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.layerbselectionbackground.value + '"')
-			layerbselectionforeground = ('name="layer-b-selection-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layerbselectionforeground.value + '"')
-			layerbaccent1 = ('name="layer-b-accent1" value="#00' + config.plugins.MyMetrixLiteColors.layerbaccent1.value + '"')
-			layerbaccent2 = ('name="layer-b-accent2" value="#00' + config.plugins.MyMetrixLiteColors.layerbaccent2.value + '"')
-			layerbprogress = ('name="layer-b-progress" value="#' + config.plugins.MyMetrixLiteColors.layerbprogresstransparency.value + config.plugins.MyMetrixLiteColors.layerbprogress.value + '"')
-
-			epgeventdescriptionbackground = ('name="epg-eventdescription-background" value="#' + config.plugins.MyMetrixLiteColors.epgeventdescriptionbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgeventdescriptionbackground.value + '"')
-			epgeventdescriptionforeground = ('name="epg-eventdescription-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgeventdescriptionforeground.value + '"')
-			epgbackground = ('name="epg-background" value="#' + config.plugins.MyMetrixLiteColors.epgbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgbackground.value + '"')
-			epgborderlines = ('name="epg-borderlines" value="#' + config.plugins.MyMetrixLiteColors.epgborderlinestransparency.value + config.plugins.MyMetrixLiteColors.epgborderlines.value + '"')
-			epgeventforeground = ('name="epg-event-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgeventforeground.value + '"')
-			epgeventbackground = ('name="epg-event-background" value="#' + config.plugins.MyMetrixLiteColors.epgeventbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgeventbackground.value + '"')
-			epgprimetimeforeground = ('name="epg-primetime-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgprimetimeforeground.value + '"')
-			epgprimetimebackground = ('name="epg-primetime-background" value="#' + config.plugins.MyMetrixLiteColors.epgprimetimebackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgprimetimebackground.value + '"')
-			epgeventnowforeground = ('name="epg-event-now-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgeventnowforeground.value + '"')
-			epgeventnowbackground = ('name="epg-event-now-background" value="#' + config.plugins.MyMetrixLiteColors.epgeventnowbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgeventnowbackground.value + '"')
-			epgeventselectedforeground = ('name="epg-event-selected-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgeventselectedforeground.value + '"')
-			epgeventselectedbackground = ('name="epg-event-selected-background" value="#' + config.plugins.MyMetrixLiteColors.epgeventselectedbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgeventselectedbackground.value + '"')
-			epgserviceforeground = ('name="epg-service-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgserviceforeground.value + '"')
-			epgservicebackground = ('name="epg-service-background" value="#' + config.plugins.MyMetrixLiteColors.epgservicebackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgservicebackground.value + '"')
-			epgservicenowforeground = ('name="epg-service-now-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgservicenowforeground.value + '"')
-			epgservicenowbackground = ('name="epg-service-now-background" value="#' + config.plugins.MyMetrixLiteColors.epgservicenowbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgservicenowbackground.value + '"')
-			epgtimelineforeground = ('name="epg-timeline-foreground" value="#00' + config.plugins.MyMetrixLiteColors.epgtimelineforeground.value + '"')
-			epgtimelinebackground = ('name="epg-timeline-background" value="#' + config.plugins.MyMetrixLiteColors.epgtimelinebackgroundtransparency.value + config.plugins.MyMetrixLiteColors.epgtimelinebackground.value + '"')
-
-			layeratitleforeground = ('name="layer-a-title-foreground" value="#00' + config.plugins.MyMetrixLiteColors.windowtitletext.value + '"')
-			layerabuttonforeground = ('name="layer-a-button-foreground" value="#00' + config.plugins.MyMetrixLiteColors.buttonforeground.value + '"')
-			layeraclockforeground = ('name="layer-a-clock-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layeraclockforeground.value + '"')
-			layerbclockforeground = ('name="layer-b-clock-foreground" value="#00' + config.plugins.MyMetrixLiteColors.layerbclockforeground.value + '"')
-			weatherborderlines = ('name="weather-borderlines" value="#' + config.plugins.MyMetrixLiteColors.weatherborderlinestransparency.value + config.plugins.MyMetrixLiteColors.weatherborderlines.value + '"')
-
-			menufont = ('name="menufont" value="#00' + config.plugins.MyMetrixLiteColors.menufont.value + '"')
-			menufontselected = ('name="menufontselected" value="#00' + config.plugins.MyMetrixLiteColors.menufontselected.value + '"')
-			menubackground = ('name="menubackground" value="#' + config.plugins.MyMetrixLiteColors.menubackgroundtransparency.value + config.plugins.MyMetrixLiteColors.menubackground.value + '"')
-			menusymbolbackground = ('name="menusymbolbackground" value="#' + config.plugins.MyMetrixLiteColors.menusymbolbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.menusymbolbackground.value + '"')
-			infobarbackground = ('name="infobarbackground" value="#' + config.plugins.MyMetrixLiteColors.infobarbackgroundtransparency.value + config.plugins.MyMetrixLiteColors.infobarbackground.value + '"')
-			infobarprogress = ('name="infobarprogress" value="#' + config.plugins.MyMetrixLiteColors.infobarprogresstransparency.value + config.plugins.MyMetrixLiteColors.infobarprogress.value + '"')
-			infobarfont1 = ('name="infobarfont1" value="#00' + config.plugins.MyMetrixLiteColors.infobarfont1.value + '"')
-			infobarfont2 = ('name="infobarfont2" value="#00' + config.plugins.MyMetrixLiteColors.infobarfont2.value + '"')
-			infobaraccent1 = ('name="infobaraccent1" value="#00' + config.plugins.MyMetrixLiteColors.infobaraccent1.value + '"')
-			infobaraccent2 = ('name="infobaraccent2" value="#00' + config.plugins.MyMetrixLiteColors.infobaraccent2.value + '"')
-			scrollbarSlidercolor = ('name="scrollbarSlidercolor" value="#' + config.plugins.MyMetrixLiteColors.scrollbarSlidertransparency.value + config.plugins.MyMetrixLiteColors.scrollbarSlidercolor.value + '"')
-			scrollbarSliderbordercolor = ('name="scrollbarSliderbordercolor" value="#' + config.plugins.MyMetrixLiteColors.scrollbarSliderbordertransparency.value + config.plugins.MyMetrixLiteColors.scrollbarSliderbordercolor.value + '"')
-
 			skinSearchAndReplace = []
 			orgskinSearchAndReplace = []  # needed for some attributes (e.g. borderset setting was lost after using plugin media portal - because restored settings from skin.xml and not from skin.MySkin.xml)
 			skinSearchAndReplace.append(['<!-- original file -->', ''])
 			orgskinSearchAndReplace.append(['<!-- original file -->', '<!-- !!!copied and changed file!!! -->'])
-
-			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground" value="#00FFFFFF"', channelselectionservice])
-			skinSearchAndReplace.append(['name="layer-a-channelselection-foregroundColorSelected" value="#00FFFFFF"', channelselectionserviceselected])
-			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-ServiceDescription" value="#00BDBDBD"', channelselectionservicedescription])
-			skinSearchAndReplace.append(['name="layer-a-channelselection-progressbar" value="#00BDBDBD"', channelselectionprogress])
-			skinSearchAndReplace.append(['name="layer-a-channelselection-progressbarborder" value="#00BDBDBD"', channelselectionprogressborder])
-			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-ServiceDescriptionSelected" value="#00FFFFFF"', channelselectionservicedescriptionselected])
-			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-colorServiceRecorded" value="#00E51400"', channelselectioncolorServiceRecorded])
-			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-colorServicePseudoRecorded" value="#000000CD"', channelselectioncolorServicePseudoRecorded])
-			skinSearchAndReplace.append(['name="layer-a-channelselection-foreground-colorServiceStreamed" value="#00E51400"', channelselectioncolorServiceStreamed])
-
-			skinSearchAndReplace.append(['name="layer-a-background" value="#1A0F0F0F"', layerabackground])
-			skinSearchAndReplace.append(['name="layer-a-foreground" value="#00FFFFFF"', layeraforeground])
-			skinSearchAndReplace.append(['name="layer-a-selection-background" value="#1A27408B"', layeraselectionbackground])
-			skinSearchAndReplace.append(['name="layer-a-selection-foreground" value="#00FFFFFF"', layeraselectionforeground])
-			skinSearchAndReplace.append(['name="layer-a-accent1" value="#00BDBDBD"', layeraaccent1])
-			skinSearchAndReplace.append(['name="layer-a-accent2" value="#006E6E6E"', layeraaccent2])
-			skinSearchAndReplace.append(['name="layer-a-extendedinfo1" value="#00BDBDBD"', layeraextendedinfo1])
-			skinSearchAndReplace.append(['name="layer-a-extendedinfo2" value="#006E6E6E"', layeraextendedinfo2])
-			skinSearchAndReplace.append(['name="layer-a-progress" value="#1A27408B"', layeraprogress])
-			skinSearchAndReplace.append(['name="layer-a-underline" value="#00BDBDBD"', layeraunderline])
-
-			skinSearchAndReplace.append(['name="layer-b-background" value="#1A27408B"', layerbbackground])
-			skinSearchAndReplace.append(['name="layer-b-foreground" value="#00FFFFFF"', layerbforeground])
-			skinSearchAndReplace.append(['name="layer-b-selection-background" value="#1A0F0F0F"', layerbselectionbackground])
-			skinSearchAndReplace.append(['name="layer-b-selection-foreground" value="#00FFFFFF"', layerbselectionforeground])
-			skinSearchAndReplace.append(['name="layer-b-accent1" value="#00BDBDBD"', layerbaccent1])
-			skinSearchAndReplace.append(['name="layer-b-accent2" value="#006E6E6E"', layerbaccent2])
-			skinSearchAndReplace.append(['name="layer-b-progress" value="#1AFFFFFF"', layerbprogress])
-
-			skinSearchAndReplace.append(['name="title-foreground" value="#00FFFFFF"', windowtitletext])
-			skinSearchAndReplace.append(['name="title-background" value="#000F0F0F"', windowtitletextback])
-			skinSearchAndReplace.append(['name="background-text" value="#34FFFFFF"', backgroundtext])
-			skinSearchAndReplace.append(['name="text-background" value="#67FFFFFF"', backgroundtextback])
-
-			skinSearchAndReplace.append(['name="epg-eventdescription-background" value="#1A27408B"', epgeventdescriptionbackground])
-			skinSearchAndReplace.append(['name="epg-eventdescription-foreground" value="#00FFFFFF"', epgeventdescriptionforeground])
-			skinSearchAndReplace.append(['name="epg-background" value="#1A0F0F0F"', epgbackground])
-			skinSearchAndReplace.append(['name="epg-borderlines" value="#1ABDBDBD"', epgborderlines])
-			skinSearchAndReplace.append(['name="epg-event-foreground" value="#00FFFFFF"', epgeventforeground])
-			skinSearchAndReplace.append(['name="epg-event-background" value="#1A0F0F0F"', epgeventbackground])
-			skinSearchAndReplace.append(['name="epg-primetime-foreground" value="#00008A00"', epgprimetimeforeground])
-			skinSearchAndReplace.append(['name="epg-primetime-background" value="#1A0F0F0F"', epgprimetimebackground])
-			skinSearchAndReplace.append(['name="epg-event-now-foreground" value="#00FFFFFF"', epgeventnowforeground])
-			skinSearchAndReplace.append(['name="epg-event-now-background" value="#1A000000"', epgeventnowbackground])
-			skinSearchAndReplace.append(['name="epg-event-selected-foreground" value="#00FFFFFF"', epgeventselectedforeground])
-			skinSearchAndReplace.append(['name="epg-event-selected-background" value="#1A27408B"', epgeventselectedbackground])
-			skinSearchAndReplace.append(['name="epg-service-foreground" value="#00FFFFFF"', epgserviceforeground])
-			skinSearchAndReplace.append(['name="epg-service-background" value="#1A0F0F0F"', epgservicebackground])
-			skinSearchAndReplace.append(['name="epg-service-now-foreground" value="#00FFFFFF"', epgservicenowforeground])
-			skinSearchAndReplace.append(['name="epg-service-now-background" value="#1A27408B"', epgservicenowbackground])
-			skinSearchAndReplace.append(['name="epg-timeline-foreground" value="#00F0A30A"', epgtimelineforeground])
-			skinSearchAndReplace.append(['name="epg-timeline-background" value="#1A000000"', epgtimelinebackground])
-
-			skinSearchAndReplace.append(['name="layer-a-title-foreground" value="#00FFFFFF"', layeratitleforeground])
-			skinSearchAndReplace.append(['name="layer-a-button-foreground" value="#00FFFFFF"', layerabuttonforeground])
-			skinSearchAndReplace.append(['name="layer-a-clock-foreground" value="#00FFFFFF"', layeraclockforeground])
-			skinSearchAndReplace.append(['name="layer-b-clock-foreground" value="#00FFFFFF"', layerbclockforeground])
-			skinSearchAndReplace.append(['name="weather-borderlines" value="#00FFFFFF"', weatherborderlines])
-
-			skinSearchAndReplace.append(['name="menufont" value="#00FFFFFF"', menufont])
-			skinSearchAndReplace.append(['name="menufontselected" value="#00FFFFFF"', menufontselected])
-			skinSearchAndReplace.append(['name="menubackground" value="#1A0F0F0F"', menubackground])
-			skinSearchAndReplace.append(['name="menusymbolbackground" value="#1A27408B"', menusymbolbackground])
-			skinSearchAndReplace.append(['name="infobarbackground" value="#1A0F0F0F"', infobarbackground])
-			skinSearchAndReplace.append(['name="infobarprogress" value="#1A27408B"', infobarprogress])
-			skinSearchAndReplace.append(['name="infobarfont1" value="#00FFFFFF"', infobarfont1])
-			skinSearchAndReplace.append(['name="infobarfont2" value="#00BDBDBD"', infobarfont2])
-			skinSearchAndReplace.append(['name="infobaraccent1" value="#00BDBDBD"', infobaraccent1])
-			skinSearchAndReplace.append(['name="infobaraccent2" value="#006E6E6E"', infobaraccent2])
-			skinSearchAndReplace.append(['name="scrollbarSlidercolor" value="#00FFFFFF"', scrollbarSlidercolor])
-			skinSearchAndReplace.append(['name="scrollbarSliderbordercolor" value="#0027408B"', scrollbarSliderbordercolor])
 
 			#Borderset screens
 			w = 5
@@ -3436,3 +3293,53 @@ class ActivateSkinSettings:
 			</widget>'''
 
 		return ""
+
+
+# applySkinSettings taken from OverlayHD
+def applySkinSettings(fullInit=False):
+	ActivateSkinSettings().initConfigs()
+	colorelements = [
+		("layer-a-channelselection-foreground", "channelselectionservice", ""),
+		("layer-a-channelselection-foregroundColorSelected", "channelselectionserviceselected", ""),
+		("layer-a-channelselection-foreground-ServiceDescription", "channelselectionservicedescription", ""),
+		("layer-a-channelselection-progressbar", "channelselectionprogress", ""),
+		("layer-a-channelselection-progressbarborder", "channelselectionprogressborder", ""),
+		("layer-a-channelselection-foreground-ServiceDescriptionSelected", "channelselectionservicedescriptionselected", ""),
+		("layer-a-channelselection-foreground-colorServiceRecorded", "channelselectioncolorServiceRecorded", ""),
+		("layer-a-channelselection-foreground-colorServicePseudoRecorded", "channelselectioncolorServicePseudoRecorded", ""),
+		("layer-a-channelselection-foreground-colorServiceStreamed", "channelselectioncolorServiceStreamed", ""),
+
+		("title-foreground", "windowtitletext", "windowtitletexttransparency"),
+		("title-background", "windowtitletextback", "windowtitletextbacktransparency"),
+		("background-text", "backgroundtext", "backgroundtexttransparency"),
+		("text-background", "backgroundtextback", "backgroundtextbacktransparency"),
+
+		("layer-a-title-foreground", "windowtitletext", ""),
+		("layer-a-button-foreground", "buttonforeground", ""),
+
+		("scrollbarSlidercolor", "scrollbarSlidercolor", "scrollbarSlidertransparency"),
+		("scrollbarSliderbordercolor", "scrollbarSliderbordercolor", "scrollbarSliderbordertransparency"),
+
+	]
+
+	for colorelement in ["menufont", "menufontselected", "infobarfont1", "infobarfont2", "infobaraccent1", "infobaraccent2", "layer-a-clock-foreground", "layer-b-clock-foreground", "epg-timeline-foreground", "epg-service-now-foreground", "epg-service-foreground", "epg-event-selected-foreground", "epg-event-now-foreground", "epg-primetime-foreground", "epg-event-foreground", "epg-eventdescription-foreground", "layer-b-accent1", "layer-b-accent2", "layer-b-selection-foreground", "layer-b-foreground", "layer-a-extendedinfo1", "layer-a-extendedinfo2", "layer-a-accent1", "layer-a-accent2", "layer-a-selection-foreground", "layer-a-foreground"]:
+		colorelements.append((colorelement, colorelement.replace("-", ""), ""))
+
+	for colorelement in ["menubackground", "menusymbolbackground", "infobarbackground", "infobarprogress", "weather-borderlines", "epg-timeline-background", "epg-service-now-background", "epg-service-background", "epg-event-selected-background", "epg-event-now-background", "epg-primetime-background", "epg-event-background", "epg-background", "epg-borderlines", "epg-eventdescription-background", "layer-b-progress", "layer-b-selection-background", "layer-b-background", "layer-a-underline", "layer-a-progress", "layer-a-selection-background", "layer-a-background"]:
+		colorelements.append((colorelement, colorelement.replace("-", ""), "%stransparency" % colorelement.replace("-", "")))
+
+	for (label, color, transparency) in colorelements:
+
+		if color and transparency:
+			colorobject = getattr(config.plugins.MyMetrixLiteColors, color)
+			transobject = getattr(config.plugins.MyMetrixLiteColors, transparency)
+			colorvalue = "#%s%s" % (transobject.value, colorobject.value)
+		elif color:
+			colorobject = getattr(config.plugins.MyMetrixLiteColors, color)
+			colorvalue = "#00%s" % colorobject.value
+		else:
+			continue
+
+		colors[label] = parseColor(colorvalue)
+
+	reloadWindowStyles()
