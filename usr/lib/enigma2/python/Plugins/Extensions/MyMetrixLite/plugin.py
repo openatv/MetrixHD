@@ -208,9 +208,9 @@ class InfoBarMetrixWeatherHandler():
 
 	def hookInfoBar(self, reason, instanceInfoBar):
 		if reason:
-			instanceInfoBar.disconnectShowHideNotifier(self.processDisplay)
-		else:
 			instanceInfoBar.connectShowHideNotifier(self.processDisplay)
+		else:
+			instanceInfoBar.disconnectShowHideNotifier(self.processDisplay)
 
 	def reconfigure(self):
 		InfoBarMetrixWeather.instance.close()
