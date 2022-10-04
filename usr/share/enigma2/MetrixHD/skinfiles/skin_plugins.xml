@@ -2992,12 +2992,21 @@
 		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/ok.png" transparent="1" alphatest="blend" />
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/key_exit.png" transparent="1" alphatest="blend" />
 	</screen>
-	<screen name="vEditorScreen" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="FileCommanderEditor" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list_head" position="70,90" size="1140,50" font="screen_text;19" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" conditional="list_head" />
 		<widget name="filename" position="70,90" size="1040,50" font="screen_text;18" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" conditional="filename" />
 		<widget name="filedata" position="70,140" size="1140,480" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
 		<widget name="line" position="1110,90" size="100,50" font="screen_text;18" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" conditional="line" />
+		<panel name="template1_1layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/ok.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/key_exit.png" transparent="1" alphatest="blend" />
+	</screen>
+	<!-- OLD FileCommander vEditorScreen -->
+	<screen name="vEditorScreen" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list_head" position="70,90" size="1140,50" font="screen_text;19" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" conditional="list_head" />
+		<widget name="filedata" position="70,140" size="1140,480" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
 		<panel name="template1_1layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/ok.png" transparent="1" alphatest="blend" />
