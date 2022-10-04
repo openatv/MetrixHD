@@ -4,7 +4,6 @@
 #    </widget>
 from os import listdir
 from enigma import ePixmap, eTimer
-
 from Components.config import config
 from Components.Renderer.Renderer import Renderer
 from Tools.Directories import fileExists, pathExists
@@ -21,6 +20,7 @@ class MetrixHDWeatherPixmap(Renderer):
 		self.pixdelay = 100
 		self.pixdelay_overwrite = False
 		self.slideicon = None
+		self.winddiricon = None
 
 	def applySkin(self, desktop, parent):
 		attribs = []
@@ -42,10 +42,7 @@ class MetrixHDWeatherPixmap(Renderer):
 		if self.instance:
 			sname = ''
 			if (what[0] != self.CHANGED_CLEAR):
-				if config.plugins.MetrixWeather.weatherservice.value == "MSN":
-					sname = self.source.text
-				else:
-					sname = self.ConvertCondition(self.source.text)
+				sname = self.source.text
 				for path in self.searchPaths:
 					if pathExists((path % self.path)):
 						self.runAnim(sname)
@@ -72,7 +69,7 @@ class MetrixHDWeatherPixmap(Renderer):
 		if animokicon == True:
 			self.picsicon = []
 			for x in range(self.slideicon):
-				self.picsicon.append(LoadPixmap(pathanimicon + str(x) + '.png'))
+				self.picsicon.append(LoadPixmap("%s%s.png" % (pathanimicon, str(x))))
 
 			if not self.pixdelay_overwrite:
 				self.pixdelay = int(config.plugins.MetrixWeather.animationspeed.value)
@@ -95,47 +92,3 @@ class MetrixHDWeatherPixmap(Renderer):
 		self.slideicon = self.slideicon - 1
 		if self.pixdelay:
 			self.timericon.start(self.pixdelay, True)
-
-	def ConvertCondition(self, c):
-		condition = "NA"
-		if c == "S":
-			condition = "0"
-		elif c == "Z":
-			condition = "3"
-		elif c == "U":
-			condition = "5"
-		elif c == "G":
-			condition = "8"
-		elif c == "Q":
-			condition = "9"
-		elif c == "R":
-			condition = "11"
-		elif c == "W":
-			condition = "13"
-		elif c == "X":
-			condition = "17"
-		elif c == "F":
-			condition = "19"
-		elif c == "L":
-			condition = "20"
-		elif c == "S":
-			condition = "23"
-		elif c == "N" or c == "Y":
-			condition = "26"
-		elif c == "I":
-			condition = "27"
-		elif c == "H":
-			condition = "28"
-		elif c == "C":
-			condition = "31"
-		elif c == "B":
-			condition = "32"
-		elif c == "B":
-			condition = "36"
-		elif c == "0":
-			condition = "37"
-		elif c == 49:
-			condition = "NA"
-		else:
-			condition = "NA"
-		return str(condition)
