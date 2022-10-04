@@ -3049,6 +3049,18 @@
 	<screen name="UnpackInfoScreen" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="ArchiverInfoScreen"/>
 	</screen>
+
+	<screen name="FileCommanderImageViewer" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="0,0" zPosition="0" size="1280,720" backgroundColor="#00000000" />
+		<widget name="image" position="0,0" size="1280,720" zPosition="1" alphatest="on" />
+		<ePixmap position="0,0" size="1280,30" zPosition="1" pixmap="colorgradient_imageviewer.png" transparent="1" alphatest="blend" />
+		<widget name="status" position="9,7" size="20,20" zPosition="2" pixmap="icons/record.png" alphatest="blend" />
+		<widget name="icon" position="29,5" size="20,20" zPosition="2" pixmap="icons/ico_mp_play.png" alphatest="blend" />
+		<widget source="message" render="Label" position="54,0" size="1200,30" font="screen_text;20" halign="left" foregroundColor="#0038FF48" backgroundColor="layer-a-background" zPosition="2" noWrap="1" transparent="1" />
+		<widget name="infolabels" position="10,10" size="250,600" backgroundColor="layer-a-background" borderWidth="2" font="screen_text;20" foregroundColor="#0038FF48" halign="right" transparent="1" zPosition="+3" />
+		<widget name="infodata" position="270,10" size="1000,600" backgroundColor="layer-a-background" borderWidth="2" font="screen_text;20" foregroundColor="#0038FF48" halign="left" transparent="1" zPosition="+3" />
+	</screen>
+
 	<screen name="ImageViewer" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="0,0" zPosition="0" size="1280,720" backgroundColor="#00000000" />
 		<widget name="image" position="0,0" size="1280,720" zPosition="1" alphatest="on" />
