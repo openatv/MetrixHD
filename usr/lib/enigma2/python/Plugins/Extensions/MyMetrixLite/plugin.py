@@ -22,6 +22,7 @@ from . import _
 from enigma import eTimer
 from Components.config import config, ConfigSubsection, ConfigYesNo, ConfigSelection, ConfigSelectionNumber, ConfigText, ConfigNumber
 from Components.Label import Label, MultiColorLabel
+from Components.Pixmap import MultiPixmap
 from Components.Sources.StaticText import StaticText
 from Components.SystemInfo import BoxInfo
 from Plugins.Plugin import PluginDescriptor
@@ -93,6 +94,9 @@ class InfoBarMetrixWeather(Screen):
 		self["WindSpeed"] = Label("")
 		self["WindDir"] = Label("")  # Das gibt es nicht
 		self["currentDataValid"] = MultiColorLabel("")
+		self["logo"] = MultiPixmap()
+		self["logo"].setPixmapNum(0 if config.plugins.MetrixWeather.service.value == "MSN" else 1)
+
 		if config.plugins.MetrixWeather.detail.value:
 			self["Location"] = Label("")
 		for day in range(1, self.forecast + 1):  # define user-demanded forecasts only
@@ -174,7 +178,7 @@ class InfoBarMetrixWeather(Screen):
 			self["MinTemp_%d" % day].setText("%s %s" % (data["forecast"][day]["minTemp"], tempsign))
 			self["MaxTemp_%d" % day].setText("%s %s" % (data["forecast"][day]["maxTemp"], tempsign))
 		self.trycounter = 0
-		self.setWeatherDataValid(2)
+		self.setWeatherDataValid(0)
 
 		seconds = int(config.plugins.MetrixWeather.refreshInterval.value * 60)
 		self.refreshTimer.start(seconds * 1000, True)
@@ -184,7 +188,6 @@ class InfoBarMetrixWeather(Screen):
 		config.plugins.MetrixWeather.currentWeatherDataValid.save()
 		self["currentDataValid"].setText("")
 		self["currentDataValid"].setBackgroundColorNum(value)
-		self["currentDataValid"].hide()
 
 	def cleanUp(self):
 		self.refreshTimer.stop()
@@ -233,10 +236,10 @@ def autostart(reason, **kwargs):
 
 
 def info(reason, session, **kwargs):
-	print("InfoBarMetrixWeatherHandler info")
 	typeInfoBar = kwargs["typeInfoBar"]
+	print("InfoBarMetrixWeatherHandler info type=%s" % typeInfoBar)
 	if config.plugins.MetrixWeather.enabled.value:
-		if typeInfoBar == "InfoBar" or (config.plugins.MetrixWeather.moviePlayer.value and typeInfoBar == "moviePlayer"):
+		if typeInfoBar == "InfoBar" or (config.plugins.MetrixWeather.MoviePlayer.value and typeInfoBar == "moviePlayer"):
 			infobarmetrixweatherhandler.hookInfoBar(reason, kwargs["instance"])
 
 

@@ -17,119 +17,117 @@
 		<panel name="SKINPART_infobar"/>
 	</screen>
 
-	<screen name="InfoBarMetrixWeatherMin" backgroundColor="transparent" flags="wfNoBorder" position="0,0" size="400,220" title="InfoBarMetrixWeather">
-		<panel name="InfoBarMetrixWeather"/>
+	<screen name="InfoBarMetrixWeatherMin" backgroundColor="transparent" flags="wfNoBorder" position="40,40" size="345,170" title="InfoBarMetrixWeather">
+		<panel name="InfoBarMetrixWeather" />
 	</screen>
-	<screen name="InfoBarMetrixWeatherMax" backgroundColor="transparent" flags="wfNoBorder" position="0,0" size="800,220" title="InfoBarMetrixWeather">
-		<panel name="InfoBarMetrixWeather"/>
+	<screen name="InfoBarMetrixWeatherMax" backgroundColor="transparent" flags="wfNoBorder" position="40,40" size="845,170" title="InfoBarMetrixWeather">
+		<panel name="InfoBarMetrixWeather" />
 	</screen>
 
-	<screen name="InfoBarMetrixWeather" backgroundColor="transparent" flags="wfNoBorder" position="0,0" size="800,200" title="InfoBarMetrixWeather">
+	<screen name="InfoBarMetrixWeather" backgroundColor="transparent" flags="wfNoBorder" position="40,40" size="845,170" title="InfoBarMetrixWeather">
 		<!-- TODAY -->
-	<eLabel backgroundColor="layer-a-background" position="40,40" size="219,71" />
-	<widget name="Temp" backgroundColor="layer-a-background" font="global_clock;60" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="35,50" size="84,64" transparent="1" valign="bottom" zPosition="10"/>
-	<widget name="Tempsign" backgroundColor="layer-a-background" font="global_clock;16" foregroundColor="layer-a-clock-foreground" halign="left" noWrap="1" position="122,42" size="30,30" transparent="1" valign="bottom" zPosition="10"/>
+	<eLabel backgroundColor="layer-a-background" position="0,0" size="219,71" />
+	<widget name="Temp" backgroundColor="layer-a-background" font="global_clock;60" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="-5,10" size="84,64" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="Tempsign" backgroundColor="layer-a-background" font="global_clock;16" foregroundColor="layer-a-clock-foreground" halign="left" noWrap="1" position="82,2" size="30,30" transparent="1" valign="bottom" zPosition="10" />
 
-	<widget font="MetrixIcons;50" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" halign="left" noWrap="1" position="144,46" render="Label" size="59,59" source="FontCode" transparent="1" valign="center" zPosition="9">
+	<widget font="MetrixIcons;50" backgroundColor="layer-a-background" foregroundColor="layer-a-clock-foreground" halign="left" noWrap="1" position="104,6" render="Label" size="59,59" source="FontCode" transparent="1" valign="center" zPosition="9">
 		<convert type="ConditionalShowHide" />
 	</widget>
-	<widget render="MetrixHDWeatherPixmap" position="144,46" size="59,59" source="IconCode" alphatest="blend" zPosition="9">
+	<widget render="MetrixHDWeatherPixmap" position="104,6" size="59,59" source="IconCode" alphatest="blend" zPosition="9">
 		<convert type="ConditionalShowHide" />
 	</widget>
-	<widget name="ShortDay" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="200,44" size="49,21" transparent="1" valign="bottom" zPosition="10"/>
-	<widget name="MaxTemp" backgroundColor="layer-a-background" font="global_clock;16" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="200,65" size="49,21" transparent="1" valign="bottom" zPosition="10"/>
-	<widget name="MinTemp" backgroundColor="layer-a-background" font="global_clock;16" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="200,86" size="49,21" transparent="1" valign="bottom" zPosition="10"/>
+	<widget name="ShortDay" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="160,4" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MaxTemp" backgroundColor="layer-a-background" font="global_clock;16" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="160,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MinTemp" backgroundColor="layer-a-background" font="global_clock;16" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="160,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
 
-	<widget font="Regular;19" backgroundColors="green,yellow,red" position="41,41" size="2,69" name="currentDataValid" zPosition="10"/>
+	<widget font="Regular;19" backgroundColors="green,yellow,red" position="1,1" size="2,69" name="currentDataValid" zPosition="10" />
 
-	<panel name="InfoBarWeather_Details" conditional="Location"/>
-	<panel name="InfoBarWeatherForcast1" conditional="ShortDay_1"/>
-	<panel name="InfoBarWeatherForcast2" conditional="ShortDay_2"/>
-	<panel name="InfoBarWeatherForcast3" conditional="ShortDay_3"/>
-	<panel name="InfoBarWeatherForcast4" conditional="ShortDay_4"/>
-	<panel name="InfoBarWeatherForcast5" conditional="ShortDay_5"/>
+	<panel name="InfoBarWeather_Details" conditional="Location" />
+	<panel name="InfoBarWeatherForcast1" conditional="ShortDay_1" />
+	<panel name="InfoBarWeatherForcast2" conditional="ShortDay_2" />
+	<panel name="InfoBarWeatherForcast3" conditional="ShortDay_3" />
+	<panel name="InfoBarWeatherForcast4" conditional="ShortDay_4" />
+	<panel name="InfoBarWeatherForcast5" conditional="ShortDay_5" />
 	
 
 	</screen>
 
 	<screen name="InfoBarWeather_Details">
-	<eLabel backgroundColor="layer-b-background" position="40,111" size="219,99" />
-	<eLabel font="MetrixIcons;16" text="[" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="43,116" size="22,22" noWrap="1" halign="center" valign="center" transparent="1" zPosition="9" />
-	<widget name="WindSpeed" font="global_clock;16" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="69,115" size="60,20" noWrap="1" halign="left" valign="center" transparent="1" zPosition="10"/>
+	<eLabel backgroundColor="layer-b-background" position="0,71" size="219,99" />
+	<eLabel font="MetrixIcons;16" text="[" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="3,76" size="22,22" noWrap="1" halign="center" valign="center" transparent="1" zPosition="9" />
+	<widget name="WindSpeed" font="global_clock;16" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="29,75" size="60,20" noWrap="1" halign="left" valign="center" transparent="1" zPosition="10" />
 
-	<eLabel font="MetrixIcons;20" text="b" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="132,116" size="22,22" noWrap="1" halign="center" valign="center" transparent="1" zPosition="9" />
-	<widget name="WindDisplay" font="global_clock;16" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="158,115" size="100,20" noWrap="1" halign="left" valign="center" transparent="1" zPosition="10"/>
+	<eLabel font="MetrixIcons;20" text="b" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="92,76" size="22,22" noWrap="1" halign="center" valign="center" transparent="1" zPosition="9" />
+	<widget name="WindDisplay" font="global_clock;16" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="118,75" size="100,20" noWrap="1" halign="left" valign="center" transparent="1" zPosition="10" />
 
-	<eLabel font="MetrixIcons;16" text="k" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="43,140" size="22,22" noWrap="1" halign="center" valign="center" transparent="1" zPosition="9" />
-	<widget name="Feelslike" font="global_clock;16" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="69,139" size="60,20" noWrap="1" halign="left" valign="center" transparent="1" zPosition="10"/>
+	<eLabel font="MetrixIcons;16" text="k" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="3,100" size="22,22" noWrap="1" halign="center" valign="center" transparent="1" zPosition="9" />
+	<widget name="Feelslike" font="global_clock;16" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="29,99" size="60,20" noWrap="1" halign="left" valign="center" transparent="1" zPosition="10" />
 
-	<eLabel font="MetrixIcons;22" text="j" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="130,140" size="22,22" noWrap="1" halign="center" valign="center" transparent="1" zPosition="9" />
-	<widget name="Humidity" font="global_clock;16" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="158,139" size="45,20" noWrap="1" halign="left" valign="center" transparent="1" zPosition="10"/>
+	<eLabel font="MetrixIcons;22" text="j" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="90,100" size="22,22" noWrap="1" halign="center" valign="center" transparent="1" zPosition="9" />
+	<widget name="Humidity" font="global_clock;16" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="118,99" size="45,20" noWrap="1" halign="left" valign="center" transparent="1" zPosition="10" />
 
-	<eLabel font="MetrixIcons;18" text="," backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="43,162" size="22,22" noWrap="1" halign="center" valign="center" transparent="1" zPosition="9" />
-	<widget name="Location" font="global_clock;16" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="69,162" size="190,22" transparent="1" valign="center" zPosition="10" conditional="Location"/>
+	<eLabel font="MetrixIcons;18" text="," backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="3,122" size="22,22" noWrap="1" halign="center" valign="center" transparent="1" zPosition="9" />
+	<widget name="Location" font="global_clock;16" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="29,122" size="190,22" transparent="1" valign="center" zPosition="10" conditional="Location" />
 
-	<eLabel font="MetrixIcons;14" text="-" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="183,186" size="22,22" noWrap="1" halign="center" valign="center" transparent="1" zPosition="9" />
-	<widget name="Observationtime" font="global_clock;16" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="center" noWrap="1" position="199,186" size="55,22" transparent="1" valign="center" zPosition="10"/>
+	<eLabel font="MetrixIcons;14" text="-" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" position="133,146" size="22,22" noWrap="1" halign="center" valign="center" transparent="1" zPosition="9" />
+	<widget name="Observationtime" font="global_clock;16" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="center" noWrap="1" position="159,146" size="55,22" transparent="1" valign="center" zPosition="10" />
 
-	<!-- Weatherservice_Logo hier muss ein widget hin, oder im code die richtige Anzeige aktivieren -->
-	<ePixmap name="logo" alphatest="blend" pixmap="msn_weather_icons/msn_weather_logo.png" position="44,186" size="120,22" zPosition="10" />
-	<!-- <ePixmap name="logo" alphatest="blend" pixmap="msn_weather_icons/owm_weather_logo.png" position="44,186" size="120,22" zPosition="10" /> -->
+	<ePixmap name="logo" alphatest="blend" pixmaps="msn_weather_icons/msn_weather_logo.png,msn_weather_icons/owm_weather_logo.png" position="4,146" size="120,22" zPosition="10" />
 	</screen>
 		
 	<!--  +1 weekday -->
 	<screen name="InfoBarWeatherForcast1">
-	<eLabel backgroundColor="layer-b-background" position="259,40" size="125,71" />
-	<eLabel backgroundColor="weather-borderlines" position="259,40" size="1,71" />
-	<widget render="MetrixHDWeatherPixmap" position="270,46" size="59,59" source="IconCode_1" alphatest="blend" zPosition="9" conditional="IconCode_1"/>
-	<widget font="MetrixIcons;50" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="270,46" render="Label" size="59,59" source="FontCode_1" transparent="1" valign="center" zPosition="9" conditional="FontCode_1"/>
-	<widget name="ShortDay_1" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="326,44" size="49,21" transparent="1" valign="bottom" zPosition="10"/>
-	<widget name="MinTemp_1" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="326,65" size="49,21" transparent="1" valign="bottom" zPosition="10"/>
-	<widget name="MaxTemp_1" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="326,86" size="49,21" transparent="1" valign="bottom" zPosition="10"/>
+	<eLabel backgroundColor="layer-b-background" position="219,0" size="125,71" />
+	<eLabel backgroundColor="weather-borderlines" position="219,0" size="1,71" />
+	<widget render="MetrixHDWeatherPixmap" position="230,6" size="59,59" source="IconCode_1" alphatest="blend" zPosition="9" conditional="IconCode_1" />
+	<widget font="MetrixIcons;50" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="230,6" render="Label" size="59,59" source="FontCode_1" transparent="1" valign="center" zPosition="9" conditional="FontCode_1" />
+	<widget name="ShortDay_1" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="286,4" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MinTemp_1" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="286,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MaxTemp_1" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="286,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
 	</screen>
 
 	<!--  +2 weekday -->
 	<screen name="InfoBarWeatherForcast2">
-	<eLabel backgroundColor="layer-b-background" position="384,40" size="125,71" />
-	<eLabel backgroundColor="weather-borderlines" position="384,40" size="1,71" />
-	<widget render="MetrixHDWeatherPixmap" position="395,46" size="59,59" source="IconCode_2" alphatest="blend" zPosition="9" conditional="IconCode_2"/>
-	<widget font="MetrixIcons;50" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="395,46" render="Label" size="59,59" source="FontCode_2" transparent="1" valign="center" zPosition="9" conditional="FontCode_2"/>
-	<widget name="ShortDay_2" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="451,44" size="49,21" transparent="1" valign="bottom" zPosition="10"/>
-	<widget name="MinTemp_2" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="451,65" size="49,21" transparent="1" valign="bottom" zPosition="10"/>
-	<widget name="MaxTemp_2" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="451,86" size="49,21" transparent="1" valign="bottom" zPosition="10"/>
+	<eLabel backgroundColor="layer-b-background" position="344,0" size="125,71" />
+	<eLabel backgroundColor="weather-borderlines" position="344,0" size="1,71" />
+	<widget render="MetrixHDWeatherPixmap" position="355,6" size="59,59" source="IconCode_2" alphatest="blend" zPosition="9" conditional="IconCode_2" />
+	<widget font="MetrixIcons;50" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="355,6" render="Label" size="59,59" source="FontCode_2" transparent="1" valign="center" zPosition="9" conditional="FontCode_2" />
+	<widget name="ShortDay_2" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="411,4" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MinTemp_2" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="411,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MaxTemp_2" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="411,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
 	</screen>
 
 		<!--  +3 weekday -->
 	<screen name="InfoBarWeatherForcast3">
-	<eLabel backgroundColor="layer-b-background" position="509,40" size="125,71" />
-	<eLabel backgroundColor="weather-borderlines" position="509,40" size="1,71" />
-	<widget render="MetrixHDWeatherPixmap" position="520,46" size="59,59" source="IconCode_3" alphatest="blend" zPosition="9" conditional="IconCode_3"/>
-	<widget font="MetrixIcons;50" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="520,46" render="Label" size="59,59" source="FontCode_3" transparent="1" valign="center" zPosition="9" conditional="FontCode_3"/>
-	<widget name="ShortDay_3" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="576,44" size="49,21" transparent="1" valign="bottom" zPosition="10"/>
-	<widget name="MinTemp_3" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="576,65" size="49,21" transparent="1" valign="bottom" zPosition="10"/>
-	<widget name="MaxTemp_3" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="576,86" size="49,21" transparent="1" valign="bottom" zPosition="10"/>
+	<eLabel backgroundColor="layer-b-background" position="469,0" size="125,71" />
+	<eLabel backgroundColor="weather-borderlines" position="469,0" size="1,71" />
+	<widget render="MetrixHDWeatherPixmap" position="480,6" size="59,59" source="IconCode_3" alphatest="blend" zPosition="9" conditional="IconCode_3" />
+	<widget font="MetrixIcons;50" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="480,6" render="Label" size="59,59" source="FontCode_3" transparent="1" valign="center" zPosition="9" conditional="FontCode_3" />
+	<widget name="ShortDay_3" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="536,4" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MinTemp_3" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="536,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MaxTemp_3" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="536,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
 	</screen>
 
 	<!--  +4 weekday -->
 	<screen name="InfoBarWeatherForcast4">
-	<eLabel backgroundColor="layer-b-background" position="634,40" size="125,71" />
-	<eLabel backgroundColor="weather-borderlines" position="634,40" size="1,71" />
-	<widget render="MetrixHDWeatherPixmap" position="645,46" size="59,59" source="IconCode_4" alphatest="blend" zPosition="9" conditional="IconCode_4"/>
-	<widget font="MetrixIcons;50" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="645,46" render="Label" size="59,59" source="FontCode_4" transparent="1" valign="center" zPosition="9" conditional="FontCode_4"/>
-	<widget name="ShortDay_4" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="701,44" size="49,21" transparent="1" valign="bottom" zPosition="10"/>
-	<widget name="MinTemp_4" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="701,65" size="49,21" transparent="1" valign="bottom" zPosition="10"/>
-	<widget name="MaxTemp_4" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="701,86" size="49,21" transparent="1" valign="bottom" zPosition="10"/>
+	<eLabel backgroundColor="layer-b-background" position="594,0" size="125,71" />
+	<eLabel backgroundColor="weather-borderlines" position="594,0" size="1,71" />
+	<widget render="MetrixHDWeatherPixmap" position="605,6" size="59,59" source="IconCode_4" alphatest="blend" zPosition="9" conditional="IconCode_4" />
+	<widget font="MetrixIcons;50" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="605,6" render="Label" size="59,59" source="FontCode_4" transparent="1" valign="center" zPosition="9" conditional="FontCode_4" />
+	<widget name="ShortDay_4" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="661,4" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MinTemp_4" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="661,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MaxTemp_4" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="661,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
 	</screen>
 
 		<!--  +5 weekday -->
 	<screen name="InfoBarWeatherForcast5">
-	<eLabel backgroundColor="layer-b-background" position="759,40" size="125,71" />
-	<eLabel backgroundColor="weather-borderlines" position="759,40" size="1,71" />
-	<widget render="MetrixHDWeatherPixmap" position="770,46" size="59,59" source="IconCode_5" alphatest="blend" zPosition="9" conditional="IconCode_5"/>
-	<widget font="MetrixIcons;50" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="770,46" render="Label" size="59,59" source="FontCode_5" transparent="1" valign="center" zPosition="9" conditional="FontCode_5"/>
-	<widget name="ShortDay_5" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="826,44" size="49,21" transparent="1" valign="bottom" zPosition="10"/>
-	<widget name="MinTemp_5" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="826,65" size="49,21" transparent="1" valign="bottom" zPosition="10"/>
-	<widget name="MaxTemp_5" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="826,86" size="49,21" transparent="1" valign="bottom" zPosition="10"/>
+	<eLabel backgroundColor="layer-b-background" position="719,0" size="125,71" />
+	<eLabel backgroundColor="weather-borderlines" position="719,0" size="1,71" />
+	<widget render="MetrixHDWeatherPixmap" position="730,6" size="59,59" source="IconCode_5" alphatest="blend" zPosition="9" conditional="IconCode_5" />
+	<widget font="MetrixIcons;50" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="730,6" render="Label" size="59,59" source="FontCode_5" transparent="1" valign="center" zPosition="9" conditional="FontCode_5" />
+	<widget name="ShortDay_5" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="786,4" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MinTemp_5" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="786,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MaxTemp_5" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="786,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
 	</screen>
 
 
