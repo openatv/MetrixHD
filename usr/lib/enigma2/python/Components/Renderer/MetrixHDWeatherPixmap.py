@@ -22,7 +22,7 @@ class MetrixHDWeatherPixmap(Renderer):
 		self.slideicon = None
 		self.winddiricon = None
 		self.iconpath = config.plugins.MetrixWeather.iconpath.value
-		if not exists(self.iconpath) and config.plugins.MetrixWeather.type == "2":
+		if not exists(self.iconpath) and config.plugins.MetrixWeather.icontype == "2":
 			self.iconpath = None
 
 	def applySkin(self, desktop, parent):
@@ -45,13 +45,13 @@ class MetrixHDWeatherPixmap(Renderer):
 		if self.instance:
 			sname = ''
 			if (what[0] != self.CHANGED_CLEAR):
-				if config.plugins.MetrixWeather.type == "0":
+				if config.plugins.MetrixWeather.icontype == "0":
 					return
 				sname = self.source.text
 				if self.iconpath:
 					imgpath = pathjoin(self.iconpath, '%s.png' % sname)
 					if isfile(imgpath):
-						self.instance.setPixmap(imgpath)
+						self.instance.setPixmap(LoadPixmap(imgpath))
 					return
 				for path in self.searchPaths:
 					if exists((path % self.path)):

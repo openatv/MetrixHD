@@ -20,18 +20,16 @@
 #
 #
 #######################################################################
-from os import system
 from os.path import join as pathjoin, isdir
 
 from Components.ActionMap import ActionMap, HelpableActionMap
 from Components.config import config
 from Components.MenuList import MenuList
 from Components.Sources.StaticText import StaticText
-from Screens.LocationBox import DEFAULT_INHIBIT_DIRECTORIES, LocationBox
+from Screens.LocationBox import defaultInhibitDirs, LocationBox
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Screens.Setup import Setup
-from Tools.Directories import fileExists
 from Tools.Weatherinfo import Weatherinfo
 
 from . import _, MAIN_IMAGE_PATH
@@ -101,8 +99,6 @@ class WeatherSettingsLocation(Screen):
 			else:
 				weathercity = self.geodatalist[idx][0]
 			print("[WeatherSettingsView] set new owm_geocode: %s" % config.plugins.MetrixWeather.owm_geocode.value)
-			if fileExists('/tmp/weathermsn.xml'):  # ToDo: kann das weg? Evtl. eine Altlast?
-				system('rm /tmp/weathermsn.xml')
 			self.close((weathercity, self.geodatalist[idx][1], self.geodatalist[idx][2]))
 
 	def searchCity(self, weathercity):
@@ -121,12 +117,6 @@ class WeatherSettingsLocation(Screen):
 class WeatherSettingsView(Setup):
 	def __init__(self, session):
 		Setup.__init__(self, session, "WeatherSettings", plugin="Extensions/MyMetrixLite")
-		for index, item in enumerate(self["config"].getList()):
-			if len(item) > 1 and item[1] == config.plugins.MetrixWeather.iconpath:
-				self.pathItem = index
-				break
-		else:
-			self.pathItem = None
 		self["key_blue"] = StaticText()
 		self["blueActions"] = HelpableActionMap(self, ["ColorActions"], {
 			"blue": (self.checkID, _("Get ID for your City"))
@@ -147,8 +137,8 @@ class WeatherSettingsView(Setup):
 			Setup.keySave(self)
 
 	def keySelect(self):
-		if self.getCurrentItem() == self.pathItem:
-			self.session.openWithCallback(self.keySelectCallback, WeatherSettingsLocationBox)
+		if self.getCurrentItem() == config.plugins.MetrixWeather.iconpath:
+			self.session.openWithCallback(self.keySelectCallback, WeatherSettingsLocationBox, currDir=config.plugins.MetrixWeather.iconpath.value)
 		else:
 			Setup.keySelect(self)
 
@@ -168,8 +158,8 @@ class WeatherSettingsView(Setup):
 		self.changedEntry()
 
 	def pathStatus(self):
-		if config.plugins.MetrixWeather.type.value == "2":
-			if self["config"].getCurrentIndex() == self.pathItem:
+		if config.plugins.MetrixWeather.icontype.value == "2":
+			if self["config"].getCurrentIndex() == config.plugins.MetrixWeather.iconpath:
 				path = self.getCurrentValue()
 				if not isdir(path):
 					footnote = _("Directory '%s' does not exist!") % path
@@ -192,11 +182,17 @@ class WeatherSettingsView(Setup):
 
 
 class WeatherSettingsLocationBox(LocationBox):
-	def __init__(self, session):
+	def __init__(self, session, currDir):
+		inhibit = defaultInhibitDirs
+		inhibit.remove("/usr")
+		inhibit.remove("/share")
+		if currDir == "":
+			currDir = None
 		LocationBox.__init__(
 			self,
 			session,
 			text=_("Where do you want to get the MetrixWeather icons?"),
-			currDir=config.plugins.MetrixWeather.iconpath,
-			inhibitDirs=DEFAULT_INHIBIT_DIRECTORIES,
+			currDir=currDir,
+			inhibitDirs=inhibit,
 		)
+		self.skinName = ["WeatherSettingsLocationBox", "LocationBox"]

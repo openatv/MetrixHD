@@ -17,9 +17,13 @@
 #
 #
 #######################################################################
+from pickle import dump, load
+from os.path import getmtime, isfile
+from time import time
 
-from . import _
 from enigma import eTimer
+from skin import readSkin
+
 from Components.config import config, ConfigSubsection, ConfigYesNo, ConfigSelection, ConfigSelectionNumber, ConfigText, ConfigNumber
 from Components.Label import Label, MultiColorLabel
 from Components.Pixmap import MultiPixmap
@@ -27,8 +31,10 @@ from Components.Sources.StaticText import StaticText
 from Components.SystemInfo import BoxInfo
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
-from skin import readSkin
+from Tools.Directories import SCOPE_CONFIG, resolveFilename
 from Tools.Weatherinfo import Weatherinfo
+
+from . import _
 from .MainSettingsView import MainSettingsView
 from .ActivateSkinSettings import applySkinSettings
 
@@ -36,11 +42,18 @@ from .ActivateSkinSettings import applySkinSettings
 config.plugins.MetrixWeather = ConfigSubsection()
 config.plugins.MetrixWeather.enabled = ConfigYesNo(default=True)
 config.plugins.MetrixWeather.detail = ConfigYesNo(default=False)
-config.plugins.MetrixWeather.type = ConfigSelection(default=0, choices=[("0", _("Meteo Icons")), ("1", _("Animated Icons")), ("2", _("Static Icons"))])
+config.plugins.MetrixWeather.type = ConfigYesNo(default=False)
+config.plugins.MetrixWeather.icontype = ConfigSelection(default=0, choices=[("0", _("Meteo Icons")), ("1", _("Animated Icons")), ("2", _("Static Icons"))])
+if config.plugins.MetrixWeather.type.value:  # Restore old setting
+	config.plugins.MetrixWeather.icontype.value = "1"
+	config.plugins.MetrixWeather.icontype.save()
+	config.plugins.MetrixWeather.type.value = False
+	config.plugins.MetrixWeather.type.save()
 config.plugins.MetrixWeather.animationspeed = ConfigSelection(default="100", choices=[("0", _("Off")), ("20", _("+ 4")), ("40", _("+ 3")), ("60", _("+ 2")), ("80", _("+ 1")), ("100", _("Default")), ("125", _("- 1")), ("150", _("- 2")), ("200", _("- 3")), ("300", _("- 4"))])
 config.plugins.MetrixWeather.iconpath = ConfigText(default="")
+config.plugins.MetrixWeather.cachedata = ConfigSelection(default="60", choices=[("0", _("Disabled"))] + [(str(x), _("%d Minutes") % x) for x in (30, 60, 120)])
 config.plugins.MetrixWeather.MoviePlayer = ConfigYesNo(default=True)
-config.plugins.MetrixWeather.verifyDate = ConfigYesNo(default=True)
+#config.plugins.MetrixWeather.verifyDate = ConfigYesNo(default=True)
 config.plugins.MetrixWeather.refreshInterval = ConfigSelectionNumber(0, 1440, 30, default=120, wraparound=True)
 config.plugins.MetrixWeather.apikey = ConfigText(default="a4bd84726035d0ce2c6185740617d8c5")
 # Beyonwiz - marketed only in Australia
@@ -60,6 +73,8 @@ config.plugins.MetrixWeather.weatherservice = ConfigSelection(default="MSN", cho
 
 MODULE_NAME = __name__.split(".")[-1]
 
+CACHEFILE = resolveFilename(SCOPE_CONFIG, "MetrixWeather.dat")
+
 
 class InfoBarMetrixWeather(Screen):
 
@@ -69,53 +84,26 @@ class InfoBarMetrixWeather(Screen):
 		self.WI = Weatherinfo(mode, config.plugins.MetrixWeather.apikey.value)
 		self.oldmode = mode
 		self.weathercity = None
-		self.forecast = config.plugins.MetrixWeather.forecast.value
-		if config.plugins.MyMetrixLiteOther.showExtendedinfo.value and config.plugins.MyMetrixLiteOther.ExtendedinfoStyle.value in ("2", "3") == "2":  # Weather enabled with normal symbols and extended info enabled between clock and weather enclosed or centered
-			self.skinname = ["InfoBarMetrixWeatherMin"]
-			if self.forecast > 1:
-				self.forecast = 1
-		else:
-			self.skinname = ["InfoBarMetrixWeatherMax"]
-		# init for screen "infoBarWeather"
-		self["Temp"] = Label("")
-		self["Tempsign"] = Label()
-		self["IconCode"] = StaticText("")
-		self["FontCode"] = StaticText("")
-		self["ShortDay"] = Label("")
-		self["MinTemp"] = Label()
-		self["MaxTemp"] = Label()
-		self["currentDataValid"] = MultiColorLabel("")
-
-		if config.plugins.MetrixWeather.detail.value:
-			self["Location"] = Label("")
-			self["logo"] = MultiPixmap()
-			self["logo"].setPixmapNum(0 if config.plugins.MetrixWeather.service.value == "MSN" else 1)
-			self["Observationtime"] = Label("")
-			self["Feelslike"] = Label("")
-			self["Humidity"] = Label("")
-			self["WindDisplay"] = Label("")
-			self["WindSpeed"] = Label("")
-			# self["WindDir"] = Label("")
-			# self["Shorttext"] = Label("")
-			# self["WindArrow"] = Label("")
-
-		for day in range(1, self.forecast + 1):  # define user-demanded forecasts only
-			self["ShortDay_%d" % day] = Label("")
-			self["IconCode_%d" % day] = StaticText("")
-			self["FontCode_%d" % day] = StaticText("")
-			self["MinTemp_%d" % day] = Label("")
-			self["MaxTemp_%d" % day] = Label("")
-
-		self.oldforecast = self.forecast
-
+		self.reload(False)
 		self.setWeatherDataValid(0)  # 0= try to getting weather data, 1= try to getting weather data paused, 2= try to getting weather data aborted (to many error cycles), 3= weather data valid
 		self.trycounter = 0
 		self.refreshTimer = eTimer()
 		self.refreshTimer.callback.append(self.refreshWeatherData)
-		self.refreshTimer.start(5000, True)
 		infobarmetrixweatherhandler.overlay = self
+		self.onLayoutFinish.append(self.getCacheData)
 
-	def reload(self):
+	def getCacheData(self):
+		cacheminutes = int(config.plugins.MetrixWeather.cachedata.value)
+		if cacheminutes and isfile(CACHEFILE):
+			timedelta = (time() - getmtime(CACHEFILE)) / 60
+			if cacheminutes > timedelta:
+				with open(CACHEFILE, "rb") as fd:
+					cache_data = load(fd)
+				self.writeData(cache_data)
+				return
+		self.refreshTimer.start(5000, True)
+
+	def reload(self, refresh=True):
 		self.forecast = config.plugins.MetrixWeather.forecast.value
 		if config.plugins.MyMetrixLiteOther.showExtendedinfo.value and config.plugins.MyMetrixLiteOther.ExtendedinfoStyle.value in ("2", "3") == "2":  # Weather enabled with normal symbols and extended info enabled between clock and weather enclosed or centered
 			self.skinname = ["InfoBarMetrixWeatherMin"]
@@ -123,10 +111,20 @@ class InfoBarMetrixWeather(Screen):
 				self.forecast = 1
 		else:
 			self.skinname = ["InfoBarMetrixWeatherMax"]
-		mode = "msn" if config.plugins.MetrixWeather.service.value == "MSN" else "owm"
-		if self.oldmode != mode:
-			self.oldmode = mode
-			self.WI.setmode(mode, config.plugins.MetrixWeather.apikey.value)
+		if refresh:
+			mode = "msn" if config.plugins.MetrixWeather.service.value == "MSN" else "owm"
+			if self.oldmode != mode:
+				self.oldmode = mode
+				self.WI.setmode(mode, config.plugins.MetrixWeather.apikey.value)
+		else:
+			self["Temp"] = Label("")
+			self["Tempsign"] = Label()
+			self["IconCode"] = StaticText("")
+			self["FontCode"] = StaticText("")
+			self["ShortDay"] = Label("")
+			self["MinTemp"] = Label()
+			self["MaxTemp"] = Label()
+			self["currentDataValid"] = MultiColorLabel("")
 
 		if "Location" in self:
 			if not config.plugins.MetrixWeather.detail.value:
@@ -137,6 +135,9 @@ class InfoBarMetrixWeather(Screen):
 				del self["Humidity"]
 				del self["WindDisplay"]
 				del self["WindSpeed"]
+				# def self["WindDir"]
+				# def self["Shorttext"]
+				# def self["WindArrow"]
 		else:
 			if config.plugins.MetrixWeather.detail.value:
 				self["Location"] = Label("")
@@ -147,29 +148,35 @@ class InfoBarMetrixWeather(Screen):
 				self["Humidity"] = Label("")
 				self["WindDisplay"] = Label("")
 				self["WindSpeed"] = Label("")
+				# self["WindDir"] = Label("")
+				# self["Shorttext"] = Label("")
+				# self["WindArrow"] = Label("")
 
-		if self.oldforecast != self.forecast:
-			for day in range(1, 6):  # define user-demanded forecasts only
-				if "ShortDay_%d" % day in self:
-					self["IconCode_%d" % day].setText("")
-					self["FontCode_%d" % day].setText("")
-					del self["ShortDay_%d" % day]
-					del self["IconCode_%d" % day]
-					del self["FontCode_%d" % day]
-					del self["MinTemp_%d" % day]
-					del self["MaxTemp_%d" % day]
-
-			for day in range(1, self.forecast + 1):  # define user-demanded forecasts only
+		for day in range(1, self.forecast + 1):  # define user-demanded forecasts only
+			if "ShortDay_%d" % day not in self:
 				self["ShortDay_%d" % day] = Label("")
 				self["IconCode_%d" % day] = StaticText("")
 				self["FontCode_%d" % day] = StaticText("")
 				self["MinTemp_%d" % day] = Label("")
 				self["MaxTemp_%d" % day] = Label("")
 
-		readSkin(self, None, self.skinName, self.session.desktop)  # Read skin data.
-		self.applySkin()
-		if self.wetterdata:
-			self.writeData(self.wetterdata)
+		for day in range(self.forecast + 1, 6):  # define user-demanded forecasts only
+			if "ShortDay_%d" % day in self:
+				self["IconCode_%d" % day].setText("")
+				self["FontCode_%d" % day].setText("")
+				del self["ShortDay_%d" % day]
+				del self["IconCode_%d" % day]
+				del self["FontCode_%d" % day]
+				del self["MinTemp_%d" % day]
+				del self["MaxTemp_%d" % day]
+
+		if refresh:
+			readSkin(self, None, self.skinName, self.session.desktop)  # Read skin data.
+			self.applySkin()
+			if self.wetterdata:
+				self.writeData(self.wetterdata)
+			else:
+				self.refreshTimer.start(5000, True)
 
 	def refreshWeatherData(self, entry=None):
 		self.refreshTimer.stop()
@@ -197,10 +204,14 @@ class InfoBarMetrixWeather(Screen):
 				self.refreshTimer.callback.append(self.refreshWeatherData)
 				self.refreshTimer.start(30000, True)
 			return
-		self.wetterdata = data
 		self.writeData(data)
+		# TODO write cache only on close
+		if config.plugins.MetrixWeather.cachedata.value != "0":
+			with open(CACHEFILE, "wb") as fd:
+				dump(data, fd, -1)
 
 	def writeData(self, data):
+		self.wetterdata = data
 		skydirs = {"N": _("North"), "NE": _("Northeast"), "E": _("East"), "SE": _("Southeast"), "S": _("South"), "SW": _("Southwest"), "W": _("West"), "NW": _("Northwest")}
 		if config.plugins.MetrixWeather.service.value == "openweather":
 			geocode = "%s,%s" % (data["longitude"], data["latitude"])
@@ -212,7 +223,7 @@ class InfoBarMetrixWeather(Screen):
 		# data for panel "infoBarWeather"
 		self["Temp"].setText("%s" % data["current"]["temp"])
 		self["Tempsign"].setText(tempsign)
-		if config.plugins.MetrixWeather.type.value == "0":
+		if config.plugins.MetrixWeather.icontype.value == "0":
 			self["FontCode"].setText(data["current"]["meteoCode"])
 			self["IconCode"].setText("")
 		else:
@@ -235,7 +246,7 @@ class InfoBarMetrixWeather(Screen):
 			# self["WindDir"].setText("%s %s" % (data["current"]["windDir"], "°"))
 		# data for panels "forecast"
 		for day in range(1, self.forecast + 1):  # only user-demanded forecasts
-			if config.plugins.MetrixWeather.type.value == "0":
+			if config.plugins.MetrixWeather.icontype.value == "0":
 				self["FontCode_%d" % day].setText(data["forecast"][day]["meteoCode"])
 				self["IconCode_%d" % day].setText("")
 			else:
