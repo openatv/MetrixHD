@@ -3,10 +3,10 @@
 #        <convert type="MetrixHDWeather">currentWeatherCode</convert>
 #    </widget>
 from os import listdir
+from os.path import exists, join as pathjoin, isfile
 from enigma import ePixmap, eTimer
 from Components.config import config
 from Components.Renderer.Renderer import Renderer
-from Tools.Directories import fileExists, pathExists
 from Tools.LoadPixmap import LoadPixmap
 
 
@@ -21,6 +21,9 @@ class MetrixHDWeatherPixmap(Renderer):
 		self.pixdelay_overwrite = False
 		self.slideicon = None
 		self.winddiricon = None
+		self.iconpath = config.plugins.MetrixWeather.iconpath.value
+		if not exists(self.iconpath) and config.plugins.MetrixWeather.type == "2":
+			self.iconpath = None
 
 	def applySkin(self, desktop, parent):
 		attribs = []
@@ -42,16 +45,23 @@ class MetrixHDWeatherPixmap(Renderer):
 		if self.instance:
 			sname = ''
 			if (what[0] != self.CHANGED_CLEAR):
+				if config.plugins.MetrixWeather.type == "0":
+					return
 				sname = self.source.text
+				if self.iconpath:
+					imgpath = pathjoin(self.iconpath, '%s.png' % sname)
+					if isfile(imgpath):
+						self.instance.setPixmap(imgpath)
+					return
 				for path in self.searchPaths:
-					if pathExists((path % self.path)):
+					if exists((path % self.path)):
 						self.runAnim(sname)
 
 	def runAnim(self, id):
 		global total
 		animokicon = False
 		for path in self.searchPaths:
-			if fileExists('%s%s' % ((path % self.path), id)):
+			if exists('%s%s' % ((path % self.path), id)):
 				pathanimicon = '%s%s/a' % ((path % self.path), id)
 				path2 = '%s%s' % ((path % self.path), id)
 				dir_work = listdir(path2)
@@ -59,7 +69,7 @@ class MetrixHDWeatherPixmap(Renderer):
 				self.slideicon = total
 				animokicon = True
 			else:
-				if fileExists('%sNA' % (path % self.path)):
+				if exists('%sNA' % (path % self.path)):
 					pathanimicon = '%sNA/a' % (path % self.path)
 					path2 = '%sNA' % (path % self.path)
 					dir_work = listdir(path2)
@@ -87,7 +97,7 @@ class MetrixHDWeatherPixmap(Renderer):
 		self.instance.setScale(1)
 		try:
 			self.instance.setPixmap(self.picsicon[self.slideicon - 1])
-		except:
+		except Exception:
 			pass
 		self.slideicon = self.slideicon - 1
 		if self.pixdelay:

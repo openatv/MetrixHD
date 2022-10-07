@@ -21,11 +21,13 @@
 #
 #######################################################################
 from os import system
+from os.path import join as pathjoin, isdir
 
 from Components.ActionMap import ActionMap, HelpableActionMap
 from Components.config import config
 from Components.MenuList import MenuList
 from Components.Sources.StaticText import StaticText
+from Screens.LocationBox import DEFAULT_INHIBIT_DIRECTORIES, LocationBox
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Screens.Setup import Setup
@@ -119,6 +121,12 @@ class WeatherSettingsLocation(Screen):
 class WeatherSettingsView(Setup):
 	def __init__(self, session):
 		Setup.__init__(self, session, "WeatherSettings", plugin="Extensions/MyMetrixLite")
+		for index, item in enumerate(self["config"].getList()):
+			if len(item) > 1 and item[1] == config.plugins.MetrixWeather.iconpath:
+				self.pathItem = index
+				break
+		else:
+			self.pathItem = None
 		self["key_blue"] = StaticText()
 		self["blueActions"] = HelpableActionMap(self, ["ColorActions"], {
 			"blue": (self.checkID, _("Get ID for your City"))
@@ -132,10 +140,42 @@ class WeatherSettingsView(Setup):
 
 	def locationCallback(self, value):
 		if value:
+			from .plugin import infobarmetrixweatherhandler
 			config.plugins.MetrixWeather.weathercity.value = value[0]
 			config.plugins.MetrixWeather.owm_geocode.value = "%s,%s" % (float(value[1]), float(value[2]))
+			infobarmetrixweatherhandler.reconfigure()
 			Setup.keySave(self)
-			self.close()
+
+	def keySelect(self):
+		if self.getCurrentItem() == self.pathItem:
+			self.session.openWithCallback(self.keySelectCallback, WeatherSettingsLocationBox)
+		else:
+			Setup.keySelect(self)
+
+	def selectionChanged(self):
+		Setup.selectionChanged(self)
+		self.pathStatus()
+
+	def changedEntry(self):
+		Setup.changedEntry(self)
+		self.pathStatus()
+
+	def keySelectCallback(self, path):
+		if path is not None:
+			path = pathjoin(path, "")
+			config.plugins.MetrixWeather.iconpath.value = path
+		self["config"].invalidateCurrent()
+		self.changedEntry()
+
+	def pathStatus(self):
+		if config.plugins.MetrixWeather.type.value == "2":
+			if self["config"].getCurrentIndex() == self.pathItem:
+				path = self.getCurrentValue()
+				if not isdir(path):
+					footnote = _("Directory '%s' does not exist!") % path
+				else:
+					footnote = ""
+				self.setFootnote(footnote)
 
 	def keySave(self):
 		weathercity = config.plugins.MetrixWeather.weathercity.value.split(",")[0]
@@ -145,4 +185,18 @@ class WeatherSettingsView(Setup):
 		if self.old_weatherservice != config.plugins.MetrixWeather.weatherservice.value or self.old_weathercity != config.plugins.MetrixWeather.weathercity.value:
 			self.checkID()
 			return
+		if self["config"].isChanged():
+			from .plugin import infobarmetrixweatherhandler
+			infobarmetrixweatherhandler.reconfigure()
 		Setup.keySave(self)
+
+
+class WeatherSettingsLocationBox(LocationBox):
+	def __init__(self, session):
+		LocationBox.__init__(
+			self,
+			session,
+			text=_("Where do you want to get the MetrixWeather icons?"),
+			currDir=config.plugins.MetrixWeather.iconpath,
+			inhibitDirs=DEFAULT_INHIBIT_DIRECTORIES,
+		)
