@@ -2993,20 +2993,43 @@
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/key_exit.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- NEW FileCommander Screens -->
+	<screen name="FileCommanderInformation" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent" title="File/Directory Status Information" >
+		<widget source="Title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="path" position="70,90" size="525,50" font="screen_text;19" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background"/>
+		<widget source="data" render="Listbox" position="70,170" size="700,330" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					# 0   100 200 300 400 500
+					# |   |   |   |   |   |
+					# 00000000 1111111111111
+					MultiContentEntryText(pos = (0, 0), size = (300, 30), font = 0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is a label
+					MultiContentEntryText(pos = (320, 0), size = (380, 30), font = 0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is the information
+					],
+					"fonts": [gFont("screen_text", 20)],
+					"itemHeight": 30,
+					"selectionEnabled": False
+				}
+			</convert>
+		</widget>
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/filecom.png" transparent="1" alphatest="blend" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
 	<screen name="FileCommanderEditor" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="filename" position="70,90" size="1040,50" font="screen_text;18" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" conditional="filename" />
-		<widget name="filedata" position="70,140" size="1140,480" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
-		<widget name="line" position="1110,90" size="100,50" font="screen_text;18" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" conditional="line" />
+		<widget name="path" position="70,90" size="1040,50" font="screen_text;18" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="data" position="70,140" size="1140,480" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
+		<widget name="location" position="1110,90" size="100,50" font="screen_text;18" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="template1_1layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/ok.png" transparent="1" alphatest="blend" />
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/key_exit.png" transparent="1" alphatest="blend" />
 	</screen>
-	<screen name="FileCommanderArchiveContent" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="FileCommanderArchive" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="archive" position="70,90" size="1140,50" font="screen_text;19" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1"/>
-		<widget name="content" position="70,140" size="1140,480" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
+		<widget name="path" position="70,90" size="1140,50" font="screen_text;19" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="data" position="70,140" size="1140,480" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
 		<panel name="template1_1layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/ok.png" transparent="1" alphatest="blend" />
@@ -3031,6 +3054,15 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/filecom.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="FileCommanderViewer" title="File Commander Hex Viewer" position="40,80" size="1200,610" resolution="1280,720">
+		<widget source="Title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="path" position="70,90" size="1040,50" font="screen_text;18" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="data" position="70,140" size="1140,480" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
+		<panel name="template1_1layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/ok.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/key_exit.png" transparent="1" alphatest="blend" />
 	</screen>
 
 	<!-- OLD FileCommander Screens -->
