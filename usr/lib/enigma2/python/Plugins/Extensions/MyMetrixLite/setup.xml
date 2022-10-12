@@ -1,18 +1,18 @@
 <setupxml>
 	<setup key="WeatherSettings" title="Weather settings">
-		<item level="0" text="Enabled" description="Cycle/failure indicator colors on widget:\ngreen - 6 times try to fetch weather data\nyellow - fetch weather data paused 5 mins\nred - fetch weather data aborted after 6 times green and yellow\n(if red -> press 'save' for refresh)">config.plugins.MetrixWeather.enabled</item>
+		<item level="0" text="Enabled" description="Select to enable MetrixWeather.">config.plugins.MetrixWeather.enabled</item>
 		<if conditional="config.plugins.MetrixWeather.enabled.value">
-			<item level="0" text="Show in MoviePlayer" description="helptext">config.plugins.MetrixWeather.MoviePlayer</item>
+			<item level="0" text="Show in MoviePlayer" description="Select to display MetrixWeather in 'MoviePlayer'.">config.plugins.MetrixWeather.MoviePlayer</item>
 			<item level="0" text="MetrixWeather Service" description="Choose your preferred weather service">config.plugins.MetrixWeather.weatherservice</item>
-			<item level="0" text="MetrixWeather City Name" description="Your place for weather determination. Press TEXT or OK to enter the city name">config.plugins.MetrixWeather.weathercity</item>
-			<item level="0" text="MetrixWeather APIKEY" description="Get your local MetrixWeather APIKEY from https://openweathermap.org/" conditional="config.plugins.MetrixWeather.weatherservice.value == 'openweather'">config.plugins.MetrixWeather.apikey</item>
+			<item level="0" text="MetrixWeather City Name" description="Enter your desired location for your weather forecasts.">config.plugins.MetrixWeather.weathercity</item>
+			<item level="0" text="MetrixWeather APIKEY" description="Get your own APIKEY from OpeenWeatherMap (https://openweathermap.org/)" conditional="config.plugins.MetrixWeather.weatherservice.value == 'openweather'">config.plugins.MetrixWeather.apikey</item>
 			<item level="0" text="Unit" description="Set your preferred temperature unit.">config.plugins.MetrixWeather.tempUnit</item>
-			<item level="0" text="MetrixWeather icon type" description="Define the type of MetrixWeather icons.">config.plugins.MetrixWeather.icontype</item>
-			<item level="0" text="MetrixWeather icon path" description="Select the MetrixWeather icon path." conditional="config.plugins.MetrixWeather.icontype.value == '2'">config.plugins.MetrixWeather.iconpath</item>
+			<item level="0" text="MetrixWeather icon type" description="Set the type of MetrixWeather icons.">config.plugins.MetrixWeather.icontype</item>
+			<item level="0" text="MetrixWeather icon path" description="Select the MetrixWeather icon path. This path cannot be empty!" conditional="config.plugins.MetrixWeather.icontype.value == '2'">config.plugins.MetrixWeather.iconpath</item>
 			<item level="0" text="MetrixWeather animations speed" description="Set your animations speed." conditional="config.plugins.MetrixWeather.icontype.value == '1'">config.plugins.MetrixWeather.animationspeed</item>
-			<item level="0" text="Refresh Interval (min)" description="If set to '0', fetch weather data only at system(gui) start.">config.plugins.MetrixWeather.refreshInterval</item>
+			<item level="0" text="Refresh Interval (min)" description="Specify how often MetrixWeather retrieves its data from the server. '0' means the data will loaded only once after a GUI or system start.">config.plugins.MetrixWeather.refreshInterval</item>
 			<item level="0" text="Forecast" description="Set the number of days for the weather forecast.">config.plugins.MetrixWeather.forecast</item>
-			<item level="0" text="Detail" description="Show wind speed and direction, feels like temperature and humidity.">config.plugins.MetrixWeather.detail</item>
+			<item level="0" text="Detail" description="Show wind speed and direction, 'feels like' temperature and humidity.">config.plugins.MetrixWeather.detail</item>
 			<item level="0" text="Cache data" description="Save weather data locally and use cached data after restart.">config.plugins.MetrixWeather.cachedata</item>
 		</if>
 	</setup>
