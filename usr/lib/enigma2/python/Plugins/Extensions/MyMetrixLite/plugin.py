@@ -68,6 +68,10 @@ config.plugins.MetrixWeather.currentWeatherDataValid = ConfigNumber(default=0)
 # omw migration
 config.plugins.MetrixWeather.woeid = ConfigNumber(default=0)
 
+# fallback for old code
+config.plugins.MetrixWeather.currentWeatherCode = ConfigText("")
+config.plugins.MetrixWeather.currentLocation = ConfigText("")
+
 #######################################################################
 
 MODULE_NAME = __name__.split(".")[-1]
@@ -252,10 +256,13 @@ class InfoBarMetrixWeatherHandler():
 
 	def processDisplay(self, state):
 		if config.plugins.MetrixWeather.enabled.value:
-			if state:
-				InfoBarMetrixWeather.instance.show()
-			else:
-				InfoBarMetrixWeather.instance.hide()
+			try:
+				if state:
+					InfoBarMetrixWeather.instance.show()
+				else:
+					InfoBarMetrixWeather.instance.hide()
+			except Exception:
+				pass
 
 	def hookInfoBar(self, reason, instanceInfoBar):
 		if reason:
@@ -264,10 +271,13 @@ class InfoBarMetrixWeatherHandler():
 			instanceInfoBar.disconnectShowHideNotifier(self.processDisplay)
 
 	def reconfigure(self):
-		InfoBarMetrixWeather.instance.close()
-		if isfile(CACHEFILE):
-			remove(CACHEFILE)
-		self.session.instantiateDialog(InfoBarMetrixWeather)
+		try:
+			InfoBarMetrixWeather.instance.close()
+			if isfile(CACHEFILE):
+				remove(CACHEFILE)
+			self.session.instantiateDialog(InfoBarMetrixWeather)
+		except Exception:
+			pass
 
 
 def main(session, **kwargs):
