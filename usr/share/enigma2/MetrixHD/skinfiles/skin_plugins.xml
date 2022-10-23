@@ -3121,6 +3121,16 @@
 		<widget name="infolabels" position="10,10" size="250,600" backgroundColor="layer-a-background" borderWidth="2" font="screen_text;20" foregroundColor="#0038FF48" halign="right" transparent="1" zPosition="+3" />
 		<widget name="infodata" position="270,10" size="1000,600" backgroundColor="layer-a-background" borderWidth="2" font="screen_text;20" foregroundColor="#0038FF48" halign="left" transparent="1" zPosition="+3" />
 	</screen>
+	<screen name="ArchiverMenuScreen" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list_left_head" position="70,90" size="700,50" font="screen_text;19" noWrap="1" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="list_left" position="70,140" size="700,120" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
+		<widget name="unpacking" position="70,260" size="700,30" itemHeight="30" font="screen_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/filecom.png" transparent="1" alphatest="blend" />
+	</screen>
 	<screen name="FileCommanderFileViewer" title="File Commander Viewer" position="40,80" size="1200,610" resolution="1280,720">
 		<widget source="Title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="path" position="70,90" size="1040,50" font="screen_text;18" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1"/>
