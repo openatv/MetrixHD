@@ -27,6 +27,12 @@
 		<panel name="InfoBarMetrixWeather" />
 	</screen>
 
+	<screen name="InfoBarMetrixWeatherNoData" backgroundColor="transparent" flags="wfNoBorder" position="40,40" size="219,71" title="InfoBarMetrixWeather" zPosition="1">
+		<eLabel backgroundColor="layer-a-background" position="0,0" size="219,71" />
+		<widget font="Regular;19" backgroundColor="red" position="1,1" size="2,69" name="currentDataValid" zPosition="10" />
+		<widget name="Temp" backgroundColor="layer-a-background" font="global_clock;60" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="-5,10" size="84,64" transparent="1" valign="bottom" zPosition="10" />
+	</screen>
+
 	<screen name="InfoBarMetrixWeather" backgroundColor="transparent" flags="wfNoBorder" position="40,40" size="845,170" title="InfoBarMetrixWeather">
 		<!-- TODAY -->
 	<eLabel backgroundColor="layer-a-background" position="0,0" size="219,71" />
@@ -40,8 +46,8 @@
 		<convert type="ConditionalShowHide" />
 	</widget>
 	<widget name="ShortDay" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="160,4" size="49,21" transparent="1" valign="bottom" zPosition="10" />
-	<widget name="MinTemp" backgroundColor="layer-a-background" font="global_clock;16" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="160,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
-	<widget name="MaxTemp" backgroundColor="layer-a-background" font="global_clock;16" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="160,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MaxTemp" backgroundColor="layer-a-background" font="global_clock;16" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="160,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MinTemp" backgroundColor="layer-a-background" font="global_clock;16" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="160,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
 
 	<widget font="Regular;19" backgroundColors="green,yellow,red" position="1,1" size="2,69" name="currentDataValid" zPosition="10" />
 
@@ -85,8 +91,8 @@
 	<widget render="MetrixHDWeatherPixmap" position="230,6" size="59,59" source="IconCode_1" alphatest="blend" zPosition="9" scaleFlags="scaleCenter" conditional="IconCode_1" />
 	<widget font="MetrixIcons;50" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="230,6" render="Label" size="59,59" source="FontCode_1" transparent="1" valign="center" zPosition="9" conditional="FontCode_1" />
 	<widget name="ShortDay_1" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="286,6" size="49,21" transparent="1" valign="bottom" zPosition="10" />
-	<widget name="MinTemp_1" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="286,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
-	<widget name="MaxTemp_1" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="286,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MaxTemp_1" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="286,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MinTemp_1" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="286,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
 	</screen>
 
 	<!--  +2 weekday -->
@@ -96,8 +102,8 @@
 	<widget render="MetrixHDWeatherPixmap" position="355,6" size="59,59" source="IconCode_2" alphatest="blend" zPosition="9" scaleFlags="scaleCenter" conditional="IconCode_2" />
 	<widget font="MetrixIcons;50" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="355,6" render="Label" size="59,59" source="FontCode_2" transparent="1" valign="center" zPosition="9" conditional="FontCode_2" />
 	<widget name="ShortDay_2" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="411,6" size="49,21" transparent="1" valign="bottom" zPosition="10" />
-	<widget name="MinTemp_2" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="411,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
-	<widget name="MaxTemp_2" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="411,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MaxTemp_2" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="411,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MinTemp_2" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="411,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
 	</screen>
 
 		<!--  +3 weekday -->
@@ -107,8 +113,8 @@
 	<widget render="MetrixHDWeatherPixmap" position="480,6" size="59,59" source="IconCode_3" alphatest="blend" zPosition="9" scaleFlags="scaleCenter" conditional="IconCode_3" />
 	<widget font="MetrixIcons;50" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="480,6" render="Label" size="59,59" source="FontCode_3" transparent="1" valign="center" zPosition="9" conditional="FontCode_3" />
 	<widget name="ShortDay_3" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="536,6" size="49,21" transparent="1" valign="bottom" zPosition="10" />
-	<widget name="MinTemp_3" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="536,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
-	<widget name="MaxTemp_3" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="536,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MaxTemp_3" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="536,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MinTemp_3" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="536,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
 	</screen>
 
 	<!--  +4 weekday -->
@@ -118,8 +124,8 @@
 	<widget render="MetrixHDWeatherPixmap" position="605,6" size="59,59" source="IconCode_4" alphatest="blend" zPosition="9" scaleFlags="scaleCenter" conditional="IconCode_4" />
 	<widget font="MetrixIcons;50" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="605,6" render="Label" size="59,59" source="FontCode_4" transparent="1" valign="center" zPosition="9" conditional="FontCode_4" />
 	<widget name="ShortDay_4" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="661,6" size="49,21" transparent="1" valign="bottom" zPosition="10" />
-	<widget name="MinTemp_4" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="661,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
-	<widget name="MaxTemp_4" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="661,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MaxTemp_4" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="661,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MinTemp_4" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="661,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
 	</screen>
 
 		<!--  +5 weekday -->
@@ -129,9 +135,8 @@
 	<widget render="MetrixHDWeatherPixmap" position="730,6" size="59,59" source="IconCode_5" alphatest="blend" zPosition="9" scaleFlags="scaleCenter" conditional="IconCode_5" />
 	<widget font="MetrixIcons;50" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" halign="left" noWrap="1" position="730,6" render="Label" size="59,59" source="FontCode_5" transparent="1" valign="center" zPosition="9" conditional="FontCode_5" />
 	<widget name="ShortDay_5" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="786,6" size="49,21" transparent="1" valign="bottom" zPosition="10" />
-	<widget name="MinTemp_5" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="786,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
-	<widget name="MaxTemp_5" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="786,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MaxTemp_5" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="786,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
+	<widget name="MinTemp_5" backgroundColor="layer-b-background" font="global_clock;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="786,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
 	</screen>
-
 
 </skin>

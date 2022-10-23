@@ -24,7 +24,7 @@ from time import time
 
 from enigma import eTimer
 
-from Components.config import config, ConfigSubsection, ConfigYesNo, ConfigSelection, ConfigSelectionNumber, ConfigText, ConfigNumber
+from Components.config import config, ConfigSubsection, ConfigYesNo, ConfigSelection, ConfigSelectionNumber, ConfigText, ConfigNumber, NoSave
 from Components.Label import Label, MultiColorLabel
 from Components.Pixmap import MultiPixmap
 from Components.Sources.StaticText import StaticText
@@ -63,20 +63,35 @@ config.plugins.MetrixWeather.owm_geocode = ConfigText(default=GEODATA[1])
 config.plugins.MetrixWeather.tempUnit = ConfigSelection(default="Celsius", choices=[("Celsius", _("Celsius")), ("Fahrenheit", _("Fahrenheit"))])
 config.plugins.MetrixWeather.weatherservice = ConfigSelection(default="MSN", choices=[("MSN", _("MSN weather")), ("openweather", _("OpenWeatherMap"))])
 config.plugins.MetrixWeather.forecast = ConfigSelectionNumber(0, 5, 1, default=1, wraparound=True)
-config.plugins.MetrixWeather.currentWeatherDataValid = ConfigNumber(default=0)
+config.plugins.MetrixWeather.currentWeatherDataValid = NoSave(ConfigNumber(default=3))
 
 # omw migration
 config.plugins.MetrixWeather.woeid = ConfigNumber(default=0)
 
-# fallback for old code
+# fallback for old code can be removed in next version
 config.plugins.MetrixWeather.currentWeatherCode = ConfigText("")
+config.plugins.MetrixWeather.currentWeatherCode.value = ""
+config.plugins.MetrixWeather.currentWeatherCode.save()
 config.plugins.MetrixWeather.currentLocation = ConfigText("")
+if config.plugins.MetrixWeather.currentLocation.value:
+	config.plugins.MetrixWeather.weathercity.value = config.plugins.MetrixWeather.currentLocation.value
+	config.plugins.MetrixWeather.currentLocation.value = ""
+	config.plugins.MetrixWeather.currentLocation.save()
 
 #######################################################################
 
 MODULE_NAME = __name__.split(".")[-1]
 
 CACHEFILE = resolveFilename(SCOPE_CONFIG, "MetrixWeather.dat")
+
+
+class InfoBarMetrixWeatherNoData(Screen):
+	instance = None
+
+	def __init__(self, session):
+		Screen.__init__(self, session)
+		self["Temp"] = Label("N/A")
+		InfoBarMetrixWeatherNoData.instance = self
 
 
 class InfoBarMetrixWeather(Screen):
@@ -126,7 +141,7 @@ class InfoBarMetrixWeather(Screen):
 			self["MinTemp_%d" % day] = Label("")
 			self["MaxTemp_%d" % day] = Label("")
 
-		self.trycounter = 0
+		self.trialcounter = 0
 		self.refreshTimer = eTimer()
 		self.refreshTimer.callback.append(self.refreshWeatherData)
 		self.onLayoutFinish.append(self.getCacheData)
@@ -147,36 +162,43 @@ class InfoBarMetrixWeather(Screen):
 					cache_data = load(fd)
 				self.writeData(cache_data)
 				return
-		self.refreshTimer.start(5000, True)
+		self.refreshTimer.start(3000, True)
 
 	def refreshWeatherData(self, entry=None):
 		self.refreshTimer.stop()
-		self.weathercity = config.plugins.MetrixWeather.weathercity.value
-		geocode = config.plugins.MetrixWeather.owm_geocode.value.split(",")
-		geodata = (self.weathercity, geocode[0], geocode[1])  # tuple ("Cityname", longitude, latitude)
-		language = config.osd.language.value.replace("_", "-")
-		unit = "imperial" if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit" else "metric"
-		print("[%s] lookup for City %s, try #%s..." % (MODULE_NAME, self.weathercity, self.trycounter))
-		# migration
-		woid = None
-		if config.plugins.MetrixWeather.weatherservice.value == "openweather" and config.plugins.MetrixWeather.woeid.value != 0:
-			woid = config.plugins.MetrixWeather.woeid.value
-		self.WI.start(geodata=geodata, cityID=woid, units=unit, scheme=language, reduced=True, callback=self.refreshWeatherDataCallback)
+		if config.plugins.MetrixWeather.enabled.value:
+			self.weathercity = config.plugins.MetrixWeather.weathercity.value
+			geocode = config.plugins.MetrixWeather.owm_geocode.value.split(",")
+			if geocode and len(geocode) == 2:
+				geodata = (self.weathercity, geocode[0], geocode[1])  # tuple ("Cityname", longitude, latitude)
+			else:
+				geodata = None
+			language = config.osd.language.value.replace("_", "-")
+			unit = "imperial" if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit" else "metric"
+			# migration
+			woid = None
+			if config.plugins.MetrixWeather.weatherservice.value == "openweather" and config.plugins.MetrixWeather.woeid.value != 0:
+				woid = config.plugins.MetrixWeather.woeid.value
+				print("[%s] lookup for CityID %s, try #%s..." % (MODULE_NAME, str(woid), self.trialcounter))
+			else:
+				print("[%s] lookup for City %s, try #%s..." % (MODULE_NAME, self.weathercity, self.trialcounter))
+			if geodata or woid:
+				self.WI.start(geodata=geodata, cityID=woid, units=unit, scheme=language, reduced=True, callback=self.refreshWeatherDataCallback)
+			else:
+				print("[%s] error in MetrixWeather config" % (MODULE_NAME))
+				self.setWeatherDataValid(2)
 
 	def refreshWeatherDataCallback(self, data, error):
 		if error:
-			print(error)
-			self.trycounter += 1
-			if self.trycounter < 3:
+			self.trialcounter += 1
+			if self.trialcounter < 2:
 				print("[%s] lookup for city '%s' paused, try again in 5 secs..." % (MODULE_NAME, self.weathercity))
 				self.setWeatherDataValid(1)
-				self.refreshTimer.callback.append(self.refreshWeatherData)
 				self.refreshTimer.start(5000, True)
 			else:
 				print("[%s] lookup for city '%s' paused 5 mins, to many errors..." % (MODULE_NAME, self.weathercity))
 				self.setWeatherDataValid(2)
-				self.trycounter = 0
-				self.refreshTimer.callback.append(self.refreshWeatherData)
+				self.trialcounter = 0
 				self.refreshTimer.start(30000, True)
 			return
 		self.writeData(data)
@@ -198,6 +220,8 @@ class InfoBarMetrixWeather(Screen):
 			if config.plugins.MetrixWeather.woeid.value != 0:
 				config.plugins.MetrixWeather.woeid.value = 0
 				config.plugins.MetrixWeather.woeid.save()
+				config.plugins.MetrixWeather.weathercity.value = data["name"]
+				config.plugins.MetrixWeather.weathercity.save()
 		speedsign = "mph" if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit" else "km/h"
 		tempsign = "°F" if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit" else "°C"
 		# data for panel "infoBarWeather"
@@ -217,7 +241,13 @@ class InfoBarMetrixWeather(Screen):
 		if config.plugins.MetrixWeather.detail.value:
 			self["logo"].show()
 			self["logo"].setPixmapNum(0 if config.plugins.MetrixWeather.weatherservice.value == "MSN" else 1)
-			self["Location"].setText(data["name"])  # trigger "on" for panel "infoBarWeatherDetails"
+			location = data["name"]
+			if len(location) > 26:  # if too long for skin, reduce stepweise
+				location = location.split(",")
+				location = "%s, %s" % (location[0], location[2]) if len(location) > 2 else location[0]
+				if len(location) > 26:
+					location = "%s%s" % (location[:26], "…")
+			self["Location"].setText(location)  # trigger "on" for panel "infoBarWeatherDetails"
 			self["Observationtime"].setText(data["current"]["observationTime"][11:19])
 			self["Feelslike"].setText("%s %s" % (data["current"]["feelsLike"], tempsign))
 			self["Humidity"].setText("%s %s" % (data["current"]["humidity"], "%"))
@@ -237,30 +267,37 @@ class InfoBarMetrixWeather(Screen):
 			self["ShortDay_%d" % day].setText(data["forecast"][day]["shortDay"])
 			self["MinTemp_%d" % day].setText("%s %s" % (data["forecast"][day]["minTemp"], tempsign))
 			self["MaxTemp_%d" % day].setText("%s %s" % (data["forecast"][day]["maxTemp"], tempsign))
-		self.trycounter = 0
+		self.trialcounter = 0
 		self.setWeatherDataValid(0)
 		seconds = int(config.plugins.MetrixWeather.refreshInterval.value * 60)
 		self.refreshTimer.start(seconds * 1000, True)
 
 	def setWeatherDataValid(self, value):
 		config.plugins.MetrixWeather.currentWeatherDataValid.value = value
-		config.plugins.MetrixWeather.currentWeatherDataValid.save()
 		self["currentDataValid"].setText("")
 		self["currentDataValid"].setBackgroundColorNum(value)
 
 
 class InfoBarMetrixWeatherHandler():
 	def sessioninit(self, session):
-		session.instantiateDialog(InfoBarMetrixWeather)
+		if config.plugins.MetrixWeather.enabled.value:
+			session.instantiateDialog(InfoBarMetrixWeather)
+			session.instantiateDialog(InfoBarMetrixWeatherNoData)
 		self.session = session
 
 	def processDisplay(self, state):
 		if config.plugins.MetrixWeather.enabled.value:
 			try:
-				if state:
-					InfoBarMetrixWeather.instance.show()
+				if config.plugins.MetrixWeather.currentWeatherDataValid.value == 3:
+					if state:
+						InfoBarMetrixWeatherNoData.instance.show()
+					else:
+						InfoBarMetrixWeatherNoData.instance.hide()
 				else:
-					InfoBarMetrixWeather.instance.hide()
+					if state:
+						InfoBarMetrixWeather.instance.show()
+					else:
+						InfoBarMetrixWeather.instance.hide()
 			except Exception:
 				pass
 

@@ -82,7 +82,7 @@ class WeatherSettingsView(Setup):
 	def choiceIdxCallback(self, answer):
 		if answer is not None:
 			self["footnote"].setText(answer[1])
-			self.saveGeoCode((answer[1], answer[2], answer[3]))
+			self.saveGeoCode((answer[1].split(",")[0], answer[2], answer[3]))
 
 	def saveGeoCode(self, value):
 		config.plugins.MetrixWeather.weathercity.value = value[0]
