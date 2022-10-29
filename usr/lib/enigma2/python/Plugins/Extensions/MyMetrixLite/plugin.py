@@ -25,7 +25,7 @@ from time import time
 from enigma import eTimer
 
 from Components.config import config, ConfigSubsection, ConfigYesNo, ConfigSelection, ConfigSelectionNumber, ConfigText, ConfigNumber, NoSave
-from Components.Label import Label, MultiColorLabel
+from Components.Label import Label
 from Components.Pixmap import MultiPixmap
 from Components.Sources.StaticText import StaticText
 from Components.SystemInfo import BoxInfo
@@ -53,7 +53,6 @@ config.plugins.MetrixWeather.animationspeed = ConfigSelection(default="100", cho
 config.plugins.MetrixWeather.iconpath = ConfigText(default="")
 config.plugins.MetrixWeather.cachedata = ConfigSelection(default="60", choices=[("0", _("Disabled"))] + [(str(x), _("%d Minutes") % x) for x in (30, 60, 120)])
 config.plugins.MetrixWeather.MoviePlayer = ConfigYesNo(default=True)
-#config.plugins.MetrixWeather.verifyDate = ConfigYesNo(default=True)
 config.plugins.MetrixWeather.refreshInterval = ConfigSelectionNumber(0, 1440, 30, default=120, wraparound=True)
 config.plugins.MetrixWeather.apikey = ConfigText(default="a4bd84726035d0ce2c6185740617d8c5")
 # Beyonwiz - marketed only in Australia
@@ -119,7 +118,6 @@ class InfoBarMetrixWeather(Screen):
 		self["ShortDay"] = Label("")
 		self["MinTemp"] = Label()
 		self["MaxTemp"] = Label()
-		self["currentDataValid"] = MultiColorLabel("")
 
 		if config.plugins.MetrixWeather.detail.value:
 			self["Location"] = Label("")
@@ -130,7 +128,6 @@ class InfoBarMetrixWeather(Screen):
 			self["Humidity"] = Label("")
 			self["WindDisplay"] = Label("")
 			self["WindSpeed"] = Label("")
-			# self["WindDir"] = Label("")
 			# self["Shorttext"] = Label("")
 			self["WindArrow"] = Label("")
 
@@ -255,7 +252,6 @@ class InfoBarMetrixWeather(Screen):
 			self["WindDisplay"].setText(skydirs[skydirection[1]] if skydirection[1] in skydirs else skydirection[1])
 			self["WindArrow"].setText(windarrow[ord(skydirection[0])])
 			self["WindSpeed"].setText("%s %s" % (data["current"]["windSpeed"], speedsign))
-			# self["WindDir"].setText("%s %s" % (data["current"]["windDir"], "°"))
 		# data for panels "forecast"
 		for day in range(1, self.forecast + 1):  # only user-demanded forecasts
 			if config.plugins.MetrixWeather.icontype.value == "0":
@@ -274,8 +270,6 @@ class InfoBarMetrixWeather(Screen):
 
 	def setWeatherDataValid(self, value):
 		config.plugins.MetrixWeather.currentWeatherDataValid.value = value
-		self["currentDataValid"].setText("")
-		self["currentDataValid"].setBackgroundColorNum(value)
 
 
 class InfoBarMetrixWeatherHandler():

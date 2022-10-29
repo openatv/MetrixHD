@@ -40,18 +40,20 @@ from . import _
 class WeatherSettingsView(Setup):
 	def __init__(self, session):
 		Setup.__init__(self, session, "WeatherSettings", plugin="Extensions/MyMetrixLite")
-		self["key_blue"] = StaticText("Check City")
+		self["key_blue"] = StaticText(_("Check City"))
 		self["blueActions"] = HelpableActionMap(self, ["ColorActions"], {
-			"blue": (self.checkID, _("Get ID for your City"))
+			"blue": (self.keycheckCity, _("Search for your City"))
 		}, prio=0, description=_("Weather Settings Actions"))
 		self.old_weatherservice = config.plugins.MetrixWeather.weatherservice.value
-		self.old_weathercity = config.plugins.MetrixWeather.weathercity.value
+		#self.old_weathercity = config.plugins.MetrixWeather.weathercity.value
 		self.citylist = []
-		self.checkCity = False
+		self.checkcity = False
+		self.closeonsave = False
 
-	def checkID(self):
+	def keycheckCity(self, closesave=False):
 		weathercity = config.plugins.MetrixWeather.weathercity.value.split(",")[0]
 		self["footnote"].setText(_("Search for City ID please wait..."))
+		self.closeonsave = closesave
 		callInThread(self.searchCity, weathercity)
 
 	def searchCity(self, weathercity):
@@ -62,7 +64,7 @@ class WeatherSettingsView(Setup):
 			self["footnote"].setText(_("Error in Weatherinfo"))
 		else:
 			geodatalist = WI.getCitylist(weathercity, config.osd.language.value.replace('_', '-').lower())
-			print(geodatalist)
+			# print(geodatalist)
 			if WI.error or geodatalist is None or len(geodatalist) == 0:
 				self["footnote"].setText(_("Error getting City ID"))
 #			elif len(geodatalist) == 1:
@@ -87,19 +89,19 @@ class WeatherSettingsView(Setup):
 	def saveGeoCode(self, value):
 		config.plugins.MetrixWeather.weathercity.value = value[0]
 		config.plugins.MetrixWeather.owm_geocode.value = "%s,%s" % (float(value[1]), float(value[2]))
-		#self.old_weatherservice = config.plugins.MetrixWeather.weatherservice.value
-		#self.old_weathercity = config.plugins.MetrixWeather.weathercity.value
-		#self.checkCity = False
-		from .plugin import infobarmetrixweatherhandler  # import needs to be here
-		infobarmetrixweatherhandler.reconfigure()
-		Setup.keySave(self)
+		self.old_weatherservice = config.plugins.MetrixWeather.weatherservice.value
+		self.checkcity = False
+		if self.closeonsave:
+			from .plugin import infobarmetrixweatherhandler  # import needs to be here
+			infobarmetrixweatherhandler.reconfigure()
+			Setup.keySave(self)
 
 	def keySelect(self):
 		if self.getCurrentItem() == config.plugins.MetrixWeather.iconpath:
 			self.session.openWithCallback(self.keySelectCallback, WeatherSettingsLocationBox, currDir=config.plugins.MetrixWeather.iconpath.value)
 			return
 		if self.getCurrentItem() == config.plugins.MetrixWeather.weathercity:
-			self.checkCity = True
+			self.checkcity = True
 		Setup.keySelect(self)
 
 	def selectionChanged(self):
@@ -132,8 +134,8 @@ class WeatherSettingsView(Setup):
 		if len(weathercity) < 3:
 			self["footnote"].setText(_("The city name is too short. More than 2 characters are needed for search."))
 			return
-		if self.checkCity or self.old_weatherservice != config.plugins.MetrixWeather.weatherservice.value:
-			self.checkID()
+		if self.checkcity or self.old_weatherservice != config.plugins.MetrixWeather.weatherservice.value:
+			self.keycheckCity(True)
 			return
 		if self["config"].isChanged():
 			from .plugin import infobarmetrixweatherhandler  # import needs to be here

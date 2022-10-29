@@ -29,7 +29,6 @@
 
 	<screen name="InfoBarMetrixWeatherNoData" backgroundColor="transparent" flags="wfNoBorder" position="40,40" size="219,71" title="InfoBarMetrixWeather" zPosition="1">
 		<eLabel backgroundColor="layer-a-background" position="0,0" size="219,71" />
-		<widget font="Regular;19" backgroundColor="red" position="1,1" size="2,69" name="currentDataValid" zPosition="10" />
 		<widget name="Temp" backgroundColor="layer-a-background" font="global_clock;54" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="6,6" size="104,64" transparent="1" valign="bottom" zPosition="10" />
 		<eLabel font="MetrixIcons;64" text=";" position="135,4" size="68,68" backgroundColor="layer-b-background" foregroundColor="layer-b-clock-foreground" noWrap="1" halign="center" valign="center" transparent="1" zPosition="9" />
 		<eLabel font="MetrixIcons;32" text="]" position="148,28" size="40,40" backgroundColor="layer-b-background" foregroundColor="red" noWrap="1" halign="center" valign="center" transparent="1" zPosition="10" />
@@ -50,8 +49,6 @@
 	<widget name="ShortDay" backgroundColor="layer-b-background" font="global_weather_bold;16" foregroundColor="layer-b-clock-foreground" halign="right" noWrap="1" position="160,4" size="49,21" transparent="1" valign="bottom" zPosition="10" />
 	<widget name="MaxTemp" backgroundColor="layer-a-background" font="global_clock;16" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="160,25" size="49,21" transparent="1" valign="bottom" zPosition="10" />
 	<widget name="MinTemp" backgroundColor="layer-a-background" font="global_clock;16" foregroundColor="layer-a-clock-foreground" halign="right" noWrap="1" position="160,46" size="49,21" transparent="1" valign="bottom" zPosition="10" />
-
-	<widget font="Regular;19" backgroundColors="green,yellow,red" position="1,1" size="2,69" name="currentDataValid" zPosition="10" />
 
 	<panel name="InfoBarWeather_Details" conditional="Location" />
 	<panel name="InfoBarWeatherForcast1" conditional="ShortDay_1" />
