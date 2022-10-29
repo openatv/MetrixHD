@@ -288,7 +288,7 @@ class InfoBarMetrixWeatherHandler():
 	def processDisplay(self, state):
 		if config.plugins.MetrixWeather.enabled.value:
 			try:
-				if config.plugins.MetrixWeather.currentWeatherDataValid.value == 3:
+				if config.plugins.MetrixWeather.currentWeatherDataValid.value != 0:
 					if state:
 						InfoBarMetrixWeatherNoData.instance.show()
 					else:
