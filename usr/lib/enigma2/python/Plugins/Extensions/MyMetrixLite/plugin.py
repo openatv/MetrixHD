@@ -328,7 +328,7 @@ def autostart(reason, **kwargs):
 def info(reason, session, **kwargs):
 	typeInfoBar = kwargs["typeInfoBar"]
 	if config.plugins.MetrixWeather.enabled.value:
-		if typeInfoBar == "InfoBar" or (config.plugins.MetrixWeather.MoviePlayer.value and typeInfoBar == "moviePlayer"):
+		if typeInfoBar == "InfoBar" or (config.plugins.MetrixWeather.MoviePlayer.value and typeInfoBar in ("MoviePlayer", "EMCMediaCenter")):
 			infobarmetrixweatherhandler.hookInfoBar(reason, kwargs["instance"])
 
 
