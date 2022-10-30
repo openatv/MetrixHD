@@ -40,12 +40,11 @@ from . import _
 class WeatherSettingsView(Setup):
 	def __init__(self, session):
 		Setup.__init__(self, session, "WeatherSettings", plugin="Extensions/MyMetrixLite")
-		self["key_blue"] = StaticText(_("Check City"))
+		self["key_blue"] = StaticText(_("Location Selection"))
 		self["blueActions"] = HelpableActionMap(self, ["ColorActions"], {
 			"blue": (self.keycheckCity, _("Search for your City"))
 		}, prio=0, description=_("Weather Settings Actions"))
 		self.old_weatherservice = config.plugins.MetrixWeather.weatherservice.value
-		#self.old_weathercity = config.plugins.MetrixWeather.weathercity.value
 		self.citylist = []
 		self.checkcity = False
 		self.closeonsave = False
@@ -64,7 +63,6 @@ class WeatherSettingsView(Setup):
 			self["footnote"].setText(_("Error in Weatherinfo"))
 		else:
 			geodatalist = WI.getCitylist(weathercity, config.osd.language.value.replace('_', '-').lower())
-			# print(geodatalist)
 			if WI.error or geodatalist is None or len(geodatalist) == 0:
 				self["footnote"].setText(_("Error getting City ID"))
 #			elif len(geodatalist) == 1:
