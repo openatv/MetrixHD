@@ -3,11 +3,10 @@
 #        <convert type="MetrixHDWeather">currentWeatherCode</convert>
 #    </widget>
 from os import listdir
+from os.path import exists, join as pathjoin, isfile
 from enigma import ePixmap, eTimer
-
 from Components.config import config
 from Components.Renderer.Renderer import Renderer
-from Tools.Directories import fileExists, pathExists
 from Tools.LoadPixmap import LoadPixmap
 
 
@@ -21,6 +20,10 @@ class MetrixHDWeatherPixmap(Renderer):
 		self.pixdelay = 100
 		self.pixdelay_overwrite = False
 		self.slideicon = None
+		self.winddiricon = None
+		self.iconpath = config.plugins.MetrixWeather.iconpath.value
+		if not exists(self.iconpath) or config.plugins.MetrixWeather.icontype.value != "2":
+			self.iconpath = None
 
 	def applySkin(self, desktop, parent):
 		attribs = []
@@ -42,19 +45,23 @@ class MetrixHDWeatherPixmap(Renderer):
 		if self.instance:
 			sname = ''
 			if (what[0] != self.CHANGED_CLEAR):
-				if config.plugins.MetrixWeather.weatherservice.value == "MSN":
-					sname = self.source.text
-				else:
-					sname = self.ConvertCondition(self.source.text)
+				if config.plugins.MetrixWeather.icontype.value == "0":
+					return
+				sname = self.source.text
+				if self.iconpath:
+					imgpath = pathjoin(self.iconpath, '%s.png' % sname)
+					if isfile(imgpath):
+						self.instance.setPixmap(LoadPixmap(imgpath))
+					return
 				for path in self.searchPaths:
-					if pathExists((path % self.path)):
+					if exists((path % self.path)):
 						self.runAnim(sname)
 
 	def runAnim(self, id):
 		global total
 		animokicon = False
 		for path in self.searchPaths:
-			if fileExists('%s%s' % ((path % self.path), id)):
+			if exists('%s%s' % ((path % self.path), id)):
 				pathanimicon = '%s%s/a' % ((path % self.path), id)
 				path2 = '%s%s' % ((path % self.path), id)
 				dir_work = listdir(path2)
@@ -62,7 +69,7 @@ class MetrixHDWeatherPixmap(Renderer):
 				self.slideicon = total
 				animokicon = True
 			else:
-				if fileExists('%sNA' % (path % self.path)):
+				if exists('%sNA' % (path % self.path)):
 					pathanimicon = '%sNA/a' % (path % self.path)
 					path2 = '%sNA' % (path % self.path)
 					dir_work = listdir(path2)
@@ -72,7 +79,7 @@ class MetrixHDWeatherPixmap(Renderer):
 		if animokicon == True:
 			self.picsicon = []
 			for x in range(self.slideicon):
-				self.picsicon.append(LoadPixmap(pathanimicon + str(x) + '.png'))
+				self.picsicon.append(LoadPixmap("%s%s.png" % (pathanimicon, str(x))))
 
 			if not self.pixdelay_overwrite:
 				self.pixdelay = int(config.plugins.MetrixWeather.animationspeed.value)
@@ -90,52 +97,8 @@ class MetrixHDWeatherPixmap(Renderer):
 		self.instance.setScale(1)
 		try:
 			self.instance.setPixmap(self.picsicon[self.slideicon - 1])
-		except:
+		except Exception:
 			pass
 		self.slideicon = self.slideicon - 1
 		if self.pixdelay:
 			self.timericon.start(self.pixdelay, True)
-
-	def ConvertCondition(self, c):
-		condition = "NA"
-		if c == "S":
-			condition = "0"
-		elif c == "Z":
-			condition = "3"
-		elif c == "U":
-			condition = "5"
-		elif c == "G":
-			condition = "8"
-		elif c == "Q":
-			condition = "9"
-		elif c == "R":
-			condition = "11"
-		elif c == "W":
-			condition = "13"
-		elif c == "X":
-			condition = "17"
-		elif c == "F":
-			condition = "19"
-		elif c == "L":
-			condition = "20"
-		elif c == "S":
-			condition = "23"
-		elif c == "N" or c == "Y":
-			condition = "26"
-		elif c == "I":
-			condition = "27"
-		elif c == "H":
-			condition = "28"
-		elif c == "C":
-			condition = "31"
-		elif c == "B":
-			condition = "32"
-		elif c == "B":
-			condition = "36"
-		elif c == "0":
-			condition = "37"
-		elif c == 49:
-			condition = "NA"
-		else:
-			condition = "NA"
-		return str(condition)

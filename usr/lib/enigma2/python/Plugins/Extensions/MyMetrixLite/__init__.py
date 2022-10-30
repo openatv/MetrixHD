@@ -491,7 +491,7 @@ def initFontsConfig():
 	config.plugins.MyMetrixLiteFonts.RegularLight_scale = ConfigSelectionNumber(50, 150, 1, default=95)
 	config.plugins.MyMetrixLiteFonts.SetrixHD_type = ConfigSelection(default="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf", choices=FontTypeList)
 	config.plugins.MyMetrixLiteFonts.SetrixHD_scale = ConfigSelectionNumber(50, 150, 1, default=100)
-	config.plugins.MyMetrixLiteFonts.Meteo_scale = ConfigSelectionNumber(50, 150, 1, default=100)
+#	config.plugins.MyMetrixLiteFonts.Meteo_scale = ConfigSelectionNumber(50, 150, 1, default=100)
 #------------------------------#
 #for individual skinned screens#
 #------------------------------#
@@ -534,82 +534,8 @@ def initFontsConfig():
 
 
 def initWeatherConfig():
-	config.plugins.MetrixWeather = ConfigSubsection()
+	pass
 
-	#MetrixWeather
-
-	config.plugins.MetrixWeather.enabled = ConfigYesNo(default=True)
-	config.plugins.MetrixWeather.type = ConfigYesNo(default=False)
-	config.plugins.MetrixWeather.animationspeed = ConfigSelection(default="100", choices=[("0", _("Off")), ("20", _("+ 4")), ("40", _("+ 3")), ("60", _("+ 2")), ("80", _("+ 1")), ("100", _("Default")), ("125", _("- 1")), ("150", _("- 2")), ("200", _("- 3")), ("300", _("- 4"))])
-	config.plugins.MetrixWeather.tempplus = ConfigYesNo(default=False)
-	config.plugins.MetrixWeather.MoviePlayer = ConfigYesNo(default=True)
-	config.plugins.MetrixWeather.verifyDate = ConfigYesNo(default=True)
-	config.plugins.MetrixWeather.refreshInterval = ConfigSelectionNumber(0, 1440, 30, default=120, wraparound=True)
-	config.plugins.MetrixWeather.woeid = ConfigNumber(default=2911298)
-	config.plugins.MetrixWeather.apikey = ConfigText(default="a4bd84726035d0ce2c6185740617d8c5")
-	BoxType = getBoxType()
-	if BoxType.startswith("beyonwiz"):
-		# Beyonwiz - marketed only in Australia
-		weathercity = "Sydney, Australia"
-	else:
-		weathercity = "Hamburg, Germany"
-	config.plugins.MetrixWeather.weathercity = ConfigText(default=weathercity, visible_width=250, fixed_size=False)
-	config.plugins.MetrixWeather.tempUnit = ConfigSelection(default="Celsius", choices=[
-		("Celsius", _("Celsius")),
-		("Fahrenheit", _("Fahrenheit"))
-	])
-	config.plugins.MetrixWeather.weatherservice = ConfigSelection(default="MSN", choices=[
-		("MSN", _("MSN")),
-		("openweather", _("openweather"))
-	])
-	config.plugins.MetrixWeather.forecast = ConfigSelectionNumber(0, 3, 1, default=1, wraparound=True)
-	config.plugins.MetrixWeather.weekday = ConfigYesNo(default=False)
-	config.plugins.MetrixWeather.detail = ConfigYesNo(default=False)
-
-	## RENDERER CONFIG:
-
-	config.plugins.MetrixWeather.currentWeatherDataValid = ConfigNumber(default=0)
-	config.plugins.MetrixWeather.currentLocation = ConfigText(default="N/A")
-	config.plugins.MetrixWeather.currentWeatherCode = ConfigText(default="(")
-	config.plugins.MetrixWeather.currentWeatherText = ConfigText(default="N/A")
-	config.plugins.MetrixWeather.currentWeatherTemp = ConfigText(default="0")
-	config.plugins.MetrixWeather.currentWeatherhumidity = ConfigText(default="0")
-	config.plugins.MetrixWeather.currentWeatherwinddisplay = ConfigText(default="N/A")
-	config.plugins.MetrixWeather.currentWeatherwindspeed = ConfigText(default="N/A")
-	config.plugins.MetrixWeather.currentWeathershortday = ConfigText(default="N/A")
-	config.plugins.MetrixWeather.currentWeatherdate = ConfigText(default="N/A")
-	config.plugins.MetrixWeather.currentWeatherday = ConfigText(default="N/A")
-	config.plugins.MetrixWeather.currentWeatherobservationtime = ConfigText(default="0")
-
-	config.plugins.MetrixWeather.currentWeatherfeelslike = ConfigText(default="0")
-	config.plugins.MetrixWeather.forecastTodayCode = ConfigText(default="(")
-	config.plugins.MetrixWeather.forecastTodayText = ConfigText(default="N/A")
-	config.plugins.MetrixWeather.forecastTodayTempMin = ConfigText(default="0")
-	config.plugins.MetrixWeather.forecastTodayTempMax = ConfigText(default="0")
-
-	config.plugins.MetrixWeather.forecastTomorrowCode = ConfigText(default="(")
-	config.plugins.MetrixWeather.forecastTomorrowText = ConfigText(default="N/A")
-	config.plugins.MetrixWeather.forecastTomorrowTempMin = ConfigText(default="0")
-	config.plugins.MetrixWeather.forecastTomorrowTempMax = ConfigText(default="0")
-	config.plugins.MetrixWeather.forecastTomorrowdate = ConfigText(default="N/A")
-	config.plugins.MetrixWeather.forecastTomorrowday = ConfigText(default="N/A")
-	config.plugins.MetrixWeather.forecastTomorrowshortday = ConfigText(default="N/A")
-
-	config.plugins.MetrixWeather.forecastTomorrowCode2 = ConfigText(default="(")
-	config.plugins.MetrixWeather.forecastTomorrowText2 = ConfigText(default="N/A")
-	config.plugins.MetrixWeather.forecastTomorrowTempMin2 = ConfigText(default="0")
-	config.plugins.MetrixWeather.forecastTomorrowTempMax2 = ConfigText(default="0")
-	config.plugins.MetrixWeather.forecastTomorrowdate2 = ConfigText(default="N/A")
-	config.plugins.MetrixWeather.forecastTomorrowday2 = ConfigText(default="N/A")
-	config.plugins.MetrixWeather.forecastTomorrowshortday2 = ConfigText(default="N/A")
-
-	config.plugins.MetrixWeather.forecastTomorrowCode3 = ConfigText(default="(")
-	config.plugins.MetrixWeather.forecastTomorrowText3 = ConfigText(default="N/A")
-	config.plugins.MetrixWeather.forecastTomorrowTempMin3 = ConfigText(default="0")
-	config.plugins.MetrixWeather.forecastTomorrowTempMax3 = ConfigText(default="0")
-	config.plugins.MetrixWeather.forecastTomorrowdate3 = ConfigText(default="N/A")
-	config.plugins.MetrixWeather.forecastTomorrowday3 = ConfigText(default="N/A")
-	config.plugins.MetrixWeather.forecastTomorrowshortday3 = ConfigText(default="N/A")
 
 #######################################################################
 

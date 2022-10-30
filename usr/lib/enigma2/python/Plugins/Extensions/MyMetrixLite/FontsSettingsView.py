@@ -137,8 +137,8 @@ class FontsSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab + _("SetrixHD"), ))
 		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.SetrixHD_type, _("helptext")))
 		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.SetrixHD_scale, _("helptext")))
-		list.append(getConfigListEntry(tab + _("Meteo"), ))
-		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.Meteo_scale, _("helptext")))
+#		list.append(getConfigListEntry(tab + _("Meteo"), ))
+#		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.Meteo_scale, _("helptext")))
 		section = _("-")
 		list.append(getConfigListEntry(section + sep * (char - len(section)), ))
 		section = _("Individual Settings (only for some individual skinned screens)")
@@ -232,7 +232,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.RegularLight_scale.value = 95
 			config.plugins.MyMetrixLiteFonts.SetrixHD_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.SetrixHD_scale.value = 100
-			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 100
+#			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 100
 			#global
 			config.plugins.MyMetrixLiteFonts.globaltitle_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.globaltitle_scale.value = 100
@@ -285,7 +285,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.RegularLight_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.SetrixHD_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.SetrixHD_scale.value = 105
-			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 105
+#			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 105
 			#global
 			config.plugins.MyMetrixLiteFonts.globaltitle_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.globaltitle_scale.value = 105
@@ -341,7 +341,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.RegularLight_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.SetrixHD_type.value = "/usr/share/fonts/nmsbd.ttf"
 			config.plugins.MyMetrixLiteFonts.SetrixHD_scale.value = 105
-			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 105
+#			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 105
 			#global
 			config.plugins.MyMetrixLiteFonts.globaltitle_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf"
 			config.plugins.MyMetrixLiteFonts.globaltitle_scale.value = 110
@@ -397,7 +397,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.RegularLight_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.SetrixHD_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf"
 			config.plugins.MyMetrixLiteFonts.SetrixHD_scale.value = 105
-			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 100
+#			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 100
 			#global
 			config.plugins.MyMetrixLiteFonts.globaltitle_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf"
 			config.plugins.MyMetrixLiteFonts.globaltitle_scale.value = 115
@@ -453,7 +453,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.RegularLight_scale.value = 75
 			config.plugins.MyMetrixLiteFonts.SetrixHD_type.value = "/usr/share/enigma2/MetrixHD/fonts/digi.ttf"
 			config.plugins.MyMetrixLiteFonts.SetrixHD_scale.value = 75
-			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 100
+#			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 100
 			#global
 			config.plugins.MyMetrixLiteFonts.globaltitle_type.value = "/usr/share/fonts/lcd.ttf"
 			config.plugins.MyMetrixLiteFonts.globaltitle_scale.value = 115
@@ -509,7 +509,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.RegularLight_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.SetrixHD_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.SetrixHD_scale.value = 100
-			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 100
+#			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 100
 			#global
 			config.plugins.MyMetrixLiteFonts.globaltitle_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.globaltitle_scale.value = 100
@@ -565,7 +565,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.RegularLight_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.SetrixHD_type.value = "/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf"
 			config.plugins.MyMetrixLiteFonts.SetrixHD_scale.value = 100
-			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 105
+#			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 105
 			#global
 			config.plugins.MyMetrixLiteFonts.globaltitle_type.value = "/usr/share/fonts/nmsbd.ttf"
 			config.plugins.MyMetrixLiteFonts.globaltitle_scale.value = 100
