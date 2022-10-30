@@ -270,6 +270,8 @@ class InfoBarMetrixWeather(Screen):
 
 	def setWeatherDataValid(self, value):
 		config.plugins.MetrixWeather.currentWeatherDataValid.value = value
+		if value == 0:
+			InfoBarMetrixWeatherNoData.instance.hide()
 
 
 class InfoBarMetrixWeatherHandler():
