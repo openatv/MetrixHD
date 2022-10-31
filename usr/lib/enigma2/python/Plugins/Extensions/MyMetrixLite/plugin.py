@@ -60,7 +60,7 @@ GEODATA = ("Sydney, New South Wales, AU", "151.2082848,-33.8698439") if BoxInfo.
 config.plugins.MetrixWeather.weathercity = ConfigText(default=GEODATA[0], visible_width=250, fixed_size=False)
 config.plugins.MetrixWeather.owm_geocode = ConfigText(default=GEODATA[1])
 config.plugins.MetrixWeather.tempUnit = ConfigSelection(default="Celsius", choices=[("Celsius", _("Celsius")), ("Fahrenheit", _("Fahrenheit"))])
-config.plugins.MetrixWeather.weatherservice = ConfigSelection(default="MSN", choices=[("MSN", _("MSN weather")), ("openweather", _("OpenWeatherMap"))])
+config.plugins.MetrixWeather.weatherservice = ConfigSelection(default="MSN", choices=[("MSN", _("MSN weather")), ("OpenMeteo", _("Open-Meteo Wetter")), ("openweather", _("OpenWeatherMap"))])
 config.plugins.MetrixWeather.forecast = ConfigSelectionNumber(0, 5, 1, default=1, wraparound=True)
 config.plugins.MetrixWeather.currentWeatherDataValid = NoSave(ConfigNumber(default=3))
 
@@ -98,7 +98,8 @@ class InfoBarMetrixWeather(Screen):
 
 	def __init__(self, session):
 		Screen.__init__(self, session)
-		mode = "msn" if config.plugins.MetrixWeather.weatherservice.value == "MSN" else "owm"
+		modes = {"MSN": "msn", "openweather": "owm", "OpenMeteo": "omw"}
+		mode = modes.get(config.plugins.MetrixWeather.weatherservice.value, "msn")
 		self.WI = Weatherinfo(mode, config.plugins.MetrixWeather.apikey.value)
 		self.geocode = config.plugins.MetrixWeather.owm_geocode.value.split(",")
 		self.oldmode = mode
@@ -236,8 +237,9 @@ class InfoBarMetrixWeather(Screen):
 		self["MaxTemp"].setText("%s %s" % (data["forecast"][0]["maxTemp"], tempsign))
 		# data for panel "infoBarWeatherDetails"
 		if config.plugins.MetrixWeather.detail.value:
+			logos = {"MSN": 0, "openweather": 1, "OpenMeteo": 2}
+			self["logo"].setPixmapNum(logos.get(config.plugins.MetrixWeather.weatherservice.value, 0))
 			self["logo"].show()
-			self["logo"].setPixmapNum(0 if config.plugins.MetrixWeather.weatherservice.value == "MSN" else 1)
 			location = data["name"]
 			if len(location) > 26:  # if too long for skin, reduce stepweise
 				location = location.split(",")
@@ -277,8 +279,8 @@ class InfoBarMetrixWeather(Screen):
 class InfoBarMetrixWeatherHandler():
 	def sessioninit(self, session):
 		if config.plugins.MetrixWeather.enabled.value:
-			session.instantiateDialog(InfoBarMetrixWeather)
 			session.instantiateDialog(InfoBarMetrixWeatherNoData)
+			session.instantiateDialog(InfoBarMetrixWeather)
 		self.session = session
 
 	def processDisplay(self, state):
