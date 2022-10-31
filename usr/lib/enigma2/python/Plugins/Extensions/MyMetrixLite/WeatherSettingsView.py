@@ -56,7 +56,8 @@ class WeatherSettingsView(Setup):
 		callInThread(self.searchCity, weathercity)
 
 	def searchCity(self, weathercity):
-		service = "msn" if config.plugins.MetrixWeather.weatherservice.value == "MSN" else "owm"
+		services = {"MSN": "msn", "openweather": "owm", "OpenMeteo": "omw"}
+		service = services.get(config.plugins.MetrixWeather.weatherservice.value, "msn")
 		WI = Weatherinfo(service, config.plugins.MetrixWeather.apikey.value)
 		if WI.error:
 			print("[WeatherSettingsView] Error in module 'searchCity': %s" % WI.error)
