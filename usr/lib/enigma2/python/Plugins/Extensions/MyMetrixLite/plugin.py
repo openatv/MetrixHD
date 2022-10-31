@@ -237,13 +237,9 @@ class InfoBarMetrixWeather(Screen):
 		self["MaxTemp"].setText("%s %s" % (data["forecast"][0]["maxTemp"], tempsign))
 		# data for panel "infoBarWeatherDetails"
 		if config.plugins.MetrixWeather.detail.value:
+			logos = {"MSN": 0, "openweather": 1, "OpenMeteo": 2}
+			self["logo"].setPixmapNum(logos.get(config.plugins.MetrixWeather.weatherservice.value, 0))
 			self["logo"].show()
-			logo = 0
-			if config.plugins.MetrixWeather.weatherservice.value == "openweather":
-				logo = 1
-			if config.plugins.MetrixWeather.weatherservice.value == "OpenMeteo":
-				logo = 2
-			self["logo"].setPixmapNum(logo)
 			location = data["name"]
 			if len(location) > 26:  # if too long for skin, reduce stepweise
 				location = location.split(",")
