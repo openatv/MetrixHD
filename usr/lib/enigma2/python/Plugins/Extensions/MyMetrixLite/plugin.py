@@ -63,7 +63,7 @@ config.plugins.MetrixWeather.tempUnit = ConfigSelection(default="Celsius", choic
 config.plugins.MetrixWeather.weatherservice = ConfigSelection(default="MSN", choices=[("MSN", _("MSN weather")), ("OpenMeteo", _("Open-Meteo Wetter")), ("openweather", _("OpenWeatherMap"))])
 config.plugins.MetrixWeather.forecast = ConfigSelectionNumber(0, 5, 1, default=1, wraparound=True)
 config.plugins.MetrixWeather.currentWeatherDataValid = NoSave(ConfigNumber(default=3))
-config.plugins.MetrixWeather.cityVisible = ConfigYesNo(default=False)
+config.plugins.MetrixWeather.cityVisible = ConfigYesNo(default=True)
 
 # omw migration
 config.plugins.MetrixWeather.woeid = ConfigNumber(default=0)
