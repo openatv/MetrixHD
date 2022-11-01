@@ -13,6 +13,7 @@
 			<item level="0" text="Refresh interval" description="Specify how often MetrixWeather retrieves its data from the server. 'Once' means the data will loaded only once after a GUI or system start.">config.plugins.MetrixWeather.refreshInterval</item>
 			<item level="0" text="Show forecast" description="Select the number of days of weather forecast to be displayed.">config.plugins.MetrixWeather.forecast</item>
 			<item level="0" text="Show detail" description="Enable this option to display the wind speed, direction, 'feels like' temperature and humidity.">config.plugins.MetrixWeather.detail</item>
+			<item level="0" text="Show cityname in details" description="Select 'Yes' to display your cityname in MetrixWeather" conditional="config.plugins.MetrixWeather.detail.value">config.plugins.MetrixWeather.cityVisible</item>
 			<item level="0" text="Cache data" description="Select this option to save that last obtained weather data locally. This is used to initialize the data immediately after restart while updated data is being fetched.">config.plugins.MetrixWeather.cachedata</item>
 		</if>
 	</setup>

@@ -126,20 +126,20 @@ class MainSettingsView(Screen):
 				"cancel": self.exit
 			}, -1)
 
-		list = []
-		list.append(MenuEntryItem(_("Font settings"), "FONT", _("helptext")))
-		list.append(MenuEntryItem(_("Color settings"), "COLOR", _("helptext")))
-		list.append(MenuEntryItem(_("Weather settings"), "WEATHER", _("Powered by\n-----------------\nmsn weather\n(https://www.msn.com)\nand\nOpenWeatherMap\n(https://openweathermap.org)")))
-		list.append(MenuEntryItem(_("Other settings"), "OTHER", _("helptext")))
+		menulist = []
+		menulist.append(MenuEntryItem(_("Font settings"), "FONT", _("helptext")))
+		menulist.append(MenuEntryItem(_("Color settings"), "COLOR", _("helptext")))
+		menulist.append(MenuEntryItem(_("Weather settings"), "WEATHER", _("Powered by\n-----------------\nmsn weather (https://www.msn.com)\nand\nOpenWeatherMap (https://openweathermap.org)\nand\nOpen-Meteo (https://open-meteo.com/en)")))
+		menulist.append(MenuEntryItem(_("Other settings"), "OTHER", _("helptext")))
 		if isfile("/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/DesignSettings.py"):
 			from .DesignSettingsView import DesignSettingsView
-			list.append(MenuEntryItem(_("Design settings"), "DESIGN", _("helptext")))
-		list.append(MenuEntryItem(_("Skinpart settings"), "SKINPART", _("helptext")))
-		list.append("")
-		list.append(MenuEntryItem(_("Backup & Restore my settings"), "BACKUP", _("helptext")))
+			menulist.append(MenuEntryItem(_("Design settings"), "DESIGN", _("helptext")))
+		menulist.append(MenuEntryItem(_("Skinpart settings"), "SKINPART", _("helptext")))
+		menulist.append("")
+		menulist.append(MenuEntryItem(_("Backup & Restore my settings"), "BACKUP", _("helptext")))
 
 		self["menuList"] = MainMenuList([], font0=24, font1=16, itemHeight=50)
-		self["menuList"].l.setList(list)
+		self["menuList"].l.setList(menulist)
 
 		if not self.selectionChanged in self["menuList"].onSelectionChanged:
 			self["menuList"].onSelectionChanged.append(self.selectionChanged)

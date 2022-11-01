@@ -40,7 +40,7 @@ from .ActivateSkinSettings import applySkinSettings
 
 #############################################################
 config.plugins.MetrixWeather = ConfigSubsection()
-config.plugins.MetrixWeather.enabled = ConfigYesNo(default=False)
+config.plugins.MetrixWeather.enabled = ConfigYesNo(default=True)
 config.plugins.MetrixWeather.detail = ConfigYesNo(default=False)
 config.plugins.MetrixWeather.type = ConfigYesNo(default=False)
 config.plugins.MetrixWeather.icontype = ConfigSelection(default=0, choices=[("0", _("Meteo Icons")), ("1", _("Animated Icons")), ("2", _("Static Icons"))])
@@ -54,7 +54,7 @@ config.plugins.MetrixWeather.iconpath = ConfigText(default="")
 config.plugins.MetrixWeather.cachedata = ConfigSelection(default="60", choices=[("0", _("Disabled"))] + [(str(x), _("%d Minutes") % x) for x in (30, 60, 120)])
 config.plugins.MetrixWeather.MoviePlayer = ConfigYesNo(default=True)
 config.plugins.MetrixWeather.refreshInterval = ConfigSelectionNumber(0, 1440, 30, default=120, wraparound=True)
-config.plugins.MetrixWeather.apikey = ConfigText(default="a4bd84726035d0ce2c6185740617d8c5")
+config.plugins.MetrixWeather.apikey = ConfigText(default="")
 # Beyonwiz - marketed only in Australia
 GEODATA = ("Sydney, New South Wales, AU", "151.2082848,-33.8698439") if BoxInfo.getItem("machinebuild").startswith("beyonwiz") else ("Hamburg, DE", "10.000654,53.550341")
 config.plugins.MetrixWeather.weathercity = ConfigText(default=GEODATA[0], visible_width=250, fixed_size=False)
@@ -63,6 +63,7 @@ config.plugins.MetrixWeather.tempUnit = ConfigSelection(default="Celsius", choic
 config.plugins.MetrixWeather.weatherservice = ConfigSelection(default="MSN", choices=[("MSN", _("MSN weather")), ("OpenMeteo", _("Open-Meteo Wetter")), ("openweather", _("OpenWeatherMap"))])
 config.plugins.MetrixWeather.forecast = ConfigSelectionNumber(0, 5, 1, default=1, wraparound=True)
 config.plugins.MetrixWeather.currentWeatherDataValid = NoSave(ConfigNumber(default=3))
+config.plugins.MetrixWeather.cityVisible = ConfigYesNo(default=False)
 
 # omw migration
 config.plugins.MetrixWeather.woeid = ConfigNumber(default=0)
@@ -77,9 +78,10 @@ if config.plugins.MetrixWeather.currentLocation.value:
 	config.plugins.MetrixWeather.currentLocation.value = ""
 	config.plugins.MetrixWeather.currentLocation.save()
 
+
 #######################################################################
 
-MODULE_NAME = __name__.split(".")[-1]
+MODULE_NAME = "InfoBarMetrixWeather"
 
 CACHEFILE = resolveFilename(SCOPE_CONFIG, "MetrixWeather.dat")
 
@@ -121,6 +123,10 @@ class InfoBarMetrixWeather(Screen):
 		self["MaxTemp"] = Label()
 
 		if config.plugins.MetrixWeather.detail.value:
+			if config.plugins.MetrixWeather.cityVisible.value:
+				self["LocationIcon"] = Label(",")
+			else:
+				self["NoLocation"] = Label()
 			self["Location"] = Label("")
 			self["logo"] = MultiPixmap()
 			self["logo"].hide()
@@ -144,11 +150,21 @@ class InfoBarMetrixWeather(Screen):
 		self.refreshTimer.callback.append(self.refreshWeatherData)
 		self.onLayoutFinish.append(self.getCacheData)
 		self.onClose.append(self.__onClose)
+		config.plugins.MetrixWeather.weathercity.addNotifier(self.cityChanged, initial_call=False)
+		print("[%s] DEBUG __init__ location = %s" % (MODULE_NAME, config.plugins.MetrixWeather.weathercity.value))
 		InfoBarMetrixWeather.instance = self
 
 	def __onClose(self):
+		config.plugins.MetrixWeather.weathercity.removeNotifier(self.cityChanged)
 		self.WI.stop()
 		self.refreshTimer.stop()
+
+	def cityChanged(self, configItem):
+		print("[%s] DEBUG cityChanged to %s" % (MODULE_NAME, configItem.value))
+		self.refreshTimer.stop()
+		if isfile(CACHEFILE):
+			remove(CACHEFILE)
+		self.refreshTimer.start(5000, True)
 
 	def getCacheData(self):
 		self.setWeatherDataValid(1)  # 0= green (data available), 1= yellow (still working), 2= red (no data available, wait on next refresh)
@@ -160,6 +176,7 @@ class InfoBarMetrixWeather(Screen):
 					cache_data = load(fd)
 				self.writeData(cache_data)
 				return
+
 		self.refreshTimer.start(3000, True)
 
 	def refreshWeatherData(self, entry=None):
@@ -241,12 +258,14 @@ class InfoBarMetrixWeather(Screen):
 			self["logo"].setPixmapNum(logos.get(config.plugins.MetrixWeather.weatherservice.value, 0))
 			self["logo"].show()
 			location = data["name"]
+			print("[%s] DEBUG writeData location = %s" % (MODULE_NAME, location))
 			if len(location) > 26:  # if too long for skin, reduce stepweise
 				location = location.split(",")
 				location = "%s, %s" % (location[0], location[2]) if len(location) > 2 else location[0]
 				if len(location) > 26:
 					location = "%s%s" % (location[:26], "…")
-			self["Location"].setText(location)  # trigger "on" for panel "infoBarWeatherDetails"
+			if config.plugins.MetrixWeather.cityVisible.value:
+				self["Location"].setText(location)  # trigger "on" for panel "infoBarWeatherDetails"
 			self["Observationtime"].setText(data["current"]["observationTime"][11:19])
 			self["Feelslike"].setText("%s %s" % (data["current"]["feelsLike"], tempsign))
 			self["Humidity"].setText("%s %s" % (data["current"]["humidity"], "%"))
