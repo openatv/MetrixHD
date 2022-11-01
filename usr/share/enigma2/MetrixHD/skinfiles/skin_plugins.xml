@@ -816,17 +816,9 @@
 		<panel name="rgyb-buttons_template1" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
-
 	<screen name="WeatherSettingsView" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="setup_common"/>
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/MyMetrixLiteWeather.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="WeatherSettingsLocation" position="0,0" size="1280,720" title="Location" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="menu" position="70,95" size="700,510" scrollbarMode="showNever" itemHeight="30" font="screen_text;20" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
-		<panel name="template1_2layer" />
-		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/MyMetrixLiteWeather.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="FontsSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
@@ -2934,6 +2926,9 @@
 	</screen>
 <!-- cf#_#start -->
 	<screen name="FileCommanderScreenFileSelect" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent" >
+		<panel name="FileCommanderScreen"/>
+	</screen>
+	<screen name="FileCommander" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent" >
 		<panel name="FileCommanderScreen"/>
 	</screen>
 	<screen name="FileCommanderContextMenu" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent" >
