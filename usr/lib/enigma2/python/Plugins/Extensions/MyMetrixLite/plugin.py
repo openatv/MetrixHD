@@ -150,21 +150,11 @@ class InfoBarMetrixWeather(Screen):
 		self.refreshTimer.callback.append(self.refreshWeatherData)
 		self.onLayoutFinish.append(self.getCacheData)
 		self.onClose.append(self.__onClose)
-		config.plugins.MetrixWeather.weathercity.addNotifier(self.cityChanged, initial_call=False)
-		print("[%s] DEBUG __init__ location = %s" % (MODULE_NAME, config.plugins.MetrixWeather.weathercity.value))
 		InfoBarMetrixWeather.instance = self
 
 	def __onClose(self):
-		config.plugins.MetrixWeather.weathercity.removeNotifier(self.cityChanged)
 		self.WI.stop()
 		self.refreshTimer.stop()
-
-	def cityChanged(self, configItem):
-		print("[%s] DEBUG cityChanged to %s" % (MODULE_NAME, configItem.value))
-		self.refreshTimer.stop()
-		if isfile(CACHEFILE):
-			remove(CACHEFILE)
-		self.refreshTimer.start(5000, True)
 
 	def getCacheData(self):
 		self.setWeatherDataValid(1)  # 0= green (data available), 1= yellow (still working), 2= red (no data available, wait on next refresh)
@@ -181,6 +171,10 @@ class InfoBarMetrixWeather(Screen):
 
 	def refreshWeatherData(self, entry=None):
 		self.refreshTimer.stop()
+		if config.misc.firstrun.value:  # don't refresh on firstrun try again after 10 seconds
+			print("[%s] DEBUG firstrun" % MODULE_NAME)
+			self.refreshTimer.start(10000, True)
+			return
 		if config.plugins.MetrixWeather.enabled.value:
 			self.weathercity = config.plugins.MetrixWeather.weathercity.value
 			geocode = config.plugins.MetrixWeather.owm_geocode.value.split(",")

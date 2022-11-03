@@ -30,8 +30,8 @@ from Components.Sources.StaticText import StaticText
 from Screens.ChoiceBox import ChoiceBox
 from Screens.LocationBox import defaultInhibitDirs, LocationBox
 from Screens.Setup import Setup
+from Screens.MessageBox import MessageBox
 from Tools.Weatherinfo import Weatherinfo
-
 from . import _
 
 #############################################################
@@ -56,29 +56,33 @@ class WeatherSettingsView(Setup):
 		callInThread(self.searchCity, weathercity)
 
 	def searchCity(self, weathercity):
-		services = {"MSN": "msn", "openweather": "owm", "OpenMeteo": "omw"}
+		services = {"MSN": "msn", "OpenMeteo": "omw", "openweather": "owm"}
 		service = services.get(config.plugins.MetrixWeather.weatherservice.value, "msn")
-		WI = Weatherinfo(service, config.plugins.MetrixWeather.apikey.value)
-		if WI.error:
-			print("[WeatherSettingsView] Error in module 'searchCity': %s" % WI.error)
-			self["footnote"].setText(_("Error in Weatherinfo"))
+		apikey = config.plugins.MetrixWeather.apikey.value
+		if service == "owm" and len(apikey) < 32:
+			self.session.open(MessageBox, text=_("The API key for OpenWeatherMap is not defined or invalid.\nPlease verify your input data.\nOtherwise your settings won't be saved."), type=MessageBox.TYPE_WARNING)
 		else:
-			geodatalist = WI.getCitylist(weathercity, config.osd.language.value.replace('_', '-').lower())
-			if WI.error or geodatalist is None or len(geodatalist) == 0:
-				self["footnote"].setText(_("Error getting City ID"))
-#			elif len(geodatalist) == 1:
-#				self["footnote"].setText(_("Getting City ID Success"))
-#				self.saveGeoCode(geodatalist[0])
+			WI = Weatherinfo(service, config.plugins.MetrixWeather.apikey.value)
+			if WI.error:
+				print("[WeatherSettingsView] Error in module 'searchCity': %s" % WI.error)
+				self["footnote"].setText(_("Error in Weatherinfo"))
 			else:
-				self.citylist = []
-				for item in geodatalist:
-					lon = " [lon=%s" % item[1] if float(item[1]) != 0.0 else ""
-					lat = ", lat=%s]" % item[2] if float(item[2]) != 0.0 else ""
-					try:
-						self.citylist.append(("%s%s%s" % (item[0], lon, lat), item[0], item[1], item[2]))
-					except Exception:
-						print("[WeatherSettingsView] Error in module 'showMenu': faulty entry in resultlist.")
-				self.session.openWithCallback(self.choiceIdxCallback, ChoiceBox, titlebartext=_("Select Your Location"), title="", list=tuple(self.citylist))
+				geodatalist = WI.getCitylist(weathercity, config.osd.language.value.replace('_', '-').lower())
+				if WI.error or geodatalist is None or len(geodatalist) == 0:
+					self["footnote"].setText(_("Error getting City ID"))
+#				elif len(geodatalist) == 1:
+#					self["footnote"].setText(_("Getting City ID Success"))
+#					self.saveGeoCode(geodatalist[0])
+				else:
+					self.citylist = []
+					for item in geodatalist:
+						lon = " [lon=%s" % item[1] if float(item[1]) != 0.0 else ""
+						lat = ", lat=%s]" % item[2] if float(item[2]) != 0.0 else ""
+						try:
+							self.citylist.append(("%s%s%s" % (item[0], lon, lat), item[0], item[1], item[2]))
+						except Exception:
+							print("[WeatherSettingsView] Error in module 'showMenu': faulty entry in resultlist.")
+					self.session.openWithCallback(self.choiceIdxCallback, ChoiceBox, titlebartext=_("Select Your Location"), title="", list=tuple(self.citylist))
 
 	def choiceIdxCallback(self, answer):
 		if answer is not None:
