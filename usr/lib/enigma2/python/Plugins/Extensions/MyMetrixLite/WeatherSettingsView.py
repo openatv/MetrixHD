@@ -41,8 +41,10 @@ class WeatherSettingsView(Setup):
 	def __init__(self, session):
 		Setup.__init__(self, session, "WeatherSettings", plugin="Extensions/MyMetrixLite")
 		self["key_blue"] = StaticText(_("Location Selection"))
+		self["key_yellow"] = StaticText(_("Defaults"))
 		self["blueActions"] = HelpableActionMap(self, ["ColorActions"], {
-			"blue": (self.keycheckCity, _("Search for your City"))
+			"blue": (self.keycheckCity, _("Search for your City")),
+			"yellow": (self.defaults, _("Set default values"))
 		}, prio=0, description=_("Weather Settings Actions"))
 		self.old_weatherservice = config.plugins.MetrixWeather.weatherservice.value
 		self.citylist = []
@@ -144,6 +146,18 @@ class WeatherSettingsView(Setup):
 			from .plugin import infobarmetrixweatherhandler  # import needs to be here
 			infobarmetrixweatherhandler.reconfigure()
 		Setup.keySave(self)
+
+	def defaults(self, SAVE=False):
+		for x in self["config"].list:
+			if len(x) > 1:
+				self.setInputToDefault(x[1])
+				if SAVE:
+					x[1].save()
+		if self.session:
+			Setup.createSetup(self)
+
+	def setInputToDefault(self, configItem):
+		configItem.setValue(configItem.default)
 
 
 class WeatherSettingsLocationBox(LocationBox):
