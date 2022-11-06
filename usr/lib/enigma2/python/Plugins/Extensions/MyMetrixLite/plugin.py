@@ -43,7 +43,7 @@ config.plugins.MetrixWeather = ConfigSubsection()
 config.plugins.MetrixWeather.enabled = ConfigYesNo(default=True)
 config.plugins.MetrixWeather.detail = ConfigYesNo(default=False)
 config.plugins.MetrixWeather.type = ConfigYesNo(default=False)
-config.plugins.MetrixWeather.icontype = ConfigSelection(default=0, choices=[("0", _("Meteo Icons")), ("1", _("Animated Icons")), ("2", _("Static Icons"))])
+config.plugins.MetrixWeather.icontype = ConfigSelection(default="0", choices=[("0", _("Meteo Icons")), ("1", _("Animated Icons")), ("2", _("Static Icons"))])
 if config.plugins.MetrixWeather.type.value:  # Restore old setting
 	config.plugins.MetrixWeather.icontype.value = "1"
 	config.plugins.MetrixWeather.icontype.save()
