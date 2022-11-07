@@ -68,10 +68,13 @@ class WeatherSettingsView(Setup):
 			if WI.error:
 				print("[WeatherSettingsView] Error in module 'searchCity': %s" % WI.error)
 				self["footnote"].setText(_("Error in Weatherinfo"))
+				self.session.open(MessageBox, text=WI.error, type=MessageBox.TYPE_ERROR)
 			else:
 				geodatalist = WI.getCitylist(weathercity, config.osd.language.value.replace('_', '-').lower())
 				if WI.error or geodatalist is None or len(geodatalist) == 0:
+					print("[WeatherSettingsView] Error in module 'searchCity': %s" % WI.error)
 					self["footnote"].setText(_("Error getting City ID"))
+					self.session.open(MessageBox, text=_("City '%s' not found! Please try another wording." % weathercity), type=MessageBox.TYPE_WARNING)
 #				elif len(geodatalist) == 1:
 #					self["footnote"].setText(_("Getting City ID Success"))
 #					self.saveGeoCode(geodatalist[0])
