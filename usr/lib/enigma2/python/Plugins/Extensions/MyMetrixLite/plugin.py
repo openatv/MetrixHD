@@ -21,7 +21,7 @@ from pickle import dump, load
 from os import remove
 from os.path import getmtime, isfile
 from time import time
-
+from datetime import datetime, timezone
 from enigma import eTimer
 
 from Components.config import config, ConfigSubsection, ConfigYesNo, ConfigSelection, ConfigSelectionNumber, ConfigText, ConfigNumber, NoSave
@@ -233,6 +233,10 @@ class InfoBarMetrixWeather(Screen):
 				config.plugins.MetrixWeather.weathercity.save()
 		speedsign = "mph" if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit" else "km/h"
 		tempsign = "°F" if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit" else "°C"
+		now = datetime.now(timezone.utc)
+		sunrise = datetime.fromisoformat(data["current"]["sunrise"])
+		sunset = datetime.fromisoformat(data["current"]["sunset"])
+		isnight = now < sunrise or now > sunset
 		# data for panel "infoBarWeather"
 		self["Temp"].setText("%s" % data["current"]["temp"])
 		self["Tempsign"].setText(tempsign)
@@ -240,7 +244,8 @@ class InfoBarMetrixWeather(Screen):
 			self["FontCode"].setText(data["current"]["meteoCode"])
 			self["IconCode"].setText("")
 		else:
-			self["IconCode"].setText(data["current"]["yahooCode"])
+			iconcode = "%sn" % data["current"]["yahooCode"] if isnight else data["current"]["yahooCode"]
+			self["IconCode"].setText(iconcode)
 			self["FontCode"].setText("")
 		self["ShortDay"].setText(data["current"]["shortDay"])
 		# self["Shorttext"].setText(data["current"]["text"])
@@ -273,7 +278,8 @@ class InfoBarMetrixWeather(Screen):
 				self["FontCode_%d" % day].setText(data["forecast"][day]["meteoCode"])
 				self["IconCode_%d" % day].setText("")
 			else:
-				self["IconCode_%d" % day].setText(data["forecast"][day]["yahooCode"])
+				iconcode = "%sn" % data["forecast"][day]["yahooCode"] if isnight else data["forecast"][day]["yahooCode"]
+				self["IconCode_%d" % day].setText(iconcode)
 				self["FontCode_%d" % day].setText("")
 			self["ShortDay_%d" % day].setText(data["forecast"][day]["shortDay"])
 			self["MinTemp_%d" % day].setText("%s %s" % (data["forecast"][day]["minTemp"], tempsign))

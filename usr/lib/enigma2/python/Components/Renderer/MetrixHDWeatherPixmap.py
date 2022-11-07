@@ -50,32 +50,36 @@ class MetrixHDWeatherPixmap(Renderer):
 				sname = self.source.text
 				if self.iconpath:
 					imgpath = pathjoin(self.iconpath, '%s.png' % sname)
+					if not isfile(imgpath) and sname.endswith("n"):
+						imgpath = pathjoin(self.iconpath, '%s.png' % sname[:-1])
 					if isfile(imgpath):
 						self.instance.setPixmap(LoadPixmap(imgpath))
 					return
 				for path in self.searchPaths:
 					if exists((path % self.path)):
 						self.runAnim(sname)
+						break
 
 	def runAnim(self, id):
 		global total
 		animokicon = False
+		sname = id
 		for path in self.searchPaths:
-			if exists('%s%s' % ((path % self.path), id)):
-				pathanimicon = '%s%s/a' % ((path % self.path), id)
-				path2 = '%s%s' % ((path % self.path), id)
+
+			if not exists('%s%s' % ((path % self.path), sname)) and sname.endswith("n"):
+				sname = sname[:-1]
+
+			if not exists('%s%s' % ((path % self.path), sname)) and exists('%sNA' % (path % self.path)):
+				sname = "NA"
+			
+			if exists('%s%s' % ((path % self.path), sname)):
+				pathanimicon = '%s%s/a' % ((path % self.path), sname)
+				path2 = '%s%s' % ((path % self.path), sname)
 				dir_work = listdir(path2)
 				total = len(dir_work)
 				self.slideicon = total
 				animokicon = True
-			else:
-				if exists('%sNA' % (path % self.path)):
-					pathanimicon = '%sNA/a' % (path % self.path)
-					path2 = '%sNA' % (path % self.path)
-					dir_work = listdir(path2)
-					total = len(dir_work)
-					self.slideicon = total
-					animokicon = True
+				break
 		if animokicon == True:
 			self.picsicon = []
 			for x in range(self.slideicon):
@@ -86,7 +90,7 @@ class MetrixHDWeatherPixmap(Renderer):
 			self.timericon = eTimer()
 			self.timericon.callback.append(self.timerEvent)
 			self.timerEvent()
-			#self.timericon.start(self.pixdelay, True)
+			# self.timericon.start(self.pixdelay, True)
 
 	def timerEvent(self):
 		if self.slideicon == 0:
