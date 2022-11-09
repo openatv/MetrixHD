@@ -39,7 +39,7 @@ from . import _
 
 class WeatherSettingsView(Setup):
 	def __init__(self, session):
-		Setup.__init__(self, session, "WeatherSettings", plugin="Extensions/MyMetrixLite")
+		Setup.__init__(self, session, "WeatherSettings", plugin="Extensions/MyMetrixLite", PluginLanguageDomain="MyMetrixLite")
 		self["key_blue"] = StaticText(_("Location Selection"))
 		self["key_yellow"] = StaticText(_("Defaults"))
 		self["blueActions"] = HelpableActionMap(self, ["ColorActions"], {
