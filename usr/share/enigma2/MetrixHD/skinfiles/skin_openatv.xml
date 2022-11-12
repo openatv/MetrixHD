@@ -1932,6 +1932,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
+	<!-- JobView OLD Screen / Will be replaced by TaskView -->
 	<screen name="JobView" position="0,0" size="1280,720" title="JobView" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="290,160" zPosition="-10" size="700,400" backgroundColor="layer-a-background" />
 		<eLabel position="289,159" zPosition="-11" size="702,402" backgroundColor="layer-b-background" />
@@ -1964,6 +1965,47 @@ if len(listitems.list) &gt; 2:
 			<convert type="ConditionalShowHide" />
 		</widget>
 	</screen>
+
+	<!-- TaskView -->
+	<screen name="TaskView" position="0,0" size="1280,720" title="TaskView" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="290,160" zPosition="-10" size="700,400" backgroundColor="layer-a-background" />
+		<eLabel position="289,159" zPosition="-11" size="702,402" backgroundColor="layer-b-background" />
+		<eLabel text="TaskView" position="310,167" size="660,50" halign="center" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel name="underline" position="290,225" size="700,1" backgroundColor="layer-a-underline" />
+		<widget source="jobname" render="Label" position="310,240" size="660,90" font="screen_info;22" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
+		<widget source="jobtask" render="Label" position="310,330" size="660,30" font="screen_text;18" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1"/>
+		<widget source="jobprogress" render="Progress" position="310,360" size="660,30" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
+		<widget source="jobprogress" render="Label" position="310,360" size="660,30" font="screen_text;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-progress" zPosition="2" valign="center" halign="center" transparent="1">
+			<convert type="ProgressToText" />
+		</widget>
+		<widget source="jobstatus" render="Label" position="310,395" size="660,30" font="screen_text;18" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1"/>
+		<widget name="config" position="310,450" size="660,30" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" /> 
+		<widget source="key_red" render="Pixmap" pixmap="buttons/key_red.png" position="285,520" size="30,40" alphatest="blend">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="key_red" render="Label" position="320,523" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="key_green" render="Pixmap" pixmap="buttons/key_green.png" position="468,520" size="30,40" alphatest="blend">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="key_green" render="Label" position="503,523" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="key_yellow" render="Pixmap" pixmap="buttons/key_yellow.png" position="651,520" size="30,40" alphatest="blend">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="key_yellow" render="Label" position="686,523" size="220,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="key_blue" render="Pixmap" pixmap="buttons/key_blue.png" position="801,520" size="30,40" alphatest="blend">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="key_blue" render="Label" position="836,523" size="220,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1">
+			<convert type="ConditionalShowHide" />
+		</widget>
+	</screen>
+
 	<!--Radio Channel Selection -->
 	<screen name="ChannelSelectionRadio" position="0,0" size="1280,720" title="Radio Channel Selection" zPosition="-10" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Radio Channel Selection" position="58,36" size="900,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
