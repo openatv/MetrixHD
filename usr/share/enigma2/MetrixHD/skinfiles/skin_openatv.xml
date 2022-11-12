@@ -1972,13 +1972,13 @@ if len(listitems.list) &gt; 2:
 		<eLabel position="289,159" zPosition="-11" size="702,402" backgroundColor="layer-b-background" />
 		<eLabel text="TaskView" position="310,167" size="660,50" halign="center" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel name="underline" position="290,225" size="700,1" backgroundColor="layer-a-underline" />
-		<widget source="jobname" render="Label" position="310,240" size="660,90" font="screen_info;22" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
-		<widget source="jobtask" render="Label" position="310,330" size="660,30" font="screen_text;18" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1"/>
-		<widget source="jobprogress" render="Progress" position="310,360" size="660,30" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
-		<widget source="jobprogress" render="Label" position="310,360" size="660,30" font="screen_text;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-progress" zPosition="2" valign="center" halign="center" transparent="1">
+		<widget source="name" render="Label" position="310,240" size="660,90" font="screen_info;22" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
+		<widget source="task" render="Label" position="310,330" size="660,30" font="screen_text;18" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1"/>
+		<widget source="progress" render="Progress" position="310,360" size="660,30" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
+		<widget source="progress" render="Label" position="310,360" size="660,30" font="screen_text;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-progress" zPosition="2" valign="center" halign="center" transparent="1">
 			<convert type="ProgressToText" />
 		</widget>
-		<widget source="jobstatus" render="Label" position="310,395" size="660,30" font="screen_text;18" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1"/>
+		<widget source="status" render="Label" position="310,395" size="660,30" font="screen_text;18" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" transparent="1"/>
 		<widget name="config" position="310,450" size="660,30" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" /> 
 		<widget source="key_red" render="Pixmap" pixmap="buttons/key_red.png" position="285,520" size="30,40" alphatest="blend">
 			<convert type="ConditionalShowHide" />
