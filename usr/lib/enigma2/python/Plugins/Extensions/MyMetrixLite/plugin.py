@@ -51,6 +51,7 @@ if config.plugins.MetrixWeather.type.value:  # Restore old setting
 	config.plugins.MetrixWeather.type.save()
 config.plugins.MetrixWeather.animationspeed = ConfigSelection(default="100", choices=[("0", _("Off")), ("20", _("+ 4")), ("40", _("+ 3")), ("60", _("+ 2")), ("80", _("+ 1")), ("100", _("Default")), ("125", _("- 1")), ("150", _("- 2")), ("200", _("- 3")), ("300", _("- 4"))])
 config.plugins.MetrixWeather.iconpath = ConfigText(default="")
+config.plugins.MetrixWeather.nighticons = ConfigYesNo(default=True)
 config.plugins.MetrixWeather.cachedata = ConfigSelection(default="60", choices=[("0", _("Disabled"))] + [(str(x), _("%d Minutes") % x) for x in (30, 60, 120)])
 config.plugins.MetrixWeather.MoviePlayer = ConfigYesNo(default=True)
 config.plugins.MetrixWeather.refreshInterval = ConfigSelectionNumber(0, 1440, 30, default=120, wraparound=True)
@@ -249,7 +250,7 @@ class InfoBarMetrixWeather(Screen):
 			self["IconCode"].setText("")
 		else:
 			iconcode = data["current"]["yahooCode"]
-			if isnight and iconcode in nightswitch:
+			if config.plugins.MetrixWeather.nighticons.value and isnight and iconcode in nightswitch:
 				iconcode = nightswitch[iconcode]
 			self["IconCode"].setText(iconcode)
 			self["FontCode"].setText("")
