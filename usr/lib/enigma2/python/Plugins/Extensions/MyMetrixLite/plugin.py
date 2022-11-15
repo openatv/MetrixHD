@@ -221,10 +221,11 @@ class InfoBarMetrixWeather(Screen):
 		self.wetterdata = data
 		skydirs = {"N": _("North"), "NE": _("Northeast"), "E": _("East"), "SE": _("Southeast"), "S": _("South"), "SW": _("Southwest"), "W": _("West"), "NW": _("Northwest")}
 		windarrow = {8593: "a", 8599: "b", 8594: "c", 8600: "d", 8595: "e", 8601: "f", 8592: "g", 8598: "h"}
-		nightswitch = {
+		YAHOOnightswitch = {
 						"3": "47", "4": "47", "11": "45", "12": "45", "13": "46", "14": "46", "15": "46", "16": "46", "28": "27",
 						"30": "29", "32": "31", "34": "33", "37": "47", "38": "47", "40": "45", "41": "46", "42": "46", "43": "46"
 						}
+		METEOnightswitch = {"1": "2", "3": "4", "B": "C", "H": "I", "J": "K"}
 		if config.plugins.MetrixWeather.weatherservice.value == "openweather":
 			geocode = "%s,%s" % (data["longitude"], data["latitude"])
 			if geocode != self.geocode:
@@ -246,12 +247,15 @@ class InfoBarMetrixWeather(Screen):
 		self["Temp"].setText("%s" % data["current"]["temp"])
 		self["Tempsign"].setText(tempsign)
 		if config.plugins.MetrixWeather.icontype.value == "0":
-			self["FontCode"].setText(data["current"]["meteoCode"])
+			iconcode = data["current"]["meteoCode"]
+			if config.plugins.MetrixWeather.nighticons.value and isnight and iconcode in METEOnightswitch:
+				iconcode = METEOnightswitch[iconcode]
+			self["FontCode"].setText(iconcode)
 			self["IconCode"].setText("")
 		else:
 			iconcode = data["current"]["yahooCode"]
-			if config.plugins.MetrixWeather.nighticons.value and isnight and iconcode in nightswitch:
-				iconcode = nightswitch[iconcode]
+			if config.plugins.MetrixWeather.nighticons.value and isnight and iconcode in YAHOOnightswitch:
+				iconcode = YAHOOnightswitch[iconcode]
 			self["IconCode"].setText(iconcode)
 			self["FontCode"].setText("")
 		self["ShortDay"].setText(data["current"]["shortDay"])
