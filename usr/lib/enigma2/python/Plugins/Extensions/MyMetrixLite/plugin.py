@@ -80,11 +80,21 @@ if config.plugins.MetrixWeather.currentLocation.value:
 	config.plugins.MetrixWeather.currentLocation.save()
 
 
+# support old MetrixHDWeather Converter
+config.plugins.MetrixWeather.currentWeatherTemp = NoSave(ConfigText(default="0"))
+config.plugins.MetrixWeather.currentWeatherCode = NoSave(ConfigText(default="("))
+config.plugins.MetrixWeather.forecastTodayTempMin = NoSave(ConfigText(default="0"))
+config.plugins.MetrixWeather.forecastTodayTempMax = NoSave(ConfigText(default="0"))
+config.plugins.MetrixWeather.forecastTomorrowCode = NoSave(ConfigText(default="("))
+config.plugins.MetrixWeather.forecastTomorrowTempMin = NoSave(ConfigText(default="0"))
+config.plugins.MetrixWeather.forecastTomorrowTempMax = NoSave(ConfigText(default="0"))
+
 #######################################################################
 
 MODULE_NAME = "InfoBarMetrixWeather"
 
 CACHEFILE = resolveFilename(SCOPE_CONFIG, "MetrixWeather.dat")
+
 
 
 class InfoBarMetrixWeatherNoData(Screen):
@@ -295,6 +305,19 @@ class InfoBarMetrixWeather(Screen):
 			self["MinTemp_%d" % day].setText("%s %s" % (data["forecast"][day]["minTemp"], tempsign))
 			self["MaxTemp_%d" % day].setText("%s %s" % (data["forecast"][day]["maxTemp"], tempsign))
 		self.trialcounter = 0
+
+		iconcode = data["current"]["meteoCode"]
+		if config.plugins.MetrixWeather.nighticons.value and isnight and iconcode in METEOnightswitch:
+			iconcode = METEOnightswitch[iconcode]
+
+		config.plugins.MetrixWeather.currentWeatherTemp.value = data["current"]["temp"]
+		config.plugins.MetrixWeather.currentWeatherCode.value = iconcode
+		config.plugins.MetrixWeather.forecastTodayTempMin.value = data["forecast"][0]["minTemp"]
+		config.plugins.MetrixWeather.forecastTodayTempMax.value = data["forecast"][0]["maxTemp"]
+		config.plugins.MetrixWeather.forecastTomorrowCode.value = data["forecast"][1]["meteoCode"]
+		config.plugins.MetrixWeather.forecastTomorrowTempMin.value = data["forecast"][1]["minTemp"]
+		config.plugins.MetrixWeather.forecastTomorrowTempMax.value = data["forecast"][1]["maxTemp"]
+
 		self.setWeatherDataValid(0)
 		seconds = int(config.plugins.MetrixWeather.refreshInterval.value * 60)
 		self.refreshTimer.start(seconds * 1000, True)
