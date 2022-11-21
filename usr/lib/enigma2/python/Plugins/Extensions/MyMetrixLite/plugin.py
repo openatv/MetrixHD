@@ -96,7 +96,6 @@ MODULE_NAME = "InfoBarMetrixWeather"
 CACHEFILE = resolveFilename(SCOPE_CONFIG, "MetrixWeather.dat")
 
 
-
 class InfoBarMetrixWeatherNoData(Screen):
 	instance = None
 
@@ -168,7 +167,7 @@ class InfoBarMetrixWeather(Screen):
 		self.refreshTimer.stop()
 
 	def getCacheData(self):
-		self.setWeatherDataValid(1)  # 0= green (data available), 1= yellow (still working), 2= red (no data available, wait on next refresh)
+		#self.setWeatherDataValid(1)  # 0= green (data available), 1= yellow (still working), 2= red (no data available, wait on next refresh)
 		cacheminutes = int(config.plugins.MetrixWeather.cachedata.value)
 		if cacheminutes and isfile(CACHEFILE):
 			timedelta = (time() - getmtime(CACHEFILE)) / 60
@@ -336,7 +335,7 @@ class InfoBarMetrixWeatherHandler():
 		self.session = session
 
 	def processDisplay(self, state):
-		if config.plugins.MetrixWeather.enabled.value:
+		if config.plugins.MetrixWeather.enabled.value and config.plugins.MetrixWeather.currentWeatherDataValid.value != 3:
 			try:
 				if config.plugins.MetrixWeather.currentWeatherDataValid.value != 0:
 					if state:
