@@ -197,6 +197,7 @@ TransparencyList = [
 SysFontTypeList = [
 	("/usr/share/fonts/ae_AlMateen.ttf", ("ae_AlMateen (ae_AlMateen.ttf)")),
 	("/usr/share/fonts/andale.ttf", ("Andale Mono (andale.ttf)")),
+	("/usr/share/fonts/DejaVuSans.ttf", ("DejaVu Sans (DejaVuSans.ttf)")),
 	("/usr/share/fonts/lcd.ttf", ("LCD (lcd.ttf)")),
 	#("/usr/share/fonts/md_khmurabi_10.ttf", ("MD King KhammuRabi (md_khmurabi_10.ttf)")),
 	("/usr/share/fonts/nmsbd.ttf", ("Nemisis Flatline (nmsbd.ttf)")),
