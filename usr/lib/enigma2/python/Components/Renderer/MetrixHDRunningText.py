@@ -236,7 +236,12 @@ class MetrixHDRunningText(Renderer):
 		if not (self.txtflags & RT_WRAP):
 			self.txtext = self.txtext.replace("\xe0\x8a", " ").replace(chr(0x8A), " ").replace("\n", " ").replace("\r", " ")
 
-		self.scroll_label.setText(self.txtext)
+		try:
+			self.scroll_label.setText(self.txtext)
+		except Exception as err:
+			print("ERROR calcMoving setText%s" % str(err))
+			txt = self.txtext.encode("utf-8", errors="ignore").decode()
+			self.scroll_label.setText(txt)
 
 		if self.txtext == "" or \
 		   self.type == NONE or \
