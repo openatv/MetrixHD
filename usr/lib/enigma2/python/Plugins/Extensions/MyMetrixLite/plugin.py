@@ -211,14 +211,17 @@ class InfoBarMetrixWeather(Screen):
 		if error or data is None:
 			self.trialcounter += 1
 			if self.trialcounter < 2:
-				print("[%s] lookup for city '%s' paused, try again in 5 secs..." % (MODULE_NAME, self.weathercity))
+				print("[%s] lookup for city '%s' paused, try again in 10 secs..." % (MODULE_NAME, self.weathercity))
 				self.setWeatherDataValid(1)
-				self.refreshTimer.start(5000, True)
+				self.refreshTimer.start(10000, True)
+			elif self.trialcounter > 5:
+				print("[%s] lookup for city '%s' paused 1 h, to many errors..." % (MODULE_NAME, self.weathercity))
+				self.setWeatherDataValid(2)
+				self.refreshTimer.start(3600000, True)
 			else:
 				print("[%s] lookup for city '%s' paused 5 mins, to many errors..." % (MODULE_NAME, self.weathercity))
 				self.setWeatherDataValid(2)
-				self.trialcounter = 0
-				self.refreshTimer.start(30000, True)
+				self.refreshTimer.start(300000, True)
 			return
 		self.writeData(data)
 		# TODO write cache only on close
