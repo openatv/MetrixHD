@@ -208,7 +208,7 @@ class InfoBarMetrixWeather(Screen):
 				self.setWeatherDataValid(2)
 
 	def refreshWeatherDataCallback(self, data, error):
-		if error:
+		if error or data is None:
 			self.trialcounter += 1
 			if self.trialcounter < 2:
 				print("[%s] lookup for city '%s' paused, try again in 5 secs..." % (MODULE_NAME, self.weathercity))
