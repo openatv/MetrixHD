@@ -3690,7 +3690,7 @@ if len(listitems.list) &gt; 2:
 	</screen>
 <!-- cf#_#rename -->
 	<screen name="wizard_rc_templateNew">
-		<widget name="rc" pixmaps="rc.png,rcold.png" position="955,100" zPosition="10" size="154,500" alphatest="blend" transparent="0" />
+		<widget name="rc" position="955,100" zPosition="10" size="154,500" alphatest="blend" transparent="0" />
 		<widget alphatest="blend" name="indicatorU0" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11"/>
 		<widget alphatest="blend" name="indicatorU1" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11"/>
 		<widget alphatest="blend" name="indicatorU2" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11"/>
@@ -3723,10 +3723,11 @@ if len(listitems.list) &gt; 2:
 		<widget alphatest="blend" name="indicatorL13" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11"/>
 		<widget alphatest="blend" name="indicatorL14" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11"/>
 		<widget alphatest="blend" name="indicatorL15" pixmap="skin_default/yellow_circle23x23.png" position="950,140" offset="11,11" size="23,23" zPosition="11"/>
+		<widget name="label" position="860,e-186" zPosition="10" size="330,40" transparent="1" font="global_button;16" halign="center"/>
 	</screen>
 <!-- cf#_#rename -->
 	<screen name="wizard_rc_templateNew#_FHDscreen">
-		<widget name="rc" pixmaps="rc.png,rcold.png" position="1475,250" zPosition="10" size="154,500" alphatest="blend" transparent="0" />
+		<widget name="rc" position="1475,250" zPosition="10" size="154,500" alphatest="blend" transparent="0" />
 		<widget alphatest="blend" name="indicatorU0" pixmap="skin_default/yellow_circle23x23.png" position="1425,210" offset="11,11" size="23,23" zPosition="11"/>
 		<widget alphatest="blend" name="indicatorU1" pixmap="skin_default/yellow_circle23x23.png" position="1425,210" offset="11,11" size="23,23" zPosition="11"/>
 		<widget alphatest="blend" name="indicatorU2" pixmap="skin_default/yellow_circle23x23.png" position="1425,210" offset="11,11" size="23,23" zPosition="11"/>
@@ -3759,6 +3760,7 @@ if len(listitems.list) &gt; 2:
 		<widget alphatest="blend" name="indicatorL13" pixmap="skin_default/yellow_circle23x23.png" position="1425,210" offset="11,11" size="23,23" zPosition="11"/>
 		<widget alphatest="blend" name="indicatorL14" pixmap="skin_default/yellow_circle23x23.png" position="1425,210" offset="11,11" size="23,23" zPosition="11"/>
 		<widget alphatest="blend" name="indicatorL15" pixmap="skin_default/yellow_circle23x23.png" position="1425,210" offset="11,11" size="23,23" zPosition="11"/>
+		<widget name="label" position="1300,e-280" zPosition="10" size="500,60" transparent="1" font="global_button;24" halign="center"/>
 	</screen>
 	<screen name="wizard_rc_template">
 		<widget name="rc" position="955,100" size="154,500" pixmaps="skin_default/rc.png,skin_default/rcold.png" zPosition="10" alphatest="blend" />
@@ -3785,18 +3787,6 @@ if len(listitems.list) &gt; 2:
 	</screen>
 <!-- cf#_#start -->
 	<screen name="HelpMenu" position="0,0" size="1280,720" title="Menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="HelpMenuOld" conditional="arrowdown"/>
-		<panel name="HelpMenuNew" conditional="indicatorU0"/>
-	</screen>
-	<screen name="HelpMenuOld" position="0,0" size="1280,720" title="Menu" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="help..." position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget name="long_key" position="70,630" size="700,34" font="SetrixHD;25" halign="center" zPosition="2" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="0" />
-		<panel name="wizard_rc_template" />
-		<panel name="__e-buttons_template1" />
-		<panel name="template1_2layer" />
-	</screen>
-	<screen name="HelpMenuNew" position="0,0" size="1280,720" title="Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="description"  position="1360,425" size="550,635" font="screen_text;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" zPosition="2"/>
 		<widget source="list" render="Listbox" position="70,100" size="700,510" transparent="0" scrollbarMode="showOnDemand">
