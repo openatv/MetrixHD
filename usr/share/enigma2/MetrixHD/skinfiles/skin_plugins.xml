@@ -3149,5 +3149,29 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/youtube.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- Youtube2 -->
+	<!-- Birthday Reminder -->
+	<screen name="BirthdayReminder" position="center,center" size="1280,720" title="BirthdayReminder" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel name="underline" position="70,165" size="700,1" backgroundColor="layer-a-underline" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/bday.png" transparent="1" alphatest="blend" />
+		<widget name="name" position="90,130" size="300,30" zPosition="5" valign="center" halign="left" font="Regular;22" transparent="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background"/>
+		<widget name="birthday" position="440,130" size="200,30" zPosition="5" valign="center" halign="center" font="Regular;22" transparent="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background"/>
+		<widget name="age" position="690,130" size="50,30" zPosition="5" valign="center" halign="right" font="Regular;22" transparent="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background"/>
+		<widget source="list" render="Listbox" position="70,180" size="700,430" scrollbarMode="showOnDemand">
+			<convert type="TemplatedMultiContent">
+					{"template": [
+							MultiContentEntryText(pos = (20, 0), size = (300, 26), font=0, flags = RT_HALIGN_LEFT, text = 0),
+							MultiContentEntryText(pos = (370, 0), size = (200, 26), font=0, flags = RT_HALIGN_CENTER, text = 1),
+							MultiContentEntryText(pos = (610, 0), size = (50, 26), font=0, flags = RT_HALIGN_RIGHT, text = 2),
+						],
+					"fonts": [gFont("Regular", 22)],
+					"itemHeight": 26
+					}
+				</convert>
+			</widget>
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
 <!-- PLUGINS */-->
 </skin>
