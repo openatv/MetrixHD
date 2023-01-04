@@ -71,7 +71,7 @@ class MetrixHDWeatherPixmap(Renderer):
 
 			if not exists('%s%s' % ((path % self.path), sname)) and exists('%sNA' % (path % self.path)):
 				sname = "NA"
-			
+
 			if exists('%s%s' % ((path % self.path), sname)):
 				pathanimicon = '%s%s/a' % ((path % self.path), sname)
 				path2 = '%s%s' % ((path % self.path), sname)
@@ -98,7 +98,10 @@ class MetrixHDWeatherPixmap(Renderer):
 		if self.slideicon > total:
 			self.slideicon = total
 		self.timericon.stop()
-		self.instance.setScale(1)
+		try:
+			self.instance.setScale(1)
+		except Exception:
+			pass
 		try:
 			self.instance.setPixmap(self.picsicon[self.slideicon - 1])
 		except Exception:
