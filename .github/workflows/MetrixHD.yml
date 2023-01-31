@@ -19,20 +19,20 @@ jobs:
           sudo apt-get install build-essential
           sudo apt-get install gettext
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: '7.1'
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
       - name: Build, python 3.10
         run: |
           python -m compileall .
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: '7.1'
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
       - name: Build, python 3.11
