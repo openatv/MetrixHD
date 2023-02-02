@@ -70,9 +70,6 @@ config.plugins.MetrixWeather.cityVisible = ConfigYesNo(default=True)
 config.plugins.MetrixWeather.woeid = ConfigNumber(default=0)
 
 # fallback for old code can be removed in next version
-config.plugins.MetrixWeather.currentWeatherCode = ConfigText("")
-config.plugins.MetrixWeather.currentWeatherCode.value = ""
-config.plugins.MetrixWeather.currentWeatherCode.save()
 config.plugins.MetrixWeather.currentLocation = ConfigText("")
 if config.plugins.MetrixWeather.currentLocation.value:
 	config.plugins.MetrixWeather.weathercity.value = config.plugins.MetrixWeather.currentLocation.value
