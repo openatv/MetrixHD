@@ -1856,7 +1856,7 @@ class ActivateSkinSettings:
 #CoolBarSizeSa="65,10"
 #/CoolPointerRec.png:980,0"
 #/CoolPointerRec2.png:1080,0"
-		if 'widget name="list"' in line and ' Cool' in line and not ' CoolEvent' in line or 'render="EMCPositionGauge"' in line:
+		if 'widget name="list"' in line and ' Cool' in line and not ' CoolEvent' in line or 'render="PositionGauge"' in line:
 			line = sub('(Cool\w+=" *|Cool\w+.png: *)(\d+)([,"])(\d+|)', self.linereplacer, line)
 #emc special end
 #cool tv guide special start
@@ -2575,7 +2575,7 @@ class ActivateSkinSettings:
 			strnew = line[n1:n2 + 1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 #emc special start
-		if 'widget name="list"' in line and ' Cool' in line and not ' CoolEvent' in line or 'render="EMCPositionGauge"' in line:
+		if 'widget name="list"' in line and ' Cool' in line and not ' CoolEvent' in line or 'render="PositionGauge"' in line:
 #CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;30"
 			if 'CoolFont="' in line:
 				n1 = line.find('CoolFont=', 0)
