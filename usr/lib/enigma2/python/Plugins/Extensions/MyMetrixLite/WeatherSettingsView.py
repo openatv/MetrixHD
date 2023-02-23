@@ -102,6 +102,7 @@ class WeatherSettingsView(Setup):
 		if self.closeonsave:
 			from .plugin import infobarmetrixweatherhandler  # import needs to be here
 			infobarmetrixweatherhandler.reconfigure()
+			config.plugins.MetrixWeather.owm_geocode.save()
 			Setup.keySave(self)
 
 	def keySelect(self):
@@ -148,6 +149,7 @@ class WeatherSettingsView(Setup):
 		if self["config"].isChanged():
 			from .plugin import infobarmetrixweatherhandler  # import needs to be here
 			infobarmetrixweatherhandler.reconfigure()
+		config.plugins.MetrixWeather.owm_geocode.save()
 		Setup.keySave(self)
 
 	def defaults(self, SAVE=False):
@@ -156,6 +158,9 @@ class WeatherSettingsView(Setup):
 				self.setInputToDefault(x[1])
 				if SAVE:
 					x[1].save()
+		config.plugins.MetrixWeather.owm_geocode.value = config.plugins.MetrixWeather.owm_geocode.default
+		if SAVE:
+			config.plugins.MetrixWeather.owm_geocode.save()
 		if self.session:
 			Setup.createSetup(self)
 
