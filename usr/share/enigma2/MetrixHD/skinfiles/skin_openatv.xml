@@ -4341,6 +4341,41 @@ if len(listitems.list) &gt; 2:
 	<!-- HideVBILine -->
 	<screen name="HideVBILine" position="0,0" size="1280,2" backgroundColor="black" flags="wfNoBorder"/>
 	<!-- HideVBILine -->
+
+	<!-- Dish -->
+	<screen name="Dish" position="900,100" size="132,255" title="Dish" zPosition="-1" flags="wfNoBorder" backgroundColor="transparent">
+		<widget name="Dishpixmap" pixmap="skin_default/icons/dish.png" position="0,0" size="130,160" alphatest="on" />
+		<widget name="turnTime" position="10,0" size="120,20" zPosition="1" font="SetrixHD;20" halign="right" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="From" position="0,160" size="55,20" zPosition="1" font="SetrixHD;17" halign="right" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="posFrom" position="62,160" size="70,20" zPosition="1" font="SetrixHD;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="Goto" position="0,182" size="55,20" zPosition="1" font="SetrixHD;17" halign="right" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="posGoto" position="62,182" size="70,20" zPosition="1" font="SetrixHD;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="Tuner" position="0,204" size="55,20" zPosition="2" font="SetrixHD;18" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="tunerName" position="62,204" size="70,20" zPosition="2" font="SetrixHD;18" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="turnSpeed" position="0,224" size="120,20" zPosition="2" font="SetrixHD;18" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="session.FrontendStatus" render="Progress" position="0,244" size="120,10" borderWidth="1" backgroundColor="layer-a-accent1" zPosition="2">
+			<convert type="FrontendInfo">SNR</convert>
+		</widget>
+	</screen>
+
+	<screen name="Dishpip" position="900,100" size="132,255" title="" zPosition="1" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Dishpixmap" render="Pixmap" pixmap="skin_default/icons/dish.png" zPosition="-1" position="0,0" size="130,160" alphatest="on">
+			<convert type="ConditionalShowHide">Blink</convert>
+		</widget>
+		<widget name="turnTime" position="10,0" size="120,20" zPosition="1" font="SetrixHD;20" halign="right" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="From" position="0,160" size="55,20" zPosition="1" font="SetrixHD;17" halign="right" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="posFrom" position="62,160" size="70,20" zPosition="1" font="SetrixHD;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="Goto" position="0,182" size="55,20" zPosition="1" font="SetrixHD;17" halign="right" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="posGoto" position="62,182" size="70,20" zPosition="1" font="SetrixHD;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="Tuner" position="0,204" size="55,20" zPosition="2" font="SetrixHD;18" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="tunerName" position="62,204" size="70,20" zPosition="2" font="SetrixHD;18" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="turnSpeed" position="0,224" size="120,20" zPosition="2" font="SetrixHD;18" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Frontend" render="Progress" position="0,244" size="120,10" borderWidth="1" backgroundColor="layer-a-accent1" zPosition="2">
+			<convert type="FrontendInfo">SNR</convert>
+		</widget>
+	</screen>
+	<!-- Dish -->
+
 	<!-- Setups -->
 	<setups>
 		<setup key="default" image="icons/setup.png" />
