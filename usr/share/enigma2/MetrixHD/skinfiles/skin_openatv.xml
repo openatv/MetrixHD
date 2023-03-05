@@ -2323,6 +2323,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/info.png" transparent="1" alphatest="on" />
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/menu.png" transparent="1" alphatest="on" />
+		<panel name="GraphicalEPGDummy" />
 	</screen>
 	<screen name="GraphicalEPGPIG_2">
 		<eLabel text="Electronic Program Guide" position="58,36" size="475,50" valign="bottom" font="global_title;34" backgroundColor="epg-background" foregroundColor="layer-a-title-foreground" transparent="1" />
@@ -2364,6 +2365,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/info.png" transparent="1" alphatest="on" />
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/menu.png" transparent="1" alphatest="on" />
+		<panel name="GraphicalEPGDummy" />
 	</screen>
 	<screen name="GraphicalEPG_1">
 		<eLabel text="Electronic Program Guide" position="58,36" size="475,50" valign="bottom" font="global_title;34" backgroundColor="epg-background" foregroundColor="layer-a-title-foreground" transparent="1" />
@@ -2404,6 +2406,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/info.png" transparent="1" alphatest="on" />
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/menu.png" transparent="1" alphatest="on" />
+		<panel name="GraphicalEPGDummy" />
 	</screen>
 	<screen name="GraphicalEPG_2">
 		<eLabel text="Electronic Program Guide" position="58,36" size="475,50" valign="bottom" font="global_title;34" backgroundColor="epg-background" foregroundColor="layer-a-title-foreground" transparent="1" />
@@ -2441,6 +2444,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/info.png" transparent="1" alphatest="on" />
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/menu.png" transparent="1" alphatest="on" />
+		<panel name="GraphicalEPGDummy" />
 	</screen>
 	<screen name="GraphicalInfoBarEPG" title="InfoBar EPG" position="0,490" size="1280,230" backgroundColor="transparent" flags="wfNoBorder">
 		<eLabel name="GRADIENT_BACKGROUND" position="0,10" zPosition="-10" size="1280,220" backgroundColor="epg-background" transparent="0" />
@@ -2477,7 +2481,23 @@ if len(listitems.list) &gt; 2:
 		<ePixmap position="1045,190" size="81,40" zPosition="10" pixmap="buttons/info.png" transparent="1" alphatest="on" />
 		<ePixmap position="1140,190" size="81,40" zPosition="10" pixmap="buttons/menu.png" transparent="1" alphatest="on" />
 		<panel name="COLORGRADIENT_bottom_EPG" />
+		<panel name="GraphicalEPGDummy" />
 	</screen>
+
+	<screen name="GraphicalEPGDummy" title="" position="0,0" size="0,0" backgroundColor="transparent" flags="wfNoBorder">
+		<widget name="primetime" position="0,0" size="0,0" conditional="primetime" />
+		<widget name="change_bouquet" position="0,0" size="0,0" conditional="change_bouquet" />
+		<widget name="jump" position="0,0" size="0,0" conditional="jump" />
+		<widget name="page" position="0,0" size="0,0" conditional="page" />
+		<widget name="number" position="0,0" size="0,0" conditional="number" />
+		<widget name="timeline0" position="0,0" zPosition="1" size="0,0" pixmap="colors/00ffffff.png" conditional="timeline0"/>
+		<widget name="timeline1" position="0,0" zPosition="1" size="0,0" pixmap="colors/00ffffff.png" conditional="timeline1"/>
+		<widget name="timeline2" position="0,0" zPosition="1" size="0,0" pixmap="colors/00ffffff.png" conditional="timeline2"/>
+		<widget name="timeline3" position="0,0" zPosition="1" size="0,0" pixmap="colors/00ffffff.png" conditional="timeline3"/>
+		<widget name="timeline4" position="0,0" zPosition="1" size="0,0" pixmap="colors/00ffffff.png" conditional="timeline4"/>
+		<widget name="timeline5" position="0,0" zPosition="1" size="0,0" pixmap="colors/00ffffff.png" conditional="timeline5"/>
+	</screen>
+
 	<screen name="InfoBarEventView" position="0,0" size="1280,499" backgroundColor="transparent" flags="wfNoBorder">
 		<eLabel name="new eLabel" position="30,30" zPosition="-10" size="1220,440" backgroundColor="epg-background" transparent="0" />
 		<widget name="channel" position="50,47" size="850,55" font="epg_event;40" transparent="1" foregroundColor="epg-event-foreground" backgroundColor="epg-background" zPosition="2" />
