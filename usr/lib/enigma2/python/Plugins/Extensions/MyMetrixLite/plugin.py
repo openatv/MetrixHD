@@ -185,13 +185,23 @@ class InfoBarMetrixWeather(Screen):
 		if config.plugins.MetrixWeather.enabled.value:
 			self.weathercity = config.plugins.MetrixWeather.weathercity.value
 			geocode = config.plugins.MetrixWeather.owm_geocode.value.split(",")
+			# DEPRECATED, will be removed in April 2023
+			if geocode == ['0.0', '0.0']:
+				geodatalist = self.WI.getCitylist(config.plugins.MetrixWeather.weathercity.value.split(",")[0], config.osd.language.value.replace('_', '-').lower())
+				if geodatalist is not None and len(geodatalist[0]) == 3:
+					geocode = [geodatalist[0][1], geodatalist[0][2]]
+					config.plugins.MetrixWeather.weathercity.value = geodatalist[0][0]
+					config.plugins.MetrixWeather.weathercity.save()
+					config.plugins.MetrixWeather.owm_geocode.value = "%s,%s" % (float(geocode[0]), float(geocode[1]))
+					config.plugins.MetrixWeather.owm_geocode.save()
+			# DEPRECATED, will be removed in April 2023
 			if geocode and len(geocode) == 2:
 				geodata = (self.weathercity, geocode[0], geocode[1])  # tuple ("Cityname", longitude, latitude)
 			else:
 				geodata = None
 			language = config.osd.language.value.replace("_", "-")
 			unit = "imperial" if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit" else "metric"
-			# migration
+			# DEPRECATED woid will be removed in April 2023
 			woid = None
 			if config.plugins.MetrixWeather.weatherservice.value == "openweather" and config.plugins.MetrixWeather.woeid.value != 0:
 				woid = config.plugins.MetrixWeather.woeid.value
