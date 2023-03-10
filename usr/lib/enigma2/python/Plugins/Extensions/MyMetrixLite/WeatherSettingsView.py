@@ -170,7 +170,7 @@ class WeatherSettingsView(Setup):
 
 class WeatherSettingsLocationBox(LocationBox):
 	def __init__(self, session, currDir):
-		inhibit = defaultInhibitDirs
+		inhibit = defaultInhibitDirs[:]
 		inhibit.remove("/usr")
 		inhibit.remove("/share")
 		if currDir == "":
