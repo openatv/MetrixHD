@@ -19,7 +19,7 @@
 #######################################################################
 from pickle import dump, load
 from os import remove
-from os.path import getmtime, isfile
+from os.path import getmtime, isfile, join
 from time import time
 from datetime import datetime, timezone
 from enigma import eTimer
@@ -31,7 +31,7 @@ from Components.Sources.StaticText import StaticText
 from Components.SystemInfo import BoxInfo
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
-from Tools.Directories import SCOPE_CONFIG, resolveFilename
+from Tools.Directories import SCOPE_CONFIG, SCOPE_SKINS, resolveFilename
 from Tools.Weatherinfo import Weatherinfo
 
 from . import _
@@ -50,7 +50,7 @@ if config.plugins.MetrixWeather.type.value:  # Restore old setting
 	config.plugins.MetrixWeather.type.value = False
 	config.plugins.MetrixWeather.type.save()
 config.plugins.MetrixWeather.animationspeed = ConfigSelection(default="100", choices=[("0", _("Off")), ("20", _("+ 4")), ("40", _("+ 3")), ("60", _("+ 2")), ("80", _("+ 1")), ("100", _("Default")), ("125", _("- 1")), ("150", _("- 2")), ("200", _("- 3")), ("300", _("- 4"))])
-config.plugins.MetrixWeather.iconpath = ConfigText(default="")
+config.plugins.MetrixWeather.iconpath = ConfigText(default=join(resolveFilename(SCOPE_SKINS), "WeatherIconSets"))
 config.plugins.MetrixWeather.nighticons = ConfigYesNo(default=True)
 config.plugins.MetrixWeather.cachedata = ConfigSelection(default="60", choices=[("0", _("Disabled"))] + [(str(x), _("%d Minutes") % x) for x in (30, 60, 120)])
 config.plugins.MetrixWeather.MoviePlayer = ConfigYesNo(default=True)
