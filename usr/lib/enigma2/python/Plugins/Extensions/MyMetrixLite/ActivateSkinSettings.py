@@ -1762,6 +1762,9 @@ class ActivateSkinSettings:
 #<parameter name="AutotimerEnabledIcon" value="6,2,24,25"
 #<parameter name="ServiceInfoFont" value="screen_text;20"/>
 			if '<parameter name="' in line and 'value="' in line:
+#<parameter name="ChoicelistVerticalAlignment" value="*center" />
+				if 'value="*' in line:
+					return line
 				return sub('(value=")(\d+|\w+)([,;"])(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)("*)', self.linereplacer, line)  # prepared for max 10 values
 #size="200,100"
 #size = (500, 45)
@@ -1917,6 +1920,10 @@ class ActivateSkinSettings:
 #<parameter name="AutotimerEnabledIcon" value="6,2,24,25"
 		# ignore colors
 		if '<parameter name="' in line and 'value="0x00' in line:
+			return line
+
+#<parameter name="ChoicelistVerticalAlignment" value="*center" />
+		if '<parameter name="' in line and 'value="*' in line:
 			return line
 
 		if '<parameter name="' in line and 'value="' in line:
