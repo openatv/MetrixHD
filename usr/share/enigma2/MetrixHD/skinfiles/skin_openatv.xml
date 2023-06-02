@@ -1710,6 +1710,11 @@ if self.list:
 	except:
 		pass
 
+maxheight = int(deskheight * 0.75)
+
+if listheight &gt;maxheight:
+	listheight = maxheight
+
 if (min_height &gt;textheight):
 	textheight = min_height
 if (min_width &gt;textwidth):
