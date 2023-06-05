@@ -3082,6 +3082,53 @@ if len(listitems.list) &gt; 2:
 		<panel name="_me-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
+
+	<screen name="PluginBrowserList" position="0,0" size="1280,720" title="Plugin browser" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="pluginlist" render="Listbox" position="70,100" size="700,500" listOrientation="vertical" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground">
+			<convert type="TemplatedMultiContent">
+				{
+					"template": [
+						MultiContentEntryText(pos = (120, 5), size = (320, 25), font=0, flags = RT_HALIGN_LEFT, text = 1),
+						MultiContentEntryText(pos = (120, 26), size = (320, 17), font=1, flags = RT_HALIGN_LEFT, text = 2),
+						MultiContentEntryPixmapAlphaBlend(pos=(10, 5), size=(100, 40), png=3, flags=BT_SCALE)
+					],
+					"fonts": [gFont("Regular", 18),gFont("Regular", 14)],
+					"itemHeight" : 50
+				}
+			</convert>
+		</widget>
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<eLabel text="Extensions" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<panel name="_me-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
+	</screen>
+
+	<screen name="PluginBrowserGrid" position="0,0" size="1280,720" title="Plugin browser" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="description" position="58,90" size="e-100,50" font="screen_text;20" valign="center"/>
+		<widget source="plugingrid" render="Listbox" position="120,150" size="1040,400" scrollbarMode="showAlways" listOrientation="grid">
+			<convert type="TemplatedMultiContent">
+				{
+					"template": [
+						MultiContentEntryText(pos = (0, 0), size = (200, 110), font=0),
+						MultiContentEntryText(pos = (4, 4), size = (192, 102), font=0, backcolor = 0x505050),
+						MultiContentEntryText(pos = (5, 50), size = (190, 50), font=0, flags = RT_VALIGN_CENTER|RT_HALIGN_CENTER|RT_WRAP, text = 1),
+						MultiContentEntryPixmapAlphaBlend(pos=(50, 10), size=(100, 40), png=3, flags=BT_SCALE)
+					],
+					"fonts": [gFont("Regular", 18),gFont("Regular", 14)],
+					"itemWidth" : 200,
+					"itemHeight" : 110
+				}
+			</convert>
+		</widget>
+		<panel name="template1_1layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<eLabel text="Extensions" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<panel name="_me-buttons_template1" />
+	</screen>
+
 	<screen name="PluginDownloadBrowser" position="0,0" size="1280,720" title="Downloadable plugins" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,100" size="700,500" zPosition="4" itemHeight="50" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
