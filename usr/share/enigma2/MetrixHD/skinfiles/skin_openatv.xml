@@ -1453,6 +1453,13 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template2" />
 	</screen>
+	<screen name="PluginActionLog" position="0,0" size="1280,720" title="Plugin Action Log" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="log" position="70,100" size="1140,525" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" conditional="log" />
+		<panel name="template1_1layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template2" />
+	</screen>
 	<screen name="TimeDateInput" position="0,0" size="1280,720" title="TimeDateInput" flags="wfNoBorder" backgroundColor="transparent" zPosition="1" >
 		<panel name="template1_2layer" />
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
