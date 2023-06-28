@@ -1667,6 +1667,13 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="tie-buttons_template1" />
 	</screen>
 
+	<screen name="Processing" title="Processing" position="center,center" size="600,220" backgroundColor="layer-a-background" zPosition="+99" flags="wfNoBorder">
+		<widget source="Title" render="Label" position="10,8" foregroundColor="layer-a-title-foreground" size="518,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1"/>
+		<panel name="ul-messagebox" />
+		<widget name="progress" position="10,80" size="580,25" />
+		<widget name="description" position="10,120" size="580,25" font="screen_text;20" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+	</screen>
+
 	<screen name="MessageBox-template-4">
 		<!-- new version 4 /-->
 		<widget source="Title" render="Label" position="72,8" foregroundColor="layer-a-title-foreground" size="618,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1"/>
@@ -3089,8 +3096,8 @@ if len(listitems.list) &gt; 2:
 			<convert type="TemplatedMultiContent">
 				{
 					"template": [
-						MultiContentEntryText(pos = (120, 5), size = (320, 25), font=0, flags = RT_HALIGN_LEFT, text = 1),
-						MultiContentEntryText(pos = (120, 26), size = (320, 17), font=1, flags = RT_HALIGN_LEFT, text = 2),
+						MultiContentEntryText(pos = (120, 5), size = (560, 25), font=0, flags = RT_HALIGN_LEFT, text = 1),
+						MultiContentEntryText(pos = (120, 26), size = (560, 17), font=1, flags = RT_HALIGN_LEFT, text = 2),
 						MultiContentEntryPixmapAlphaBlend(pos=(10, 5), size=(100, 40), png=3, flags=BT_SCALE)
 					],
 					"fonts": [gFont("Regular", 18),gFont("Regular", 14)],
@@ -3109,12 +3116,11 @@ if len(listitems.list) &gt; 2:
 	<screen name="PluginBrowserGrid" position="0,0" size="1280,720" title="Plugin browser" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="description" position="58,90" size="e-100,50" font="screen_text;20" valign="center"/>
-		<widget source="pluginGrid" render="Listbox" position="130,150" size="1020,440" scrollbarMode="showAlways" listOrientation="grid">
+		<widget source="pluginGrid" render="Listbox" position="100,150" size="1120,440" itemSpacing="10,10" selectionZoom="10" scrollbarMode="showAlways" listOrientation="grid" moveBackgroundColor="#00DC143C">
 			<convert type="TemplatedMultiContent">
 				{
 					"template": [
-						MultiContentEntryText(pos = (0, 0), size = (200, 110), font=0),
-						MultiContentEntryText(pos = (4, 4), size = (192, 102), font=0, backcolor = 0x505050),
+						MultiContentEntryText(pos = (0, 0), size = (200, 110), font=0, backcolor = 0x505050),
 						MultiContentEntryText(pos = (5, 50), size = (190, 50), font=0, flags = RT_VALIGN_CENTER|RT_HALIGN_CENTER|RT_WRAP, text = 1),
 						MultiContentEntryPixmapAlphaBlend(pos=(50, 10), size=(100, 40), png=3, flags=BT_SCALE)
 					],
@@ -3128,6 +3134,37 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<eLabel text="Extensions" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<panel name="_me-buttons_template1" />
+		<widget name="quickselect" position="50,80" size="760,525" backgroundColor="text-background" foregroundColor="background-text" font="global_large_screen;100" halign="center" transparent="1" valign="center" zPosition="+1" />
+	</screen>
+
+	<screen name="PluginAction" position="0,0" size="1280,720" title="Downloadable plugins" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+
+		<widget source="plugins" render="Listbox" position="70,100" size="700,500" zPosition="4" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{
+				"template":
+					[
+					MultiContentEntryPixmapAlphaBlend(pos=(5, 0), size=(60, 50), png=6, flags=BT_SCALE),
+					MultiContentEntryText(pos=(70, 0), size=(610, 50), font=0, flags=RT_VALIGN_CENTER, text=2),
+					MultiContentEntryText(pos=(70, 1), size=(430, 27), font=1, flags=RT_VALIGN_CENTER, text=3),
+					MultiContentEntryText(pos=(410, 1), size=(220, 27), font=1, flags=RT_VALIGN_CENTER, text=5),
+					MultiContentEntryText(pos=(70, 28), size=(560, 20), font=2, flags=RT_VALIGN_CENTER, text=4, color=0x00b0b0b0),
+					MultiContentEntryPixmapAlphaBlend(pos=(640, 1), size=(48, 48), png=7, flags=BT_SCALE)
+					],
+				"fonts": [parseFont("screen_text;25"), parseFont("screen_text;20"), parseFont("screen_text;16")],
+				"itemHeight": 50
+				}
+			</convert>
+		</widget>
+		<widget name="description" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1" conditional="description"/>
+		<widget source="global.CurrentTime" render="Label" position="825,100" size="380,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1">
+			<convert type="MetrixHDSTBinfo">FLASHfree</convert>
+		</widget>
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="template1_2layer" />
+		<panel name="__e-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
 		<widget name="quickselect" position="50,80" size="760,525" backgroundColor="text-background" foregroundColor="background-text" font="global_large_screen;100" halign="center" transparent="1" valign="center" zPosition="+1" />
 	</screen>
 
