@@ -1674,11 +1674,11 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="tie-buttons_template1" />
 	</screen>
 
-	<screen name="Processing" title="Processing" position="center,center" size="600,220" backgroundColor="layer-a-background" zPosition="+99" flags="wfNoBorder">
+	<screen name="Processing" title="Processing" position="center,center" size="600,220" backgroundColor="#111111" zPosition="+99" flags="wfNoBorder">
 		<widget source="Title" render="Label" position="10,8" foregroundColor="layer-a-title-foreground" size="518,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1"/>
 		<panel name="ul-messagebox" />
-		<widget name="progress" position="10,80" size="580,25" />
-		<widget name="description" position="10,120" size="580,25" font="screen_text;20" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+		<widget name="progress" position="10,80" size="580,25" transparent="1"/>
+		<widget name="description" position="10,120" size="580,25" font="screen_text;20" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 	</screen>
 
 	<screen name="MessageBox-template-4">
@@ -3153,13 +3153,14 @@ if len(listitems.list) &gt; 2:
 				"template":
 					[
 					MultiContentEntryPixmapAlphaBlend(pos=(5, 0), size=(60, 50), png=6, flags=BT_SCALE),
-					MultiContentEntryText(pos=(70, 0), size=(610, 50), font=0, flags=RT_VALIGN_CENTER, text=2),
-					MultiContentEntryText(pos=(70, 1), size=(430, 27), font=1, flags=RT_VALIGN_CENTER, text=3),
-					MultiContentEntryText(pos=(410, 1), size=(220, 27), font=1, flags=RT_VALIGN_CENTER, text=5),
-					MultiContentEntryText(pos=(70, 28), size=(560, 20), font=2, flags=RT_VALIGN_CENTER, text=4, color=0x00b0b0b0),
+					MultiContentEntryText(pos=(70, 0), size=(580, 50), font=0, flags=RT_VALIGN_CENTER, text=2), # Category
+					MultiContentEntryText(pos=(70, 1), size=(580, 25), font=1, flags=RT_VALIGN_CENTER, text=11), # Name + Version
+					# MultiContentEntryText(pos=(70, 1), size=(430, 25), font=1, flags=RT_VALIGN_CENTER, text=3), Name
+					# MultiContentEntryText(pos=(480, 1), size=(160, 25), font=1, flags=RT_VALIGN_CENTER, text=5), Version
+					MultiContentEntryText(pos=(70, 28), size=(560, 20), font=2, flags=RT_VALIGN_CENTER, text=4, color=0x00b0b0b0), # Description
 					MultiContentEntryPixmapAlphaBlend(pos=(640, 1), size=(48, 48), png=7, flags=BT_SCALE)
 					],
-				"fonts": [parseFont("screen_text;25"), parseFont("screen_text;20"), parseFont("screen_text;16")],
+				"fonts": [parseFont("screen_text;25"), parseFont("screen_text;18"), parseFont("screen_text;16")],
 				"itemHeight": 50
 				}
 			</convert>
