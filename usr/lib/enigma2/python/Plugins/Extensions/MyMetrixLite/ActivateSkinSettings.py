@@ -1815,8 +1815,8 @@ class ActivateSkinSettings:
 #itemHeight="25"
 #"itemHeight": 45
 #": (90,[
-		if 'rowSplit' in line or 'rowHeight="' in line or 'satPosLeft="' in line or 'iconMargin="' in line or 'fieldMargins="' in line or 'itemsDistances="' in line or 'progressbarHeight="' in line or 'progressBarWidth="' in line or 'itemHeight="' in line or '"itemHeight":' in line or ('": (' in line and '[' in line):
-			line = sub('([iconfeld]+Margin[s]*=" *|itemsDistances="|progress[Bb]ar[HeightWd]+=" *|"*itemHeight[=":]+ *|": *[(]|row[HeightSpl]+\d*=" *|satPosLeft=" *)(\d+)', self.linereplacer, line)
+		if 'rowSplit' in line or 'rowHeight="' in line or 'satPosLeft="' in line or 'iconMargin="' in line or 'fieldMargins="' in line or 'itemsDistances="' in line or 'progressbarHeight="' in line or 'progressBarWidth="' in line or 'itemHeight="' in line or '"itemHeight":' in line or 'itemWidth="' in line or '"itemWidth":' in line or ('": (' in line and '[' in line):
+			line = sub('([iconfeld]+Margin[s]*=" *|itemsDistances="|progress[Bb]ar[HeightWd]+=" *|"*itemHeight[=":]+ *|"*itemWidth[=":]+ *|": *[(]|row[HeightSpl]+\d*=" *|satPosLeft=" *)(\d+)', self.linereplacer, line)
 #messagebox start
 #offset_listposx = 10
 #offset_listposy = 10
@@ -1897,6 +1897,10 @@ class ActivateSkinSettings:
 #colPosition="240"
 		if ' colPosition="' in line:
 			line = sub('(colPosition=" *)(\d+)', self.linereplacer, line)
+
+#itemSpacing="10,10"
+		if ' itemSpacing="' in line:
+			line = sub('(itemSpacing=")(\d+)(,)(\d+)', self.linereplacer, line)
 
 		return line
 
@@ -2377,6 +2381,22 @@ class ActivateSkinSettings:
 
 			strnew = ' offset="' + xnew + ',' + ynew + '"'
 			line = line[:n1] + strnew + line[(n4 + 1):]
+
+#itemSpacing="10,10"
+		if ' itemSpacing="' in line:
+			n1 = line.find(' itemSpacing', 0)
+			n2 = line.find('"', n1)
+			n3 = line.find(',', n2)
+			n4 = line.find('"', n3)
+			x = line[(n2 + 1):n3]
+			y = line[(n3 + 1):n4]
+			xnew = str(int(round_half_up(float(int(x) * FACT), r_par)))
+			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
+
+			strnew = ' itemSpacing="' + xnew + ',' + ynew + '"'
+			line = line[:n1] + strnew + line[(n4 + 1):]
+
+
 #fieldMargins="10"
 		if 'fieldMargins="' in line:
 			n1 = line.find('fieldMargins="', 0)
@@ -2452,6 +2472,33 @@ class ActivateSkinSettings:
 			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
 			strnew = line[n1:n2 + 1] + " " + ynew
 			line = line[:n1] + strnew + line[n3:]
+
+#itemWidth="25"
+		if 'itemWidth="' in line:
+			# print('################################################ 1')
+			n1 = line.find('itemWidth="', 0)
+			n2 = line.find('"', n1)
+			n3 = line.find('"', n2 + 1)
+			y = line[(n2 + 1):n3]
+
+			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
+			strnew = line[n1:n2 + 1] + ynew + '"'
+			line = line[:n1] + strnew + line[(n3 + 1):]
+#"itemWidth": 45
+		if '"itemWidth":' in line:
+			n1 = line.find('"itemWidth":', 0)
+			n2 = line.find(':', n1)
+			n3 = line.find(',', n2)
+			if n3 == -1:
+				n3 = line.find(')', n2)
+				if n3 == -1:
+					n3 = line.find('}', n2)
+			y = line[(n2 + 1):n3]
+
+			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
+			strnew = line[n1:n2 + 1] + " " + ynew
+			line = line[:n1] + strnew + line[n3:]
+
 #": (90,[
 		if '": (' in line and '[' in line:
 			n1 = line.find('":', 0)
