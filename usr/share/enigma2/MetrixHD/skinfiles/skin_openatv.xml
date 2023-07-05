@@ -3104,10 +3104,10 @@ if len(listitems.list) &gt; 2:
 				{
 					"template": [
 						MultiContentEntryText(pos = (120, 5), size = (560, 25), font=0, flags = RT_HALIGN_LEFT, text = 1),
-						MultiContentEntryText(pos = (120, 26), size = (560, 17), font=1, flags = RT_HALIGN_LEFT, text = 2),
+						MultiContentEntryText(pos = (120, 26), size = (560, 19), font=1, flags = RT_HALIGN_LEFT, text = 2),
 						MultiContentEntryPixmapAlphaBlend(pos=(10, 5), size=(100, 40), png=3, flags=BT_SCALE)
 					],
-					"fonts": [gFont("Regular", 18),gFont("Regular", 14)],
+					"fonts": [gFont("Regular", 18),gFont("Regular", 16)],
 					"itemHeight": 50
 				}
 			</convert>
@@ -3160,7 +3160,7 @@ if len(listitems.list) &gt; 2:
 					MultiContentEntryText(pos=(70, 28), size=(560, 20), font=2, flags=RT_VALIGN_CENTER, text=4, color=0x00b0b0b0), # Description
 					MultiContentEntryPixmapAlphaBlend(pos=(640, 1), size=(48, 48), png=7, flags=BT_SCALE)
 					],
-				"fonts": [parseFont("screen_text;25"), parseFont("screen_text;18"), parseFont("screen_text;16")],
+				"fonts": [gFont("Regular", 25),gFont("Regular", 18),gFont("Regular", 16)],
 				"itemHeight": 50
 				}
 			</convert>
