@@ -19,14 +19,14 @@
 #
 #######################################################################
 
-from boxbranding import getBoxType
 from gettext import bindtextdomain, dgettext, gettext
 from os.path import exists
 from shutil import move
 
-from Components.config import config, ConfigSubsection, ConfigSelection, ConfigNumber, ConfigSelectionNumber, ConfigYesNo, ConfigText, ConfigInteger
+from Components.SystemInfo import BoxInfo
+from Components.config import config, ConfigSubsection, ConfigSelection, ConfigSelectionNumber, ConfigYesNo, ConfigText, ConfigInteger
 from Components.Language import language
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS
+from Tools.Directories import fileReadLines, resolveFilename, SCOPE_PLUGINS
 #############################################################
 
 PLUGIN_PATH = resolveFilename(SCOPE_PLUGINS, "Extensions/MyMetrixLite")
@@ -43,10 +43,8 @@ def localeInit():
 
 
 def _(txt):
-	if dgettext(PluginLanguageDomain, txt):
-		return dgettext(PluginLanguageDomain, txt)
-	else:
-		return gettext(txt)
+	ret = dgettext(PluginLanguageDomain, txt)
+	return ret if ret else gettext(txt)
 
 
 localeInit()
@@ -119,6 +117,8 @@ if exists(OLD_BACKUP_FILE) and not exists(BACKUP_FILE):
 
 #############################################################
 
+GrayColors = [("%s%s%s" % (x, x, x), _("Greyscale %d") % (i + 1)) for i, x in enumerate(("15", "1C", "2E", "42", "58", "6E", "84", "A4", "BD", "D8", "E6", "F2", "FA"))]
+
 ColorList = [
 		("F0A30A", _("Amber")),
 		("825A2C", _("Brown")),
@@ -129,8 +129,8 @@ ColorList = [
 		("00008B", _("Darkblue")),
 		("2F1A09", _("Darkbrown")),
 		("0F0F0F", _("Darkgrey")),
-		("A61D4D", _("Magenta 1")),
-		("660066", _("Magenta 2")),
+		("A61D4D", _("Magenta %d") % 1),
+		("660066", _("Magenta %d") % 2),
 		("A4C400", _("Lime")),
 		("6A00FF", _("Indigo")),
 		("5FA816", _("Brightgreen")),
@@ -153,46 +153,11 @@ ColorList = [
 		("6C0AAB", _("Violet")),
 		("D8C100", _("Brightyellow")),
 		("BF9217", _("Yellow")),
-		("000000", _("Black")),
-		("151515", _("Greyscale 1")),
-		("1C1C1C", _("Greyscale 2")),
-		("2E2E2E", _("Greyscale 3")),
-		("424242", _("Greyscale 4")),
-		("585858", _("Greyscale 5")),
-		("6E6E6E", _("Greyscale 6")),
-		("848484", _("Greyscale 7")),
-		("A4A4A4", _("Greyscale 8")),
-		("BDBDBD", _("Greyscale 9")),
-		("D8D8D8", _("Greyscale 10")),
-		("E6E6E6", _("Greyscale 11")),
-		("F2F2F2", _("Greyscale 12")),
-		("FAFAFA", _("Greyscale 13")),
-		("FFFFFF", _("White"))
-	]
+		("000000", _("Black"))
+	] + GrayColors + [("FFFFFF", _("White"))]
 
-TransparencyList = [
-		("00", _("0%")),
-		("0D", _("5%")),
-		("1A", _("10%")),
-		("27", _("15%")),
-		("34", _("20%")),
-		("40", _("25%")),
-		("4D", _("30%")),
-		("5A", _("35%")),
-		("67", _("40%")),
-		("74", _("45%")),
-		("80", _("50%")),
-		("8D", _("55%")),
-		("9A", _("60%")),
-		("A7", _("65%")),
-		("B4", _("70%")),
-		("C0", _("75%")),
-		("CD", _("80%")),
-		("DA", _("85%")),
-		("E7", _("90%")),
-		("F4", _("95%")),
-		("FF", _("100%"))
-	]
+
+TransparencyList = [("%0.2X" % int(x * 2.555), "%d%%" % x) for x in list(range(0, 105, 5))]
 
 SysFontTypeList = [
 	("/usr/share/fonts/ae_AlMateen.ttf", ("ae_AlMateen (ae_AlMateen.ttf)")),
@@ -274,37 +239,12 @@ def initColorsConfig():
 		("6C0AAB", _("Violet")),
 		("D8C100", _("Brightyellow")),
 		("BF9217", _("Yellow")),
-		("000000", _("Black")),
-		("151515", _("Greyscale 1")),
-		("1C1C1C", _("Greyscale 2")),
-		("2E2E2E", _("Greyscale 3")),
-		("424242", _("Greyscale 4")),
-		("585858", _("Greyscale 5")),
-		("6E6E6E", _("Greyscale 6")),
-		("848484", _("Greyscale 7")),
-		("A4A4A4", _("Greyscale 8")),
-		("BDBDBD", _("Greyscale 9")),
-		("D8D8D8", _("Greyscale 10")),
-		("E6E6E6", _("Greyscale 11")),
-		("F2F2F2", _("Greyscale 12")),
-		("FAFAFA", _("Greyscale 13")),
-		("FFFFFF", _("White")),
-		("trans", _("Transparent"))
-	]
+		("000000", _("Black"))
+	] + GrayColors + [("FFFFFF", _("White")), ("trans", _("Transparent"))]
 
 	BorderWidth = [
-		("no", _("No")),
-		("1px", _("1 px")),
-		("2px", _("2 px")),
-		("3px", _("3 px")),
-		("4px", _("4 px")),
-		("5px", _("5 px")),
-		("6px", _("6 px")),
-		("7px", _("7 px")),
-		("8px", _("8 px")),
-		("9px", _("9 px")),
-		("10px", _("10 px"))
-	]
+		("no", _("No"))
+	] + [("%dpx" % x, _("%d px") % x) for x in range(1, 11)]
 
 	SkinColorPresetList = [
 		("preset_0", _("Standard Colors")),
@@ -555,11 +495,11 @@ def initOtherConfig():
 		]
 
 	infoBarChannelNameFontSizeList = [
-		("INFOBARCHANNELNAME-5", _("40")),
-		("INFOBARCHANNELNAME-4", _("50")),
-		("INFOBARCHANNELNAME-3", _("60")),
-		("INFOBARCHANNELNAME-2", _("70")),
-		("INFOBARCHANNELNAME-1", _("80"))
+		("INFOBARCHANNELNAME-5", "40"),
+		("INFOBARCHANNELNAME-4", "50"),
+		("INFOBARCHANNELNAME-3", "60"),
+		("INFOBARCHANNELNAME-2", "70"),
+		("INFOBARCHANNELNAME-1", "80")
 		]
 
 	skinDesignShowLayerList = [
@@ -582,7 +522,7 @@ def initOtherConfig():
 
 	#OtherSettings
 	#EHD-Option -> Enhanced HD
-	BoxType = getBoxType()
+	BoxType = BoxInfo.getItem("machinebuild")
 	config.plugins.MyMetrixLiteOther.EHDtested = ConfigText(default="%s_|_0" % BoxType)
 
 	skinmodes = [("0", _("Standard HD (1280x720)"))]
@@ -596,7 +536,7 @@ def initOtherConfig():
 				mode2160p = True
 		else:
 			risk = True
-	except:
+	except Exception:
 		print("[MyMetrixLite] - can't read video modes")
 		risk = True
 
@@ -623,9 +563,9 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.EHDenabled = ConfigSelection(default="0", choices=skinmodes)
 	config.plugins.MyMetrixLiteOther.EHDrounddown = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.EHDfontoffset = ConfigSelectionNumber(-10, 5, 1, default=0)
-	config.plugins.MyMetrixLiteOther.EHDpiconzoom = ConfigSelection(default="1.0", choices=[("0", _("No")), ("0.2", _("20%")), ("0.4", _("40%")), ("0.6", _("60%")), ("0.8", _("80%")), ("1.0", _("100%"))])
+	config.plugins.MyMetrixLiteOther.EHDpiconzoom = ConfigSelection(default="1.0", choices=[("0", _("No")), ("0.2", "20%"), ("0.4", "40%"), ("0.6", "60%"), ("0.8", "80%"), ("1.0", "100%")])
 	config.plugins.MyMetrixLiteOther.piconresize_experimental = ConfigYesNo(default=False)
-	config.plugins.MyMetrixLiteOther.EHDoldlinechanger = ConfigYesNo(default=False)
+	# config.plugins.MyMetrixLiteOther.EHDoldlinechanger = ConfigYesNo(default=False)
 	sharpness = []
 	for i in list(range(0, 525, 25)):
 		x = str(format(float(i) / 100, ".2f"))
@@ -695,7 +635,7 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.showEMCMediaCenterCoverInfobar = ConfigYesNo(default=True)
 	config.plugins.MyMetrixLiteOther.showEMCSelectionCover = ConfigSelection(default="no", choices=[("no", _("No")), ("small", _("Small")), ("large", _("Large"))])
 	config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription = ConfigYesNo(default=True)
-	config.plugins.MyMetrixLiteOther.showEMCSelectionRows = ConfigSelection(default="0", choices=[("-4", _("-4")), ("-2", _("-2")), ("0", _("No")), ("+2", _("+2")), ("+4", _("+4")), ("+6", _("+6")), ("+8", _("+8"))])
+	config.plugins.MyMetrixLiteOther.showEMCSelectionRows = ConfigSelection(default="0", choices=[("-4", "-4"), ("-2", "-2"), ("0", _("No")), ("+2", "+2"), ("+4", "+4"), ("+6", "+6"), ("+8", "+8")])
 	config.plugins.MyMetrixLiteOther.showEMCSelectionPicon = ConfigSelection(default="no", choices=[("no", _("No")), ("left", _("left")), ("right", _("right"))])
 	choicelist = [("0", _("off"))]
 	for x in list(range(50, 202, 2)):
@@ -766,9 +706,13 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsFrameSize = ConfigSelectionNumber(0, 5, 1, default=0)
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition = ConfigSelectionNumber(-10, 10, 1, default=0)
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect = ConfigSelection(default="no", choices=[("no", _("None")), ("solidframe", _("Solid")), ("solid", _("Solid without Frame")), ("gradientframe", _("Flat Gradient")), ("gradient", _("Flat Gradient without Frame")), ("circleframe", _("Circle Gradient")), ("circle", _("Circle Gradient without Frame"))])
-	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectSize = ConfigSelection(default="0.5", choices=[("0.1", _("10%")), ("0.2", _("20%")), ("0.3", _("30%")), ("0.4", _("40%")), ("0.5", _("50%")), ("0.6", _("60%")), ("0.7", _("70%")), ("0.8", _("80%")), ("0.9", _("90%")), ("1", _("100%"))])
-	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectPosX = ConfigSelection(default="0.5", choices=[("0", _("0")), ("0.1", _("10")), ("0.2", _("20")), ("0.3", _("30")), ("0.4", _("40")), ("0.5", _("50")), ("0.6", _("60")), ("0.7", _("70")), ("0.8", _("80")), ("0.9", _("90")), ("1", _("100"))])
-	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectPosY = ConfigSelection(default="0.5", choices=[("0", _("0")), ("0.1", _("10")), ("0.2", _("20")), ("0.3", _("30")), ("0.4", _("40")), ("0.5", _("50")), ("0.6", _("60")), ("0.7", _("70")), ("0.8", _("80")), ("0.9", _("90")), ("1", _("100"))])
+
+	choicelist = [("%.1f" % (x / 10), "%d%%" % (x * 10)) for x in range(1, 11)]
+	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectSize = ConfigSelection(default="0.5", choices=choicelist)
+
+	choicelist = [("%.1f" % (x / 10), "%d" % (x * 10)) for x in range(11)]
+	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectPosX = ConfigSelection(default="0.5", choices=choicelist)
+	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectPosY = ConfigSelection(default="0.5", choices=choicelist)
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectColor = ConfigSelection(default="FFFFFF", choices=ColorList)
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectOverText = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity = ConfigSelection(default="00", choices=TransparencyList)
@@ -805,9 +749,7 @@ def appendSkinFile(appendFileName, skinPartSearchAndReplace):
 	"""
 	rsSkinLines = []
 
-	skFile = open(appendFileName, "r")
-	file_lines = skFile.readlines()
-	skFile.close()
+	file_lines = fileReadLines(appendFileName, source="MyMetrixLite")
 
 	for skinLine in file_lines:
 		for item in skinPartSearchAndReplace:

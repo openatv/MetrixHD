@@ -1605,7 +1605,7 @@ class ActivateSkinSettings:
 				raise Exception(_("Can't create symlink:") + "\n%s\n---> %s\n(%s)" % (src, dest, e))
 
 	def optionEHD(self, sourceFile, targetFile):
-		oldlinechanger = config.plugins.MyMetrixLiteOther.EHDoldlinechanger.value
+		# oldlinechanger = config.plugins.MyMetrixLiteOther.EHDoldlinechanger.value
 
 		run_mod = False
 		next_rename = False
@@ -1705,10 +1705,10 @@ class ActivateSkinSettings:
 								self.skinline_error = True
 								break
 					if run_mod and not line_disabled and not self.skinline_error:
-						if oldlinechanger:
-							line = self.linerchanger_old(line, next_picon_zoom)
-						else:
-							line = self.linerchanger_new(line, next_picon_zoom, "skin.MySkin.xml" in sourceFile)
+#						if oldlinechanger:
+#							line = self.linerchanger_old(line, next_picon_zoom)
+#						else:
+						line = self.linerchanger_new(line, next_picon_zoom, "skin.MySkin.xml" in sourceFile)
 #line disabled off
 					if line_disabled and not 'cf#_#' in line and (match('#+', line.lstrip()) or match('.*-->.*', line.rstrip())):
 						#print 'line disabled off', i, line
