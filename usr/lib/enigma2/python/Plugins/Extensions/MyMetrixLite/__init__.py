@@ -117,7 +117,7 @@ if exists(OLD_BACKUP_FILE) and not exists(BACKUP_FILE):
 
 #############################################################
 
-GrayColors = [("%s%s%s" % (x, x, x), _("Greyscale %d") % (i + 1)) for i, x in enumerate(("15", "1C", "2E", "42", "58", "6E", "84", "A4", "BD", "D8", "E6", "F2", "FA"))]
+Greyscale = [("%s%s%s" % (x, x, x), _("Greyscale %d") % (i + 1)) for i, x in enumerate(("15", "1C", "2E", "42", "58", "6E", "84", "A4", "BD", "D8", "E6", "F2", "FA"))]
 
 ColorList = [
 		("F0A30A", _("Amber")),
@@ -154,7 +154,7 @@ ColorList = [
 		("D8C100", _("Brightyellow")),
 		("BF9217", _("Yellow")),
 		("000000", _("Black"))
-	] + GrayColors + [("FFFFFF", _("White"))]
+	] + Greyscale + [("FFFFFF", _("White"))]
 
 
 TransparencyList = [("%0.2X" % int(x * 2.555), "%d%%" % x) for x in list(range(0, 105, 5))]
@@ -240,7 +240,7 @@ def initColorsConfig():
 		("D8C100", _("Brightyellow")),
 		("BF9217", _("Yellow")),
 		("000000", _("Black"))
-	] + GrayColors + [("FFFFFF", _("White")), ("trans", _("Transparent"))]
+	] + Greyscale + [("FFFFFF", _("White")), ("trans", _("Transparent"))]
 
 	BorderWidth = [
 		("no", _("No"))
