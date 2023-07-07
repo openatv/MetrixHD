@@ -749,7 +749,11 @@ def appendSkinFile(appendFileName, skinPartSearchAndReplace):
 	"""
 	rsSkinLines = []
 
-	file_lines = fileReadLines(appendFileName, source="MyMetrixLite")
+# TODO:
+#	file_lines = fileReadLines(appendFileName, source="MyMetrixLite")
+	skFile = open(appendFileName, "r")
+	file_lines = skFile.readlines()
+	skFile.close()
 
 	for skinLine in file_lines:
 		for item in skinPartSearchAndReplace:
