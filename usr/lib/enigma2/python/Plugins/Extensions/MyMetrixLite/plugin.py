@@ -55,7 +55,7 @@ config.plugins.MetrixWeather.nighticons = ConfigYesNo(default=True)
 config.plugins.MetrixWeather.cachedata = ConfigSelection(default="60", choices=[("0", _("Disabled"))] + [(str(x), _("%d Minutes") % x) for x in (30, 60, 120)])
 config.plugins.MetrixWeather.MoviePlayer = ConfigYesNo(default=True)
 config.plugins.MetrixWeather.refreshInterval = ConfigSelectionNumber(0, 1440, 30, default=120, wraparound=True)
-config.plugins.MetrixWeather.apikey = ConfigText(default="")
+config.plugins.MetrixWeather.apikey = ConfigText(default="", fixed_size=False)
 # Beyonwiz - marketed only in Australia
 GEODATA = ("Sydney, New South Wales, AU", "151.2082848,-33.8698439") if BoxInfo.getItem("machinebuild").startswith("beyonwiz") else ("Hamburg, DE", "10.000654,53.550341")
 config.plugins.MetrixWeather.weathercity = ConfigText(default=GEODATA[0], visible_width=250, fixed_size=False)
