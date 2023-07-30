@@ -36,7 +36,7 @@ from Components.config import config, configfile
 from Components.NimManager import nimmanager
 
 from enigma import getDesktop
-from boxbranding import getBoxType
+from Components.SystemInfo import BoxInfo
 from skin import colors, domScreens, fonts, reloadWindowStyles, parseColor
 
 from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, initFontsConfig, getTunerPositionList, appendSkinFile, \
@@ -122,7 +122,7 @@ class ActivateSkinSettings:
 
 	def getEHDSettings(self, onlyCheck=False):
 		tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
-		EHDtested = len(tested) == 2 and getBoxType() in tested[0] and config.plugins.MyMetrixLiteOther.EHDenabled.value in tested[1]
+		EHDtested = len(tested) == 2 and BoxInfo.getItem("machinebuild") in tested[0] and config.plugins.MyMetrixLiteOther.EHDenabled.value in tested[1]
 		if config.plugins.MyMetrixLiteOther.EHDenabled.value == '0':
 			self.EHDenabled = False
 			self.EHDfactor = 1

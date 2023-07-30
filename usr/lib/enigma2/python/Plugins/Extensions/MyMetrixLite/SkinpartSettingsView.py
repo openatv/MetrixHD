@@ -19,7 +19,6 @@
 #
 #######################################################################
 
-from boxbranding import getBoxType, getMachineBrand, getMachineName
 from enigma import gMainDC, ePicLoad, getDesktop
 from os import statvfs, listdir, remove
 from os.path import exists, isdir, isfile, islink
@@ -27,7 +26,6 @@ from shutil import move, copy
 from six import ensure_str
 
 from Components.ActionMap import ActionMap
-from Components.AVSwitch import AVSwitch
 from Components.config import config, configfile, getConfigListEntry, ConfigYesNo, ConfigSubList, ConfigSubDict, ConfigSelection
 from Components.ConfigList import ConfigListScreen
 from Components.Sources.StaticText import StaticText
@@ -65,7 +63,6 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.session = session
-		self.Scale = AVSwitch().getFramebufferScale()
 		self.PicLoad = ePicLoad()
 		self["helperimage"] = Pixmap()
 		self["helpertext"] = Label()
@@ -107,11 +104,11 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			"down": self.keyDown,
 			"up": self.keyUp,
 			"right": self.keyRight,
-			"red": self.exit,
+			"red": self.keyCancel,
 			"green": self.save,
 			"blue": self.zoom,
 			"yellow": self.defaults,
-			"cancel": self.exit
+			"cancel": self.keyCancel
 		}, -1)
 
 		self.onLayoutFinish.append(self.UpdatePicture)
@@ -340,21 +337,13 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		self.onLayoutFinish.append(self.ShowPicture)
 
 	def ShowPicture(self):
-		self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), self.Scale[0], self.Scale[1], 0, 1, "#00000000"])
+		self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), 1, 1, 0, 1, "#00000000"])
 		self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 
 	def DecodePicture(self, PicInfo=""):
 		ptr = self.PicLoad.getData()
 		self["helperimage"].instance.setPixmap(ptr)
-
-	def keyLeft(self):
-		ConfigListScreen.keyLeft(self)
-		#self.ShowPicture()
-
-	def keyRight(self):
-		ConfigListScreen.keyRight(self)
-		#self.ShowPicture()
 
 	def keyDown(self):
 		self["config"].instance.moveSelection(self["config"].instance.moveDown)
@@ -444,20 +433,13 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 
 		if idxerrcnt:
 			self.session.open(MessageBox, idxerrtxt, MessageBox.TYPE_ERROR)
-			self.exit()
+			self.close()
 
 		for x in self["config"].list:
 			if len(x) > 1:
 				x[1].save()
 
 		configfile.save()
-		self.exit()
-
-	def exit(self):
-		for x in self["config"].list:
-			if len(x) > 1:
-					x[1].cancel()
-
 		self.close()
 
 	def defaults(self):
@@ -497,7 +479,6 @@ class zoomPreview(Screen):
 		Screen.__init__(self, session)
 		self.session = session
 		self.previewPic = previewPic
-		self.Scale = AVSwitch().getFramebufferScale()
 		self.PicLoad = ePicLoad()
 		self["preview"] = Pixmap()
 		self["actions"] = ActionMap(["OkCancelActions", "ColorActions"],
@@ -515,5 +496,5 @@ class zoomPreview(Screen):
 		self["preview"].instance.setPixmap(ptr)
 
 	def ShowPicture(self):
-		self.PicLoad.setPara([self["preview"].instance.size().width(), self["preview"].instance.size().height(), self.Scale[0], self.Scale[1], 0, 1, "#00000000"])
+		self.PicLoad.setPara([self["preview"].instance.size().width(), self["preview"].instance.size().height(), 1, 1, 0, 1, "#00000000"])
 		self.PicLoad.startDecode(self.previewPic)

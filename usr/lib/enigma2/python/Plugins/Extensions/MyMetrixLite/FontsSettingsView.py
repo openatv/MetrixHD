@@ -23,7 +23,6 @@ from os.path import exists
 from enigma import ePicLoad
 
 from Components.ActionMap import ActionMap
-from Components.AVSwitch import AVSwitch
 from Components.config import config, configfile, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
 from Components.Label import Label
@@ -59,7 +58,6 @@ class FontsSettingsView(ConfigListScreen, Screen):
 		Screen.__init__(self, session)
 		self.session = session
 		self.picPath = FONT_IMAGE_PATH % "FFFFFF"
-		self.Scale = AVSwitch().getFramebufferScale()
 		self.PicLoad = ePicLoad()
 		self["helperimage"] = Pixmap()
 		self["helpertext"] = Label()
@@ -95,10 +93,10 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			"down": self.keyDown,
 			"up": self.keyUp,
 			"right": self.keyRight,
-			"red": self.exit,
+			"red": self.keyCancel,
 			"yellow": self.defaults,
 			"green": self.save,
-			"cancel": self.exit
+			"cancel": self.keyCancel
 		}, -1)
 
 		self.onLayoutFinish.append(self.UpdatePicture)
@@ -619,19 +617,13 @@ class FontsSettingsView(ConfigListScreen, Screen):
 		self.onLayoutFinish.append(self.ShowPicture)
 
 	def ShowPicture(self):
-		self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), self.Scale[0], self.Scale[1], 0, 1, "#00000000"])
+		self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), 1, 1, 0, 1, "#00000000"])
 		self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 
 	def DecodePicture(self, PicInfo=""):
 		ptr = self.PicLoad.getData()
 		self["helperimage"].instance.setPixmap(ptr)
-
-	def keyLeft(self):
-		ConfigListScreen.keyLeft(self)
-
-	def keyRight(self):
-		ConfigListScreen.keyRight(self)
 
 	def keyDown(self):
 		self["config"].instance.moveSelection(self["config"].instance.moveDown)
@@ -666,12 +658,6 @@ class FontsSettingsView(ConfigListScreen, Screen):
 				x[1].save()
 
 		configfile.save()
-		self.exit()
-
-	def exit(self):
-		for x in self["config"].list:
-			if len(x) > 1:
-					x[1].cancel()
 		self.close()
 
 	def showHelperText(self):

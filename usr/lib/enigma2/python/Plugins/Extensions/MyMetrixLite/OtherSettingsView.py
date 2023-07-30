@@ -23,17 +23,16 @@ from PIL import Image
 from os import remove, statvfs
 from os.path import exists
 from six import ensure_str
-from boxbranding import getBoxType, getMachineBrand, getMachineName
 from enigma import gMainDC, ePicLoad, getDesktop
 
 from Components.ActionMap import ActionMap
-from Components.AVSwitch import AVSwitch
 from Components.config import config, configfile, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
 from Components.Console import Console
 from Components.Label import Label
 from Components.Pixmap import Pixmap
 from Components.Sources.StaticText import StaticText
+from Components.SystemInfo import BoxInfo, getBoxDisplayName
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN
@@ -41,7 +40,7 @@ from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN
 from . import _, MAIN_IMAGE_PATH
 from .ActivateSkinSettings import ActivateSkinSettings
 
-BoxType = getBoxType()
+BoxType = BoxInfo.getItem("machinebuild")
 
 #############################################################
 
@@ -68,7 +67,6 @@ class OtherSettingsView(ConfigListScreen, Screen):
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.session = session
-		self.Scale = AVSwitch().getFramebufferScale()
 		self.PicLoad = ePicLoad()
 		self["helperimage"] = Pixmap()
 		self["helpertext"] = Label()
@@ -100,11 +98,11 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			"down": self.keyDown,
 			"up": self.keyUp,
 			"right": self.keyRight,
-			"red": self.exit,
+			"red": self.keyCancel,
 			"green": self.save,
 			"yellow": self.defaults,
 			"blue": self.test,
-			"cancel": self.exit
+			"cancel": self.keyCancel
 		}, -1)
 
 		self.getEHDsettings()
@@ -121,6 +119,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		)
 
 		self.onLayoutFinish.append(self.UpdatePicture)
+		self.onClose.append(self.__onClose)
 
 	def checkEHD_is_tested(self):
 		if not self.firstrun:
@@ -294,7 +293,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 	def checkNetworkStateFinished(self, result, retval, extra_args=None):
 		result = ensure_str(result)
 		if 'bad address' in result:
-			self.session.openWithCallback(self.InstallPackageFailed, MessageBox, _("Your %s %s is not connected to the internet, please check your network settings and try again.") % (getMachineBrand(), getMachineName()), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
+			self.session.openWithCallback(self.InstallPackageFailed, MessageBox, _("Your %s %s is not connected to the internet, please check your network settings and try again.") % getBoxDisplayName(), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
 		elif ('wget returned 1' or 'wget returned 255' or '404 Not Found') in result:
 			self.session.openWithCallback(self.InstallPackageFailed, MessageBox, _("Sorry feeds are down for maintenance, please try again later."), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
 		else:
@@ -711,19 +710,13 @@ class OtherSettingsView(ConfigListScreen, Screen):
 				self.getButtonPreview()
 			self["helperimage"].instance.setPixmapFromFile("/tmp/template.png")
 		else:
-			self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), self.Scale[0], self.Scale[1], 0, 1, "#00000000"])
+			self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), 1, 1, 0, 1, "#00000000"])
 			self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 
 	def DecodePicture(self, PicInfo=""):
 		ptr = self.PicLoad.getData()
 		self["helperimage"].instance.setPixmap(ptr)
-
-	def keyLeft(self):
-		ConfigListScreen.keyLeft(self)
-
-	def keyRight(self):
-		ConfigListScreen.keyRight(self)
 
 	def keyDown(self):
 		self["config"].instance.moveSelection(self["config"].instance.moveDown)
@@ -740,17 +733,12 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		for x in self["config"].list:
 			if len(x) > 1:
 				x[1].save()
-
 		configfile.save()
-		self.exit()
+		self.close()
 
-	def exit(self):
-		for x in self["config"].list:
-			if len(x) > 1:
-					x[1].cancel()
+	def __onClose(self):
 		if exists("/tmp/template.png"):
 			remove("/tmp/template.png")
-		self.close()
 
 	def defaults(self, SAVE=False):
 		for x in self["config"].list:

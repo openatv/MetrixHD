@@ -24,7 +24,6 @@ from time import localtime, strftime, time
 from enigma import ePicLoad, eTimer
 
 from Components.ActionMap import ActionMap
-from Components.AVSwitch import AVSwitch
 from Components.config import config, configfile, getConfigListEntry, ConfigSelectionNumber, ConfigText
 from Components.ConfigList import ConfigListScreen
 from Components.Label import Label
@@ -68,7 +67,6 @@ class BackupSettingsView(ConfigListScreen, Screen):
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.session = session
-		self.Scale = AVSwitch().getFramebufferScale()
 		self.PicLoad = ePicLoad()
 
 		self["HelpWindow"] = Pixmap()
@@ -118,11 +116,11 @@ class BackupSettingsView(ConfigListScreen, Screen):
 			"down": self.keyDown,
 			"up": self.keyUp,
 			"right": self.keyRight,
-			"red": self.exit,
+			"red": self.close,
 			"green": self.restoreQ,
 			"yellow": self.backupQ,
 			"blue": self.deleteQ,
-			"cancel": self.exit,
+			"cancel": self.close,
 			"ok": self.renameName
 		}, -1)
 
@@ -181,21 +179,13 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		self.onLayoutFinish.append(self.ShowPicture)
 
 	def ShowPicture(self):
-		self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), self.Scale[0], self.Scale[1], 0, 1, "#00000000"])
+		self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), 1, 1, 0, 1, "#00000000"])
 		self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 
 	def DecodePicture(self, PicInfo=""):
 		ptr = self.PicLoad.getData()
 		self["helperimage"].instance.setPixmap(ptr)
-
-	def keyLeft(self):
-		ConfigListScreen.keyLeft(self)
-		#self.ShowPicture()
-
-	def keyRight(self):
-		ConfigListScreen.keyRight(self)
-		#self.ShowPicture()
 
 	def keyDown(self):
 		self["config"].instance.moveSelection(self["config"].instance.moveDown)
@@ -281,7 +271,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		configfile.save()
 		self.message(_("Settings successfully restored."), MessageBox.TYPE_INFO)
 		ActivateSkinSettings().initConfigs()
-		self.exit()
+		self.close()
 
 	def message(self, text, type):
 		self.session.open(MessageBox, text, type, timeout=5)
@@ -385,9 +375,6 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		self.file += [("set%dother" % set, config.plugins.MyMetrixLiteOther.getSavedValue())]
 		self.file += [("set%dweather" % set, config.plugins.MetrixWeather.getSavedValue())]
 		self.writeFile()
-
-	def exit(self):
-		self.close()
 
 	def defaults(self):
 		ColorsSettingsView(None).defaults(True)

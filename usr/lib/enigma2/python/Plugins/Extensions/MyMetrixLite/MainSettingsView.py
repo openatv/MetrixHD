@@ -21,7 +21,6 @@ from os.path import isfile
 from enigma import eListboxPythonMultiContent, ePicLoad, eTimer, gFont, getDesktop
 
 from Components.ActionMap import ActionMap
-from Components.AVSwitch import AVSwitch
 from Components.Label import Label
 from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText
@@ -96,7 +95,6 @@ class MainSettingsView(Screen):
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.session = session
-		self.Scale = AVSwitch().getFramebufferScale()
 		self.PicLoad = ePicLoad()
 		self["helperimage"] = Pixmap()
 		self["helpertext"] = Label()
@@ -183,7 +181,7 @@ class MainSettingsView(Screen):
 			elif selectedKey == "DESIGN":
 				imageUrl = self.GetPicturePath("MyMetrixLiteSkinpart")
 
-		self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), self.Scale[0], self.Scale[1], 0, 1, "#00000000"])
+		self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), 1, 1, 0, 1, "#00000000"])
 		self.PicLoad.startDecode(imageUrl)
 		self.showHelperText()
 
