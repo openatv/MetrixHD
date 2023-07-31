@@ -157,7 +157,33 @@ ColorList = [
 	] + Greyscale + [("FFFFFF", _("White"))]
 
 
-TransparencyList = [("%0.2X" % int(x * 2.555), "%d%%" % x) for x in list(range(0, 105, 5))]
+# new transparency values
+#TransparencyList = [("%0.2X" % int(x * 2.555), "%d%%" % x) for x in list(range(0, 105, 5))]
+
+# old transparency values
+TansparencyList = [
+ 		("00", "0%"),
+ 		("0D", "5%"),
+ 		("1A", "10%"),
+ 		("27", "15%"),
+ 		("34", "20%"),
+ 		("40", "25%"),
+ 		("4D", "30%"),
+ 		("5A", "35%"),
+ 		("67", "40%"),
+ 		("74", "45%"),
+ 		("80", "50%"),
+ 		("8D", "55%"),
+ 		("9A", "60%"),
+ 		("A7", "65%"),
+ 		("B4", "70%"),
+ 		("C0", "75%"),
+ 		("CD", "80%"),
+ 		("DA", "85%"),
+ 		("E7", "90%"),
+ 		("F4", "95%"),
+ 		("FF", "100%")
+ 	]
 
 SysFontTypeList = [
 	("/usr/share/fonts/ae_AlMateen.ttf", ("ae_AlMateen (ae_AlMateen.ttf)")),
