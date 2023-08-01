@@ -161,7 +161,7 @@ ColorList = [
 #TransparencyList = [("%0.2X" % int(x * 2.555), "%d%%" % x) for x in list(range(0, 105, 5))]
 
 # old transparency values
-TansparencyList = [
+TransparencyList = [
  		("00", "0%"),
  		("0D", "5%"),
  		("1A", "10%"),
