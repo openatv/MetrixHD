@@ -3170,5 +3170,83 @@
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
+	<!-- TMDb - The Movie Database -->
+	<screen name="tmdbScreen" position="0,0" size="1280,720" title="TMDb - The Movie Database" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="searchinfo" position="58,95" size="930,30" font="screen_text;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="list" position="58,145" size="800,480" itemHeight="30" scrollbarMode="showOnDemand" transparent="1"/>
+		<widget name="cover" position="890,145" size="320,480" alphatest="blend"/>
+		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/tmdb/pic/backdrop_dark.png" position="0,0" size="1280,720" zPosition="-4" alphatest="blend" />
+		<widget name="backdrop" position="0,0" size="1280,720" zPosition="-5" alphatest="blend"/>
+		<panel name="template1_1layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+	</screen>
+	<screen name="tmdbScreenMovie" position="0,0" size="1280,720" title="TMDb - The Movie Database" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="searchinfo" position="58,95" size="930,30" font="screen_text;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="fulldescription" position="58,145" size="620,490" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/tmdb/pic/backdrop_dark.png" position="0,0" size="1280,720" zPosition="-4" alphatest="blend" />
+		<widget name="cover" position="980,115" size="220,330" alphatest="blend"/>
+		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/tmdb/pic/backdrop.jpg" position="0,0" size="1280,720" zPosition="-6" scale="1" alphatest="blend" />
+		<widget name="backdrop" position="0,0" size="1280,720" zPosition="-5" alphatest="blend"/>
+		<widget name="rating" position="688,230" size="150,25" zPosition="2" font="screen_text;22" halign="center" foregroundColor="black" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="votes_brackets" position="688,290" size="150,25" zPosition="2" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" transparent="1"/>
+		<ePixmap position="713,190" size="100,100" zPosition="0" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/tmdb/pic/star.png" transparent="1" scale="1" alphatest="blend"/>
+		<widget name="fsk" position="0,0" size="0,0" zPosition="2" font="screen_text;20" halign="center" transparent="1"/>
+		<widget name="fsklogo" position="845,191" size="100,100" zPosition="2" scale="1" alphatest="blend"/>
+		<widget name="year_txt" position="698,394" size="400,28" zPosition="2" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="year" position="828,394" size="400,28" zPosition="2" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="country_txt" position="698,422" size="400,28" zPosition="2" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="country" position="828,422" size="400,28" zPosition="2" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="runtime_txt" position="698,450" size="400,28" zPosition="2" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="runtime" position="828,450" size="400,28" zPosition="2" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="votes_txt" position="698,478" size="400,28" zPosition="2" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="votes" position="828,478" size="400,28" zPosition="2" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="director_txt" position="698,506" size="400,28" zPosition="2" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="director" position="828,506" size="400,28" zPosition="2" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="author_txt" position="698,534" size="400,28" zPosition="2" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="author" position="828,534" size="400,28" zPosition="2" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="genre_txt" position="698,562" size="100,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="genre" position="828,562" size="400,28" zPosition="2" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="studio_txt" position="698,590" size="100,30" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="studio" position="828,590" size="400,28" zPosition="2" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="subtitle" position="0,0" size="0,0" zPosition="2" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="description" position="0,0" size="0,0" zPosition="2" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<panel name="template1_1layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+	</screen>
+	<screen name="tmdbScreenPeople" position="0,0" size="1280,720" title="TMDb - The Movie Database" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="searchinfo" position="58,95" size="930,30" font="screen_text;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="list" position="58,145" size="800,480" itemHeight="30" scrollbarMode="showOnDemand" transparent="1"/>
+		<widget name="cover" position="890,145" size="320,480" alphatest="blend"/>
+		<widget name="data" position="0,0" size="0,0" font="screen_text;20" />
+		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/tmdb/pic/backdrop_dark.png" position="0,0" size="1280,720" zPosition="-4" alphatest="blend" />
+		<widget name="backdrop" position="0,0" size="1280,720" zPosition="-5" alphatest="blend"/>
+		<panel name="template1_1layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+	</screen>
+	<screen name="tmdbScreenPerson" position="0,0" size="1280,720" title="TMDb - The Movie Database" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="searchinfo" position="58,95" size="930,30" font="screen_text;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="fulldescription" position="58,145" size="800,480" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="cover" position="890,145" size="320,480" alphatest="blend"/>
+		<widget name="data" position="0,0" size="0,0" font="screen_text;20" />
+		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/tmdb/pic/backdrop_dark.png" position="0,0" size="1280,720" zPosition="-4" alphatest="blend" />
+		<widget name="backdrop" position="0,0" size="1280,720" zPosition="-5" alphatest="blend"/>
+		<panel name="template1_1layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+	</screen>
+	<screen name="tmdbScreenSeason" position="0,0" size="1280,720" title="TMDb - The Movie Database" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="searchinfo" position="58,95" size="930,30" font="screen_text;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="list" position="58,145" size="800,240" itemHeight="30" scrollbarMode="showOnDemand" transparent="1"/>
+		<widget name="cover" position="890,145" size="320,240" alphatest="blend"/>
+		<widget name="data" position="58,387" size="1170,260" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
+		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/tmdb/pic/backdrop_dark.png" position="0,0" size="1280,720" zPosition="-4" alphatest="blend" />
+		<widget name="backdrop" position="0,0" size="1280,720" zPosition="-5" alphatest="blend"/>
+		<panel name="template1_1layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+	</screen>
 <!-- PLUGINS */-->
 </skin>
