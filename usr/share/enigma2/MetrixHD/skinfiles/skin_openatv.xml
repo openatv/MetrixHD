@@ -3103,8 +3103,8 @@ if len(listitems.list) &gt; 2:
 			<convert type="TemplatedMultiContent">
 				{
 					"template": [
-						MultiContentEntryText(pos = (120, 5), size = (560, 25), font=0, flags = RT_HALIGN_LEFT, text = 1),
-						MultiContentEntryText(pos = (120, 26), size = (560, 19), font=1, flags = RT_HALIGN_LEFT, text = 2),
+						MultiContentEntryText(pos = (120, 3), size = (560, 25), font=0, flags = RT_HALIGN_LEFT, text = 1),
+						MultiContentEntryText(pos = (120, 25), size = (560, 21), font=1, flags = RT_HALIGN_LEFT, text = 2),
 						MultiContentEntryPixmapAlphaBlend(pos=(10, 5), size=(100, 40), png=3, flags=BT_SCALE)
 					],
 					"fonts": [gFont("Regular", 18),gFont("Regular", 16)],
@@ -3154,13 +3154,13 @@ if len(listitems.list) &gt; 2:
 					[
 					MultiContentEntryPixmapAlphaBlend(pos=(5, 0), size=(60, 50), png=6, flags=BT_SCALE),
 					MultiContentEntryText(pos=(70, 0), size=(580, 50), font=0, flags=RT_VALIGN_CENTER, text=2), # Category
-					MultiContentEntryText(pos=(70, 1), size=(580, 25), font=1, flags=RT_VALIGN_CENTER, text=11), # Name + Version
+					MultiContentEntryText(pos=(70, 0), size=(580, 25), font=1, flags=RT_VALIGN_CENTER, text=11), # Name + Version
 					# MultiContentEntryText(pos=(70, 1), size=(430, 25), font=1, flags=RT_VALIGN_CENTER, text=3), Name
 					# MultiContentEntryText(pos=(480, 1), size=(160, 25), font=1, flags=RT_VALIGN_CENTER, text=5), Version
-					MultiContentEntryText(pos=(70, 28), size=(560, 21), font=2, flags=RT_VALIGN_CENTER, text=4, color=0x00b0b0b0), # Description
+					MultiContentEntryText(pos=(70, 24), size=(560, 21), font=2, flags=RT_VALIGN_CENTER, text=4, color=0x00b0b0b0), # Description
 					MultiContentEntryPixmapAlphaBlend(pos=(640, 1), size=(48, 48), png=7, flags=BT_SCALE)
 					],
-				"fonts": [gFont("Regular", 25),gFont("Regular", 18),gFont("Regular", 16)],
+				"fonts": [gFont("Regular", 23),gFont("Regular", 18),gFont("Regular", 16)],
 				"itemHeight": 50
 				}
 			</convert>
@@ -3335,11 +3335,11 @@ if len(listitems.list) &gt; 2:
 			<convert type="TemplatedMultiContent">
 				{"template": [
 						MultiContentEntryPixmapAlphaBlend(pos = (18, 5), size = (48, 48), png = 4, flags = BT_SCALE), # index 4 is the status pixmap
-						MultiContentEntryText(pos = (90, 5), size = (590, 28), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
-						MultiContentEntryText(pos = (100, 35), size = (590, 20), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is the description
+						MultiContentEntryText(pos = (90, 7), size = (590, 28), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
+						MultiContentEntryText(pos = (90, 31), size = (590, 22), font=1, flags = RT_HALIGN_LEFT, text = 2,  color=0x00b0b0b0), # index 2 is the description
 						MultiContentEntryPixmapAlphaBlend(pos = (5, 58), size = (0, 0), png = 5), # index 4 is the div pixmap
 					],
-				"fonts": [gFont("Regular",22),gFont("Regular",16)],
+				"fonts": [gFont("Regular",18),gFont("Regular",16)],
 				"itemHeight": 60
 				}
 			</convert>
