@@ -710,13 +710,15 @@
 		<eLabel text="Simple RSS Reader Setup" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,120" size="700,450" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
 		<ePixmap pixmap="buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="buttons/key_yellow.png" position="650,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="buttons/key_blue.png" position="940,635" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="buttons/key_green.png" position="270,635" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="buttons/key_yellow.png" position="470,635" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="buttons/key_blue.png" position="670,635" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="buttons/key_menu.png" position="870,640" size="45,45" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_green" render="Label" position="395,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_yellow" render="Label" position="685,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="key_blue" render="Label" position="975,638" size="260,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="key_green" render="Label" position="305,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="key_yellow" render="Label" position="505,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="key_blue" render="Label" position="705,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="keymenu" render="Label" position="905,638" size="360,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="RSSEntryView" position="0,0" size="1280,720" title="Simple RSS Reader" flags="wfNoBorder" backgroundColor="transparent">
@@ -725,6 +727,7 @@
 		<widget source="info" render="Label" position="70,100" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="content" position="70,165" size="700,450" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="picture" position="590,50" size="200,100" alphatest="blend" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="RSSFeedView" position="0,0" size="1280,720" title="Simple RSS Reader" flags="wfNoBorder" backgroundColor="transparent">
@@ -751,11 +754,15 @@
 		<eLabel text="RSSOverview" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="info" render="Label" position="70,100" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget name="content" position="70,center" size="700,380" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="content" position="70,center" size="700,390" font="SetrixHD;22" backgroundColor="layer-a-background" scrollbarMode="showOnDemand" transparent="1" />
 		<eLabel position="70,555" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget source="summary" render="Label" position="70,560" size="700,80" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="summary" render="Label" position="70,570" size="700,80" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/setup.png" transparent="1" alphatest="blend" />
 	</screen>
+	<screen name= "RSSTickerView" position="75,600" size="693,30" flags="wfNoBorder">
+		<widget name="newsLabel" position="0,0" size="693,30" font="Regular;24" halign="left" valign="center" noWrap="1"/>
+	</screen>"""
+
 	<!-- WebInterface -->
 	<screen name="WebIfConfigScreen" position="0,0" size="1280,720" title="Main Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Webinterface" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
