@@ -139,7 +139,7 @@ class MainSettingsView(Screen):
 		self["menuList"] = MainMenuList([], font0=24, font1=16, itemHeight=50)
 		self["menuList"].l.setList(menulist)
 
-		if not self.selectionChanged in self["menuList"].onSelectionChanged:
+		if self.selectionChanged not in self["menuList"].onSelectionChanged:
 			self["menuList"].onSelectionChanged.append(self.selectionChanged)
 
 		self.onChangedEntry = []

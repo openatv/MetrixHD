@@ -215,7 +215,7 @@ class MetrixHDRunningText(Renderer):
 		Renderer.connect(self, source)
 
 	def changed(self, what):
-		if not self.mTimer is None:
+		if self.mTimer is not None:
 			self.mTimer.stop()
 		if what[0] == self.CHANGED_CLEAR:
 			self.txtext = ""
@@ -282,7 +282,7 @@ class MetrixHDRunningText(Renderer):
 					self.mStep = abs(self.mStep)
 					self.mStop = self.B - text_width + self.soffset[0] - self.mStep
 					self.P = self.A
-				if not self.mStartPoint is None:
+				if self.mStartPoint is not None:
 					if self.direction == LEFT:
 						self.mStop = self.P = max(self.A, min(self.W, self.mStartPoint))
 					else:
@@ -330,7 +330,7 @@ class MetrixHDRunningText(Renderer):
 					self.mStep = abs(self.mStep)
 					self.mStop = self.B - text_height + self.soffset[1] - self.mStep
 					self.P = self.A
-				if not self.mStartPoint is None:
+				if self.mStartPoint is not None:
 					if self.direction == TOP:
 						self.mStop = self.P = max(self.A, min(self.H, self.mStartPoint))
 					else:

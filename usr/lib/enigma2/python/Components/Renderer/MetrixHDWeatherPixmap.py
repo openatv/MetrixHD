@@ -80,7 +80,7 @@ class MetrixHDWeatherPixmap(Renderer):
 				self.slideicon = total
 				animokicon = True
 				break
-		if animokicon == True:
+		if animokicon is True:
 			self.picsicon = []
 			for x in range(self.slideicon):
 				self.picsicon.append(LoadPixmap("%s%s.png" % (pathanimicon, str(x))))

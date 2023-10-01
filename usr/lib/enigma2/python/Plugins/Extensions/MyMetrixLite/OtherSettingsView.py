@@ -192,7 +192,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 	def checkEHDtested(self):
 		self.getEHDsettings()
 		tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
-		if self.EHDenabled and (len(tested) != 2 or not BoxType in tested[0] or not config.plugins.MyMetrixLiteOther.EHDenabled.value in tested[1]):
+		if self.EHDenabled and (len(tested) != 2 or BoxType not in tested[0] or config.plugins.MyMetrixLiteOther.EHDenabled.value not in tested[1]):
 			if "green" in self["actions"].actions:
 				del self["actions"].actions['green']
 				self["saveBtn"].setText(_(" "))

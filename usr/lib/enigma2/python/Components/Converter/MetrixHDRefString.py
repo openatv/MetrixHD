@@ -46,7 +46,7 @@ class MetrixHDRefString(Converter, object):
 					return teilantw[1]
 			return antw
 		elif (self.type == self.CURRENT):
-			if self.CHANSEL == None:
+			if self.CHANSEL is None:
 				self.CHANSEL = InfoBar.instance.servicelist
 			if len(InfoBar.instance.session.dialog_stack) > 1:
 				for zz in InfoBar.instance.session.dialog_stack:

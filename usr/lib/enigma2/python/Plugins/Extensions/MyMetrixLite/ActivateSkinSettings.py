@@ -87,7 +87,7 @@ class ActivateSkinSettings:
 		self.silent = silent
 		if self.silent:
 			self.E2settings = open("/etc/enigma2/settings", "r").read()
-			if config.skin.primary_skin.value != "MetrixHD/skin.MySkin.xml" and not 'config.skin.primary_skin=MetrixHD/skin.MySkin.xml' in self.E2settings:
+			if config.skin.primary_skin.value != "MetrixHD/skin.MySkin.xml" and 'config.skin.primary_skin=MetrixHD/skin.MySkin.xml' not in self.E2settings:
 				print('MetrixHD is not the primary skin or runs with default settings. No restore action needed!')
 				return 0
 			from Components.PluginComponent import plugins  # need for fast restore in skin.py
@@ -441,7 +441,7 @@ class ActivateSkinSettings:
 				except:
 					print("Error: find emc config - it's not installed ?")
 			else:
-				progress = "config.EMC.movie_progress=P" in self.E2settings or not "config.EMC.movie_progress=" in self.E2settings
+				progress = "config.EMC.movie_progress=P" in self.E2settings or "config.EMC.movie_progress=" not in self.E2settings
 
 			sizeW = 700
 			sizeH = 480
@@ -1634,7 +1634,7 @@ class ActivateSkinSettings:
 			if sb_bwidth != 1:
 				line = line.replace('scrollbarSliderBorderWidth="1"', 'scrollbarSliderBorderWidth="%s"' % sb_bwidth)
 				line = line.replace('scrollbarBorderWidth="1"', 'scrollbarBorderWidth="%s"' % sb_bwidth)
-			if config.plugins.MyMetrixLiteColors.backgroundtextborderwidth.value and ' font="global_large' in line and not ' borderWidth=' in line and not ' borderColor=' in line:
+			if config.plugins.MyMetrixLiteColors.backgroundtextborderwidth.value and ' font="global_large' in line and ' borderWidth=' not in line and ' borderColor=' not in line:
 				line = line.replace(' font=', ' borderWidth="%s" borderColor="#%s%s" font=' % (config.plugins.MyMetrixLiteColors.backgroundtextborderwidth.value, config.plugins.MyMetrixLiteColors.backgroundtextbordertransparency.value, config.plugins.MyMetrixLiteColors.backgroundtextbordercolor.value))
 			if not config.plugins.MyMetrixLiteOther.SkinDesignMenuScrollInfo.value and 'name="menu_next_side_marker"' in line:
 				line = line.replace('text="&#x25ba;"', 'text=""')
@@ -1665,7 +1665,7 @@ class ActivateSkinSettings:
 						if next_rename:
 							if '#_' + self.EHDres + 'screen' in line:
 								line = line.replace('#_%sscreen' % self.EHDres, "")
-							elif 'name="' in line and not '#_' in line and not 'HDscreen' in line:
+							elif 'name="' in line and '#_' not in line and 'HDscreen' not in line:
 									line = sub('(name=")(\w+)', r'\1\2#_HDscreen', line)
 							next_rename = False
 #control flags
@@ -1689,7 +1689,7 @@ class ActivateSkinSettings:
 								next_picon_zoom = False
 								next_pixmap_ignore = False
 #line disabled on
-					if not 'cf#_#' in line and match('<!--|#+', line.lstrip()):
+					if 'cf#_#' not in line and match('<!--|#+', line.lstrip()):
 						#print 'line disabled on', i, line
 						line_disabled = True
 #test pixmap path
@@ -1710,7 +1710,7 @@ class ActivateSkinSettings:
 #						else:
 						line = self.linerchanger_new(line, next_picon_zoom, "skin.MySkin.xml" in sourceFile)
 #line disabled off
-					if line_disabled and not 'cf#_#' in line and (match('#+', line.lstrip()) or match('.*-->.*', line.rstrip())):
+					if line_disabled and 'cf#_#' not in line and (match('#+', line.lstrip()) or match('.*-->.*', line.rstrip())):
 						#print 'line disabled off', i, line
 						line_disabled = False
 				except Exception as error:
@@ -1768,7 +1768,7 @@ class ActivateSkinSettings:
 				return sub('(value=")(\d+|\w+)([,;"])(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)("*)', self.linereplacer, line)  # prepared for max 10 values
 #size="200,100"
 #size = (500, 45)
-		if ('size="' in line and not 'alias name="' in line) or ('size' in line and '(' in line and ')' in line):
+		if ('size="' in line and 'alias name="' not in line) or ('size' in line and '(' in line and ')' in line):
 			if next_picon_zoom:
 				pos = findall('(?<= size=")([\w]*[+-]*)(\d*),([\w]*[+-]*)(\d*)', line)
 				if pos:
@@ -1790,7 +1790,7 @@ class ActivateSkinSettings:
 #TimeFontVertical="epg_event;22" EventFontVertical="epg_event;18"
 #CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;30"
 #CoolFont="Regular;19" CoolServiceFont="Regular;19" CoolEventFont="Regular;19"
-		if ('font' in line or 'Font' in line) and not 'alias name="' in line:
+		if ('font' in line or 'Font' in line) and 'alias name="' not in line:
 			line = sub('(\w*[Ff]ont\w*=" *)(\w+; *)(\d+)', self.linereplacer, line)
 #<alias name="Body" font="screen_text" size="20" height="25" />
 		if 'font="' in line and 'alias name="' in line:
@@ -1859,7 +1859,7 @@ class ActivateSkinSettings:
 #CoolBarSizeSa="65,10"
 #/CoolPointerRec.png:980,0"
 #/CoolPointerRec2.png:1080,0"
-		if 'widget name="list"' in line and ' Cool' in line and not ' CoolEvent' in line or 'render="PositionGauge"' in line:
+		if 'widget name="list"' in line and ' Cool' in line and ' CoolEvent' not in line or 'render="PositionGauge"' in line:
 			line = sub('(Cool\w+=" *|Cool\w+.png: *)(\d+)([,"])(\d+|)', self.linereplacer, line)
 #emc special end
 #cool tv guide special start
@@ -2074,7 +2074,7 @@ class ActivateSkinSettings:
 #size="200,100"
 		xpos = 0
 		ypos = 0
-		if 'size="' in line and not 'alias name="' in line:
+		if 'size="' in line and 'alias name="' not in line:
 			n1 = line.find('size="', 0)
 			n2 = line.find('"', n1)
 			n3 = line.find(',', n2)
@@ -2170,7 +2170,7 @@ class ActivateSkinSettings:
 			strnew = 'position="' + xnew + ',' + ynew + '"'
 			line = line[:n1] + strnew + line[(n4 + 1):]
 #font="Regular;20"
-		if 'font="' in line and not 'alias name="' in line:
+		if 'font="' in line and 'alias name="' not in line:
 			n1 = line.find('font="', 0)
 			n2 = line.find(';', n1)
 			n3 = line.find('"', n2)
@@ -2179,7 +2179,7 @@ class ActivateSkinSettings:
 			strnew = line[n1:(n2 + 1)] + ynew + '"'
 			line = line[:n1] + strnew + line[(n3 + 1):]
 #Font="Regular;20"
-		if 'Font="' in line and not ' Cool' in line:
+		if 'Font="' in line and ' Cool' not in line:
 			s = 0
 			n3 = 0
 			for s in range(0, line.count('Font="')):
@@ -2191,7 +2191,7 @@ class ActivateSkinSettings:
 				strnew = line[n1:n2 + 1] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #ServiceFontGraphical="epg_text;20" EntryFontGraphical="epg_text;20"
-		if 'FontGraphical="' in line and not ' Cool' in line:
+		if 'FontGraphical="' in line and ' Cool' not in line:
 			s = 0
 			n3 = 0
 			for s in range(0, line.count('FontGraphical="')):
@@ -2203,7 +2203,7 @@ class ActivateSkinSettings:
 				strnew = line[n1:n2 + 1] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #ServiceFontInfobar="epg_text;20" EntryFontInfobar="epg_text;20"
-		if 'FontInfobar=' in line and not ' Cool' in line:
+		if 'FontInfobar=' in line and ' Cool' not in line:
 			s = 0
 			n3 = 0
 			for s in range(0, line.count('FontInfobar="')):
@@ -2215,7 +2215,7 @@ class ActivateSkinSettings:
 				strnew = line[n1:n2 + 1] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #EventFontSingle="epg_event;22"
-		if 'FontSingle=' in line and not ' Cool' in line:
+		if 'FontSingle=' in line and ' Cool' not in line:
 			s = 0
 			n3 = 0
 			for s in range(0, line.count('FontSingle="')):
@@ -2227,7 +2227,7 @@ class ActivateSkinSettings:
 				strnew = line[n1:n2 + 1] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #EventFontMulti="epg_event;22"
-		if 'FontMulti=' in line and not ' Cool' in line:
+		if 'FontMulti=' in line and ' Cool' not in line:
 			s = 0
 			n3 = 0
 			for s in range(0, line.count('FontMulti="')):
@@ -2239,7 +2239,7 @@ class ActivateSkinSettings:
 				strnew = line[n1:n2 + 1] + ynew
 				line = line[:n1] + strnew + line[n3:]
 #TimeFontVertical="epg_event;22" EventFontVertical="epg_event;18"
-		if 'FontVertical=' in line and not ' Cool' in line:
+		if 'FontVertical=' in line and ' Cool' not in line:
 			s = 0
 			n3 = 0
 			for s in range(0, line.count('FontVertical="')):
@@ -2629,7 +2629,7 @@ class ActivateSkinSettings:
 			strnew = line[n1:n2 + 1] + " " + xnew
 			line = line[:n1] + strnew + line[n3:]
 #emc special start
-		if 'widget name="list"' in line and ' Cool' in line and not ' CoolEvent' in line or 'render="PositionGauge"' in line:
+		if 'widget name="list"' in line and ' Cool' in line and ' CoolEvent' not in line or 'render="PositionGauge"' in line:
 #CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;30"
 			if 'CoolFont="' in line:
 				n1 = line.find('CoolFont=', 0)

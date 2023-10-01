@@ -253,7 +253,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 
 			if '<skin>' in line:
 				p_nfo = True
-			if '<screen' in line and not '#hide#' in line:
+			if '<screen' in line and '#hide#' not in line:
 				s_nfo = True
 				a = line.find('name=')
 				b = line.find('"', a)
@@ -323,7 +323,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			if not fileExists(picturepath):
 				picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteSkinpart"
 
-		if zoomEnable and not "blue" in self["actions"].actions:
+		if zoomEnable and "blue" not in self["actions"].actions:
 			self["actions"].actions.update({"blue": self.zoom})
 			self["zoomBtn"].setText(_("Zoom"))
 		elif not zoomEnable and "blue" in self["actions"].actions:
@@ -390,7 +390,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 									screenname = name = name.replace('#deactivatd#', '#deactivated#')
 								#//
 								if name.replace('#deactivated#', '') == self.screens[pidx][sidx][1]:
-									if not screen.value and not '#deactivated#' in name:
+									if not screen.value and '#deactivated#' not in name:
 										screenname = '#deactivated#' + name
 									elif screen.value and '#deactivated#' in name:
 										screenname = name.replace('#deactivated#', '')
