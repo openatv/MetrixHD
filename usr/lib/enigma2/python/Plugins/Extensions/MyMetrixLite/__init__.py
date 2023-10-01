@@ -26,7 +26,7 @@ from shutil import move
 from Components.SystemInfo import BoxInfo
 from Components.config import config, ConfigSubsection, ConfigSelection, ConfigSelectionNumber, ConfigYesNo, ConfigText, ConfigInteger
 from Components.Language import language
-from Tools.Directories import fileReadLines, resolveFilename, SCOPE_PLUGINS
+from Tools.Directories import resolveFilename, SCOPE_PLUGINS
 #############################################################
 
 PLUGIN_PATH = resolveFilename(SCOPE_PLUGINS, "Extensions/MyMetrixLite")
@@ -162,28 +162,28 @@ ColorList = [
 
 # old transparency values
 TransparencyList = [
- 		("00", "0%"),
- 		("0D", "5%"),
- 		("1A", "10%"),
- 		("27", "15%"),
- 		("34", "20%"),
- 		("40", "25%"),
- 		("4D", "30%"),
- 		("5A", "35%"),
- 		("67", "40%"),
- 		("74", "45%"),
- 		("80", "50%"),
- 		("8D", "55%"),
- 		("9A", "60%"),
- 		("A7", "65%"),
- 		("B4", "70%"),
- 		("C0", "75%"),
- 		("CD", "80%"),
- 		("DA", "85%"),
- 		("E7", "90%"),
- 		("F4", "95%"),
- 		("FF", "100%")
- 	]
+	("00", "0%"),
+	("0D", "5%"),
+	("1A", "10%"),
+	("27", "15%"),
+	("34", "20%"),
+	("40", "25%"),
+	("4D", "30%"),
+	("5A", "35%"),
+	("67", "40%"),
+	("74", "45%"),
+	("80", "50%"),
+	("8D", "55%"),
+	("9A", "60%"),
+	("A7", "65%"),
+	("B4", "70%"),
+	("C0", "75%"),
+	("CD", "80%"),
+	("DA", "85%"),
+	("E7", "90%"),
+	("F4", "95%"),
+	("FF", "100%")
+]
 
 SysFontTypeList = [
 	("/usr/share/fonts/ae_AlMateen.ttf", ("ae_AlMateen (ae_AlMateen.ttf)")),
@@ -768,18 +768,15 @@ def appendSkinFile(appendFileName, skinPartSearchAndReplace):
 	add skin file to main skin content
 
 	appendFileName:
-	 xml skin-part to add
+		xml skin-part to add
 
 	skinPartSearchAndReplace:
-	 (optional) a list of search and replace arrays. first element, search, second for replace
+		(optional) a list of search and replace arrays. first element, search, second for replace
 	"""
 	rsSkinLines = []
 
-# TODO:
-#	file_lines = fileReadLines(appendFileName, source="MyMetrixLite")
-	skFile = open(appendFileName, "r")
-	file_lines = skFile.readlines()
-	skFile.close()
+	with open(appendFileName) as fd:
+		file_lines = fd.readlines()
 
 	for skinLine in file_lines:
 		for item in skinPartSearchAndReplace:

@@ -121,10 +121,10 @@ class MetrixHDServiceName2(Poll, Converter, object):
 			typestr = ref.getData(0) in (2, 10) and service_types_radio or service_types_tv
 			pos = typestr.rfind(':')
 			rootstr = '%s (channelID == %08x%04x%04x) && %s FROM PROVIDERS ORDER BY name' % (typestr[:pos + 1],
-			 ref.getUnsignedData(4),
-			 ref.getUnsignedData(2),
-			 ref.getUnsignedData(3),
-			 typestr[pos + 1:])
+				ref.getUnsignedData(4),
+				ref.getUnsignedData(2),
+				ref.getUnsignedData(3),
+				typestr[pos + 1:])
 			provider_root = eServiceReference(rootstr)
 			serviceHandler = eServiceCenter.getInstance()
 			providerlist = serviceHandler.list(provider_root)
@@ -192,24 +192,24 @@ class MetrixHDServiceName2(Poll, Converter, object):
 				if type in ('DVB-S', 'DVB-C'):
 					x = self.tpdata.get('fec_inner', 15)
 					result += x in list(range(10)) + [15] and {0: 'Auto',
-					 1: '1/2',
-					 2: '2/3',
-					 3: '3/4',
-					 4: '5/6',
-					 5: '7/8',
-					 6: '8/9',
-					 7: '3/5',
-					 8: '4/5',
-					 9: '9/10',
-					 15: 'None'}[x] or ''
+					1: '1/2',
+					2: '2/3',
+					3: '3/4',
+					4: '5/6',
+					5: '7/8',
+					6: '8/9',
+					7: '3/5',
+					8: '4/5',
+					9: '9/10',
+					15: 'None'}[x] or ''
 				elif type == 'DVB-T':
 					x = self.tpdata.get('code_rate_lp', 5)
 					result += x in list(range(6)) and {0: '1/2',
-					 1: '2/3',
-					 2: '3/4',
-					 3: '5/6',
-					 4: '7/8',
-					 5: 'Auto'}[x] or ''
+					1: '2/3',
+					2: '3/4',
+					3: '5/6',
+					4: '7/8',
+					5: 'Auto'}[x] or ''
 			elif f == 'i':
 				x = self.tpdata.get('inversion', 2)
 				result += x in list(range(3)) and {0: 'On',
@@ -223,23 +223,23 @@ class MetrixHDServiceName2(Poll, Converter, object):
 				x = self.tpdata.get('modulation', 1)
 				if type == 'DVB-S':
 					result += x in list(range(4)) and {0: 'Auto',
-					 1: 'QPSK',
-					 2: '8PSK',
-					 3: 'QAM16'}[x] or ''
+					1: 'QPSK',
+					2: '8PSK',
+					3: 'QAM16'}[x] or ''
 				elif type == 'DVB-C':
 					result += x in list(range(6)) and {0: 'Auto',
-					 1: 'QAM16',
-					 2: 'QAM32',
-					 3: 'QAM64',
-					 4: 'QAM128',
-					 5: 'QAM256'}[x] or ''
+					1: 'QAM16',
+					2: 'QAM32',
+					3: 'QAM64',
+					4: 'QAM128',
+					5: 'QAM256'}[x] or ''
 			elif f == 'p':
 				if type == 'DVB-S':
 					x = self.tpdata.get('polarization', 0)
 					result += x in list(range(4)) and {0: 'H',
-					 1: 'V',
-					 2: 'L',
-					 3: 'R'}[x] or '?'
+					1: 'V',
+					2: 'L',
+					3: 'R'}[x] or '?'
 			elif f == 'Y':
 				if type in ('DVB-S', 'DVB-C'):
 					result += '%d' % (self.tpdata.get('symbol_rate', 0) / 1000)
@@ -247,68 +247,68 @@ class MetrixHDServiceName2(Poll, Converter, object):
 				x = self.tpdata.get('rolloff')
 				if x is not None:
 					result += x in list(range(3)) and {0: '0.35',
-					 1: '0.25',
-					 2: '0.20'}[x] or ''
+					1: '0.25',
+					2: '0.20'}[x] or ''
 			elif f == 'o':
 				x = self.tpdata.get('pilot')
 				if x is not None:
 					result += x in list(range(3)) and {0: 'Off',
-					 1: 'On',
-					 2: 'Auto'}[x] or ''
+					1: 'On',
+					2: 'Auto'}[x] or ''
 			elif f == 'c':
 				if type == 'DVB-T':
 					x = self.tpdata.get('constellation', 3)
 					result += x in list(range(4)) and {0: 'QPSK',
-					 1: 'QAM16',
-					 2: 'QAM64',
-					 3: 'Auto'}[x] or ''
+					1: 'QAM16',
+					2: 'QAM64',
+					3: 'Auto'}[x] or ''
 			elif f == 'l':
 				if type == 'DVB-T':
 					x = self.tpdata.get('code_rate_lp', 5)
 					result += x in list(range(6)) and {0: '1/2',
-					 1: '2/3',
-					 2: '3/4',
-					 3: '5/6',
-					 4: '7/8',
-					 5: 'Auto'}[x] or ''
+					1: '2/3',
+					2: '3/4',
+					3: '5/6',
+					4: '7/8',
+					5: 'Auto'}[x] or ''
 			elif f == 'h':
 				if type == 'DVB-T':
 					x = self.tpdata.get('code_rate_hp', 5)
 					result += x in list(range(6)) and {0: '1/2',
-					 1: '2/3',
-					 2: '3/4',
-					 3: '5/6',
-					 4: '7/8',
-					 5: 'Auto'}[x] or ''
+					1: '2/3',
+					2: '3/4',
+					3: '5/6',
+					4: '7/8',
+					5: 'Auto'}[x] or ''
 			elif f == 'm':
 				if type == 'DVB-T':
 					x = self.tpdata.get('transmission_mode', 2)
 					result += x in list(range(3)) and {0: '2k',
-					 1: '8k',
-					 2: 'Auto'}[x] or ''
+					1: '8k',
+					2: 'Auto'}[x] or ''
 			elif f == 'g':
 				if type == 'DVB-T':
 					x = self.tpdata.get('guard_interval', 4)
 					result += x in list(range(5)) and {0: '1/32',
-					 1: '1/16',
-					 2: '1/8',
-					 3: '1/4',
-					 4: 'Auto'}[x] or ''
+					1: '1/16',
+					2: '1/8',
+					3: '1/4',
+					4: 'Auto'}[x] or ''
 			elif f == 'b':
 				if type == 'DVB-T':
 					x = self.tpdata.get('bandwidth', 1)
 					result += x in list(range(4)) and {0: '8 MHz',
-					 1: '7 MHz',
-					 2: '6 MHz',
-					 3: 'Auto'}[x] or ''
+					1: '7 MHz',
+					2: '6 MHz',
+					3: 'Auto'}[x] or ''
 			elif f == 'e':
 				if type == 'DVB-T':
 					x = self.tpdata.get('hierarchy_information', 4)
 					result += x in list(range(5)) and {0: 'None',
-					 1: '1',
-					 2: '2',
-					 3: '4',
-					 4: 'Auto'}[x] or ''
+					1: '1',
+					2: '2',
+					3: '4',
+					4: 'Auto'}[x] or ''
 			else:
 				result += f
 			if pos + 1 >= l:
