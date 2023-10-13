@@ -811,7 +811,7 @@ class ActivateSkinSettings:
 			xFile = open(SKIN_DESIGN_TARGET_TMP, "w")
 			for xx in skin_lines:
 				if '<eLabel name="underline"' in xx:
-					xx = sub('(name="underline" +position=" *)(\d+)( *, *)(\d+)(" +size=" *)(\d+)( *, *)(\d+)', self.linereplacer, xx)
+					xx = sub(r'(name="underline" +position=" *)(\d+)( *, *)(\d+)(" +size=" *)(\d+)( *, *)(\d+)', self.linereplacer, xx)
 				xFile.writelines(xx)
 			xFile.close()
 
@@ -1665,7 +1665,7 @@ class ActivateSkinSettings:
 							if '#_' + self.EHDres + 'screen' in line:
 								line = line.replace(f'#_{self.EHDres}screen', "")
 							elif 'name="' in line and '#_' not in line and 'HDscreen' not in line:
-									line = sub('(name=")(\w+)', r'\1\2#_HDscreen', line)
+									line = sub(r'(name=")(\w+)', r'\1\2#_HDscreen', line)
 							next_rename = False
 #control flags
 						if '<!-- cf#_#begin -->' in line or '<!-- cf#_#start -->' in line:
@@ -1693,7 +1693,7 @@ class ActivateSkinSettings:
 						line_disabled = True
 #test pixmap path
 					if not line_disabled and not next_pixmap_ignore and 'MetrixHD/' in line and '.png' in line:
-						pics = findall('Metrix[-/\w]+.png', line)
+						pics = findall(r'Metrix[-/\w]+.png', line)
 						for pic in pics:
 							if not pic.startswith('/usr/share/enigma2/'):
 								pic = '/usr/share/enigma2/' + pic
@@ -1757,29 +1757,29 @@ class ActivateSkinSettings:
 #<resolution xres="1280" yres="720"
 		if rootFile:
 			if '<resolution ' in line:
-				return sub('(xres=")(\d+)(" *yres=")(\d+)', self.linereplacer, line)
+				return sub(r'(xres=")(\d+)(" *yres=")(\d+)', self.linereplacer, line)
 #<parameter name="AutotimerEnabledIcon" value="6,2,24,25"
 #<parameter name="ServiceInfoFont" value="screen_text;20"/>
 			if '<parameter name="' in line and 'value="' in line:
 #<parameter name="ChoicelistVerticalAlignment" value="*center" />
 				if 'value="*' in line:
 					return line
-				return sub('(value=")(\d+|\w+)([,;"])(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)("*)', self.linereplacer, line)  # prepared for max 10 values
+				return sub(r'(value=")(\d+|\w+)([,;"])(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)("*)', self.linereplacer, line)  # prepared for max 10 values
 #size="200,100"
 #size = (500, 45)
 		if ('size="' in line and 'alias name="' not in line) or ('size' in line and '(' in line and ')' in line):
 			if next_picon_zoom:
-				pos = findall('(?<= size=")([\w]*[+-]*)(\d*),([\w]*[+-]*)(\d*)', line)
+				pos = findall(r'(?<= size=")([\w]*[+-]*)(\d*),([\w]*[+-]*)(\d*)', line)
 				if pos:
 					xpos = int(pos[0][0] + pos[0][1]) if not match('[ce]', pos[0][0]) else pos[0][1] if pos[0][1] else 0
 					ypos = int(pos[0][2] + pos[0][3]) if not match('[ce]', pos[0][2]) else pos[0][3] if pos[0][3] else 0
 					self.xpos = int(round_half_up((xpos * self.EHDfactor - xpos * self.picon_zoom) / 2.0, self.round_par)) if xpos else 0
 					self.ypos = int(round_half_up((ypos * self.EHDfactor - ypos * self.picon_zoom) / 2.0, self.round_par)) if ypos else 0
-			line = sub('(size *= *["(][ ce+-]*)(\d*)( *, *)([ ce+-]+|\d+)(\d+|[")]*)', self.linereplacer, line)
+			line = sub(r'(size *= *["(][ ce+-]*)(\d*)( *, *)([ ce+-]+|\d+)(\d+|[")]*)', self.linereplacer, line)
 #position="423,460"
 #(pos = (40, 5)
 		if 'position="' in line or ('(pos' in line and ')' in line):
-			line = sub('(pos[ition]* *= *["(][ center+-]*)(\d*)( *, *)([ center+-]+|\d+)(\d+|[")]*)', self.linereplacer, line)
+			line = sub(r'(pos[ition]* *= *["(][ center+-]*)(\d*)( *, *)([ center+-]+|\d+)(\d+|[")]*)', self.linereplacer, line)
 #font="Regular;20"
 #Font="Regular;20"
 #ServiceFontGraphical="epg_text;20" EntryFontGraphical="epg_text;20"
@@ -1790,16 +1790,16 @@ class ActivateSkinSettings:
 #CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;30"
 #CoolFont="Regular;19" CoolServiceFont="Regular;19" CoolEventFont="Regular;19"
 		if ('font' in line or 'Font' in line) and 'alias name="' not in line:
-			line = sub('(\w*[Ff]ont\w*=" *)(\w+; *)(\d+)', self.linereplacer, line)
+			line = sub(r'(\w*[Ff]ont\w*=" *)(\w+; *)(\d+)', self.linereplacer, line)
 #<alias name="Body" font="screen_text" size="20" height="25" />
 		if 'font="' in line and 'alias name="' in line:
-			line = sub('(font="\w+" +size=" *)(\d+)(" *height=" *|)(\d*)', self.linereplacer, line)
+			line = sub(r'(font="\w+" +size=" *)(\d+)(" *height=" *|)(\d*)', self.linereplacer, line)
 #"fonts": [gFont("Regular",18),gFont("Regular",14),gFont("Regular",24),gFont("Regular",20)]
 		if '"fonts":' in line and 'gFont' in line:
-			line = sub('(gFont[(]"\w+", *)(\d+)', self.linereplacer, line)
+			line = sub(r'(gFont[(]"\w+", *)(\d+)', self.linereplacer, line)
 #offset="5,0"
 		if ' offset="' in line or 'shadowOffset="' in line:
-			line = sub('([shadow]*[Oo]ffset=")(\d+)(,)(\d+)', self.linereplacer, line)
+			line = sub(r'([shadow]*[Oo]ffset=")(\d+)(,)(\d+)', self.linereplacer, line)
 #rowSplit="25"
 #rowSplit1="25"
 #rowSplit2="25"
@@ -1815,7 +1815,7 @@ class ActivateSkinSettings:
 #"itemHeight": 45
 #": (90,[
 		if 'rowSplit' in line or 'rowHeight="' in line or 'satPosLeft="' in line or 'iconMargin="' in line or 'fieldMargins="' in line or 'itemsDistances="' in line or 'progressbarHeight="' in line or 'progressBarWidth="' in line or 'itemHeight="' in line or '"itemHeight":' in line or 'itemWidth="' in line or '"itemWidth":' in line or ('": (' in line and '[' in line):
-			line = sub('([iconfeld]+Margin[s]*=" *|itemsDistances="|progress[Bb]ar[HeightWd]+=" *|"*itemHeight[=":]+ *|"*itemWidth[=":]+ *|": *[(]|row[HeightSpl]+\d*=" *|satPosLeft=" *)(\d+)', self.linereplacer, line)
+			line = sub(r'([iconfeld]+Margin[s]*=" *|itemsDistances="|progress[Bb]ar[HeightWd]+=" *|"*itemHeight[=":]+ *|"*itemWidth[=":]+ *|": *[(]|row[HeightSpl]+\d*=" *|satPosLeft=" *)(\d+)', self.linereplacer, line)
 #messagebox start
 #offset_listposx = 10
 #offset_listposy = 10
@@ -1827,7 +1827,7 @@ class ActivateSkinSettings:
 #min_height = 50
 #offset = 21
 		if 'offset_listposx =' in line or 'offset_listposy =' in line or 'offset_listwidth =' in line or 'offset_listheight =' in line or 'offset_textwidth =' in line or 'offset_textheight =' in line or 'min_width =' in line or 'min_height =' in line or 'offset =' in line:
-			line = sub('(offset_*\w* *= *|min_\w+ *= *)(\d+)', self.linereplacer, line)
+			line = sub(r'(offset_*\w* *= *|min_\w+ *= *)(\d+)', self.linereplacer, line)
 #messagebox end
 #emc special start
 #CoolSelNumTxtWidth="26"
@@ -1859,7 +1859,7 @@ class ActivateSkinSettings:
 #/CoolPointerRec.png:980,0"
 #/CoolPointerRec2.png:1080,0"
 		if 'widget name="list"' in line and ' Cool' in line and ' CoolEvent' not in line or 'render="PositionGauge"' in line:
-			line = sub('(Cool\w+=" *|Cool\w+.png: *)(\d+)([,"])(\d+|)', self.linereplacer, line)
+			line = sub(r'(Cool\w+=" *|Cool\w+.png: *)(\d+)([,"])(\d+|)', self.linereplacer, line)
 #emc special end
 #cool tv guide special start
 #CoolServiceSize="220"
@@ -1890,16 +1890,16 @@ class ActivateSkinSettings:
 #CoolPicoPos="2"
 #CoolPicoHPos="2"
 		if ('widget name="list"' in line or 'widget name="CoolEvent"' in line) and ' CoolEvent' in line:
-			line = sub('(Cool\w+=" *)(\d+)', self.linereplacer, line)
+			line = sub(r'(Cool\w+=" *)(\d+)', self.linereplacer, line)
 #cool tv guide special end
 
 #colPosition="240"
 		if ' colPosition="' in line:
-			line = sub('(colPosition=" *)(\d+)', self.linereplacer, line)
+			line = sub(r'(colPosition=" *)(\d+)', self.linereplacer, line)
 
 #itemSpacing="10,10"
 		if ' itemSpacing="' in line:
-			line = sub('(itemSpacing=")(\d+)(,)(\d+)', self.linereplacer, line)
+			line = sub(r'(itemSpacing=")(\d+)(,)(\d+)', self.linereplacer, line)
 
 		return line
 
