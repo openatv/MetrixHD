@@ -186,7 +186,7 @@ class MainSettingsView(Screen):
 		self.showHelperText()
 
 	def GetPicturePath(self, pic):
-		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/%s.png" % pic)
+		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, f"mymetrixlite/{pic}.png")
 		if not fileExists(picturepath):
 			picturepath = MAIN_IMAGE_PATH % pic
 		return picturepath

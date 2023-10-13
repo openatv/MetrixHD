@@ -49,9 +49,9 @@ class MetrixHDWeatherPixmap(Renderer):
 					return
 				sname = self.source.text
 				if self.iconpath:
-					imgpath = pathjoin(self.iconpath, '%s.png' % sname)
+					imgpath = pathjoin(self.iconpath, f'{sname}.png')
 					if not isfile(imgpath) and sname.endswith("n"):
-						imgpath = pathjoin(self.iconpath, '%s.png' % sname[:-1])
+						imgpath = pathjoin(self.iconpath, f'{sname[:-1]}.png')
 					if isfile(imgpath):
 						self.instance.setPixmap(LoadPixmap(imgpath))
 					return
@@ -66,15 +66,15 @@ class MetrixHDWeatherPixmap(Renderer):
 		sname = id
 		for path in self.searchPaths:
 
-			if not exists('%s%s' % ((path % self.path), sname)) and sname.endswith("n"):
+			if not exists(f'{path % self.path}{sname}') and sname.endswith("n"):
 				sname = sname[:-1]
 
-			if not exists('%s%s' % ((path % self.path), sname)) and exists('%sNA' % (path % self.path)):
+			if not exists(f'{path % self.path}{sname}') and exists(f'{path % self.path}NA'):
 				sname = "NA"
 
-			if exists('%s%s' % ((path % self.path), sname)):
-				pathanimicon = '%s%s/a' % ((path % self.path), sname)
-				path2 = '%s%s' % ((path % self.path), sname)
+			if exists(f'{path % self.path}{sname}'):
+				pathanimicon = f'{path % self.path}{sname}/a'
+				path2 = f'{path % self.path}{sname}'
 				dir_work = listdir(path2)
 				total = len(dir_work)
 				self.slideicon = total
@@ -83,7 +83,7 @@ class MetrixHDWeatherPixmap(Renderer):
 		if animokicon is True:
 			self.picsicon = []
 			for x in range(self.slideicon):
-				self.picsicon.append(LoadPixmap("%s%s.png" % (pathanimicon, str(x))))
+				self.picsicon.append(LoadPixmap(f"{pathanimicon}{str(x)}.png"))
 
 			if not self.pixdelay_overwrite:
 				self.pixdelay = int(config.plugins.MetrixWeather.animationspeed.value)

@@ -66,13 +66,13 @@ class WeatherSettingsView(Setup):
 		else:
 			WI = Weatherinfo(service, config.plugins.MetrixWeather.apikey.value)
 			if WI.error:
-				print("[WeatherSettingsView] Error in module 'searchCity': %s" % WI.error)
+				print(f"[WeatherSettingsView] Error in module 'searchCity': {WI.error}")
 				self["footnote"].setText(_("Error in Weatherinfo"))
 				self.session.open(MessageBox, text=WI.error, type=MessageBox.TYPE_ERROR)
 			else:
 				geodatalist = WI.getCitylist(weathercity, config.osd.language.value.replace('_', '-').lower())
 				if WI.error or geodatalist is None or len(geodatalist) == 0:
-					print("[WeatherSettingsView] Error in module 'searchCity': %s" % WI.error)
+					print(f"[WeatherSettingsView] Error in module 'searchCity': {WI.error}")
 					self["footnote"].setText(_("Error getting City ID"))
 					self.session.open(MessageBox, text=_("City '%s' not found! Please try another wording." % weathercity), type=MessageBox.TYPE_WARNING)
 #				elif len(geodatalist) == 1:
@@ -81,10 +81,10 @@ class WeatherSettingsView(Setup):
 				else:
 					self.citylist = []
 					for item in geodatalist:
-						lon = " [lon=%s" % item[1] if float(item[1]) != 0.0 else ""
-						lat = ", lat=%s]" % item[2] if float(item[2]) != 0.0 else ""
+						lon = f" [lon={item[1]}" if float(item[1]) != 0.0 else ""
+						lat = f", lat={item[2]}]" if float(item[2]) != 0.0 else ""
 						try:
-							self.citylist.append(("%s%s%s" % (item[0], lon, lat), item[0], item[1], item[2]))
+							self.citylist.append((f"{item[0]}{lon}{lat}", item[0], item[1], item[2]))
 						except Exception:
 							print("[WeatherSettingsView] Error in module 'showMenu': faulty entry in resultlist.")
 					self.session.openWithCallback(self.choiceIdxCallback, ChoiceBox, titlebartext=_("Select Your Location"), title="", list=tuple(self.citylist))
@@ -96,7 +96,7 @@ class WeatherSettingsView(Setup):
 
 	def saveGeoCode(self, value):
 		config.plugins.MetrixWeather.weathercity.value = value[0]
-		config.plugins.MetrixWeather.owm_geocode.value = "%s,%s" % (float(value[1]), float(value[2]))
+		config.plugins.MetrixWeather.owm_geocode.value = f"{float(value[1])},{float(value[2])}"
 		self.old_weatherservice = config.plugins.MetrixWeather.weatherservice.value
 		self.checkcity = False
 		if self.closeonsave:

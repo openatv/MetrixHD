@@ -60,9 +60,9 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 					for cs in self.systemCaids:
 						caidlist[cs] = (self.systemCaids.get(cs), 0)
 					for caid in caids:
-						c = "%x" % int(caid)
+						c = f"{int(caid):x}"
 						if len(c) == 3:
-							c = "0%s" % c
+							c = f"0{c}"
 						c = c[:2].upper()
 						if c in self.systemCaids:
 							caidlist[c] = (self.systemCaids.get(c), 1)
@@ -72,7 +72,7 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 						if emu_caid and emu_caid != "0x000":
 							c = emu_caid.lstrip("0x")
 							if len(c) == 3:
-								c = "0%s" % c
+								c = f"0{c}"
 							c = c[:2].upper()
 							caidlist[c] = (self.systemCaids.get(c), 2)
 		return caidlist
@@ -169,36 +169,36 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 							caid = caid.lstrip("0x")
 							caid = caid.upper()
 							caid = caid.zfill(4)
-							caid = "CAID: %s" % caid
+							caid = f"CAID: {caid}"
 						# hops
 						hops = ""
 						if show_hops:
 							hops = ecm_info.get("hops", '#')
 							if show_caid or show_source or ((show_pid or show_protocol) and oscsource):
-								hops = " - HOPS: %s" % hops
+								hops = f" - HOPS: {hops}"
 							else:
-								hops = "HOPS: %s" % hops
+								hops = f"HOPS: {hops}"
 						# ecm time
 						ecm_time = ""
 						if show_ecmtime:
 							ecm_time = ecm_info.get("ecm time", '#')
 							if "msec" in ecm_time:
-								ecm_time = "%s" % ecm_time
+								ecm_time = f"{ecm_time}"
 							else:
-								ecm_time = "%ss" % ecm_time
+								ecm_time = f"{ecm_time}s"
 							if show_caid or show_source or show_hops or ((show_pid or show_protocol) and oscsource):
-								ecm_time = " - ECM: %s" % ecm_time
+								ecm_time = f" - ECM: {ecm_time}"
 							else:
-								ecm_time = "ECM: %s" % ecm_time
+								ecm_time = f"ECM: {ecm_time}"
 
 						# source
 						# oscam
 						if oscsource:
 							if show_source:
 								if show_caid or show_pid:
-									oscsource = " - %s" % oscsource
+									oscsource = f" - {oscsource}"
 								else:
-									oscsource = "%s: %s" % (typ, oscsource)
+									oscsource = f"{typ}: {oscsource}"
 							else:
 								oscsource = ""
 							pid = ""
@@ -208,17 +208,17 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 								pid = pid.upper()
 								pid = pid.zfill(4)
 								if show_caid:
-									pid = " - PID: %s" % pid
+									pid = f" - PID: {pid}"
 								else:
-									pid = "PID: %s" % pid
+									pid = f"PID: {pid}"
 							# protocol
 							protocol = ""
 							if show_protocol:
 								protocol = ecm_info.get("protocol", '#')
 								if show_caid or show_pid:
-									protocol = " - %s" % protocol
+									protocol = f" - {protocol}"
 								else:
-									protocol = "PROT: %s" % protocol
+									protocol = f"PROT: {protocol}"
 							# prov
 							prov = ""
 							if show_caid and show_prov:
@@ -226,51 +226,51 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 								prov = prov.lstrip("0x")
 								prov = prov.upper()
 								prov = prov.zfill(6)
-								caid = "%s:%s" % (caid, prov)
-							textvalue = "%s%s%s%s%s%s" % (caid, pid, oscsource, protocol, hops, ecm_time)
+								caid = f"{caid}:{prov}"
+							textvalue = f"{caid}{pid}{oscsource}{protocol}{hops}{ecm_time}"
 						# emu,cccam
 						elif using:
 							# address
 							if show_source:
 								address = ecm_info.get("address", '#')
 								if show_caid:
-									address = " - %s" % address
+									address = f" - {address}"
 								else:
-									address = "SOURCE: %s" % address
+									address = f"SOURCE: {address}"
 							else:
 								address = ""
 							if using == "emu":
-								textvalue = "(EMU) %s%s" % (caid, ecm_time)
+								textvalue = f"(EMU) {caid}{ecm_time}"
 							elif using == "CCcam-s2s":
-								textvalue = "(NET) %s%s%s%s" % (caid, address, hops, ecm_time)
+								textvalue = f"(NET) {caid}{address}{hops}{ecm_time}"
 							else:
-								textvalue = "%s%s%s%s" % (caid, address, hops, ecm_time)
+								textvalue = f"{caid}{address}{hops}{ecm_time}"
 						# mgcamd
 						elif source:
 							if source == "emu":
-								textvalue = "(EMU) %s" % (caid)
+								textvalue = f"(EMU) {caid}"
 							else:
 								if show_source:
 									if show_caid:
-										source = " - %s" % source
+										source = f" - {source}"
 									else:
-										source = "SOURCE: %s" % source
+										source = f"SOURCE: {source}"
 								else:
 									source = ""
-								textvalue = "%s%s%s" % (caid, source, ecm_time)
+								textvalue = f"{caid}{source}{ecm_time}"
 						# gbox
 						elif decode:
 							if decode == "Internal":
-								textvalue = "(EMU) %s" % (caid)
+								textvalue = f"(EMU) {caid}"
 							else:
 								if show_source:
 									if show_caid:
-										decode = " - %s" % decode
+										decode = f" - {decode}"
 									else:
-										decode = "SOURCE: %s" % decode
+										decode = f"SOURCE: {decode}"
 								else:
 									decode = ""
-								textvalue = "%s%s" % (caid, decode)
+								textvalue = f"{caid}{decode}"
 		return textvalue
 
 	text = property(getText)
@@ -283,7 +283,7 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 			frontendInfo = service.frontendInfo()
 			if frontendInfo:
 				try:
-					ecmpath = "/tmp/ecm%s.info" % frontendInfo.getAll(False).get("tuner_number")
+					ecmpath = f"/tmp/ecm{frontendInfo.getAll(False).get('tuner_number')}.info"
 					ecm = open(ecmpath, "rb").readlines()
 				except:
 					try:

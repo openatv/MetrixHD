@@ -99,13 +99,12 @@ class MetrixHDRunningText(Renderer):
 					x = min(limit, int(val))
 				else:
 					x = max(limit, int(val))
-			except:
-					x = default
+			except Exception:
+				x = default
 			return x
 
 		def setWrapFlag(attrib, value):
-			if (attrib.lower() == "wrap" and value == "0") or \
-			   (attrib.lower() == "nowrap" and value != "0"):
+			if (attrib.lower() == "wrap" and value == "0") or (attrib.lower() == "nowrap" and value != "0"):
 				self.txtflags &= ~RT_WRAP
 			else:
 				self.txtflags |= RT_WRAP
@@ -239,13 +238,11 @@ class MetrixHDRunningText(Renderer):
 		try:
 			self.scroll_label.setText(self.txtext)
 		except Exception as err:
-			print("ERROR calcMoving setText%s" % str(err))
+			print(f"ERROR calcMoving setText{str(err)}")
 			txt = self.txtext.encode("utf-8", errors="ignore").decode()
 			self.scroll_label.setText(txt)
 
-		if self.txtext == "" or \
-		   self.type == NONE or \
-		   self.scroll_label is None:
+		if self.txtext == "" or self.type == NONE or self.scroll_label is None:
 			return False
 
 		if self.direction in (LEFT, RIGHT) or not (self.txtflags & RT_WRAP):

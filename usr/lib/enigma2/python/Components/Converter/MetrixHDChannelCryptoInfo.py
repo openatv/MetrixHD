@@ -133,7 +133,7 @@ class MetrixHDChannelCryptoInfo(Poll, Converter, object):
 			for caid in caids:
 				caid = self.int2hex(caid)
 				if len(caid) == 3:
-					caid = '0%s' % caid
+					caid = f'0{caid}'
 				caid = caid[:2]
 				caid = caid.upper()
 				if caid == iscaid:
@@ -172,13 +172,13 @@ class MetrixHDChannelCryptoInfo(Poll, Converter, object):
 			idx = caid.index('x')
 			caid = caid[idx + 1:]
 			if len(caid) == 3:
-				caid = '0%s' % caid
+				caid = f'0{caid}'
 			caid = caid[:2]
 			caid = caid.upper()
 		return caid
 
 	def int2hex(self, int):
-		return '%x' % int
+		return f'{int:x}'
 
 	def changed(self, what):
 		Converter.changed(self, what)

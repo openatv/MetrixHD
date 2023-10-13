@@ -19,18 +19,18 @@
 #
 #######################################################################
 
-from enigma import gMainDC, ePicLoad, getDesktop
-from os import statvfs, listdir, remove
+from enigma import ePicLoad, getDesktop
+from os import listdir, remove, symlink, makedirs
+
 from os.path import exists, isdir, isfile, islink
-from shutil import move, copy
+from shutil import copy
 from six import ensure_str
 
 from Components.ActionMap import ActionMap
-from Components.config import config, configfile, getConfigListEntry, ConfigYesNo, ConfigSubList, ConfigSubDict, ConfigSelection
+from Components.config import configfile, getConfigListEntry, ConfigYesNo, ConfigSubList, ConfigSubDict, ConfigSelection
 from Components.ConfigList import ConfigListScreen
 from Components.Sources.StaticText import StaticText
 from Components.Pixmap import Pixmap
-from Components.Console import Console
 from Components.Label import Label
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -161,7 +161,6 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		return list
 
 	def linkGlobalSkinParts(self):
-		from os import symlink, makedirs
 		dir_global_skinparts = "/usr/share/enigma2/skinparts"
 		dir_local_skinparts = "/usr/share/enigma2/MetrixHD/skinparts"
 		if exists(dir_global_skinparts):

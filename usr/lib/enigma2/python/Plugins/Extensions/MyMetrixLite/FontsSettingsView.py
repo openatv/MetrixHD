@@ -603,7 +603,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 		returnValue = str(self["config"].getCurrent()[1].value).split('/')[-1]
 		if len(returnValue) <= 3:
 			returnValue = "scale_75-100-125"
-		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/fonts/%s.png" % returnValue)
+		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, f"mymetrixlite/fonts/{returnValue}.png")
 		if not fileExists(picturepath):
 			picturepath = FONT_IMAGE_PATH % returnValue
 			if not fileExists(picturepath):

@@ -1,14 +1,13 @@
 # -*- coding: UTF-8 -*-
 #Embedded file name: /usr/lib/enigma2/python/Components/Converter/ServiceName2.py
-from Components.Converter.Converter import Converter
 from enigma import iServiceInformation, iPlayableService, iPlayableServicePtr, eServiceReference, eServiceCenter, eTimer
-from Components.Element import cached
 from Components.config import config
+from Components.Converter.Converter import Converter
 from Components.Converter.Poll import Poll
-from six.moves import range
-import six
+from Components.Element import cached
+from Screens.ChannelSelection import service_types_radio, service_types_tv
 
-SIGN = '°' if six.PY3 else str('\xc2\xb0')
+SIGN = '°'
 
 
 class MetrixHDServiceName2(Poll, Converter, object):
@@ -78,7 +77,7 @@ class MetrixHDServiceName2(Poll, Converter, object):
 				return (0, 'N/A')
 			try:
 				acount = config.plugins.NumberZapExt.enable.value and config.plugins.NumberZapExt.acount.value
-			except:
+			except Exception:
 				acount = False
 
 			rootstr = ''
@@ -117,14 +116,9 @@ class MetrixHDServiceName2(Poll, Converter, object):
 
 	def getProviderName(self, ref):
 		if isinstance(ref, eServiceReference):
-			from Screens.ChannelSelection import service_types_radio, service_types_tv
 			typestr = ref.getData(0) in (2, 10) and service_types_radio or service_types_tv
 			pos = typestr.rfind(':')
-			rootstr = '%s (channelID == %08x%04x%04x) && %s FROM PROVIDERS ORDER BY name' % (typestr[:pos + 1],
-				ref.getUnsignedData(4),
-				ref.getUnsignedData(2),
-				ref.getUnsignedData(3),
-				typestr[pos + 1:])
+			rootstr = f'{typestr[:pos + 1]} (channelID == {ref.getUnsignedData(4):08x}{ref.getUnsignedData(2):04x}{ref.getUnsignedData(3):04x}) && {typestr[pos + 1:]} FROM PROVIDERS ORDER BY name'
 			provider_root = eServiceReference(rootstr)
 			serviceHandler = eServiceCenter.getInstance()
 			providerlist = serviceHandler.list(provider_root)
@@ -168,8 +162,8 @@ class MetrixHDServiceName2(Poll, Converter, object):
 				break
 			result += fmt[:pos]
 			pos += 1
-			l = len(fmt)
-			f = pos < l and fmt[pos] or '%'
+			ln = len(fmt)
+			f = pos < ln and fmt[pos] or '%'
 			if f == 't':
 				if type == 'DVB-S':
 					result += _('Satellite')
@@ -182,12 +176,11 @@ class MetrixHDServiceName2(Poll, Converter, object):
 			elif f == 's':
 				if type == 'DVB-S':
 					x = self.tpdata.get('system', 0)
-					result += x in range(2) and {0: 'DVB-S',
-					 1: 'DVB-S2'}[x] or ''
+					result += x in range(2) and {0: 'DVB-S', 1: 'DVB-S2'}[x] or ''
 				else:
 					result += type
 			elif f == 'F':
-				result += '%d' % (self.tpdata.get('frequency', 0) / 1000)
+				result += f"{self.tpdata.get('frequency', 0) / 1000}"
 			elif f == 'f':
 				if type in ('DVB-S', 'DVB-C'):
 					x = self.tpdata.get('fec_inner', 15)
@@ -212,13 +205,11 @@ class MetrixHDServiceName2(Poll, Converter, object):
 					5: 'Auto'}[x] or ''
 			elif f == 'i':
 				x = self.tpdata.get('inversion', 2)
-				result += x in list(range(3)) and {0: 'On',
-				 1: 'Off',
-				 2: 'Auto'}[x] or ''
+				result += x in list(range(3)) and {0: 'On', 1: 'Off', 2: 'Auto'}[x] or ''
 			elif f == 'O':
 				if type == 'DVB-S':
 					x = self.tpdata.get('orbital_position', 0)
-					result += x > 1800 and '%d.%d' + SIGN + 'W' % ((3600 - x) / 10, (3600 - x) % 10) or '%d.%d' + SIGN + 'E' % (x / 10, x % 10)
+					result += x > 1800 and f'{(3600 - x) / 10}.{(3600 - x) % 10}{SIGN}W' or f'{x / 10}.{x % 10}{SIGN}E'
 			elif f == 'M':
 				x = self.tpdata.get('modulation', 1)
 				if type == 'DVB-S':
@@ -242,7 +233,7 @@ class MetrixHDServiceName2(Poll, Converter, object):
 					3: 'R'}[x] or '?'
 			elif f == 'Y':
 				if type in ('DVB-S', 'DVB-C'):
-					result += '%d' % (self.tpdata.get('symbol_rate', 0) / 1000)
+					result += f"{self.tpdata.get('symbol_rate', 0) / 1000}"
 			elif f == 'r':
 				x = self.tpdata.get('rolloff')
 				if x is not None:
@@ -332,8 +323,8 @@ class MetrixHDServiceName2(Poll, Converter, object):
 				try:
 					from Components.NimManager import nimmanager
 					name = str(nimmanager.getSatDescription(orbpos))
-				except:
-					name = orbpos > 1800 and '%d.%d' + SIGN + 'W' % ((3600 - orbpos) / 10, (3600 - orbpos) % 10) or '%d.%d' + SIGN + 'E' % (orbpos / 10, orbpos % 10)
+				except Exception:
+					name = orbpos > 1800 and f'{(3600 - orbpos) / 10}.{(3600 - orbpos) % 10}{SIGN}W' or f'{orbpos / 10}.{orbpos % 10}{SIGN}E'
 
 		return name
 
@@ -403,7 +394,7 @@ class MetrixHDServiceName2(Poll, Converter, object):
 					break
 				tmp = tmp[pos + 1:]
 
-			return '%s' % ret.replace('N/A', '')
+			return f"{ret.replace('N/A', '')}"
 
 	text = property(getText)
 

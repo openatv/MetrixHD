@@ -15,7 +15,7 @@ lang = language.getLanguage()
 environ["LANGUAGE"] = lang[:2]
 gettext.bindtextdomain("enigma2", resolveFilename(SCOPE_LANGUAGE))
 gettext.textdomain("enigma2")
-gettext.bindtextdomain("MyMetrixLite", "%s%s" % (resolveFilename(SCOPE_PLUGINS), "Extensions/MyMetrixLite/locale/"))
+gettext.bindtextdomain("MyMetrixLite", f"{resolveFilename(SCOPE_PLUGINS)}Extensions/MyMetrixLite/locale/")
 
 TEMPSIGN = '°C' if six.PY3 else str('\xc2\xb0C')
 

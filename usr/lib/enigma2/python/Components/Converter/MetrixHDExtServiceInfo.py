@@ -92,21 +92,21 @@ class MetrixHDExtServiceInfo(Converter, object):
 			text = info.getInfoString(iServiceInformation.sProvider)
 		elif self.type == self.FROMCONFIG:
 			if config.plugins.ExtendedServiceInfo.showServiceNumber.value is True and number != "":
-				text = "%s. %s" % (number, name)
+				text = f"{number}. {name}"
 			else:
 				text = name
 			if config.plugins.ExtendedServiceInfo.showOrbitalPosition.value is True and orbital != "":
 				if config.plugins.ExtendedServiceInfo.orbitalPositionType.value == "name":
-					text = "%s (%s)" % (text, satName)
+					text = f"{text} ({satName})"
 				else:
-					text = "%s (%s)" % (text, orbital)
+					text = f"{text} ({orbital})"
 		else:
 			if number == "":
 				text = name
 			else:
-				text = "%s. %s" % (number, name)
+				text = f"{number}. {name}"
 			if orbital != "":
-				text = "%s (%s)" % (text, orbital)
+				text = f"{text} ({orbital})"
 
 		return text
 
@@ -145,13 +145,13 @@ class MetrixHDExtServiceInfo(Converter, object):
 				name = sat.get("name") or None
 				position = sat.get("position") or None
 				if name is not None and position is not None:
-					position = "%s.%s" % (position[:-1], position[-1:])
+					position = f"{position[:-1]}.{position[-1:]}"
 					if position.startswith("-"):
-						position = "%sW" % position[1:]
+						position = f"{position[1:]}W"
 					else:
-						position = "%sE" % position
+						position = f"{position}E"
 					if position.startswith("."):
-						position = "0%s" % position
+						position = f"0{position}"
 					self.satNames[position] = name
 
 	def getServiceNumber(self, name, ref):

@@ -117,7 +117,7 @@ if exists(OLD_BACKUP_FILE) and not exists(BACKUP_FILE):
 
 #############################################################
 
-Greyscale = [("%s%s%s" % (x, x, x), _("Greyscale %d") % (i + 1)) for i, x in enumerate(("15", "1C", "2E", "42", "58", "6E", "84", "A4", "BD", "D8", "E6", "F2", "FA"))]
+Greyscale = [(f"{x}{x}{x}", _("Greyscale %d") % (i + 1)) for i, x in enumerate(("15", "1C", "2E", "42", "58", "6E", "84", "A4", "BD", "D8", "E6", "F2", "FA"))]
 
 ColorList = [
 		("F0A30A", _("Amber")),
@@ -549,7 +549,7 @@ def initOtherConfig():
 	#OtherSettings
 	#EHD-Option -> Enhanced HD
 	BoxType = BoxInfo.getItem("machinebuild")
-	config.plugins.MyMetrixLiteOther.EHDtested = ConfigText(default="%s_|_0" % BoxType)
+	config.plugins.MyMetrixLiteOther.EHDtested = ConfigText(default=f"{BoxType}_|_0")
 
 	skinmodes = [("0", _("Standard HD (1280x720)"))]
 	mode1080p = mode2160p = risk = False
@@ -733,10 +733,10 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition = ConfigSelectionNumber(-10, 10, 1, default=0)
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect = ConfigSelection(default="no", choices=[("no", _("None")), ("solidframe", _("Solid")), ("solid", _("Solid without Frame")), ("gradientframe", _("Flat Gradient")), ("gradient", _("Flat Gradient without Frame")), ("circleframe", _("Circle Gradient")), ("circle", _("Circle Gradient without Frame"))])
 
-	choicelist = [("%.1f" % (x / 10), "%d%%" % (x * 10)) for x in range(1, 11)]
+	choicelist = [(f"{x / 10:.1f}", "%d%%" % (x * 10)) for x in range(1, 11)]
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectSize = ConfigSelection(default="0.5", choices=choicelist)
 
-	choicelist = [("%.1f" % (x / 10), "%d" % (x * 10)) for x in range(11)]
+	choicelist = [(f"{x / 10:.1f}", "%d" % (x * 10)) for x in range(11)]
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectPosX = ConfigSelection(default="0.5", choices=choicelist)
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectPosY = ConfigSelection(default="0.5", choices=choicelist)
 	config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectColor = ConfigSelection(default="FFFFFF", choices=ColorList)

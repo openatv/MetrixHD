@@ -94,7 +94,7 @@ class MetrixHDXPicon(Renderer):
 						fields = sname.split('_')
 						if len(fields) == 10:
 							if not fields[6].endswith('0000'):
-								no_subnet = "%s_%s_%s" % ('_'.join(fields[:6]), fields[6][:-4] + '0000', '_'.join(fields[7:]))
+								no_subnet = f"{'_'.join(fields[:6])}_{fields[6][:-4] + '0000'}_{'_'.join(fields[7:])}"
 								pngname = self.findPicon(no_subnet)			# removed SubNetwork in the right part of the NameSpace field
 							if not pngname and fields[0] != '1':
 								fields[0] = '1'
@@ -129,7 +129,7 @@ class MetrixHDXPicon(Renderer):
 							ImageFile.LOAD_TRUNCATED_IMAGES = True
 							im = Image.open(pngname).convert('RGBA')
 						except:
-							print("[MetrixHDXPicon] cant load image: %s" % pngname)
+							print(f"[MetrixHDXPicon] cant load image: {pngname}")
 							tmp = resolveFilename(SCOPE_CURRENT_SKIN, "picon_default.png")
 							if fileExists(tmp):
 								pngname = tmp

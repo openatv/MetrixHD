@@ -1,11 +1,11 @@
 #taken from "ServicePosition" Converter
 #edited by mogli123 @ et-view-support.com
+from time import localtime, strftime, time
+from enigma import iPlayableService
+
 from Components.Converter.Converter import Converter
 from Components.Converter.Poll import Poll
-from enigma import iPlayableService, iPlayableServicePtr, iServiceInformation, eTimer, eLabel
 from Components.Element import cached, ElementError
-from time import localtime, strftime, time, gmtime, asctime
-from Components.Sources.Clock import Clock
 
 
 class MetrixHDServiceTime(Poll, Converter, object):

@@ -272,7 +272,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
 	def InstallCheck(self):
 		self.Console = Console()
-		self.service_name = 'enigma2-plugin-skins-metrix-atv-%s-icons' % self.EHDres.lower()
+		self.service_name = f'enigma2-plugin-skins-metrix-atv-{self.EHDres.lower()}-icons'
 		if self.freeFlashCheck():
 			self.Console.ePopen('/usr/bin/opkg list-installed ' + self.service_name, self.checkNetworkState)
 		else:
@@ -451,34 +451,31 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteOther.SkinDesignOLVposy.value = 41
 
 	def getCPUSensor(self):
-		temp = ""
+		value = ""
 		if exists('/proc/stb/fp/temp_sensor_avs'):
-			f = open('/proc/stb/fp/temp_sensor_avs', 'r')
-			temp = f.read()
-			f.close()
+			with open('/proc/stb/fp/temp_sensor_avs') as f:
+				value = f.read()
 		elif exists('/proc/stb/power/avs'):
-			f = open('/proc/stb/power/avs', 'r')
-			temp = f.read()
-			f.close()
+			with open('/proc/stb/power/avs') as f:
+				value = f.read()
 		elif exists('/sys/devices/virtual/thermal/thermal_zone0/temp'):
 			try:
-				f = open('/sys/devices/virtual/thermal/thermal_zone0/temp', 'r')
-				temp = f.read()
-				temp = temp[:-4]
-				f.close()
-			except:
-				temp = ""
+				with open('/sys/devices/virtual/thermal/thermal_zone0/temp') as f:
+					value = f.read()
+					value = value[:-4]
+			except Exception:
+				value = ""
 		elif exists('/proc/hisi/msp/pm_cpu'):
 			try:
 				for line in open('/proc/hisi/msp/pm_cpu').readlines():
 					line = [x.strip() for x in line.strip().split(":")]
 					if line[0] in ("Tsensor"):
-						temp = line[1].split("=")
-						temp = line[1].split(" ")
-						temp = temp[2]
-			except:
-				temp = ""
-		if temp and int(temp.replace('\n', '')) > 0:
+						value = line[1].split("=")
+						value = line[1].split(" ")
+						value = value[2]
+			except Exception:
+				value = ""
+		if value and int(value.replace('\n', '')) > 0:
 			return True
 		else:
 			return False

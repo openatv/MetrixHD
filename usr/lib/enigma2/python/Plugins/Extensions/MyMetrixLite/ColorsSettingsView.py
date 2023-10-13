@@ -1226,7 +1226,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 
 	def GetPicturePath(self):
 		returnValue = self["config"].getCurrent()[1].value
-		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/colors/%s.png" % returnValue)
+		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, f"mymetrixlite/colors/{returnValue}.png")
 		if not fileExists(picturepath):
 			picturepath = COLOR_IMAGE_PATH % returnValue
 			if not fileExists(picturepath):

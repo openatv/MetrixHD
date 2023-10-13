@@ -115,7 +115,7 @@ class InfoBarMetrixWeather(Screen):
 		self.weathercity = None
 		self.forecast = config.plugins.MetrixWeather.forecast.value
 		if config.plugins.MyMetrixLiteOther.showExtendedinfo.value and config.plugins.MyMetrixLiteOther.ExtendedinfoStyle.value in ("2", "3"):  # Weather enabled with normal symbols and extended info enabled between clock and weather enclosed or centered
-			self.skinName = ["InfoBarMetrixWeather%s" % config.plugins.MyMetrixLiteOther.ExtendedinfoStyle.value]
+			self.skinName = [f"InfoBarMetrixWeather{config.plugins.MyMetrixLiteOther.ExtendedinfoStyle.value}"]
 			if self.forecast > 1:
 				self.forecast = 1
 		else:
@@ -179,7 +179,7 @@ class InfoBarMetrixWeather(Screen):
 	def refreshWeatherData(self, entry=None):
 		self.refreshTimer.stop()
 		if config.misc.firstrun.value:  # don't refresh on firstrun try again after 10 seconds
-			print("[%s] DEBUG firstrun" % MODULE_NAME)
+			print(f"[{MODULE_NAME}] DEBUG firstrun")
 			self.refreshTimer.start(600000, True)
 			return
 		if config.plugins.MetrixWeather.enabled.value:
@@ -192,7 +192,7 @@ class InfoBarMetrixWeather(Screen):
 					geocode = [geodatalist[0][1], geodatalist[0][2]]
 					config.plugins.MetrixWeather.weathercity.value = geodatalist[0][0]
 					config.plugins.MetrixWeather.weathercity.save()
-					config.plugins.MetrixWeather.owm_geocode.value = "%s,%s" % (float(geocode[0]), float(geocode[1]))
+					config.plugins.MetrixWeather.owm_geocode.value = f"{float(geocode[0])},{float(geocode[1])}"
 					config.plugins.MetrixWeather.owm_geocode.save()
 			# DEPRECATED, will be removed in April 2023
 			if geocode and len(geocode) == 2:
@@ -205,28 +205,28 @@ class InfoBarMetrixWeather(Screen):
 			woid = None
 			if config.plugins.MetrixWeather.weatherservice.value == "openweather" and config.plugins.MetrixWeather.woeid.value != 0:
 				woid = config.plugins.MetrixWeather.woeid.value
-				print("[%s] lookup for CityID %s, try #%s..." % (MODULE_NAME, str(woid), self.trialcounter))
+				print(f"[{MODULE_NAME}] lookup for CityID {str(woid)}, try #{self.trialcounter}...")
 			else:
-				print("[%s] lookup for City %s, try #%s..." % (MODULE_NAME, self.weathercity, self.trialcounter))
+				print(f"[{MODULE_NAME}] lookup for City {self.weathercity}, try #{self.trialcounter}...")
 			if geodata or woid:
 				self.WI.start(geodata=geodata, cityID=woid, units=unit, scheme=language, reduced=True, callback=self.refreshWeatherDataCallback)
 			else:
-				print("[%s] error in MetrixWeather config" % (MODULE_NAME))
+				print(f"[{MODULE_NAME}] error in MetrixWeather config")
 				self.setWeatherDataValid(2)
 
 	def refreshWeatherDataCallback(self, data, error):
 		if error or data is None:
 			self.trialcounter += 1
 			if self.trialcounter < 2:
-				print("[%s] lookup for city '%s' paused, try again in 10 secs..." % (MODULE_NAME, self.weathercity))
+				print(f"[{MODULE_NAME}] lookup for city '{self.weathercity}' paused, try again in 10 secs...")
 				self.setWeatherDataValid(1)
 				self.refreshTimer.start(10000, True)
 			elif self.trialcounter > 5:
-				print("[%s] lookup for city '%s' paused 1 h, to many errors..." % (MODULE_NAME, self.weathercity))
+				print(f"[{MODULE_NAME}] lookup for city '{self.weathercity}' paused 1 h, to many errors...")
 				self.setWeatherDataValid(2)
 				self.refreshTimer.start(3600000, True)
 			else:
-				print("[%s] lookup for city '%s' paused 5 mins, to many errors..." % (MODULE_NAME, self.weathercity))
+				print(f"[{MODULE_NAME}] lookup for city '{self.weathercity}' paused 5 mins, to many errors...")
 				self.setWeatherDataValid(2)
 				self.refreshTimer.start(300000, True)
 			return
@@ -246,7 +246,7 @@ class InfoBarMetrixWeather(Screen):
 						}
 		METEOnightswitch = {"1": "2", "3": "4", "B": "C", "H": "I", "J": "K"}
 		if config.plugins.MetrixWeather.weatherservice.value == "openweather":
-			geocode = "%s,%s" % (data["longitude"], data["latitude"])
+			geocode = f"{data['longitude']},{data['latitude']}"
 			if geocode != self.geocode:
 				config.plugins.MetrixWeather.owm_geocode.value = geocode
 				config.plugins.MetrixWeather.owm_geocode.save()
@@ -263,7 +263,7 @@ class InfoBarMetrixWeather(Screen):
 		sunset = datetime.fromisoformat(data["current"]["sunset"])
 		isnight = now < sunrise or now > sunset
 		# data for panel "infoBarWeather"
-		self["Temp"].setText("%s" % data["current"]["temp"])
+		self["Temp"].setText(f"{data['current']['temp']}")
 		self["Tempsign"].setText(tempsign)
 		if config.plugins.MetrixWeather.icontype.value == "0":
 			iconcode = data["current"]["meteoCode"]
@@ -279,29 +279,29 @@ class InfoBarMetrixWeather(Screen):
 			self["FontCode"].setText("")
 		self["ShortDay"].setText(data["current"]["shortDay"])
 		# self["Shorttext"].setText(data["current"]["text"])
-		self["MinTemp"].setText("%s %s" % (data["forecast"][0]["minTemp"], tempsign))
-		self["MaxTemp"].setText("%s %s" % (data["forecast"][0]["maxTemp"], tempsign))
+		self["MinTemp"].setText(f"{data['forecast'][0]['minTemp']} {tempsign}")
+		self["MaxTemp"].setText(f"{data['forecast'][0]['maxTemp']} {tempsign}")
 		# data for panel "infoBarWeatherDetails"
 		if config.plugins.MetrixWeather.detail.value:
 			logos = {"MSN": 0, "openweather": 1, "OpenMeteo": 2}
 			self["logo"].setPixmapNum(logos.get(config.plugins.MetrixWeather.weatherservice.value, 0))
 			self["logo"].show()
 			location = data["name"]
-			print("[%s] DEBUG writeData location = %s" % (MODULE_NAME, location))
+			print(f"[{MODULE_NAME}] DEBUG writeData location = {location}")
 			if len(location) > 26:  # if too long for skin, reduce stepweise
 				location = location.split(",")
-				location = "%s, %s" % (location[0], location[2]) if len(location) > 2 else location[0]
+				location = f"{location[0]}, {location[2]}" if len(location) > 2 else location[0]
 				if len(location) > 26:
-					location = "%s%s" % (location[:26], "…")
+					location = f"{location[:26]}…"
 			if config.plugins.MetrixWeather.cityVisible.value:
 				self["Location"].setText(location)  # trigger "on" for panel "infoBarWeatherDetails"
 			self["Observationtime"].setText(data["current"]["observationTime"][11:19])
-			self["Feelslike"].setText("%s %s" % (data["current"]["feelsLike"], tempsign))
-			self["Humidity"].setText("%s %s" % (data["current"]["humidity"], "%"))
+			self["Feelslike"].setText(f"{data['current']['feelsLike']} {tempsign}")
+			self["Humidity"].setText(f"{data['current']['humidity']} %")
 			skydirection = data["current"]["windDirSign"].split(" ")
 			self["WindDisplay"].setText(skydirs[skydirection[1]] if skydirection[1] in skydirs else skydirection[1])
 			self["WindArrow"].setText(windarrow[ord(skydirection[0])])
-			self["WindSpeed"].setText("%s %s" % (data["current"]["windSpeed"], speedsign))
+			self["WindSpeed"].setText(f"{data['current']['windSpeed']} {speedsign}")
 		# data for panels "forecast"
 		for day in range(1, self.forecast + 1):  # only user-demanded forecasts
 			if config.plugins.MetrixWeather.icontype.value == "0":
@@ -311,8 +311,8 @@ class InfoBarMetrixWeather(Screen):
 				self["IconCode_%d" % day].setText(data["forecast"][day]["yahooCode"])
 				self["FontCode_%d" % day].setText("")
 			self["ShortDay_%d" % day].setText(data["forecast"][day]["shortDay"])
-			self["MinTemp_%d" % day].setText("%s %s" % (data["forecast"][day]["minTemp"], tempsign))
-			self["MaxTemp_%d" % day].setText("%s %s" % (data["forecast"][day]["maxTemp"], tempsign))
+			self["MinTemp_%d" % day].setText(f"{data['forecast'][day]['minTemp']} {tempsign}")
+			self["MaxTemp_%d" % day].setText(f"{data['forecast'][day]['maxTemp']} {tempsign}")
 		self.trialcounter = 0
 
 		iconcode = data["current"]["meteoCode"]
