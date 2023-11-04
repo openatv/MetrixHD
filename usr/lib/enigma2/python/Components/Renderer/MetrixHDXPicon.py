@@ -44,7 +44,7 @@ class MetrixHDXPicon(Renderer):
 				sname = self.source.text
 				if sname.count(":") > 9:
 					snameN = "_".join(sname.split(":")[0:10])
-				pngname = self.nameCache.get(snameN, "")
+					pngname = self.nameCache.get(snameN, "")
 				if not pngname or not exists(pngname):
 					pngname = getPiconName(sname)
 					if pngname != "" and sname.split("_", 1)[0] == "1":
