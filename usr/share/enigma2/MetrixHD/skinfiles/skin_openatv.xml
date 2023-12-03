@@ -1760,9 +1760,10 @@ textsize = (textwidth,textheight)
 self["text"].instance.resize(eSize(*textsize))
 
 # move list
-listsize = (wsizex - offset_listposx * 2,listheight)
-self["list"].instance.move(ePoint(offset_listposx,textheight + offset_listposy))
-self["list"].instance.resize(eSize(*listsize))
+if self.list:
+	listsize = (wsizex - offset_listposx * 2,listheight)
+	self["list"].instance.move(ePoint(offset_listposx,textheight + offset_listposy))
+	self["list"].instance.resize(eSize(*listsize))
 
 # center window
 newwidth = wsize[0]
