@@ -906,7 +906,7 @@ self.instance.move(ePoint(0,0))
 	<screen name="mySmallChannelSelection" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<!--widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" /-->
 		<eLabel text="Select service to add..." position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<panel name="RTSB_ChannelList_StandardList"/>
+		<panel name="RTSB_ChannelList_StandardList_LEFT"/>
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
@@ -2562,7 +2562,7 @@ if len(listitems.list) &gt; 2:
 	<screen name="SimpleChannelSelection" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Channel Selection" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<panel name="RTSB_ChannelList_StandardList"/>
+		<panel name="RTSB_ChannelList_StandardList_LEFT"/>
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
@@ -2574,20 +2574,23 @@ if len(listitems.list) &gt; 2:
 	<screen name="ChannelSelection_PIG" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Channel Selection" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="session.VideoPicture" render="Pig" position="680,95" size="530,299" zPosition="3" backgroundColor="unff000000" />
-		<widget source="session.CurrentService" render="Label" position="680,92" size="530,30" zPosition="4" font="epg_text;18"  halign="center" valign="top" noWrap="1" backgroundColor="transparent" foregroundColor="epg-event-foreground" borderColor="black" borderWidth="1" transparent="1">
+		<widget source="session.VideoPicture" render="Pig" position="780,95" size="430,242" zPosition="3" backgroundColor="unff000000" />
+		<widget source="session.CurrentService" render="Label" position="780,92" size="430,30" zPosition="4" font="epg_text;18"  halign="center" valign="top" noWrap="1" backgroundColor="transparent" foregroundColor="epg-event-foreground" borderColor="black" borderWidth="1" transparent="1">
 			<convert type="ServiceName">Name</convert>
 		</widget>
-		<eLabel position="680,400" size="530,228" zPosition="1" backgroundColor="layer-b-background" />
-		<widget source="ServiceEvent" render="Label" position="685,400" size="520,30" font="epg_text;22" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" >
+		<eLabel position="780,340" size="430,288" zPosition="1" backgroundColor="layer-b-background" />
+		<widget source="ServiceEvent" render="Label" position="785,345" size="420,30" font="epg_text;22" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" >
 			<convert type="EventName">Name</convert>
 		</widget>
-		<widget source="ServiceEvent" render="MetrixHDPrimeTime" position="685,602" size="520,30" font="epg_text;19" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="1" />
+		<widget source="ServiceEvent" render="MetrixHDPrimeTime" position="785,602" size="420,30" font="epg_text;19" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" noWrap="1" transparent="1" />
 		<widget source="ServiceEvent" render="Label" position="815,638" size="120,30" font="epg_event;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" halign="right" valign="center"> 
 			<convert type="EventTime">Remaining</convert> 
 			<convert type="RemainingToText"></convert> 
 		</widget> 
-		<panel name="RTSB_SlimChannelSelection_list_plus_description"/>
+		<widget source="ServiceEvent" render="MetrixHDRunningText" position="785,375" size="420,223" options="movetype=none,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" font="epg_info; 19" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="0" halign="left" valign="top">
+			<convert type="EventName">FullDescription</convert>
+		</widget>
+		<panel name="RTSB_ChannelList_StandardList_LEFT"/>
 		<panel name="template1_1layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<ePixmap position="950,635" size="81,40" zPosition="10" pixmap="buttons/info.png" transparent="1" alphatest="blend" />
