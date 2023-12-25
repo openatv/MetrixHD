@@ -25,6 +25,7 @@
 		<widget name="information" position="70,100" size="700,480" colPosition="280" conditional="information" divideChar="|" font="Regular;17" leftColAlign="left" rightColAlign="left" split="1" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 
 	<screen name="information_common2">
@@ -42,7 +43,6 @@
 		<eLabel text="https://github.com/oe-alliance" position="825,520" size="380,30" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
 		<panel name="information_common" />
 		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_information_about.png" transparent="1" alphatest="blend" />
 	</screen>
 
 	<screen name="PictureInformation" position="0,0" size="1280,720" title="Receiver Images" flags="wfNoBorder" backgroundColor="transparent">
@@ -53,7 +53,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_he-buttons_template2" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_images_info.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 
 	<screen name="SystemInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
@@ -71,61 +71,6 @@
 	<screen name="Information" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="information_common" />
 		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_information.png" transparent="1" alphatest="blend" />
-	</screen>
-
-	<screen name="NetworkInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_network_info.png" transparent="1" alphatest="blend" />
-	</screen>
-
-	<screen name="ReceiverInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_receiver_info.png" transparent="1" alphatest="blend" />
-	</screen>
-
-	<screen name="TunerInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_tuner_info.png" transparent="1" alphatest="blend" />
-	</screen>
-
-	<screen name="StorageInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_storage_info.png" transparent="1" alphatest="blend" />
-	</screen>
-
-	<screen name="MemoryInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_memory_info.png" transparent="1" alphatest="blend" />
-	</screen>
-
-	<screen name="MultiBootInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_multiboot_info.png" transparent="1" alphatest="blend" />
-	</screen>
-
-	<screen name="StreamingInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_streaming_clients_info.png" transparent="1" alphatest="blend" />
-	</screen>
-
-	<screen name="GeolocationInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_geolocation_info.png" transparent="1" alphatest="blend" />
-	</screen>
-
-	<screen name="ServiceInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_service_info.png" transparent="1" alphatest="blend" />
 	</screen>
 
 	<!-- Network Adapter -->
@@ -152,7 +97,7 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="toe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="AdapterSetupConfiguration" position="0,0" size="1280,720" title="Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -165,7 +110,7 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="NetworkMacSetup" position="0,0" size="1280,720" title="MAC-address settings" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -174,7 +119,7 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="NetworkMountsMenu" position="0,0" size="1280,720" title="Mounts Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -183,7 +128,7 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_netmounts_setup.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="NameserverSetup" position="0,0" size="1280,720" title="Nameserver Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -192,7 +137,7 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="NetworkAdapterSelection" position="0,0" size="1280,720" title="Select Network Adapter" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -213,7 +158,7 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="NetworkAdapterTest" position="0,0" size="1280,720" title="Network test..." flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -253,8 +198,8 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
-	</screen>	
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
+	</screen>
 	<screen name="WlanStatus" position="0,0" size="1280,720" title="Wireless Network State" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="IF" render="Label" position="70,115" size="495,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
@@ -286,7 +231,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/wlan.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="WlanScan" position="0,0" size="1280,720" title="Choose a Wireless Network" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -310,7 +255,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/wlan.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="NetworkSamba" title="Samba Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
@@ -661,8 +606,8 @@
 		</widget>
 		<widget name="lab1" zPosition="2" position="126,170" size="600,40" font="Regular;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" transparent="1" />
 		<panel name="template1_2layer" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/info.png" transparent="1" alphatest="blend" />
 		<panel name="__e-buttons_template1" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 
 	<screen name="Info" position="0,0" size="1280,720" title="Info" flags="wfNoBorder" backgroundColor="transparent">
@@ -684,29 +629,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/softcam.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="ShowSoftcamPackages" position="0,0" size="1280,720" title="Install Softcams" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="list" render="Listbox" position="70,100" size="700,500" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
-			<convert type="TemplatedMultiContent">
-				{"template": [
-						MultiContentEntryPixmapAlphaBlend(pos = (10, 2), size = (48, 48), png = 4, flags = BT_SCALE), # index 4 is the status pixmap
-						MultiContentEntryText(pos = (65, 2), size = (625, 28), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
-						MultiContentEntryText(pos = (65, 26), size = (625, 20), font=1, flags = RT_HALIGN_LEFT, text = 2, color=0x8A8787, color_sel=0x8A8787), # index 2 is the description
-						MultiContentEntryPixmapAlphaBlend(pos = (0, 48), size = (0, 0), png = 5), # index 4 is the div pixmap
-					],
-				"fonts": [gFont("Regular",20),gFont("Regular",16)],
-				"itemHeight": 50
-				}
-			</convert>
-		</widget>
-		<eLabel text="OK  =" position="940,500" size="60,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="right" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<widget source="key_ok" render="Label" position="1010,500" size="150,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="left" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<panel name="template1_2layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/softcam.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<!--Oscaminfo-->
 	<screen name="OscamInfoMenu" position="0,0" size="1280,720" title="OscamInfo Menu" flags="wfNoBorder" backgroundColor="transparent">
@@ -952,6 +875,7 @@ self.instance.move(ePoint(0,0))
 		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="setup_common"/>
 		<widget name="setupimage" position="890,135" size="256,256" alphatest="blend" conditional="setupimage" transparent="1" zPosition="2" />
+		<widget name="Image" position="890,135" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="SetupInfo" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
@@ -1075,6 +999,7 @@ self['config'].l.setSeperation(int(300*f))
 		<widget source="current_address" render="Label" position="825,150" size="380,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<widget source="fixed_address" render="Label" position="825,175" size="380,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<widget name="setupimage" position="890,175" size="256,256" alphatest="blend" conditional="setupimage" transparent="1" zPosition="2" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="HdmiCECSetupScreen" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
@@ -4361,7 +4286,8 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap name="setupimage" position="890,175" size="256,256" alphatest="blend" conditional="setupimage" pixmap="icons/menu_softcam_settings.png" transparent="1" zPosition="2" />
+		<widget name="setupimage" position="890,175" size="256,256" alphatest="blend" conditional="setupimage" transparent="1" zPosition="2" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<!-- SoftcamSetup -->
 	<!-- IceTV -->
@@ -4532,6 +4458,7 @@ if len(listitems.list) &gt; 2:
 		<setup key="StreamRelay" image="icons/menu_softcam_settings.png" />
 		<setup key="EPGJumpTime" image="icons/timer.png" />
 		<setup key="InstantRecordingEndTime" image="icons/timer.png" />
+		<setup key="Softcam" image="icons/menu_softcam_settings.png" />
 	</setups>
 
 	<menus>
@@ -4764,5 +4691,31 @@ if len(listitems.list) &gt; 2:
 		<menu key="tuner_basic_settings" image="icons/menu_tuner_basic_settings.png" />
 
 	</menus>
+
+	<screens>
+		<screen key="DistributionInformation" image="icons/menu_information_about.png" />
+		<screen key="Information" image="icons/menu_information.png" />
+		<screen key="NetworkInformation" image="icons/menu_network_info.png" />
+		<screen key="ReceiverInformation" image="icons/menu_receiver_info.png" />
+		<screen key="TunerInformation" image="icons/menu_tuner_info.png" />
+		<screen key="StorageInformation" image="icons/menu_storage_info.png" />
+		<screen key="MemoryInformation" image="icons/menu_memory_info.png" />
+		<screen key="MultiBootInformation" image="icons/menu_multiboot_info.png" />
+		<screen key="StreamingInformation" image="icons/menu_streaming_clients_info.png" />
+		<screen key="GeolocationInformation" image="icons/menu_geolocation_info.png" />
+		<screen key="ServiceInformation" image="icons/menu_service_info.png" />
+		<screen key="PictureInformation" image="icons/menu_images_info.png" />
+		<screen key="AdapterSetup" image="icons/net.png" />
+		<screen key="AdapterSetupConfiguration" image="icons/net.png" />
+		<screen key="NetworkMacSetup" image="icons/net.png" />
+		<screen key="NetworkMountsMenu" image="icons/menu_network_netmounts_setup.png" />
+		<screen key="NameserverSetup" image="icons/net.png" />
+		<screen key="NetworkAdapterSelection" image="icons/net.png" />
+		<screen key="NetworkAdapterTest" image="icons/net.png" />
+		<screen key="WlanStatus" image="icons/wlan.png" />
+		<screen key="WlanScan" image="icons/wlan.png" />
+		<screen key="QuickMenuDevices" image="icons/info.png" />
+		<screen key="SoftcamPanel" image="icons/softcam.png" />
+	</screens>
 
 </skin>
