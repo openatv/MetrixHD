@@ -69,7 +69,7 @@ class MetrixHDXPicon(Renderer):
 						inh = self.instance.size().height()
 						if imh != inh:
 							sf = float(inh) / imh
-							im = im.resize((int(imw * sf), int(imh * sf)), Image.ANTIALIAS)
+							im = im.resize((int(imw * sf), int(imh * sf)), Image.LANCZOS)
 							ims = ImageEnhance.Sharpness(im)
 							im = ims.enhance(float(config.plugins.MyMetrixLiteOther.piconsharpness_experimental.value))
 							tempfile = "/tmp/picon.png"
