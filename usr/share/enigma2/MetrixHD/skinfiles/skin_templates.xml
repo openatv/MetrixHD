@@ -2184,42 +2184,36 @@
 			<widget source="menu" render="Listbox" position="636,60" size="580,540" backgroundColor="menubackground" foregroundColor="menufont" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="menufontselected" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
 				<convert type="TemplatedMultiContent">
 					{"templates":
-						{"default": (60,[
-							MultiContentEntryText(pos = (20, 5), size = (540, 50), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0)
+						{"default": (54,[
+							MultiContentEntryText(pos = (20, 2), size = (540, 50), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0)
 							]),
-						"text": (60,[
-							MultiContentEntryText(pos = (20, 5), size = (540, 50), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3)
+						"text": (54,[
+							MultiContentEntryText(pos = (20, 2), size = (540, 50), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3)
 							]),
-						"number": (60,[
-							MultiContentEntryText(pos = (20, 5), size = (30, 50), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2),
-							MultiContentEntryText(pos = (45, 5), size = (515, 50), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),
+						"number": (54,[
+							MultiContentEntryText(pos = (20, 2), size = (30, 50), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2),
+							MultiContentEntryText(pos = (50, 2), size = (510, 50), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),
 							]),
-						"image": (60,[
+						"image": (54,[
 							MultiContentEntryPixmapAlphaBlend(pos = (20, 4), size = (50, 50), png = 1, flags = BT_SCALE | BT_KEEP_ASPECT_RATIO),
-							MultiContentEntryText(pos = (75, 5), size = (485, 50), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),
+							MultiContentEntryText(pos = (75, 2), size = (485, 50), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),
 							]),
-						"both": (60,[
-							MultiContentEntryPixmapAlphaBlend(pos = (20, 4), size = (50, 50), png = 1, flags = BT_SCALE | BT_KEEP_ASPECT_RATIO),
-							MultiContentEntryText(pos = (75, 5), size = (30, 50), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2),
-							MultiContentEntryText(pos = (100, 5), size = (465, 50), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),
+						"both": (54,[
+							MultiContentEntryPixmapAlphaBlend(pos = (20, 2), size = (50, 50), png = 1, flags = BT_SCALE | BT_KEEP_ASPECT_RATIO),
+							MultiContentEntryText(pos = (75, 2), size = (30, 50), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2),
+							MultiContentEntryText(pos = (100, 2), size = (465, 50), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),
 							])
 						},
-					"fonts": [gFont("global_menu", 30),gFont("global_menu", 29),gFont("global_menu", 28)],
-					"itemHeight": 60,
+					"fonts": [gFont("global_menu", 29),gFont("global_menu", 28),gFont("global_menu", 27)],
+					"itemHeight": 54,
 					"scrollbarMode": "showNever"
 					}
 				</convert>
 			</widget>
 
-			<!--widget source="menu" render="Pixmap" pixmap="buttons/key_up.png" position="871,36" size="30,30" alphatest="blend">
-				<convert type="MetrixHDMenuEntryCompare" />
-				<convert type="ValueRange">0,9</convert>
-				<convert type="ConditionalShowHide">Invert</convert>
-			</widget>
-			<widget source="menu" render="Pixmap" pixmap="buttons/key_down.png" position="871,594" size="30,30" alphatest="blend"-->
 			<widget source="menu" render="FixedLabel" text="&#x25ba;" position="1180,596" size="20,20" font="SetrixHD;16" foregroundColor="menufont" backgroundColor="menubackground" halign="right" valign="bottom" transparent="1">
 				<convert type="MetrixHDMenuEntryCompare" />
-				<convert type="ValueRange">0,9</convert>
+				<convert type="ValueRange">0,10</convert>
 				<convert type="ConditionalShowHide">Invert</convert>
 			</widget>
 
