@@ -257,24 +257,6 @@
 		<panel name="_oe-buttons_template1" />
 		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
-	<screen name="NetworkInadynSetup" title="Inadyn Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
-		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_Inadyn_setup.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="NetworkuShareSetup" title="uShare Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
-		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_minidlna_setup.png" transparent="1" alphatest="blend" />
-	</screen>
 	<screen name="uShareSelection" title="uShare Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -4159,6 +4141,9 @@ if len(listitems.list) &gt; 2:
 		<setup key="InstantRecordingEndTime" image="icons/timer.png" />
 		<setup key="Softcam" image="icons/menu_softcam_settings.png" />
 		<setup key="NetworkServicesSetup" image="icons/net.png" />
+		<setup key="NetworkInadynSetup" image="icons/menu_network_Inadyn_setup.png" />
+		<setup key="NetworkMiniDLNASetup" image="icons/menu_network_minidlna_setup.png" />
+		<setup key="NetworkuShareSetup" image="icons/menu_network_netushare_setup.png" />
 	</setups>
 
 	<menus>
@@ -4238,18 +4223,9 @@ if len(listitems.list) &gt; 2:
 		<menu key="moviebrowser" image="icons/service_info.png" />
 		<menu key="multi_quick" image="icons/remotecontrol.png" />
 		<menu key="multiboot" image="icons/restart.png" />
-		<menu key="netafp_setup" image="icons/menu_network_netafp_setup.png" />
 		<menu key="Netflix Plugin" image="icons/menu_mainmenu_netflix.png" />
-		<menu key="netftp_setup" image="icons/menu_network_netftp_setup.png" />
 		<menu key="netmounts_setup" image="icons/menu_network_netmounts_setup.png" />
-		<menu key="netnfs_setup" image="icons/menu_network_netnfs_setup.png" />
-		<menu key="netrts_setup" image="icons/menu_network_netnfs_setup.png" />
-		<menu key="netsabnzbd_setup" image="icons/menu_network_netsabnzbd_setup.png" />
-		<menu key="netsatpi_setup" image="icons/menu_scan_satip.png" />
-		<menu key="netsmba_setup" image="icons/menu_network_netsmba_setup.png" />
-		<menu key="nettelnet_setup" image="icons/menu_network_nettelnet_setup.png" />
 		<menu key="netushare_setup" image="icons/menu_network_netushare_setup.png" />
-		<menu key="netvpn_setup" image="icons/menu_network_netvpn_setup.png" />
 		<menu key="numzapext_setup" image="icons/menu_numzapext_setup.png" />
 		<menu key="OpenStore" image="icons/menu_mainmenu_openstore.png" />
 		<menu key="openwebif" image="icons/menu_network_webif.png" />
