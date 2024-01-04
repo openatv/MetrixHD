@@ -36,7 +36,7 @@ from Components.NimManager import nimmanager
 
 from enigma import getDesktop
 from Components.SystemInfo import BoxInfo
-from skin import colors, reloadWindowStyles, parseColor
+from skin import colors, reloadWindowStyles, parseColor, parameters
 
 from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, initFontsConfig, appendSkinFile, \
 	SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, \
@@ -3301,5 +3301,19 @@ def applySkinSettings(fullInit=False):
 			continue
 
 		colors[label] = parseColor(colorvalue)
+
+	# InformationColors
+	if config.plugins.MyMetrixLiteColors.SkinColorExamples.value != "preset_0":
+		color1 = f"0x00{config.plugins.MyMetrixLiteColors.infobarfont1.value.lower()}"
+		color2 = f"0x00{config.plugins.MyMetrixLiteColors.infobarfont2.value.lower()}"
+		color3 = f"0x00{config.plugins.MyMetrixLiteColors.infobaraccent2.value.lower()}"
+		try:
+			infoColors = (int(color1, 16), int(color2, 16), int(color3, 16))
+		except Exception:
+			infoColors = None
+			pass
+
+		if infoColors:
+			parameters["InformationColors"] = [infoColors[0], infoColors[0], infoColors[0], infoColors[1], infoColors[1], infoColors[0], infoColors[2]]
 
 	reloadWindowStyles()
