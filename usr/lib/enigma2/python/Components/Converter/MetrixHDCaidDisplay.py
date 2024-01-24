@@ -307,7 +307,11 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 									y = line.find(",")
 									if y != -1:
 										info["caid"] = line[x + 5:y]
-
+			try:
+				if info and info.get("from") and config.softcam.hideServerName.value:
+					info["from"] = "\u2022"
+			except:
+				pass
 		return info
 
 	def changed(self, what):

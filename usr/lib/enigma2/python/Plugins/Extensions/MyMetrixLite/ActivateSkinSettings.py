@@ -36,7 +36,7 @@ from Components.NimManager import nimmanager
 
 from enigma import getDesktop
 from Components.SystemInfo import BoxInfo
-from skin import colors, reloadWindowStyles, parseColor
+from skin import colors, reloadWindowStyles, parseColor, parameters
 
 from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, initFontsConfig, appendSkinFile, \
 	SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, \
@@ -1328,7 +1328,7 @@ class ActivateSkinSettings:
 			fontx = sizex + 1
 			while fontx > sizex:
 				font = ImageFont.truetype(fonttyp, fontsize - x)
-				fontx, fonty = font.getsize(text)
+				_x, _y, fontx, fonty = font.getbbox(text)
 				#fixme fonty size factor different with new pillow 6.2.1
 				fonty = fonty * 1.27
 				x += 1
@@ -1343,13 +1343,13 @@ class ActivateSkinSettings:
 			drawtxt.text((int((sizex - fontx) / 2), int((sizey - fonty) / 2) + symbolpos + config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition.value), text, fill=textcolor, font=font)
 			#rotate updown
 			if 'key_updown.png' in button and not unicodechar:  # rotation disabled - if using unicode charachters
-				top = int(font.getsize('<')[0] / 2) - 1
+				top = int(font.getbbox('<')[2] / 2) - 1
 				lefta = int((sizex - fontx) / 2)
-				righta = lefta + font.getsize('<')[0]
-				leftb = lefta + fontx - font.getsize('<')[0]
-				rightb = leftb + font.getsize('<')[0]
-				upper = int((sizey - fonty + font.getsize('<')[1]) / 2) - top
-				lower = upper + font.getsize('<')[0]
+				righta = lefta + font.getbbox('<')[2]
+				leftb = lefta + fontx - font.getbbox('<')[2]
+				rightb = leftb + font.getbbox('<')[2]
+				upper = int((sizey - fonty + font.getbbox('<')[3]) / 2) - top
+				lower = upper + font.getbbox('<')[2]
 				imga = imgtxt.crop((lefta, upper, righta, lower)).rotate(-90)
 				imgb = imgtxt.crop((leftb, upper, rightb, lower)).rotate(-90)
 				drawtxt.rectangle(((0, 0), (sizex, sizey)), fill=(textcolor[0], textcolor[1], textcolor[2], 0))
@@ -3301,5 +3301,19 @@ def applySkinSettings(fullInit=False):
 			continue
 
 		colors[label] = parseColor(colorvalue)
+
+	# InformationColors
+	if config.plugins.MyMetrixLiteColors.SkinColorExamples.value != "preset_0":
+		color1 = f"0x00{config.plugins.MyMetrixLiteColors.infobarfont1.value.lower()}"
+		color2 = f"0x00{config.plugins.MyMetrixLiteColors.infobarfont2.value.lower()}"
+		color3 = f"0x00{config.plugins.MyMetrixLiteColors.infobaraccent2.value.lower()}"
+		try:
+			infoColors = (int(color1, 16), int(color2, 16), int(color3, 16))
+		except Exception:
+			infoColors = None
+			pass
+
+		if infoColors:
+			parameters["InformationColors"] = [infoColors[0], infoColors[0], infoColors[0], infoColors[1], infoColors[1], infoColors[0], infoColors[2]]
 
 	reloadWindowStyles()

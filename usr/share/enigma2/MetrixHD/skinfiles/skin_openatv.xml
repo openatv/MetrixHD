@@ -25,6 +25,7 @@
 		<widget name="information" position="70,100" size="700,480" colPosition="280" conditional="information" divideChar="|" font="Regular;17" leftColAlign="left" rightColAlign="left" split="1" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 
 	<screen name="information_common2">
@@ -42,7 +43,6 @@
 		<eLabel text="https://github.com/oe-alliance" position="825,520" size="380,30" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
 		<panel name="information_common" />
 		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_information_about.png" transparent="1" alphatest="blend" />
 	</screen>
 
 	<screen name="PictureInformation" position="0,0" size="1280,720" title="Receiver Images" flags="wfNoBorder" backgroundColor="transparent">
@@ -53,7 +53,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_he-buttons_template2" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_images_info.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 
 	<screen name="SystemInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
@@ -71,61 +71,6 @@
 	<screen name="Information" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="information_common" />
 		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_information.png" transparent="1" alphatest="blend" />
-	</screen>
-
-	<screen name="NetworkInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_network_info.png" transparent="1" alphatest="blend" />
-	</screen>
-
-	<screen name="ReceiverInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_receiver_info.png" transparent="1" alphatest="blend" />
-	</screen>
-
-	<screen name="TunerInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_tuner_info.png" transparent="1" alphatest="blend" />
-	</screen>
-
-	<screen name="StorageInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_storage_info.png" transparent="1" alphatest="blend" />
-	</screen>
-
-	<screen name="MemoryInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_memory_info.png" transparent="1" alphatest="blend" />
-	</screen>
-
-	<screen name="MultiBootInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_multiboot_info.png" transparent="1" alphatest="blend" />
-	</screen>
-
-	<screen name="StreamingInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_streaming_clients_info.png" transparent="1" alphatest="blend" />
-	</screen>
-
-	<screen name="GeolocationInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_geolocation_info.png" transparent="1" alphatest="blend" />
-	</screen>
-
-	<screen name="ServiceInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="information_common" />
-		<panel name="_he-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="10" pixmap="icons/menu_service_info.png" transparent="1" alphatest="blend" />
 	</screen>
 
 	<!-- Network Adapter -->
@@ -152,7 +97,7 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="toe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="AdapterSetupConfiguration" position="0,0" size="1280,720" title="Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -165,7 +110,7 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="NetworkMacSetup" position="0,0" size="1280,720" title="MAC-address settings" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -174,7 +119,7 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="NetworkMountsMenu" position="0,0" size="1280,720" title="Mounts Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -183,7 +128,7 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_netmounts_setup.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="NameserverSetup" position="0,0" size="1280,720" title="Nameserver Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -192,7 +137,7 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="NetworkAdapterSelection" position="0,0" size="1280,720" title="Select Network Adapter" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -213,7 +158,7 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="NetworkAdapterTest" position="0,0" size="1280,720" title="Network test..." flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -253,8 +198,8 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
-	</screen>	
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
+	</screen>
 	<screen name="WlanStatus" position="0,0" size="1280,720" title="Wireless Network State" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="IF" render="Label" position="70,115" size="495,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
@@ -286,7 +231,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/wlan.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="WlanScan" position="0,0" size="1280,720" title="Choose a Wireless Network" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -310,69 +255,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/wlan.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="NetworkSamba" title="Samba Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="lab1" position="70,130" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labactive" position="320,130" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="layer-a-background" zPosition="2" />
-		<widget name="lab2" position="70,190" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labstop" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="red" zPosition="1" />
-		<widget name="labrun" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="green" zPosition="2" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_netsmba_setup.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="NetworkSambaLog" title="Samba Log" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="infotext" position="70,100" size="700,500" zPosition="3" itemHeight="25" font="screen_info;18" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_netsmba_setup.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="NetworkInadyn" title="Inadyn Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,54" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="autostart" position="70,130" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labdisabled" position="320,130" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="red" zPosition="1" />
-		<widget name="labactive" position="320,130" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="green" zPosition="2" />
-		<widget name="status" position="70,190" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labstop" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="red" zPosition="1" />
-		<widget name="labrun" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="green" zPosition="2" />
-		<widget name="time" position="70,250" size="240,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labtime" position="320,250" size="100,30" font="Regular;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="username" position="70,310" size="220,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labuser" position="320,310" size="350,30" font="Regular;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="password" position="70,370" size="220,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labpass" position="320,370" size="350,30" font="Regular;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="alias" position="70,430" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labalias" position="320,430" size="350,30" font="Regular;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="sinactive" position="70,490" zPosition="1" pixmap="skin_default/icons/lock_off.png" size="32,32" alphatest="on" />
-		<widget name="sactive" position="70,490" zPosition="2" pixmap="skin_default/icons/lock_on.png" size="32,32" alphatest="on" />
-		<widget name="system" position="110,490" size="100,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labsys" position="320,490" size="350,30" font="Regular;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="moe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_Inadyn_setup.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="NetworkInadynSetup" title="Inadyn Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
-		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_Inadyn_setup.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="NetworkuShareSetup" title="uShare Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
-		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_minidlna_setup.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="uShareSelection" title="uShare Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
@@ -383,57 +266,12 @@
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_netnfs_setup.png" transparent="1" alphatest="blend" />
 	</screen>
-	<screen name="NetworkInadynLog" title="Inadyn Log" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="NetworkLogScreen" title="Network Log" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="infotext" position="70,100" size="700,500" font="SetrixHD;18" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/info.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="NetworkNfs" title="NFS Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="lab1" position="70,130" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labactive" position="320,130" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="layer-a-background" zPosition="2" />
-		<widget name="lab2" position="70,190" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labstop" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="red" zPosition="1" />
-		<widget name="labrun" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="green" zPosition="2" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_netnfs_setup.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="NetworkTelnet" title="Telnet Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="lab1" position="70,130" size="700,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="lab2" position="70,190" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labstop" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="red" zPosition="1" />
-		<widget name="labrun" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="green" zPosition="2" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_nettelnet_setup.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="NetworkFtp" title="FTP Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="lab1" position="70,130" size="700,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="lab2" position="70,190" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labstop" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="red" zPosition="1" />
-		<widget name="labrun" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="green" zPosition="2" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_netftp_setup.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="NetworkPassword" position="0,0" size="1280,720" title="NetworkPassword" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget name="description" position="810,385" size="415,220" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
-		<widget name="footnote" position="70,610" size="700,25" font="screen_text;16" halign="right" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<panel name="template1_2layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_passwd_setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="ScanIP" title="Scan IP" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
@@ -442,123 +280,6 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="NetworkOpenvpn" title="OpenVpn Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="lab1" position="70,130" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labactive" position="320,130" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="layer-a-background" zPosition="2" />
-		<widget name="lab2" position="70,190" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labstop" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="red" zPosition="1" />
-		<widget name="labrun" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="green" zPosition="2" />
-		<widget name="labconfig" position="70,250" size="520,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-+		<widget name="labconfigfilename" position="600,250" size="180,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_netvpn_setup.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="NetworkSABnzbd" title="SABnzbd Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="lab1" position="70,130" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labactive" position="320,130" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="layer-a-background" zPosition="2" />
-		<widget name="lab2" position="70,190" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labstop" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="red" zPosition="1" />
-		<widget name="labrun" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="green" zPosition="2" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_netsabnzbd_setup.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="NetworkSATPI" title="SATPI Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="lab1" position="70,130" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labactive" position="320,130" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="layer-a-background" zPosition="2" />
-		<widget name="lab2" position="70,190" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labstop" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="red" zPosition="1" />
-		<widget name="labrun" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="green" zPosition="2" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_scan_satip.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="NetworkAfp" position="0,0" size="1280,720" title="AFP Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="lab1" position="70,130" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labactive" position="320,130" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="layer-a-background" zPosition="2" />
-		<widget name="lab2" position="70,190" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labstop" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="red" zPosition="1" />
-		<widget name="labrun" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="green" zPosition="2" />
-		<panel name="template1_2layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_netafp_setup.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="NetworkMiniDLNA" title="MiniDLNA Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="autostart" position="70,130" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labdisabled" position="320,130" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="red" zPosition="1" />
-		<widget name="labactive" position="320,130" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="green" zPosition="2" />
-		<widget name="status" position="70,190" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labstop" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="red" zPosition="1" />
-		<widget name="labrun" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="green" zPosition="2" />
-		<widget name="username" position="70,250" size="240,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labuser" position="320,250" size="100,30" font="Regular;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="iface" position="70,310" size="220,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labiface" position="320,310" size="350,30" font="Regular;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="port" position="70,370" size="220,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labport" position="320,370" size="350,30" font="Regular;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="serialno" position="70,430" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labserialno" position="320,430" size="350,30" font="Regular;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="sharedir" position="70,490" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labsharedir" position="320,490" size="350,30" font="Regular;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="inotify" position="110,550" size="300,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="inotifyactive" position="70,550" zPosition="1" pixmap="skin_default/icons/lock_on.png" size="32,32" alphatest="on" />
-		<widget name="inotifyinactive" position="70,550" zPosition="2" pixmap="skin_default/icons/lock_off.png" size="32,32" alphatest="on" />
-		<widget name="tivo" position="440,550" size="300,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="tivoactive" position="400,550" zPosition="1" pixmap="skin_default/icons/lock_on.png" size="32,32" alphatest="on" />
-		<widget name="tivoinactive" position="400,550" zPosition="2" pixmap="skin_default/icons/lock_off.png" size="32,32" alphatest="on" />
-		<widget name="dlna" position="110,580" size="300,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="dlnaactive" position="70,580" zPosition="1" pixmap="skin_default/icons/lock_on.png" size="32,32" alphatest="on" />
-		<widget name="dlnainactive" position="70,580" zPosition="2" pixmap="skin_default/icons/lock_off.png" size="32,32" alphatest="on" />
-		<panel name="template1_2layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="moe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_minidlna_setup.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="NetworkuShare" title="uShare Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="autostart" position="70,130" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labdisabled" position="320,130" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="red" zPosition="1" />
-		<widget name="labactive" position="320,130" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="green" zPosition="2" />
-		<widget name="status" position="70,190" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labstop" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="red" zPosition="1" />
-		<widget name="labrun" position="320,190" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="green" zPosition="2" />
-		<widget name="username" position="70,250" size="240,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labuser" position="320,250" size="100,30" font="Regular;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="iface" position="70,310" size="220,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labiface" position="320,310" size="350,30" font="Regular;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="port" position="70,370" size="220,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labport" position="320,370" size="350,30" font="Regular;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="telnetport" position="70,430" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labtelnetport" position="320,430" size="350,30" font="Regular;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="sharedir" position="70,490" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="labsharedir" position="320,490" size="350,30" font="Regular;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="web" position="110,550" size="300,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="webactive" position="70,550" zPosition="1" pixmap="skin_default/icons/lock_on.png" size="32,32" alphatest="on" />
-		<widget name="webinactive" position="70,550" zPosition="2" pixmap="skin_default/icons/lock_off.png" size="32,32" alphatest="on" />
-		<widget name="telnet" position="440,550" size="300,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="telnetactive" position="400,550" zPosition="1" pixmap="skin_default/icons/lock_on.png" size="32,32" alphatest="on" />
-		<widget name="telnetinactive" position="400,550" zPosition="2" pixmap="skin_default/icons/lock_off.png" size="32,32" alphatest="on" />
-		<widget name="xbox" position="110,580" size="300,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="xboxactive" position="70,580" zPosition="1" pixmap="skin_default/icons/lock_on.png" size="32,32" alphatest="on" />
-		<widget name="xboxinactive" position="70,580" zPosition="2" pixmap="skin_default/icons/lock_off.png" size="32,32" alphatest="on" />
-		<widget name="dlna" position="440,580" size="300,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="dlnaactive" position="400,580" zPosition="1" pixmap="skin_default/icons/lock_on.png" size="32,32" alphatest="on" />
-		<widget name="dlnainactive" position="400,580" zPosition="2" pixmap="skin_default/icons/lock_off.png" size="32,32" alphatest="on" />
-		<panel name="template1_2layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="moe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_netushare_setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- Menu Horizental-->
 	<screen name="Animmain" position="0,0" size="1280,720" title="Mainmenu" backgroundColor="transparent" flags="wfNoBorder">
@@ -661,8 +382,8 @@
 		</widget>
 		<widget name="lab1" zPosition="2" position="126,170" size="600,40" font="Regular;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" transparent="1" />
 		<panel name="template1_2layer" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/info.png" transparent="1" alphatest="blend" />
 		<panel name="__e-buttons_template1" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 
 	<screen name="Info" position="0,0" size="1280,720" title="Info" flags="wfNoBorder" backgroundColor="transparent">
@@ -684,135 +405,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/softcam.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="ShowSoftcamPackages" position="0,0" size="1280,720" title="Install Softcams" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="list" render="Listbox" position="70,100" size="700,500" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
-			<convert type="TemplatedMultiContent">
-				{"template": [
-						MultiContentEntryPixmapAlphaBlend(pos = (10, 2), size = (48, 48), png = 4, flags = BT_SCALE), # index 4 is the status pixmap
-						MultiContentEntryText(pos = (65, 2), size = (625, 28), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the name
-						MultiContentEntryText(pos = (65, 26), size = (625, 20), font=1, flags = RT_HALIGN_LEFT, text = 2, color=0x8A8787, color_sel=0x8A8787), # index 2 is the description
-						MultiContentEntryPixmapAlphaBlend(pos = (0, 48), size = (0, 0), png = 5), # index 4 is the div pixmap
-					],
-				"fonts": [gFont("Regular",20),gFont("Regular",16)],
-				"itemHeight": 50
-				}
-			</convert>
-		</widget>
-		<eLabel text="OK  =" position="940,500" size="60,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="right" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<widget source="key_ok" render="Label" position="1010,500" size="150,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="left" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<panel name="template1_2layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/softcam.png" transparent="1" alphatest="blend" />
-	</screen>
-	<!--Oscaminfo-->
-	<screen name="OscamInfoMenu" position="0,0" size="1280,720" title="OscamInfo Menu" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="mainmenu" position="70,100" size="700,490" enableWrapAround="1" itemHeight="35" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
-		<panel name="template1_2layer" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_oscam_info.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="oscInfo" position="0,0" size="1280,720" title="Client Info" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="900,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="output" position="70,100" size="1140,520" scrollbarMode="showNever" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" zPosition="1" transparent="1" />
-		<panel name="template1_1layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/ok.png" transparent="1" alphatest="on" />
-		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/key_exit.png" transparent="1" alphatest="on" />
-		<!--applet type="onLayoutFinish">
-from enigma import eSize,ePoint, getDesktop
-deskwidth = getDesktop(0).size().width()
-deskheight = getDesktop(0).size().height()
-# resize
-self.instance.resize(eSize(*(deskwidth,deskheight)))
-# center
-self.instance.move(ePoint(0,0))
-		</applet-->
-	</screen>
-	<screen name="oscECMInfo" position="0,0" size="1280,720" title="OscamECM Info" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="output" font="screen_info;20" position="70,100" size="700,510" itemHeight="30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" zPosition="1" transparent="1" />
-		<panel name="template1_2layer" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_oscam_info.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="oscReaderStats" position="0,0" size="1280,720" title="OscamReader Stats" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="900,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="output" render="Listbox" position="70,100" size="1140,540" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarMode="showOnDemand" zPosition="1" transparent="1" >
-				<convert type="TemplatedMultiContent">
-				{"templates":
-					{"default": (30,[
-							MultiContentEntryText(pos = (0, 1), size = (100, 24), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is caid
-							MultiContentEntryText(pos = (100, 1), size = (50, 24), font=0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is csystem
-							MultiContentEntryText(pos = (150, 1), size = (150, 24), font=0, flags = RT_HALIGN_LEFT, text = 2), # index 2 is hop 1
-							MultiContentEntryText(pos = (300, 1), size = (60, 24), font=0, flags = RT_HALIGN_LEFT, text = 3), # index 3 is hop 2
-							MultiContentEntryText(pos = (360, 1), size = (60, 24), font=0, flags = RT_HALIGN_LEFT, text = 4), # index 4 is hop 3
-							MultiContentEntryText(pos = (420, 1), size = (80, 24), font=0, flags = RT_HALIGN_LEFT, text = 5), # index 5 is hop 4
-							MultiContentEntryText(pos = (510, 1), size = (80, 24), font=0, flags = RT_HALIGN_LEFT, text = 6), # index 6 is hop 5
-							MultiContentEntryText(pos = (590, 1), size = (80, 24), font=0, flags = RT_HALIGN_LEFT, text = 7), # index 7 is sum of cards for caid
-							]),
-					"HD": (30,[
-							MultiContentEntryText(pos = (10, 1), size = (190, 24), font=1, flags = RT_HALIGN_LEFT, text = 0), # index 0 is caid
-							MultiContentEntryText(pos = (170, 1), size = (70, 24), font=1, flags = RT_HALIGN_LEFT, text = 1), # index 1 is csystem
-							MultiContentEntryText(pos = (240, 1), size = (230, 24), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 2 is hop 1
-							MultiContentEntryText(pos = (520, 1), size = (160, 24), font=1, flags = RT_HALIGN_LEFT, text = 3), # index 3 is hop 2
-							MultiContentEntryText(pos = (680, 1), size = (130, 24), font=1, flags = RT_HALIGN_LEFT, text = 4), # index 4 is hop 3
-							MultiContentEntryText(pos = (810, 1), size = (130, 24), font=1, flags = RT_HALIGN_LEFT, text = 5), # index 5 is hop 4
-							MultiContentEntryText(pos = (900, 1), size = (130, 24), font=1, flags = RT_HALIGN_LEFT, text = 6), # index 6 is hop 5
-							MultiContentEntryText(pos = (1060, 1), size = (100, 24), font=1, flags = RT_HALIGN_LEFT, text = 7), # index 7 is sum of cards for caid
-							]),
-					},
-					"fonts": [gFont("Regular",14),gFont("Regular",18),gFont("Regular",24),gFont("Regular",20)],
-					"itemHeight": 30
-				}
-				</convert>
-		</widget>
-		<panel name="template1_1layer" />
-		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/ok.png" transparent="1" alphatest="on" />
-		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/key_exit.png" transparent="1" alphatest="on" />
-	</screen>
-	<screen name="oscEntitlements" position="0,0" size="1280,720" title="OscamReader Stats" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="900,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="output" render="Listbox" position="70,100" size="1140,540" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" zPosition="1" transparent="1" >
-				<convert type="TemplatedMultiContent">
-				{"templates":
-					{"default": (60,[
-							MultiContentEntryText(pos = (0, 1), size = (80, 24), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is caid
-							MultiContentEntryText(pos = (90, 1), size = (150, 24), font=0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is csystem
-							MultiContentEntryText(pos = (250, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 2), # index 2 is hop 1
-							MultiContentEntryText(pos = (290, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 3), # index 3 is hop 2
-							MultiContentEntryText(pos = (330, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 4), # index 4 is hop 3
-							MultiContentEntryText(pos = (370, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 5), # index 5 is hop 4
-							MultiContentEntryText(pos = (410, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 6), # index 6 is hop 5
-							MultiContentEntryText(pos = (480, 1), size = (70, 24), font=0, flags = RT_HALIGN_LEFT, text = 7), # index 7 is sum of cards for caid
-							MultiContentEntryText(pos = (550, 1), size = (80, 24), font=0, flags = RT_HALIGN_LEFT, text = 8), # index 8 is reshare
-							MultiContentEntryText(pos = (0, 25), size = (700, 24), font=1, flags = RT_HALIGN_LEFT, text = 9), # index 9 is providers
-							]),
-					"HD": (60,[
-							MultiContentEntryText(pos = (0, 1), size = (80, 24), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is caid
-							MultiContentEntryText(pos = (90, 1), size = (150, 24), font=0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is csystem
-							MultiContentEntryText(pos = (250, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 2), # index 2 is hop 1
-							MultiContentEntryText(pos = (290, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 3), # index 3 is hop 2
-							MultiContentEntryText(pos = (330, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 4), # index 4 is hop 3
-							MultiContentEntryText(pos = (370, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 5), # index 5 is hop 4
-							MultiContentEntryText(pos = (410, 1), size = (40, 24), font=0, flags = RT_HALIGN_LEFT, text = 6), # index 6 is hop 5
-							MultiContentEntryText(pos = (480, 1), size = (70, 24), font=0, flags = RT_HALIGN_LEFT, text = 7), # index 7 is sum of cards for caid
-							MultiContentEntryText(pos = (550, 1), size = (80, 24), font=0, flags = RT_HALIGN_LEFT, text = 8), # index 8 is reshare
-							MultiContentEntryText(pos = (630, 1), size = (1024, 50), font=1, flags = RT_HALIGN_LEFT, text = 9), # index 9 is providers
-							]),
-					},
-					"fonts": [gFont("Regular",18),gFont("Regular",14),gFont("Regular",24),gFont("Regular",20)],
-					"itemHeight": 60
-				}
-				</convert>
-		</widget>
-		<panel name="template1_1layer" />
-		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/ok.png" transparent="1" alphatest="on" />
-		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/key_exit.png" transparent="1" alphatest="on" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<!--CCcaminfo-->
 	<screen name="CCcamInfoMain" position="0,0" size="1280,720" title="CCcam Info" flags="wfNoBorder" backgroundColor="transparent">
@@ -952,6 +545,7 @@ self.instance.move(ePoint(0,0))
 		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="setup_common"/>
 		<widget name="setupimage" position="890,135" size="256,256" alphatest="blend" conditional="setupimage" transparent="1" zPosition="2" />
+		<widget name="Image" position="890,135" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="SetupInfo" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
@@ -1075,6 +669,7 @@ self['config'].l.setSeperation(int(300*f))
 		<widget source="current_address" render="Label" position="825,150" size="380,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<widget source="fixed_address" render="Label" position="825,175" size="380,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<widget name="setupimage" position="890,175" size="256,256" alphatest="blend" conditional="setupimage" transparent="1" zPosition="2" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="HdmiCECSetupScreen" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
@@ -4361,7 +3956,8 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap name="setupimage" position="890,175" size="256,256" alphatest="blend" conditional="setupimage" pixmap="icons/menu_softcam_settings.png" transparent="1" zPosition="2" />
+		<widget name="setupimage" position="890,175" size="256,256" alphatest="blend" conditional="setupimage" transparent="1" zPosition="2" />
+		<widget name="Image" position="890,175" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<!-- SoftcamSetup -->
 	<!-- IceTV -->
@@ -4532,6 +4128,12 @@ if len(listitems.list) &gt; 2:
 		<setup key="StreamRelay" image="icons/menu_softcam_settings.png" />
 		<setup key="EPGJumpTime" image="icons/timer.png" />
 		<setup key="InstantRecordingEndTime" image="icons/timer.png" />
+		<setup key="Softcam" image="icons/menu_softcam_settings.png" />
+		<setup key="NetworkServicesSetup" image="icons/net.png" />
+		<setup key="NetworkInadynSetup" image="icons/menu_network_Inadyn_setup.png" />
+		<setup key="NetworkMiniDLNASetup" image="icons/menu_network_minidlna_setup.png" />
+		<setup key="NetworkuShareSetup" image="icons/menu_network_netushare_setup.png" />
+		<setup key="Password" image="icons/menu_network_passwd_setup.png" />
 	</setups>
 
 	<menus>
@@ -4611,18 +4213,9 @@ if len(listitems.list) &gt; 2:
 		<menu key="moviebrowser" image="icons/service_info.png" />
 		<menu key="multi_quick" image="icons/remotecontrol.png" />
 		<menu key="multiboot" image="icons/restart.png" />
-		<menu key="netafp_setup" image="icons/menu_network_netafp_setup.png" />
 		<menu key="Netflix Plugin" image="icons/menu_mainmenu_netflix.png" />
-		<menu key="netftp_setup" image="icons/menu_network_netftp_setup.png" />
 		<menu key="netmounts_setup" image="icons/menu_network_netmounts_setup.png" />
-		<menu key="netnfs_setup" image="icons/menu_network_netnfs_setup.png" />
-		<menu key="netrts_setup" image="icons/menu_network_netnfs_setup.png" />
-		<menu key="netsabnzbd_setup" image="icons/menu_network_netsabnzbd_setup.png" />
-		<menu key="netsatpi_setup" image="icons/menu_scan_satip.png" />
-		<menu key="netsmba_setup" image="icons/menu_network_netsmba_setup.png" />
-		<menu key="nettelnet_setup" image="icons/menu_network_nettelnet_setup.png" />
 		<menu key="netushare_setup" image="icons/menu_network_netushare_setup.png" />
-		<menu key="netvpn_setup" image="icons/menu_network_netvpn_setup.png" />
 		<menu key="numzapext_setup" image="icons/menu_numzapext_setup.png" />
 		<menu key="OpenStore" image="icons/menu_mainmenu_openstore.png" />
 		<menu key="openwebif" image="icons/menu_network_webif.png" />
@@ -4762,7 +4355,37 @@ if len(listitems.list) &gt; 2:
 		<menu key="ci_settings" image="icons/menu_ci_settings.png" />
 		<menu key="ci_selection" image="icons/menu_ci_selection.png" />
 		<menu key="tuner_basic_settings" image="icons/menu_tuner_basic_settings.png" />
+		<menu key="networkservices_setup" image="icons/net.png" />
+
+		<menu key="netmounts_manager" image="icons/menu_network_netmounts_setup.png" />
+		<menu key="netmounts_browser" image="icons/menu_network_netmounts_setup.png" />
 
 	</menus>
+
+	<screens>
+		<screen key="DistributionInformation" image="icons/menu_information_about.png" />
+		<screen key="Information" image="icons/menu_information.png" />
+		<screen key="NetworkInformation" image="icons/menu_network_info.png" />
+		<screen key="ReceiverInformation" image="icons/menu_receiver_info.png" />
+		<screen key="TunerInformation" image="icons/menu_tuner_info.png" />
+		<screen key="StorageInformation" image="icons/menu_storage_info.png" />
+		<screen key="MemoryInformation" image="icons/menu_memory_info.png" />
+		<screen key="MultiBootInformation" image="icons/menu_multiboot_info.png" />
+		<screen key="StreamingInformation" image="icons/menu_streaming_clients_info.png" />
+		<screen key="GeolocationInformation" image="icons/menu_geolocation_info.png" />
+		<screen key="ServiceInformation" image="icons/menu_service_info.png" />
+		<screen key="PictureInformation" image="icons/menu_images_info.png" />
+		<screen key="AdapterSetup" image="icons/net.png" />
+		<screen key="AdapterSetupConfiguration" image="icons/net.png" />
+		<screen key="NetworkMacSetup" image="icons/net.png" />
+		<screen key="NetworkMountsMenu" image="icons/menu_network_netmounts_setup.png" />
+		<screen key="NameserverSetup" image="icons/net.png" />
+		<screen key="NetworkAdapterSelection" image="icons/net.png" />
+		<screen key="NetworkAdapterTest" image="icons/net.png" />
+		<screen key="WlanStatus" image="icons/wlan.png" />
+		<screen key="WlanScan" image="icons/wlan.png" />
+		<screen key="QuickMenuDevices" image="icons/info.png" />
+		<screen key="SoftcamPanel" image="icons/softcam.png" />
+	</screens>
 
 </skin>
