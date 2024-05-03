@@ -184,8 +184,10 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 							ecm_time = ecm_info.get("ecm time", '#')
 							if "msec" in ecm_time:
 								ecm_time = f"{ecm_time}"
-							else:
+							elif "." in ecm_time:
 								ecm_time = f"{ecm_time}s"
+							else:
+								ecm_time = f"{ecm_time}ms"
 							if show_caid or show_source or show_hops or ((show_pid or show_protocol) and oscsource):
 								ecm_time = f" - ECM: {ecm_time}"
 							else:
