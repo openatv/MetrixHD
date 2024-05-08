@@ -2567,7 +2567,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- Remote Timer -->
-	<!-- Partnerbox -->
+	<!-- Partnerbox OLD -->
 	<screen name="PartnerboxSetup" position="0,0" size="1280,720" title="Partnerbox Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
@@ -2579,18 +2579,6 @@
 	<screen name="PartnerboxEntryConfigScreen" position="0,0" size="1280,720" title="Partnerbox: Edit Entry" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
-		<panel name="template1_2layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="PartnerboxEntriesListConfigScreen" position="0,0" size="1280,720" title="Partnerbox: List of Entries" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="name" position="75,100" size="200,50" font="Regular;20" halign="left"/>
-		<widget name="ip" position="285,100" size="140,50" font="Regular;20" halign="left"/>
-		<widget name="port" position="420,100" size="80,50" font="Regular;20" halign="left"/>
-		<widget name="type" position="500,100" size="120,50" font="Regular;20" halign="left"/>
-		<widget name="entrylist" position="70,150" size="700,300" itemHeight="30" scrollbarMode="showOnDemand"/>	
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
@@ -2643,6 +2631,128 @@
 		<panel name="__e-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
+	<screen name="RemoteTimerEventView" position="0,0" size="1280,720" title="Eventview" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="epg_description" position="70,100" size="700,520" font="epg_info;22" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="channel" position="832,212" size="370,70" font="epg_event;26" halign="center" valign="bottom" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<eLabel position="859,310" size="315,1" backgroundColor="layer-b-accent1" />
+		<widget name="datetime" position="882,337" size="270,40" font="screen_info;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<widget name="duration" position="882,392" size="270,40" font="screen_info;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="__e-buttons_template1" />
+	</screen>
+	<!-- Partnerbox OLD -->
+	<!-- Partnerbox NEW -->
+
+	<screen name="PartnerboxEntriesListConfigScreen" position="0,0" size="1280,720" title="Partnerbox: List of Entries" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="name" position="75,100" size="200,50" font="Regular;20" halign="left"/>
+		<widget name="ip" position="285,100" size="140,50" font="Regular;20" halign="left"/>
+		<widget name="port" position="420,100" size="80,50" font="Regular;20" halign="left"/>
+		<widget name="type" position="500,100" size="120,50" font="Regular;20" halign="left"/>
+		<widget name="entrylist" position="70,150" size="700,300" itemHeight="30" scrollbarMode="showOnDemand"/>	
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
+	</screen>
+
+	<screen name="RemoteChannelList" position="0,0" size="1280,720" flags="wfNoBorder" title="Partnerbox:Channel List" backgroundColor="transparent">
+		<panel name="CHANNELSELECTION-Title-1" />
+		<widget source="menulist" render="Listbox" position="70,100" size="700,530" scrollbarMode="showOnDemand" foregroundColor="#20ffffff" backgroundColor="#20000000" zPosition="1" transparent="0">
+			<convert type="TemplatedMultiContent">
+			{"template": 
+				[  # indexlist:rawdata, sname, title, progress, timeline, btimestr, etimestr, dtimestr, rest
+				MultiContentEntryText(pos=(0,2), size=(160,24), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=1), # servicename
+				MultiContentEntryText(pos=(180,2), size=(570,24), font=0, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS, text=2), # title
+				MultiContentEntryProgress(pos=(0,30), size=(160,10), percent=-3), # percent
+				MultiContentEntryText(pos=(180,22), size=(570,24), font=1, flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER, text=4)# timeline
+				],
+				"fonts": [gFont("Regular",20), gFont("Regular",18)],
+				"itemHeight":50
+			}
+			</convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="820,80" size="395,65" font="epg_event;24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="center" valign="center">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="843,152" size="64,25" font="screen_text;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="right" valign="center" >
+			<convert type="EventTime">StartTime</convert>
+			<convert type="ClockToText">Format:%H:%M</convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="1128,152" size="77,25" font="screen_text;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" valign="center" >
+			<convert type="EventTime">EndTime</convert>
+			<convert type="ClockToText">Format:%H:%M</convert>
+		</widget>
+		<eLabel position="914,165" size="206,1" backgroundColor="layer-b-accent1" />
+		<widget source="ServiceEvent" render="Progress" position="914,163" size="206,5" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
+			<convert type="EventTime">Progress</convert>
+		</widget>
+		<widget source="ServiceEvent" render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="825,195" size="385,250" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
+			<convert type="EventName">FullDescription</convert>
+		</widget>
+		<widget source="footnote" render="Label" position="810,385" size="415,220" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template1" />
+
+	</screen>	
+
+	<screen name="RemotePlayer" flags="wfNoBorder" position="0,0" size="1280,720" title="RemotePlayer" backgroundColor="transparent">
+
+		<panel name="COLORGRADIENT_bottom_IB" />
+
+		<panel name="CLOCKWIDGET" />
+
+		<widget font="global_large;80" backgroundColor="text-background" foregroundColor="background-text" noWrap="1" position="30,455" render="Label" size="1252,105" source="Name" transparent="1" valign="bottom" zPosition="-30" />
+
+		<widget backgroundColor="infobarbackground" render="MetrixHDRunningText" options="movetype=none,startdelay=900,steptime=1,step=3,direction=left,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" foregroundColor="infobarfont1" font="infobar_event; 40" halign="left" noWrap="1" position="286,558" size="805,56" source="Event_Now" transparent="1" valign="center">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget backgroundColor="infobarbackground" render="MetrixHDRunningText" options="movetype=none,startdelay=900,steptime=1,step=3,direction=left,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" font="infobar_event; 35" foregroundColor="infobarfont2" halign="left" noWrap="1" position="286,617" size="805,56" source="Event_Next" transparent="1" valign="top">
+			<convert type="EventName">Name</convert>
+		</widget>
+
+		<widget alphatest="blend" position="33,574" size="220,132" render="MetrixHDXPicon" source="CurrentService" transparent="1" zPosition="4">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+
+			<eLabel name="GRADIENT_BACKGROUND" backgroundColor="infobarbackground" position="0,560" size="1280,160" zPosition="-10"/>
+			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small;19" halign="right" position="1091,564" render="Label" size="75,30" source="Event_Now" transparent="1">
+				<convert type="EventTime">StartTime</convert>
+				<convert type="ClockToText">Default</convert>
+			</widget>
+			<eLabel backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small;19" halign="center" position="1173,564" size="15,30" text="-" transparent="1"/>
+			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small;19" halign="right" position="1178,564" render="Label" size="60,30" source="Event_Now" transparent="1">
+				<convert type="EventTime">EndTime</convert>
+				<convert type="ClockToText">Default</convert>
+			</widget>
+			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small;19" halign="right" position="1124,586" render="Label" size="113,30" source="Event_Now" transparent="1">
+				<convert type="EventTime">Remaining</convert>
+				<convert type="RemainingToText"></convert>
+			</widget>
+			<eLabel backgroundColor="infobaraccent1" name="new eLabel" position="287,615" size="951,1"/>
+			<widget render="Progress" position="287,613" size="951,5" source="session.Event_Now" foregroundColor="infobarprogress" transparent="1" zPosition="7">
+				<convert type="EventTime">Progress</convert>
+			</widget>
+			<widget backgroundColor="infobarbackground" font="global_small;18" foregroundColor="infobarfont2" halign="right" noWrap="1" position="1091,620" render="Label" size="75,28" source="Event_Next" transparent="1" valign="top">
+				<convert type="EventTime">StartTime</convert>
+				<convert type="ClockToText">Default</convert>
+			</widget>
+			<eLabel backgroundColor="infobarbackground" font="global_small;18" foregroundColor="infobarfont2" halign="center" noWrap="1" position="1173,620" size="15,28" text="-" transparent="1" valign="top"/>
+			<widget backgroundColor="infobarbackground" font="global_small;18" foregroundColor="infobarfont2" halign="right" noWrap="1" position="1178,620" render="Label" size="60,28" source="Event_Next" transparent="1" valign="top">
+				<convert type="EventTime">EndTime</convert>
+				<convert type="ClockToText">Default</convert>
+			</widget>
+			<widget backgroundColor="infobarbackground" font="global_small;18" foregroundColor="infobarfont2" halign="right" position="1124,640" render="Label" size="113,28" source="Event_Next" transparent="1">
+				<convert type="EventTime">Duration</convert>
+				<convert type="ClockToText">InMinutes</convert>
+			</widget>
+	</screen>
+
+	<!-- Partnerbox NEW -->
+
 	<screen name="LCDdisplayConfig" position="0,0" size="1280,720" title="LCD4linux Settings" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;30" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="introduction" render="Label" position="89,605" size="663,54" font="screen_info;20" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -2657,18 +2767,7 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_me-buttons_template1" />
 	</screen>
-	<screen name="RemoteTimerEventView" position="0,0" size="1280,720" title="Eventview" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="epg_description" position="70,100" size="700,520" font="epg_info;22" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="channel" position="832,212" size="370,70" font="epg_event;26" halign="center" valign="bottom" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
-		<eLabel position="859,310" size="315,1" backgroundColor="layer-b-accent1" />
-		<widget name="datetime" position="882,337" size="270,40" font="screen_info;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
-		<widget name="duration" position="882,392" size="270,40" font="screen_info;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
-		<panel name="template1_2layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="__e-buttons_template1" />
-</screen>
-	<!-- Partnerbox -->
+
 	<!-- DiseqcTester-->
 		<screen name="DiseqcTesterNimSelection" position="0,0" size="1280,720" title="Reception Settings" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
