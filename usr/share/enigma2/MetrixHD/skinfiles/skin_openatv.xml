@@ -3272,9 +3272,15 @@ if len(listitems.list) &gt; 2:
 	</screen>
 	<!--UserInterfacePositioner2 /-->
 	<screen name="UserInterfacePositioner2" position="0,0" size="1280,720" backgroundColor="layer-a-background" flags="wfNoBorder" title="OSD Adjustment" >
+		<panel name="OSDCalibration" />
+	</screen>
+
+	<!--OSDCalibration /-->
+	<screen name="OSDCalibration" position="0,0" size="1280,720" backgroundColor="layer-a-background" flags="wfNoBorder" title="OSD Calibration">
 		<widget source="text" render="Label" position="200,110" zPosition="1" size="880,120" valign="center" font="global_title;22" halign="center" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="150,250" zPosition="1" size="980,210" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" /> 
-		<widget source="status" render="Label" position="200,475" zPosition="1" size="880,80" font="screen_info;20" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="description" position="200,475" zPosition="1" size="880,80" font="screen_info;20" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"  conditional="description"/>
+		<widget source="status" render="Label" position="200,475" zPosition="1" size="880,80" font="screen_info;20" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" conditional="status"/>
 		<eLabel backgroundColor="red" position="0,0" size="1280,1" zPosition="0" />
 		<eLabel backgroundColor="red" position="0,719" size="1280,1" zPosition="0" />
 		<eLabel backgroundColor="red" position="0,0" size="1,720" zPosition="0" />
@@ -3294,11 +3300,12 @@ if len(listitems.list) &gt; 2:
 		<ePixmap pixmap="buttons/key_red.png" position="333,580" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="buttons/key_green.png" position="516,580" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="buttons/key_yellow.png" position="699,580" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="buttons/key_blue.png" position="882,580" size="30,40" alphatest="blend" />
+		<!--<ePixmap pixmap="buttons/key_blue.png" position="882,580" size="30,40" alphatest="blend" />-->
 		<widget source="key_red" render="Label" position="368,583" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="key_green" render="Label" position="551,583" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="key_yellow" render="Label" position="734,583" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<!--widget source="key_blue" render="Label" position="917,583" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" /-->
+		<widget name="footnote" position="0,0" size="0,0" conditional="footnote"/>
 	</screen>
 	<!--CableScanScreen /-->
 	<screen name="CableScanScreen" title="Cable Scan" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
