@@ -548,7 +548,10 @@
 		<widget name="Image" position="890,135" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 	</screen>
 	<screen name="SkinSelection" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="Setup"/>
+		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="setup_common"/>
+		<widget name="setupimage" position="0,0" size="0,0" alphatest="blend" conditional="setupimage" transparent="1" zPosition="2" />
+		<widget name="Image" position="0,0" size="0,0" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 		<widget name="preview" position="890,135" size="256,256" alphatest="blend" conditional="preview" transparent="1" zPosition="3" />
 	</screen>
 	<screen name="SetupInfo" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
