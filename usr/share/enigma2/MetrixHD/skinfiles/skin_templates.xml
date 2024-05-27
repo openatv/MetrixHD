@@ -8,6 +8,7 @@
 			<widget name="key_yellow" position="685,800" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 			<widget name="key_blue" position="975,800" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		</screen>
+		<!--
 		<screen name="rgyb-buttons_screen_pos40_25_size_1205_650">
 			<ePixmap pixmap="buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
 			<ePixmap pixmap="buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
@@ -42,6 +43,26 @@
 			<widget name="key_yellow" position="810,633" size="130,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 			<widget name="key_blue" position="981,633" size="130,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		</screen>
+		-->
+		<screen name="ScreenTemplateAllColorButtons_template_right">
+			<widget source="key_red" render="Pixmap" pixmap="buttons/key_red.png" position="415,630" size="30,40" alphatest="blend" objectTypes="key_red,StaticText" transparent="1">
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget source="key_green" render="Pixmap" pixmap="buttons/key_green.png" position="597,630" size="30,40" alphatest="blend" objectTypes="key_green,StaticText" transparent="1">
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget source="key_yellow" render="Pixmap" pixmap="buttons/key_yellow.png" position="771,630" size="30,40" alphatest="blend" objectTypes="key_yellow,StaticText" transparent="1">
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget source="key_blue" render="Pixmap" pixmap="buttons/key_blue.png" position="941,630" size="30,40" alphatest="blend" objectTypes="key_blue,StaticText" transparent="1">
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget source="key_red" render="Label" position="453,633" size="140,30" noWrap="1" zPosition="+1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" objectTypes="key_red,StaticText" transparent="1" />
+			<widget source="key_green" render="Label" position="637,633" size="130,30" noWrap="1" zPosition="+1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" objectTypes="key_green,StaticText" transparent="1" />
+			<widget source="key_yellow" render="Label" position="810,633" size="130,30" noWrap="1" zPosition="+1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" objectTypes="key_yellow,StaticText" transparent="1" />
+			<widget source="key_blue" render="Label" position="981,633" size="130,30" noWrap="1" zPosition="+1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" objectTypes="key_blue,StaticText" transparent="1" />
+		<screen>
+
 		<!--/* NEW-Automatic-BUTTONS /> -->
 		<screen name="ScreenTemplateButtonRed_template1">
 			<ePixmap pixmap="buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" objectTypes="key_red,Button,Label" transparent="1" />
@@ -2374,8 +2395,7 @@
 		<widget source="ServiceEvent" render="MetrixHDNextEvent" position="60,518" size="322,53" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" noWrap="1" transparent="0">
 		</widget>
 		<panel name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720" />
-		<panel name="rgyb-buttons_screen_pos416_51_size_810_619" />
-		<panel name="rgyb-keys_screen_pos416_51_size_810_619" />
+		<panel name="ScreenTemplateAllColorButtons_template_right" />
 		<ePixmap name="new ePixmap" position="1125,630" size="81,40" pixmap="buttons/menu.png" />
 		<panel name="SKINPART_channelselection-3"/>
 	</screen>
@@ -2401,8 +2421,7 @@
 		<panel name="RTSB_ChannelSelection-4_list_plus_description"/>
 		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="60,440" size="322,125" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" noWrap="1" transparent="0" />
 		<panel name="SCREEN_BACKGROUND_2COLUMN_FOCUSRIGHT_screen_pos0_0_size_1280_720" />
-		<panel name="rgyb-buttons_screen_pos416_51_size_810_619" />
-		<panel name="rgyb-keys_screen_pos416_51_size_810_619" />
+		<panel name="ScreenTemplateAllColorButtons_template_right" />
 		<ePixmap name="new ePixmap" position="1125,630" size="81,40" pixmap="buttons/menu.png" />
 		<panel name="SKINPART_channelselection-4"/>
 	</screen>
