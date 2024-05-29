@@ -30,12 +30,15 @@ from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN
 
-from . import _, COLOR_IMAGE_PATH, MAIN_IMAGE_PATH, ColorList, TransparencyList
+from . import _, PLUGIN_PATH, ColorList, TransparencyList
 
 #######################################################################
 
 
 class ColorsSettingsView(ConfigListScreen, Screen):
+	COLOR_IMAGE_PATH = PLUGIN_PATH + "/images/colors/%s.png"
+	MAIN_IMAGE_PATH = PLUGIN_PATH + "/images/%s.png"
+
 	skin = """
 	<screen name="MyMetrixLiteColorsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 	<eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
@@ -55,7 +58,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.session = session
-		self.picPath = COLOR_IMAGE_PATH % "FFFFFF"
+		self.picPath = self.COLOR_IMAGE_PATH % "FFFFFF"
 		self.PicLoad = ePicLoad()
 		self["helperimage"] = Pixmap()
 		self["helpertext"] = Label()
@@ -1228,11 +1231,11 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 		returnValue = self["config"].getCurrent()[1].value
 		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, f"mymetrixlite/colors/{returnValue}.png")
 		if not fileExists(picturepath):
-			picturepath = COLOR_IMAGE_PATH % returnValue
+			picturepath = self.COLOR_IMAGE_PATH % returnValue
 			if not fileExists(picturepath):
 				picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/MyMetrixLiteColor.png")
 				if not fileExists(picturepath):
-					picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteColor"
+					picturepath = self.MAIN_IMAGE_PATH % "MyMetrixLiteColor"
 		return picturepath
 
 	def UpdatePicture(self):

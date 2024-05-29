@@ -32,12 +32,15 @@ from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN
 
-from . import _, FONT_IMAGE_PATH, MAIN_IMAGE_PATH
+from . import _, PLUGIN_PATH
 
 #######################################################################
 
 
 class FontsSettingsView(ConfigListScreen, Screen):
+	FONT_IMAGE_PATH = PLUGIN_PATH + "/images/fonts/%s.png"
+	MAIN_IMAGE_PATH = PLUGIN_PATH + "/images/%s.png"
+
 	skin = """
 	<screen name="MyMetrixLiteFontsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 	<eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
@@ -57,7 +60,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.session = session
-		self.picPath = FONT_IMAGE_PATH % "FFFFFF"
+		self.picPath = self.FONT_IMAGE_PATH % "FFFFFF"
 		self.PicLoad = ePicLoad()
 		self["helperimage"] = Pixmap()
 		self["helpertext"] = Label()
@@ -605,11 +608,11 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			returnValue = "scale_75-100-125"
 		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, f"mymetrixlite/fonts/{returnValue}.png")
 		if not fileExists(picturepath):
-			picturepath = FONT_IMAGE_PATH % returnValue
+			picturepath = self.FONT_IMAGE_PATH % returnValue
 			if not fileExists(picturepath):
 				picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/MyMetrixLiteFont.png")
 				if not fileExists(picturepath):
-					picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteFont"
+					picturepath = self.MAIN_IMAGE_PATH % "MyMetrixLiteFont"
 		return picturepath
 
 	def UpdatePicture(self):

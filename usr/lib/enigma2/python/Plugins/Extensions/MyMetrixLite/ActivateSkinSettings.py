@@ -38,20 +38,7 @@ from enigma import getDesktop
 from Components.SystemInfo import BoxInfo
 from skin import colors, reloadWindowStyles, parseColor, parameters
 
-from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, initFontsConfig, appendSkinFile, \
-	SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP, \
-	SKIN_TEMPLATES_SOURCE, SKIN_TEMPLATES_TARGET, SKIN_TEMPLATES_TARGET_TMP, \
-	SKIN_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET, SKIN_INFOBAR_TARGET_TMP, \
-	SKIN_SECOND_INFOBAR_SOURCE, SKIN_SECOND_INFOBAR_TARGET, SKIN_SECOND_INFOBAR_TARGET_TMP, \
-	SKIN_SECOND_INFOBAR_ECM_SOURCE, SKIN_SECOND_INFOBAR_ECM_TARGET, SKIN_SECOND_INFOBAR_ECM_TARGET_TMP, \
-	SKIN_INFOBAR_LITE_SOURCE, SKIN_INFOBAR_LITE_TARGET, SKIN_INFOBAR_LITE_TARGET_TMP, \
-	SKIN_CHANNEL_SELECTION_SOURCE, SKIN_CHANNEL_SELECTION_TARGET, SKIN_CHANNEL_SELECTION_TARGET_TMP, \
-	SKIN_MOVIEPLAYER_SOURCE, SKIN_MOVIEPLAYER_TARGET, SKIN_MOVIEPLAYER_TARGET_TMP, \
-	SKIN_EMC_SOURCE, SKIN_EMC_TARGET, SKIN_EMC_TARGET_TMP, \
-	SKIN_OPENATV_SOURCE, SKIN_OPENATV_TARGET, SKIN_OPENATV_TARGET_TMP, \
-	SKIN_PLUGINS_SOURCE, SKIN_PLUGINS_TARGET, SKIN_PLUGINS_TARGET_TMP, \
-	SKIN_UNCHECKED_SOURCE, SKIN_UNCHECKED_TARGET, SKIN_UNCHECKED_TARGET_TMP, \
-	SKIN_DESIGN_SOURCE, SKIN_DESIGN_TARGET, SKIN_DESIGN_TARGET_TMP
+from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, initFontsConfig, appendSkinFile
 
 
 #############################################################
@@ -122,21 +109,16 @@ class ActivateSkinSettings:
 	def getEHDSettings(self, onlyCheck=False):
 		tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
 		EHDtested = len(tested) == 2 and BoxInfo.getItem("machinebuild") in tested[0] and config.plugins.MyMetrixLiteOther.EHDenabled.value in tested[1]
-		if config.plugins.MyMetrixLiteOther.EHDenabled.value == '0':
-			self.EHDenabled = False
-			self.EHDfactor = 1
-			self.EHDres = 'HD'
-			self.EHDtxt = 'Standard HD'
-		elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '1' and EHDtested:
+		if config.plugins.MyMetrixLiteOther.EHDenabled.value == '1' and EHDtested:
 			self.EHDenabled = True
 			self.EHDfactor = 1.5
 			self.EHDres = 'FHD'
 			self.EHDtxt = 'Full HD'
-		elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '2' and EHDtested:
-			self.EHDenabled = True
-			self.EHDfactor = 3
-			self.EHDres = 'UHD'
-			self.EHDtxt = 'Ultra HD'
+#		elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '2' and EHDtested:
+#			self.EHDenabled = True
+#			self.EHDfactor = 3
+#			self.EHDres = 'UHD'
+#			self.EHDtxt = 'Ultra HD'
 		else:
 			self.EHDenabled = False
 			self.EHDfactor = 1
@@ -182,6 +164,10 @@ class ActivateSkinSettings:
 		apply_starttime = time()
 		print("MyMetrixLite apply Changes")
 
+		ROOTPATH = "/usr/share/enigma2/MetrixHD/skinfiles/"
+		SKIN_SOURCE = "/usr/share/enigma2/MetrixHD/skin.xml"
+#NEW		SKIN_SOURCE = ROOTPATH + "skin_base.xml"
+
 		try:
 			# make backup of skin.xml
 			bname = "_original_file_.xml"
@@ -192,6 +178,60 @@ class ActivateSkinSettings:
 				copy(SKIN_SOURCE, SKIN_SOURCE + bname)
 			else:
 				copy(SKIN_SOURCE + bname, SKIN_SOURCE)
+
+#NEW			SKIN_TARGET = ROOTPATH + "skin_base.MySkin.xml"
+#NEW			SKIN_TARGET_TMP = SKIN_TARGET + ".tmp"
+
+			SKIN_TARGET = "/usr/share/enigma2/MetrixHD/skin.MySkin.xml"
+			SKIN_TARGET_TMP = SKIN_TARGET + ".tmp"
+
+			SKIN_TEMPLATES_SOURCE = ROOTPATH + "skin_templates.xml"
+			SKIN_TEMPLATES_TARGET = ROOTPATH + "skin_templates.mySkin.xml"
+			SKIN_TEMPLATES_TARGET_TMP = SKIN_TEMPLATES_TARGET + ".tmp"
+
+			SKIN_INFOBAR_SOURCE = ROOTPATH + "skin_infobar.xml"
+			SKIN_INFOBAR_TARGET = ROOTPATH + "skin_infobar.mySkin.xml"
+			SKIN_INFOBAR_TARGET_TMP = SKIN_INFOBAR_TARGET + ".tmp"
+
+			SKIN_SECOND_INFOBAR_SOURCE = ROOTPATH + "skin_secondinfobar.xml"
+			SKIN_SECOND_INFOBAR_TARGET = ROOTPATH + "skin_secondinfobar.mySkin.xml"
+			SKIN_SECOND_INFOBAR_TARGET_TMP = SKIN_SECOND_INFOBAR_TARGET + ".tmp"
+
+			SKIN_SECOND_INFOBAR_ECM_SOURCE = ROOTPATH + "skin_secondinfobarecm.xml"
+			SKIN_SECOND_INFOBAR_ECM_TARGET = ROOTPATH + "skin_secondinfobarecm.mySkin.xml"
+			SKIN_SECOND_INFOBAR_ECM_TARGET_TMP = SKIN_SECOND_INFOBAR_ECM_TARGET + ".tmp"
+
+			SKIN_INFOBAR_LITE_SOURCE = ROOTPATH + "skin_infobarlite.xml"
+			SKIN_INFOBAR_LITE_TARGET = ROOTPATH + "skin_infobarlite.mySkin.xml"
+			SKIN_INFOBAR_LITE_TARGET_TMP = SKIN_INFOBAR_LITE_TARGET + ".tmp"
+
+			SKIN_CHANNEL_SELECTION_SOURCE = ROOTPATH + "skin_channelselection.xml"
+			SKIN_CHANNEL_SELECTION_TARGET = ROOTPATH + "skin_channelselection.mySkin.xml"
+			SKIN_CHANNEL_SELECTION_TARGET_TMP = SKIN_CHANNEL_SELECTION_TARGET + ".tmp"
+
+			SKIN_MOVIEPLAYER_SOURCE = ROOTPATH + "skin_movieplayer.xml"
+			SKIN_MOVIEPLAYER_TARGET = ROOTPATH + "skin_movieplayer.mySkin.xml"
+			SKIN_MOVIEPLAYER_TARGET_TMP = SKIN_MOVIEPLAYER_TARGET + ".tmp"
+
+			SKIN_EMC_SOURCE = ROOTPATH + "skin_emc.xml"
+			SKIN_EMC_TARGET = ROOTPATH + "skin_emc.mySkin.xml"
+			SKIN_EMC_TARGET_TMP = SKIN_EMC_TARGET + ".tmp"
+
+			SKIN_OPENATV_SOURCE = ROOTPATH + "skin_openatv.xml"
+			SKIN_OPENATV_TARGET = ROOTPATH + "skin_openatv.mySkin.xml"
+			SKIN_OPENATV_TARGET_TMP = SKIN_OPENATV_TARGET + ".tmp"
+
+			SKIN_PLUGINS_SOURCE = ROOTPATH + "skin_plugins.xml"
+			SKIN_PLUGINS_TARGET = ROOTPATH + "skin_plugins.mySkin.xml"
+			SKIN_PLUGINS_TARGET_TMP = SKIN_PLUGINS_TARGET + ".tmp"
+
+			SKIN_UNCHECKED_SOURCE = ROOTPATH + "skin_unchecked.xml"
+			SKIN_UNCHECKED_TARGET = ROOTPATH + "skin_unchecked.mySkin.xml"
+			SKIN_UNCHECKED_TARGET_TMP = SKIN_UNCHECKED_TARGET + ".tmp"
+
+			SKIN_DESIGN_SOURCE = ROOTPATH + "skin_design.xml"
+			SKIN_DESIGN_TARGET = ROOTPATH + "skin_design.mySkin.xml"
+			SKIN_DESIGN_TARGET_TMP = SKIN_DESIGN_TARGET + ".tmp"
 
 			skinfiles = [(SKIN_SOURCE, SKIN_TARGET, SKIN_TARGET_TMP),
 						(SKIN_TEMPLATES_SOURCE, SKIN_TEMPLATES_TARGET, SKIN_TEMPLATES_TARGET_TMP),
@@ -531,12 +571,13 @@ class ActivateSkinSettings:
 			CoolDatePos = sizeW - CoolDateWidth - margin
 			CoolCSPos = sizeW - CoolCSDirInfoWidth - margin
 			CoolIconPos = 4 + offsetPosIcon
+			CoolIconSize = "%d,%d" % (itemHeight - 4, itemHeight - 4)
 
 			EMCSkinSearchAndReplace.append(['size="700,480" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"', f'size="700,{sizeH}" itemHeight="{itemHeight}" CoolFont="epg_text;{CoolFont}" CoolSelectFont="epg_text;{CoolSelectFont}" CoolDateFont="epg_text;{CoolDateFont}"'])
 
 			EMCSkinSearchAndReplace.append(['size="700,240" itemHeight="30" CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;20"', f'size="700,{sizeH // 2}" itemHeight="{itemHeight}" CoolFont="epg_text;{CoolFont}" CoolSelectFont="epg_text;{CoolSelectFont}" CoolDateFont="epg_text;{CoolDateFont}"'])
 
-			EMCSkinSearchAndReplace.append(['CoolProgressHPos="2" CoolIconPos="4" CoolIconHPos="2" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90"', f'CoolProgressHPos="{CoolProgressHPos}" CoolIconPos="{CoolIconPos}" CoolIconHPos="{CoolIconHPos}" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="{CoolBarHPos}" CoolBarSize="{CoolBarSizeH},{CoolBarSizeV}" CoolBarSizeSa="{CoolBarSizeH},{CoolBarSizeV}" CoolMoviePos="{CoolMoviePos - margin}"'])
+			EMCSkinSearchAndReplace.append(['CoolProgressHPos="2" CoolIconPos="4" CoolIconHPos="2" CoolIconSize="26,26" CoolBarPos="35" CoolBarHPos="12" CoolBarSize="50,10" CoolBarSizeSa="50,10" CoolMoviePos="90"', f'CoolProgressHPos="{CoolProgressHPos}" CoolIconPos="{CoolIconPos}" CoolIconHPos="{CoolIconHPos}" CoolIconSize="{CoolIconSize}" CoolBarPos="35" CoolBarHPos="{CoolBarHPos}" CoolBarSize="{CoolBarSizeH},{CoolBarSizeV}" CoolBarSizeSa="{CoolBarSizeH},{CoolBarSizeV}" CoolMoviePos="{CoolMoviePos - margin}"'])
 
 			CoolMoviePiconPos = CoolMoviePos + CoolPiconWidth + gap - margin
 			CoolPiconPos = CoolMoviePos - margin
@@ -1106,16 +1147,14 @@ class ActivateSkinSettings:
 			skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
 			orgskin_lines = appendSkinFile(SKIN_SOURCE + bname, orgskinSearchAndReplace)
 
-			xFile = open(SKIN_TARGET_TMP, "w")
-			for xx in skin_lines:
-				xFile.writelines(xx)
-			xFile.close()
+			with open(SKIN_TARGET_TMP, "w") as fd:
+				for xx in skin_lines:
+					fd.writelines(xx)
 
 			# write changed skin.xml
-			xFile = open(SKIN_SOURCE, "w")
-			for xx in orgskin_lines:
-				xFile.writelines(xx)
-			xFile.close()
+			with open(SKIN_SOURCE, "w") as fd:
+				for xx in orgskin_lines:
+					fd.writelines(xx)
 
 			################
 			# Icons, Graphics
@@ -1547,18 +1586,18 @@ class ActivateSkinSettings:
 					"/usr/lib/enigma2/python/Plugins/SystemPlugins/SoftwareManager/",
 					"/usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/images/",
 					"/usr/lib/enigma2/python/Plugins/SystemPlugins/NetworkBrowser/icons/",
-					"/usr/lib/enigma2/python/Plugins/Extensions/Infopanel/icons/",
 					"/usr/share/enigma2/MetrixHD/ibts/",
 					"/usr/share/enigma2/MetrixHD/emc/"]
 		for dpath in dpathlist:
 			if isdir(dpath):
 				for file in listdir(dpath):
-					if file.endswith('.png.hd') and isfile(dpath + file):
-						move(dpath + file, dpath + file[:-3])
-					elif file.endswith('.png.del') and isfile(dpath + file):
-						remove(dpath + file)
-					elif dpath == "/usr/share/enigma2/MetrixHD/" and file.startswith("skin_00") and isfile(dpath + file):
-						remove(dpath + file)
+					if isfile(dpath + file):
+						if file.endswith('.png.hd'):
+							move(dpath + file, dpath + file[:-3])
+						elif file.endswith('.png.del'):
+							remove(dpath + file)
+						elif dpath == "/usr/share/enigma2/MetrixHD/" and file.startswith("skin_00"):
+							remove(dpath + file)
 		dpath = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/"
 		npath = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images_hd/"
 		if isdir(dpath) and isdir(npath):
@@ -1591,11 +1630,8 @@ class ActivateSkinSettings:
 			src = pathjoin(spath, x)
 			dest = pathjoin(dpath, x)
 			hd = pathjoin(dpath, '.' + x + '_hd')
-			if x == 'emc' and int(config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value) > 3:
-				if target == 'FHD':
-					continue
-				elif target == 'UHD' and isdir('/usr/share/enigma2/MetrixHD/FHD/emc'):
-					src = '/usr/share/enigma2/MetrixHD/FHD/emc'
+			#if target == 'FHD' and x == 'emc' and int(config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value) > 3:  # TODO What's this ?
+			#	continue
 			if exists(dest) and not exists(hd):
 				rename(dest, hd)
 			try:
@@ -1604,7 +1640,6 @@ class ActivateSkinSettings:
 				raise Exception(_("Can't create symlink:") + f"\n{src}\n---> {dest}\n({e})")
 
 	def optionEHD(self, sourceFile, targetFile):
-		# oldlinechanger = config.plugins.MyMetrixLiteOther.EHDoldlinechanger.value
 
 		run_mod = False
 		next_rename = False
@@ -1704,10 +1739,7 @@ class ActivateSkinSettings:
 								self.skinline_error = True
 								break
 					if run_mod and not line_disabled and not self.skinline_error:
-#						if oldlinechanger:
-#							line = self.linerchanger_old(line, next_picon_zoom)
-#						else:
-						line = self.linerchanger_new(line, next_picon_zoom, "skin.MySkin.xml" in sourceFile)
+						line = self.linerchanger_new(line, next_picon_zoom, "skin_base.MySkin.xml" in sourceFile)
 #line disabled off
 					if line_disabled and 'cf#_#' not in line and (match('#+', line.lstrip()) or match('.*-->.*', line.rstrip())):
 						#print 'line disabled off', i, line
@@ -1900,1319 +1932,6 @@ class ActivateSkinSettings:
 #itemSpacing="10,10"
 		if ' itemSpacing="' in line:
 			line = sub(r'(itemSpacing=")(\d+)(,)(\d+)', self.linereplacer, line)
-
-		return line
-
-	def linerchanger_old(self, line, next_picon_zoom):  # faster than with regex :(
-		r_par = self.round_par
-		f_offset = self.font_offset
-		FACT = self.EHDfactor
-		PFACT = self.picon_zoom
-
-#<resolution xres="1280" yres="720"
-		if '<resolution ' in line:
-			n1 = line.find('xres', 0)
-			n2 = line.find('"', n1)
-			n3 = line.find('"', (n2 + 1))
-			line = line[:(n2 + 1)] + "1920" + line[(n3):]
-
-			n1 = line.find('yres', 0)
-			n2 = line.find('"', n1)
-			n3 = line.find('"', (n2 + 1))
-			line = line[:(n2 + 1)] + "1080" + line[(n3):]
-#<parameter name="AutotimerEnabledIcon" value="6,2,24,25"
-		# ignore colors
-		if '<parameter name="' in line and 'value="0x00' in line:
-			return line
-
-#<parameter name="ChoicelistVerticalAlignment" value="*center" />
-		if '<parameter name="' in line and 'value="*' in line:
-			return line
-
-		if '<parameter name="' in line and 'value="' in line:
-			n1 = line.find('value="', 0)
-			n2 = line.find('"', n1)
-			n12 = line.find('"', n2 + 1)
-			if 'Font' in line:
-				parcount = len(line[n2:n12 + 1].split(';'))
-			else:
-				parcount = len(line[n2:n12 + 1].split(','))
-			strnew = ""
-			if parcount == 1:
-				p1 = int(round_half_up(float(int(line[(n2 + 1):n12]) * FACT), r_par))
-				strnew = f'value="{p1}"'
-			elif parcount == 2:
-				if 'Font' in line:
-					n3 = line.find(';', n2)
-					p1 = line[(n2 + 1):n3]
-					p2 = int(f_offset + round_half_up(float(int(line[(n3 + 1):n12]) * FACT), r_par))
-					strnew = f'value="{p1};{p2}"'
-				else:
-					n3 = line.find(',', n2)
-					p1 = int(round_half_up(float(int(line[(n2 + 1):n3]) * FACT), r_par))
-					p2 = int(round_half_up(float(int(line[(n3 + 1):n12]) * FACT), r_par))
-					strnew = f'value="{p1},{p2}"'
-			elif parcount == 3:
-				n3 = line.find(',', n2)
-				n4 = line.find(',', n3 + 1)
-				p1 = int(round_half_up(float(int(line[(n2 + 1):n3]) * FACT), r_par))
-				p2 = int(round_half_up(float(int(line[(n3 + 1):n4]) * FACT), r_par))
-				p3 = int(round_half_up(float(int(line[(n4 + 1):n12]) * FACT), r_par))
-				strnew = f'value="{p1},{p2},{p3}"'
-			elif parcount == 4:
-				n3 = line.find(',', n2)
-				n4 = line.find(',', n3 + 1)
-				n5 = line.find(',', n4 + 1)
-				p1 = int(round_half_up(float(int(line[(n2 + 1):n3]) * FACT), r_par))
-				p2 = int(round_half_up(float(int(line[(n3 + 1):n4]) * FACT), r_par))
-				p3 = int(round_half_up(float(int(line[(n4 + 1):n5]) * FACT), r_par))
-				p4 = int(round_half_up(float(int(line[(n5 + 1):n12]) * FACT), r_par))
-				strnew = f'value="{p1},{p2},{p3},{p4}"'
-			elif parcount == 5:
-				n3 = line.find(',', n2)
-				n4 = line.find(',', n3 + 1)
-				n5 = line.find(',', n4 + 1)
-				n6 = line.find(',', n5 + 1)
-				p1 = int(round_half_up(float(int(line[(n2 + 1):n3]) * FACT), r_par))
-				p2 = int(round_half_up(float(int(line[(n3 + 1):n4]) * FACT), r_par))
-				p3 = int(round_half_up(float(int(line[(n4 + 1):n5]) * FACT), r_par))
-				p4 = int(round_half_up(float(int(line[(n5 + 1):n6]) * FACT), r_par))
-				p5 = int(round_half_up(float(int(line[(n6 + 1):n12]) * FACT), r_par))
-				strnew = f'value="{p1},{p2},{p3},{p4},{p5}"'
-			elif parcount == 6:
-				n3 = line.find(',', n2)
-				n4 = line.find(',', n3 + 1)
-				n5 = line.find(',', n4 + 1)
-				n6 = line.find(',', n5 + 1)
-				n7 = line.find(',', n6 + 1)
-				p1 = int(round_half_up(float(int(line[(n2 + 1):n3]) * FACT), r_par))
-				p2 = int(round_half_up(float(int(line[(n3 + 1):n4]) * FACT), r_par))
-				p3 = int(round_half_up(float(int(line[(n4 + 1):n5]) * FACT), r_par))
-				p4 = int(round_half_up(float(int(line[(n5 + 1):n6]) * FACT), r_par))
-				p5 = int(round_half_up(float(int(line[(n6 + 1):n7]) * FACT), r_par))
-				p6 = int(round_half_up(float(int(line[(n7 + 1):n12]) * FACT), r_par))
-				strnew = f'value="{p1},{p2},{p3},{p4},{p5},{p6}"'
-			elif parcount == 7:
-				n3 = line.find(',', n2)
-				n4 = line.find(',', n3 + 1)
-				n5 = line.find(',', n4 + 1)
-				n6 = line.find(',', n5 + 1)
-				n7 = line.find(',', n6 + 1)
-				n8 = line.find(',', n7 + 1)
-				p1 = int(round_half_up(float(int(line[(n2 + 1):n3]) * FACT), r_par))
-				p2 = int(round_half_up(float(int(line[(n3 + 1):n4]) * FACT), r_par))
-				p3 = int(round_half_up(float(int(line[(n4 + 1):n5]) * FACT), r_par))
-				p4 = int(round_half_up(float(int(line[(n5 + 1):n6]) * FACT), r_par))
-				p5 = int(round_half_up(float(int(line[(n6 + 1):n7]) * FACT), r_par))
-				p6 = int(round_half_up(float(int(line[(n7 + 1):n8]) * FACT), r_par))
-				p7 = int(round_half_up(float(int(line[(n8 + 1):n12]) * FACT), r_par))
-				strnew = f'value="{p1},{p2},{p3},{p4},{p5},{p6},{p7}"'
-			elif parcount == 8:
-				n3 = line.find(',', n2)
-				n4 = line.find(',', n3 + 1)
-				n5 = line.find(',', n4 + 1)
-				n6 = line.find(',', n5 + 1)
-				n7 = line.find(',', n6 + 1)
-				n8 = line.find(',', n7 + 1)
-				n9 = line.find(',', n8 + 1)
-				p1 = int(round_half_up(float(int(line[(n2 + 1):n3]) * FACT), r_par))
-				p2 = int(round_half_up(float(int(line[(n3 + 1):n4]) * FACT), r_par))
-				p3 = int(round_half_up(float(int(line[(n4 + 1):n5]) * FACT), r_par))
-				p4 = int(round_half_up(float(int(line[(n5 + 1):n6]) * FACT), r_par))
-				p5 = int(round_half_up(float(int(line[(n6 + 1):n7]) * FACT), r_par))
-				p6 = int(round_half_up(float(int(line[(n7 + 1):n8]) * FACT), r_par))
-				p7 = int(round_half_up(float(int(line[(n8 + 1):n9]) * FACT), r_par))
-				p8 = int(round_half_up(float(int(line[(n9 + 1):n12]) * FACT), r_par))
-				strnew = f'value="{p1},{p2},{p3},{p4},{p5},{p6},{p7},{p8}"'
-
-			if strnew:
-				line = line[:n1] + strnew + line[(n12 + 1):]
-#rowSplit="25"
-		if 'rowSplit' in line:
-			s = 0
-			n3 = 0
-			for s in range(0, line.count('rowSplit')):
-				n1 = line.find('rowSplit', n3)
-				n2 = line.find('="', n1)
-				n3 = line.find('"', n2 + 2)
-				y = line[(n2 + 2):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 2] + ynew
-				line = line[:n1] + strnew + line[n3:]
-#rowHeight="25"
-		if 'rowHeight="' in line:
-			n1 = line.find('rowHeight="', 0)
-			n2 = line.find('"', n1)
-			n3 = line.find('"', n2 + 1)
-			y = line[(n2 + 1):n3]
-
-			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + ynew + '"'
-			line = line[:n1] + strnew + line[(n3 + 1):]
-#satPosLeft="160"
-		if 'satPosLeft="' in line:
-			n1 = line.find('satPosLeft="', 0)
-			n2 = line.find('"', n1)
-			n3 = line.find('"', n2 + 1)
-			y = line[(n2 + 1):n3]
-
-			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + ynew + '"'
-			line = line[:n1] + strnew + line[(n3 + 1):]
-
-#iconMargin="5"
-		if 'iconMargin="' in line:
-			n1 = line.find('iconMargin="', 0)
-			n2 = line.find('"', n1)
-			n3 = line.find('"', n2 + 1)
-			y = line[(n2 + 1):n3]
-
-			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + ynew + '"'
-			line = line[:n1] + strnew + line[(n3 + 1):]
-#size="200,100"
-		xpos = 0
-		ypos = 0
-		if 'size="' in line and 'alias name="' not in line:
-			n1 = line.find('size="', 0)
-			n2 = line.find('"', n1)
-			n3 = line.find(',', n2)
-			n4 = line.find('"', n3)
-			x = line[(n2 + 1):n3]
-			y = line[(n3 + 1):n4]
-			if "c+" in x:
-				x1 = x.replace("c+", "")
-				xpos = int(round_half_up(float((int(x1) * FACT - int(x1) * PFACT) / 2), r_par))
-				x1new = str(int(round_half_up(float(int(x1) * PFACT), r_par)))
-				xnew = "c+" + x1new
-			elif "c-" in x:
-				x1 = x.replace("c-", "")
-				xpos = int(round_half_up(float((int(x1) * FACT - int(x1) * PFACT) / 2), r_par))
-				x1new = str(int(round_half_up(float(int(x1) * PFACT), r_par)))
-				xnew = "c-" + x1new
-			elif "e-" in x:
-				x1 = x.replace("e-", "")
-				xpos = int(round_half_up(float((int(x1) * FACT - int(x1) * PFACT) / 2), r_par))
-				x1new = str(int(round_half_up(float(int(x1) * PFACT), r_par)))
-				xnew = "e-" + x1new
-			else:
-				xpos = int(round_half_up(float((int(x) * FACT - int(x) * PFACT) / 2), r_par))
-				xnew = str(int(round_half_up(float(int(x) * PFACT), r_par)))
-
-			if "c+" in y:
-				y1 = y.replace("c+", "")
-				ypos = int(round_half_up(float((int(y1) * FACT - int(y1) * PFACT) / 2), r_par))
-				y1new = str(int(round_half_up(float(int(y1) * PFACT), r_par)))
-				ynew = "c+" + y1new
-			elif "c-" in y:
-				y1 = y.replace("c-", "")
-				ypos = int(round_half_up(float((int(y1) * FACT - int(y1) * PFACT) / 2), r_par))
-				y1new = str(int(round_half_up(float(int(y1) * PFACT), r_par)))
-				ynew = "c-" + y1new
-			elif "e-" in y:
-				y1 = y.replace("e-", "")
-				ypos = int(round_half_up(float((int(y1) * FACT - int(y1) * PFACT) / 2), r_par))
-				y1new = str(int(round_half_up(float(int(y1) * PFACT), r_par)))
-				ynew = "e-" + y1new
-			else:
-				ypos = int(round_half_up(float((int(y) * FACT - int(y) * PFACT) / 2), r_par))
-				ynew = str(int(round_half_up(float(int(y) * PFACT), r_par)))
-
-			strnew = 'size="' + xnew + ',' + ynew + '"'
-			line = line[:n1] + strnew + line[(n4 + 1):]
-#position="423,460"
-		if not next_picon_zoom:
-			xpos = 0
-			ypos = 0
-
-		if 'position="' in line:
-			n1 = line.find('position="', 0)
-			n2 = line.find('"', n1)
-			n3 = line.find(',', n2)
-			n4 = line.find('"', n3)
-			x = line[(n2 + 1):n3]
-			y = line[(n3 + 1):n4]
-			if "c+" in x:
-				x1 = x.replace("c+", "")
-				x1new = str(int(round_half_up(float(int(x1) * FACT + xpos), r_par)))
-				xnew = "c+" + x1new
-			elif "c-" in x:
-				x1 = x.replace("c-", "")
-				x1new = str(int(round_half_up(float(int(x1) * FACT + xpos), r_par)))
-				xnew = "c-" + x1new
-			elif "e-" in x:
-				x1 = x.replace("e-", "")
-				x1new = str(int(round_half_up(float(int(x1) * FACT + xpos), r_par)))
-				xnew = "e-" + x1new
-			elif 'ente' in x:
-				xnew = 'center'
-			else:
-				xnew = str(int(round_half_up(float(int(x) * FACT + xpos), r_par)))
-
-			if "c+" in y:
-				y1 = y.replace("c+", "")
-				y1new = str(int(round_half_up(float(int(y1) * FACT + ypos), r_par)))
-				ynew = "c+" + y1new
-			elif "c-" in y:
-				y1 = y.replace("c-", "")
-				y1new = str(int(round_half_up(float(int(y1) * FACT + ypos), r_par)))
-				ynew = "c-" + y1new
-			elif "e-" in y:
-				y1 = y.replace("e-", "")
-				y1new = str(int(round_half_up(float(int(y1) * FACT + ypos), r_par)))
-				ynew = "e-" + y1new
-			elif 'ente' in y:
-				ynew = 'center'
-			else:
-				ynew = str(int(round_half_up(float(int(y) * FACT + ypos), r_par)))
-
-			strnew = 'position="' + xnew + ',' + ynew + '"'
-			line = line[:n1] + strnew + line[(n4 + 1):]
-#font="Regular;20"
-		if 'font="' in line and 'alias name="' not in line:
-			n1 = line.find('font="', 0)
-			n2 = line.find(';', n1)
-			n3 = line.find('"', n2)
-			y = line[(n2 + 1):n3]
-			ynew = str(int(f_offset + round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:(n2 + 1)] + ynew + '"'
-			line = line[:n1] + strnew + line[(n3 + 1):]
-#Font="Regular;20"
-		if 'Font="' in line and ' Cool' not in line:
-			s = 0
-			n3 = 0
-			for s in range(0, line.count('Font="')):
-				n1 = line.find('Font="', n3)
-				n2 = line.find(';', n1)
-				n3 = line.find('"', n2)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew
-				line = line[:n1] + strnew + line[n3:]
-#ServiceFontGraphical="epg_text;20" EntryFontGraphical="epg_text;20"
-		if 'FontGraphical="' in line and ' Cool' not in line:
-			s = 0
-			n3 = 0
-			for s in range(0, line.count('FontGraphical="')):
-				n1 = line.find('FontGraphical="', n3)
-				n2 = line.find(';', n1)
-				n3 = line.find('"', n2)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew
-				line = line[:n1] + strnew + line[n3:]
-#ServiceFontInfobar="epg_text;20" EntryFontInfobar="epg_text;20"
-		if 'FontInfobar=' in line and ' Cool' not in line:
-			s = 0
-			n3 = 0
-			for s in range(0, line.count('FontInfobar="')):
-				n1 = line.find('FontInfobar="', n3)
-				n2 = line.find(';', n1)
-				n3 = line.find('"', n2)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew
-				line = line[:n1] + strnew + line[n3:]
-#EventFontSingle="epg_event;22"
-		if 'FontSingle=' in line and ' Cool' not in line:
-			s = 0
-			n3 = 0
-			for s in range(0, line.count('FontSingle="')):
-				n1 = line.find('FontSingle="', n3)
-				n2 = line.find(';', n1)
-				n3 = line.find('"', n2)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew
-				line = line[:n1] + strnew + line[n3:]
-#EventFontMulti="epg_event;22"
-		if 'FontMulti=' in line and ' Cool' not in line:
-			s = 0
-			n3 = 0
-			for s in range(0, line.count('FontMulti="')):
-				n1 = line.find('FontMulti="', n3)
-				n2 = line.find(';', n1)
-				n3 = line.find('"', n2)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew
-				line = line[:n1] + strnew + line[n3:]
-#TimeFontVertical="epg_event;22" EventFontVertical="epg_event;18"
-		if 'FontVertical=' in line and ' Cool' not in line:
-			s = 0
-			n3 = 0
-			for s in range(0, line.count('FontVertical="')):
-				n1 = line.find('FontVertical="', n3)
-				n2 = line.find(';', n1)
-				n3 = line.find('"', n2)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew
-				line = line[:n1] + strnew + line[n3:]
-#<alias name="Body" font="screen_text" size="20" height="25" />
-		if 'font="' in line and 'alias name="' in line and 'size="' in line:
-			n1 = line.find('size="', 0)
-			n2 = line.find('"', n1)
-			n3 = line.find('"', n2 + 1)
-			y = line[(n2 + 1):n3]
-			ynew = str(int(f_offset + round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:(n2 + 1)] + ynew + '"'
-			line = line[:n1] + strnew + line[(n3 + 1):]
-#<alias name="Body" font="screen_text" size="20" height="25" />
-		if 'font="' in line and 'alias name="' in line and 'height="' in line:
-			n1 = line.find('height="', 0)
-			n2 = line.find('"', n1)
-			n3 = line.find('"', n2 + 1)
-			y = line[(n2 + 1):n3]
-			ynew = str(int(f_offset + round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:(n2 + 1)] + ynew + '"'
-			line = line[:n1] + strnew + line[(n3 + 1):]
-#"fonts": [gFont("Regular",18),gFont("Regular",14),gFont("Regular",24),gFont("Regular",20)]
-		if '"fonts":' in line and 'gFont' in line:
-			s = 0
-			n3 = 0
-			for s in range(0, line.count('gFont(')):
-				n1 = line.find('gFont(', n3)
-				n2 = line.find(',', n1)
-				n3 = line.find(')', n2)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + " " + ynew
-				line = line[:n1] + strnew + line[n3:]
-#(pos = (40, 5)
-		if '(pos' in line and ')' in line:
-			n1 = line.find('(pos', 0)
-			n2 = line.find('(', n1 + 1)
-			n3 = line.find(',', n2)
-			n4 = line.find(')', n3)
-			x = line[(n2 + 1):n3]
-			y = line[(n3 + 1):n4]
-			if "c+" in x:
-				x1 = x.replace("c+", "")
-				x1new = str(int(round_half_up(float(int(x1) * FACT), r_par)))
-				xnew = "c+" + x1new
-			elif "c-" in x:
-				x1 = x.replace("c-", "")
-				x1new = str(int(round_half_up(float(int(x1) * FACT), r_par)))
-				xnew = "c-" + x1new
-			elif "e-" in x:
-				x1 = x.replace("e-", "")
-				x1new = str(int(round_half_up(float(int(x1) * FACT), r_par)))
-				xnew = "e-" + x1new
-			elif 'ente' in x:
-				xnew = 'center'
-			else:
-				xnew = str(int(round_half_up(float(int(x) * FACT), r_par)))
-
-			if "c+" in y:
-				y1 = y.replace("c+", "")
-				y1new = str(int(round_half_up(float(int(y1) * FACT), r_par)))
-				ynew = "c+" + y1new
-			elif "c-" in y:
-				y1 = y.replace("c-", "")
-				y1new = str(int(round_half_up(float(int(y1) * FACT), r_par)))
-				ynew = "c-" + y1new
-			elif "e-" in y:
-				y1 = y.replace("e-", "")
-				y1new = str(int(round_half_up(float(int(y1) * FACT), r_par)))
-				ynew = "e-" + y1new
-			elif 'ente' in y:
-				ynew = 'center'
-			else:
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-
-			strnew = '(pos = (' + xnew + ', ' + ynew + ')'
-			line = line[:n1] + strnew + line[(n4 + 1):]
-#size = (500, 45)
-			if 'size' in line and '(' in line and ')' in line:
-				n1 = line.find('size', 0)
-				n2 = line.find('(', n1)
-				n3 = line.find(',', n2)
-				n4 = line.find(')', n3)
-				x = line[(n2 + 1):n3]
-				y = line[(n3 + 1):n4]
-				if "c+" in x:
-					x1 = x.replace("c+", "")
-					x1new = str(int(round_half_up(float(int(x1) * FACT), r_par)))
-					xnew = "c+" + x1new
-				elif "c-" in x:
-					x1 = x.replace("c-", "")
-					x1new = str(int(round_half_up(float(int(x1) * FACT), r_par)))
-					xnew = "c-" + x1new
-				elif "e-" in x:
-					x1 = x.replace("e-", "")
-					x1new = str(int(round_half_up(float(int(x1) * FACT), r_par)))
-					xnew = "e-" + x1new
-				elif 'ente' in x:
-					xnew = 'center'
-				else:
-					xnew = str(int(round_half_up(float(int(x) * FACT), r_par)))
-
-				if "c+" in y:
-					y1 = y.replace("c+", "")
-					y1new = str(int(round_half_up(float(int(y1) * FACT), r_par)))
-					ynew = "c+" + y1new
-				elif "c-" in y:
-					y1 = y.replace("c-", "")
-					y1new = str(int(round_half_up(float(int(y1) * FACT), r_par)))
-					ynew = "c-" + y1new
-				elif "e-" in y:
-					y1 = y.replace("e-", "")
-					y1new = str(int(round_half_up(float(int(y1) * FACT), r_par)))
-					ynew = "e-" + y1new
-				elif 'ente' in y:
-					ynew = 'center'
-				else:
-					ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-
-				strnew = 'size = (' + xnew + ', ' + ynew + ')'
-				line = line[:n1] + strnew + line[(n4 + 1):]
-#offset="5,0"
-		if ' offset="' in line:
-			n1 = line.find(' offset', 0)
-			n2 = line.find('"', n1)
-			n3 = line.find(',', n2)
-			n4 = line.find('"', n3)
-			x = line[(n2 + 1):n3]
-			y = line[(n3 + 1):n4]
-			xnew = str(int(round_half_up(float(int(x) * FACT), r_par)))
-			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-
-			strnew = ' offset="' + xnew + ',' + ynew + '"'
-			line = line[:n1] + strnew + line[(n4 + 1):]
-
-#itemSpacing="10,10"
-		if ' itemSpacing="' in line:
-			n1 = line.find(' itemSpacing', 0)
-			n2 = line.find('"', n1)
-			n3 = line.find(',', n2)
-			n4 = line.find('"', n3)
-			x = line[(n2 + 1):n3]
-			y = line[(n3 + 1):n4]
-			xnew = str(int(round_half_up(float(int(x) * FACT), r_par)))
-			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-
-			strnew = ' itemSpacing="' + xnew + ',' + ynew + '"'
-			line = line[:n1] + strnew + line[(n4 + 1):]
-
-
-#fieldMargins="10"
-		if 'fieldMargins="' in line:
-			n1 = line.find('fieldMargins="', 0)
-			n2 = line.find('"', n1)
-			n3 = line.find('"', n2 + 1)
-			y = line[(n2 + 1):n3]
-
-			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + ynew + '"'
-			line = line[:n1] + strnew + line[(n3 + 1):]
-#itemsDistances="10"
-		if 'itemsDistances="' in line:
-			n1 = line.find('itemsDistances="', 0)
-			n2 = line.find('"', n1)
-			n3 = line.find('"', n2 + 1)
-			y = line[(n2 + 1):n3]
-
-			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + ynew + '"'
-			line = line[:n1] + strnew + line[(n3 + 1):]
-#progressbarHeight="10"
-		if 'progressbarHeight="' in line:
-			n1 = line.find('progressbarHeight="', 0)
-			n2 = line.find('"', n1)
-			n3 = line.find('"', n2 + 1)
-			y = line[(n2 + 1):n3]
-
-			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + ynew + '"'
-			line = line[:n1] + strnew + line[(n3 + 1):]
-#progressBarWidth="50"
-		if 'progressBarWidth="' in line:
-			n1 = line.find('progressBarWidth="', 0)
-			n2 = line.find('"', n1)
-			n3 = line.find('"', n2 + 1)
-			y = line[(n2 + 1):n3]
-
-			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + ynew + '"'
-			line = line[:n1] + strnew + line[(n3 + 1):]
-#progressbarBorderWidth="1" -> deactivated (channel list)
-		#if 'progressbarBorderWidth="' in line:
-		#	n1 = line.find('progressbarBorderWidth="', 0)
-		#	n2 = line.find('"', n1)
-		#	n3 = line.find('"', n2+1)
-		#	y = line[(n2+1):n3]
-
-		#	ynew = str(int(round_half_up(float(int(y)*FACT),r_par)))
-		#	strnew = line[n1:n2+1] + ynew + '"'
-		#	line = line[:n1] + strnew + line[(n3+1):]
-#itemHeight="25"
-		if 'itemHeight="' in line:
-			# print('################################################ 1')
-			n1 = line.find('itemHeight="', 0)
-			n2 = line.find('"', n1)
-			n3 = line.find('"', n2 + 1)
-			y = line[(n2 + 1):n3]
-
-			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + ynew + '"'
-			line = line[:n1] + strnew + line[(n3 + 1):]
-#"itemHeight": 45
-		if '"itemHeight":' in line:
-			n1 = line.find('"itemHeight":', 0)
-			n2 = line.find(':', n1)
-			n3 = line.find(',', n2)
-			if n3 == -1:
-				n3 = line.find(')', n2)
-				if n3 == -1:
-					n3 = line.find('}', n2)
-			y = line[(n2 + 1):n3]
-
-			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + " " + ynew
-			line = line[:n1] + strnew + line[n3:]
-
-#itemWidth="25"
-		if 'itemWidth="' in line:
-			# print('################################################ 1')
-			n1 = line.find('itemWidth="', 0)
-			n2 = line.find('"', n1)
-			n3 = line.find('"', n2 + 1)
-			y = line[(n2 + 1):n3]
-
-			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + ynew + '"'
-			line = line[:n1] + strnew + line[(n3 + 1):]
-#"itemWidth": 45
-		if '"itemWidth":' in line:
-			n1 = line.find('"itemWidth":', 0)
-			n2 = line.find(':', n1)
-			n3 = line.find(',', n2)
-			if n3 == -1:
-				n3 = line.find(')', n2)
-				if n3 == -1:
-					n3 = line.find('}', n2)
-			y = line[(n2 + 1):n3]
-
-			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + " " + ynew
-			line = line[:n1] + strnew + line[n3:]
-
-#": (90,[
-		if '": (' in line and '[' in line:
-			n1 = line.find('":', 0)
-			n2 = line.find('(', n1)
-			n3 = line.find(',', n2 + 1)
-			y = line[(n2 + 1):n3]
-
-			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + ynew
-			line = line[:n1] + strnew + line[n3:]
-
-#messagebox <applet type="onLayoutFinish">
-#offset_listposx = 10
-#offset_listposy = 10
-#offset_listwidth = 10
-#offset_listheight = 30
-#offset_textwidth = 20
-#offset_textheight = 90
-#min_width = 400
-#min_height = 50
-#offset = 21
-		if 'offset_listposx =' in line:
-			n1 = line.find('offset_listposx', 0)
-			n2 = line.find('=', n1)
-			n3 = line.find(',', n2)
-			if n3 == -1:
-				n3 = line.find(')', n2)
-				if n3 == -1:
-					n3 = line.find('}', n2)
-			x = line[(n2 + 1):n3]
-			xnew = str(int(round_half_up(float(int(x) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + " " + xnew
-			line = line[:n1] + strnew + line[n3:]
-		elif 'offset_listposy =' in line:
-			n1 = line.find('offset_listposy', 0)
-			n2 = line.find('=', n1)
-			n3 = line.find(',', n2)
-			if n3 == -1:
-				n3 = line.find(')', n2)
-				if n3 == -1:
-					n3 = line.find('}', n2)
-			y = line[(n2 + 1):n3]
-			xnew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + " " + xnew
-			line = line[:n1] + strnew + line[n3:]
-		elif 'offset_listwidth =' in line:
-			n1 = line.find('offset_listwidth', 0)
-			n2 = line.find('=', n1)
-			n3 = line.find(',', n2)
-			if n3 == -1:
-				n3 = line.find(')', n2)
-				if n3 == -1:
-					n3 = line.find('}', n2)
-			x = line[(n2 + 1):n3]
-			xnew = str(int(round_half_up(float(int(x) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + " " + xnew
-			line = line[:n1] + strnew + line[n3:]
-		elif 'offset_listheight =' in line:
-			n1 = line.find('offset_listheight', 0)
-			n2 = line.find('=', n1)
-			n3 = line.find(',', n2)
-			if n3 == -1:
-				n3 = line.find(')', n2)
-				if n3 == -1:
-					n3 = line.find('}', n2)
-			y = line[(n2 + 1):n3]
-			xnew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + " " + xnew
-			line = line[:n1] + strnew + line[n3:]
-		elif 'offset_textwidth =' in line:
-			n1 = line.find('offset_textwidth', 0)
-			n2 = line.find('=', n1)
-			n3 = line.find(',', n2)
-			if n3 == -1:
-				n3 = line.find(')', n2)
-				if n3 == -1:
-					n3 = line.find('}', n2)
-			x = line[(n2 + 1):n3]
-			xnew = str(int(round_half_up(float(int(x) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + " " + xnew
-			line = line[:n1] + strnew + line[n3:]
-		elif 'offset_textheight =' in line:
-			n1 = line.find('offset_textheight', 0)
-			n2 = line.find('=', n1)
-			n3 = line.find(',', n2)
-			if n3 == -1:
-				n3 = line.find(')', n2)
-				if n3 == -1:
-					n3 = line.find('}', n2)
-			y = line[(n2 + 1):n3]
-			xnew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + " " + xnew
-			line = line[:n1] + strnew + line[n3:]
-		elif 'min_width =' in line:
-			n1 = line.find('min_width', 0)
-			n2 = line.find('=', n1)
-			n3 = line.find(',', n2)
-			if n3 == -1:
-				n3 = line.find(')', n2)
-				if n3 == -1:
-					n3 = line.find('}', n2)
-			x = line[(n2 + 1):n3]
-			xnew = str(int(round_half_up(float(int(x) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + " " + xnew
-			line = line[:n1] + strnew + line[n3:]
-		elif 'min_height =' in line:
-			n1 = line.find('min_height', 0)
-			n2 = line.find('=', n1)
-			n3 = line.find(',', n2)
-			if n3 == -1:
-				n3 = line.find(')', n2)
-				if n3 == -1:
-					n3 = line.find('}', n2)
-			y = line[(n2 + 1):n3]
-			xnew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + " " + xnew
-			line = line[:n1] + strnew + line[n3:]
-		elif 'offset =' in line:
-			n1 = line.find('offset', 0)
-			n2 = line.find('=', n1)
-			n3 = line.find(',', n2)
-			if n3 == -1:
-				n3 = line.find(')', n2)
-				if n3 == -1:
-					n3 = line.find('}', n2)
-			y = line[(n2 + 1):n3]
-			xnew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + " " + xnew
-			line = line[:n1] + strnew + line[n3:]
-#emc special start
-		if 'widget name="list"' in line and ' Cool' in line and ' CoolEvent' not in line or 'render="PositionGauge"' in line:
-#CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;30"
-			if 'CoolFont="' in line:
-				n1 = line.find('CoolFont=', 0)
-				n2 = line.find(';', n1)
-				n3 = line.find('"', n2)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-			if 'CoolSelectFont="' in line:
-				n1 = line.find('CoolSelectFont=', 0)
-				n2 = line.find(';', n1)
-				n3 = line.find('"', n2)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-			if 'CoolDateFont=' in line:
-				n1 = line.find('CoolDateFont=', 0)
-				n2 = line.find(';', n1)
-				n3 = line.find('"', n2)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolSelNumTxtWidth="26"
-			if 'CoolSelNumTxtWidth="' in line:
-				n1 = line.find('CoolSelNumTxtWidth=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolDateHPos="1"
-			if 'CoolDateHPos="' in line:
-				n1 = line.find('CoolDateHPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolProgressHPos="1"
-			if 'CoolProgressHPos="' in line:
-				n1 = line.find('CoolProgressHPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolMovieHPos="1"
-			if 'CoolMovieHPos="' in line:
-				n1 = line.find('CoolMovieHPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolDirInfoWidth="110"
-			if 'CoolDirInfoWidth="' in line:
-				n1 = line.find('CoolDirInfoWidth=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolCSWidth="110"
-			if 'CoolCSWidth="' in line:
-				n1 = line.find('CoolCSWidth=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolProgressPos="35"
-			if 'CoolProgressPos="' in line:
-				n1 = line.find('CoolProgressPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolIconPos="35"
-			if 'CoolIconPos="' in line:
-				n1 = line.find('CoolIconPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolIconHPos="35"
-			if 'CoolIconHPos="' in line:
-				n1 = line.find('CoolIconHPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolBarPos="35"
-			if 'CoolBarPos="' in line:
-				n1 = line.find('CoolBarPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolBarHPos="10"
-			if 'CoolBarHPos="' in line:
-				n1 = line.find('CoolBarHPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolMoviePos="110"
-			if 'CoolMoviePos="' in line:
-				n1 = line.find('CoolMoviePos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolDatePos="590"
-			if 'CoolDatePos="' in line:
-				n1 = line.find('CoolDatePos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolCSPos"590"
-			if 'CoolCSPos="' in line:
-				n1 = line.find('CoolCSPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolMovieSize="490"
-			if 'CoolMovieSize="' in line:
-				n1 = line.find('CoolMovieSize=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolFolderSize="490"
-			if 'CoolFolderSize="' in line:
-				n1 = line.find('CoolFolderSize="', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolDateWidth="110"
-			if 'CoolDateWidth="' in line:
-				n1 = line.find('CoolDateWidth=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolPiconPos="100"
-			if 'CoolPiconPos="' in line:
-				n1 = line.find('CoolPiconPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolPiconHPos="2"
-			if 'CoolPiconHPos="' in line:
-				n1 = line.find('CoolPiconHPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolPiconWidth="60"
-			if 'CoolPiconWidth="' in line:
-				n1 = line.find('CoolPiconWidth=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolPiconHeight="26"
-			if 'CoolPiconHeight="' in line:
-				n1 = line.find('CoolPiconHeight=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolMoviePiconPos="160"
-			if 'CoolMoviePiconPos="' in line:
-				n1 = line.find('CoolMoviePiconPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolMoviePiconSize="425"
-			if 'CoolMoviePiconSize="' in line:
-				n1 = line.find('CoolMoviePiconSize=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolIconSize="24,24"
-			if 'CoolIconSize="' in line:
-				n1 = line.find('CoolIconSize=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find(',', n2 + 1)
-				n4 = line.find('"', n3)
-				x = line[(n2 + 1):n3]
-				y = line[(n3 + 1):n4]
-				xnew = str(int(round_half_up(float(int(x) * FACT), r_par)))
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = 'CoolIconSize="' + xnew + ',' + ynew + '"'
-				line = line[:n1] + strnew + line[(n4 + 1):]
-#CoolBarSize="65,10"
-			if 'CoolBarSize="' in line:
-				n1 = line.find('CoolBarSize=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find(',', n2 + 1)
-				n4 = line.find('"', n3)
-				x = line[(n2 + 1):n3]
-				y = line[(n3 + 1):n4]
-				xnew = str(int(round_half_up(float(int(x) * FACT), r_par)))
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = 'CoolBarSize="' + xnew + ',' + ynew + '"'
-				line = line[:n1] + strnew + line[(n4 + 1):]
-#CoolBarSizeSa="65,10"
-			if 'CoolBarSizeSa="' in line:
-				n1 = line.find('CoolBarSizeSa=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find(',', n2 + 1)
-				n4 = line.find('"', n3)
-				x = line[(n2 + 1):n3]
-				y = line[(n3 + 1):n4]
-				xnew = str(int(round_half_up(float(int(x) * FACT), r_par)))
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = 'CoolBarSizeSa="' + xnew + ',' + ynew + '"'
-				line = line[:n1] + strnew + line[(n4 + 1):]
-#/CoolPointerRec.png:980,0"
-			if '/CoolPointerRec.png:' in line:
-				n1 = line.find('/CoolPointerRec.png', 0)
-				n2 = line.find(':', n1)
-				n3 = line.find(',', n2 + 1)
-				n4 = line.find('"', n3)
-				x = line[(n2 + 1):n3]
-				y = line[(n3 + 1):n4]
-				xnew = str(int(round_half_up(float(int(x) * FACT), r_par)))
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = '/CoolPointerRec.png:' + xnew + ',' + ynew + '"'
-				line = line[:n1] + strnew + line[(n4 + 1):]
-#/CoolPointerRec2.png:1080,0"
-			if '/CoolPointerRec2.png:' in line:
-				n1 = line.find('/CoolPointerRec2.png', 0)
-				n2 = line.find(':', n1)
-				n3 = line.find(',', n2 + 1)
-				n4 = line.find('"', n3)
-				x = line[(n2 + 1):n3]
-				y = line[(n3 + 1):n4]
-				xnew = str(int(round_half_up(float(int(x) * FACT), r_par)))
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = '/CoolPointerRec2.png:' + xnew + ',' + ynew + '"'
-				line = line[:n1] + strnew + line[(n4 + 1):]
-
-#emc special end
-#cool tv guide special start
-		if ('widget name="list"' in line or 'widget name="CoolEvent"' in line) and ' CoolEvent' in line:
-#CoolFont="Regular;19" CoolServiceFont="Regular;19" CoolEventFont="Regular;19"
-			if 'CoolFont="' in line:
-				n1 = line.find('CoolFont=', 0)
-				n2 = line.find(';', n1)
-				n3 = line.find('"', n2)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-			if 'CoolServiceFont="' in line:
-				n1 = line.find('CoolServiceFont=', 0)
-				n2 = line.find(';', n1)
-				n3 = line.find('"', n2)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-			if 'CoolEventFont="' in line:
-				n1 = line.find('CoolEventFont=', 0)
-				n2 = line.find(';', n1)
-				n3 = line.find('"', n2)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(f_offset + round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolServiceSize="220"
-			if 'CoolServiceSize="' in line:
-				n1 = line.find('CoolServiceSize=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolEventSize="720"
-			if 'CoolEventSize="' in line:
-				n1 = line.find('CoolEventSize=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolServicePos="4"
-			if 'CoolServicePos="' in line:
-				n1 = line.find('CoolServicePos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolServiceHPos="1"
-			if 'CoolServiceHPos="' in line:
-				n1 = line.find('CoolServiceHPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolEventPos="355"
-			if 'CoolEventPos="' in line:
-				n1 = line.find('CoolEventPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolEventHPos="1"
-			if 'CoolEventHPos="' in line:
-				n1 = line.find('CoolEventHPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolBarPos="240"
-			if 'CoolBarPos="' in line:
-				n1 = line.find('CoolBarPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolBarHPos="10"
-			if 'CoolBarHPos="' in line:
-				n1 = line.find('CoolBarHPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolBarSize="100"
-			if 'CoolBarSize="' in line:
-				n1 = line.find('CoolBarSize=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolBarHigh="10"
-			if 'CoolBarHigh="' in line:
-				n1 = line.find('CoolBarHigh=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolTimePos="225"
-			if 'CoolTimePos="' in line:
-				n1 = line.find('CoolTimePos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolTimeHPos="2"
-			if 'CoolTimeHPos="' in line:
-				n1 = line.find('CoolTimeHPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolTimeSize="120"
-			if 'CoolTimeSize="' in line:
-				n1 = line.find('CoolTimeSize=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolDurationPos="1055"
-			if 'CoolDurationPos="' in line:
-				n1 = line.find('CoolDurationPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolDurationSize="100"
-			if 'CoolDurationSize="' in line:
-				n1 = line.find('CoolDurationSize=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolPico="35"
-			if 'CoolPico="' in line:
-				n1 = line.find('CoolPico=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolDaySize="100"
-			if 'CoolDaySize="' in line:
-				n1 = line.find('CoolDaySize=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolDayPos="0"
-			if 'CoolDayPos="' in line:
-				n1 = line.find('CoolDayPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolDayHPos="2"
-			if 'CoolDayHPos="' in line:
-				n1 = line.find('CoolDayHPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolDayHPos="2"
-			if 'CoolDayHPos="' in line:
-				n1 = line.find('CoolDayHPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolDatePos="0"
-			if 'CoolDatePos="' in line:
-				n1 = line.find('CoolDatePos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolDateHPos="0"
-			if 'CoolDateHPos="' in line:
-				n1 = line.find('CoolDateHPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolDateSize="0"
-			if 'CoolDateSize="' in line:
-				n1 = line.find('CoolDateSize=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolMarkerHPos="200"
-			if 'CoolMarkerHPos="' in line:
-				n1 = line.find('CoolMarkerHPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolMarkerPicPos="2"
-			if 'CoolMarkerPicPos="' in line:
-				n1 = line.find('CoolMarkerPicPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolMarkerPicHPos="2"
-			if 'CoolMarkerPicHPos="' in line:
-				n1 = line.find('CoolMarkerPicHPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolPicoPos="2"
-			if 'CoolPicoPos="' in line:
-				n1 = line.find('CoolPicoPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#CoolPicoHPos="2"
-			if 'CoolPicoHPos="' in line:
-				n1 = line.find('CoolPicoHPos=', 0)
-				n2 = line.find('"', n1)
-				n3 = line.find('"', n2 + 1)
-				y = line[(n2 + 1):n3]
-				ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-				strnew = line[n1:n2 + 1] + ynew + '"'
-				line = line[:n1] + strnew + line[(n3 + 1):]
-#cool tv guide special end
-
-#colPosition="240"
-		if 'colPosition="' in line:
-			n1 = line.find('colPosition=', 0)
-			n2 = line.find('"', n1)
-			n3 = line.find('"', n2 + 1)
-			y = line[(n2 + 1):n3]
-			ynew = str(int(round_half_up(float(int(y) * FACT), r_par)))
-			strnew = line[n1:n2 + 1] + ynew + '"'
-			line = line[:n1] + strnew + line[(n3 + 1):]
 
 		return line
 

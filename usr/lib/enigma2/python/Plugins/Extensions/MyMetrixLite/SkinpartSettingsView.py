@@ -36,12 +36,13 @@ from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
 from Tools.Directories import resolveFilename, SCOPE_CURRENT_SKIN, fileExists
 
-from . import _, MAIN_IMAGE_PATH
+from . import _, PLUGIN_PATH
 
 #############################################################
 
 
 class SkinpartSettingsView(ConfigListScreen, Screen):
+	MAIN_IMAGE_PATH = PLUGIN_PATH + "/images/%s.png"
 	skin = """
 	<screen name="MyMetrixLiteOtherView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 	<eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
@@ -320,7 +321,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 		if not zoomEnable or not isfile(picturepath):
 			picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/MyMetrixLiteSkinpart.png")
 			if not fileExists(picturepath):
-				picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteSkinpart"
+				picturepath = self.MAIN_IMAGE_PATH % "MyMetrixLiteSkinpart"
 
 		if zoomEnable and "blue" not in self["actions"].actions:
 			self["actions"].actions.update({"blue": self.zoom})

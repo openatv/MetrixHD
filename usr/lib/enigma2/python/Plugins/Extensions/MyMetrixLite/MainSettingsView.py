@@ -31,7 +31,7 @@ from Screens.Screen import Screen
 from Screens.Standby import TryQuitMainloop
 from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN
 
-from . import _, MAIN_IMAGE_PATH
+from . import _, PLUGIN_PATH
 from .ColorsSettingsView import ColorsSettingsView
 from .WeatherSettingsView import WeatherSettingsView
 from .OtherSettingsView import OtherSettingsView
@@ -78,6 +78,7 @@ def MenuEntryItem(itemDescription, key, helptext):
 
 
 class MainSettingsView(Screen):
+	MAIN_IMAGE_PATH = PLUGIN_PATH + "/images/%s.png"
 	skin = """
   <screen name="MyMetrixLiteMainSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 	<eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
@@ -188,7 +189,7 @@ class MainSettingsView(Screen):
 	def GetPicturePath(self, pic):
 		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, f"mymetrixlite/{pic}.png")
 		if not fileExists(picturepath):
-			picturepath = MAIN_IMAGE_PATH % pic
+			picturepath = self.MAIN_IMAGE_PATH % pic
 		return picturepath
 
 	def DecodePicture(self, PicInfo=""):

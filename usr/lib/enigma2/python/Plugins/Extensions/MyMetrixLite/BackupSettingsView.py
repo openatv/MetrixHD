@@ -34,7 +34,7 @@ from Screens.Screen import Screen
 from Screens.VirtualKeyBoard import VirtualKeyBoard
 from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN
 
-from . import _, MAIN_IMAGE_PATH, BACKUP_FILE
+from . import _, PLUGIN_PATH
 from .ColorsSettingsView import ColorsSettingsView
 from .WeatherSettingsView import WeatherSettingsView
 from .OtherSettingsView import OtherSettingsView
@@ -45,6 +45,10 @@ from .ActivateSkinSettings import ActivateSkinSettings
 
 
 class BackupSettingsView(ConfigListScreen, Screen):
+
+	BACKUP_FILE = "/etc/enigma2/MyMetrixLiteBackup.dat"
+	MAIN_IMAGE_PATH = PLUGIN_PATH + "/images/%s.png"
+
 	skin = """
 	<screen name="MyMetrixLiteBackupView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 	<eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
@@ -133,7 +137,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		sep = "-"
 		tab = " " * 10
 
-		list.append(getConfigListEntry(_("My Backup Number"), self.myset, _("You can create up to 99 Backup-Sets.\nStored in:\n%s") % BACKUP_FILE, 'REFRESH'))
+		list.append(getConfigListEntry(_("My Backup Number"), self.myset, _("You can create up to 99 Backup-Sets.\nStored in:\n%s") % self.BACKUP_FILE, 'REFRESH'))
 		list.append(getConfigListEntry(_("My Backup Description"), self.myname, _("You can here assign an individual name.") + _("\nPress 'OK-Button'")))
 		list.append(getConfigListEntry(tab))
 		list.append(getConfigListEntry((tab * 2) + _("My Backup Saved:   %s") % self.mydate))
@@ -171,7 +175,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 	def GetPicturePath(self):
 		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/MyMetrixLiteBackup.png")
 		if not fileExists(picturepath):
-			picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteBackup"
+			picturepath = self.MAIN_IMAGE_PATH % "MyMetrixLiteBackup"
 		return picturepath
 
 	def UpdatePicture(self):
@@ -197,18 +201,18 @@ class BackupSettingsView(ConfigListScreen, Screen):
 
 	def writeFile(self):
 		try:
-			f = open(BACKUP_FILE, 'wb')
+			f = open(self.BACKUP_FILE, 'wb')
 			dump(self.file, f)
 			f.close()
 			self.changedEntry(True)
 		except IOError:
-			self.message(_("Can't create Backup-File!\n( %s )") % BACKUP_FILE, MessageBox.TYPE_ERROR)
+			self.message(_("Can't create Backup-File!\n( %s )") % self.BACKUP_FILE, MessageBox.TYPE_ERROR)
 
 	def readFile(self):
 
-		if exists(BACKUP_FILE):
+		if exists(self.BACKUP_FILE):
 			try:
-				f = open(BACKUP_FILE, "rb")
+				f = open(self.BACKUP_FILE, "rb")
 				try:
 					self.file = load(f)
 				except UnicodeDecodeError:
@@ -224,7 +228,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 	def restore(self):
 		self["titleText"].setText(_("Backup & Restore my settings"))
 		if not self.readFile():
-			self.message(_("No Backup-File found!\n( %s )") % BACKUP_FILE, MessageBox.TYPE_ERROR)
+			self.message(_("No Backup-File found!\n( %s )") % self.BACKUP_FILE, MessageBox.TYPE_ERROR)
 			return
 		set = self.myset.value
 		s = 0

@@ -52,68 +52,6 @@ language.addCallback(localeInit)
 
 #############################################################
 
-SKIN_SOURCE = "/usr/share/enigma2/MetrixHD/skin.xml"
-SKIN_TARGET = "/usr/share/enigma2/MetrixHD/skin.MySkin.xml"
-SKIN_TARGET_TMP = SKIN_TARGET + ".tmp"
-
-SKIN_TEMPLATES_SOURCE = "/usr/share/enigma2/MetrixHD/skinfiles/skin_templates.xml"
-SKIN_TEMPLATES_TARGET = "/usr/share/enigma2/MetrixHD/skinfiles/skin_templates.mySkin.xml"
-SKIN_TEMPLATES_TARGET_TMP = SKIN_TEMPLATES_TARGET + ".tmp"
-
-SKIN_INFOBAR_SOURCE = "/usr/share/enigma2/MetrixHD/skinfiles/skin_infobar.xml"
-SKIN_INFOBAR_TARGET = "/usr/share/enigma2/MetrixHD/skinfiles/skin_infobar.mySkin.xml"
-SKIN_INFOBAR_TARGET_TMP = SKIN_INFOBAR_TARGET + ".tmp"
-
-SKIN_SECOND_INFOBAR_SOURCE = "/usr/share/enigma2/MetrixHD/skinfiles/skin_secondinfobar.xml"
-SKIN_SECOND_INFOBAR_TARGET = "/usr/share/enigma2/MetrixHD/skinfiles/skin_secondinfobar.mySkin.xml"
-SKIN_SECOND_INFOBAR_TARGET_TMP = SKIN_SECOND_INFOBAR_TARGET + ".tmp"
-
-SKIN_SECOND_INFOBAR_ECM_SOURCE = "/usr/share/enigma2/MetrixHD/skinfiles/skin_secondinfobarecm.xml"
-SKIN_SECOND_INFOBAR_ECM_TARGET = "/usr/share/enigma2/MetrixHD/skinfiles/skin_secondinfobarecm.mySkin.xml"
-SKIN_SECOND_INFOBAR_ECM_TARGET_TMP = SKIN_SECOND_INFOBAR_ECM_TARGET + ".tmp"
-
-SKIN_INFOBAR_LITE_SOURCE = "/usr/share/enigma2/MetrixHD/skinfiles/skin_infobarlite.xml"
-SKIN_INFOBAR_LITE_TARGET = "/usr/share/enigma2/MetrixHD/skinfiles/skin_infobarlite.mySkin.xml"
-SKIN_INFOBAR_LITE_TARGET_TMP = SKIN_INFOBAR_LITE_TARGET + ".tmp"
-
-SKIN_CHANNEL_SELECTION_SOURCE = "/usr/share/enigma2/MetrixHD/skinfiles/skin_channelselection.xml"
-SKIN_CHANNEL_SELECTION_TARGET = "/usr/share/enigma2/MetrixHD/skinfiles/skin_channelselection.mySkin.xml"
-SKIN_CHANNEL_SELECTION_TARGET_TMP = SKIN_CHANNEL_SELECTION_TARGET + ".tmp"
-
-SKIN_MOVIEPLAYER_SOURCE = "/usr/share/enigma2/MetrixHD/skinfiles/skin_movieplayer.xml"
-SKIN_MOVIEPLAYER_TARGET = "/usr/share/enigma2/MetrixHD/skinfiles/skin_movieplayer.mySkin.xml"
-SKIN_MOVIEPLAYER_TARGET_TMP = SKIN_MOVIEPLAYER_TARGET + ".tmp"
-
-SKIN_EMC_SOURCE = "/usr/share/enigma2/MetrixHD/skinfiles/skin_emc.xml"
-SKIN_EMC_TARGET = "/usr/share/enigma2/MetrixHD/skinfiles/skin_emc.mySkin.xml"
-SKIN_EMC_TARGET_TMP = SKIN_EMC_TARGET + ".tmp"
-
-SKIN_OPENATV_SOURCE = "/usr/share/enigma2/MetrixHD/skinfiles/skin_openatv.xml"
-SKIN_OPENATV_TARGET = "/usr/share/enigma2/MetrixHD/skinfiles/skin_openatv.mySkin.xml"
-SKIN_OPENATV_TARGET_TMP = SKIN_OPENATV_TARGET + ".tmp"
-
-SKIN_PLUGINS_SOURCE = "/usr/share/enigma2/MetrixHD/skinfiles/skin_plugins.xml"
-SKIN_PLUGINS_TARGET = "/usr/share/enigma2/MetrixHD/skinfiles/skin_plugins.mySkin.xml"
-SKIN_PLUGINS_TARGET_TMP = SKIN_PLUGINS_TARGET + ".tmp"
-
-SKIN_UNCHECKED_SOURCE = "/usr/share/enigma2/MetrixHD/skinfiles/skin_unchecked.xml"
-SKIN_UNCHECKED_TARGET = "/usr/share/enigma2/MetrixHD/skinfiles/skin_unchecked.mySkin.xml"
-SKIN_UNCHECKED_TARGET_TMP = SKIN_UNCHECKED_TARGET + ".tmp"
-
-SKIN_DESIGN_SOURCE = "/usr/share/enigma2/MetrixHD/skinfiles/skin_design.xml"
-SKIN_DESIGN_TARGET = "/usr/share/enigma2/MetrixHD/skinfiles/skin_design.mySkin.xml"
-SKIN_DESIGN_TARGET_TMP = SKIN_DESIGN_TARGET + ".tmp"
-#############################################################
-
-MAIN_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/%s.png"
-COLOR_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/colors/%s.png"
-FONT_IMAGE_PATH = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/fonts/%s.png"
-
-OLD_BACKUP_FILE = "/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/MyMetrixLiteBackup.dat"
-BACKUP_FILE = "/etc/enigma2/MyMetrixLiteBackup.dat"
-
-if exists(OLD_BACKUP_FILE) and not exists(BACKUP_FILE):
-	move(OLD_BACKUP_FILE, BACKUP_FILE)
 
 #############################################################
 
@@ -558,8 +496,8 @@ def initOtherConfig():
 			vmodes = open("/proc/stb/video/videomode_choices").read()
 			if "1080p" in vmodes:
 				mode1080p = True
-			if "2160p" in vmodes:
-				mode2160p = True
+#			if "2160p" in vmodes:
+#				mode2160p = True
 		else:
 			risk = True
 	except Exception:
@@ -573,25 +511,26 @@ def initOtherConfig():
 			skinmodes.append(("1", _("Full HD (1920x1080)")))
 		elif mode1080p or risk:
 			skinmodes.append(("1", _("Full HD (1920x1080) %s") % risktxt))
-		if BoxType in tested[0] and "2" in tested[1]:
-			skinmodes.append(("2", _("Ultra HD (3840x2160)")))
-		elif mode2160p or risk:
-			skinmodes.append(("2", _("Ultra HD (3840x2160) %s") % risktxt))
+#		if BoxType in tested[0] and "2" in tested[1]:
+#			skinmodes.append(("2", _("Ultra HD (3840x2160)")))
+#		elif mode2160p or risk:
+#			skinmodes.append(("2", _("Ultra HD (3840x2160) %s") % risktxt))
 	else:
 		if mode1080p or risk:
 			skinmodes.append(("1", _("Full HD (1920x1080) %s") % risktxt))
-		if mode2160p or risk:
-			skinmodes.append(("2", _("Ultra HD (3840x2160) %s") % risktxt))
+		#if mode2160p or risk:
+		#	skinmodes.append(("2", _("Ultra HD (3840x2160) %s") % risktxt))
+
 	###no box supports at time uhd skins ...###
-	if "2" in skinmodes[-1]:
-		del skinmodes[-1]
+	dummy = _("Ultra HD (3840x2160")
+	dummy = _("Ultra HD (3840x2160) %s")
+
 	###########################################
 	config.plugins.MyMetrixLiteOther.EHDenabled = ConfigSelection(default="0", choices=skinmodes)
 	config.plugins.MyMetrixLiteOther.EHDrounddown = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.EHDfontoffset = ConfigSelectionNumber(-10, 5, 1, default=0)
 	config.plugins.MyMetrixLiteOther.EHDpiconzoom = ConfigSelection(default="1.0", choices=[("0", _("No")), ("0.2", "20%"), ("0.4", "40%"), ("0.6", "60%"), ("0.8", "80%"), ("1.0", "100%")])
 	config.plugins.MyMetrixLiteOther.piconresize_experimental = ConfigYesNo(default=False)
-	# config.plugins.MyMetrixLiteOther.EHDoldlinechanger = ConfigYesNo(default=False)
 	sharpness = []
 	for i in list(range(0, 525, 25)):
 		x = str(format(float(i) / 100, ".2f"))

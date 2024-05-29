@@ -37,7 +37,7 @@ from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN
 
-from . import _, MAIN_IMAGE_PATH
+from . import _, PLUGIN_PATH
 from .ActivateSkinSettings import ActivateSkinSettings
 
 BoxType = BoxInfo.getItem("machinebuild")
@@ -46,6 +46,7 @@ BoxType = BoxInfo.getItem("machinebuild")
 
 
 class OtherSettingsView(ConfigListScreen, Screen):
+	MAIN_IMAGE_PATH = PLUGIN_PATH + "/images/%s.png"
 	skin = """
 	<screen name="MyMetrixLiteOtherView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 	<eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
@@ -508,7 +509,6 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Choose skin resolution"), config.plugins.MyMetrixLiteOther.EHDenabled, _("helptext"), "ENABLED_EHD"))
 		if self.EHDenabled:
-			# list.append(getConfigListEntry(tab + _("Use simple calculation"), config.plugins.MyMetrixLiteOther.EHDoldlinechanger, _("Alternative calculation, recommened for slow boxes or for a fast settings testing.")))
 			list.append(getConfigListEntry(tab + _("All calculated values round down"), config.plugins.MyMetrixLiteOther.EHDrounddown, _("helptext")))
 			list.append(getConfigListEntry(tab + _("Additional offset for font scaling"), config.plugins.MyMetrixLiteOther.EHDfontoffset, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Enhanced picon scaling"), config.plugins.MyMetrixLiteOther.piconresize_experimental, _("Improved the picon scaling quality.\n(no restart required)"), "ENABLED"))
@@ -677,7 +677,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 	def getButtonPreview(self):
 		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/other/template.png")
 		if not fileExists(picturepath):
-			picturepath = MAIN_IMAGE_PATH % "other/template"
+			picturepath = self.MAIN_IMAGE_PATH % "other/template"
 		if not config.plugins.MyMetrixLiteOther.SkinDesignButtons.value or not exists(picturepath):
 			return
 		ret = ActivateSkinSettings().makeButtons('/tmp/button.png', _('TEST'))
@@ -692,7 +692,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 	def GetPicturePath(self):
 		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/MyMetrixLiteOther.png")
 		if not fileExists(picturepath):
-			picturepath = MAIN_IMAGE_PATH % "MyMetrixLiteOther"
+			picturepath = self.MAIN_IMAGE_PATH % "MyMetrixLiteOther"
 		return picturepath
 
 	def UpdatePicture(self):
