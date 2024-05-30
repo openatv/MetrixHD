@@ -1480,7 +1480,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 			<convert type="ClockToText">Format:, %A , %d.%m.%Y</convert>
 		</widget>
 	</screen>
-	<screen name="Volume" position="40,40" size="335,71" title="Volume" flags="wfNoBorder" backgroundColor="transparent" zPosition="99">
+	<screen name="Volume" position="40,40" size="335,71" title="Volume" flags="wfNoBorder" backgroundColor="transparent" zPosition="99" ignoreWidgets="VolumeText">
 		<widget name="Volume" position="78,33" size="178,5" zPosition="3" foregroundColor="layer-a-progress" transparent="1" />
 		<ePixmap position="8,4" size="64,64" zPosition="1" pixmap="icons/volume.png" transparent="1" alphatest="blend" />
 		<widget font="screen_info;40" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="bottom" render="MetrixHDVolumeText" source="global.CurrentTime" position="250,12" size="85,50" zPosition="20" transparent="1" />
@@ -2243,7 +2243,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/service_info.png" transparent="1" alphatest="blend" />
 	</screen>
-	<screen name="ExtensionsList" position="0,0" size="1280,720" title="ExtensionsList" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="ExtensionsList" position="0,0" size="1280,720" title="ExtensionsList" flags="wfNoBorder" backgroundColor="transparent" ignoreWidgets="text">
 		<eLabel text="Please choose an extension..." position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,100" size="700,490" font="epg_event;29" zPosition="3" itemHeight="35" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
 		<ePixmap position="890,175" size="256,256" pixmap="icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
