@@ -1739,7 +1739,8 @@ class ActivateSkinSettings:
 								self.skinline_error = True
 								break
 					if run_mod and not line_disabled and not self.skinline_error:
-						line = self.linerchanger_new(line, next_picon_zoom, "skin_base.MySkin.xml" in sourceFile)
+						line = self.linerchanger_new(line, next_picon_zoom, "skin.MySkin.xml" in sourceFile)
+# NEW					line = self.linerchanger_new(line, next_picon_zoom, "skin_base.MySkin.xml" in sourceFile)
 #line disabled off
 					if line_disabled and 'cf#_#' not in line and (match('#+', line.lstrip()) or match('.*-->.*', line.rstrip())):
 						#print 'line disabled off', i, line
@@ -1769,7 +1770,7 @@ class ActivateSkinSettings:
 			return ''.join(ret)
 		i = 0
 		for x in ret:
-			if match('[0-9]\d{%d,}' % (len(x) - 1), x):
+			if match(r'[0-9]\d{%d,}' % (len(x) - 1), x):
 				if ret[0].startswith('size="') and (self.xpos or self.ypos):
 					x = int(round_half_up(int(x) * self.picon_zoom, self.round_par))
 				else:
