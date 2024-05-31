@@ -22,10 +22,8 @@ from Components.Converter.Converter import Converter
 from enigma import iServiceInformation, iPlayableService
 from Components.Element import cached
 from Components.Converter.Poll import Poll
-from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
 from Components.config import config
 import six
-initOtherConfig()
 
 
 class MetrixHDCaidDisplay(Poll, Converter, object):

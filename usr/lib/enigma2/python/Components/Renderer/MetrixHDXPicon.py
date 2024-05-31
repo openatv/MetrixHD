@@ -11,9 +11,6 @@ from Components.config import config
 from Components.Renderer.Picon import getPiconName
 from Components.Renderer.Renderer import Renderer
 from Tools.Directories import SCOPE_SKIN_IMAGE, SCOPE_CURRENT_SKIN, resolveFilename
-from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
-
-initOtherConfig()
 
 
 class MetrixHDXPicon(Renderer):

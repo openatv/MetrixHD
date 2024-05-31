@@ -1,9 +1,6 @@
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 from Components.config import config
-from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
-
-initOtherConfig()
 
 
 class MetrixHDMenuEntryCompare(Converter, object):

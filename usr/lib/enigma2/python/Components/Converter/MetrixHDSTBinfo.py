@@ -1,33 +1,13 @@
 from __future__ import division
+from os import popen
+from os.path import exists
 from Components.Converter.Converter import Converter
 from Components.config import config
 from Components.Element import cached
-from Components.Language import language
-from os import path, popen, environ
-from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
-from Tools.Directories import resolveFilename, SCOPE_LANGUAGE, SCOPE_PLUGINS
 import Screens.Standby
-import gettext
-import six
-#from time import time
+from Plugins.Extensions.MyMetrixLite.__init__ import _
 
-lang = language.getLanguage()
-environ["LANGUAGE"] = lang[:2]
-gettext.bindtextdomain("enigma2", resolveFilename(SCOPE_LANGUAGE))
-gettext.textdomain("enigma2")
-gettext.bindtextdomain("MyMetrixLite", f"{resolveFilename(SCOPE_PLUGINS)}Extensions/MyMetrixLite/locale/")
-
-TEMPSIGN = '°C' if six.PY3 else str('\xc2\xb0C')
-
-
-def _(txt):
-	t = gettext.dgettext("MyMetrixLite", txt)
-	if t == txt:
-		t = gettext.gettext(txt)
-	return t
-
-
-initOtherConfig()
+TEMPSIGN = '°C'
 
 
 class MetrixHDSTBinfo(Converter, object):
@@ -77,7 +57,7 @@ class MetrixHDSTBinfo(Converter, object):
 
 	def getCPUload(self):
 		info = ""
-		if path.exists('/proc/loadavg'):
+		if exists('/proc/loadavg'):
 			f = open('/proc/loadavg', 'r')
 			temp = f.readline(4)
 			f.close()
@@ -89,15 +69,15 @@ class MetrixHDSTBinfo(Converter, object):
 	def getCPUtemp(self):
 		info = ""
 		temp = ""
-		if path.exists('/proc/stb/fp/temp_sensor_avs'):
+		if exists('/proc/stb/fp/temp_sensor_avs'):
 			f = open('/proc/stb/fp/temp_sensor_avs', 'r')
 			temp = f.readline()
 			f.close()
-		elif path.exists('/proc/stb/power/avs'):
+		elif exists('/proc/stb/power/avs'):
 			f = open('/proc/stb/power/avs', 'r')
 			temp = f.readline()
 			f.close()
-		elif path.exists('/proc/hisi/msp/pm_cpu'):
+		elif exists('/proc/hisi/msp/pm_cpu'):
 			try:
 				for line in open('/proc/hisi/msp/pm_cpu').readlines():
 					line = [x.strip() for x in line.strip().split(":")]
@@ -107,7 +87,7 @@ class MetrixHDSTBinfo(Converter, object):
 						temp = temp[2]
 			except:
 				temp = ""
-		elif path.exists('/sys/devices/virtual/thermal/thermal_zone0/temp'):
+		elif exists('/sys/devices/virtual/thermal/thermal_zone0/temp'):
 			try:
 				f = open('/sys/devices/virtual/thermal/thermal_zone0/temp', 'r')
 				temp = f.read()
@@ -124,15 +104,15 @@ class MetrixHDSTBinfo(Converter, object):
 	def getSYStemp(self):
 		info = ""
 		temp = ""
-		if path.exists('/proc/stb/sensors/temp0/value'):
+		if exists('/proc/stb/sensors/temp0/value'):
 			f = open('/proc/stb/sensors/temp0/value', 'r')
 			temp = f.readline()
 			f.close()
-		elif path.exists('/proc/stb/fp/temp_sensor'):
+		elif exists('/proc/stb/fp/temp_sensor'):
 			f = open('/proc/stb/fp/temp_sensor', 'r')
 			temp = f.readline()
 			f.close()
-		elif path.exists('/proc/stb/sensors/temp/value'):
+		elif exists('/proc/stb/sensors/temp/value'):
 			f = open('/proc/stb/sensors/temp/value', 'r')
 			temp = f.readline()
 			f.close()
@@ -144,7 +124,7 @@ class MetrixHDSTBinfo(Converter, object):
 
 	def getRAMfree(self):
 		info = ""
-		if path.exists('/proc/meminfo'):
+		if exists('/proc/meminfo'):
 			f = open('/proc/meminfo', 'r')
 			temp = f.readlines()
 			f.close()
@@ -178,7 +158,7 @@ class MetrixHDSTBinfo(Converter, object):
 
 	def getCPUspeed(self):
 		info = ""
-		if path.exists('/proc/cpuinfo'):
+		if exists('/proc/cpuinfo'):
 			f = open('/proc/cpuinfo', 'r')
 			temp = f.readlines()
 			f.close()
