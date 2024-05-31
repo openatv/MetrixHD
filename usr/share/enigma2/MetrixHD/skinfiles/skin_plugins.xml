@@ -768,10 +768,19 @@
 	</screen>
 	<!-- MSNWeatherPlugin *-->
 	<!-- MyMetrix Lite -->
+	<screen name="MetrixSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="titleText" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="helperimage" position="890,175" size="256,256" backgroundColor="layer-b-background" zPosition="1" transparent="1" alphatest="blend" />
+		<widget name="helpertext" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="template1_2layer" />
+		<panel name="T_Col_B_A" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
 	<screen name="MainSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="titleText" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="menuList" position="70,100" size="700,500" itemHeight="44" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget source="cancelBtn" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget source="key_red" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget source="applyBtn" render="Label" position="253,638" size="260,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="helperimage" position="890,175" size="256,256" backgroundColor="layer-b-background" zPosition="1" transparent="1" alphatest="blend" />
 		<widget name="helpertext" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
@@ -779,74 +788,10 @@
 		<panel name="rg__-buttons_template1" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
-	<screen name="ColorsSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="titleText" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget source="cancelBtn" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget source="saveBtn" render="Label" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget source="defaultsBtn" render="Label" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="helperimage" position="890,175" size="256,256" backgroundColor="layer-b-background" zPosition="1" transparent="1" alphatest="blend" />
-		<widget name="helpertext" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<panel name="template1_2layer" />
-		<panel name="rgy_-buttons_template1" />
-		<panel name="_oe-buttons_template1" />
-	</screen>
-	<screen name="OtherSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="titleText" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget source="cancelBtn" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget source="saveBtn" render="Label" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget source="defaultsBtn" render="Label" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget source="testBtn" render="Label" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="helperimage" position="890,175" size="256,256" backgroundColor="layer-b-background" zPosition="1" transparent="1" alphatest="blend" />
-		<widget name="helpertext" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<panel name="template1_2layer" />
-		<panel name="rgyb-buttons_template1" />
-		<panel name="_oe-buttons_template1" />
-	</screen>
-	<screen name="SkinpartSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="titleText" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget source="cancelBtn" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget source="saveBtn" render="Label" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget source="defaultsBtn" render="Label" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget source="zoomBtn" render="Label" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="helperimage" position="890,175" size="256,256" backgroundColor="layer-b-background" zPosition="1" transparent="1" alphatest="blend" />
-		<widget name="helpertext" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<panel name="template1_2layer" />
-		<panel name="rgyb-buttons_template1" />
-		<panel name="_oe-buttons_template1" />
-	</screen>
 	<screen name="WeatherSettingsView" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="setup_common"/>
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images/MyMetrixLiteWeather.png" transparent="1" alphatest="blend" />
-	</screen>
-	<screen name="FontsSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="titleText" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget source="cancelBtn" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget source="saveBtn" render="Label" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget source="defaultsBtn" render="Label" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="helperimage" position="890,175" size="256,256" backgroundColor="layer-b-background" zPosition="1" transparent="1" alphatest="blend" />
-		<widget name="helpertext" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<panel name="template1_2layer" />
-		<panel name="rgy_-buttons_template1" />
-		<panel name="_oe-buttons_template1" />
-	</screen>
-	<screen name="BackupSettingsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="titleText" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,100" size="700,210" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget source="cancelBtn" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget source="loadBtn" render="Label" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget source="saveBtn" render="Label" position="436,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget source="deleteBtn" render="Label" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
-		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
-		<widget name="helperimage" position="890,175" size="256,256" backgroundColor="layer-b-background" zPosition="1" transparent="1" alphatest="blend" />
-		<widget name="helpertext" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<panel name="template1_2layer" />
-		<panel name="rgyb-buttons_template1" />
-		<panel name="_oe-buttons_template1" />
 	</screen>
 	<!-- MyMetrix Lite -->
 	<!-- Picons Updater -->

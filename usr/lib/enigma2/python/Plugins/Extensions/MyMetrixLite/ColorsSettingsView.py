@@ -44,9 +44,9 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 	<eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
 	<widget source="titleText" position="60,55" size="590,50" render="Label" font="Regular; 40" foregroundColor="#00ffffff" backgroundColor="#00000000" valign="center" transparent="1" />
 	<widget name="config" position="61,124" size="590,480" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
-	<widget source="cancelBtn" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
-	<widget source="saveBtn" position="257,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
-	<widget source="defaultsBtn" position="445,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+	<widget source="key_red" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+	<widget source="key_green" position="257,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+	<widget source="key_yellow" position="445,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
 	<eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
 	<eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
 	<eLabel position="430,635" size="5,40" backgroundColor="#00e5dd00" />
@@ -57,23 +57,16 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
-		self.session = session
+		self.skinName = "MetrixSettingsView"
 		self.picPath = self.COLOR_IMAGE_PATH % "FFFFFF"
 		self.PicLoad = ePicLoad()
 		self["helperimage"] = Pixmap()
 		self["helpertext"] = Label()
 
-		self["titleText"] = StaticText("")
-		self["titleText"].setText(_("Color settings"))
-
-		self["cancelBtn"] = StaticText("")
-		self["cancelBtn"].setText(_("Cancel"))
-
-		self["saveBtn"] = StaticText("")
-		self["saveBtn"].setText(_("Save"))
-
-		self["defaultsBtn"] = StaticText("")
-		self["defaultsBtn"].setText(_("Defaults"))
+		self["titleText"] = StaticText(_("Color settings"))
+		self["key_red"] = StaticText(_("Cancel"))
+		self["key_green"] = StaticText(_("Save"))
+		self["key_yellow"] = StaticText(_("Defaults"))
 
 		self.refreshTimer = eTimer()
 		self.refreshTimer.callback.append(self.refreshList)
