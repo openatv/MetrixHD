@@ -21,7 +21,7 @@
 
 from gettext import bindtextdomain, dgettext, gettext
 from os.path import exists
-from shutil import move
+#from shutil import move
 
 from Components.SystemInfo import BoxInfo
 from Components.config import config, ConfigSubsection, ConfigSelection, ConfigSelectionNumber, ConfigYesNo, ConfigText, ConfigInteger
@@ -483,6 +483,7 @@ def initOtherConfig():
 		]
 
 	config.plugins.MyMetrixLiteOther = ConfigSubsection()
+	config.plugins.MyMetrixLiteOther.Custom = ConfigYesNo(default=False)
 
 	#OtherSettings
 	#EHD-Option -> Enhanced HD

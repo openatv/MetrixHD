@@ -141,8 +141,8 @@ class ActivateSkinSettings:
 					stat = statvfs("/usr/share/enigma2/MetrixHD/")
 					freeflash = stat.f_bavail * stat.f_bsize / 1024 / 1024
 					filesize = 10
-					if self.EHDres == 'UHD':
-						filesize = 25
+#					if self.EHDres == 'UHD':
+#						filesize = 25
 					if freeflash < filesize:
 						self.ErrorCode = 3
 					else:
@@ -861,11 +861,105 @@ class ActivateSkinSettings:
 			################
 
 			skinSearchAndReplace = []
+			# TODO JB  .. maybe no longer needed !!!
 			orgskinSearchAndReplace = []  # needed for some attributes (e.g. borderset setting was lost after using plugin media portal - because restored settings from skin.xml and not from skin.MySkin.xml)
 			skinSearchAndReplace.append(['<!-- original file -->', ''])
 			orgskinSearchAndReplace.append(['<!-- original file -->', '<!-- !!!copied and changed file!!! -->'])
 
-			#Borderset screens
+			# Colors
+			colors = [
+				("layer-a-channelselection-foreground", "#00FFFFFF", "channelselectionservice"),
+				("layer-a-channelselection-foregroundColorSelected", "#00FFFFFF", "channelselectionserviceselected"),
+				("layer-a-channelselection-foreground-ServiceDescription", "#00BDBDBD", "channelselectionservicedescription"),
+				("layer-a-channelselection-progressbar", "#00BDBDBD", "channelselectionprogress"),
+				("layer-a-channelselection-progressbarborder", "#00BDBDBD", "channelselectionprogressborder"),
+				("layer-a-channelselection-foreground-ServiceDescriptionSelected", "#00FFFFFF", "channelselectionservicedescriptionselected"),
+				("layer-a-channelselection-foreground-colorServiceRecorded", "#00E51400", "channelselectioncolorServiceRecorded"),
+				("layer-a-channelselection-foreground-colorServicePseudoRecorded", "#000000CD", "channelselectioncolorServicePseudoRecorded"),
+				("layer-a-channelselection-foreground-colorServiceStreamed", "#00E51400", "channelselectioncolorServiceStreamed"),
+
+				("title-foreground", "#00FFFFFF", "windowtitletext", "windowtitletexttransparency"),
+				("title-background", "#000F0F0F", "windowtitletextback", "windowtitletextbacktransparency"),
+				("background-text", "#34FFFFFF", "backgroundtext", "backgroundtexttransparency"),
+				("text-background", "#67FFFFFF", "backgroundtextback", "backgroundtextbacktransparency"),
+
+				("layer-a-background", "#1A0F0F0F", "layerabackground", "layerabackgroundtransparency"),
+				("layer-a-foreground", "#00FFFFFF", "layeraforeground"),
+				("layer-a-selection-background", "#1A27408B", "layeraselectionbackground", "layeraselectionbackgroundtransparency"),
+				("layer-a-selection-foreground", "#00FFFFFF", "layeraselectionforeground"),
+				("layer-a-accent1", "#00BDBDBD", "layeraaccent1"),
+				("layer-a-accent2", "#006E6E6E", "layeraaccent2"),
+				("layer-a-extendedinfo1", "#00BDBDBD", "layeraextendedinfo1"),
+				("layer-a-extendedinfo2", "#006E6E6E", "layeraextendedinfo2"),
+				("layer-a-progress", "#1A27408B", "layeraprogress", "layeraprogresstransparency"),
+				("layer-a-underline", "#00BDBDBD", "layeraunderline", "layeraunderlinetransparency"),
+
+				("layer-b-background", "#1A27408B", "layerbbackground", "layerbbackgroundtransparency"),
+				("layer-b-foreground", "#00FFFFFF", "layerbforeground"),
+				("layer-b-selection-background", "#1A0F0F0F", "layerbselectionbackground", "layerbselectionbackgroundtransparency"),
+				("layer-b-selection-foreground", "#00FFFFFF", "layerbselectionforeground"),
+				("layer-b-accent1", "#00BDBDBD", "layerbaccent1"),
+				("layer-b-accent2", "#006E6E6E", "layerbaccent2"),
+				("layer-b-progress", "#1AFFFFFF", "layerbprogress", "layerbprogresstransparency"),
+
+				("layer-a-title-foreground", "#00FFFFFF", "windowtitletext"),
+				("layer-a-button-foreground", "#00FFFFFF", "buttonforeground"),
+				("layer-a-clock-foreground", "#00FFFFFF", "layeraclockforeground"),
+				("layer-b-clock-foreground", "#00FFFFFF", "layerbclockforeground"),
+				("weather-borderlines", "#00FFFFFF", "weatherborderlines", "weatherborderlinestransparency"),
+
+				("menufont", "#00FFFFFF", "menufont"),
+				("menufontselected", "#00FFFFFF", "menufontselected"),
+				("menubackground", "#1A0F0F0F", "menubackground", "menubackgroundtransparency"),
+				("menusymbolbackground", "#1A27408B", "menusymbolbackground", "menusymbolbackgroundtransparency"),
+				("infobarbackground", "#1A0F0F0F", "infobarbackground", "infobarbackgroundtransparency"),
+				("infobarprogress", "#1A27408B", "infobarprogress", "infobarprogresstransparency"),
+				("infobarfont1", "#00FFFFFF", "infobarfont1"),
+				("infobarfont2", "#00BDBDBD", "infobarfont2"),
+				("infobaraccent1", "#00BDBDBD", "infobaraccent1"),
+				("infobaraccent2", "#006E6E6E", "infobaraccent2"),
+				("scrollbarSlidercolor", "#00FFFFFF", "scrollbarSlidercolor", "scrollbarSlidertransparency"),
+				("scrollbarSliderbordercolor", "#0027408B", "scrollbarSliderbordercolor", "scrollbarSliderbordertransparency"),
+
+				("epg-eventdescription-background", "#1A27408B", "epgeventdescriptionbackground", "epgeventdescriptionbackgroundtransparency"),
+				("epg-eventdescription-foreground", "#00FFFFFF", "epgeventdescriptionforeground"),
+				("epg-eventdescription-background", "#1A0F0F0F", "epgbackground", "epgbackgroundtransparency"),
+				("epg-eventdescription-borderlines", "#1ABDBDBD", "epgborderlines", "epgborderlinestransparency"),
+				("epg-event-foreground", "#00FFFFFF", "epgeventforeground"),
+				("epg-event-background", "#1A0F0F0F", "epgeventbackground", "epgeventbackgroundtransparency"),
+				("epg-primetime-foreground", "#00008A00", "epgprimetimeforeground"),
+				("epg-primetime-background", "#1A0F0F0F", "epgprimetimebackground", "epgprimetimebackgroundtransparency"),
+				("epg-event-now-foreground", "#00FFFFFF", "epgeventnowforeground"),
+				("epg-event-now-background", "#1A000000", "epgeventnowbackground", "epgeventnowbackgroundtransparency"),
+				("epg-event-now-selected-foreground", "#00FFFFFF", "epgeventselectedforeground"),
+				("epg-event-now-selected-background", "#1A27408B", "epgeventselectedbackground", "epgeventselectedbackgroundtransparency"),
+				("epg-service-foreground", "#00FFFFFF", "epgserviceforeground"),
+				("epg-service-background", "#1A0F0F0F", "epgservicebackground", "epgservicebackgroundtransparency"),
+				("epg-service-now-foreground", "#00FFFFFF", "epgservicenowforeground"),
+				("epg-service-now-background", "#1A27408B", "epgservicenowbackground", "epgservicenowbackgroundtransparency"),
+				("epg-timeline-foreground", "#00F0A30A", "epgtimelineforeground"),
+				("epg-timeline-background", "#1A000000", "epgtimelinebackground", "epgtimelinebackgroundtransparency")
+
+			]
+
+			for color in colors:
+				colorobject = getattr(config.plugins.MyMetrixLiteColors, color[2])
+				if len(color) == 4:
+					transobject = getattr(config.plugins.MyMetrixLiteColors, color[3])
+					colorvalue = f"#{transobject.value}{colorobject.value}"
+				else:
+					colorvalue = f"#00{colorobject.value}"
+
+				skinSearchAndReplace.append([f'name="{color[0]}" value="{color[1]}"', f'name="{color[0]}" value="{colorvalue}"'])
+
+			# InformationColors
+			if config.plugins.MyMetrixLiteColors.SkinColorExamples.value != "preset_0":
+				color1 = f"0x00{config.plugins.MyMetrixLiteColors.infobarfont1.value.lower()}"
+				color2 = f"0x00{config.plugins.MyMetrixLiteColors.infobarfont2.value.lower()}"
+				color3 = f"0x00{config.plugins.MyMetrixLiteColors.infobaraccent2.value.lower()}"
+				skinSearchAndReplace.append(['name="InformationColors" value="0x00ffffff,0x00ffffff,0x00ffffff,0x00cccccc,0x00cccccc,0x00ffffff,0x0000ffff"', f'name="InformationColors" value="{color1},{color1},{color1},{color2},{color2},{color1},{color3}"'])
+
+			# Borderset screens
 			w = 5
 			wt = 50
 			if self.EHDenabled:
@@ -1313,8 +1407,10 @@ class ActivateSkinSettings:
 			self.updateIcons()
 			#restore default hd skin
 			config.skin.primary_skin.setValue("MetrixHD/skin.xml")
+			config.plugins.MyMetrixLiteOther.Custom.value = False
 		else:
-			config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")
+			config.plugins.MyMetrixLiteOther.Custom.value = True
+			config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")  # TODO JB
 		config.skin.primary_skin.save()
 		configfile.save()
 		print(f"MyMetrixLite apply Changes - duration time: {round_half_up(time() - apply_starttime, 1)}s")
@@ -1656,6 +1752,10 @@ class ActivateSkinSettings:
 		f = open(sourceFile, "r")
 		f1 = open(targetFile, "w")
 
+		isEMC = "skin_emc" in sourceFile
+		isMoviePlayer = "skin_movieplayer" in sourceFile
+		isTemplates = "skin_templates" in sourceFile
+
 		i = 0
 		i_save = i
 		sb_width = config.plugins.MyMetrixLiteOther.SkinDesignScrollbarSliderWidth.value + config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value * 2
@@ -1670,14 +1770,15 @@ class ActivateSkinSettings:
 				line = line.replace('scrollbarBorderWidth="1"', f'scrollbarBorderWidth="{sb_bwidth}"')
 			if config.plugins.MyMetrixLiteColors.backgroundtextborderwidth.value and ' font="global_large' in line and ' borderWidth=' not in line and ' borderColor=' not in line:
 				line = line.replace(' font=', f' borderWidth="{config.plugins.MyMetrixLiteColors.backgroundtextborderwidth.value}" borderColor="#{config.plugins.MyMetrixLiteColors.backgroundtextbordertransparency.value}{config.plugins.MyMetrixLiteColors.backgroundtextbordercolor.value}" font=')
-			if not config.plugins.MyMetrixLiteOther.SkinDesignMenuScrollInfo.value and 'name="menu_next_side_marker"' in line:
-				line = line.replace('text="&#x25ba;"', 'text=""')
-			if config.plugins.MyMetrixLiteOther.emc_pig.value:
+			if isTemplates:
+				if not config.plugins.MyMetrixLiteOther.SkinDesignMenuScrollInfo.value and 'name="menu_next_side_marker"' in line:
+					line = line.replace('text="&#x25ba;"', 'text=""')
+			if isEMC and config.plugins.MyMetrixLiteOther.emc_pig.value:
 				if 'screen name="EMCSelection_PIG"' in line:
 					line = line.replace('screen name="EMCSelection_PIG"', 'screen name="EMCSelection"')
 				elif 'screen name="EMCSelection"' in line:
 					line = line.replace('screen name="EMCSelection"', 'screen name="EMCSelection_noPIG"')
-			if config.plugins.MyMetrixLiteOther.movielist_pig.value:
+			if isMoviePlayer and config.plugins.MyMetrixLiteOther.movielist_pig.value:
 				if 'screen name="MovieSelection_PIG"' in line:
 					line = line.replace('screen name="MovieSelection_PIG"', 'screen name="MovieSelection"')
 				elif 'screen name="MovieSelection"' in line:
@@ -1703,7 +1804,7 @@ class ActivateSkinSettings:
 									line = sub(r'(name=")(\w+)', r'\1\2#_HDscreen', line)
 							next_rename = False
 #control flags
-						if '<!-- cf#_#begin -->' in line or '<!-- cf#_#start -->' in line:
+						if '<!-- cf#_#start -->' in line:
 							run_mod = True
 						elif '<!-- cf#_#stop -->' in line:
 							run_mod = False
@@ -1712,10 +1813,10 @@ class ActivateSkinSettings:
 							#only for next line!
 							i_save = i + 1
 							next_picon_zoom = True
-						elif '<!-- cf#_#pixnore -->' in line:
+# Not used				elif '<!-- cf#_#pixnore -->' in line:
 							#only for next line!
-							i_save = i + 1
-							next_pixmap_ignore = True
+#							i_save = i + 1
+#							next_pixmap_ignore = True
 						else:
 							if (next_picon_zoom or next_pixmap_ignore) and i > i_save:
 								self.xpos = 0
@@ -1978,62 +2079,3 @@ class ActivateSkinSettings:
 # applySkinSettings taken from OverlayHD
 def applySkinSettings(fullInit=False):
 	ActivateSkinSettings().initConfigs()
-	colorelements = [
-		("layer-a-channelselection-foreground", "channelselectionservice", ""),
-		("layer-a-channelselection-foregroundColorSelected", "channelselectionserviceselected", ""),
-		("layer-a-channelselection-foreground-ServiceDescription", "channelselectionservicedescription", ""),
-		("layer-a-channelselection-progressbar", "channelselectionprogress", ""),
-		("layer-a-channelselection-progressbarborder", "channelselectionprogressborder", ""),
-		("layer-a-channelselection-foreground-ServiceDescriptionSelected", "channelselectionservicedescriptionselected", ""),
-		("layer-a-channelselection-foreground-colorServiceRecorded", "channelselectioncolorServiceRecorded", ""),
-		("layer-a-channelselection-foreground-colorServicePseudoRecorded", "channelselectioncolorServicePseudoRecorded", ""),
-		("layer-a-channelselection-foreground-colorServiceStreamed", "channelselectioncolorServiceStreamed", ""),
-
-		("title-foreground", "windowtitletext", "windowtitletexttransparency"),
-		("title-background", "windowtitletextback", "windowtitletextbacktransparency"),
-		("background-text", "backgroundtext", "backgroundtexttransparency"),
-		("text-background", "backgroundtextback", "backgroundtextbacktransparency"),
-
-		("layer-a-title-foreground", "windowtitletext", ""),
-		("layer-a-button-foreground", "buttonforeground", ""),
-
-		("scrollbarSlidercolor", "scrollbarSlidercolor", "scrollbarSlidertransparency"),
-		("scrollbarSliderbordercolor", "scrollbarSliderbordercolor", "scrollbarSliderbordertransparency"),
-
-	]
-
-	for colorelement in ["menufont", "menufontselected", "infobarfont1", "infobarfont2", "infobaraccent1", "infobaraccent2", "layer-a-clock-foreground", "layer-b-clock-foreground", "epg-timeline-foreground", "epg-service-now-foreground", "epg-service-foreground", "epg-event-selected-foreground", "epg-event-now-foreground", "epg-primetime-foreground", "epg-event-foreground", "epg-eventdescription-foreground", "layer-b-accent1", "layer-b-accent2", "layer-b-selection-foreground", "layer-b-foreground", "layer-a-extendedinfo1", "layer-a-extendedinfo2", "layer-a-accent1", "layer-a-accent2", "layer-a-selection-foreground", "layer-a-foreground"]:
-		colorelements.append((colorelement, colorelement.replace("-", ""), ""))
-
-	for colorelement in ["menubackground", "menusymbolbackground", "infobarbackground", "infobarprogress", "weather-borderlines", "epg-timeline-background", "epg-service-now-background", "epg-service-background", "epg-event-selected-background", "epg-event-now-background", "epg-primetime-background", "epg-event-background", "epg-background", "epg-borderlines", "epg-eventdescription-background", "layer-b-progress", "layer-b-selection-background", "layer-b-background", "layer-a-underline", "layer-a-progress", "layer-a-selection-background", "layer-a-background"]:
-		colorelements.append((colorelement, colorelement.replace("-", ""), f"{colorelement.replace('-', '')}transparency"))
-
-	for (label, color, transparency) in colorelements:
-
-		if color and transparency:
-			colorobject = getattr(config.plugins.MyMetrixLiteColors, color)
-			transobject = getattr(config.plugins.MyMetrixLiteColors, transparency)
-			colorvalue = f"#{transobject.value}{colorobject.value}"
-		elif color:
-			colorobject = getattr(config.plugins.MyMetrixLiteColors, color)
-			colorvalue = f"#00{colorobject.value}"
-		else:
-			continue
-
-		colors[label] = parseColor(colorvalue)
-
-	# InformationColors
-	if config.plugins.MyMetrixLiteColors.SkinColorExamples.value != "preset_0":
-		color1 = f"0x00{config.plugins.MyMetrixLiteColors.infobarfont1.value.lower()}"
-		color2 = f"0x00{config.plugins.MyMetrixLiteColors.infobarfont2.value.lower()}"
-		color3 = f"0x00{config.plugins.MyMetrixLiteColors.infobaraccent2.value.lower()}"
-		try:
-			infoColors = (int(color1, 16), int(color2, 16), int(color3, 16))
-		except Exception:
-			infoColors = None
-			pass
-
-		if infoColors:
-			parameters["InformationColors"] = [infoColors[0], infoColors[0], infoColors[0], infoColors[1], infoColors[1], infoColors[0], infoColors[2]]
-
-	reloadWindowStyles()

@@ -337,6 +337,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
 	def RemovePackage(self, val):
 		if val:
+			config.plugins.MyMetrixLiteOther.Custom = False
 			config.skin.primary_skin.setValue("MetrixHD/skin.xml")
 			config.skin.save()
 			configfile.save()

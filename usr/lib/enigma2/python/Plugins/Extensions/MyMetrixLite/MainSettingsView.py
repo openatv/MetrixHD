@@ -109,7 +109,7 @@ class MainSettingsView(Screen):
 		self["applyBtn"] = StaticText("")
 		self["applyBtn"].setText(_("Apply changes"))
 
-		ActivateSkinSettings().initConfigs()
+#		ActivateSkinSettings().initConfigs()
 
 		self["actions"] = ActionMap(
 			[

@@ -4,7 +4,7 @@
 # control flag description (for converting skin to another screen resolution) #
 #<!-- cf#_#stop -->                                                           #
 # stop converting                                                             #
-#<!-- cf#_#start -->  (or <!-- cf#_#begin --> )                               #
+#<!-- cf#_#start -->                                                          #
 # start converting                                                            #
 #<!-- cf#_#rename -->                                                         #
 # rename next screen and stop converting                                      #
