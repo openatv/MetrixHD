@@ -5,7 +5,8 @@ from Components.Converter.Converter import Converter
 from Components.config import config
 from Components.Element import cached
 import Screens.Standby
-from Plugins.Extensions.MyMetrixLite.__init__ import _
+from Plugins.Extensions.MyMetrixLite.__init__ import _, initOtherConfig
+
 
 TEMPSIGN = '°C'
 
@@ -15,6 +16,8 @@ class MetrixHDSTBinfo(Converter, object):
 	def __init__(self, type):
 		Converter.__init__(self, type)
 		self.type = type
+		if not hasattr(config.plugins, "MyMetrixLiteOther"):  # This is for other skins
+			initOtherConfig()
 
 	@cached
 	def getText(self):

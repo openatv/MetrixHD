@@ -24,6 +24,7 @@ from Components.Element import cached
 from Components.Converter.Poll import Poll
 from Components.config import config
 import six
+from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
 
 
 class MetrixHDCaidDisplay(Poll, Converter, object):
@@ -45,6 +46,8 @@ class MetrixHDCaidDisplay(Poll, Converter, object):
 
 		self.poll_interval = 1000
 		self.poll_enabled = True
+		if not hasattr(config.plugins, "MyMetrixLiteOther"):  # This is for other skins
+			initOtherConfig()
 
 	@cached
 	def get_caidlist(self):

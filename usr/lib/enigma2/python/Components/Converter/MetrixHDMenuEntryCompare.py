@@ -2,11 +2,16 @@ from Components.Converter.Converter import Converter
 from Components.Element import cached
 from Components.config import config
 
+from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
+
 
 class MetrixHDMenuEntryCompare(Converter, object):
 	def __init__(self, type):
 		Converter.__init__(self, type)
 		self.entry_id = type
+		if not hasattr(config.plugins, "MyMetrixLiteOther"):  # This is for other skins
+			initOtherConfig()
+		self.enabled = config.plugins.MyMetrixLiteOther.SkinDesignMenuScrollInfo.value
 
 	def selChanged(self):
 		self.downstream_elements.changed((self.CHANGED_ALL, 0))
@@ -29,7 +34,7 @@ class MetrixHDMenuEntryCompare(Converter, object):
 
 	@cached
 	def getValue(self):
-		if self.source and config.plugins.MyMetrixLiteOther.SkinDesignMenuScrollInfo.value:
+		if self.source and self.enabled:
 			return self.source.count()
 		return 0
 

@@ -11,6 +11,7 @@ from Components.config import config
 from Components.Renderer.Picon import getPiconName
 from Components.Renderer.Renderer import Renderer
 from Tools.Directories import SCOPE_SKIN_IMAGE, SCOPE_CURRENT_SKIN, resolveFilename
+from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
 
 
 class MetrixHDXPicon(Renderer):
@@ -20,6 +21,8 @@ class MetrixHDXPicon(Renderer):
 		self.path = "picon"
 		self.nameCache = {}
 		self.pngname = ""
+		if not hasattr(config.plugins, "MyMetrixLiteOther"):  # This is for other skins
+			initOtherConfig()
 
 	def applySkin(self, desktop, parent):
 		attribs = []
