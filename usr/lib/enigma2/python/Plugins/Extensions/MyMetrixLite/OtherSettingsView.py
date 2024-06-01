@@ -128,24 +128,24 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.firstrun = True
 
 	def getEHDsettings(self):
-		if config.plugins.MyMetrixLiteOther.EHDenabled.value == '0':
-			self.EHDenabled = False
-			self.EHDfactor = 1
-			self.EHDvalue = "0"
-			self.EHDres = 'HD'
-			self.EHDtxt = 'Standard HD'
-		elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '1':
+#		if config.plugins.MyMetrixLiteOther.EHDenabled.value == '0':
+#			self.EHDenabled = False
+#			self.EHDfactor = 1
+#			self.EHDvalue = "0"
+#			self.EHDres = 'HD'
+#			self.EHDtxt = 'Standard HD'
+		if config.plugins.MyMetrixLiteOther.EHDenabled.value == '1':
 			self.EHDenabled = True
 			self.EHDfactor = 1.5
 			self.EHDvalue = "1"
 			self.EHDres = 'FHD'
 			self.EHDtxt = 'Full HD'
-		elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '2':
-			self.EHDenabled = True
-			self.EHDfactor = 3
-			self.EHDvalue = "2"
-			self.EHDres = 'UHD'
-			self.EHDtxt = 'Ultra HD'
+#		elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '2':
+#			self.EHDenabled = True
+#			self.EHDfactor = 3
+#			self.EHDvalue = "2"
+#			self.EHDres = 'UHD'
+#			self.EHDtxt = 'Ultra HD'
 		else:
 			self.EHDenabled = False
 			self.EHDfactor = 1
@@ -162,14 +162,14 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.EHDvalue_old = "0"
 			self.EHDres_old = 'HD'
 			self.EHDtext_old = 'Standard HD'
-		elif screenwidth and screenwidth == 1920 and not config.plugins.MyMetrixLiteOther.EHDenabled.value == '1':
+		elif screenwidth and screenwidth == 1920 and config.plugins.MyMetrixLiteOther.EHDenabled.value != '1':
 			self.EHDvalue_old = "1"
 			self.EHDres_old = 'FHD'
 			self.EHDtext_old = 'Full HD'
-		elif screenwidth and screenwidth == 3840 and not config.plugins.MyMetrixLiteOther.EHDenabled.value == '2':
-			self.EHDvalue_old = "2"
-			self.EHDres_old = 'UHD'
-			self.EHDtext_old = 'Ultra HD'
+#		elif screenwidth and screenwidth == 3840 and not config.plugins.MyMetrixLiteOther.EHDenabled.value == '2':
+#			self.EHDvalue_old = "2"
+#			self.EHDres_old = 'UHD'
+#			self.EHDtext_old = 'Ultra HD'
 		else:
 			self.EHDvalue_old = "0"
 			self.EHDres_old = 'HD'
@@ -196,7 +196,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		if self.EHDenabled and (len(tested) != 2 or BoxType not in tested[0] or config.plugins.MyMetrixLiteOther.EHDenabled.value not in tested[1]):
 			if "green" in self["actions"].actions:
 				del self["actions"].actions['green']
-				self["key_green"].setText(_(" "))
+				self["key_green"].setText("")
 			self["actions"].actions.update({"blue": self.test})
 			self["key_blue"].setText(_("Test Resolution"))
 		else:
@@ -204,7 +204,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self["key_green"].setText(_("Save"))
 			if "blue" in self["actions"].actions:
 				del self["actions"].actions['blue']
-				self["key_blue"].setText(_(" "))
+				self["key_blue"].setText("")
 			if self.EHDenabled:
 				self.InstallCheck()
 			else:

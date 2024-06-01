@@ -56,7 +56,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 	<widget name="config" position="61,124" size="590,210" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
 	<widget source="key_red" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
 	<widget source="key_green" position="257,640" size="360,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
-	<widget source="key_green" position="444,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
+	<widget source="key_yellow" position="444,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
 	<widget source="key_blue" position="631,640" size="360,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
 	<eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
 	<eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
@@ -79,20 +79,11 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		self["helperimage"] = Pixmap()
 		self["helpertext"] = Label()
 
-		self["titleText"] = StaticText("")
-		self["titleText"].setText(_("Backup & Restore my settings"))
-
-		self["key_red"] = StaticText("")
-		self["key_red"].setText(_("Cancel"))
-
-		self["key_green"] = StaticText("")
-		self["key_green"].setText(_("Backup"))
-
-		self["key_green"] = StaticText("")
-		self["key_green"].setText(_("Restore"))
-
-		self["key_blue"] = StaticText("")
-		self["key_blue"].setText(_("Delete"))
+		self["titleText"] = StaticText(_("Backup & Restore my settings"))
+		self["key_red"] = StaticText(_("Cancel"))
+		self["key_yellow"] = StaticText(_("Backup"))
+		self["key_green"] = StaticText(_("Restore"))
+		self["key_blue"] = StaticText(_("Delete"))
 
 		self.myset = ConfigSelectionNumber(1, 99, 1, default=1, wraparound=True)
 		self.myname = ConfigText(default=_("My Backup No. %d") % self.myset.value, visible_width=50, fixed_size=False)

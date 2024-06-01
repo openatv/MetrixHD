@@ -124,8 +124,9 @@ class ActivateSkinSettings:
 			self.EHDfactor = 1
 			self.EHDres = 'HD'
 			self.EHDtxt = 'Standard HD'
-			if onlyCheck or not self.silent:
-				self.ErrorCode = 'checkEHDsettings', _("Your enhanced hd settings are inconsistent. Please check this.")
+			if config.plugins.MyMetrixLiteOther.EHDenabled.value != '0':
+				if onlyCheck or not self.silent:
+					self.ErrorCode = 'checkEHDsettings', _("Your enhanced hd settings are inconsistent. Please check this.")
 
 	def CheckSettings(self, onlyCheck=False):
 		#first check is ehd tested, ehd-settings and available ehd-icons

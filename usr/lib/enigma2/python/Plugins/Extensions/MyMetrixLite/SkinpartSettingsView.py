@@ -329,7 +329,7 @@ class SkinpartSettingsView(ConfigListScreen, Screen):
 			self["key_blue"].setText(_("Zoom"))
 		elif not zoomEnable and "blue" in self["actions"].actions:
 			del self["actions"].actions["blue"]
-			self["key_blue"].setText(_(" "))
+			self["key_blue"].setText("")
 
 		return picturepath
 
