@@ -1805,7 +1805,7 @@ class ActivateSkinSettings:
 									line = sub(r'(name=")(\w+)', r'\1\2#_HDscreen', line)
 							next_rename = False
 #control flags
-						if '<!-- cf#_#start -->' in line:
+						if '<!-- cf#_#start -->' in line or '<!-- cf#_#begin -->' in line:
 							run_mod = True
 						elif '<!-- cf#_#stop -->' in line:
 							run_mod = False
