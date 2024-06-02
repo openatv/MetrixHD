@@ -523,7 +523,7 @@ def initOtherConfig():
 		#	skinmodes.append(("2", _("Ultra HD (3840x2160) %s") % risktxt))
 
 	###no box supports at time uhd skins ...###
-	dummy = _("Ultra HD (3840x2160")
+	dummy = _("Ultra HD (3840x2160)")
 	dummy = _("Ultra HD (3840x2160) %s")
 
 	###########################################

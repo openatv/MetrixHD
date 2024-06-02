@@ -508,7 +508,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		list = []
 		section = _("Enhanced HD Option")
 		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
-		list.append(getConfigListEntry(tab + _("Choose skin resolution"), config.plugins.MyMetrixLiteOther.EHDenabled, _("helptext"), "ENABLED_EHD"))
+		list.append(getConfigListEntry(tab + _("Skin resolution"), config.plugins.MyMetrixLiteOther.EHDenabled, _("helptext"), "ENABLED_EHD"))
 		if self.EHDenabled:
 			list.append(getConfigListEntry(tab + _("All calculated values round down"), config.plugins.MyMetrixLiteOther.EHDrounddown, _("helptext")))
 			list.append(getConfigListEntry(tab + _("Additional offset for font scaling"), config.plugins.MyMetrixLiteOther.EHDfontoffset, _("helptext")))
