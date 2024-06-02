@@ -509,7 +509,8 @@
 		<widget name="key_yellow" position="475,638" size="180,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Virtual KeyBoard" position="680,638" size="270,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap position="1050,635" size="81,40" zPosition="10" pixmap="buttons/menu.png" transparent="1" alphatest="blend" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/youtube.png" transparent="1" alphatest="blend" /><widget name="VKeyIcon" position="0,0" size="0,0" />
+		<panel name="T_Pix_youtube" />
+		<widget name="VKeyIcon" position="0,0" size="0,0" />
 	</screen>
 	<screen name="MyTubeSettingsScreen" position="0,0" size="1280,720" title="MyTubeSettingsScreen" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -520,7 +521,7 @@
 		<ePixmap pixmap="buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<widget name="key_red" position="105,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="key_green" position="395,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/youtube.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_youtube" />
 	</screen>
 	<screen name="MyTubeSuggestionsListScreen" position="73,200" size="692,290" title="MyTubeSuggestionsListScreen..." zPosition="6" backgroundColor="layer-a-background">
 		<widget source="suggestionslist" render="Listbox" position="10,10" zPosition="7" size="670,270" scrollbarMode="showOnDemand" transparent="1">
@@ -554,7 +555,7 @@
 		<ePixmap position="1050,460" size="100,40" zPosition="4" pixmap="~/pluginmanager.png" alphatest="blend" transparent="1" />
 		<ePixmap pixmap="buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
 		<widget name="key_red" position="105,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/youtube.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_youtube" />
 	</screen>
 	<screen name="MyTubeVideoHelpScreen" position="0,0" size="1280,720" title="MyTubePlayerHelpScreen..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -563,7 +564,7 @@
 		<ePixmap position="1050,460" size="100,40" zPosition="4" pixmap="~/pluginmanager.png" alphatest="blend" transparent="1" />
 		<ePixmap pixmap="buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
 		<widget name="key_red" position="105,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/youtube.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_youtube" />
 	</screen>
 	<screen name="MyTubeVideoInfoScreen" position="0,0" size="1280,720" title="MyTubePlayerMainScreen..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -598,7 +599,7 @@
 		<ePixmap pixmap="buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
 		<widget name="key_red" position="105,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="thumbnail" position="0,0" size="170,130" alphatest="blend" /> # fake entry for dynamic thumbnail resizing, currently there is no other way doing this.
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/youtube.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_youtube" />
 	</screen>
 	<!-- VLC MediaPlayer -->
 	<screen name="VlcMediaListScreen" position="0,0" size="1280,720" title="" flags="wfNoBorder" backgroundColor="transparent">
@@ -729,7 +730,7 @@
 		<widget source="key_green" render="Label" position="395,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_yellow" render="Label" position="685,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_blue" render="Label" position="975,638" size="260,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/weather.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_weather" />
 	</screen>
 	<screen name="WeatherPluginEntryConfigScreen" position="0,0" size="1280,720" title="WeatherPlugin: Edit Entry" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -741,7 +742,7 @@
 		<widget source="key_red" render="Label" position="105,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_green" render="Label" position="395,638" size="240,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_blue" render="Label" position="975,638" size="260,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/weather.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_weather" />
 	</screen>
 	<screen name="WeatherPlugin" position="0,0" size="1280,720" title="Weather Plugin" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -767,7 +768,7 @@
 		<ePixmap pixmap="buttons/left.png" position="214,633" size="70,30" alphatest="blend" transparent="1" />
 		<ePixmap pixmap="buttons/menu.png" position="314,633" size="70,30" alphatest="blend" transparent="1" />
 		<ePixmap pixmap="buttons/right.png" position="414,633" size="70,30" alphatest="blend" transparent="1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/weather.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_weather" />
 	</screen>
 	<screen name="BackupSuite" position="0,0" size="1280,720" title="VTI Sub Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
