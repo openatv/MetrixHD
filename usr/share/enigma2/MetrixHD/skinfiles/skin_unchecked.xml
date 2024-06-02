@@ -98,7 +98,7 @@
 	</screen>
 	<screen name="MovieEpgSetup" position="0,0" size="1280,720" title="MovieEpg Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title_L" />
 		<widget name="config" position="70,120" size="700,400" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,530" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget source="help" render="Label" position="70,540" size="700,88" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
@@ -173,7 +173,7 @@
 	<!-- AutoTimeshift -->
 	<screen name="AutoTimeshift" position="0,0" size="1280,720" title="Auto Timeshift Configuration" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="58,36" size="730,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title_L" />
 		<widget name="config" position="70,130" size="710,480" scrollbarMode="showOnDemand" transparent="1" />
 		<ePixmap pixmap="buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="buttons/key_green.png" position="270,635" size="30,40" alphatest="blend" />
@@ -993,7 +993,7 @@
 	</screen>
 	<screen name="VuplusAuthenticity" position="0,0" size="1280,720" title="Return the Love Event (only for genuine box)" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title_L" />
 		<ePixmap pixmap="buttons/key_red.png" position="70,635" size="30,30" alphatest="on" />
 		<ePixmap pixmap="buttons/key_green.png" position="250,635" size="30,30" alphatest="on" />
 		<widget source="key_red" render="Label" position="105,638" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -1142,7 +1142,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)//2, orgpos.y()))
 	<!-- UI3DSetupScreen by Maggy -->
 	<screen name="UI3DSetupScreen" position="0,0" size="1280,720" title="UI 3D setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="58,36" size="700,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title_L" />
 		<ePixmap pixmap="buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="buttons/key_green.png" position="290,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,638" zPosition="1" size="180,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -1167,7 +1167,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)//2, orgpos.y()))
 	<!-- Web Browser by Maggy -->
 	<screen name="BrowserLauncher" position="0,0" size="1280,720" title="Web Browser" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="58,36" size="700,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title_L" />
 		<ePixmap pixmap="buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="buttons/key_green.png" position="230,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,638" zPosition="1" size="100,30" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -1179,7 +1179,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)//2, orgpos.y()))
 	</screen>
 	<screen name="HdmiCecPlugin" position="0,0" size="1280,720" title="VTI HDMI-CEC Configuration" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="58,36" size="700,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title_L" />
 		<ePixmap pixmap="buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="buttons/key_green.png" position="270,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="buttons/key_yellow.png" position="470,635" size="30,40" alphatest="blend" />
@@ -1193,7 +1193,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)//2, orgpos.y()))
 	</screen>
 	<screen name="CrashlogReportConfiguration" position="center,center" size="1280,720" title="CrashlogReport Setting" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="58,36" size="700,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title_L" />
 		<eLabel position="70,544" size="710,2" backgroundColor="layer-a-accent1" />
 		<widget name="config" zPosition="2" position="70,100" itemHeight="30" size="710,420" scrollbarMode="showOnDemand" transparent="1" />
 		<widget source="status" render="Label" position="70,550" size="710,70" zPosition="10" backgroundColor="layer-a-background" font="SetrixHD;20" halign="center" valign="center" transparent="1" />
@@ -1205,7 +1205,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)//2, orgpos.y()))
 	</screen>
 	<screen name="FancontrolConfiguration" position="0,0" size="1280,720" title="Standbymode Fancontrol settings" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="58,36" size="700,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title_L" />
 		<ePixmap pixmap="buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="buttons/key_green.png" position="250,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,638" zPosition="1" size="140,30" valign="center" font="global_button;20" halign="center" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -1215,7 +1215,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)//2, orgpos.y()))
 	</screen>
 	<screen name="LEDBrightnessSetup" position="0,0" size="1280,720" title="LED Brightness Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="58,36" size="700,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title_L" />
 		<ePixmap pixmap="buttons/key_red.png" position="70,635" size="30,40" alphatest="on" />
 		<ePixmap pixmap="buttons/key_green.png" position="250,635" size="30,40" alphatest="on" />
 		<ePixmap pixmap="buttons/key_yellow.png" position="430,635" size="30,40" alphatest="on" />

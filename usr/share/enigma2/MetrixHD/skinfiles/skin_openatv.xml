@@ -29,7 +29,7 @@
 	</screen>
 
 	<screen name="information_common2">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title_L" />
 		<widget name="description" position="70,590" size="1140,30" font="screen_info;20" conditional="description" foregroundColor="layer-a-title-foreground" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1"/>
 		<widget name="information" position="70,100" size="1140,525" conditional="information" font="Fixed;17" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="template1_1layer" />
@@ -46,7 +46,7 @@
 	</screen>
 
 	<screen name="PictureInformation" position="0,0" size="1280,720" title="Receiver Images" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title_L" />
 		<panel name="T_Desc_810" />
 		<widget name="name" position="810,385" size="415,220" font="screen_info;20" conditional="description" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<widget name="image" position="70,100" size="700,480" alphatest="blend" scaleFlags="scaleCenter" transparent="1" />
@@ -1016,14 +1016,14 @@ self['config'].l.setSeperation(int(300*f))
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_conflict.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="TimerLog" position="0,0" size="1280,720" title="Timer log" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title_L" />
 		<widget name="log" position="70,100" size="1140,525" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" conditional="log" />
 		<panel name="template1_1layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template2" />
 	</screen>
 	<screen name="PluginActionLog" position="0,0" size="1280,720" title="Plugin Action Log" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="950,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title_L" />
 		<widget name="log" position="70,100" size="1140,525" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" conditional="log" />
 		<panel name="template1_1layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -3748,7 +3748,7 @@ if len(listitems.list) &gt; 2:
 	<!-- RemoteControlCode -->
 	<screen name="RemoteControlCode" position="0,0" size="1280,720" title="Position Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="setup_common"/>
-		<widget source="Title" render="Label" position="58,36" size="700,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/remotecontrol.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- RemoteControlCode -->
@@ -3832,7 +3832,7 @@ if len(listitems.list) &gt; 2:
 	<!-- StreamingClientsInfo -->
 	<!-- TaskListScreen -->
 	<screen name="TaskListScreen" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent" title="Task list" >
-		<widget source="Title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title_L" />
 		<widget source="tasklist" render="Listbox" position="70,95" size="700,540" itemHeight="90" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="TemplatedMultiContent">
 				{"template": [
