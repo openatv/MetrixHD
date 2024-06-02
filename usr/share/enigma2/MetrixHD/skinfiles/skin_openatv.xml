@@ -93,7 +93,7 @@
 		<widget source="DNS1" render="Label" position="420,555" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="DNS2" render="Label" position="420,585" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="VKeyIcon" text="Text" position="430,638" size="70,24" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
+		<panel name="T_HelpWindow" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="toe-buttons_template1" />
@@ -264,7 +264,7 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<widget source="key_yellow" render="Label" position="436,638" size="260,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_network_netnfs_setup.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img" />
 	</screen>
 	<screen name="NetworkLogScreen" title="Network Log" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
@@ -390,7 +390,7 @@
 		<widget name="label2" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="label1" position="70,100" size="700,530" font="Console;16" zPosition="1" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarMode="showOnDemand"/>
 		<panel name="template1_2layer" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/console.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_console" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<!--SoftcamPanel-->
@@ -413,7 +413,7 @@
 		<widget name="menu" position="70,100" size="700,490" enableWrapAround="1" itemHeight="35" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_cccam" />
 	</screen>
 	<screen name="CCcamInfoRemoteBoxMenu" position="0,0" size="1280,720" title="CCcam Remote Info" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -421,7 +421,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_cccam" />
 	</screen>
 	<screen name="CCcamInfoSubMenu" position="0,0" size="1280,720" title="CCcamInfo SubMenu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -429,7 +429,7 @@
 		<widget name="info" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_cccam" />
 	</screen>
 	<screen name="CCcamInfoServerMenu" position="0,0" size="1280,720" title="CCcam Server Info" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -437,7 +437,7 @@
 		<widget name="info" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_cccam" />
 	</screen>
 	<screen name="CCcamInfoMenuConfig" position="0,0" size="1280,720" title="CCcam Info Config" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -445,7 +445,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_cccam" />
 	</screen>
 	<screen name="CCcamShareViewMenu" position="0,0" size="1280,720" title="CCcam Share Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -457,7 +457,7 @@
 		<widget name="title" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_cccam" />
 	</screen>
 	<screen name="CCcamInfoShareInfo" position="0,0" size="1280,720" title="CCcam Share Info" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -465,7 +465,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_cccam" />
 	</screen>
 	<screen name="CCcamInfoConfigSwitcher" position="0,0" size="1280,720" title="CCcam Config Switcher" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -473,28 +473,28 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_cccam" />
 	</screen>
 	<screen name="CCcamInfoConfigMenu" position="0,0" size="1280,720" title="CCcam Info Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" enableWrapAround="1" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_cccam" />
 	</screen>
 	<screen name="CCcamInfoEcmInfoSelection" position="0,0" size="1280,720" title="CCcam ECM Info" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="list" position="70,100" size="700,510" enableWrapAround="1" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_cccam" />
 	</screen>
 	<screen name="CCcamInfoInfoScreen" position="0,0" size="1280,720" title="CCcam Info" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="text" font="Regular;20" position="70,100" size="700,515" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_cccam" />
 	</screen>
 	<screen name="mySmallChannelSelection" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<!--widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" /-->
@@ -512,7 +512,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/look.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_look" />
 	</screen>
 	<screen name="ParentalControlChangePin" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<!--widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" /-->
@@ -521,7 +521,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/look.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_look" />
 	</screen>
 	<screen name="ParentalControlEditor" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<!--widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" /-->
@@ -529,14 +529,14 @@
 		<widget name="servicelist" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/look.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_look" />
 	</screen>
 	<!--Setup Screens-->
 	<screen name="setup_common">
 		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="T_Desc_810" />
-		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
+		<panel name="T_HelpWindow" />
 		<widget name="footnote" position="70,610" size="700,25" font="screen_text;16" halign="right" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -575,7 +575,7 @@
 		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="T_Desc_810" />
-		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
+		<panel name="T_HelpWindow" />
 		<widget name="footnote" position="70,610" size="700,25" font="screen_text;18" halign="right" valign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -841,7 +841,7 @@ self['config'].l.setSeperation(int(300*f))
 	<screen name="AutoMountEdit" position="0,0" size="1280,720" title="MountEdit" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="config" position="70,121" size="700,450" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
-		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
+		<panel name="T_HelpWindow" />
 		<widget name="VKeyIcon" pixmap="buttons/key_text.png" position="700,633" zPosition="10" size="70,30" transparent="1" alphatest="blend" />
 		<widget source="introduction" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -902,7 +902,7 @@ self['config'].l.setSeperation(int(300*f))
 	<screen name="UserDialog" position="0,0" size="1280,720" title="UserDialog" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,350" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
-		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
+		<panel name="T_HelpWindow" />
 		<widget name="VKeyIcon" pixmap="buttons/key_text.png" position="700,633" zPosition="10" size="70,30" transparent="1" alphatest="blend" />
 		<widget source="introduction" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -964,7 +964,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="T_Title" />
 		<widget name="hddlist" position="70,130" size="700,270" itemHeight="30" font="screen_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/hdd.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_hdd" />
 	</screen>
 	<screen name="HarddiskSetup" position="0,0" size="1280,720" title="Harddisk" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
@@ -975,7 +975,7 @@ self['config'].l.setSeperation(int(300*f))
 		<ePixmap pixmap="buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" />
 		<widget name="initializetext" position="70,638" size="320,30" zPosition="1" valign="center" font="global_button;20" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/hdd.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_hdd" />
 	</screen>
 	<!-- Timer Screens -->
 <!-- cf#_#rename --> 
@@ -1035,7 +1035,7 @@ self['config'].l.setSeperation(int(300*f))
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_timer" />
 	</screen>
 	<!-- OLD TimerEditList to support old plugins -->
 	<screen name="TimerEditList" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
@@ -1065,7 +1065,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_timer" />
 	</screen>
 	<!-- AutoTimer -->
 	<screen name="AutoTimerOverview" position="0,0" size="1280,720" title="AutoTimer Overview" flags="wfNoBorder" backgroundColor="transparent">
@@ -1074,7 +1074,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_me-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_timer" />
 	</screen>
 	<screen name="AutoTimerImporter" position="0,0" size="1280,720" title="Import AutoTimer" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -1082,7 +1082,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_timer" />
 	</screen>
 	<screen name="AutoTimerEditor" position="0,0" size="1280,720" title="Edit AutoTimer" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -1091,16 +1091,16 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_timer" />
 	</screen>
 	<screen name="AutoTimerFilterEditor" position="0,0" size="1280,720" title="Edit AutoTimer Filters" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
+		<panel name="T_HelpWindow" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_timer" />
 	</screen>
 	<screen name="AutoTimerServiceEditor" position="0,0" size="1280,720" title="Edit AutoTimer Services" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -1108,17 +1108,17 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_timer" />
 	</screen>
 	<screen name="AutoTimerSettings" position="0,0" size="1280,720" title="AutoTimer Settings" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="help" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
+		<panel name="T_HelpWindow" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_timer" />
 	</screen>
 	<screen name="AutoTimerFAQ" position="0,0" size="1280,720" title="AutoTimer FAQ" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -1126,7 +1126,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_timer" />
 	</screen>
 	<screen name="AutoTimerHelp" position="0,0" size="1280,720" title="AutoTimer Help" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -1134,7 +1134,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_timer" />
 	</screen>
 	<screen name="AutoTimerPreview" position="0,0" size="1280,720" title="Preview AutoTimer" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
@@ -1157,7 +1157,7 @@ self['config'].l.setSeperation(int(300*f))
 		<ePixmap pixmap="buttons/key_yellow.png" position="401,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="70,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_yellow" render="Label" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_timer" />
 	</screen>
 	<!-- General Screens -->
 	<screen name="Standby" position="0,0" size="1280,720" title="Standby" flags="wfNoBorder" backgroundColor="black"/>
@@ -1516,7 +1516,7 @@ if len(listitems.list) &gt; 2:
 	<screen name="Console" position="0,0" size="1280,720" title="Command execution..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="text" position="70,100" size="700,510" font="Console;16" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" scrollbarMode="showOnDemand"/>
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/console.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_console" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
@@ -2555,7 +2555,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/search.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_search" />
 	</screen>
 	<!-- Common Interface -->
 	<screen name="CiSelection" position="0,0" size="1280,720" title="Common Interface" flags="wfNoBorder" backgroundColor="transparent">
@@ -2576,7 +2576,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="bottom" position="70,597" size="700,32" font="SetrixHD;24" halign="center" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/camd.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_camd" />
 	</screen>
 	<screen name="CIselectMainMenu" position="0,0" size="1280,720" title="CI Assignment" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="CIselectMainMenu" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2598,7 +2598,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/camd.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_camd" />
 	</screen>
 	<screen name="easyCIconfigMenu" position="0,0" size="1280,720" title="CI Assignment" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="easyCIconfigMenu" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2609,7 +2609,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/camd.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_camd" />
 	</screen>
 	<screen name="CAidSelect" position="0,0" size="1280,720" title="select CAId's" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="select CAId's" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2618,7 +2618,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/camd.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_camd" />
 	</screen>
 	<screen name="myProviderSelection" position="0,0" size="1280,720" title="Select provider to add..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Select provider to add..." position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2627,7 +2627,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/camd.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_camd" />
 	</screen>
 	<screen name="myChannelSelection" position="0,0" size="1280,720" title="Select service to add..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Select service to add..." position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2636,7 +2636,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/camd.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_camd" />
 	</screen>
 	<!-- Softwaremanager -->
 	<screen name="SoftwareManagerInfo" position="0,0" size="1280,720" title="SoftwareManager information" flags="wfNoBorder" backgroundColor="transparent">
@@ -2667,7 +2667,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<eLabel text="Extensions" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<panel name="_me-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_pluginmgr" />
 	</screen>
 
 	<screen name="PluginBrowserList" position="0,0" size="1280,720" title="Plugin browser" flags="wfNoBorder" backgroundColor="transparent">
@@ -2689,7 +2689,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<eLabel text="Extensions" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<panel name="_me-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_pluginmgr" />
 		<widget name="quickselect" position="50,80" size="760,525" backgroundColor="text-background" foregroundColor="background-text" font="global_large_screen;100" halign="center" transparent="1" valign="center" zPosition="5" />
 	</screen>
 
@@ -2745,7 +2745,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_pluginmgr" />
 		<widget name="quickselect" position="50,80" size="760,525" backgroundColor="text-background" foregroundColor="background-text" font="global_large_screen;100" halign="center" transparent="1" valign="center" zPosition="5" />
 	</screen>
 
@@ -2758,7 +2758,7 @@ if len(listitems.list) &gt; 2:
 		</widget>
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_pluginmgr" />
 	</screen>
 	<screen name="SoftwarePanel" position="0,0" size="1280,720" title="SoftwarePanel" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -2786,7 +2786,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="feedstatusRED" position="1043,91" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
 		<widget name="feedstatusYELLOW" position="1043,123" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
 		<widget name="feedstatusGREEN" position="1043,155" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
-		<ePixmap position="890,175" size="256,256" pixmap="icons/swupdate.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_swupdate" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
@@ -2819,7 +2819,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="feedstatus_red" position="1043,91" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
 		<widget name="feedstatus_yellow" position="1043,123" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
 		<widget name="feedstatus_green" position="1043,155" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
-		<ePixmap position="890,175" size="256,256" pixmap="icons/swupdate.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_swupdate" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
@@ -2829,7 +2829,7 @@ if len(listitems.list) &gt; 2:
 		<eLabel text="Software Update" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget name="activity" position="70,120" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
 		<widget name="update" position="70,160" size="700,426" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" scrollbarMode="showOnDemand"/>
-		<ePixmap position="890,175" size="256,256" pixmap="icons/swupdate.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_swupdate" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
@@ -2840,7 +2840,7 @@ if len(listitems.list) &gt; 2:
 		<widget source="package" render="Label" position="70,280" size="700,30" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="status" render="Label" position="70,330" size="700,30" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="slider" position="70,460" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
-		<ePixmap position="890,175" size="256,256" pixmap="icons/swupdate.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_swupdate" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
@@ -2875,7 +2875,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/paket.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_paket" />
 	</screen>
 	<screen name="IpkgInstaller" position="0,0" size="1280,720" title="..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="IpkgInstaller" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2884,7 +2884,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/paket.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_paket" />
 	</screen>
 	<screen name="IPKGMenu" position="0,0" size="1280,720" title="Select IPKG source....." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="IPKGMenu" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2892,7 +2892,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/paket.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_paket" />
 	</screen>
 	<screen name="IPKGSource" position="0,0" size="1280,720" title="IPKG source" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="IPKGSource" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2920,7 +2920,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/paket.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_paket" />
 	</screen>
 	<screen name="PluginDetails" position="0,0" size="1280,720" title="Plugin details" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Plugin details" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2932,7 +2932,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_pluginmgr" />
 		<widget name="divpic" position="0,0" size="0,0" />
 	</screen>
 	<screen name="PluginManager" position="0,0" size="1280,720" title="Plugin manager" flags="wfNoBorder" backgroundColor="transparent">
@@ -2959,7 +2959,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_pluginmgr" />
 	</screen>
 	<screen name="PluginManagerInfo" position="0,0" size="1280,720" title="Plugin manager activity" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Plugin manager activity information" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2979,7 +2979,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_pluginmgr" />
 	</screen>
 	<screen name="PluginManagerHelp" position="0,0" size="1280,720" title="Plugin manager help" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Plugin manager help" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2999,7 +2999,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_pluginmgr" />
 	</screen>
 	<screen name="RestoreMenu" position="0,0" size="1280,720" title="Restore Backups" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Restore backups" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -3007,7 +3007,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_pluginmgr" />
 	</screen>
 	<screen name="RestoreMenuImage" position="0,0" size="1280,720" title="Restore Backups" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Restore Backups" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -3015,7 +3015,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_pluginmgr" />
 	</screen>
 	<screen name="UpdatePluginMenu" position="0,0" size="1280,720" title="Softwaremanager..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
@@ -3047,7 +3047,7 @@ if len(listitems.list) &gt; 2:
 	<screen name="RestorePlugins" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<eLabel text="Restore Plugins" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_pluginmgr" />
 		<widget source="menu" render="Listbox" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
@@ -3254,7 +3254,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="config" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
 		<widget name="introduction" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/search.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_search" />
 		<ePixmap position="995,420" size="64,64" zPosition="3" pixmap="skin_default/icons/scan-c.png"  transparent="1" alphatest="blend" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
@@ -3265,7 +3265,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="scan_progress" position="70,150" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
 		<widget name="frontend" position="995,420" size="64,64" zPosition="3" pixmap="skin_default/icons/scan-c.png"  transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/search.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_search" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<!--AutoDiseqc /-->
@@ -3696,7 +3696,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="moe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/bluetooth.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_bluetooth" />
 	</screen>
 	<screen name="btscan" >
 		<panel name="T_Title" />
@@ -3716,7 +3716,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/bluetooth.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_bluetooth" />
 	</screen>
 	<screen name="BluetoothDiscoveryScreen" position="0,0" size="1280,720" title="Bluetooth Scan" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="btscan"/>
@@ -3726,7 +3726,7 @@ if len(listitems.list) &gt; 2:
 	</screen>
 	<screen name="BluetoothSetupConfig" position="0,0" size="1280,720" title="Bluetooth Setup Options" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="setup_common"/>
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/bluetooth.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_bluetooth" />
 	</screen>
 	<!-- Bluetooth Setup -->
 	<screen name="VuRcuOtaUpdate" position="0,0" size="1280,720" title="VU RCU OTA Update" flags="wfNoBorder" backgroundColor="transparent">
@@ -3743,7 +3743,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/bluetooth.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_bluetooth" />
 	</screen>
 	<!-- RemoteControlCode -->
 	<screen name="RemoteControlCode" position="0,0" size="1280,720" title="Position Setup" flags="wfNoBorder" backgroundColor="transparent">
@@ -3902,9 +3902,6 @@ if len(listitems.list) &gt; 2:
 	<screen name="SoftcamSetup" position="0,0" size="1280,720" title="Softcam Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="info" position="80,260" size="700,320" font="screen_text;19" zPosition="+2" backgroundColor="layer-a-background" transparent="1"  />
 		<panel name="setup_common"/>
-		<panel name="template1_2layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="__e-buttons_template1" />
 		<panel name="T_Img" />
 	</screen>
 	<!-- SoftcamSetup -->
@@ -4348,6 +4345,7 @@ if len(listitems.list) &gt; 2:
 		<screen key="IceTVLogin" image="icons/icetv.png" />
 		<screen key="IceTVNeedPassword" image="icons/icetv.png" />
 		<screen key="IceTVMain" image="icons/icetv.png" />
+		<screen key="uShareSelection" image="icons/menu_network_netnfs_setup.png" />
 	</screens>
 
 </skin>

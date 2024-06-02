@@ -53,7 +53,7 @@
 		<eLabel text="CrashlogAutoSubmit settings" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,120" size="840,450" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
 		<widget source="status" render="Label" position="70,595" size="800,28" font="SetrixHD;22" halign="center" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
+		<panel name="T_HelpWindow" />
 		<ePixmap pixmap="buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<widget source="key_red" render="Label" position="105,638" size="240,30" zPosition="1" valign="center" font="global_button;20" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -125,7 +125,7 @@
 		<panel name="T_Title" />
 		<widget name="wait" position="70,130" size="700,275" transparent="1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/hdd.png" transparent="1" alphatest="blend" />
+		<panel name="T_Pix_hdd" />
 	</screen>
 	<screen name="MovieContextMenu" position="880,0" size="400,723" title="Movielist menu" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="0,0" zPosition="-10" size="400,723" backgroundColor="layer-a-background" />
@@ -499,7 +499,7 @@
 			</convert>
 		</widget>
 		<widget name="thumbnail" position="0,0" size="100,75" alphatest="blend" /> # fake entry for dynamic thumbnail resizing,currently there is no other way doing this.
-		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
+		<panel name="T_HelpWindow" />
 		<ePixmap pixmap="buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="buttons/key_green.png" position="250,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="buttons/key_yellow.png" position="440,635" size="30,40" alphatest="blend" />
