@@ -308,7 +308,7 @@
 	<!-- Templates -->
 	<!-- EMC EnhancedMovieCenter Setup -->
 	<screen name="EnhancedMovieCenterMenu" position="0,0" size="1280,720" title="EnhancedMovieCenterMenu" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="epg_text;20" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" enableWrapAround="1" />
 		<widget source="help" render="Label" position="825,400" size="380,195" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer"/>
@@ -318,7 +318,7 @@
 	</screen>	
 	<!-- EMC MovieInfoSetup -->
 	<screen name="MovieInfoSetup" position="0,0" size="1280,720" title="Movie Information Download Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="epg_text;20" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" enableWrapAround="1" />
 		<panel name="template1_2layer"/>
 		<panel name="ScreenTemplateAllColorButtons_template1"/>
@@ -327,7 +327,7 @@
 	</screen>
 	<!-- EMC CoverSearch Setup -->
 	<screen name="imdbSetup" position="0,0" size="1280,720" title="EMC Cover search setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="epg_text;20" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" enableWrapAround="1" />
 		<panel name="template1_2layer"/>
 		<panel name="ScreenTemplateAllColorButtons_template1"/>
@@ -352,7 +352,7 @@
 	</screen>
 	<!-- EMC Cover Search -->
 	<screen name="EMCImdbScan" position="0,0" size="1280,720" title="EMC Cover search" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="menulist" position="70,100" size="700,450" font="epg_text;20" itemHeight="30" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" enableWrapAround="on"/>
 		<widget name="done_msg" position="70,580" size="700,30" zPosition="0" font="screen_label;20" halign="center" valign="center" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background"/>
 		<widget name="m_info" position="825,90" size="380,55" valign="center" halign="center" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
@@ -372,7 +372,7 @@
 	</screen>	
 	<!-- EMC Single CoverSearch -->
 	<screen name="getCover" position="0,0" size="1280,720" title="EMC Cover Selecter" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="m_info" position="825,90" size="380,55" valign="center" halign="center" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
 		<widget name="menulist" position="70,100" size="700,510" font="epg_text;20" itemHeight="30" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" enableWrapAround="on" />
 		<widget name="info" position="70,638" size="700,30" zPosition="0" font="epg_text;20" halign="center" valign="center" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background"/>
@@ -383,7 +383,7 @@
 	</screen>	
 	<!-- EMC MovieInfo -->
 	<screen name="DownloadMovieInfo" position="0,0" size="1280,720" title="Movie Information Download (TMDb)" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="movie_name" position="70,90" size="700,60" zPosition="0" font="epg_text;21" valign="center" halign="center" transparent="1" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background"/>
 		<widget name="movielist" position="70,150" size="700,480" font="epg_text;20" itemHeight="30" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="resulttext" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
@@ -399,7 +399,7 @@
 	</screen>
 	<!-- EMC MovieInfo - MovieInfoPreview --> 
 	<screen name="MovieInfoPreview" position="0,0" size="1280,720" title="Movie Information Preview" flags="wfNoBorder" backgroundColor="transparent"> 
-		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" halign="left" transparent="1" /> 
+		<panel name="T_Title" /> 
 		<widget name="movie_name" position="70,90" size="700,60" zPosition="0" font="epg_text;21" valign="center" halign="center" transparent="1" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background"/> 
 		<widget name="previewtext" position="70,150" size="700,480" font="epg_text;20" backgroundColor="layer-a-background" /> 
 		<panel name="template1_2layer"/> 
@@ -408,7 +408,7 @@
 	</screen> 
 	<!-- EMC MovieInfoTMDb - MovieInfoTMDb -->
 	<screen name="MovieInfoTMDb" position="0,0" size="1280,720" title="Movie Information TMDb" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" halign="left" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="movie_name" position="70,90" size="700,60" zPosition="0" font="epg_text;21" valign="center" halign="center" transparent="1" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background"/>
 		<widget name="previewlist" position="70,400" size="700,210" font="epg_text;20" itemHeight="30" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="starsbg" position="562,160" size="210,21" pixmap="imdb/starsbar_empty.png" zPosition="2" alphatest="blend" />
@@ -448,7 +448,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/movie.png" transparent="1" alphatest="blend" /> 
 	</screen> 
 	<screen name="EMCPlaylistSetup" position="0,0" size="1280,720" title="EMC Playlist Setup" flags="wfNoBorder" backgroundColor="transparent"> 
-		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" halign="left" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="epg_text;20" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="cancel" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="save" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />

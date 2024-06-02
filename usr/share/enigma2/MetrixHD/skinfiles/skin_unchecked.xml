@@ -110,7 +110,7 @@
 	</screen>
 	<screen name="genuineDreambox" position="0,0" size="1280,720" title="Genuine Dreambox" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="infotext" position="70,150" zPosition="1" size="700,190" font="SetrixHD;22" halign="center" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="resulttext" position="70,370" zPosition="1" size="700,50" font="SetrixHD;35" halign="center" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="infotext2" position="70,500" zPosition="1" size="700,80" font="SetrixHD;22" halign="center" backgroundColor="layer-a-background" transparent="1" />
@@ -122,7 +122,7 @@
 	</screen>
 	<screen name="HarddiskWait" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="wait" position="70,130" size="700,275" transparent="1" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/hdd.png" transparent="1" alphatest="blend" />
@@ -259,7 +259,7 @@
 	<!-- DVDBurn -->
 	<screen name="ProjectSettings" position="0,0" size="1280,720" title="Collection settings" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,140" size="700,300" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
 		<widget source="info" render="Label" position="70,470" size="700,100" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
@@ -306,7 +306,7 @@
 	</screen>
 	<screen name="DVDToolbox" position="0,0" size="1280,720" title="DVD media toolbox" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="info" render="Label" position="70,130" size="700,100" font="SetrixHD;22" transparent="1" />
 		<eLabel position="70,250" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="details" position="70,270" size="700,300" font="SetrixHD;22" transparent="1" />
@@ -322,7 +322,7 @@
 	</screen>
 	<screen name="TitleList" position="0,0" size="1280,720" title="DVD Tool" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<ePixmap pixmap="buttons/menu.png" position="803,596" size="70,30" alphatest="blend" />
 		<widget source="hint" render="Label" position="873,599" size="350,25" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="title_label" render="Label" position="70,100" size="700,56" font="SetrixHD;23" backgroundColor="layer-a-background" transparent="1" />
@@ -359,7 +359,7 @@
 	</screen>
 	<screen name="TitleCutter" position="0,0" size="1280,720" title="Cutlist editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<eLabel position="70,130" zPosition="1" size="700,381" backgroundColor="layer-a-foreground" />
 		<eLabel position="72,132" zPosition="3" size="696,377" backgroundColor="unff000000" />
 		<widget name="Video" position="72,132" zPosition="-10" size="696,377" />
@@ -387,7 +387,7 @@
 	</screen>
 	<screen name="TitleProperties" position="0,0" size="1280,720" title="Properties of current title" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="thumbnail" position="70,120" size="260,160" alphatest="blend" />
 		<widget source="serviceinfo" render="Label" position="350,120" size="420,160" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,295" size="700,2" backgroundColor="layer-a-foreground" />
@@ -403,7 +403,7 @@
 	<!-- Filebrowser -->
 	<screen name="FilebrowserConfigScreen" position="0,0" size="1280,720" title="" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
@@ -413,7 +413,7 @@
 	</screen>
 	<screen name="FilebrowserScreen" position="0,0" size="1280,720" title="" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="list_left" position="70,115" size="550,510" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="639,115" size="2,510" backgroundColor="layer-a-accent1" />
 		<widget name="list_right" position="660,115" size="550,510" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />

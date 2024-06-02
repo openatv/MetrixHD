@@ -20,7 +20,7 @@
 	</screen>
 
 	<screen name="information_common">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<panel name="T_Desc_810" />
 		<widget name="information" position="70,100" size="700,480" colPosition="280" conditional="information" divideChar="|" font="Regular;17" leftColAlign="left" rightColAlign="left" split="1" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="template1_2layer" />
@@ -75,7 +75,7 @@
 
 	<!-- Network Adapter -->
 	<screen name="AdapterSetup" position="0,0" size="1280,720" title="Network Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="Adapter" render="Label" position="70,115" size="495,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,165" size="700,240" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -100,7 +100,7 @@
 		<panel name="T_Img" />
 	</screen>
 	<screen name="AdapterSetupConfiguration" position="0,0" size="1280,720" title="Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="IF" render="Label" position="70,115" size="495,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="Statustext" render="Label" position="576,115" size="160,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="statuspic" position="740,117" size="30,30" pixmaps="buttons/key_green.png,buttons/grey.png" transparent="1" alphatest="blend" />
@@ -113,7 +113,7 @@
 		<panel name="T_Img" />
 	</screen>
 	<screen name="NetworkMacSetup" position="0,0" size="1280,720" title="MAC-address settings" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,130" size="700,390" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="introduction" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -122,7 +122,7 @@
 		<panel name="T_Img" />
 	</screen>
 	<screen name="NetworkMountsMenu" position="0,0" size="1280,720" title="Mounts Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="menulist" position="70,130" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="introduction" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -131,7 +131,7 @@
 		<panel name="T_Img" />
 	</screen>
 	<screen name="NameserverSetup" position="0,0" size="1280,720" title="Nameserver Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,450" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="introduction" position="70,600" size="700,25" font="SetrixHD;22" halign="center" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -140,7 +140,7 @@
 		<panel name="T_Img" />
 	</screen>
 	<screen name="NetworkAdapterSelection" position="0,0" size="1280,720" title="Select Network Adapter" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="list" render="Listbox" position="70,100" size="700,450" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
@@ -161,7 +161,7 @@
 		<panel name="T_Img" />
 	</screen>
 	<screen name="NetworkAdapterTest" position="0,0" size="1280,720" title="Network test..." flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="Adaptertext" position="70,120" size="400,30" zPosition="1" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="Adapter" position="70,150" size="400,30" zPosition="1" font="SetrixHD;22" foregroundColors="#8c8c93,#f23d21,#1cff1c" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="AdapterInfo_OK" position="535,133" size="30,30" pixmap="buttons/key_green.png" zPosition="2" alphatest="blend" />
@@ -201,7 +201,7 @@
 		<panel name="T_Img" />
 	</screen>
 	<screen name="WlanStatus" position="0,0" size="1280,720" title="Wireless Network State" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="IF" render="Label" position="70,115" size="495,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="Statustext" render="Label" position="576,115" size="160,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="statuspic" position="740,117" size="30,30" pixmaps="buttons/key_green.png,buttons/grey.png" transparent="1" alphatest="blend" />
@@ -234,7 +234,7 @@
 		<panel name="T_Img" />
 	</screen>
 	<screen name="WlanScan" position="0,0" size="1280,720" title="Choose a Wireless Network" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="info" render="Label" position="70,100" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget source="list" render="Listbox" position="70,165" size="700,455" scrollbarMode="showOnDemand" transparent="1">
@@ -259,7 +259,7 @@
 	</screen>
 	<screen name="uShareSelection" title="uShare Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="checkList" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<widget source="key_yellow" render="Label" position="436,638" size="260,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -268,14 +268,14 @@
 	</screen>
 	<screen name="NetworkLogScreen" title="Network Log" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="infotext" position="70,100" size="700,500" font="SetrixHD;18" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<panel name="_oe-buttons_template1" />
 		<panel name="T_Pix_info" />
 	</screen>
 	<screen name="ScanIP" title="Scan IP" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,500" font="Regular;22" itemHeight="30" zPosition="3" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
@@ -395,7 +395,7 @@
 	</screen>
 	<!--SoftcamPanel-->
 	<screen name="SoftcamPanel" position="0,0" size="1280,720" title="Softcam Panel" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<eLabel position="70,210" size="700,2" backgroundColor="layer-a-accent2" />
 		<eLabel position="70,284" size="700,2" backgroundColor="layer-a-accent2" />
 		<widget name="config" position="70,100" size="700,120" enableWrapAround="1" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
@@ -409,14 +409,14 @@
 	</screen>
 	<!--CCcaminfo-->
 	<screen name="CCcamInfoMain" position="0,0" size="1280,720" title="CCcam Info" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="menu" position="70,100" size="700,490" enableWrapAround="1" itemHeight="35" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="CCcamInfoRemoteBoxMenu" position="0,0" size="1280,720" title="CCcam Remote Info" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="list" position="70,100" size="700,510" enableWrapAround="1" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -424,7 +424,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="CCcamInfoSubMenu" position="0,0" size="1280,720" title="CCcamInfo SubMenu" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="list" position="70,100" size="700,480" enableWrapAround="1" itemHeight="60" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<widget name="info" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -432,7 +432,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="CCcamInfoServerMenu" position="0,0" size="1280,720" title="CCcam Server Info" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="list" position="70,100" size="700,510" enableWrapAround="1" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<widget name="info" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -440,7 +440,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="CCcamInfoMenuConfig" position="0,0" size="1280,720" title="CCcam Info Config" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="list" position="70,100" size="700,510" enableWrapAround="1" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -448,7 +448,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="CCcamShareViewMenu" position="0,0" size="1280,720" title="CCcam Share Menu" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="list" position="70,100" size="700,420" enableWrapAround="1" itemHeight="60" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<widget name="uphops" font="Regular;20" position="70,530" size="700,30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" zPosition="1" transparent="1" />
 		<widget name="cards" font="Regular;20" position="70,560" size="700,30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" zPosition="1" transparent="1" />
@@ -460,7 +460,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="CCcamInfoShareInfo" position="0,0" size="1280,720" title="CCcam Share Info" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="list" position="70,100" size="700,510" enableWrapAround="1" itemHeight="60" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -468,7 +468,7 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="CCcamInfoConfigSwitcher" position="0,0" size="1280,720" title="CCcam Config Switcher" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="list" position="70,100" size="700,510" enableWrapAround="1" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -476,21 +476,21 @@
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="CCcamInfoConfigMenu" position="0,0" size="1280,720" title="CCcam Info Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" enableWrapAround="1" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="CCcamInfoEcmInfoSelection" position="0,0" size="1280,720" title="CCcam ECM Info" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="list" position="70,100" size="700,510" enableWrapAround="1" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="CCcamInfoInfoScreen" position="0,0" size="1280,720" title="CCcam Info" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="text" font="Regular;20" position="70,100" size="700,515" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
@@ -507,7 +507,7 @@
 	</screen>
 	<!--Parental control setup-->
 	<screen name="ParentalControlSetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -533,7 +533,7 @@
 	</screen>
 	<!--Setup Screens-->
 	<screen name="setup_common">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="T_Desc_810" />
 		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
@@ -572,7 +572,7 @@
 		<panel name="T_Img" />
 	</screen>
 	<screen name="VideoEnhancementSetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="T_Desc_810" />
 		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
@@ -605,7 +605,7 @@ self['config'].l.setSeperation(int(300*f))
 		</applet>
 	</screen>
 	<screen name="LED_GigaSetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="T_Desc_810" />
 		<panel name="template1_2layer" />
@@ -616,7 +616,7 @@ self['config'].l.setSeperation(int(300*f))
 	<!-- Icons PACK_AVAILABLE, PACK_INSTALLED, PACK_IN_USE -->
 	<screen name="LocaleSelection" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="icons" position="0,0" size="30,27" pixmaps="icons/menu_download.png,icons/menu_off.png,icons/menu_on.png" alphatest="blend" />
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="locales" render="Listbox" position="70,105" size="700,510" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{
@@ -641,7 +641,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="T_Img" />
 	</screen>
 	<screen name="InputDeviceSelection" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="list" render="Listbox" position="70,100" size="700,350" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" scrollbarMode="showOnDemand" enableWrapAround="1">
 			<convert type="TemplatedMultiContent">
 							{"template": [
@@ -660,7 +660,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="T_Img" />
 	</screen>
 	<screen name="InputDeviceSetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="introduction" render="Label" position="825,425" size="380,175" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -757,7 +757,7 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 	<screen name="SundtekControlCenter" title="SundtekControlCenter" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="ok" position="70,500" zPosition="1" size="550,30" font="Regular;20" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="infos" position="70,530" zPosition="1" size="550,30" font="Regular;20" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="bouquets" position="70,560" zPosition="1" size="550,30" font="Regular;20" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -780,7 +780,7 @@ self['config'].l.setSeperation(int(300*f))
 		<widget source="Canvas" render="Canvas" position="0,0" size="1280,720" />
 	</screen>
 	<screen name="AudioSelection" title="Audio" position="0,0" size="1280,720" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="key_left" pixmap="left.png" position="88,125" size="36,36" alphatest="blend" />
 		<widget name="key_right" pixmap="right.png" position="124,125" size="36,36" alphatest="blend" />
 		<widget name="switchdescription" position="182,130" size="585,25" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1"/>
@@ -819,7 +819,7 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 	<!-- MountScreens (NetworkBrowser) -->
 	<screen name="AutoMountManager" position="0,0" size="1280,720" title="AutoMountManager" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="config" render="Listbox" position="70,100" size="700,480" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
@@ -839,7 +839,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="T_Pix_net" />
 	</screen>
 	<screen name="AutoMountEdit" position="0,0" size="1280,720" title="MountEdit" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,121" size="700,450" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
 		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
 		<widget name="VKeyIcon" pixmap="buttons/key_text.png" position="700,633" zPosition="10" size="70,30" transparent="1" alphatest="blend" />
@@ -850,7 +850,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="T_Pix_net" />
 	</screen>
 	<screen name="AutoMountView" position="0,0" size="1280,720" title="MountView" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="legend1" render="Label" position="70,130" size="130,60" font="SetrixHD;18" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="legend2" render="Label" position="230,128" size="400,60" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="legend3" render="Label" position="650,128" size="120,60" font="SetrixHD;20" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -877,7 +877,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="T_Pix_net" />
 	</screen>
 	<screen name="NetworkBrowser" position="0,0" size="1280,720" title="Network Neighbourhood" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="list" render="Listbox" position="70,100" size="700,480" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
@@ -900,7 +900,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="T_Pix_net" />
 	</screen>
 	<screen name="UserDialog" position="0,0" size="1280,720" title="UserDialog" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,350" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
 		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
 		<widget name="VKeyIcon" pixmap="buttons/key_text.png" position="700,633" zPosition="10" size="70,30" transparent="1" alphatest="blend" />
@@ -911,7 +911,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="T_Pix_net" />
 	</screen>
 	<screen name="UserManager" position="0,0" size="1280,720" title="UserManager" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="config" render="Listbox" position="70,100" size="700,420" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
@@ -931,7 +931,7 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 	<!-- HddMount Screens -->
 	<screen name="HddMount" position="0,0" size="1280,720" title="Mount Manager" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="list" render="Listbox" position="70,100" size="700,425" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground">
 			<convert type="TemplatedMultiContent">
 				{"template": [
@@ -961,14 +961,14 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 	<screen name="HarddiskSelection" position="0,0" size="1280,720" title="Select HDD" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="hddlist" position="70,130" size="700,270" itemHeight="30" font="screen_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/hdd.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="HarddiskSetup" position="0,0" size="1280,720" title="Harddisk" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="model" position="70,150" size="700,30" font="screen_text;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="capacity" position="70,200" size="700,30" font="screen_text;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="bus" position="70,250" size="700,30" font="screen_text;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -988,7 +988,7 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 <!-- cf#_#start -->
 	<screen name="TimerOverviewBase" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<panel name="timerlistcommon" />
 		<panel name="T_Desc_810" />
 		<panel name="template1_2layer" />
@@ -998,7 +998,7 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 	<screen name="TimerSelection" position="0,0" size="1280,720" title="Timer selection" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<panel name="timerlistcommon" />
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_timers.png" transparent="1" alphatest="blend" />
@@ -1031,7 +1031,7 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 	<screen name="TimeDateInput" position="0,0" size="1280,720" title="TimeDateInput" flags="wfNoBorder" backgroundColor="transparent" zPosition="1" >
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
@@ -1044,7 +1044,7 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 	<!-- CronTimer -->
 	<screen name="CronTimers" position="0,0" size="1280,720" title="Cron Manager" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="list" render="Listbox" position="70,100" size="700,510" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="TemplatedMultiContent">
 				{"template": [
@@ -1069,7 +1069,7 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 	<!-- AutoTimer -->
 	<screen name="AutoTimerOverview" position="0,0" size="1280,720" title="AutoTimer Overview" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="entries" position="70,100" size="700,490" itemHeight="70" rowSplit1="25" rowSplit2="43" rowHeight="28" iconMargin="3" sepLinePixmap="div-h.png" DayNameFont="screen_text;18" EventNameFont="screen_text;20" ServiceNameFont="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -1077,7 +1077,7 @@ self['config'].l.setSeperation(int(300*f))
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="AutoTimerImporter" position="0,0" size="1280,720" title="Import AutoTimer" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="list" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -1085,7 +1085,7 @@ self['config'].l.setSeperation(int(300*f))
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="AutoTimerEditor" position="0,0" size="1280,720" title="Edit AutoTimer" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="help" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -1094,7 +1094,7 @@ self['config'].l.setSeperation(int(300*f))
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="AutoTimerFilterEditor" position="0,0" size="1280,720" title="Edit AutoTimer Filters" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
@@ -1103,7 +1103,7 @@ self['config'].l.setSeperation(int(300*f))
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="AutoTimerServiceEditor" position="0,0" size="1280,720" title="Edit AutoTimer Services" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -1111,7 +1111,7 @@ self['config'].l.setSeperation(int(300*f))
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="AutoTimerSettings" position="0,0" size="1280,720" title="AutoTimer Settings" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="help" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<widget name="HelpWindow" position="774,10" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
@@ -1121,7 +1121,7 @@ self['config'].l.setSeperation(int(300*f))
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="AutoTimerFAQ" position="0,0" size="1280,720" title="AutoTimer FAQ" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="detailtext" position="70,100" size="700,510" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -1129,7 +1129,7 @@ self['config'].l.setSeperation(int(300*f))
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="AutoTimerHelp" position="0,0" size="1280,720" title="AutoTimer Help" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="detailtext" position="70,100" size="700,510" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -1138,7 +1138,7 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 	<screen name="AutoTimerPreview" position="0,0" size="1280,720" title="Preview AutoTimer" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="timerlist" render="Listbox" position="70,100" size="700,512" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
@@ -1228,7 +1228,7 @@ self['config'].l.setSeperation(int(300*f))
 		<widget name="help2" position="324,76" size="162,20" font="Console;20" noWrap="1" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-b-background" transparent="1"/>
 	</screen>
 	<screen name="VirtualKeyBoard" position="0,0" size="1280,720" zPosition="99" title="Virtual KeyBoard" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="header" conditional="header" position="70,105" size="700,32" font="screen_info;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left" transparent="1" noWrap="1" />
 		<widget name="prompt" conditional="prompt" position="70,105" size="700,32" font="screen_info;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="left" transparent="1" noWrap="1" />
 		<eLabel position="70,170" size="700,46" zPosition="1" backgroundColor="layer-a-accent1" />
@@ -1514,7 +1514,7 @@ if len(listitems.list) &gt; 2:
 		</applet>
 	</screen>
 	<screen name="Console" position="0,0" size="1280,720" title="Command execution..." flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="text" position="70,100" size="700,510" font="Console;16" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" scrollbarMode="showOnDemand"/>
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/console.png" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
@@ -2133,7 +2133,7 @@ if len(listitems.list) &gt; 2:
 	</screen>
 	<screen name="SimpleChannelSelection" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Channel Selection" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<panel name="RTSB_ChannelList_StandardList_LEFT"/>
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -2145,7 +2145,7 @@ if len(listitems.list) &gt; 2:
 	</screen>
 	<screen name="ChannelSelection_PIG" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Channel Selection" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="session.VideoPicture" render="Pig" position="780,95" size="430,242" zPosition="3" backgroundColor="unff000000" />
 		<widget source="session.CurrentService" render="Label" position="780,92" size="430,30" zPosition="4" font="epg_text;18"  halign="center" valign="top" noWrap="1" backgroundColor="transparent" foregroundColor="epg-event-foreground" borderColor="black" borderWidth="1" transparent="1">
 			<convert type="ServiceName">Name</convert>
@@ -2207,7 +2207,7 @@ if len(listitems.list) &gt; 2:
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/service_info.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="ServiceInfoSimple" position="0,0" size="1280,720" title="Choose bouquet" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="infolist" position="70,150" size="700,450" zPosition="3" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" selectionDisabled="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
@@ -2408,7 +2408,7 @@ if len(listitems.list) &gt; 2:
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_scan_tuner_setup.png" transparent="1" alphatest="blend" />	
 	</screen>
 	<screen name="NimSetup" position="0,0" size="1280,720" title="Reception Settings" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="T_Desc_810" />
 		<panel name="template1_2layer" />
@@ -2417,7 +2417,7 @@ if len(listitems.list) &gt; 2:
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_scan_tuner_setup.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="ScanSetup" position="0,0" size="1280,720" title="Service scan" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />	
+		<panel name="T_Title" />	
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="introduction" render="Label" position="825,425" size="380,175" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -2426,7 +2426,7 @@ if len(listitems.list) &gt; 2:
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_scan_manual_scan.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="ScanSimple" position="0,0" size="1280,720" title="Service scan" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="footer" position="825,425" size="380,175" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -2435,7 +2435,7 @@ if len(listitems.list) &gt; 2:
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_scan_auto_scan.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="SelectSatsEntryScreen" position="0,0" size="1280,720" title="Select Sats Entry" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="list" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="hint" render="Label" position="825,425" size="380,175" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -2445,7 +2445,7 @@ if len(listitems.list) &gt; 2:
 	</screen>
 	<screen name="PositionerSetup" position="0,0" size="1280,720" title="Positioner setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="list" position="220,120" size="400,210" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<eLabel position="70,370" size="700,1" backgroundColor="layer-a-accent1" transparent="0" />
 		<widget name="snr_db" position="160,405" size="200,25" halign="center" valign="center" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -2473,7 +2473,7 @@ if len(listitems.list) &gt; 2:
 	</screen>
 	<screen name="PositionerSetupLog" position="0,0" size="1280,720" title="Positioner Setup Log" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="list" position="70,100" size="700,510" enableWrapAround="1" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_scan_positioner_setup.png" transparent="1" alphatest="blend" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -2481,13 +2481,13 @@ if len(listitems.list) &gt; 2:
 	</screen>
 	<screen name="TunerScreen" position="0,0" size="1280,720" title="Tune" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" enableWrapAround="1" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_scan_positioner_setup.png" transparent="1" alphatest="blend" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="Satfinder" position="0,0" size="1280,720" title="Satfinder" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="Frontend" render="Label" position="120,90" size="600,30" zPosition="2" font="SetrixHD;21" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" transparent="1">
 			<convert type="FrontendInfo">SNRdB</convert>
 		</widget>
@@ -2640,7 +2640,7 @@ if len(listitems.list) &gt; 2:
 	</screen>
 	<!-- Softwaremanager -->
 	<screen name="SoftwareManagerInfo" position="0,0" size="1280,720" title="SoftwareManager information" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="list" render="Listbox" position="70,100" size="700,510" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="TemplatedMultiContent">
 				{"template": [
@@ -2658,7 +2658,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="T_Pix_info" />
 	</screen>
 	<screen name="PluginBrowser" position="0,0" size="1280,720" title="Plugin browser" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="list" position="70,100" size="700,500" itemHeight="50" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1" />
 		<!--widget source="global.CurrentTime" render="Label" position="825,100" size="380,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1">
 			<convert type="MetrixHDSTBinfo">FLASHfree</convert>
@@ -2671,7 +2671,7 @@ if len(listitems.list) &gt; 2:
 	</screen>
 
 	<screen name="PluginBrowserList" position="0,0" size="1280,720" title="Plugin browser" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="pluginList" render="Listbox" position="70,100" size="700,500" scrollbarMode="showOnDemand" listOrientation="vertical" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground">
 			<convert type="TemplatedMultiContent">
 				{
@@ -2694,7 +2694,7 @@ if len(listitems.list) &gt; 2:
 	</screen>
 
 	<screen name="PluginBrowserGrid" position="0,0" size="1280,720" title="Plugin browser" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="description" position="58,90" size="e-100,50" font="screen_text;20" valign="center"/>
 		<widget source="pluginGrid" render="Listbox" position="100,150" size="1120,440" itemSpacing="10,10" selectionZoom="10" scrollbarMode="showAlways" listOrientation="grid" moveBackgroundColor="#00DC143C">
 			<convert type="TemplatedMultiContent">
@@ -2718,7 +2718,7 @@ if len(listitems.list) &gt; 2:
 	</screen>
 
 	<screen name="PluginAction" position="0,0" size="1280,720" title="Downloadable plugins" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 
 		<widget source="plugins" render="Listbox" position="70,100" size="700,500" zPosition="4" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
@@ -2750,7 +2750,7 @@ if len(listitems.list) &gt; 2:
 	</screen>
 
 	<screen name="PluginDownloadBrowser" position="0,0" size="1280,720" title="Downloadable plugins" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="list" position="70,100" size="700,500" zPosition="4" itemHeight="50" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="text" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<widget source="global.CurrentTime" render="Label" position="825,100" size="380,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1">
@@ -2761,7 +2761,7 @@ if len(listitems.list) &gt; 2:
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="SoftwarePanel" position="0,0" size="1280,720" title="SoftwarePanel" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<eLabel text="Software Update" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget name="packagetext" position="70,115" size="250,35" zPosition="1" font="Regular;24" halign="right" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="packagenr" position="324,115" size="50,35" zPosition="1" font="Regular;24" halign="right" backgroundColor="layer-a-background" transparent="1" />
@@ -2792,7 +2792,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="__e-buttons_template1" />
 	</screen>
 	<screen name="SoftwareUpdate" position="0,0" size="1280,720" title="Software Update" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<eLabel text="Software Update" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget name="package_text" position="70,115" size="250,35" zPosition="1" font="Regular;24" halign="right" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="package_count" position="324,115" size="50,35" zPosition="1" font="Regular;24" halign="right" backgroundColor="layer-a-background" transparent="1" />
@@ -2825,7 +2825,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="__e-buttons_template1" />
 	</screen>
 	<screen name="RunSoftwareUpdate" position="0,0" size="1280,720" title="Software Update..." flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<eLabel text="Software Update" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget name="activity" position="70,120" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
 		<widget name="update" position="70,160" size="700,426" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" scrollbarMode="showOnDemand"/>
@@ -2834,7 +2834,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="UpdatePlugin" position="0,0" size="1280,720" title="Software Update..." flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<eLabel text="Software Update" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget name="activityslider" position="70,160" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
 		<widget source="package" render="Label" position="70,280" size="700,30" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -2845,7 +2845,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="ImageBackup" position="0,0" size="1280,720" title="Image Backup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="description" render="Label" position="70,50" size="700,150" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
 		<eLabel position="70,170" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,180" size="700,396" transparent="0" zPosition="1" font="screen_text;20" itemHeight="36" scrollbarMode="showOnDemand"/>
@@ -2857,7 +2857,7 @@ if len(listitems.list) &gt; 2:
 	</screen>
 	<screen name="BackupSelection" position="0,0" size="1280,720" title="Select files/folders to backup..." flags="wfNoBorder" backgroundColor="transparent">
 		<!--eLabel text="Select files/folders to backup..." position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" /-->
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" zPosition="1" halign="left" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="checkList" position="70,100" size="700,480" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="summary_description" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
@@ -2866,7 +2866,7 @@ if len(listitems.list) &gt; 2:
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/safe.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="Opkg" position="0,0" size="1280,720" title="Installing Software..." flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="activityslider" position="70,160" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
 		<widget name="package" position="70,280" size="700,30" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="status" position="70,330" size="700,30" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -2936,7 +2936,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="divpic" position="0,0" size="0,0" />
 	</screen>
 	<screen name="PluginManager" position="0,0" size="1280,720" title="Plugin manager" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="list" render="Listbox" position="70,100" size="700,480" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
 			{"templates":
@@ -3019,7 +3019,7 @@ if len(listitems.list) &gt; 2:
 	</screen>
 	<screen name="UpdatePluginMenu" position="0,0" size="1280,720" title="Softwaremanager..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="menu" render="Listbox" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
@@ -3117,7 +3117,7 @@ if len(listitems.list) &gt; 2:
 	</screen>	
 	<!-- E2 Bookmarks -->
 	<screen name="LocationBox" position="0,0" size="1280,720" title="Location Box" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="text" position="70,100" size="700,30" font="screen_info;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="targetfreespace" position="610,135" size="160,30" font="screen_info;20" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="target" position="70,135" size="550,30" font="screen_info;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -3184,7 +3184,7 @@ if len(listitems.list) &gt; 2:
 	</screen> 
 	<!--CI+-Helper /-->
 	<screen name="CIHelper" title="CIHelper Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="autostart" position="70,130" size="150,30" font="Regular;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="labdisabled" position="320,130" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="red" zPosition="1" />
 		<widget name="labactive" position="320,130" size="172,30" font="Regular;22" valign="center" halign="center" backgroundColor="green" zPosition="2" />
@@ -3204,7 +3204,7 @@ if len(listitems.list) &gt; 2:
 	</screen>
 	<screen name="CIHelperSetup" title="CIHelper Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
@@ -3286,7 +3286,7 @@ if len(listitems.list) &gt; 2:
 
 	<!--TagEditor /-->
 	<screen name="TagEditor" position="0,0" size="1280,720" title="" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="taglist" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="mhe-buttons_template1" />
@@ -3435,7 +3435,7 @@ if len(listitems.list) &gt; 2:
 	</screen>
 <!-- cf#_#start -->
 	<screen name="HelpMenu" position="0,0" size="1280,720" title="Menu" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="description"  position="1360,425" size="550,635" font="screen_text;20" halign="center" valign="center" backgroundColor="layer-a-background" transparent="1" zPosition="2"/>
 		<widget source="list" render="Listbox" position="70,100" size="700,510" transparent="0" scrollbarMode="showOnDemand">
 			<convert type="TemplatedMultiContent">
@@ -3509,13 +3509,13 @@ if len(listitems.list) &gt; 2:
 	</screen>
 	<screen name="ImageWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
 		<!--eLabel text="ImageWizard" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /-->
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<panel name="wizard_template_2" />
 		<panel name="wizard_rc_templateNew" />
 	</screen>
 	<screen name="LocaleWizard" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="icons" position="0,0" size="30,27" pixmaps="icons/menu_off.png,icons/menu_download.png,icons/menu_on.png" alphatest="blend" />
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="text" position="70,100" size="700,190" font="screen_text;20" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<eLabel position="70,310" size="700,1" backgroundColor="layer-a-accent1" />
 		<widget source="locales" render="Listbox" position="70,325" size="700,272" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1">
@@ -3541,13 +3541,13 @@ if len(listitems.list) &gt; 2:
 	</screen>
 	<screen name="StartWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
 		<!--eLabel text="StartWizard" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /-->
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<panel name="wizard_template_2" />
 		<panel name="wizard_rc_templateNew" />
 	</screen>
 	<screen name="VideoWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
 		<!--eLabel text="VideoWizard" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /-->
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<panel name="wizard_template_2" />
 		<panel name="wizard_rc_templateNew" />
 	</screen>
@@ -3558,7 +3558,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="wizard_rc_template" />
 	</screen>
 	<screen name="CleanupWizardConfiguration" position="0,0" size="1280,720" title="CleanupWizard settings" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,450" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="status" render="Label" position="70,590" size="700,30" font="screen_info;22" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -3677,7 +3677,7 @@ if len(listitems.list) &gt; 2:
 	<!-- AutoVideoModeLabel -->
 	<!-- Bluetooth Setup -->
 	<screen name="BluetoothSetupScreen" position="0,0" size="1280,720" title="Bluetooth Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="deviceList" render="Listbox" position="70,100" size="700,480"  scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="TemplatedMultiContent">
 			{"template":
@@ -3699,7 +3699,7 @@ if len(listitems.list) &gt; 2:
 		<ePixmap position="890,175" size="256,256" zPosition="2" pixmap="icons/bluetooth.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="btscan" >
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="deviceList" render="Listbox" position="70,100" size="700,480"  scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="TemplatedMultiContent">
 				{"template":
@@ -3730,7 +3730,7 @@ if len(listitems.list) &gt; 2:
 	</screen>
 	<!-- Bluetooth Setup -->
 	<screen name="VuRcuOtaUpdate" position="0,0" size="1280,720" title="VU RCU OTA Update" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="target" position="70,100" size="700,30" font="screen_text;22" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground"  noWrap="1" transparent="1" />
 		<eLabel name="line" position="70,140" size="700,1" backgroundColor="layer-a-accent1" zPosition="1" />
 		<widget name="filelist" position="70,150" size="700,210" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
@@ -3762,7 +3762,7 @@ if len(listitems.list) &gt; 2:
 	<!-- Screensaver -->
 	<!-- dBackup -->
 	<screen name="dBackup" position="0,0" size="1280,720" title="Flashing" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" zPosition="100" noWrap="1" />
+		<panel name="T_Title" />
 		<widget name="buttonred" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="buttongreen" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="buttonyellow" position="436,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
@@ -3774,7 +3774,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="T_Pix_setup" />
 	</screen>
 	<screen name="dBackupConfiguration" position="0,0" size="1280,720" title="dBackup Configuration" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" zPosition="100" noWrap="1" />
+		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,480" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="buttonred" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="buttongreen" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
@@ -3787,7 +3787,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="T_Pix_setup" />
 	</screen>
 	<screen name="dBackupChecking" position="0,0" size="1280,720" title="choose NAND Flash Check" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" zPosition="100" noWrap="1" />
+		<panel name="T_Title" />
 		<widget name="menu" position="70,100" size="700,450" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="buttonred" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="buttongreen" position="253,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
@@ -3800,7 +3800,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="T_Pix_setup" />
 	</screen>
 	<screen name="dBackupAbout" position="0,0" size="1280,720" title="About dBackup" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" noWrap="1" />
+		<panel name="T_Title" />
 		<widget name="aboutdbackup" foregroundColor="yellow" position="70,180" size="700,40" halign="center" font="screen_info;24"/>
 		<eLabel name="line" position="70,270" size="700,1" backgroundColor="layer-a-accent1" zPosition="2" />
 		<widget name="freefilesystem" position="100,250" size="300,300" valign="center" halign="center" font="screen_text;22"/>
@@ -3822,7 +3822,7 @@ if len(listitems.list) &gt; 2:
 	<!-- StreamingClientsInfo -->
 	<screen name="StreamingClientsInfo" position="0,0" size="1280,720" title="Streaming clients info" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<widget source="Title" render="Label" position="58,36" font="global_title;34" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="ScrollLabel" position="70,100" size="700,30" font="Regular;23" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" zPosition="1" />
 		<widget name="ScrollLabel2" position="70,185" size="700,390" font="Regular;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" zPosition="1" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -3854,7 +3854,7 @@ if len(listitems.list) &gt; 2:
 	<!-- TaskListScreen -->
 	<!-- Multiboot Selector -->
 	<screen name="MultiBootSelector" position="0,0" size="1280,720" title="Multiboot Image Selector" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="description" render="Label" position="70,50" size="700,150" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
 		<eLabel position="70,170" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,180" size="700,390" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
@@ -3867,7 +3867,7 @@ if len(listitems.list) &gt; 2:
 	<!-- Multiboot Selector -->
 	<!-- MultiBootWizard -->
 	<screen name="MultiBootWizard" position="0,0" size="1280,720" title="MultiBoot maintenance" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="description" render="Label" position="70,50" size="700,150" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
 		<eLabel position="70,170" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,180" size="700,390" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
@@ -3880,7 +3880,7 @@ if len(listitems.list) &gt; 2:
 	<!-- MultiBootWizard -->
 	<!-- MultiBootManager -->
 	<screen name="MultiBootManager" position="0,0" size="1280,720" title="Multiboot Image Manager" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="slotlist" position="70,100" size="700,396" itemHeight="36" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
 		<ePixmap position="890,145" size="256,256" zPosition="10" pixmap="icons/restart.png" transparent="1" alphatest="blend" />
 		<panel name="T_Desc_810" />
@@ -3889,7 +3889,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="KexecInit" position="0,0" size="1280,720" title="Kexec MultiBoot Manager" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<!--<widget name="slotlist" position="70,100" size="700,390" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>-->
 		<ePixmap position="890,145" size="256,256" zPosition="10" pixmap="icons/restart.png" transparent="1" alphatest="blend" />
 		<panel name="T_Desc_810" />
@@ -3910,7 +3910,7 @@ if len(listitems.list) &gt; 2:
 	<!-- SoftcamSetup -->
 	<!-- IceTV -->
 	<screen name="IceTVServerSetup" position="0,0" size="1280,720" title="IceTV - Service selection" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="instructions" position="70,100" size="700,200" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
 		<eLabel position="70,300" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,320" size="700,300" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
@@ -3920,7 +3920,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="IceTVUserTypeScreen" position="0,0" size="1280,720" title="IceTV - Account selection" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget source="instructions" render="Label" position="70,100" size="700,200" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
 		<eLabel position="70,320" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
 		<widget name="menu" position="70,340" size="700,100" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
@@ -3929,7 +3929,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="IceTVNewUserSetup" position="0,0" size="1280,720" title="IceTV - User Information" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="instructions" position="70,100" size="700,200" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
 		<eLabel position="70,300" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,320" size="700,200" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
@@ -3940,7 +3940,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="IceTVRegionSetup" position="0,0" size="1280,720" title="IceTV - Region" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="instructions" position="70,100" size="700,200" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
 		<eLabel position="70,300" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,320" size="700,300" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
@@ -3952,7 +3952,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="IceTVLogin" position="0,0" size="1280,720" title="IceTV - Login" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="instructions" position="70,100" size="700,100" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
 		<widget name="message" position="70,460" size="700,170" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
 		<widget name="qrcode" position="270,200" size="256,256" pixmap="/usr/lib/enigma2/python/Plugins/SystemPlugins/IceTV/qr_code.png" zPosition="1" />
@@ -3964,7 +3964,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="IceTVNeedPassword" position="0,0" size="1280,720" title="IceTV - Password required" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 		<widget name="instructions" position="70,100" size="700,200" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
 		<eLabel position="70,300" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,320" size="700,150" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>

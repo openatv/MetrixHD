@@ -48,6 +48,9 @@
 			<widget name="description" position="810,385" size="415,220" font="screen_info;20" conditional="description" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		</screen>
 
+		<screen name="T_Title">
+			<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
+		</screen>
 
 		<!--/* NEW-Source-BUTTONS /> -->
 		<screen name="T_Col_B_R">
@@ -1950,7 +1953,7 @@
 	</screen>
 	<screen name="CHANNELSELECTION-Title-1">
 		<panel name="CHANNELSELECTION-TOP"/>
-		<widget source="Title" render="Label" position="58,36" size="525,50" valign="bottom" font="global_title;34" noWrap="1" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="T_Title" />
 	</screen>
 	<screen name="CHANNELSELECTION-Title-2">
 		<panel name="CHANNELSELECTION-TOP"/>
