@@ -23,7 +23,7 @@ from __future__ import division
 from datetime import datetime
 from math import floor, sqrt
 from os import remove, statvfs, listdir, system, mkdir, unlink, symlink, rename
-from os.path import exists, getsize, isdir, isfile, islink, join as pathjoin, realpath
+from os.path import basename, exists, getsize, isdir, isfile, islink, join as pathjoin, realpath
 from re import sub, match, findall
 from shutil import move, copy, rmtree
 from subprocess import getoutput
@@ -1311,6 +1311,7 @@ class ActivateSkinSettings:
 				self.picon_zoom = self.EHDfactor
 
 			#make *_TARGET files
+			print(f"step 1 duration time: {round_half_up(time() - apply_starttime, 1)}s")
 			print(f"--------   make {self.EHDres}-skin  --------")
 			for file in skinfiles:
 				if self.skinline_error:
@@ -1748,7 +1749,7 @@ class ActivateSkinSettings:
 		self.ypos = 0
 
 		starttime = datetime.now()
-		print("starting   " + sourceFile + "   --->   " + targetFile)
+		print(f'starting  {sourceFile.replace("/usr/share/enigma2/MetrixHD/", "")} -> {targetFile.replace("/usr/share/enigma2/MetrixHD/", "")}')
 
 		f = open(sourceFile, "r")
 		f1 = open(targetFile, "w")
@@ -1924,7 +1925,7 @@ class ActivateSkinSettings:
 #TimeFontVertical="epg_event;22" EventFontVertical="epg_event;18"
 #CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;30"
 #CoolFont="Regular;19" CoolServiceFont="Regular;19" CoolEventFont="Regular;19"
-		if ('font' in line or 'Font' in line) and 'alias name="' not in line:
+		if ('font' in line or 'Font' in line) and 'alias name="' not in line and "fonts" not in line:
 			line = sub(r'(\w*[Ff]ont\w*=" *)(\w+; *)(\d+)', self.linereplacer, line)
 #<alias name="Body" font="screen_text" size="20" height="25" />
 		if 'font="' in line and 'alias name="' in line:
@@ -1932,6 +1933,9 @@ class ActivateSkinSettings:
 #"fonts": [gFont("Regular",18),gFont("Regular",14),gFont("Regular",24),gFont("Regular",20)]
 		if '"fonts":' in line and 'gFont' in line:
 			line = sub(r'(gFont[(]"\w+", *)(\d+)', self.linereplacer, line)
+# fonts="Regular;19,Regular;16"
+		elif 'fonts=' in line:
+			line = sub(r'(fonts=")(\w+; *)(\d+)(,)(\w+; *)(\d+)(,)(\w+; *)(\d+)(,)(\w+; *)(\d+)(,)(\w+; *)(\d+)', self.linereplacer, line)  # prepared for max 5 values
 #offset="5,0"
 		if ' offset="' in line or 'shadowOffset="' in line:
 			line = sub(r'([shadow]*[Oo]ffset=")(\d+)(,)(\d+)', self.linereplacer, line)
