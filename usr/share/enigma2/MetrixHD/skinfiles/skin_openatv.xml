@@ -349,19 +349,55 @@
 	</screen>
 	<!-- templates -->
 	<screen name="QuickMenu" position="0,0" size="1280,720" title="Quick Launch Menu" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="QuickMenuOld" conditional="list" />
+		<panel name="QuickMenuNew" conditional="mainlist" />
+	</screen>
+	<screen name="QuickMenuOld" position="0,0" size="1280,720" title="Quick Launch Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel name="GRADIENT_BACKGROUND" position="0,0" zPosition="-11" size="1280,94" backgroundColor="layer-a-background" />
 		<ePixmap pixmap="buttons/key_red.png" position="265,0" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="buttons/key_green.png" position="448,0" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="buttons/key_yellow.png" position="631,0" size="30,40" alphatest="blend" />
-		<!--ePixmap pixmap="buttons/key_blue.png" position="814,0" size="30,40" alphatest="blend" /-->
 		<widget name="key_red" position="300,3" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="key_green" position="483,3" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="key_yellow" position="666,3" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<!--widget name="key_blue" position="849,3" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" /-->
 		<widget name="list" position="235,114" size="390,500" itemHeight="50" font="screen_text;20" scrollbarMode="showNever" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" />
 		<widget name="sublist" position="655,131" size="390,450" itemHeight="50" font="screen_text;20" scrollbarMode="showNever" transparent="1" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" backgroundColorSelected="layer-b-selection-background" foregroundColorSelected="layer-b-selection-foreground" />
 		<widget name="description" position="42,42" size="1206,55" zPosition="1" font="screen_info;20" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel text="Quick Launch Menu" position="5,555" size="1280,180" font="global_large_menu;90" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<panel name="QuickMenu_Layer" />
+		<panel name="COLORGRADIENT_top_QM" />
+	</screen>
+	<screen name="QuickMenuNew" position="0,0" size="1280,720" title="Quick Launch Menu" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel name="GRADIENT_BACKGROUND" position="0,0" zPosition="-11" size="1280,94" backgroundColor="layer-a-background" />
+		<ePixmap pixmap="buttons/key_red.png" position="265,0" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="buttons/key_green.png" position="448,0" size="30,40" alphatest="blend" />
+		<ePixmap pixmap="buttons/key_yellow.png" position="631,0" size="30,40" alphatest="blend" />
+		<widget source="key_red" render="Label" position="300,3" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="key_green" render="Label" position="483,3" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="key_yellow" render="Label" position="666,3" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="mainlist" render="Listbox" position="235,114" size="390,500" itemHeight="50" font="screen_text;20" scrollbarMode="showNever" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground">
+			<templates>
+				<template name="Default" fonts="Regular;19,Regular;16" itemWidth="390" itemHeight="50">
+					<mode name="default">
+						<text index="0" position="60,2" size="e-60,28" font="0" />
+						<text index="1" position="60,25" size="e-60,22" font="1" />
+						<pixmap index="2" position="10,5" size="40,40" alpha="blend" scale="centerScaled"/>
+					</mode>
+				</template>
+			</templates>
+		</widget>
+		<widget source="sublist" render="Listbox" position="655,131" size="390,450" itemHeight="50" font="screen_text;20" scrollbarMode="showNever" transparent="1" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" backgroundColorSelected="layer-b-selection-background" foregroundColorSelected="layer-b-selection-foreground">
+			<templates>
+				<template name="Default" fonts="Regular;19,Regular;16" itemWidth="390" itemHeight="50">
+					<mode name="default">
+						<text index="0" position="10,2" size="e-10,28" font="0" />
+						<text index="1" position="10,25" size="e-10,22" font="1" />
+					</mode>
+				</template>
+			</templates>
+		</widget>
+		<widget name="description" position="42,42" size="1206,55" zPosition="1" font="screen_info;20" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="Title" render="Label" position="5,555" size="1280,180" font="global_large_menu;90" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<panel name="QuickMenu_Layer" />
 		<panel name="COLORGRADIENT_top_QM" />
 	</screen>
