@@ -1935,7 +1935,7 @@ class ActivateSkinSettings:
 			line = sub(r'(gFont[(]"\w+", *)(\d+)', self.linereplacer, line)
 # fonts="Regular;19,Regular;16"
 		elif 'fonts=' in line:
-			line = sub(r'(fonts=")(\w+; *)(\d+)(,)(\w+; *)(\d+)(,)(\w+; *)(\d+)(,)(\w+; *)(\d+)(,)(\w+; *)(\d+)', self.linereplacer, line)  # prepared for max 5 values
+			line = sub(r'(\w+; *)(\d*)', self.linereplacer, line)
 #offset="5,0"
 		if ' offset="' in line or 'shadowOffset="' in line:
 			line = sub(r'([shadow]*[Oo]ffset=")(\d+)(,)(\d+)', self.linereplacer, line)
