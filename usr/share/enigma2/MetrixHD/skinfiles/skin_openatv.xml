@@ -349,25 +349,6 @@
 	</screen>
 	<!-- templates -->
 	<screen name="QuickMenu" position="0,0" size="1280,720" title="Quick Launch Menu" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="QuickMenuOld" conditional="list" />
-		<panel name="QuickMenuNew" conditional="mainlist" />
-	</screen>
-	<screen name="QuickMenuOld" position="0,0" size="1280,720" title="Quick Launch Menu" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel name="GRADIENT_BACKGROUND" position="0,0" zPosition="-11" size="1280,94" backgroundColor="layer-a-background" />
-		<ePixmap pixmap="buttons/key_red.png" position="265,0" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="buttons/key_green.png" position="448,0" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="buttons/key_yellow.png" position="631,0" size="30,40" alphatest="blend" />
-		<widget name="key_red" position="300,3" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_green" position="483,3" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="key_yellow" position="666,3" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="235,114" size="390,500" itemHeight="50" font="screen_text;20" scrollbarMode="showNever" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" />
-		<widget name="sublist" position="655,131" size="390,450" itemHeight="50" font="screen_text;20" scrollbarMode="showNever" transparent="1" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" backgroundColorSelected="layer-b-selection-background" foregroundColorSelected="layer-b-selection-foreground" />
-		<widget name="description" position="42,42" size="1206,55" zPosition="1" font="screen_info;20" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="Quick Launch Menu" position="5,555" size="1280,180" font="global_large_menu;90" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<panel name="QuickMenu_Layer" />
-		<panel name="COLORGRADIENT_top_QM" />
-	</screen>
-	<screen name="QuickMenuNew" position="0,0" size="1280,720" title="Quick Launch Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel name="GRADIENT_BACKGROUND" position="0,0" zPosition="-11" size="1280,94" backgroundColor="layer-a-background" />
 		<ePixmap pixmap="buttons/key_red.png" position="265,0" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="buttons/key_green.png" position="448,0" size="30,40" alphatest="blend" />
@@ -3349,7 +3330,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 	</screen>
 	<screen name="wizard_template_2">
-		<widget name="text" position="70,100" size="700,190" font="screen_text;20" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="text" position="70,100" size="700,190" font="screen_text;18" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<eLabel position="70,310" size="700,1" backgroundColor="layer-a-accent1" />
 		<widget source="list" render="Listbox" position="70,325" size="700,300" zPosition="13" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" >
 			<convert type="TemplatedMultiContent">
@@ -3362,7 +3343,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="config" position="70,325" size="700,300" itemHeight="30" zPosition="14" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="HelpWindow" position="166,148" size="486,102" zPosition="1" transparent="1" alphatest="blend" />
 		<ePixmap pixmap="buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" />
-		<widget name="languagetext" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
+		<widget name="languagetext" position="70,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" conditional="languagetext"/>
 		<panel name="__e-buttons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateButtonYellow_template1" />
@@ -3513,7 +3494,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="_he-buttons_template1" />
 		<panel name="template1_2layer" />
 	</screen>
-	<screen name="NetworkWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="NetworkWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent" ignoreWidgets="wizard">
 		<eLabel text="NetworkWizard" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="wizard_template_2" />
 		<panel name="wizard_rc_templateNew" />
@@ -3538,7 +3519,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="wizard_template" />
 		<panel name="wizard_rc_template" />
 	</screen>
-	<screen name="ImageWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="ImageWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent" ignoreWidgets="wizard">
 		<!--eLabel text="ImageWizard" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /-->
 		<panel name="T_Title" />
 		<panel name="wizard_template_2" />
@@ -3570,13 +3551,13 @@ if len(listitems.list) &gt; 2:
 		<panel name="wizard_rc_templateNew" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 	</screen>
-	<screen name="StartWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="StartWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent" ignoreWidgets="wizard">
 		<!--eLabel text="StartWizard" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /-->
 		<panel name="T_Title" />
 		<panel name="wizard_template_2" />
 		<panel name="wizard_rc_templateNew" />
 	</screen>
-	<screen name="VideoWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="VideoWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent" ignoreWidgets="wizard">
 		<!--eLabel text="VideoWizard" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /-->
 		<panel name="T_Title" />
 		<panel name="wizard_template_2" />
