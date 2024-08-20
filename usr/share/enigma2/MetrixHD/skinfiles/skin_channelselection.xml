@@ -4,4 +4,17 @@
 		<panel name="CHANNELSELECTION-1" />
 		<panel name="SKINPART_channelselection" />
 	</screen>
+	<screen name="ChannelSelectionDefault" label="Default" base="ChannelSelection" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="ChannelSelection" />
+	</screen>
+	<screen name="ChannelSelectionPIG" label="With Live TV" base="ChannelSelection" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="ChannelSelection_PIG" />
+	</screen>
+	<screen name="ChannelSelectionFull" label="Full Screen" base="ChannelSelection" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="CHANNELSELECTION-Title-1"/>
+		<panel name="template1_1layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="ime-buttons_template1" />
+		<widget name="list" position="70,100" size="1150,530" scrollbarMode="showNever" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" foregroundColorServiceNotAvail="#00555555" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
+	</screen>
 </skin>
