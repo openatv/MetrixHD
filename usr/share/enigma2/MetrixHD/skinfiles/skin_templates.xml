@@ -348,12 +348,8 @@
 			</widget>
 		</screen>
 		<screen name="RESOLUTIONMOVIEPLAYER-2">
-			<widget source="session.CurrentService" render="Label" position="831,666" size="70,29" font="infobar_text;24" halign="right" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" transparent="1">
-				<convert type="MetrixHDVideoInfo">VideoSizeWidth</convert>
-			</widget>
-			<eLabel text="x" position="901,666" size="16,29" font="infobar_text;24" halign="center" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" transparent="1" />
-			<widget source="session.CurrentService" render="Label" position="916,666" size="100,29" font="infobar_text;24" halign="left" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" transparent="1">
-				<convert type="MetrixHDVideoInfo">VideoSizeHeight</convert>
+			<widget source="session.CurrentService" render="Label" position="831,666" size="220,29" font="infobar_text;24" halign="left" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" transparent="1">
+				<convert type="MetrixHDServiceInfo">VideoInfo</convert>
 			</widget>
 		</screen>
 		<screen name="STBINFOMOVIEPLAYER">
@@ -801,12 +797,8 @@
 		</screen>
 		<screen name="INFOBARRESOLUTION-2">
 			<!-- /* ResolutionInfo -->
-			<widget source="session.CurrentService" render="Label" position="618,666" size="70,29" font="infobar_text;24" halign="right" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" transparent="1">
-				<convert type="MetrixHDVideoInfo">VideoSizeWidth</convert>
-			</widget>
-			<eLabel text="x" position="688,666" size="16,29" font="infobar_text;24" halign="center" valign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-accent1" transparent="1" />
-			<widget source="session.CurrentService" render="Label" position="703,666" size="100,29" font="infobar_text;24" halign="left" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" transparent="1">
-				<convert type="MetrixHDVideoInfo">VideoSizeHeight</convert>
+			<widget source="session.CurrentService" render="Label" position="630,666" size="220,29" font="infobar_text;24" halign="left" valign="center" backgroundColor="infobarbackground" foregroundColor="infobaraccent1" transparent="1">
+				<convert type="MetrixHDServiceInfo">VideoInfo</convert>
 			</widget>
 			<!-- ResolutionInfo */ -->
 		</screen>
