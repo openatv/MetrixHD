@@ -1007,7 +1007,6 @@ self['config'].l.setSeperation(int(300*f))
 	<screen name="TimerOverviewBase" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<panel name="timerlistcommon" />
-		<panel name="T_Desc_810" />
 		<panel name="template1_2layer" />
 		<panel name="T_Col_B_A" />
 		<panel name="ioe-buttons_template1" />
@@ -1022,14 +1021,17 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 	<screen name="PowerTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
+		<panel name="T_Desc_810" />
 		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_powertimers.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="RecordTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_timers.png" transparent="1" alphatest="blend" />
+		<widget source="description" render="MetrixHDRunningText" options="movetype=running,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="810,390" size="415,200" font="screen_info;20" conditional="description" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="top" transparent="1"/>
+		<ePixmap position="890,150" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_timers.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="ConflictTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
+		<panel name="T_Desc_810" />
 		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_conflict.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="TimerLog" position="0,0" size="1280,720" title="Timer log" flags="wfNoBorder" backgroundColor="transparent">
@@ -1057,6 +1059,7 @@ self['config'].l.setSeperation(int(300*f))
 	<!-- OLD TimerEditList to support old plugins -->
 	<screen name="TimerEditList" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
+		<panel name="T_Desc_810" />
 		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_timers.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- CronTimer -->
