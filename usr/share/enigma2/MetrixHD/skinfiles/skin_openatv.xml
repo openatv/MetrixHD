@@ -1026,8 +1026,7 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 	<screen name="RecordTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
-		<widget source="description" render="MetrixHDRunningText" options="movetype=running,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="810,390" size="415,200" font="screen_info;20" conditional="description" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="top" transparent="1"/>
-		<ePixmap position="890,150" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_timers.png" transparent="1" alphatest="blend" />
+		<widget name="description" position="810,70" size="415,500" zPosition="3" font="screen_info;18" conditional="description" foregroundColor="layer-b-foreground" halign="left" backgroundColor="layer-b-background" valign="top" transparent="1"/>
 	</screen>
 	<screen name="ConflictTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
