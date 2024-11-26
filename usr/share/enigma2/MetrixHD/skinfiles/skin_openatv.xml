@@ -1007,7 +1007,6 @@ self['config'].l.setSeperation(int(300*f))
 	<screen name="TimerOverviewBase" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<panel name="timerlistcommon" />
-		<panel name="T_Desc_810" />
 		<panel name="template1_2layer" />
 		<panel name="T_Col_B_A" />
 		<panel name="ioe-buttons_template1" />
@@ -1022,14 +1021,16 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 	<screen name="PowerTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
+		<panel name="T_Desc_810" />
 		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_powertimers.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="RecordTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_timers.png" transparent="1" alphatest="blend" />
+		<widget name="description" position="810,70" size="416,524" zPosition="3" font="epg_info;18" conditional="description" foregroundColor="layer-b-foreground" halign="left" backgroundColor="layer-b-background" valign="top" transparent="1"/>
 	</screen>
 	<screen name="ConflictTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
+		<panel name="T_Desc_810" />
 		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_conflict.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="TimerLog" position="0,0" size="1280,720" title="Timer log" flags="wfNoBorder" backgroundColor="transparent">
@@ -1057,6 +1058,7 @@ self['config'].l.setSeperation(int(300*f))
 	<!-- OLD TimerEditList to support old plugins -->
 	<screen name="TimerEditList" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
+		<panel name="T_Desc_810" />
 		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_timers.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- CronTimer -->
@@ -1257,7 +1259,8 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="tie-buttons_template1" />
 	</screen>
 
-	<screen name="Processing" title="Processing" position="center,center" size="600,220" backgroundColor="#111111" zPosition="+99" flags="wfNoBorder">
+	<screen name="Processing" title="Processing" position="center,center" size="600,220" backgroundColor="layer-a-background" zPosition="+99" flags="wfNoBorder">
+		<eRectangle position="0,0" size="e,e" borderColor="layer-a-underline" backgroundColor="layer-a-background" borderWidth="1" zPosition="-10" />
 		<widget source="Title" render="Label" position="10,8" foregroundColor="layer-a-title-foreground" size="518,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1"/>
 		<panel name="ul-messagebox" />
 		<widget name="progress" position="10,80" size="580,25" transparent="1"/>
@@ -1275,7 +1278,7 @@ self['config'].l.setSeperation(int(300*f))
 		<applet type="onLayoutFinish">
 # this should be factored out into some helper code,but currently demonstrates applets.
 from __future__ import division
-from enigma import eSize, ePoint, getDesktop
+from enigma import eSize, ePoint, getDesktop, eRectangle
 #orgwidth = self.instance.size().width()
 #orgheight = self.instance.size().height()
 #---
@@ -1355,9 +1358,16 @@ if self.list:
 newwidth = wsize[0]
 newheight = wsize[1]
 self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheight)//2))
+for x in self.additionalWidgets:
+	if isinstance(x.instance, eRectangle):
+		x.instance.resize(eSize(*wsize))
 		</applet>
 	</screen>
 	<screen name="MessageBox" position="240,160" size="800,400" zPosition="10" title="Message" flags="wfNoBorder" backgroundColor="layer-a-background">
+		<panel name="MessageBox-template-4" />
+	</screen>
+	<screen name="MessageBoxModal" position="240,160" size="800,400" zPosition="+99" title="Message" flags="wfNoBorder" backgroundColor="layer-a-background">
+		<eRectangle position="0,0" size="e,e" borderColor="layer-a-underline" backgroundColor="layer-a-background" borderWidth="1" zPosition="-10" />
 		<panel name="MessageBox-template-4" />
 	</screen>
 	<screen name="MessageBoxExt" position="240,160" size="800,400" zPosition="10" title="Message" flags="wfNoBorder" backgroundColor="layer-a-background">
@@ -2560,8 +2570,8 @@ if len(listitems.list) &gt; 2:
 		</widget>
 		<widget name="network" position="70,100" size="700,30" font="SetrixHD;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="transponder" position="70,130" size="700,30" font="SetrixHD;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="scan_state" position="70,180" size="700,30" zPosition="2" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="pass" position="70,220" size="700,30" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="scan_state" position="70,180" size="550,30" zPosition="2" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="pass" position="620,180" size="150,30" font="SetrixHD;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="scan_progress" position="70,245" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
 		<widget name="servicelist" position="70,300" size="700,300" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" selectionDisabled="1" transparent="1" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
