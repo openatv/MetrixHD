@@ -308,7 +308,11 @@
 	<screen name="RTSB_ChannelList_StandardList_RIGHT">
 		<widget name="list" position="424,105" size="792,510" listMarginLeft="5" listMarginRight="5" scrollbarMode="showNever" fieldMargins="5" itemsDistances="5" progressbarHeight="8" progressBarWidth="50" progressbarBorderWidth="1" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" colorServiceDescription="layer-a-channelselection-foreground-ServiceDescription" colorServiceDescriptionSelected="layer-a-channelselection-foreground-ServiceDescriptionSelected" colorEventProgressbar="layer-a-channelselection-progressbar" colorEventProgressbarBorder="layer-a-channelselection-progressbarborder" colorEventProgressbarBorderSelected="layer-a-channelselection-foregroundColorSelected" foregroundColorServiceNotAvail="#00555555" serviceItemHeight="30" serviceNumberFont="epg_event;22" serviceNameFont="epg_event;22" serviceInfoFont="epg_text;20" progressInfoFont="epg_info;18" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 	</screen>
-
+	<screen name="RTSB_ChannelList_EventFull">
+		<widget source="ServiceEvent" render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="785,375" size="420,223" font="epg_info; 19" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="0" halign="left" valign="top">
+			<convert type="EventName">FullDescription</convert>
+		</widget>
+	</screen>
 	<screen name="RTSB_ChannelSelection-1_list_plus_description">
 		<panel name="RTSB_ChannelList_StandardList_LEFT"/>
 		<widget source="ServiceEvent" render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="825,195" size="385,250" font="epg_info; 19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="0" halign="left" valign="top">
