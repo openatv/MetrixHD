@@ -1019,6 +1019,11 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="_oe-buttons_template1" />
 		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_timers.png" transparent="1" alphatest="blend" />
 	</screen>
+	<screen name="SchedulerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="TimerOverviewBase" />
+		<panel name="T_Desc_810" />
+		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_powertimers.png" transparent="1" alphatest="blend" />
+	</screen>
 	<screen name="PowerTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
 		<panel name="T_Desc_810" />
@@ -4084,6 +4089,7 @@ if len(listitems.list) &gt; 2:
 		<setup key="CISettings" image="icons/menu_ci_settings.png" />
 		<setup key="RecordTimer" image="icons/menu_timermenu_timers.png" />
 		<setup key="PowerTimer" image="icons/menu_timermenu_powertimers.png" />
+		<setup key="Scheduler" image="icons/menu_timermenu_powertimers.png" />
 		<setup key="Playback" image="icons/menu_extended_playback_setup.png" />
 		<setup key="BirthdayReminderSettings" image="icons/bday.png" />
 		<setup key="EditBirthdaySetting" image="icons/bday.png" />
