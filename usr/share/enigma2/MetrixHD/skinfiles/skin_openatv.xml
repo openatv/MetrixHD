@@ -976,6 +976,26 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="T_Pix_setup" />
 		<panel name="__e-buttons_template1" />
 	</screen>
+	<screen name="DeviceManager" title="Device Manager" position="0,0" size="1280,720">
+		<panel name="T_Title" />
+		<widget source="devicelist" render="Listbox" position="70,100" size="1140,420">
+			<templates>
+				<template name="Default" fonts="Regular;20,Regular;24" itemHeight="30">
+					<mode name="default">
+						<text index="Device" position="34,0" size="220,30" font="0" />
+						<text index="DeviceIndent" position="52,0" size="220,30" font="0" />
+						<text index="Description" position="400,0" size="350,30" font="0" verticalAlignment="top" horizontalAlignment="left" />
+						<text index="Size" position="940,0" size="200,30" font="0" verticalAlignment="top" horizontalAlignment="right" />
+						<text index="PartitionSeparator" position="6,6" size="30,30" font="1" verticalAlignment="center" />
+						<pixmap index="Image" position="0,0" size="30,30" alpha="blend" scale="centerScaled" />
+					</mode>
+				</template>
+			</templates>
+		</widget>
+		<widget name="description" position="70,522" size="1140,100" font="Regular;20" verticalAlignment="top" horizontalAlignment="left" backgroundColor="layer-b-background"/>
+		<panel name="template1_1layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+	</screen>
 	<screen name="HarddiskSelection" position="0,0" size="1280,720" title="Select HDD" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<panel name="T_Title" />
