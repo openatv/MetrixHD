@@ -946,36 +946,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="_oe-buttons_template1" />
 		<panel name="T_Pix_net" />
 	</screen>
-	<!-- HddMount Screens -->
-	<screen name="HddMount" position="0,0" size="1280,720" title="Mount Manager" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="T_Title" />
-		<widget source="list" render="Listbox" position="70,100" size="700,425" scrollbarMode="showOnDemand" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground">
-			<convert type="TemplatedMultiContent">
-				{"template": [
-				 MultiContentEntryText(pos = (90, 0), size = (600, 30), font=0, text = 0),
-				 MultiContentEntryText(pos = (110, 30), size = (600, 50), font=1, flags = RT_VALIGN_TOP, text = 1),
-				 MultiContentEntryPixmapAlphaBlend(pos = (0, 0), size = (80, 80), png = 2, flags = BT_SCALE),
-				],
-				"fonts": [gFont("Regular",24),gFont("Regular",20)],
-				"itemHeight": 85
-				}
-			</convert>
-		</widget>
-		<widget name="lab1" zPosition="2" position="126,129" size="600,40" font="Regular;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" transparent="1" />
-		<panel name="template1_2layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="T_Pix_setup" />
-		<panel name="__e-buttons_template1" />
-	</screen>
-	<screen name="DevicePanelConf" position="0,0" size="1280,720" title="UserManager" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Mount Manager" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="config" position="70,100" size="700,360" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget name="Linconn" position="71,505" size="700,20" font="Regular;18" halign="center" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<panel name="template1_2layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="T_Pix_setup" />
-		<panel name="__e-buttons_template1" />
-	</screen>
+	<!-- DeviceManager -->
 	<screen name="DeviceManager" title="Device Manager" position="0,0" size="1280,720">
 		<panel name="T_Title" />
 		<widget source="devicelist" render="Listbox" position="70,100" size="1140,420">
@@ -1000,17 +971,6 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="T_Title" />
 		<widget name="hddlist" position="70,130" size="700,270" itemHeight="30" font="screen_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_hdd" />
-	</screen>
-	<screen name="HarddiskSetup" position="0,0" size="1280,720" title="Harddisk" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_2layer" />
-		<panel name="T_Title" />
-		<widget name="model" position="70,150" size="700,30" font="screen_text;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="capacity" position="70,200" size="700,30" font="screen_text;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="bus" position="70,250" size="700,30" font="screen_text;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<ePixmap pixmap="buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" />
-		<widget name="initializetext" position="70,638" size="320,30" zPosition="1" valign="center" font="global_button;20" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="_oe-buttons_template1" />
 		<panel name="T_Pix_hdd" />
 	</screen>
