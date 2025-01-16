@@ -167,7 +167,7 @@
 	<!-- MediaPlayer -->
 	<screen name="MediaPlayer" position="0,0" size="1280,720" title="MediaPlayer" flags="wfNoBorder" transparent="0" backgroundColor="transparent">
 		<panel name="template1_2layer" />
-		<ePixmap position="0,0" zPosition="-20" size="1280,720" pixmap="movie-back.png" />
+		<ePixmap position="0,0" zPosition="-20" size="1280,720" pixmap="icons/movie-back.png" />
 		<eLabel text="Media Player" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="currenttext" position="70,95" size="700,30" font="screen_info;19" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="0" halign="center" />
 		<eLabel position="70,125" size="700,1" backgroundColor="layer-a-accent1" zPosition="1" />
@@ -199,7 +199,7 @@
 		<widget source="session.CurrentService" render="PositionGauge" position="900,121" size="235,9" zPosition="3" transparent="1">
 			<convert type="ServicePosition">Gauge</convert>
 		</widget>
-		<widget name="repeat" pixmaps="repeat_off.png,repeat_on.png" position="70,370" size="70,30" transparent="1" zPosition="2" alphatest="blend" />
+		<widget name="repeat" pixmaps="icons/repeat_off.png,icons/repeat_on.png" position="70,370" size="70,30" transparent="1" zPosition="2" alphatest="blend" />
 		<panel name="_me-buttons_template1" />
 	</screen>
 	<screen name="MediaPlayerSettings" position="0,0" size="1280,720" title="Edit Settings" flags="wfNoBorder" backgroundColor="transparent">
@@ -217,7 +217,7 @@
 	<screen name="PluginHiderSetup" position="0,0" size="1280,720" title="PluginHider Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<!--eLabel text="PluginHider Setup" position="58,36" size="525,50" noWrap="0" font="SetrixHD;35" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" /-->
-		<widget name="tabbar" pixmaps="tab_now.png,tab_next.png,tab_more.png" position="70,142" size="700,515" alphatest="blend" />
+		<widget name="tabbar" pixmaps="icons/tab_now.png,icons/tab_next.png,icons/tab_more.png" position="70,142" size="700,515" alphatest="blend" />
 		<widget name="list" position="70,160" size="700,450" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget valign="center" transparent="1" size="150,22" backgroundColor="layer-a-background" position="115,110" zPosition="2" source="plugins" render="Label" halign="center" font="Regular;18" />
 		<widget valign="center" transparent="1" size="150,22" backgroundColor="layer-a-background" position="350,110" zPosition="2" source="extensions" render="Label" halign="center" font="Regular;18" />
@@ -880,7 +880,7 @@
 				}
 			</convert>
 		</widget>
-		<ePixmap pixmap="mp_buttons.png" position="880,592" size="260,32" alphatest="blend" />
+		<ePixmap pixmap="icons/mp_buttons.png" position="880,592" size="260,32" alphatest="blend" />
 	</screen>
 	<screen name="CutListContextMenu" position="0,0" size="1280,720" title="Menu Cutlisteditor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="CONTEXTMENU_textTitle_template" />
