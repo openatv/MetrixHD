@@ -2268,25 +2268,29 @@
 		<ePixmap pixmap="icons/menu_network_webif.png" position="890,170" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
 		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca/foreca_logo.png" position="890,175" size="100,43" zPosition="3" transparent="1" alphatest="blend" />
 	</screen>
-	<screen name="ForecaPreview" position="0,0" size="1280,720" title="Foreca Weather Forecast" backgroundColor="transparent" flags="wfNoBorder" >
+	<screen name="ForecaPreview" position="0,0" size="1280,720" title="Foreca Weather Forecast" backgroundColor="transparent" flags="wfNoBorder">
 		<panel name="Foreca_common" />
 		<panel name="ForecaPreview_list" />
-		<widget source="Titel2" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<widget source="Titel2" render="Label" position="810,415" size="415,90" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1" />
 		<!--widget source="Titel" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/-->
 		<!--widget source="Titel3" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/-->
-		<widget source="Titel4" render="Label" position="810,100" size="415,40" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<widget source="Titel5" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<widget source="Titel4" render="Label" position="810,100" size="415,40" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1" />
+		<widget source="Titel5" render="Label" position="810,506" size="415,99" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="ioe-buttons_template1" />
+		<!-- add lululla -->
+		<ePixmap position="855,600" size="81,40" zPosition="10" pixmap="buttons/menu.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="ForecaPreviewCache" position="970,245" size="48,48" backgroundColor="layer-b-background" flags="wfNoBorder" >
 		<widget name="spinner" position="0,0" zPosition="4" size="48,48" alphatest="blend" />
 	</screen>
-	<screen name="CityPanel" position="0,0" size="1280,720" title="Select a city" backgroundColor="transparent" flags="wfNoBorder" >
+	<screen name="CityPanel" position="0,0" size="1280,720" title="Select a city" backgroundColor="transparent" flags="wfNoBorder">
 		<panel name="Foreca_common" />
 		<widget name="Mlist" position="70,100" size="700,480" font="screen_text;20" itemHeight="30" column="10" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" scrollbarMode="showOnDemand" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="ioe-buttons_template1" />
+		<!-- add lululla -->
+		<ePixmap position="855,600" size="81,40" zPosition="10" pixmap="buttons/text.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="SatPanel" position="0,0" size="1280,720" title="Satellite photos" backgroundColor="transparent" flags="wfNoBorder" >
 		<panel name="Foreca_common" />
