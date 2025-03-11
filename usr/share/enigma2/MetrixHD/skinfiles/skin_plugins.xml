@@ -2176,7 +2176,7 @@
 	<!-- Foreca -->
 <!-- cf#_#rename -->
 	<screen name="ForecaPreview_list" >
-		<widget name="MainList" position="70,100" size="700,500" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" 
+		<widget name="MainList" position="70,150" size="700,400" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" 
 		font0="screen_text;22"
 		font1="screen_info;22"
 		font2="screen_info;18"
@@ -2199,7 +2199,7 @@
 	</screen>
 <!-- cf#_#rename -->
 	<screen name="ForecaPreview_list#_FHDscreen" >
-		<widget name="MainList" position="105,165" size="1050,750" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" 
+		<widget name="MainList" position="105,230" size="1050,600" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" 
 		font0="screen_text;33"
 		font1="screen_info;33"
 		font2="screen_info;27"
@@ -2266,20 +2266,30 @@
 		<panel name="T_Title" />
 		<panel name="template1_2layer"/>
 		<ePixmap pixmap="icons/menu_network_webif.png" position="890,170" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
-		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca/foreca_logo.png" position="890,175" size="100,43" zPosition="3" transparent="1" alphatest="blend" />
+		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/Foreca/foreca_logo.png" position="970,40" size="100,40" scale="1" zPosition="3" transparent="1" alphatest="blend" />
 	</screen>
+	<screen name="buttons_template_foreca" >
+		<ePixmap position="808,480" size="81,40" zPosition="10" pixmap="buttons/menu.png" transparent="1" alphatest="blend" />
+		<ePixmap position="808,590" size="81,40" zPosition="10" pixmap="buttons/ok.png" transparent="1" alphatest="blend" />
+		<ePixmap position="808,535" size="81,40" zPosition="10" pixmap="buttons/info.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,480" size="81,40" zPosition="10" pixmap="buttons/text.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,535" size="81,40" zPosition="10" pixmap="buttons/key_help.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,590" size="81,40" zPosition="10" pixmap="buttons/key_leftright.png" transparent="1" alphatest="blend" />
+		<widget source="key_info" render="Label" position="900,540" size="200,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="left" backgroundColor="layer-b-background" valign="center" transparent="1" />
+		<widget source="key_menu" render="Label" position="900,485" size="200,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="left" backgroundColor="layer-b-background" valign="center" transparent="1" />
+		<widget source="key_ok" render="Label" position="900,595" size="200,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="left" backgroundColor="layer-b-background" valign="center" transparent="1" />
+	</screen>
+
 	<screen name="ForecaPreview" position="0,0" size="1280,720" title="Foreca Weather Forecast" backgroundColor="transparent" flags="wfNoBorder">
+		<widget source="Titel2" render="Label" position="808,430" size="420,40" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-a-button-foreground" halign="center" valign="center" transparent="1" zPosition="5" />
+		<widget source="Titel" render="Label" position="70,560" size="700,60" font="screen_info;20" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" halign="center" valign="center" transparent="1" />
+		<widget source="Titel3" render="Label" position="808,136" size="420,40" font="screen_info; 30" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1" />
+		<widget source="Titel4" render="Label" position="70,100" size="700,40" font="screen_info; 30" foregroundColor="#fff000" halign="center" backgroundColor="layer-a-background" valign="center" transparent="1" zPosition="3" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="buttons_template_foreca" />
 		<panel name="Foreca_common" />
 		<panel name="ForecaPreview_list" />
-		<widget source="Titel2" render="Label" position="810,415" size="415,40" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1" zPosition="0" />
-		<widget source="Titel" render="Label" position="810,505" size="415,40" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1" />
-		<widget source="Titel3" render="Label" position="810,453" size="415,50" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1" />
-		<widget source="Titel4" render="Label" position="810,100" size="415,40" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1" zPosition="3" />
-		<!-- <widget source="Titel5" render="Label" position="810,506" size="415,99" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1" zPosition="3" /> -->
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="ioe-buttons_template1" />
 		<!-- add lululla -->
-		<ePixmap position="855,600" size="81,40" zPosition="10" pixmap="buttons/menu.png" transparent="1" alphatest="blend" />
 	</screen>
 	<screen name="ForecaPreviewCache" position="970,245" size="48,48" backgroundColor="layer-b-background" flags="wfNoBorder" >
 		<widget name="spinner" position="0,0" zPosition="4" size="48,48" alphatest="blend" />
