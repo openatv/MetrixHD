@@ -258,7 +258,7 @@ class InfoBarMetrixWeather(Screen):
 				config.plugins.MetrixWeather.weathercity.save()
 		speedsign = "mph" if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit" else "km/h"
 		tempsign = "°F" if config.plugins.MetrixWeather.tempUnit.value == "Fahrenheit" else "°C"
-		now = datetime.now(timezone.utc)
+		now = datetime.now()
 		sunrise = datetime.fromisoformat(data["current"]["sunrise"])
 		sunset = datetime.fromisoformat(data["current"]["sunset"])
 		isnight = now < sunrise or now > sunset
