@@ -300,6 +300,11 @@
 				<convert type="ServiceInfo">IsMultichannel</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
+
+			<widget alphatest="blend" pixmaps="icons/ico_hd_off.png,icons/ico_hd_on.png,icons/ico_uhd_on.png,icons/ico_hd_hdr_on.png,icons/ico_hdr_on.png,icons/ico_hdr10_on.png,icons/ico_hlg_on.png" position="1130,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+				<convert type="MetrixHDServiceInfo">VideoInfo2</convert>
+			</widget>
+			<!--
 			<widget alphatest="blend" pixmap="icons/ico_hd_off.png" position="1130,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
 				<convert type="ServiceInfo">IsSD</convert>
 				<convert type="ConditionalShowHide"/>
@@ -328,6 +333,7 @@
 				<convert type="ServiceInfo">IsHLG</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
+			-->
 			<ePixmap alphatest="blend" pixmap="icons/ico_format_off.png" position="1193,669" size="43,23" zPosition="1"/>
 			<widget alphatest="blend" pixmap="icons/ico_format_on.png" position="1193,669" render="Pixmap" size="43,23" source="session.CurrentService" zPosition="2">
 				<convert type="ServiceInfo">IsWidescreen</convert>
@@ -1628,6 +1634,15 @@
 				<convert type="ServiceInfo">IsSD</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
+
+			<widget alphatest="blend" pixmaps="icons/ico_hd_off.png,icons/ico_hd_on.png,icons/ico_uhd_on.png,icons/ico_hd_hdr_on.png,icons/ico_hdr_on.png,icons/ico_hdr10_on.png,icons/ico_hlg_on.png" position="1077,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+				<convert type="MetrixHDServiceInfo">VideoInfo2</convert>
+			</widget>
+			<!--
+			<widget alphatest="blend" pixmap="icons/ico_hd_off.png" position="1077,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+				<convert type="ServiceInfo">IsSD</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
 			<widget alphatest="blend" pixmap="icons/ico_hd_on.png" position="1077,669" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
 				<convert type="ServiceInfo">IsHD</convert>
 				<convert type="ConditionalShowHide"/>
@@ -1652,6 +1667,7 @@
 				<convert type="ServiceInfo">IsHLG</convert>
 				<convert type="ConditionalShowHide"/>
 			</widget>
+			-->
 			<ePixmap alphatest="blend" pixmap="icons/ico_format_off.png" position="1140,669" size="43,23" zPosition="1"/>
 			<widget alphatest="blend" pixmap="icons/ico_format_on.png" position="1140,669" render="Pixmap" size="43,23" source="session.CurrentService" zPosition="2">
 				<convert type="ServiceInfo">IsWidescreen</convert>
