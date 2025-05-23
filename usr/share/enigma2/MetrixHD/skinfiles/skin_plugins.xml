@@ -3264,5 +3264,64 @@
 		<panel name="template1_1layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 	</screen>
+
+<!-- E2iPlayer  -->
+	<screen name="ConfigBaseWidget"  position="0,0" size="1280,720"  title="IPTV Player - settings" flags="wfNoBorder"  backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<panel name="T_Title" />
+		<widget name="config" position="70,100" size="700,484" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="3" itemHeight="30" font="screen_text;20" scrollbarMode="showNever" transparent="1" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="T_Pix_setup" />
+		<panel name="_oe-buttons_template1" />
+		<widget name="footnote" position="70,610" size="700,25" font="screen_text;16" halign="right" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<panel name="T_HelpWindow" />
+	</screen>
+	
+	<screen name="E2iPlayerWidget" position="0,0" size="1280,720" title="E2iPlayer" backgroundColor="transparent" flags="wfNoBorder">
+		<ePixmap position="855,590" size="81,40" zPosition="10" pixmap="buttons/info.png" transparent="1" alphatest="blend" />
+		<ePixmap position="950,590" size="81,40" zPosition="10" pixmap="buttons/ok.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1045,590" size="81,40" zPosition="10" pixmap="buttons/key_leftright.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,590" size="81,40" zPosition="10" pixmap="buttons/key_updown.png" transparent="1" alphatest="blend" />
+		<widget name="headertext" position="790,70" zPosition="10" size="450,26" halign="center" valign="center" font="screen_text; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="statustext" position="80,330" zPosition="1" size="680,90" halign="center" valign="center" font="screen_text;30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="key_green_ext" position="835,112" size="220,26" zPosition="2" valign="center" font="global_button;20" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" noWrap="1" />
+		<widget name="list" position="70,100" zPosition="2" size="700,330" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1" />
+		<widget name="console" position="70,440" zPosition="1" size="700,180" itemHeight="30" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" halign="left" valign="center" />
+		<widget name="cover" position="870,160" size="273,400" zPosition="3" alphatest="blend" />
+		<widget name="playerlogo" borderColor="#2b6600" borderWidth="2" zPosition="4" position="1080,100" size="120,40" alphatest="blend" transparent="1" backgroundColor="layer-a-background" />
+		<widget name="spinner" zPosition="2" position="400,300" size="24,24" transparent="1" alphatest="blend" />
+		<widget name="spinner_1" zPosition="1" position="400,300" size="24,24" transparent="1" alphatest="blend" />
+		<widget name="spinner_2" zPosition="1" position="430,300" size="24,24" transparent="1" alphatest="blend" />
+		<widget name="spinner_3" zPosition="1" position="460,300" size="24,24" transparent="1" alphatest="blend" />
+		<widget name="spinner_4" zPosition="1" position="490,300" size="24,24" transparent="1" alphatest="blend" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="template1_2layer" />
+		<panel name="T_Title" />
+	</screen>
+	
+	<screen name="IPTVDMWidget" position="0,0" title="E2iPlayer Download Manager" size="1280,720" backgroundColor="transparent" flags="wfNoBorder">
+		<widget source="downloadlist" render="Listbox" position="70,100" zPosition="2" size="1160,532"  scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1">
+            <convert type="TemplatedMultiContent"> 
+            {"template": [
+                    MultiContentEntryPixmapAlphaBlend(pos = (10, 18), size = (42, 42), flags = BT_SCALE, png = 0),  # Flag.
+                    MultiContentEntryText(pos = (80, 0), size = (1060, 30), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 1),  # Title
+                    MultiContentEntryText(pos = (80, 30), size = (1060, 24), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2),  # adress
+                    MultiContentEntryText(pos = (80, 54), size = (300, 20), font = 1, color=0xa4c400,color_sel=0xffaf17, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),  # size
+                    MultiContentEntryText(pos = (800, 54), size = (300, 20), font = 1, color=0x7e93ae,color_sel=0x19f4eb, flags = RT_HALIGN_RIGHT | RT_VALIGN_CENTER, text = 4),  # status
+                                        ],
+                                    "fonts": [gFont("screen_text",20), gFont("screen_text",16)],
+                                    "itemHeight": 76
+                                    }
+                </convert>
+             </widget>
+		<panel name="template1_1layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="T_Title" />
+		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="on" />
+		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="on" />
+		<widget name="titel" transparent="1" zPosition="2" halign="center" position="530,56" size="480,35" font="screen_text;20" foregroundColor="foreground" backgroundColor="background" />
+	</screen>
+	<!-- E2iPlayer  -->
+
 <!-- PLUGINS */-->
 </skin>
