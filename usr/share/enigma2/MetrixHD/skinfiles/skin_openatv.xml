@@ -1196,22 +1196,39 @@ self['config'].l.setSeperation(int(300*f))
 	<screen name="NumberZap" position="center,center" size="260,80" title="QuickZap" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel name="a" position="5,5" size="150,70" backgroundColor="layer-a-background" zPosition="-10" />
 		<eLabel name="b" position="155,10" size="100,60" backgroundColor="layer-b-background" zPosition="-10" />
-		<widget name="channel" position="5,20" size="150,40" font="screen_info;30" halign="center" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" />
-		<widget name="number" position="155,26" size="100,40" halign="center" valign="bottom" font="screen_info;40" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" />
+		<widget name="channel" position="5,20" size="150,40" font="screen_info;30" halign="center" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" conditional="channel" />
+		<widget name="serviceLabel" position="5,20" size="150,40" font="screen_info;30" halign="center" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" conditional="serviceLabel" />
+		<widget name="number" position="155,26" size="100,40" halign="center" valign="bottom" font="screen_info;40" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" conditional="number" />
+		<widget name="serviceNumber" position="155,26" size="100,40" halign="center" valign="bottom" font="screen_info;40" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" conditional="serviceNumber" />
 	</screen>
-	<screen name="NumberZapWithName" position="200,21" size="1050,830" title="QuickZap" flags="wfNoBorder" backgroundColor="transparent">
-		<widget name="servicenumber" position="323,283" size="387,172" font="global_large_screen;100" noWrap="0" halign="right" backgroundColor="layer-a-background" transparent="1" valign="center" foregroundColor="layer-a-accent2" zPosition="-1" />
-		<widget name="servicename" position="186,267" size="500,80" font="screen_info;50" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="servicebouquet" position="185,358" size="396,53" font="screen_info;28" halign="left" backgroundColor="layer-a-background" transparent="1" />
+	<screen name="NumberZapName" position="200,21" size="1050,830" title="QuickZap" flags="wfNoBorder" backgroundColor="transparent">
+		<widget name="serviceLabel" position="0,0" size="0,0" font="screen_info;30" halign="center" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" conditional="serviceLabel" />
+		<widget name="servicenumber" position="323,283" size="387,172" font="global_large_screen;100" noWrap="0" halign="right" backgroundColor="layer-a-background" transparent="1" valign="center" foregroundColor="layer-a-accent2" zPosition="-1" conditional="servicenumber" />
+		<widget name="serviceNumber" position="323,283" size="387,172" font="global_large_screen;100" noWrap="0" halign="right" backgroundColor="layer-a-background" transparent="1" valign="center" foregroundColor="layer-a-accent2" zPosition="-1" conditional="serviceNumber" />
+		<widget name="servicename" position="186,267" size="500,80" font="screen_info;50" halign="left" backgroundColor="layer-a-background" transparent="1" conditional="servicename"/>
+		<widget name="serviceName" position="186,267" size="500,80" font="screen_info;50" halign="left" backgroundColor="layer-a-background" transparent="1" conditional="serviceName"/>
+		<!--<widget name="servicebouquet" position="185,358" size="396,53" font="screen_info;28" halign="left" backgroundColor="layer-a-background" transparent="1" />-->
 		<eLabel position="161,244" size="550,181" backgroundColor="layer-a-background" zPosition="-5" />
 	</screen>
 	<screen name="NumberZapPicon" position="0,630" size="1280,90" title="QuickZap" flags="wfNoBorder" backgroundColor="transparent">
+		<widget name="serviceLabel" position="0,0" size="0,0" font="screen_info;30" halign="center" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" conditional="serviceLabel" />
 		<eLabel name="a" position="0,0" size="1280,90" backgroundColor="layer-a-background" zPosition="-10" />
-		<widget name="number" position="200,0" size="200,90" halign="center" valign="center" font="screen_info;60" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" />
+		<widget name="number" position="200,0" size="200,90" halign="center" valign="center" font="screen_info;60" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" conditional="number" />
+		<widget name="serviceNumber" position="200,0" size="200,90" halign="center" valign="center" font="screen_info;60" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" conditional="serviceNumber" />
 		<widget alphatest="blend" position="34,5" render="MetrixHDXPicon" size="132,79" source="Service" transparent="1" zPosition="1">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
-		<widget name="servicename" position="400,0" size="880,90" halign="center" valign="center" font="screen_info;60" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+		<widget name="servicename" position="400,0" size="880,90" halign="center" valign="center" font="screen_info;60" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" conditional="servicename"/>
+		<widget name="serviceName" position="400,0" size="880,90" halign="center" valign="center" font="screen_info;60" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" conditional="serviceName"/>
+	</screen>
+	<screen name="NumberZapNamePicon" position="0,630" size="1280,90" title="QuickZap" flags="wfNoBorder" backgroundColor="transparent">
+		<widget name="serviceLabel" position="0,0" size="0,0" font="screen_info;30" halign="center" valign="bottom" backgroundColor="layer-a-background" foregroundColor="layer-a-accent1" conditional="serviceLabel" />
+		<eLabel name="a" position="0,0" size="1280,90" backgroundColor="layer-a-background" zPosition="-10" />
+		<widget name="serviceNumber" position="200,0" size="200,90" halign="center" valign="center" font="screen_info;60" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" conditional="serviceNumber" />
+		<widget alphatest="blend" position="34,5" render="MetrixHDXPicon" size="132,79" source="Service" transparent="1" zPosition="1">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+		<widget name="serviceName" position="400,0" size="880,90" halign="center" valign="center" font="screen_info;60" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" conditional="serviceName"/>
 	</screen>
 	<screen name="NumericalTextInputHelpDialog" position="774,10" size="486,102" backgroundColor="transparent" flags="wfNoBorder" zPosition="8">
 		<eLabel name="b" position="0,0" size="486,102" backgroundColor="layer-b-background" zPosition="-10" /> 
