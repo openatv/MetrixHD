@@ -3278,48 +3278,77 @@
 	</screen>
 	
 	<screen name="E2iPlayerWidget" position="0,0" size="1280,720" title="E2iPlayer" backgroundColor="transparent" flags="wfNoBorder">
-		<ePixmap position="855,590" size="81,40" zPosition="10" pixmap="buttons/info.png" transparent="1" alphatest="blend" />
-		<ePixmap position="950,590" size="81,40" zPosition="10" pixmap="buttons/ok.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1045,590" size="81,40" zPosition="10" pixmap="buttons/key_leftright.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1140,590" size="81,40" zPosition="10" pixmap="buttons/key_updown.png" transparent="1" alphatest="blend" />
-		<widget name="headertext" position="790,70" zPosition="10" size="450,26" halign="center" valign="center" font="screen_text; 20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="statustext" position="80,330" zPosition="1" size="680,90" halign="center" valign="center" font="screen_text;30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="key_green_ext" position="835,112" size="220,26" zPosition="2" valign="center" font="global_button;20" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" noWrap="1" />
-		<widget name="list" position="70,100" zPosition="2" size="700,330" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1" />
-		<widget name="console" position="70,440" zPosition="1" size="700,180" itemHeight="30" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" halign="left" valign="center" />
-		<widget name="cover" position="870,160" size="273,400" zPosition="3" alphatest="blend" />
-		<widget name="playerlogo" borderColor="#2b6600" borderWidth="2" zPosition="4" position="1080,100" size="120,40" alphatest="blend" transparent="1" backgroundColor="layer-a-background" />
-		<widget name="spinner" zPosition="2" position="400,300" size="24,24" transparent="1" alphatest="blend" />
-		<widget name="spinner_1" zPosition="1" position="400,300" size="24,24" transparent="1" alphatest="blend" />
-		<widget name="spinner_2" zPosition="1" position="430,300" size="24,24" transparent="1" alphatest="blend" />
-		<widget name="spinner_3" zPosition="1" position="460,300" size="24,24" transparent="1" alphatest="blend" />
-		<widget name="spinner_4" zPosition="1" position="490,300" size="24,24" transparent="1" alphatest="blend" />
+		<ePixmap position="855,632" size="81,40" zPosition="10" pixmap="buttons/info.png" transparent="1" alphatest="blend" />
+		<ePixmap position="950,632" size="81,40" zPosition="10" pixmap="buttons/ok.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1045,632" size="81,40" zPosition="10" pixmap="buttons/key_leftright.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1140,632" size="81,40" zPosition="10" pixmap="buttons/key_updown.png" transparent="1" alphatest="blend" />
+		<widget name="headertext" position="440,36" zPosition="10" size="540,50" halign="left" valign="center" font="screen_text; 20" backgroundColor="layer-a-background" foregroundColor="#66ccff" transparent="1" />
+		<widget name="statustext" position="476,324" zPosition="1" size="680,90" halign="center" valign="center" font="screen_text;30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="list" position="440,100" zPosition="2" size="780,330" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1" />
+		<widget name="console" position="60,436" zPosition="1" size="1160,192" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" halign="left" valign="center" />
+		<widget name="cover" position="200,100" size="208,330" zPosition="3" alphatest="blend" />
+		<widget name="playerlogo" borderColor="scrollbarborder" borderWidth="2" zPosition="4" position="70,140" size="120,40" alphatest="blend" transparent="1" backgroundColor="layer-a-background" />
+		<widget name="spinner" zPosition="2" position="740,300" size="24,24" transparent="1" alphatest="blend" />
+		<widget name="spinner_1" zPosition="1" position="740,300" size="24,24" transparent="1" alphatest="blend" />
+		<widget name="spinner_2" zPosition="1" position="770,300" size="24,24" transparent="1" alphatest="blend" />
+		<widget name="spinner_3" zPosition="1" position="800,300" size="24,24" transparent="1" alphatest="blend" />
+		<widget name="spinner_4" zPosition="1" position="830,300" size="24,24" transparent="1" alphatest="blend" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="template1_2layer" />
+		<panel name="template1_1layer" />
 		<panel name="T_Title" />
 	</screen>
-	
+
 	<screen name="IPTVDMWidget" position="0,0" title="E2iPlayer Download Manager" size="1280,720" backgroundColor="transparent" flags="wfNoBorder">
-		<widget source="downloadlist" render="Listbox" position="70,100" zPosition="2" size="1160,532"  scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1">
-            <convert type="TemplatedMultiContent"> 
-            {"template": [
-                    MultiContentEntryPixmapAlphaBlend(pos = (10, 18), size = (42, 42), flags = BT_SCALE, png = 0),  # Flag.
-                    MultiContentEntryText(pos = (80, 0), size = (1060, 30), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 1),  # Title
-                    MultiContentEntryText(pos = (80, 30), size = (1060, 24), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2),  # adress
-                    MultiContentEntryText(pos = (80, 54), size = (300, 20), font = 1, color=0xa4c400,color_sel=0xffaf17, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),  # size
-                    MultiContentEntryText(pos = (800, 54), size = (300, 20), font = 1, color=0x7e93ae,color_sel=0x19f4eb, flags = RT_HALIGN_RIGHT | RT_VALIGN_CENTER, text = 4),  # status
-                                        ],
-                                    "fonts": [gFont("screen_text",20), gFont("screen_text",16)],
-                                    "itemHeight": 76
-                                    }
-                </convert>
-             </widget>
+		<widget source="downloadlist" render="Listbox" position="70,100" zPosition="2" size="1160,522" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1">
+			<convert type="TemplatedMultiContent"> 
+				{"template": [
+						MultiContentEntryPixmapAlphaBlend(pos = (10, 8), size = (42, 42), flags = BT_SCALE, png = 0),  # Flag.
+						MultiContentEntryText(pos = (80, 0), size = (1060, 34), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 1),  # Title
+						# MultiContentEntryText(pos = (440, 32), size = (500, 24), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2),  # adress
+						MultiContentEntryText(pos = (80, 36), size = (340, 20), font = 1, color=0xa4c400,color_sel=0xffaf17, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),  # size
+						MultiContentEntryText(pos = (800, 36), size = (300, 20), font = 1, color=0x7e93ae,color_sel=0x19f4eb, flags = RT_HALIGN_RIGHT | RT_VALIGN_CENTER, text = 4),  # status
+						],
+						"fonts": [gFont("screen_text",22), gFont("screen_text",18)],
+						"itemHeight": 58
+				}
+			</convert>
+		</widget>
 		<panel name="template1_1layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="T_Title" />
 		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/ok.png" transparent="1" alphatest="on" />
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="on" />
 		<widget name="titel" transparent="1" zPosition="2" halign="center" position="530,56" size="480,35" font="screen_text;20" foregroundColor="foreground" backgroundColor="background" />
+	</screen>
+	<screen name="IPTVArticleRichVisualizer" position="center,center" size="1200,650" title="Info..." flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel name="layer1" position="0,0" zPosition="-10" size="1200,650" backgroundColor="layer-a-background" />
+		<widget name="title" position="330,12" foregroundColor="#66ccff" size="850,50" noWrap="1" halign="left" valign="center" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<ePixmap position="125,1017" size="81,40" zPosition="10" pixmap="buttons/key_leftright.png" transparent="1" alphatest="on" />
+		<widget name="cover" position="20,94" size="296,470" zPosition="3" alphatest="blend" />
+		<widget name="text" position="330,260" size="860,380" zPosition="1" halign="left" font="screen_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarMode="showOnDemand" transparent="1" />
+		<widget name="spinner" zPosition="1" position="680,330" size="24,24" transparent="1" alphatest="blend" />
+		<widget name="spinner_1" zPosition="1" position="680,330" size="24,24" transparent="1" alphatest="blend" />
+		<widget name="spinner_2" zPosition="1" position="710,330" size="24,24" transparent="1" alphatest="blend" />
+		<widget name="spinner_3" zPosition="1" position="740,330" size="24,24" transparent="1" alphatest="blend" />
+		<widget name="spinner_4" zPosition="1" position="770,330" size="24,24" transparent="1" alphatest="blend" />
+		<widget name="dsc_label_1" noWrap="1" position="330,94" zPosition="10" size="140,30" halign="right" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="#66ccff" transparent="1" />
+		<widget name="dsc_text_1" noWrap="1" position="480,94" zPosition="10" size="700,30" halign="left" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-b-accent1" transparent="1" />
+		<widget name="dsc_label_2" noWrap="1" position="330,124" zPosition="10" size="140,30" halign="right" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="#66ccff" transparent="1" />
+		<widget name="dsc_text_2" noWrap="1" position="480,124" zPosition="10" size="700,30" halign="left" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-b-accent1" transparent="1" />
+		<widget name="dsc_label_3" noWrap="1" position="330,154" zPosition="10" size="140,30" halign="right" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="#66ccff" transparent="1" />
+		<widget name="dsc_text_3" noWrap="1" position="480,154" zPosition="10" size="700,30" halign="left" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-b-accent1" transparent="1" />
+		<widget name="dsc_label_4" noWrap="1" position="330,184" zPosition="10" size="140,30" halign="right" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="#66ccff" transparent="1" />
+		<widget name="dsc_text_4" noWrap="1" position="480,184" zPosition="10" size="700,30" halign="left" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-b-accent1" transparent="1" />
+		<widget name="dsc_label_5" noWrap="1" position="330,214" zPosition="10" size="140,30" halign="right" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="#66ccff" transparent="1" />
+		<widget name="dsc_text_5" noWrap="1" position="480,214" zPosition="10" size="700,30" halign="left" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-b-accent1" transparent="1" />
+		<widget name="dsc_label_6" noWrap="1" position="330,154" zPosition="10" size="140,30" halign="right" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="#66ccff" transparent="1" />
+		<widget name="dsc_text_6" noWrap="1" position="480,154" zPosition="10" size="700,30" halign="left" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-b-accent1" transparent="1" />
+		<widget name="dsc_label_7" noWrap="1" position="330,184" zPosition="10" size="140,30" halign="right" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="#66ccff" transparent="1" />
+		<widget name="dsc_text_7" noWrap="1" position="480,184" zPosition="10" size="700,30" halign="left" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-b-accent1" transparent="1" />
+		<widget name="dsc_label_8" noWrap="1" position="330,214" zPosition="10" size="140,30" halign="right" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="#66ccff" transparent="1" />
+		<widget name="dsc_text_8" noWrap="1" position="480,214" zPosition="10" size="700,30" halign="left" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-b-accent1" transparent="1" />
+		<widget name="page_marker" zPosition="3" position="430,68" size="20,20" transparent="1" alphatest="blend" halign="left" />
+		<ePixmap position="450,68" size="20,20" zPosition="10" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/IPTVPlayer/icons/radio_button_off.png" transparent="1" alphatest="blend" />
 	</screen>
 	<!-- E2iPlayer  -->
 
