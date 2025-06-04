@@ -3299,7 +3299,7 @@
 	</screen>
 
 	<screen name="IPTVDMWidget" position="0,0" title="E2iPlayer Download Manager" size="1280,720" backgroundColor="transparent" flags="wfNoBorder">
-        <widget name="list" position="70,100" zPosition="2" size="1160,522" scrollbarMode="showOnDemand" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1" conditional="list" />
+		<widget name="list" position="70,100" zPosition="2" size="1160,522" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1" conditional="list" />
 		<widget source="downloadlist" render="Listbox" position="70,100" zPosition="2" size="1160,522" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1" conditional="downloadlist">
 			<convert type="TemplatedMultiContent"> 
 				{"template": [
@@ -3321,6 +3321,12 @@
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="MetrixHD/buttons/key_exit.png" transparent="1" alphatest="on" />
 		<widget name="titel" transparent="1" zPosition="2" halign="center" position="530,56" size="480,35" font="screen_text;20" foregroundColor="foreground" backgroundColor="background" />
 	</screen>
+
+    <screen name="IPTVDMNotificationWidget" position="600,20" zPosition="10" size="650,40" title="IPTVPlayer downloader" backgroundColor="transparent" flags="wfNoBorder">
+        <eLabel name="layer1" position="0,0" zPosition="-10" size="650,40" backgroundColor="layer-a-background" />
+        <widget name="message_label" font="screen_text;24" position="0,0" zPosition="2" valign="center" halign="center" size="650,40" backgroundColor="layer-a-background" foregroundColor="green" transparent="1" />
+    </screen>
+
 	<screen name="IPTVArticleRichVisualizer" position="center,center" size="1200,650" title="Info..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel name="layer1" position="0,0" zPosition="-10" size="1200,650" backgroundColor="layer-a-background" />
 		<widget name="title" position="330,12" foregroundColor="#66ccff" size="850,50" noWrap="1" halign="left" valign="center" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
