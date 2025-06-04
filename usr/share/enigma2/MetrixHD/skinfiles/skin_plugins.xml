@@ -3299,7 +3299,8 @@
 	</screen>
 
 	<screen name="IPTVDMWidget" position="0,0" title="E2iPlayer Download Manager" size="1280,720" backgroundColor="transparent" flags="wfNoBorder">
-		<widget source="downloadlist" render="Listbox" position="70,100" zPosition="2" size="1160,522" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1">
+        <widget name="list" position="70,100" zPosition="2" size="1160,522" scrollbarMode="showOnDemand" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1" conditional="list" />
+		<widget source="downloadlist" render="Listbox" position="70,100" zPosition="2" size="1160,522" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1" conditional="downloadlist">
 			<convert type="TemplatedMultiContent"> 
 				{"template": [
 						MultiContentEntryPixmapAlphaBlend(pos = (10, 8), size = (42, 42), flags = BT_SCALE, png = 0),  # Flag.
