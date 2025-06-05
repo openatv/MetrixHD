@@ -1941,34 +1941,30 @@
 		<screen name="MENU_template-1">
 			<eLabel position="645,51" zPosition="-11" size="562,558" backgroundColor="menubackground" transparent="0" />
 			<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="menusymbolbackground" transparent="0" />
-			<widget source="menu" render="Listbox" position="636,60" size="580,540" backgroundColor="menubackground" foregroundColor="menufont" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="menufontselected" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
-				<convert type="TemplatedMultiContent">
-					{"templates":
-						{"default": (54,[
-							MultiContentEntryText(pos = (20, 2), size = (540, 50), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0)
-							]),
-						"text": (54,[
-							MultiContentEntryText(pos = (20, 2), size = (540, 50), flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3)
-							]),
-						"number": (54,[
-							MultiContentEntryText(pos = (20, 2), size = (30, 50), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2),
-							MultiContentEntryText(pos = (50, 2), size = (510, 50), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),
-							]),
-						"image": (54,[
-							MultiContentEntryPixmapAlphaBlend(pos = (20, 4), size = (50, 50), png = 1, flags = BT_SCALE | BT_KEEP_ASPECT_RATIO),
-							MultiContentEntryText(pos = (75, 2), size = (485, 50), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),
-							]),
-						"both": (54,[
-							MultiContentEntryPixmapAlphaBlend(pos = (20, 2), size = (50, 50), png = 1, flags = BT_SCALE | BT_KEEP_ASPECT_RATIO),
-							MultiContentEntryText(pos = (75, 2), size = (30, 50), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2),
-							MultiContentEntryText(pos = (100, 2), size = (465, 50), font = 2, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),
-							])
-						},
-					"fonts": [gFont("global_menu", 29),gFont("global_menu", 28),gFont("global_menu", 27)],
-					"itemHeight": 54,
-					"scrollbarMode": "showNever"
-					}
-				</convert>
+			<widget source="menu" render="Listbox" position="636,60" size="580,540" foregroundColor="menufont" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="menufontselected" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
+				<templates>
+					<template name="Default" fonts="global_menu;29,global_menu;28,global_menu;27" itemWidth="580" itemHeight="54">
+						<mode name="default" itemHeight="50">
+							<text index="0" position="20,2" size="540,50" font="0" verticalAlignment="center" horizontalAlignment="left" />
+						</mode>
+						<mode name="text">
+							<text index="3" position="20,2" size="540,50" font="0" verticalAlignment="center" horizontalAlignment="left"/>
+						</mode>
+						<mode name="number">
+							<text index="2" position="20,2" size="30,50" font="1" verticalAlignment="center" horizontalAlignment="left"/>
+							<text index="3" position="50,2" size="510,50" font="1" verticalAlignment="center" horizontalAlignment="left"/>
+						</mode>
+						<mode name="image">
+							<pixmap index="1" position="20,4" size="50,50" alpha="blend" scale="centerScaled"/>
+							<text index="3" position="75,2" size="485,50" font="1" verticalAlignment="center" horizontalAlignment="left"/>
+						</mode>
+						<mode name="both">
+							<pixmap index="1" position="20,4" size="50,50" alpha="blend" scale="centerScaled"/>
+							<text index="2" position="75,2" size="30,50" font="2" verticalAlignment="center" horizontalAlignment="left"/>
+							<text index="3" position="100,2" size="465,50" font="2" verticalAlignment="center" horizontalAlignment="left"/>
+						</mode>
+					</template>
+				</templates>
 			</widget>
 
 			<widget source="menu" render="FixedLabel" text="&#x25ba;" position="1180,596" size="20,20" font="SetrixHD;16" foregroundColor="menufont" backgroundColor="menubackground" halign="right" valign="bottom" transparent="1">
