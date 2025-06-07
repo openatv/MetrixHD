@@ -105,7 +105,7 @@ class MetrixHDChannelCryptoInfo(Poll, Converter, object):
 				caemm = self.getCrypt('09', searchcaids)
 				return caemm
 			if self.type == self.CRYPTOGUARD:
-				caemm = self.getCrypt('09', searchcaids)  # TODO replace 09 with the correct value
+				caemm = self.getCrypt('4A', searchcaids)
 				return caemm
 			if self.type == self.IRDECM:
 				if currentcaid == '06':
@@ -132,7 +132,7 @@ class MetrixHDChannelCryptoInfo(Poll, Converter, object):
 				if currentcaid == '09':
 					return True
 			elif self.type == self.CRYPTOGUARDECM:
-				if currentcaid == '09':  # TODO replace 09 with the correct value
+				if currentcaid == '4A':
 					return True
 		else:
 			self.poll_enabled = False
