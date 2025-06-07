@@ -522,6 +522,15 @@
 				<convert type="MetrixHDChannelCryptoInfo">ConaxEcm</convert>
 				<convert type="ConditionalShowHide" />
 			</widget>
+			<eLabel position="845,4" size="30,21" text="CG" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
+			<widget position="845,4" size="30,21" text="CG" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">CryptoGuard</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="847,22" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+				<convert type="MetrixHDChannelCryptoInfo">CryptoGuardEcm</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
 			<panel name="COLORGRADIENT_top_IB" />
 			<!-- CRYPT */ -->
 		</screen>
