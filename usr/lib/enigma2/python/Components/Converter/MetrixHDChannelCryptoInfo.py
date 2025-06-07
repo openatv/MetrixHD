@@ -26,6 +26,8 @@ class MetrixHDChannelCryptoInfo(Poll, Converter, object):
 	BETAECM = 13
 	CRWECM = 14
 	NDSECM = 15
+	CRYPTOGUARD = 16
+	CRYPTOGUARDECM = 17
 
 	def __init__(self, type):
 		Converter.__init__(self, type)
@@ -64,6 +66,10 @@ class MetrixHDChannelCryptoInfo(Poll, Converter, object):
 			self.type = self.CRWECM
 		elif type == 'NdsEcm':
 			self.type = self.NDSECM
+		elif type == 'CryptoGuardEcm':
+			self.type = self.CRYPTOGUARDECM
+		elif type == 'CryptoGuard':
+			self.type = self.CRYPTOGUARD
 
 	@cached
 	def getBoolean(self):
@@ -98,6 +104,9 @@ class MetrixHDChannelCryptoInfo(Poll, Converter, object):
 			if self.type == self.NDSCRYPT:
 				caemm = self.getCrypt('09', searchcaids)
 				return caemm
+			if self.type == self.CRYPTOGUARD:
+				caemm = self.getCrypt('09', searchcaids)  # TODO replace 09 with the correct value
+				return caemm
 			if self.type == self.IRDECM:
 				if currentcaid == '06':
 					return True
@@ -121,6 +130,9 @@ class MetrixHDChannelCryptoInfo(Poll, Converter, object):
 					return True
 			elif self.type == self.NDSECM:
 				if currentcaid == '09':
+					return True
+			elif self.type == self.CRYPTOGUARDECM:
+				if currentcaid == '09':  # TODO replace 09 with the correct value
 					return True
 		else:
 			self.poll_enabled = False
