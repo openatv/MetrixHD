@@ -400,6 +400,98 @@
 			<!-- CHANNEL NAME */-->
 		</screen>
 		<!-- INFOBAR EXTENDED INFO -->
+		<screen name="INFOBAREXTENDEDINFOCRYPT-1" position="620,4" size="240,22">
+			<panel position="620,4" size="240,22">
+				<panel name="INFOBAREXTENDEDINFOCRYPT" />
+			</panel>
+		</screen>
+
+		<screen name="INFOBAREXTENDEDINFOCRYPT">
+			<eLabel text="CRYPT:" position="0,0" size="55,21" font="global_small;16" halign="left" valign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" transparent="1" />
+			<eLabel position="48,0" size="15,21" text="B" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
+			<widget position="48,0" size="15,21" text="B" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">BetaCrypt</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="49,18" size="15,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+				<convert type="MetrixHDChannelCryptoInfo">BetaEcm</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="62,0" size="15,21" text="I" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
+			<widget position="62,0" size="15,21" text="I" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">IrdCrypt</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="63,18" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+				<convert type="MetrixHDChannelCryptoInfo">IrdEcm</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="75,0" size="15,21" text="S" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
+			<widget position="75,0" size="15,21" text="S" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">SecaCrypt</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="76,18" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+				<convert type="MetrixHDChannelCryptoInfo">SecaEcm</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="90,0" size="15,21" text="V" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
+			<widget position="90,0" size="15,21" text="V" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">ViaCrypt</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="91,18" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+				<convert type="MetrixHDChannelCryptoInfo">ViaEcm</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="105,0" size="15,21" text="N" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
+			<widget position="105,0" size="15,21" text="N" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">NagraCrypt</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="106,18" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+				<convert type="MetrixHDChannelCryptoInfo">NagraEcm</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="120,0" size="30,21" text="CW" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
+			<widget position="120,0" size="30,21" text="CW" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">CrwCrypt</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="121,18" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+				<convert type="MetrixHDChannelCryptoInfo">CrwEcm</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="148,0" size="30,21" text="ND" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
+			<widget position="148,0" size="30,21" text="ND" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">NdsCrypt</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="149,18" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+				<convert type="MetrixHDChannelCryptoInfo">NdsEcm</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="176,0" size="30,21" text="CO" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
+			<widget position="176,0" size="30,21" text="CO" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">ConaxCrypt</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="177,18" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+				<convert type="MetrixHDChannelCryptoInfo">ConaxEcm</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<eLabel position="204,0" size="30,21" text="CG" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
+			<widget position="204,0" size="30,21" text="CG" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">CryptoGuard</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+			<widget position="205,18" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
+				<convert type="MetrixHDChannelCryptoInfo">CryptoGuardEcm</convert>
+				<convert type="ConditionalShowHide" />
+			</widget>
+		</screen>
+
+
 		<screen name="INFOBAREXTENDEDINFO-1">
 			<!-- /* ECM -->
 			<eLabel name="GRADIENT_BACKGROUND" backgroundColor="infobarbackground" position="0,0" size="1280,30" transparent="0" zPosition="-99"/>
@@ -449,82 +541,17 @@
 			</widget>
 			<!-- BER */-->
 			<!-- /* CRYPT -->
-			<eLabel text="CRYPT:" position="620,4" size="55,21" font="global_small;16" halign="left" valign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" transparent="1" />
-			<eLabel position="678,4" size="15,21" text="B" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="678,4" size="15,21" text="B" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">BetaCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="678,23" size="15,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">BetaEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="695,4" size="15,21" text="I" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="695,4" size="15,21" text="I" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">IrdCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="696,22" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">IrdEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="710,4" size="15,21" text="S" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="710,4" size="15,21" text="S" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">SecaCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="711,22" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">SecaEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="725,4" size="15,21" text="V" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="725,4" size="15,21" text="V" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">ViaCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="726,22" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">ViaEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="740,4" size="15,21" text="N" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="740,4" size="15,21" text="N" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">NagraCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="741,22" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">NagraEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="755,4" size="30,21" text="CW" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="755,4" size="30,21" text="CW" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">CrwCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="757,22" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">CrwEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="785,4" size="30,21" text="ND" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="785,4" size="30,21" text="ND" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">NdsCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="787,22" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">NdsEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="815,4" size="30,21" text="CO" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="815,4" size="30,21" text="CO" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">ConaxCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="817,22" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">ConaxEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
+			<panel name="INFOBAREXTENDEDINFOCRYPT-1" />
 			<panel name="COLORGRADIENT_top_IB" />
 			<!-- CRYPT */ -->
 		</screen>
+
+		<screen name="INFOBAREXTENDEDINFOCRYPT-2_and_3" position="680,85" size="240,22">
+			<panel position="680,85" size="240,22">
+				<panel name="INFOBAREXTENDEDINFOCRYPT" />
+			</panel>
+		</screen>
+
 		<screen name="INFOBAREXTENDEDINFO-2_and_3">
 			<!-- /* ECM -->
 			<widget source="session.CurrentService" position="400,44" size="550,21" render="Label" font="global_small;16" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" transparent="1" noWrap="1">
@@ -573,79 +600,7 @@
 			</widget>
 			<!-- BER */-->
 			<!-- /* CRYPT -->
-			<eLabel text="CRYPT:" position="680,85" size="55,21" font="global_small;16" halign="left" valign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" transparent="1" />
-			<eLabel position="740,85" size="15,21" text="B" font="global_small;16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="740,85" size="15,21" text="B" font="global_small;16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">BetaCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="741,103" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">BetaEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="760,85" size="15,21" text="I" font="global_small;16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="760,85" size="15,21" text="I" font="global_small;16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">IrdCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="761,103" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">IrdEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="780,85" size="15,21" text="S" font="global_small;16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="780,85" size="15,21" text="S" font="global_small;16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">SecaCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="781,103" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">SecaEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="800,85" size="15,21" text="V" font="global_small;16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="800,85" size="15,21" text="V" font="global_small;16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">ViaCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="801,103" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">ViaEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="820,85" size="15,21" text="N" font="global_small;16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="820,85" size="15,21" text="N" font="global_small;16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">NagraCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="821,103" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">NagraEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="840,85" size="30,21" text="CW" font="global_small;16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="840,85" size="30,21" text="CW" font="global_small;16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">CrwCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="842,103" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">CrwEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="875,85" size="30,21" text="ND" font="global_small;16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="875,85" size="30,21" text="ND" font="global_small;16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">NdsCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="877,103" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">NdsEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="910,85" size="30,21" text="CO" font="global_small;16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="910,85" size="30,21" text="CO" font="global_small;16" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">ConaxCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="912,103" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">ConaxEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
+			<panel name="INFOBAREXTENDEDINFOCRYPT-2_and_3" />
 			<!-- CRYPT */ -->
 		</screen>
 		<screen name="INFOBAREXTENDEDINFO-2">
@@ -656,81 +611,16 @@
 			<panel name="INFOBAREXTENDEDINFO-2_and_3" />
 			<eLabel backgroundColor="layer-a-background" name="new ePixmap" position="387,40" size="565,71" transparent="0" zPosition="-99"/>
 		</screen>
+
+		<screen name="INFOBAREXTENDEDINFOCRYPT-4" position="286,697" size="240,22">
+			<panel position="286,697" size="240,22">
+				<panel name="INFOBAREXTENDEDINFOCRYPT" />
+			</panel>
+		</screen>
+
 		<screen name="INFOBAREXTENDEDINFO-4">
 			<!-- /* CRYPT -->
-			<eLabel text="CRYPT:" position="286,697" size="55,21" font="global_small;16" halign="left" valign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" transparent="1" />
-			<eLabel position="338,697" size="15,21" text="B" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="338,697" size="15,21" text="B" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">BetaCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="339,715" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">BetaEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="353,697" size="15,21" text="I" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="353,697" size="15,21" text="I" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">IrdCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="354,715" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">IrdEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="368,697" size="15,21" text="S" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="368,697" size="15,21" text="S" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">SecaCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="369,715" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">SecaEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="383,697" size="15,21" text="V" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="383,697" size="15,21" text="V" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">ViaCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="384,715" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">ViaEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="398,697" size="15,21" text="N" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="398,697" size="15,21" text="N" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">NagraCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="399,715" size="13,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">NagraEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="413,697" size="30,21" text="CW" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="413,697" size="30,21" text="CW" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">CrwCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="415,715" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">CrwEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="443,697" size="30,21" text="ND" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="443,697" size="30,21" text="ND" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">NdsCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="445,715" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">NdsEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<eLabel position="473,697" size="30,21" text="CO" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
-			<widget position="473,697" size="30,21" text="CO" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
-				<convert type="MetrixHDChannelCryptoInfo">ConaxCrypt</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
-			<widget position="475,715" size="26,3" backgroundColor="infobarprogress" source="session.CurrentService" render="FixedLabel" zPosition="4" transparent="0" >
-				<convert type="MetrixHDChannelCryptoInfo">ConaxEcm</convert>
-				<convert type="ConditionalShowHide" />
-			</widget>
+			<panel name="INFOBAREXTENDEDINFOCRYPT-4" />
 			<!-- CRYPT */ -->
 			<widget source="session.CurrentService" position="535,697" size="702,20" render="Label" font="global_small;16" halign="left" valign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" transparent="1" noWrap="1">
 				<convert type="MetrixHDCaidDisplay">Default</convert>
