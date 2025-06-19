@@ -774,6 +774,7 @@ class ActivateSkinSettings:
 				DESIGNSkinSearchAndReplace.append(['<ePixmap position="1140,600" size="81,40" zPosition="10" pixmap="buttons/', '<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/'])
 
 			DESIGNSkinSearchAndReplace.append(['<panel name="INFOBAREXTENDEDINFO-1" />', '<panel name="INFOBAREXTENDEDINFO-' + config.plugins.MyMetrixLiteOther.ExtendedinfoStyle.value + '" />'])
+			DESIGNSkinSearchAndReplace.append(['<panel name="INFOBAREXTENDEDINFOCRYPTPANEL-1" />', '<panel name="INFOBAREXTENDEDINFOCRYPTPANEL-' + config.plugins.MyMetrixLiteOther.ExtendedinfoCaidStyle.value + '" />'])
 
 			# color gradient for ib,sib,mb,ibepg and quickemenu
 			if config.plugins.MyMetrixLiteColors.cologradient.value != '0':

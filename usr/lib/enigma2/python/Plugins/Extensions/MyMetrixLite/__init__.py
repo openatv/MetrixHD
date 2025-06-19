@@ -562,6 +562,7 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.showExtended_ecmtime = ConfigYesNo(default=True)
 
 	config.plugins.MyMetrixLiteOther.ExtendedinfoStyle = ConfigSelection(default="1", choices=[("1", _("Top of the screen")), ("2", _("Between Clock and Weather enclosed")), ("3", _("Between Clock and Weather centered")), ("4", _("Bottom of the screen"))])
+	config.plugins.MyMetrixLiteOther.ExtendedinfoCaidStyle = ConfigSelection(default="2", choices=[("1", _("All CAID")), ("2", _("Only current"))])
 	config.plugins.MyMetrixLiteOther.showSnr = ConfigYesNo(default=True)
 	config.plugins.MyMetrixLiteOther.showRecordstate = ConfigYesNo(default=True)
 	config.plugins.MyMetrixLiteOther.showOrbitalposition = ConfigYesNo(default=True)

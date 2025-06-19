@@ -400,13 +400,15 @@
 			<!-- CHANNEL NAME */-->
 		</screen>
 		<!-- INFOBAR EXTENDED INFO -->
-		<screen name="INFOBAREXTENDEDINFOCRYPT-1" position="620,4" size="240,22">
-			<panel position="620,4" size="240,22">
-				<panel name="INFOBAREXTENDEDINFOCRYPT" />
-			</panel>
+
+		<screen name="INFOBAREXTENDEDINFOCRYPTPANEL-2">
+			<eLabel text="CRYPT:" position="0,0" size="55,21" font="global_small;16" halign="left" valign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" transparent="1" />
+			<widget position="48,0" size="200,21" render="Label" font="global_small;16" halign="left" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" transparent="1" valign="center" zPosition="4">
+				<convert type="MetrixHDChannelCryptoInfo">Full,layer-a-extendedinfo2,layer-a-extendedinfo1</convert>
+			</widget>
 		</screen>
 
-		<screen name="INFOBAREXTENDEDINFOCRYPT">
+		<screen name="INFOBAREXTENDEDINFOCRYPTPANEL-1">
 			<eLabel text="CRYPT:" position="0,0" size="55,21" font="global_small;16" halign="left" valign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" transparent="1" />
 			<eLabel position="48,0" size="15,21" text="B" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo2" transparent="1" valign="center" zPosition="3" />
 			<widget position="48,0" size="15,21" text="B" font="global_small;16" halign="center" backgroundColor="infobarbackground" foregroundColor="layer-a-extendedinfo1" source="session.CurrentService" render="FixedLabel" transparent="1" valign="center" zPosition="4">
@@ -491,6 +493,11 @@
 			</widget>
 		</screen>
 
+		<screen name="INFOBAREXTENDEDINFOCRYPT-1" position="620,4" size="240,22">
+			<panel position="620,4" size="240,22">
+				<panel name="INFOBAREXTENDEDINFOCRYPTPANEL" />
+			</panel>
+		</screen>
 
 		<screen name="INFOBAREXTENDEDINFO-1">
 			<!-- /* ECM -->
@@ -548,7 +555,7 @@
 
 		<screen name="INFOBAREXTENDEDINFOCRYPT-2_and_3" position="680,85" size="240,22">
 			<panel position="680,85" size="240,22">
-				<panel name="INFOBAREXTENDEDINFOCRYPT" />
+				<panel name="INFOBAREXTENDEDINFOCRYPTPANEL" />
 			</panel>
 		</screen>
 
@@ -614,7 +621,7 @@
 
 		<screen name="INFOBAREXTENDEDINFOCRYPT-4" position="286,697" size="240,22">
 			<panel position="286,697" size="240,22">
-				<panel name="INFOBAREXTENDEDINFOCRYPT" />
+				<panel name="INFOBAREXTENDEDINFOCRYPTPANEL" />
 			</panel>
 		</screen>
 

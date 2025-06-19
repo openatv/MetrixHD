@@ -546,6 +546,8 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			list.append(getConfigListEntry(tab * 2 + _("Show PROTOCOL"), config.plugins.MyMetrixLiteOther.showExtended_protocol, itext + "(caid - pid - source - PROTOCOL - hops - ecm time)"))
 			list.append(getConfigListEntry(tab * 2 + _("Show HOPS"), config.plugins.MyMetrixLiteOther.showExtended_hops, itext + "(caid - pid - source - protocol - HOPS - ecm time)"))
 			list.append(getConfigListEntry(tab * 2 + _("Show ECM TIME"), config.plugins.MyMetrixLiteOther.showExtended_ecmtime, itext + "(caid - pid - source - protocol - hops - ECM TIME)"))
+			list.append(getConfigListEntry(tab * 2 + _("Chose Extended-Info CAID Style"), config.plugins.MyMetrixLiteOther.ExtendedinfoCaidStyle, _("helptext")))
+
 		list.append(getConfigListEntry(tab + _("Choose Picon Type"), config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon, _("helptext"), "ENABLED"))
 		if config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon.value == "1":
 			if self.EHDenabled:
