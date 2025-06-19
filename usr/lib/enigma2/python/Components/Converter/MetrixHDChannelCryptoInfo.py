@@ -2,11 +2,26 @@ from enigma import iServiceInformation
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 from Components.Converter.Poll import Poll
+from Tools.Hex2strColor import Hex2strColor
+from skin import parseColor
+
 import os
 import six
 ECM_INFO = '/tmp/ecm.info'
 old_ecm_mtime = None
 data = None
+
+CAIDS = {
+	"06": "I",
+	"17": "B",
+	"01": "S",
+	"05": "V",
+	"18": "N",
+	"0D": "CW",
+	"0B": "CO",
+	"09": "ND",
+	"4A": "CG",
+}
 
 
 class MetrixHDChannelCryptoInfo(Poll, Converter, object):
@@ -28,12 +43,23 @@ class MetrixHDChannelCryptoInfo(Poll, Converter, object):
 	NDSECM = 15
 	CRYPTOGUARD = 16
 	CRYPTOGUARDECM = 17
+	FULL = 100
 
 	def __init__(self, type):
 		Converter.__init__(self, type)
 		Poll.__init__(self)
 		self.poll_interval = 2000
 		self.poll_enabled = True
+
+		tokens = type.split(",")
+		type = tokens[0]
+
+		self.color1 = r"\c00f0f0f0"
+		self.color2 = r"\c00ffffff"
+		if len(tokens) == 3:
+			self.color1 = Hex2strColor(parseColor(tokens[1]).argb())
+			self.color2 = Hex2strColor(parseColor(tokens[2]).argb())
+
 		if type == 'IrdCrypt':
 			self.type = self.IRDCRYPT
 		elif type == 'SecaCrypt':
@@ -70,6 +96,34 @@ class MetrixHDChannelCryptoInfo(Poll, Converter, object):
 			self.type = self.CRYPTOGUARDECM
 		elif type == 'CryptoGuard':
 			self.type = self.CRYPTOGUARD
+		elif type == 'Full':
+			self.type = self.FULL
+
+	@cached
+	def getText(self):
+		if self.type == self.FULL:
+			service = self.source.service
+			info = service and service.info()
+			if not info:
+				return ""
+			if info.getInfo(iServiceInformation.sIsCrypted) == 1:
+				results = []
+				currentcaid = self.getCaid()
+				if not currentcaid:
+					return ""
+				searchcaids = info.getInfoObject(iServiceInformation.sCAIDs)
+				caids = list(set([self.int2hex(caid)[:2] for caid in searchcaids if caid]))
+				for caid in caids:
+					color = self.color2 if currentcaid == caid else self.color1
+					caid = CAIDS.get(caid)
+					if caid:
+						results.append(color + caid)
+				return " ".join(results)
+			else:
+				self.poll_enabled = False
+				return ""
+
+	text = property(getText)
 
 	@cached
 	def getBoolean(self):
@@ -143,12 +197,7 @@ class MetrixHDChannelCryptoInfo(Poll, Converter, object):
 	def getCrypt(self, iscaid, caids):
 		if caids and len(caids) > 0:
 			for caid in caids:
-				caid = self.int2hex(caid)
-				if len(caid) == 3:
-					caid = f'0{caid}'
-				caid = caid[:2]
-				caid = caid.upper()
-				if caid == iscaid:
+				if self.int2hex(caid)[:2] == iscaid:
 					return True
 
 		return False
@@ -189,8 +238,8 @@ class MetrixHDChannelCryptoInfo(Poll, Converter, object):
 			caid = caid.upper()
 		return caid
 
-	def int2hex(self, int):
-		return f'{int:x}'
+	def int2hex(self, value):
+		return f'{value:04X}'
 
 	def changed(self, what):
 		Converter.changed(self, what)
