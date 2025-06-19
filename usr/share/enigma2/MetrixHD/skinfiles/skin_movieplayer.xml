@@ -231,18 +231,15 @@
 			<convert type="ServiceName">Name</convert>
 		</widget>
 		<eLabel position="680,400" size="530,228" zPosition="1" backgroundColor="layer-b-background" />
-		<widget source="Service" render="Label" position="685,400" noWrap="1" size="520,30" font="epg_text;22" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
-			<convert type="MovieInfo">ShortDescription</convert>
-		</widget>
-		<widget source="Service" render="Label" position="685,426" size="520,24" font="epg_text;19" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
+		<widget source="Service" render="Label" position="685,400" size="520,24" font="epg_text;19" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
 			<convert type="MovieInfo">RecordServiceName</convert>
 		</widget>
-		<widget source="Service" render="Label" position="1125,426" size="80,24" font="epg_text;19" halign="right" zPosition="2"  backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="0">
+		<widget source="Service" render="Label" position="1125,400" size="80,24" font="epg_text;19" halign="right" zPosition="2"  backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="0">
 			<convert type="ServiceTime">Duration</convert>
 			<convert type="ClockToText">InMinutes</convert>
 		</widget>
-		<widget source="Service" render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="685,452" size="520,173" font="epg_info;19" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top">
-			<convert type="EventName">ExtendedDescription</convert>
+		<widget source="Service" render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="685,426" size="520,198" font="epg_info;19" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top">
+			<convert type="EventName">FullDescription</convert>
 		</widget>
 		<panel name="template1_1layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
