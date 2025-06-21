@@ -168,14 +168,11 @@
 		<widget name="chosenletter" position="70,130" size="700,500" font="epg_text;100" foregroundColor="layer-b-accent1" halign="center" transparent="1" valign="center" zPosition="+1" />
 		<widget name="waitingtext" position="100,300" size="640,100" zPosition="1" font="epg_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" valign="center" transparent="0"/>
 		<widget name="freeDiskSpace" position="70,95" size="700,30" font="epg_text;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="Service" render="Label" position="825,90" noWrap="1" size="385,30" font="epg_text;22" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
-			<convert type="MovieInfo">ShortDescription</convert>
-		</widget>
-		<widget source="Service" render="Label" position="825,128" size="385,24" font="epg_text;19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
+		<widget source="Service" render="Label" position="825,90" size="385,24" font="epg_text;19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
 			<convert type="MovieInfo">RecordServiceName</convert>
 		</widget>
-		<widget source="Service" render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="825,165" size="385,375" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top">
-			<convert type="EventName">ExtendedDescription</convert>
+		<widget source="Service" render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="825,130" size="385,410" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top">
+			<convert type="MovieInfo">FullDescription</convert>
 		</widget>
 		<widget source="Service" render="Label" position="825,557" size="80,24" font="epg_text;19" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
 			<convert type="ServiceTime">Duration</convert>
@@ -195,14 +192,11 @@
 		<widget name="list" position="424,105" size="792,510" scrollbarMode="showNever" font="epg_text;20" itemHeight="30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="waitingtext" position="424,350" size="792,30" zPosition="1" font="epg_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" valign="center" transparent="0"/>
 		<widget name="freeDiskSpace" position="424,50" size="792,50" font="epg_text;22" valign="bottom" halign="right" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="Service" render="Label" position="60,60" noWrap="0" valign="center" halign="center" size="322,60" font="epg_event;24" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1">
-			<convert type="MovieInfo">ShortDescription</convert>
-		</widget>
-		<widget source="Service" render="Label" position="60,120" size="322,24" font="epg_text;19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
+		<widget source="Service" render="Label" position="60,60" size="322,24" font="epg_text;19" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
 			<convert type="MovieInfo">RecordServiceName</convert>
 		</widget>
-		<widget source="Service" render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="60,155" size="322,375" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top">
-			<convert type="EventName">ExtendedDescription</convert>
+		<widget source="Service" render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="60,95" size="322,435" font="epg_info;19" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top">
+			<convert type="MovieInfo">FullDescription</convert>
 		</widget>
 		<widget source="Service" render="Label" position="60,545" size="100,24" font="epg_text;19" halign="left" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
 			<convert type="ServiceTime">Duration</convert>
