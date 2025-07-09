@@ -234,7 +234,7 @@ class InfoBarMetrixWeather(Screen):
 		# TODO write cache only on close
 		if config.plugins.MetrixWeather.cachedata.value != "0":
 			with open(CACHEFILE, "wb") as fd:
-				dump(data, fd, -1)
+				dump(data, fd, protocol=5)
 
 	def writeData(self, data):
 		self.wetterdata = data
