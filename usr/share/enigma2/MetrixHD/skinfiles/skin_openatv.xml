@@ -1125,21 +1125,23 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="__e-buttons_template1" />
 		<panel name="T_Pix_timer" />
 	</screen>
-	<screen name="AutoTimerFAQ" position="0,0" size="1280,720" title="AutoTimer FAQ" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="XMLHelp_template" position="0,0" size="1280,720" title="Help" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
-		<widget name="detailtext" position="70,100" size="700,510" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="heading" position="70,100" size="700,20" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="detailtext" position="70,130" size="700,480" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_timer" />
+	</screen>
+	<screen name="XMLHelp" position="0,0" size="1280,720" title="Help" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="XMLHelp_template" />
 	</screen>
 	<screen name="AutoTimerHelp" position="0,0" size="1280,720" title="AutoTimer Help" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="T_Title" />
-		<widget name="detailtext" position="70,100" size="700,510" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<panel name="template1_2layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="__e-buttons_template1" />
+		<panel name="XMLHelp_template" />
 		<panel name="T_Pix_timer" />
+	</screen>
+	<screen name="AutoTimerFAQ" position="0,0" size="1280,720" title="AutoTimer FAQ" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="AutoTimerHelp" />
 	</screen>
 	<screen name="AutoTimerPreview" position="0,0" size="1280,720" title="Preview AutoTimer" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
