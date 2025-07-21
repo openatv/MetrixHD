@@ -1431,6 +1431,20 @@ for x in self.additionalWidgets:
 		<eLabel name="new eLabel" position="0,160" size="574,59" zPosition="-1" backgroundColor="infobarbackground" />
 		<eLabel name="new eLabel" position="0,160" size="20,59" zPosition="7" backgroundColor="infobarbackground" />
 	</screen>
+	<screen name="SeekBar" position="353,238" zPosition="2" size="574,230" backgroundColor="transparent" flags="wfNoBorder">
+		<widget name="cursor" position="0,0" size="16,24" pixmap="epg/timeline-now_zz.png" alphatest="blend" transparent="1" zPosition="4" />
+		<widget name="target" position="0,40" size="574,120" backgroundColor="text-background" foregroundColor="background-text" font="global_large;80" halign="center" transparent="1" valign="center" />
+		<widget name="length" position="462,176" size="80,27" font="infobar_text;20" halign="left" valign="bottom" foregroundColor="infobarfont1" backgroundColor="infobarbackground" />
+		<widget source="session.CurrentService" render="Label" position="32,176" size="80,27" font="infobar_text;20" halign="right" valign="bottom" foregroundColor="infobarfont1" backgroundColor="infobarbackground">
+            <convert type="ServicePosition">Position</convert>
+        </widget>
+		<widget source="session.CurrentService" render="PositionGauge" position="152,187" size="270,5" transparent="1" zPosition="5" foregroundColor="infobarprogress">
+			<convert type="ServicePosition">Gauge</convert>
+		</widget>
+		<eLabel name="new eLabel" position="152,189" size="270,1" backgroundColor="infobaraccent1" zPosition="1" />
+		<eLabel name="new eLabel" position="0,160" size="574,59" zPosition="-1" backgroundColor="infobarbackground" />
+		<eLabel name="new eLabel" position="0,160" size="20,59" zPosition="7" backgroundColor="infobarbackground" />
+	</screen>
 	<screen name="TimeshiftState" position="190,238" zPosition="2" size="900,230" backgroundColor="transparent" flags="wfNoBorder">
 		<widget name="state" position="0,40" size="900,120" backgroundColor="text-background" foregroundColor="background-text" font="global_large;80" halign="center" transparent="1" valign="center" />
 		<widget source="session.CurrentService" render="Label" position="5,176" size="80,27" font="infobar_text;20" halign="right" valign="bottom" foregroundColor="infobarfont1" backgroundColor="infobarbackground">
