@@ -2704,7 +2704,7 @@
 	</screen>
 
 	<!-- Partnerbox NEW -->
-
+	<!-- LCD4linux -->
 	<screen name="LCDdisplayConfig" position="0,0" size="1280,720" title="LCD4linux Settings" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;30" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="introduction" render="Label" position="89,605" size="663,54" font="screen_info;20" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -2719,7 +2719,24 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_me-buttons_template1" />
 	</screen>
-
+	<screen name="LCDdisplayFile" position="0,0" size="1280,720" title="Select File/Dir..." flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget name="LCDfile" position="70,100" size="700,480" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget source="File" render="Label" position="40,590" size="755,30" font="screen_text;20" enableWrapAround="0" foregroundColor="layer-a-selection-foreground" halign="center" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/default.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="LCDdisplayMenu" position="0,0" size="1280,720" title="LCD4linux - Config" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget name="menu" position="70,100" size="700,480" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_display_lcd_skin_setup.png" transparent="1" alphatest="blend" />		
+	</screen>
+	<!-- LCD4linux -->
 	<!-- DiseqcTester-->
 		<screen name="DiseqcTesterNimSelection" position="0,0" size="1280,720" title="Reception Settings" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
