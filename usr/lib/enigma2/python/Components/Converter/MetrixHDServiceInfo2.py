@@ -24,8 +24,6 @@ class MetrixHDServiceInfo2(ServiceInfo):
 				# videoAspect = videoData[self.VIDEO_INFO_ASPECT] if videoData[self.VIDEO_INFO_ASPECT] != -1 else eAVControl.getInstance().getAspect(0)
 				videoGamma = videoData[self.VIDEO_INFO_GAMMA]
 
-				videoWidth = 1920
-				videoHeight = 1080
 
 				# SD , HD , UHD, HDHDR, HDR, HDR10, HLG
 				if videoWidth > 2160 and videoWidth <= 3840 and videoGamma == 1:
