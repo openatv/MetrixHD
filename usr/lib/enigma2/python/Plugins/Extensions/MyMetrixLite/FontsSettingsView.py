@@ -138,8 +138,6 @@ class FontsSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab + _("SetrixHD"), ))
 		list.append(getConfigListEntry(tab * 2 + _("Font type"), config.plugins.MyMetrixLiteFonts.SetrixHD_type, _("helptext")))
 		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.SetrixHD_scale, _("helptext")))
-#		list.append(getConfigListEntry(tab + _("Meteo"), ))
-#		list.append(getConfigListEntry(tab * 2 + _("Font scale [%]"), config.plugins.MyMetrixLiteFonts.Meteo_scale, _("helptext")))
 		section = _("-")
 		list.append(getConfigListEntry(section + sep * (char - len(section)), ))
 		section = _("Individual Settings (only for some individual skinned screens)")
@@ -215,7 +213,7 @@ class FontsSettingsView(ConfigListScreen, Screen):
 
 	def getPreset(self):
 		if config.plugins.MyMetrixLiteFonts.SkinFontExamples.value == "preset_0":
-			#system fonts
+			# system fonts
 			config.plugins.MyMetrixLiteFonts.Lcd_type.value = "/usr/share/fonts/lcd.ttf"
 			config.plugins.MyMetrixLiteFonts.Lcd_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.Replacement_type.value = "/usr/share/fonts/ae_AlMateen.ttf"
@@ -226,15 +224,14 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.Fixed_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.Arial_type.value = "/usr/share/fonts/nmsbd.ttf"
 			config.plugins.MyMetrixLiteFonts.Arial_scale.value = 100
-			#skin fonts
+			# skin fonts
 			config.plugins.MyMetrixLiteFonts.Regular_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
-			config.plugins.MyMetrixLiteFonts.Regular_scale.value = 95
+			config.plugins.MyMetrixLiteFonts.Regular_scale.value = 94
 			config.plugins.MyMetrixLiteFonts.RegularLight_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
-			config.plugins.MyMetrixLiteFonts.RegularLight_scale.value = 95
+			config.plugins.MyMetrixLiteFonts.RegularLight_scale.value = 94
 			config.plugins.MyMetrixLiteFonts.SetrixHD_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.SetrixHD_scale.value = 100
-#			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 100
-			#global
+			# global
 			config.plugins.MyMetrixLiteFonts.globaltitle_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.globaltitle_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalbutton_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
@@ -246,24 +243,24 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.globallarge_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalsmall_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
-			config.plugins.MyMetrixLiteFonts.globalsmall_scale.value = 95
+			config.plugins.MyMetrixLiteFonts.globalsmall_scale.value = 94
 			config.plugins.MyMetrixLiteFonts.globalmenu_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.globalmenu_scale.value = 100
-			#screens
+			# screens
 			config.plugins.MyMetrixLiteFonts.screenlabel_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.screenlabel_scale.value = 95
 			config.plugins.MyMetrixLiteFonts.screentext_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.screentext_scale.value = 95
 			config.plugins.MyMetrixLiteFonts.screeninfo_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.screeninfo_scale.value = 100
-			#channellist
+			# channellist
 			config.plugins.MyMetrixLiteFonts.epgevent_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.epgevent_scale.value = 95
 			config.plugins.MyMetrixLiteFonts.epgtext_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.epgtext_scale.value = 95
 			config.plugins.MyMetrixLiteFonts.epginfo_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.epginfo_scale.value = 95
-			#infobar
+			# infobar
 			config.plugins.MyMetrixLiteFonts.infobarevent_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.infobarevent_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.infobartext_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
@@ -279,15 +276,14 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.Fixed_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.Arial_type.value = "/usr/share/fonts/nmsbd.ttf"
 			config.plugins.MyMetrixLiteFonts.Arial_scale.value = 100
-			#skin fonts
+			# skin fonts
 			config.plugins.MyMetrixLiteFonts.Regular_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.Regular_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.RegularLight_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.RegularLight_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.SetrixHD_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.SetrixHD_scale.value = 105
-#			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 105
-			#global
+			# global
 			config.plugins.MyMetrixLiteFonts.globaltitle_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.globaltitle_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.globalbutton_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
@@ -302,21 +298,21 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalsmall_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.globalmenu_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.globalmenu_scale.value = 105
-			#screens
+			# screens
 			config.plugins.MyMetrixLiteFonts.screenlabel_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.screenlabel_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.screentext_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.screentext_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.screeninfo_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.screeninfo_scale.value = 105
-			#channellist
+			# channellist
 			config.plugins.MyMetrixLiteFonts.epgevent_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.epgevent_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.epgtext_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.epgtext_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.epginfo_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.epginfo_scale.value = 100
-			#infobar
+			# infobar
 			config.plugins.MyMetrixLiteFonts.infobarevent_type.value = "/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf"
 			config.plugins.MyMetrixLiteFonts.infobarevent_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.infobartext_type.value = "/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf"
@@ -335,15 +331,14 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.Fixed_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.Arial_type.value = "/usr/share/fonts/nmsbd.ttf"
 			config.plugins.MyMetrixLiteFonts.Arial_scale.value = 100
-			#skin fonts
+			# skin fonts
 			config.plugins.MyMetrixLiteFonts.Regular_type.value = "/usr/share/fonts/nmsbd.ttf"
 			config.plugins.MyMetrixLiteFonts.Regular_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.RegularLight_type.value = "/usr/share/fonts/nmsbd.ttf"
 			config.plugins.MyMetrixLiteFonts.RegularLight_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.SetrixHD_type.value = "/usr/share/fonts/nmsbd.ttf"
 			config.plugins.MyMetrixLiteFonts.SetrixHD_scale.value = 105
-#			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 105
-			#global
+			# global
 			config.plugins.MyMetrixLiteFonts.globaltitle_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf"
 			config.plugins.MyMetrixLiteFonts.globaltitle_scale.value = 110
 			config.plugins.MyMetrixLiteFonts.globalbutton_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf"
@@ -358,21 +353,21 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalsmall_scale.value = 110
 			config.plugins.MyMetrixLiteFonts.globalmenu_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf"
 			config.plugins.MyMetrixLiteFonts.globalmenu_scale.value = 95
-			#screens
+			# screens
 			config.plugins.MyMetrixLiteFonts.screenlabel_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf"
 			config.plugins.MyMetrixLiteFonts.screenlabel_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.screentext_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans.ttf"
 			config.plugins.MyMetrixLiteFonts.screentext_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.screeninfo_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans.ttf"
 			config.plugins.MyMetrixLiteFonts.screeninfo_scale.value = 105
-			#channellist
+			# channellist
 			config.plugins.MyMetrixLiteFonts.epgevent_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf"
 			config.plugins.MyMetrixLiteFonts.epgevent_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.epgtext_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans.ttf"
 			config.plugins.MyMetrixLiteFonts.epgtext_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.epginfo_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans.ttf"
 			config.plugins.MyMetrixLiteFonts.epginfo_scale.value = 120
-			#infobar
+			# infobar
 			config.plugins.MyMetrixLiteFonts.infobarevent_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans-Bold.ttf"
 			config.plugins.MyMetrixLiteFonts.infobarevent_scale.value = 115
 			config.plugins.MyMetrixLiteFonts.infobartext_type.value = "/usr/share/enigma2/MetrixHD/fonts/DroidSans.ttf"
@@ -391,15 +386,14 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.Fixed_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.Arial_type.value = "/usr/share/fonts/nmsbd.ttf"
 			config.plugins.MyMetrixLiteFonts.Arial_scale.value = 100
-			#skin fonts
+			# skin fonts
 			config.plugins.MyMetrixLiteFonts.Regular_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.Regular_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.RegularLight_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.RegularLight_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.SetrixHD_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf"
 			config.plugins.MyMetrixLiteFonts.SetrixHD_scale.value = 105
-#			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 100
-			#global
+			# global
 			config.plugins.MyMetrixLiteFonts.globaltitle_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf"
 			config.plugins.MyMetrixLiteFonts.globaltitle_scale.value = 115
 			config.plugins.MyMetrixLiteFonts.globalbutton_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf"
@@ -411,24 +405,24 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globallarge_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Channel.ttf"
 			config.plugins.MyMetrixLiteFonts.globallarge_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalsmall_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
-			config.plugins.MyMetrixLiteFonts.globalsmall_scale.value = 95
+			config.plugins.MyMetrixLiteFonts.globalsmall_scale.value = 94
 			config.plugins.MyMetrixLiteFonts.globalmenu_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf"
 			config.plugins.MyMetrixLiteFonts.globalmenu_scale.value = 100
-			#screens
+			# screens
 			config.plugins.MyMetrixLiteFonts.screenlabel_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.screenlabel_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.screentext_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.screentext_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.screeninfo_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.screeninfo_scale.value = 105
-			#channellist
+			# channellist
 			config.plugins.MyMetrixLiteFonts.epgevent_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Channel.ttf"
 			config.plugins.MyMetrixLiteFonts.epgevent_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.epgtext_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.epgtext_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.epginfo_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
 			config.plugins.MyMetrixLiteFonts.epginfo_scale.value = 115
-			#infobar
+			# infobar
 			config.plugins.MyMetrixLiteFonts.infobarevent_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Light.ttf"
 			config.plugins.MyMetrixLiteFonts.infobarevent_scale.value = 115
 			config.plugins.MyMetrixLiteFonts.infobartext_type.value = "/usr/share/enigma2/MetrixHD/fonts/Raleway-Regular.ttf"
@@ -447,15 +441,14 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.Fixed_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.Arial_type.value = "/usr/share/fonts/nmsbd.ttf"
 			config.plugins.MyMetrixLiteFonts.Arial_scale.value = 100
-			#skin fonts
+			# skin fonts
 			config.plugins.MyMetrixLiteFonts.Regular_type.value = "/usr/share/enigma2/MetrixHD/fonts/digi.ttf"
 			config.plugins.MyMetrixLiteFonts.Regular_scale.value = 75
 			config.plugins.MyMetrixLiteFonts.RegularLight_type.value = "/usr/share/enigma2/MetrixHD/fonts/digi.ttf"
 			config.plugins.MyMetrixLiteFonts.RegularLight_scale.value = 75
 			config.plugins.MyMetrixLiteFonts.SetrixHD_type.value = "/usr/share/enigma2/MetrixHD/fonts/digi.ttf"
 			config.plugins.MyMetrixLiteFonts.SetrixHD_scale.value = 75
-#			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 100
-			#global
+			# global
 			config.plugins.MyMetrixLiteFonts.globaltitle_type.value = "/usr/share/fonts/lcd.ttf"
 			config.plugins.MyMetrixLiteFonts.globaltitle_scale.value = 115
 			config.plugins.MyMetrixLiteFonts.globalbutton_type.value = "/usr/share/fonts/lcd.ttf"
@@ -470,21 +463,21 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalsmall_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalmenu_type.value = "/usr/share/fonts/lcd.ttf"
 			config.plugins.MyMetrixLiteFonts.globalmenu_scale.value = 115
-			#screens
+			# screens
 			config.plugins.MyMetrixLiteFonts.screenlabel_type.value = "/usr/share/enigma2/MetrixHD/fonts/digi.ttf"
 			config.plugins.MyMetrixLiteFonts.screenlabel_scale.value = 85
 			config.plugins.MyMetrixLiteFonts.screentext_type.value = "/usr/share/enigma2/MetrixHD/fonts/digi.ttf"
 			config.plugins.MyMetrixLiteFonts.screentext_scale.value = 75
 			config.plugins.MyMetrixLiteFonts.screeninfo_type.value = "/usr/share/enigma2/MetrixHD/fonts/digi.ttf"
 			config.plugins.MyMetrixLiteFonts.screeninfo_scale.value = 85
-			#channellist
+			# channellist
 			config.plugins.MyMetrixLiteFonts.epgevent_type.value = "/usr/share/enigma2/MetrixHD/fonts/digi.ttf"
 			config.plugins.MyMetrixLiteFonts.epgevent_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.epgtext_type.value = "/usr/share/enigma2/MetrixHD/fonts/digi.ttf"
 			config.plugins.MyMetrixLiteFonts.epgtext_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.epginfo_type.value = "/usr/share/enigma2/MetrixHD/fonts/digi.ttf"
 			config.plugins.MyMetrixLiteFonts.epginfo_scale.value = 135
-			#infobar
+			# infobar
 			config.plugins.MyMetrixLiteFonts.infobarevent_type.value = "/usr/share/enigma2/MetrixHD/fonts/digi.ttf"
 			config.plugins.MyMetrixLiteFonts.infobarevent_scale.value = 115
 			config.plugins.MyMetrixLiteFonts.infobartext_type.value = "/usr/share/enigma2/MetrixHD/fonts/digi.ttf"
@@ -503,15 +496,14 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.Fixed_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.Arial_type.value = "/usr/share/fonts/nmsbd.ttf"
 			config.plugins.MyMetrixLiteFonts.Arial_scale.value = 100
-			#skin fonts
+			# skin fonts
 			config.plugins.MyMetrixLiteFonts.Regular_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.Regular_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.RegularLight_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.RegularLight_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.SetrixHD_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.SetrixHD_scale.value = 100
-#			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 100
-			#global
+			# global
 			config.plugins.MyMetrixLiteFonts.globaltitle_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.globaltitle_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalbutton_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
@@ -526,21 +518,21 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalsmall_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalmenu_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.globalmenu_scale.value = 105
-			#screens
+			# screens
 			config.plugins.MyMetrixLiteFonts.screenlabel_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.screenlabel_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.screentext_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.screentext_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.screeninfo_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.screeninfo_scale.value = 100
-			#channellist
+			# channellist
 			config.plugins.MyMetrixLiteFonts.epgevent_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.epgevent_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.epgtext_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.epgtext_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.epginfo_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.epginfo_scale.value = 115
-			#infobar
+			# infobar
 			config.plugins.MyMetrixLiteFonts.infobarevent_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
 			config.plugins.MyMetrixLiteFonts.infobarevent_scale.value = 115
 			config.plugins.MyMetrixLiteFonts.infobartext_type.value = "/usr/share/enigma2/MetrixHD/fonts/analog.ttf"
@@ -559,15 +551,14 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.Fixed_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.Arial_type.value = "/usr/share/fonts/nmsbd.ttf"
 			config.plugins.MyMetrixLiteFonts.Arial_scale.value = 100
-			#skin fonts
+			# skin fonts
 			config.plugins.MyMetrixLiteFonts.Regular_type.value = "/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf"
 			config.plugins.MyMetrixLiteFonts.Regular_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.RegularLight_type.value = "/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf"
 			config.plugins.MyMetrixLiteFonts.RegularLight_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.SetrixHD_type.value = "/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf"
 			config.plugins.MyMetrixLiteFonts.SetrixHD_scale.value = 100
-#			config.plugins.MyMetrixLiteFonts.Meteo_scale.value = 105
-			#global
+			# global
 			config.plugins.MyMetrixLiteFonts.globaltitle_type.value = "/usr/share/fonts/nmsbd.ttf"
 			config.plugins.MyMetrixLiteFonts.globaltitle_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalbutton_type.value = "/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf"
@@ -582,21 +573,21 @@ class FontsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteFonts.globalsmall_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.globalmenu_type.value = "/usr/share/enigma2/MetrixHD/fonts/HandelGotDBol.ttf"
 			config.plugins.MyMetrixLiteFonts.globalmenu_scale.value = 100
-			#screens
+			# screens
 			config.plugins.MyMetrixLiteFonts.screenlabel_type.value = "/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf"
 			config.plugins.MyMetrixLiteFonts.screenlabel_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.screentext_type.value = "/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf"
 			config.plugins.MyMetrixLiteFonts.screentext_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.screeninfo_type.value = "/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf"
 			config.plugins.MyMetrixLiteFonts.screeninfo_scale.value = 115
-			#channellist
+			# channellist
 			config.plugins.MyMetrixLiteFonts.epgevent_type.value = "/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf"
 			config.plugins.MyMetrixLiteFonts.epgevent_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.epgtext_type.value = "/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf"
 			config.plugins.MyMetrixLiteFonts.epgtext_scale.value = 100
 			config.plugins.MyMetrixLiteFonts.epginfo_type.value = "/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf"
 			config.plugins.MyMetrixLiteFonts.epginfo_scale.value = 115
-			#infobar
+			# infobar
 			config.plugins.MyMetrixLiteFonts.infobarevent_type.value = "/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf"
 			config.plugins.MyMetrixLiteFonts.infobarevent_scale.value = 105
 			config.plugins.MyMetrixLiteFonts.infobartext_type.value = "/usr/share/enigma2/MetrixHD/fonts/HandelGotD.ttf"

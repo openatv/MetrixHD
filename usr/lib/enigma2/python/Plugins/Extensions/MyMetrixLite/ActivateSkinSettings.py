@@ -56,19 +56,19 @@ class ActivateSkinSettings:
 		self.ButtonEffect = None
 
 	def WriteSkin(self, silent=False):
-		#silent = True  -> returned int value for defined error code
-		#silent = False -> tuple returned -> ident, message
+		# silent = True  -> returned int value for defined error code
+		# silent = False -> tuple returned -> ident, message
 
-		#error codes for silent mode
-		#(called from SystemPlugins/SoftwareManager/BackupRestore.py after restore settings and from skin.py after flash a new image (fast restore function))
-		#0:"No Error"
-		#1:"Unknown Error creating Skin. Please check after reboot MyMetrixLite-Plugin and apply your settings."
-		#2:"Error creating HD-Skin. Not enough flash memory free."
-		#3:"Error creating EHD-Skin. Not enough flash memory free. Using HD-Skin!"
-		#4:"Error creating EHD-Skin. Icon package download not available. Using HD-Skin!"
-		#5:"Error creating EHD-Skin. Using HD-Skin!"
-		#6:"Error creating EHD-Skin. Some EHD-Icons are missing. Using HD-Skin!"
-		#7:"Error, unknown Result!"
+		# error codes for silent mode
+		# (called from SystemPlugins/SoftwareManager/BackupRestore.py after restore settings and from skin.py after flash a new image (fast restore function))
+		# 0:"No Error"
+		# 1:"Unknown Error creating Skin. Please check after reboot MyMetrixLite-Plugin and apply your settings."
+		# 2:"Error creating HD-Skin. Not enough flash memory free."
+		# 3:"Error creating EHD-Skin. Not enough flash memory free. Using HD-Skin!"
+		# 4:"Error creating EHD-Skin. Icon package download not available. Using HD-Skin!"
+		# 5:"Error creating EHD-Skin. Using HD-Skin!"
+		# 6:"Error creating EHD-Skin. Some EHD-Icons are missing. Using HD-Skin!"
+		# 7:"Error, unknown Result!"
 
 		self.silent = silent
 		if self.silent:
@@ -129,7 +129,7 @@ class ActivateSkinSettings:
 					self.ErrorCode = 'checkEHDsettings', _("Your enhanced hd settings are inconsistent. Please check this.")
 
 	def CheckSettings(self, onlyCheck=False):
-		#first check is ehd tested, ehd-settings and available ehd-icons
+		# first check is ehd tested, ehd-settings and available ehd-icons
 		self.getEHDSettings(onlyCheck)
 
 		if self.EHDenabled:
@@ -167,7 +167,7 @@ class ActivateSkinSettings:
 
 		ROOTPATH = "/usr/share/enigma2/MetrixHD/skinfiles/"
 		SKIN_SOURCE = "/usr/share/enigma2/MetrixHD/skin.xml"
-#NEW		SKIN_SOURCE = ROOTPATH + "skin_base.xml"
+# NEW		SKIN_SOURCE = ROOTPATH + "skin_base.xml"
 
 		try:
 			# make backup of skin.xml
@@ -180,8 +180,8 @@ class ActivateSkinSettings:
 			else:
 				copy(SKIN_SOURCE + bname, SKIN_SOURCE)
 
-#NEW			SKIN_TARGET = ROOTPATH + "skin_base.MySkin.xml"
-#NEW			SKIN_TARGET_TMP = SKIN_TARGET + ".tmp"
+# NEW			SKIN_TARGET = ROOTPATH + "skin_base.MySkin.xml"
+# NEW			SKIN_TARGET_TMP = SKIN_TARGET + ".tmp"
 
 			SKIN_TARGET = "/usr/share/enigma2/MetrixHD/skin.MySkin.xml"
 			SKIN_TARGET_TMP = SKIN_TARGET + ".tmp"
@@ -299,7 +299,7 @@ class ActivateSkinSettings:
 			if config.plugins.MyMetrixLiteOther.showTunerinfo.getValue() is True:
 				if config.plugins.MyMetrixLiteOther.setTunerAuto.getValue() is False:
 					infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-X" />', f'<panel name="INFOBARTUNERINFO-{config.plugins.MyMetrixLiteOther.setTunerManual.getValue()}" />'])
-				#else:
+				# else:
 				#    infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-X" />', '<panel name="INFOBARTUNERINFO-%d" />' % self.getTunerCount()])
 			else:
 				infobarSkinSearchAndReplace.append(['<panel name="INFOBARTUNERINFO-X" />', ''])
@@ -406,7 +406,7 @@ class ActivateSkinSettings:
 			channelNameXML = self.getChannelNameXML(
 				namepos,
 				config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize.getValue(),
-				#config.plugins.MyMetrixLiteOther.showChannelNumber.getValue(),
+				# config.plugins.MyMetrixLiteOther.showChannelNumber.getValue(),
 				False,
 				config.plugins.MyMetrixLiteOther.showMovieName.getValue()
 			)
@@ -538,11 +538,11 @@ class ActivateSkinSettings:
 				offsetHicon = 0
 				offsetHbar = 0
 
-			#font
+			# font
 			CoolFont = int(20 * rowfactor)
 			CoolSelectFont = int(20 * rowfactor)
 			CoolDateFont = int(20 * rowfactor)
-			#height
+			# height
 			CoolBarSizeV = int(10 * rowfactor)
 			CoolPiconHPos = 2
 			CoolPiconHeight = itemHeight - CoolPiconHPos * 2
@@ -551,7 +551,7 @@ class ActivateSkinSettings:
 			CoolMovieHPos = 2 + offsetHicon
 			CoolDateHPos = 2 + offsetHicon
 			CoolProgressHPos = 2 + offsetHicon
-			#width
+			# width
 			if progress:
 				CoolBarSizeH = int(config.plugins.MyMetrixLiteOther.setEMCbarsize.value)
 			else:
@@ -563,7 +563,7 @@ class ActivateSkinSettings:
 			if not CoolCSDirInfoWidth:
 				CoolFolderSize = sizeW - 35  # - margin
 			CoolMoviePos = 38 + CoolBarSizeH + gap
-			#if not CoolBarSizeH:
+			# if not CoolBarSizeH:
 			#    CoolMoviePos = 38
 			CoolMovieSize = sizeW - CoolDateWidth - CoolMoviePos - gap - margin
 			if not CoolDateWidth:
@@ -606,7 +606,7 @@ class ActivateSkinSettings:
 			channelNameXML = self.getChannelNameXML(
 				namepos,
 				config.plugins.MyMetrixLiteOther.infoBarChannelNameFontSize.getValue(),
-				#config.plugins.MyMetrixLiteOther.showChannelNumber.getValue(),
+				# config.plugins.MyMetrixLiteOther.showChannelNumber.getValue(),
 				False,
 				config.plugins.MyMetrixLiteOther.showMovieName.getValue()
 			)
@@ -642,7 +642,7 @@ class ActivateSkinSettings:
 
 			DESIGNSkinSearchAndReplace = []
 
-			#SkinDesign
+			# SkinDesign
 			confvalue = config.plugins.MyMetrixLiteOther.SkinDesignLUC.getValue()
 			if confvalue != "no":
 				color = (config.plugins.MyMetrixLiteColors.upperleftcornertransparency.value + config.plugins.MyMetrixLiteColors.upperleftcornerbackground.value)
@@ -797,7 +797,7 @@ class ActivateSkinSettings:
 				new = '<ePixmap alphatest="blend" pixmap="colorgradient_bottom_pb.png" position="0,640" size="1280,80" zPosition="-1" />'
 				DESIGNSkinSearchAndReplace.append([old, new])
 
-			#picon
+			# picon
 			if config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon.value == "1":
 				posx = 33 + config.plugins.MyMetrixLiteOther.SkinDesignInfobarXPiconPosX.value
 				posy = 574 + config.plugins.MyMetrixLiteOther.SkinDesignInfobarXPiconPosY.value
@@ -813,7 +813,7 @@ class ActivateSkinSettings:
 				DESIGNSkinSearchAndReplace.append(['<panel name="IB_XPicon" />', '<panel name="IB_ZZZPicon" />'])
 			DESIGNSkinSearchAndReplace.append([old, new])
 
-			#pvr state
+			# pvr state
 			if config.plugins.MyMetrixLiteOther.showPVRState.getValue() > "1":
 				DESIGNSkinSearchAndReplace.append(['<screen name="PVRState" position="230,238"', '<screen name="PVRState_Standard" position="230,238"'])
 				DESIGNSkinSearchAndReplace.append(['<screen name="PVRState_Top" position="0,0"', '<screen name="PVRState" position="0,0"'])
@@ -825,7 +825,7 @@ class ActivateSkinSettings:
 				if config.plugins.MyMetrixLiteOther.showMovieTime.getValue() == "3":
 					DESIGNSkinSearchAndReplace.append(['<panel name="PVRState_1" />', '<panel name="PVRState_2" />'])
 
-			#graphical epg style
+			# graphical epg style
 			if config.plugins.MyMetrixLiteOther.graphicalEpgStyle.getValue() == "2":
 				DESIGNSkinSearchAndReplace.append(['<panel name="GraphicalEPG_1" />', '<panel name="GraphicalEPG_2" />'])
 				DESIGNSkinSearchAndReplace.append(['<panel name="GraphicalEPGPIG_1" />', '<panel name="GraphicalEPGPIG_2" />'])
@@ -845,7 +845,7 @@ class ActivateSkinSettings:
 			if config.plugins.MyMetrixLiteOther.showInfoBarRunningtext.value:
 				DESIGNSkinSearchAndReplace.append(['movetype=none,startdelay=900,steptime=1,step=3', f'movetype=running,startdelay={int(delay * 1.5)},steptime={speed},step=2'])  # infobar
 
-			#show menu buttons
+			# show menu buttons
 			if not config.plugins.MyMetrixLiteOther.SkinDesignMenuButtons.value:
 				DESIGNSkinSearchAndReplace.append(['<panel name="MenuButtons_template"/>', '<!--panel name="MenuButtons_template"/-->'])
 
@@ -991,7 +991,7 @@ class ActivateSkinSettings:
 				skinSearchAndReplace.append(['<pixmap pos="bpRight" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
 				orgskinSearchAndReplace.append(['<pixmap pos="bpRight" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
 
-			#Border listbox
+			# Border listbox
 			width = config.plugins.MyMetrixLiteColors.listboxborder_topwidth.value
 			if width != "no":
 				color = config.plugins.MyMetrixLiteColors.listboxborder_top.value
@@ -1021,7 +1021,7 @@ class ActivateSkinSettings:
 					skinSearchAndReplace.append(['<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 
-			#fonts system
+			# fonts system
 			type = config.plugins.MyMetrixLiteFonts.Lcd_type.value
 			scale = config.plugins.MyMetrixLiteFonts.Lcd_scale.value
 			old = '<font filename="/usr/share/fonts/lcd.ttf" name="LCD" scale="100" />'
@@ -1057,17 +1057,17 @@ class ActivateSkinSettings:
 			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
-			#fonts skin
+			# fonts skin
 			type = config.plugins.MyMetrixLiteFonts.Regular_type.value
 			scale = config.plugins.MyMetrixLiteFonts.Regular_scale.value
-			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="Regular" scale="95" />'
+			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="Regular" scale="94" />'
 			new = '<font filename="' + type + '" name="Regular" scale="' + str(scale) + '" />'
 			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.RegularLight_type.value
 			scale = config.plugins.MyMetrixLiteFonts.RegularLight_scale.value
-			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="RegularLight" scale="95" />'
+			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="RegularLight" scale="94" />'
 			new = '<font filename="' + type + '" name="RegularLight" scale="' + str(scale) + '" />'
 			if exists(type):
 				skinSearchAndReplace.append([old, new])
@@ -1079,13 +1079,7 @@ class ActivateSkinSettings:
 			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
-#			scale = config.plugins.MyMetrixLiteFonts.Meteo_scale.value
-#			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/meteocons.ttf" name="Meteo" scale="100" />'
-#			new = '<font filename="/usr/share/enigma2/MetrixHD/fonts/meteocons.ttf" name="Meteo" scale="' + str(scale) + '" />'
-#			if exists(type):
-#				skinSearchAndReplace.append([old, new])
-
-			#global
+			# global
 			type = config.plugins.MyMetrixLiteFonts.globaltitle_type.value
 			scale = config.plugins.MyMetrixLiteFonts.globaltitle_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="global_title" scale="100" />'
@@ -1154,7 +1148,7 @@ class ActivateSkinSettings:
 
 			type = config.plugins.MyMetrixLiteFonts.globalsmall_type.value
 			scale = config.plugins.MyMetrixLiteFonts.globalsmall_scale.value
-			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="global_small" scale="95" />'
+			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="global_small" scale="94" />'
 			new = '<font filename="' + type + '" name="global_small" scale="' + str(scale) + '" />'
 			if exists(type):
 				skinSearchAndReplace.append([old, new])
@@ -1166,17 +1160,17 @@ class ActivateSkinSettings:
 			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
-			#screens
+			# screens
 			type = config.plugins.MyMetrixLiteFonts.screenlabel_type.value
 			scale = config.plugins.MyMetrixLiteFonts.screenlabel_scale.value
-			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="screen_label" scale="95" />'
+			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="screen_label" scale="94" />'
 			new = '<font filename="' + type + '" name="screen_label" scale="' + str(scale) + '" />'
 			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.screentext_type.value
 			scale = config.plugins.MyMetrixLiteFonts.screentext_scale.value
-			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="screen_text" scale="95" />'
+			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="screen_text" scale="94" />'
 			new = '<font filename="' + type + '" name="screen_text" scale="' + str(scale) + '" />'
 			if exists(type):
 				skinSearchAndReplace.append([old, new])
@@ -1188,29 +1182,29 @@ class ActivateSkinSettings:
 			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
-			#channellist
+			# channellist
 			type = config.plugins.MyMetrixLiteFonts.epgevent_type.value
 			scale = config.plugins.MyMetrixLiteFonts.epgevent_scale.value
-			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_event" scale="95" />'
+			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_event" scale="94" />'
 			new = '<font filename="' + type + '" name="epg_event" scale="' + str(scale) + '" />'
 			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.epgtext_type.value
 			scale = config.plugins.MyMetrixLiteFonts.epgtext_scale.value
-			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_text" scale="95" />'
+			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_text" scale="94" />'
 			new = '<font filename="' + type + '" name="epg_text" scale="' + str(scale) + '" />'
 			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
 			type = config.plugins.MyMetrixLiteFonts.epginfo_type.value
 			scale = config.plugins.MyMetrixLiteFonts.epginfo_scale.value
-			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_info" scale="95" />'
+			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="epg_info" scale="94" />'
 			new = '<font filename="' + type + '" name="epg_info" scale="' + str(scale) + '" />'
 			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
-			#infobar
+			# infobar
 			type = config.plugins.MyMetrixLiteFonts.infobarevent_type.value
 			scale = config.plugins.MyMetrixLiteFonts.infobarevent_scale.value
 			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/setrixHD.ttf" name="infobar_event" scale="100" />'
@@ -1220,12 +1214,12 @@ class ActivateSkinSettings:
 
 			type = config.plugins.MyMetrixLiteFonts.infobartext_type.value
 			scale = config.plugins.MyMetrixLiteFonts.infobartext_scale.value
-			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="infobar_text" scale="95" />'
+			old = '<font filename="/usr/share/enigma2/MetrixHD/fonts/OpenSans-Regular.ttf" name="infobar_text" scale="94" />'
 			new = '<font filename="' + type + '" name="infobar_text" scale="' + str(scale) + '" />'
 			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
-			#skinfiles
+			# skinfiles
 			skinSearchAndReplace.append([SKIN_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET])
 			skinSearchAndReplace.append([SKIN_INFOBAR_LITE_SOURCE, SKIN_INFOBAR_LITE_TARGET])
 			skinSearchAndReplace.append([SKIN_SECOND_INFOBAR_SOURCE, SKIN_SECOND_INFOBAR_TARGET])
@@ -1239,7 +1233,7 @@ class ActivateSkinSettings:
 			skinSearchAndReplace.append([SKIN_TEMPLATES_SOURCE, SKIN_TEMPLATES_TARGET])
 			skinSearchAndReplace.append([SKIN_DESIGN_SOURCE, SKIN_DESIGN_TARGET])
 
-			#make skin file
+			# make skin file
 			skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
 			orgskin_lines = appendSkinFile(SKIN_SOURCE + bname, orgskinSearchAndReplace)
 
@@ -1287,7 +1281,7 @@ class ActivateSkinSettings:
 						partpath = filepath
 						TARGETpath = mySkindir + 'skin_' + skinpart + '.mySkin.xml'
 						TMPpath = skinpartdir + skinpart + '/' + skinpart + '.mySkin.xml.tmp'
-						#remove old MySkin files
+						# remove old MySkin files
 						if isfile(TMPpath.replace('.tmp', '')):
 							remove(TMPpath.replace('.tmp', ''))
 					if file == 'enabled':
@@ -1299,7 +1293,7 @@ class ActivateSkinSettings:
 			# EHD-skin
 			################
 
-			#EHD-variables
+			# EHD-variables
 			self.skinline_error = False
 			self.pixmap_error = False
 			self.round_par = int(config.plugins.MyMetrixLiteOther.EHDrounddown.value)
@@ -1311,7 +1305,7 @@ class ActivateSkinSettings:
 			else:
 				self.picon_zoom = self.EHDfactor
 
-			#make *_TARGET files
+			# make *_TARGET files
 			print(f"step 1 duration time: {round_half_up(time() - apply_starttime, 1)}s")
 			print(f"--------   make {self.EHDres}-skin  --------")
 			for file in skinfiles:
@@ -1339,7 +1333,7 @@ class ActivateSkinSettings:
 				self.updateIcons()
 				self.makeGraphics(1)
 
-			#remove *_TMP files
+			# remove *_TMP files
 			for file in skinfiles:
 				if exists(file[2]):
 					remove(file[2])
@@ -1349,7 +1343,7 @@ class ActivateSkinSettings:
 			################
 
 			if config.plugins.MyMetrixLiteOther.SkinDesignButtons.value:
-				#backup
+				# backup
 				for button in buttons:
 					buttonfile = buttonpath[self.EHDres] + button[0]
 					buttonbackupfile = buttonfile + '.backup'
@@ -1358,7 +1352,7 @@ class ActivateSkinSettings:
 					self.makeButtons(buttonfile, button[1], False)
 				self.ButtonEffect = None
 			else:
-				#restore
+				# restore
 				for button in buttons:
 					buttonfile = buttonpath[self.EHDres] + button[0]
 					buttonbackupfile = buttonfile + '.backup'
@@ -1392,7 +1386,7 @@ class ActivateSkinSettings:
 			self.ErrorCode = 1
 			if not self.silent:
 				self.ErrorCode = 'error', _("Error creating Skin!") + f'\n< {error} >'
-			#restore skinfiles
+			# restore skinfiles
 			if exists(SKIN_SOURCE + bname):
 				move(SKIN_SOURCE + bname, SKIN_SOURCE)
 			for file in skinfiles:
@@ -1400,15 +1394,15 @@ class ActivateSkinSettings:
 					remove(file[1])
 				if exists(file[2]):
 					remove(file[2])
-			#restore buttons
+			# restore buttons
 			for button in buttons:
 				buttonfile = buttonpath["HD"] + button[0]
 				buttonbackupfile = buttonfile + '.backup'
 				if exists(buttonbackupfile):
 					move(buttonbackupfile, buttonfile)
-			#restore icons
+			# restore icons
 			self.updateIcons()
-			#restore default hd skin
+			# restore default hd skin
 			config.skin.primary_skin.setValue("MetrixHD/skin.xml")
 			config.plugins.MyMetrixLiteOther.Custom.value = False
 		else:
@@ -1420,7 +1414,7 @@ class ActivateSkinSettings:
 
 	def makeButtons(self, button, text, extern=True):
 		try:
-			#makeButtons
+			# makeButtons
 			if extern:
 				self.getEHDSettings()
 
@@ -1443,7 +1437,7 @@ class ActivateSkinSettings:
 			trans = config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectIntensity.value
 			glossycolor = rgba = (int(color[-6:][:2], 16), int(color[-4:][:2], 16), int(color[-2:][:2], 16), int(trans, 16))
 
-			#symbols
+			# symbols
 			symbolpos = 0
 			if 'key_leftright.png' in button or 'key_updown.png' in button:
 				unicodechar = 'setrixHD' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextFont.value or 'Raleway' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextFont.value
@@ -1461,25 +1455,25 @@ class ActivateSkinSettings:
 					fontsize += int(fontsize / 2)
 			else:
 				text = f'{text}'
-			#autoshrink text
+			# autoshrink text
 			x = 0
 			fontx = sizex + 1
 			while fontx > sizex:
 				font = ImageFont.truetype(fonttyp, fontsize - x)
 				_x, _y, fontx, fonty = font.getbbox(text)
-				#fixme fonty size factor different with new pillow 6.2.1
+				# fixme fonty size factor different with new pillow 6.2.1
 				fonty = fonty * 1.27
 				x += 1
-			#frame
+			# frame
 			img = Image.new("RGBA", (sizex, sizey), framecolor)
 			draw = ImageDraw.Draw(img)
-			#button
+			# button
 			draw.rectangle(((framesize, framesize), (sizex - framesize - 1, sizey - framesize - 1)), fill=backcolor)
-			#text
+			# text
 			imgtxt = Image.new("RGBA", (sizex, sizey), (textcolor[0], textcolor[1], textcolor[2], 0))
 			drawtxt = ImageDraw.Draw(imgtxt)
 			drawtxt.text((int((sizex - fontx) / 2), int((sizey - fonty) / 2) + symbolpos + config.plugins.MyMetrixLiteOther.SkinDesignButtonsTextPosition.value), text, fill=textcolor, font=font)
-			#rotate updown
+			# rotate updown
 			if 'key_updown.png' in button and not unicodechar:  # rotation disabled - if using unicode charachters
 				top = int(font.getbbox('<')[2] / 2) - 1
 				lefta = int((sizex - fontx) / 2)
@@ -1493,10 +1487,10 @@ class ActivateSkinSettings:
 				drawtxt.rectangle(((0, 0), (sizex, sizey)), fill=(textcolor[0], textcolor[1], textcolor[2], 0))
 				imgtxt.paste(imga, (lefta, top + 1))
 				imgtxt.paste(imgb, (leftb, top + 1))
-			#text under glossy
+			# text under glossy
 			if config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectOverText.value:
 				img.paste(imgtxt, (0, 0), imgtxt)
-			#glossy effect
+			# glossy effect
 			if config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value != 'no':
 				if 'frame' in config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffect.value:
 					fs = 0
@@ -1529,7 +1523,7 @@ class ActivateSkinSettings:
 								imga.putpixel((x, y), (glossycolor[0], glossycolor[1], glossycolor[2], a - int(s)))
 					self.ButtonEffect = imga
 				img.paste(self.ButtonEffect, (fs, fs), self.ButtonEffect)
-			#text over glossy
+			# text over glossy
 			if not config.plugins.MyMetrixLiteOther.SkinDesignButtonsGlossyEffectOverText.value:
 				img.paste(imgtxt, (0, 0), imgtxt)
 			img.save(button)
@@ -1642,7 +1636,7 @@ class ActivateSkinSettings:
 			return color
 
 	def makeColorGradient(self, name, sizex, sizey, color, begin, height, direction, alphaA=None, alphaB=None):
-		#print name
+		# print name
 		if alphaA is None:
 			alphaA = 255 - int(config.plugins.MyMetrixLiteColors.cologradient_transparencyA.value, 16)
 		if alphaB is None:
@@ -1765,7 +1759,7 @@ class ActivateSkinSettings:
 		sb_bwidth = config.plugins.MyMetrixLiteOther.SkinDesignScrollbarBorderWidth.value
 		for line in f.readlines():
 			i += 1
-#options for all skin files
+# options for all skin files
 			if sb_width != 10:
 				line = line.replace('scrollbarWidth="10"', f'scrollbarWidth="{sb_width}"')
 			if sb_bwidth != 1:
@@ -1788,14 +1782,14 @@ class ActivateSkinSettings:
 					line = line.replace('screen name="MovieSelection"', 'screen name="MovieSelection_noPIG"')
 			if not config.plugins.MyMetrixLiteColors.cologradient_show_background.value and 'name="GRADIENT_BACKGROUND"' in line:
 				continue
-			#list margin channellist
+			# list margin channellist
 			line = line.replace('listMarginRight="5"', f'listMarginRight="{sb_width + int(5 * self.EHDfactor) + 5 if config.plugins.MyMetrixLiteOther.showChannelListScrollbar.value else int(5 * self.EHDfactor)}"')
 			line = line.replace('listMarginLeft="5"', f'listMarginLeft="{int(5 * self.EHDfactor)}"')
 			#-----------------------
 #options for all skin files end
 			if self.EHDenabled:
 				try:
-#rename flag
+# rename flag
 					if '<!-- cf#_#rename -->' in line:
 						next_rename = True
 						run_mod = False
@@ -1806,14 +1800,14 @@ class ActivateSkinSettings:
 							elif 'name="' in line and '#_' not in line and 'HDscreen' not in line:
 									line = sub(r'(name=")(\w+)', r'\1\2#_HDscreen', line)
 							next_rename = False
-#control flags
+# control flags
 						if '<!-- cf#_#start -->' in line or '<!-- cf#_#begin -->' in line:
 							run_mod = True
 						elif '<!-- cf#_#stop -->' in line:
 							run_mod = False
-#picon zoom, pixmap ignore flags
+# picon zoom, pixmap ignore flags
 						if '<!-- cf#_#picon -->' in line and self.picon_zoom != self.EHDfactor:
-							#only for next line!
+							# only for next line!
 							i_save = i + 1
 							next_picon_zoom = True
 # Not used				elif '<!-- cf#_#pixnore -->' in line:
@@ -1826,11 +1820,11 @@ class ActivateSkinSettings:
 								self.ypos = 0
 								next_picon_zoom = False
 								next_pixmap_ignore = False
-#line disabled on
+# line disabled on
 					if 'cf#_#' not in line and match('<!--|#+', line.lstrip()):
-						#print 'line disabled on', i, line
+						# print 'line disabled on', i, line
 						line_disabled = True
-#test pixmap path
+# test pixmap path
 					if not line_disabled and not next_pixmap_ignore and 'MetrixHD/' in line and '.png' in line:
 						pics = findall(r'Metrix[-/\w]+.png', line)
 						for pic in pics:
@@ -1845,9 +1839,9 @@ class ActivateSkinSettings:
 					if run_mod and not line_disabled and not self.skinline_error:
 						line = self.linerchanger_new(line, next_picon_zoom, "skin.MySkin.xml" in sourceFile)
 # NEW					line = self.linerchanger_new(line, next_picon_zoom, "skin_base.MySkin.xml" in sourceFile)
-#line disabled off
+# line disabled off
 					if line_disabled and 'cf#_#' not in line and (match('#+', line.lstrip()) or match('.*-->.*', line.rstrip())):
-						#print 'line disabled off', i, line
+						# print 'line disabled off', i, line
 						line_disabled = False
 				except Exception as error:
 					self.skinline_error = error
@@ -1864,7 +1858,7 @@ class ActivateSkinSettings:
 			print("--------")
 
 	def linereplacer(self, m):
-		#print m.groups()
+		# print m.groups()
 		ret = list(m.groups())
 		if ret[0].startswith('name="underline"'):
 			ulsize = config.plugins.MyMetrixLiteOther.layeraunderlinesize.value
