@@ -15,13 +15,13 @@
 from Components.config import config
 from Components.Converter.Converter import Converter
 from Components.Element import cached
-from enigma import eServiceCenter, eServiceReference, iServiceInformation
+from enigma import iServiceInformation
 from xml.etree.cElementTree import parse
 
 ##########################################################################
 
 
-class MetrixHDExtServiceInfo(Converter, object):
+class MetrixHDExtServiceInfo(Converter):
 	SERVICENAME = 0
 	SERVICENUMBER = 1
 	SERVICENUMBERANDNAME = 2
@@ -34,9 +34,6 @@ class MetrixHDExtServiceInfo(Converter, object):
 	def __init__(self, type):
 		Converter.__init__(self, type)
 		self.satNames = {}
-		self.readSatXml()
-		self.getLists()
-
 		if type == "ServiceName":
 			self.type = self.SERVICENAME
 		elif type == "ServiceNumber":
@@ -46,10 +43,12 @@ class MetrixHDExtServiceInfo(Converter, object):
 		elif type == "OrbitalPosition":
 			self.type = self.ORBITALPOSITION
 		elif type == "SatName":
+			self.readSatXml()
 			self.type = self.SATNAME
 		elif type == "Provider":
 			self.type = self.PROVIDER
 		elif type == "Config":
+			self.readSatXml()
 			self.type = self.FROMCONFIG
 		else:
 			self.type = self.ALL
@@ -66,31 +65,28 @@ class MetrixHDExtServiceInfo(Converter, object):
 		try:
 			service = self.source.serviceref
 			num = service and service.getChannelNum() or None
-		except:
+		except Exception:
 			num = None
-		if num:
-			number = str(num)
-		else:
-			num = self.getServiceNumber(name, info.getInfoString(iServiceInformation.sServiceref))
-			number = num and str(num) or ''
+		number = str(num) if num is not None else ""
 		orbital = self.getOrbitalPosition(info)
-		satName = self.satNames.get(orbital, orbital)
 
 		if len(number) > 5:
-			number = ''
+			number = ""
 		if self.type == self.SERVICENAME:
 			text = name
 		elif self.type == self.SERVICENUMBER:
 			text = number
 		elif self.type == self.SERVICENUMBERANDNAME:
-			text = number + " " + name
+			text = f"{number} {name}"
 		elif self.type == self.ORBITALPOSITION:
 			text = orbital
 		elif self.type == self.SATNAME:
+			satName = self.satNames.get(orbital, orbital)
 			text = satName
 		elif self.type == self.PROVIDER:
 			text = info.getInfoString(iServiceInformation.sProvider)
 		elif self.type == self.FROMCONFIG:
+			satName = self.satNames.get(orbital, orbital)
 			if config.plugins.ExtendedServiceInfo.showServiceNumber.value is True and number != "":
 				text = f"{number}. {name}"
 			else:
@@ -101,10 +97,7 @@ class MetrixHDExtServiceInfo(Converter, object):
 				else:
 					text = f"{text} ({orbital})"
 		else:
-			if number == "":
-				text = name
-			else:
-				text = f"{number}. {name}"
+			text = name if number == "" else f"{number} {name}"
 			if orbital != "":
 				text = f"{text} ({orbital})"
 
@@ -115,30 +108,10 @@ class MetrixHDExtServiceInfo(Converter, object):
 	def changed(self, what):
 		Converter.changed(self, what)
 
-	def getListFromRef(self, ref):
-		list = []
-
-		serviceHandler = eServiceCenter.getInstance()
-		services = serviceHandler.list(ref)
-		bouquets = services and services.getContent("SN", True)
-
-		for bouquet in bouquets:
-			services = serviceHandler.list(eServiceReference(bouquet[0]))
-			channels = services and services.getContent("SN", True)
-			for channel in channels:
-				if not channel[0].startswith("1:64:"):  # Ignore marker
-					list.append(channel[1].replace('\xc2\x86', '').replace('\xc2\x87', '').replace('\x86', '').replace('\x87', ''))
-
-		return list
-
-	def getLists(self):
-		self.tv_list = self.getListFromRef(eServiceReference('1:7:1:0:0:0:0:0:0:0:(type == 1) || (type == 17) || (type == 195) || (type == 25) FROM BOUQUET "bouquets.tv" ORDER BY bouquet'))
-		self.radio_list = self.getListFromRef(eServiceReference('1:7:2:0:0:0:0:0:0:0:(type == 2) FROM BOUQUET "bouquets.radio" ORDER BY bouquet'))
-
 	def readSatXml(self):
 		try:
 			satXml = parse("/etc/enigma2/satellites.xml").getroot()
-		except:
+		except Exception:
 			satXml = parse("/etc/tuxbox/satellites.xml").getroot()
 		if satXml is not None:
 			for sat in satXml.findall("sat"):
@@ -154,23 +127,8 @@ class MetrixHDExtServiceInfo(Converter, object):
 						position = f"0{position}"
 					self.satNames[position] = name
 
-	def getServiceNumber(self, name, ref):
-		_list = []
-		if ref.startswith("1:0:2"):
-			_list = self.radio_list
-		elif ref.startswith("1:0:1"):
-			_list = self.tv_list
-		number = ""
-		if name in _list:
-			for idx in list(range(1, len(_list))):
-				if name == _list[idx - 1]:
-					number = str(idx)
-					break
-		return number
-
 	def getOrbitalPosition(self, info):
 		transponderData = info.getInfoObject(iServiceInformation.sTransponderData)
-		orbital = 0
 		if transponderData is not None:
 			if isinstance(transponderData, float):
 				return ""
@@ -178,9 +136,5 @@ class MetrixHDExtServiceInfo(Converter, object):
 				if (transponderData["tuner_type"] == "DVB-S") or (transponderData["tuner_type"] == "DVB-S2"):
 					orbital = transponderData["orbital_position"]
 					orbital = int(orbital)
-					if orbital > 1800:
-						orbital = str((float(3600 - orbital)) / 10.0) + "W"
-					else:
-						orbital = str((float(orbital)) / 10.0) + "E"
-					return orbital
+					return str((float(3600 - orbital)) / 10.0) + "W" if orbital > 1800 else str((float(orbital)) / 10.0) + "E"
 		return ""
