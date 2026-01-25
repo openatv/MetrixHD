@@ -1885,19 +1885,19 @@ class ActivateSkinSettings:
 		return ''.join(ret)
 
 	def linerchanger_new(self, line, next_picon_zoom, rootFile):  # with regex
-#<resolution xres="1280" yres="720"
+# <resolution xres="1280" yres="720"
 		if rootFile:
 			if '<resolution ' in line:
 				return sub(r'(xres=")(\d+)(" *yres=")(\d+)', self.linereplacer, line)
-#<parameter name="AutotimerEnabledIcon" value="6,2,24,25"
-#<parameter name="ServiceInfoFont" value="screen_text;20"/>
+# <parameter name="AutotimerEnabledIcon" value="6,2,24,25"
+# <parameter name="ServiceInfoFont" value="screen_text;20"/>
 			if '<parameter name="' in line and 'value="' in line:
-#<parameter name="ChoicelistVerticalAlignment" value="*center" />
+# <parameter name="ChoicelistVerticalAlignment" value="*center" />
 				if 'value="*' in line:
 					return line
 				return sub(r'(value=")(\d+|\w+)([,;"])(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)([,"]*)(\d*)("*)', self.linereplacer, line)  # prepared for max 10 values
-#size="200,100"
-#size = (500, 45)
+# size="200,100"
+# size = (500, 45)
 		if ('size="' in line and 'alias name="' not in line) or ('size' in line and '(' in line and ')' in line):
 			if next_picon_zoom:
 				pos = findall(r'(?<= size=")([\w]*[+-]*)(\d*),([\w]*[+-]*)(\d*)', line)
@@ -1907,131 +1907,131 @@ class ActivateSkinSettings:
 					self.xpos = int(round_half_up((xpos * self.EHDfactor - xpos * self.picon_zoom) / 2.0, self.round_par)) if xpos else 0
 					self.ypos = int(round_half_up((ypos * self.EHDfactor - ypos * self.picon_zoom) / 2.0, self.round_par)) if ypos else 0
 			line = sub(r'(size *= *["(][ ce+-]*)(\d*)( *, *)([ ce+-]+|\d+)(\d+|[")]*)', self.linereplacer, line)
-#position="423,460"
-#(pos = (40, 5)
+# position="423,460"
+# (pos = (40, 5)
 		if 'position="' in line or ('(pos' in line and ')' in line):
 			line = sub(r'(pos[ition]* *= *["(][ center+-]*)(\d*)( *, *)([ center+-]+|\d+)(\d+|[")]*)', self.linereplacer, line)
-#font="Regular;20"
-#Font="Regular;20"
-#ServiceFontGraphical="epg_text;20" EntryFontGraphical="epg_text;20"
-#ServiceFontInfobar="epg_text;20" EntryFontInfobar="epg_text;20"
-#EventFontSingle="epg_event;22"
-#EventFontMulti="epg_event;22"
-#TimeFontVertical="epg_event;22" EventFontVertical="epg_event;18"
-#CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;30"
-#CoolFont="Regular;19" CoolServiceFont="Regular;19" CoolEventFont="Regular;19"
+# font="Regular;20"
+# Font="Regular;20"
+# ServiceFontGraphical="epg_text;20" EntryFontGraphical="epg_text;20"
+# ServiceFontInfobar="epg_text;20" EntryFontInfobar="epg_text;20"
+# EventFontSingle="epg_event;22"
+# EventFontMulti="epg_event;22"
+# TimeFontVertical="epg_event;22" EventFontVertical="epg_event;18"
+# CoolFont="epg_text;20" CoolSelectFont="epg_text;20" CoolDateFont="epg_text;30"
+# CoolFont="Regular;19" CoolServiceFont="Regular;19" CoolEventFont="Regular;19"
 		if ('font' in line or 'Font' in line) and 'alias name="' not in line and "fonts" not in line:
 			line = sub(r'(\w*[Ff]ont\w*=" *)(\w+; *)(\d+)', self.linereplacer, line)
-#<alias name="Body" font="screen_text" size="20" height="25" />
+# <alias name="Body" font="screen_text" size="20" height="25" />
 		if 'font="' in line and 'alias name="' in line:
 			line = sub(r'(font="\w+" +size=" *)(\d+)(" *height=" *|)(\d*)', self.linereplacer, line)
-#"fonts": [gFont("Regular",18),gFont("Regular",14),gFont("Regular",24),gFont("Regular",20)]
+# "fonts": [gFont("Regular",18),gFont("Regular",14),gFont("Regular",24),gFont("Regular",20)]
 		if '"fonts":' in line and 'gFont' in line:
 			line = sub(r'(gFont[(]"\w+", *)(\d+)', self.linereplacer, line)
 # fonts="Regular;19,Regular;16"
 		elif 'fonts=' in line:
 			line = sub(r'(\w+; *)(\d*)', self.linereplacer, line)
-#offset="5,0"
+# offset="5,0"
 		if ' offset="' in line or 'shadowOffset="' in line:
 			line = sub(r'([shadow]*[Oo]ffset=")(\d+)(,)(\d+)', self.linereplacer, line)
-#rowSplit="25"
-#rowSplit1="25"
-#rowSplit2="25"
-#rowHeight="25"
-#satPosLeft="160"
-#iconMargin="5"
-#fieldMargins="10"
-#itemsDistances="10"
-#progressbarHeight="10"
-#progressBarWidth="50"
-#progressbarBorderWidth="1" -> deactivated
-#itemHeight="25"
-#"itemHeight": 45
-#": (90,[
+# rowSplit="25"
+# rowSplit1="25"
+# rowSplit2="25"
+# rowHeight="25"
+# satPosLeft="160"
+# iconMargin="5"
+# fieldMargins="10"
+# itemsDistances="10"
+# progressbarHeight="10"
+# progressBarWidth="50"
+# progressbarBorderWidth="1" -> deactivated
+# itemHeight="25"
+# "itemHeight": 45
+# ": (90,[
 		if 'rowSplit' in line or 'rowHeight="' in line or 'satPosLeft="' in line or 'iconMargin="' in line or 'fieldMargins="' in line or 'itemsDistances="' in line or 'progressbarHeight="' in line or 'progressBarWidth="' in line or 'itemHeight="' in line or '"itemHeight":' in line or 'itemWidth="' in line or '"itemWidth":' in line or ('": (' in line and '[' in line):
 			line = sub(r'([iconfeld]+Margin[s]*=" *|itemsDistances="|progress[Bb]ar[HeightWd]+=" *|"*itemHeight[=":]+ *|"*itemWidth[=":]+ *|": *[(]|row[HeightSpl]+\d*=" *|satPosLeft=" *)(\d+)', self.linereplacer, line)
-#messagebox start
-#offset_listposx = 10
-#offset_listposy = 10
-#offset_listwidth = 10
-#offset_listheight = 30
-#offset_textwidth = 20
-#offset_textheight = 90
-#min_width = 400
-#min_height = 50
-#offset = 21
+# messagebox start
+# offset_listposx = 10
+# offset_listposy = 10
+# offset_listwidth = 10
+# offset_listheight = 30
+# offset_textwidth = 20
+# offset_textheight = 90
+# min_width = 400
+# min_height = 50
+# offset = 21
 		if 'offset_listposx =' in line or 'offset_listposy =' in line or 'offset_listwidth =' in line or 'offset_listheight =' in line or 'offset_textwidth =' in line or 'offset_textheight =' in line or 'min_width =' in line or 'min_height =' in line or 'offset =' in line:
 			line = sub(r'(offset_*\w* *= *|min_\w+ *= *)(\d+)', self.linereplacer, line)
-#messagebox end
-#emc special start
-#CoolSelNumTxtWidth="26"
-#CoolDateHPos="1"
-#CoolProgressHPos="1"
-#CoolMovieHPos="1"
-#CoolDirInfoWidth="110"
-#CoolCSWidth="110"
-#CoolProgressPos="35"
-#CoolIconPos="35"
-#CoolIconHPos="35"
-#CoolBarPos="35"
-#CoolBarHPos="10"
-#CoolMoviePos="110"
-#CoolDatePos="590"
-#CoolCSPos"590"
-#CoolMovieSize="490"
-#CoolFolderSize="490"
-#CoolDateWidth="110"
-#CoolPiconPos="100"
-#CoolPiconHPos="2"
-#CoolPiconWidth="60"
-#CoolPiconHeight="26"
-#CoolMoviePiconPos="160"
-#CoolMoviePiconSize="425"
-#CoolIconSize="24,24"
-#CoolBarSize="65,10"
-#CoolBarSizeSa="65,10"
-#/CoolPointerRec.png:980,0"
-#/CoolPointerRec2.png:1080,0"
+# messagebox end
+# emc special start
+# CoolSelNumTxtWidth="26"
+# CoolDateHPos="1"
+# CoolProgressHPos="1"
+# CoolMovieHPos="1"
+# CoolDirInfoWidth="110"
+# CoolCSWidth="110"
+# CoolProgressPos="35"
+# CoolIconPos="35"
+# CoolIconHPos="35"
+# CoolBarPos="35"
+# CoolBarHPos="10"
+# CoolMoviePos="110"
+# CoolDatePos="590"
+# CoolCSPos"590"
+# CoolMovieSize="490"
+# CoolFolderSize="490"
+# CoolDateWidth="110"
+# CoolPiconPos="100"
+# CoolPiconHPos="2"
+# CoolPiconWidth="60"
+# CoolPiconHeight="26"
+# CoolMoviePiconPos="160"
+# CoolMoviePiconSize="425"
+# CoolIconSize="24,24"
+# CoolBarSize="65,10"
+# CoolBarSizeSa="65,10"
+# /CoolPointerRec.png:980,0"
+# /CoolPointerRec2.png:1080,0"
 		if 'widget name="list"' in line and ' Cool' in line and ' CoolEvent' not in line or 'render="PositionGauge"' in line:
 			line = sub(r'(Cool\w+=" *|Cool\w+.png: *)(\d+)([,"])(\d+|)', self.linereplacer, line)
-#emc special end
-#cool tv guide special start
-#CoolServiceSize="220"
-#CoolEventSize="720"
-#CoolServicePos="4"
-#CoolServiceHPos="1"
-#CoolEventPos="355"
-#CoolEventHPos="1"
-#CoolBarPos="240"
-#CoolBarHPos="10"
-#CoolTimePos="225"
-#CoolTimeHPos="2"
-#CoolBarSize="100"
-#CoolBarHigh="10"
-#CoolTimeSize="120"
-#CoolDurationPos="1055"
-#CoolDurationSize="100"
-#CoolPico="35"
-#CoolDaySize="100"
-#CoolDayPos="0"
-#CoolDayHPos="2"
-#CoolDatePos="0"
-#CoolDateHPos="0"
-#CoolDateSize="0"
-#CoolMarkerHPos="200"
-#CoolMarkerPicPos="2"
-#CoolMarkerPicHPos="2"
-#CoolPicoPos="2"
-#CoolPicoHPos="2"
+# emc special end
+# cool tv guide special start
+# CoolServiceSize="220"
+# CoolEventSize="720"
+# CoolServicePos="4"
+# CoolServiceHPos="1"
+# CoolEventPos="355"
+# CoolEventHPos="1"
+# CoolBarPos="240"
+# CoolBarHPos="10"
+# CoolTimePos="225"
+# CoolTimeHPos="2"
+# CoolBarSize="100"
+# CoolBarHigh="10"
+# CoolTimeSize="120"
+# CoolDurationPos="1055"
+# CoolDurationSize="100"
+# CoolPico="35"
+# CoolDaySize="100"
+# CoolDayPos="0"
+# CoolDayHPos="2"
+# CoolDatePos="0"
+# CoolDateHPos="0"
+# CoolDateSize="0"
+# CoolMarkerHPos="200"
+# CoolMarkerPicPos="2"
+# CoolMarkerPicHPos="2"
+# CoolPicoPos="2"
+# CoolPicoHPos="2"
 		if ('widget name="list"' in line or 'widget name="CoolEvent"' in line) and ' CoolEvent' in line:
 			line = sub(r'(Cool\w+=" *)(\d+)', self.linereplacer, line)
-#cool tv guide special end
+# cool tv guide special end
 
-#colPosition="240"
+# colPosition="240"
 		if ' colPosition="' in line:
 			line = sub(r'(colPosition=" *)(\d+)', self.linereplacer, line)
 
-#itemSpacing="10,10"
+# itemSpacing="10,10"
 		if ' itemSpacing="' in line:
 			line = sub(r'(itemSpacing=")(\d+)(,)(\d+)', self.linereplacer, line)
 

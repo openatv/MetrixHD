@@ -244,10 +244,10 @@
 						MultiContentEntryText(pos = (10, 42), size = (210, 30), font=1, flags = RT_HALIGN_LEFT, text = 5), # index 5 is the interface
 						MultiContentEntryText(pos = (300, 8), size = (220, 30), font=1, flags = RT_HALIGN_LEFT, text = 6), # index 6 is the frequency_norm
 						MultiContentEntryText(pos = (230, 42), size = (210, 30), font=1, flags = RT_HALIGN_LEFT, text = 4), # index 0 is the encryption
-						MultiContentEntryText(pos = (450, 8), size = (220, 30), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 0 is the signal
-						MultiContentEntryText(pos = (450, 42), size = (220, 30), font=1, flags = RT_HALIGN_LEFT, text = 3), # index 0 is the maxrate
+						MultiContentEntryText(pos = (420, 8), size = (250, 30), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 0 is the signal
+						MultiContentEntryText(pos = (420, 42), size = (250, 30), font=1, flags = RT_HALIGN_LEFT, text = 3), # index 0 is the maxrate
 					],
-				"fonts": [gFont("SetrixHD",28),gFont("SetrixHD",20)],
+				"fonts": [gFont("SetrixHD",26),gFont("SetrixHD",18)],
 				"itemHeight": 75
 				}
 			</convert>
@@ -1127,7 +1127,7 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 	<screen name="XMLHelp_template" position="0,0" size="1280,720" title="Help" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
-		<widget name="heading" position="70,100" size="700,20" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="heading" position="70,100" size="700,20" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" condition="heading" />
 		<widget name="detailtext" position="70,130" size="700,480" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -1283,7 +1283,8 @@ self['config'].l.setSeperation(int(300*f))
 		<applet type="onLayoutFinish">
 # this should be factored out into some helper code,but currently demonstrates applets.
 from __future__ import division
-from enigma import eSize, ePoint, getDesktop, eRectangle
+from enigma import eSize, ePoint, getDesktop, eRectangle, gFont
+from Tools.TextBoundary import getTextBoundarySize
 #orgwidth = self.instance.size().width()
 #orgheight = self.instance.size().height()
 #---
@@ -1293,54 +1294,79 @@ offset_listwidth = 10
 offset_listheight = 30
 offset_textwidth = 170
 offset_textheight = 20
-min_width = 400
-min_height = 50
+offset_titlewidth = 62
 #----
 deskwidth = getDesktop(0).size().width()
 deskheight = getDesktop(0).size().height()
+maxheight = int(deskheight * 0.75)
+min_width = 400
+min_height = 50
+#----
+titlewidth = 0
+titleheight = 50
 textsize = self["text"].getSize()
 textwidth = textsize[0] + offset_textwidth
 textheight = textsize[1] + offset_textheight
-
 listwidth = 0
 listheight = 0
 
 if self.list:
-	try:
-		for i in self.list:
-			if len(i[0]) > listwidth:
-				listwidth = len(i[0])
-		listwidth = listwidth * offset_listwidth
-		listheight = len(self.list) * offset_listheight
-	except:
-		pass
-
-maxheight = int(deskheight * 0.75)
-
-if listheight &gt;maxheight:
+	listheight = len(self.list) * offset_listheight
+if listheight &gt; maxheight:
 	listheight = maxheight
-
-if (min_height &gt;textheight):
+if (min_height &gt; textheight):
 	textheight = min_height
-if (min_width &gt;textwidth):
-	textwidth = min_width
-if (listheight &gt;0):
+if (listheight &gt; 0):
 	offset = 21
 else:
 	offset = 13
-if (textwidth &gt;listwidth):
-	wsizex = textwidth + offset_listposx * 2
-else:
-	textwidth = listwidth - offset_listposx
-	wsizex = listwidth + offset_listposx
+
+try:
+	for (key, value) in self["Title"].master.skinAttributes:
+		if key == "font":
+			font = value.split(";")
+	title = self.windowTitle
+	if self.timeout > 0:
+		title = f"{title} ({str(self.timeout)})"
+	titlewidth = getTextBoundarySize(None, gFont(font[0], float(font[1])), self["Title"].master.instance.size(), title, True).width()
+
+	"""
+	for (key, value) in self["text"].skinAttributes:
+		if key == "font":
+			font = value.split(";")
+	textwidth = getTextBoundarySize(None, gFont(font[0], float(font[1])), self["text"].instance.size(), self["text"].text, False).width()
+	textwidth += offset_textwidth
+	"""
+
+	if self.list:
+		for (key, value) in self["list"].skinAttributes:
+			if key == "font":
+				font = value.split(";")
+		o = ""
+		for i in self.list:
+			l = getTextBoundarySize(None, gFont(font[0], float(font[1])), self["list"].instance.size(), i[0], True).width()
+			if l > listwidth:
+				listwidth = l
+				o = i[0]
+		listwidth += offset_listwidth * 2
+except Exception as e:
+	pass
+
+if (min_width &gt; textwidth):
+	textwidth = min_width
+if (titlewidth + offset_titlewidth &gt; textwidth):
+	textwidth = titlewidth + offset_titlewidth
+if (listwidth + offset_listposx &gt; textwidth):
+	textwidth = listwidth + offset_listposx
+wsizex = textwidth + offset_listposx * 2
 
 wsizey = textheight + listheight + offset
 
-if ((wsizey + offset_listposy - offset_listposx) &gt;deskheight):
+if ((wsizey + offset_listposy - offset_listposx) &gt; deskheight):
 	textheight = deskheight - listheight - offset - offset_listposy + offset_listposx
 	wsizey = textheight + listheight + offset
 
-if (wsizex &gt;deskwidth):
+if (wsizex &gt; deskwidth):
 	textwidth = deskwidth - offset_listposx * 2
 	listwidth = wsizex = deskwidth
 
@@ -1349,9 +1375,15 @@ wsize = (wsizex,wsizey + offset_listposy - offset_listposx)
 # resize
 self.instance.resize(eSize(*wsize))
 
-# resize label
+# resize text
 textsize = (textwidth,textheight)
 self["text"].instance.resize(eSize(*textsize))
+
+# resize title
+#if titlewidth == 0:  # this should never happen
+#	titlewidth = wsizex - offset_listposx * 2 - offset_titlewidth
+titlesize = (titlewidth,titleheight)
+self["Title"].master.instance.resize(eSize(*titlesize))
 
 # move list
 if self.list:
@@ -2296,12 +2328,6 @@ if len(listitems.list) &gt; 2:
 			<convert type="ServiceInfo">IsMultichannel</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-
-		<widget alphatest="blend" pixmaps="icons/ico_hd_off.png,icons/ico_hd_on.png,icons/ico_uhd_on.png,icons/ico_hd_hdr_on.png,icons/ico_hdr_on.png,icons/ico_hdr10_on.png,icons/ico_hlg_on.png" position="1047,490" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
-			<convert type="MetrixHDServiceInfo2">VideoInfo</convert>
-		</widget>
-
-		<!--
 		<widget alphatest="blend" pixmap="icons/ico_hd_off.png" position="1047,490" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
 			<convert type="ServiceInfo">IsSD</convert>
 			<convert type="ConditionalShowHide"/>
@@ -2330,8 +2356,6 @@ if len(listitems.list) &gt; 2:
 			<convert type="ServiceInfo">IsHLG</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		-->
-
 		<ePixmap alphatest="blend" pixmap="icons/ico_format_off.png" position="1108,490" size="43,23" zPosition="1"/>
 		<widget alphatest="blend" pixmap="icons/ico_format_on.png" position="1108,490" render="Pixmap" size="43,23" source="session.CurrentService" zPosition="2">
 			<convert type="ServiceInfo">IsWidescreen</convert>
@@ -2377,10 +2401,6 @@ if len(listitems.list) &gt; 2:
 			<convert type="ServiceInfo">IsMultichannel</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		<widget alphatest="blend" pixmaps="icons/ico_hd_off.png,icons/ico_hd_on.png,icons/ico_uhd_on.png,icons/ico_hd_hdr_on.png,icons/ico_hdr_on.png,icons/ico_hdr10_on.png,icons/ico_hlg_on.png" position="992,490" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
-			<convert type="MetrixHDServiceInfo2">VideoInfo</convert>
-		</widget>
-		<!--
 		<widget alphatest="blend" pixmap="icons/ico_hd_off.png" position="992,490" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
 			<convert type="ServiceInfo">IsSD</convert>
 			<convert type="ConditionalShowHide"/>
@@ -2409,8 +2429,6 @@ if len(listitems.list) &gt; 2:
 			<convert type="ServiceInfo">IsHLG</convert>
 			<convert type="ConditionalShowHide"/>
 		</widget>
-		-->
-
 		<ePixmap alphatest="blend" pixmap="icons/ico_format_off.png" position="1059,490" size="43,23" zPosition="1"/>
 		<widget alphatest="blend" pixmap="icons/ico_format_on.png" position="1059,490" render="Pixmap" size="43,23" source="session.CurrentService" zPosition="2">
 			<convert type="ServiceInfo">IsWidescreen</convert>
