@@ -1303,7 +1303,6 @@ min_width = 400
 min_height = 50
 #----
 titlewidth = 0
-titleheight = 50
 textsize = self["text"].getSize()
 textwidth = textsize[0] + offset_textwidth
 textheight = textsize[1] + offset_textheight
@@ -1326,7 +1325,7 @@ try:
 		if key == "font":
 			font = value.split(";")
 	title = self.windowTitle
-	if self.timeout > 0:
+	if self.timeout &gt; 0:
 		title = f"{title} ({str(self.timeout)})"
 	titlewidth = getTextBoundarySize(None, gFont(font[0], float(font[1])), self["Title"].master.instance.size(), title, True).width()
 
@@ -1345,7 +1344,7 @@ try:
 		o = ""
 		for i in self.list:
 			l = getTextBoundarySize(None, gFont(font[0], float(font[1])), self["list"].instance.size(), i[0], True).width()
-			if l > listwidth:
+			if l &gt; listwidth:
 				listwidth = l
 				o = i[0]
 		listwidth += offset_listwidth * 2
@@ -1382,7 +1381,7 @@ self["text"].instance.resize(eSize(*textsize))
 # resize title
 #if titlewidth == 0:  # this should never happen
 #	titlewidth = wsizex - offset_listposx * 2 - offset_titlewidth
-titlesize = (titlewidth,titleheight)
+titlesize = (titlewidth,min_height)
 self["Title"].master.instance.resize(eSize(*titlesize))
 
 # move list
