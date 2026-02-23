@@ -1960,7 +1960,7 @@ class ActivateSkinSettings:
 # min_width = 400
 # min_height = 50
 # offset = 21
-		if 'offset_listposx =' in line or 'offset_listposy =' in line or 'offset_listwidth =' in line or 'offset_listheight =' in line or 'offset_textwidth =' in line or 'offset_textheight =' in line or 'min_width =' in line or 'min_height =' in line or 'offset =' in line:
+		if 'offset_listposx =' in line or 'offset_listposy =' in line or 'offset_listwidth =' in line or 'offset_listheight =' in line or 'offset_textwidth =' in line or 'offset_textheight =' in line or 'offset_titlewidth =' in line or 'min_width =' in line or 'min_height =' in line or 'offset =' in line:
 			line = sub(r'(offset_*\w* *= *|min_\w+ *= *)(\d+)', self.linereplacer, line)
 # messagebox end
 # emc special start

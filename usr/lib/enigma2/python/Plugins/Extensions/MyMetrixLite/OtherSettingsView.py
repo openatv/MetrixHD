@@ -212,7 +212,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
 	def test(self):
 		plustext = ""
-		#check hbbtv plugin - is sometimes or with some boxes not compatible with EHD-skin!
+		# check hbbtv plugin - is sometimes or with some boxes not compatible with EHD-skin!
 		if exists("/usr/lib/enigma2/python/Plugins/Extensions/HbbTV/plugin.pyo"):
 			plustext = _("You have the'HbbTV Plugin' installed.\n")
 		if plustext:
@@ -285,8 +285,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.session.open(MessageBox, _("A background update check is in progress, please wait a few minutes and try again."), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
 			self.resetEHD()
 		elif not str:
-			self.feedscheck = self.session.open(MessageBox, _('Please wait whilst feeds state is checked.'), MessageBox.TYPE_INFO, enable_input=False)
-			self.feedscheck.setTitle(_('Checking Feeds'))
+			self.feedscheck = self.session.open(MessageBox, _('Please wait whilst feeds state is checked.'), MessageBox.TYPE_INFO, enable_input=False, windowTitle=_("Checking Feeds"))
 			cmd1 = "opkg update"
 			self.CheckConsole = Console()
 			self.CheckConsole.ePopen(cmd1, self.checkNetworkStateFinished)
@@ -312,8 +311,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		self.resetEHD()
 
 	def doInstall(self, callback, pkgname):
-		self.message = self.session.open(MessageBox, _("please wait..."), MessageBox.TYPE_INFO, enable_input=False)
-		self.message.setTitle(_('Installing ...'))
+		self.message = self.session.open(MessageBox, _("please wait..."), MessageBox.TYPE_INFO, enable_input=False, windowTitle=_("Installing ..."))
 		self.Console.ePopen('/usr/bin/opkg install ' + pkgname, callback)
 
 	def installComplete(self, result, retval=None, extra_args=None):
@@ -344,8 +342,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.doRemove(self.removeComplete, self.service_name)
 
 	def doRemove(self, callback, pkgname):
-		self.message = self.session.open(MessageBox, _("please wait..."), MessageBox.TYPE_INFO, enable_input=False)
-		self.message.setTitle(_('Removing ...'))
+		self.message = self.session.open(MessageBox, _("please wait..."), MessageBox.TYPE_INFO, enable_input=False, windowTitle=_("Removing ..."))
 		self.Console.ePopen('/usr/bin/opkg remove ' + pkgname + ' --force-remove --autoremove', callback)
 
 	def removeComplete(self, result=None, retval=None, extra_args=None):
@@ -584,7 +581,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		section = _("mini TV")
 		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Show in Channel selection?"), config.usage.use_pig, _("Setting is the same as\n'") + _("Channel list show MiniTV*") + _("'\nin the\n'") + _("Channel selection settings") + "'.", "ENABLED"))
-		#list.append(getConfigListEntry(tab + _("Show in graphical EPG?"), config.epgselection.graph_pig, _("Setting is the same as\n'") + _("Picture in graphics") + _("'\nin the\n'") + _("GraphicalEPG settings") + "'."))
+		# list.append(getConfigListEntry(tab + _("Show in graphical EPG?"), config.epgselection.graph_pig, _("Setting is the same as\n'") + _("Picture in graphics") + _("'\nin the\n'") + _("GraphicalEPG settings") + "'."))
 		list.append(getConfigListEntry(tab + _("Show in Movie Center?"), config.plugins.MyMetrixLiteOther.movielist_pig, _("helptext"), "ENABLED"))
 		list.append(getConfigListEntry(tab + _("Show in EMC?"), config.plugins.MyMetrixLiteOther.emc_pig, _("helptext"), "ENABLED"))
 		section = _("EMC")

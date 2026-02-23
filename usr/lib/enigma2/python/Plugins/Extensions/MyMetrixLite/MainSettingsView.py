@@ -242,8 +242,7 @@ class MainSettingsView(Screen):
 		if message is None:
 			message = _("Do you really want to reboot now?")
 
-		restartbox = self.session.openWithCallback(self.restartGUI, MessageBox, message, MessageBox.TYPE_YESNO)
-		restartbox.setTitle(_("Restart GUI"))
+		self.session.openWithCallback(self.restartGUI, MessageBox, message, MessageBox.TYPE_YESNO, windowTitle=_("Restart GUI"))
 
 	def restartGUI(self, answer):
 		if answer is True:
