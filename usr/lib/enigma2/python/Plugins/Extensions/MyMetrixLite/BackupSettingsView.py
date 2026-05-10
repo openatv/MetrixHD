@@ -52,7 +52,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 	skin = """
 	<screen name="MyMetrixLiteBackupView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 	<eLabel name="new eLabel" position="40,40" zPosition="-2" size="1200,640" backgroundColor="#00000000" transparent="0" />
-	<widget source="titleText" position="60,55" size="590,50" render="Label" font="Regular; 40" foregroundColor="#00ffffff" backgroundColor="#00000000" valign="center" transparent="1" />
+	<widget source="Title" position="60,55" size="590,50" render="Label" font="Regular; 40" foregroundColor="#00ffffff" backgroundColor="#00000000" valign="center" transparent="1" />
 	<widget name="config" position="61,124" size="590,210" backgroundColor="#00000000" foregroundColor="#00ffffff" scrollbarMode="showOnDemand" transparent="1" />
 	<widget source="key_red" position="70,640" size="160,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
 	<widget source="key_green" position="257,640" size="360,30" render="Label" font="Regular; 20" foregroundColor="#00ffffff" backgroundColor="#00000000" halign="left" transparent="1" />
@@ -63,8 +63,8 @@ class BackupSettingsView(ConfigListScreen, Screen):
 	<eLabel position="429,635" size="5,40" backgroundColor="#00e5dd00" />
 	<eLabel position="616,635" size="5,40" backgroundColor="#000064c7" />
 	<widget name="HelpWindow" position="55,400" size="604,126" zPosition="1" transparent="1" alphatest="blend" />
-	<widget name="helperimage" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
-	<widget name="helpertext" position="800,490" size="336,160" font="Regular; 18" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center" valign="center" transparent="1"/>
+	<widget name="Image" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
+	<widget name="description" position="800,490" size="336,160" font="Regular; 18" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center" valign="center" transparent="1"/>
 	</screen>
 """
 
@@ -76,10 +76,10 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		self["HelpWindow"] = Pixmap()
 		self["HelpWindow"].hide()
 
-		self["helperimage"] = Pixmap()
-		self["helpertext"] = Label()
+		self["Image"] = Pixmap()
+		self["description"] = Label()
 
-		self["titleText"] = StaticText(_("Backup & Restore my settings"))
+		self.setTitle(_("Backup & Restore my settings"))
 		self["key_red"] = StaticText(_("Cancel"))
 		self["key_yellow"] = StaticText(_("Backup"))
 		self["key_green"] = StaticText(_("Restore"))
@@ -174,13 +174,13 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		self.onLayoutFinish.append(self.ShowPicture)
 
 	def ShowPicture(self):
-		self.PicLoad.setPara([self["helperimage"].instance.size().width(), self["helperimage"].instance.size().height(), 1, 1, 0, 1, "#00000000"])
+		self.PicLoad.setPara([self["Image"].instance.size().width(), self["Image"].instance.size().height(), 1, 1, 0, 1, "#00000000"])
 		self.PicLoad.startDecode(self.GetPicturePath())
 		self.showHelperText()
 
 	def DecodePicture(self, PicInfo=""):
 		ptr = self.PicLoad.getData()
-		self["helperimage"].instance.setPixmap(ptr)
+		self["Image"].instance.setPixmap(ptr)
 
 	def keyDown(self):
 		self["config"].instance.moveSelection(self["config"].instance.moveDown)
@@ -217,7 +217,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		return False
 
 	def restore(self):
-		self["titleText"].setText(_("Backup & Restore my settings"))
+		self.setTitle(_("Backup & Restore my settings"))
 		if not self.readFile():
 			self.message(_("No Backup-File found!\n( %s )") % self.BACKUP_FILE, MessageBox.TYPE_ERROR)
 			return
@@ -285,7 +285,7 @@ class BackupSettingsView(ConfigListScreen, Screen):
 				self.delay.callback.append(self.backup)
 				self.delay.start(500, True)
 			elif self.runnext == "restore":
-				self["titleText"].setText(_("Restoring Backup-Set %d ...") % self.myset.value)
+				self.setTitle(_("Restoring Backup-Set %d ...") % self.myset.value)
 				self.delay.callback.append(self.restore)
 				self.delay.start(500, True)
 
@@ -415,9 +415,9 @@ class BackupSettingsView(ConfigListScreen, Screen):
 	def showHelperText(self):
 		cur = self["config"].getCurrent()
 		if cur and len(cur) > 2 and cur[2] and cur[2] != _("helptext"):
-			self["helpertext"].setText(cur[2])
+			self["description"].setText(cur[2])
 		else:
-			self["helpertext"].setText(" ")
+			self["description"].setText(" ")
 		self.hideHelpWindow()
 
 	def hideHelpWindow(self):
