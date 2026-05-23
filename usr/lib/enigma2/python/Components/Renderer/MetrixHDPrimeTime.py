@@ -18,18 +18,9 @@ class MetrixHDPrimeTime(Renderer, VariableText):
 
 	def changed(self, what):
 		event = self.source.event
-
-		if event is None:
-			self.text = ""
-			return
-
-		service = self.source.service
 		text = ""
-		evt = None
-
-		if self.epgcache is not None:
-			evt = self.epgcache.lookupEvent(['IBDCT', (service.toString(), 0, -1, -1)])
-		if evt:
+		if event and self.epgcache:
+			service = self.source.service
 			now = localtime(time())
 			try:
 				hour, minute = config.epgselection.graph_primetimehour.value, config.epgselection.graph_primetimemins.value
@@ -37,23 +28,12 @@ class MetrixHDPrimeTime(Renderer, VariableText):
 				hour, minute = 20, 15
 			dt = datetime(now.tm_year, now.tm_mon, now.tm_mday, hour, minute)
 			primetime = int(mktime(dt.timetuple()))
-			next = False
-			for x in evt:
-				if x[4]:
-					begin = x[1]
-					end = x[1] + x[2]
-					if begin <= primetime and end > primetime or next:
-						if not next and end <= primetime + 1200:  # 20 mins tolerance to starting next event
-							next = True
-							continue
-						t = localtime(begin)
-						text = text + "%02d:%02d %s\n" % (t[3], t[4], x[4])
-						break
-					if begin > primetime:  # entry > primetime ? -> primetime not in epg
-						text = text + "n/a"
-						break
-				else:
-					text = text + "n/a"
-					break
+			evt = self.epgcache.lookupEvent(['IBDTZ', (service.toString(), 0, primetime, 0)])
+			if evt:
+				x = evt[0]
+				t = localtime(x[1])
+				text = "%02d:%02d %s" % (t[3], t[4], x[3])
+			else:
+				text = "n/a"
 
 		self.text = text
