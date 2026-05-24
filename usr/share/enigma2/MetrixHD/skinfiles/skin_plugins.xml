@@ -3458,5 +3458,96 @@ except:
 	</screen>
 	<!-- E2iPlayer  -->
 
+<!-- E2MDB  -->
+	<screen name="E2MDBEventView" position="0,0" size="1280,720" title="Eventview" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="Event View" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+
+		<widget source="e2mdb_backdrop" render="Pixmap" position="40,235" size="755,401" alphatest="blend" zPosition="-9" scaleFlags="fill" />
+		<widget source="e2mdb_backdrop_gradient" render="Rectangle" backgroundColor="black,transparent,vertical,1" position="40,25" size="755,636" zPosition="-8">
+			<convert type="ConditionalShowHide"/>
+		</widget>
+
+		<widget source="e2mdb_title" render="Label" position="70,48" size="700,40" font="epg_event;30" noWrap="1" backgroundColor="layer-a-background" foregroundColor="layer-a-title-foreground" transparent="1"/>
+		<widget source="e2mdb_subtitle" render="Label" position="70,96" size="700,34" font="screen_info;24" noWrap="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
+		<widget source="e2mdb_infoline" render="Label" position="70,138" size="700,30" font="screen_info;20" noWrap="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1"/>
+		<widget name="epg_description" position="70,195" size="700,260" font="epg_info;22" transparent="1" backgroundColor="black" foregroundColor="#efefef" textBorderColor="black" textBorderWidth="2" scrollbarMode="showNever"/>
+		<widget source="e2mdb_imageOrPicon" render="Pixmap" position="887,80" size="220,132" alphatest="blend" zPosition="6" scaleFlags="fill" />
+		<widget name="channel" position="832,212" size="370,70" font="epg_event;26" halign="center" valign="bottom" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<eLabel position="859,310" size="315,1" backgroundColor="layer-b-accent1" />
+		<widget source="Service" render="Progress" position="859,308" size="315,5" foregroundColor="layer-b-progress" transparent="1" zPosition="1">
+			<convert type="EventTime">Progress</convert>
+		</widget>
+		<widget name="datetime" position="882,337" size="270,40" font="screen_info;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+		<ePixmap position="825,336" size="36,36" zPosition="10" pixmap="left.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1174,336" size="36,36" zPosition="10" pixmap="right.png" transparent="1" alphatest="blend" />
+		<widget name="duration" position="882,392" size="270,40" font="screen_info;24" halign="center" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" />
+
+		<ePixmap alphatest="blend" pixmap="icons/subtitle_off.png" position="829,490" size="31,23"/>
+		<widget alphatest="blend" pixmap="icons/subtitle_on.png" position="829,490" render="Pixmap" size="31,23" source="session.CurrentService" zPosition="1">
+			<convert type="ServiceInfo">SubservicesAvailable</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<ePixmap alphatest="blend" pixmap="icons/ico_hbbtv_off.png" position="874,490" size="64,24" zPosition="1"/>
+		<widget alphatest="blend" pixmap="icons/ico_hbbtv_on.png" position="874,490" render="Pixmap" size="64,24" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">HasHBBTV</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<ePixmap alphatest="blend" pixmap="icons/ico_txt_off.png" position="953,490" size="30,23" zPosition="1"/>
+		<widget alphatest="blend" pixmap="icons/ico_txt_on.png" position="953,490" render="Pixmap" size="30,23" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">HasTelext</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<ePixmap alphatest="blend" pixmap="icons/ico_dolby_off.png" position="997,490" size="34,23" zPosition="1"/>
+		<widget alphatest="blend" pixmap="icons/ico_dolby_on.png" position="997,490" render="Pixmap" size="34,23" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">IsMultichannel</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<widget alphatest="blend" pixmap="icons/ico_hd_off.png" position="1047,490" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">IsSD</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<widget alphatest="blend" pixmap="icons/ico_hd_on.png" position="1047,490" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">IsHD</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<widget alphatest="blend" pixmap="icons/ico_uhd_on.png" position="1047,490" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">Is4K</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<widget alphatest="blend" pixmap="icons/ico_hd_hdr_on.png" position="1047,490" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">IsHDHDR</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<widget alphatest="blend" pixmap="icons/ico_hdr_on.png" position="1047,490" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">IsHDR</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<widget alphatest="blend" pixmap="icons/ico_hdr10_on.png" position="1047,490" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">IsHDR10</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<widget alphatest="blend" pixmap="icons/ico_hlg_on.png" position="1047,490" render="Pixmap" size="49,24" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">IsHLG</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<ePixmap alphatest="blend" pixmap="icons/ico_format_off.png" position="1108,490" size="43,23" zPosition="1"/>
+		<widget alphatest="blend" pixmap="icons/ico_format_on.png" position="1108,490" render="Pixmap" size="43,23" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">IsWidescreen</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+		<ePixmap alphatest="blend" pixmap="icons/ico_crypt_off.png" position="1167,490" size="37,23" zPosition="1"/>
+		<widget alphatest="blend" pixmap="icons/ico_crypt_on.png" position="1167,490" render="Pixmap" size="37,23" source="session.CurrentService" zPosition="2">
+			<convert type="ServiceInfo">IsCrypted</convert>
+			<convert type="ConditionalShowHide"/>
+		</widget>
+
+		<widget source="e2mdb_cover" render="Pixmap" position="667,445" size="128,190" alphatest="blend" zPosition="35" scaleFlags="fill" />
+
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="ime-buttons_template1" />
+	</screen>
+<!-- E2MDB  -->
+
 <!-- PLUGINS */-->
 </skin>

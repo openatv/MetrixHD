@@ -249,5 +249,17 @@
 		<!--panel name="STBINFOMOVIEPLAYER" /-->
 		<!--panel name="STBINFO" /-->
 		<panel name="SKINPART_movieplayer"/>
+<!-- e2MDB EventInfo component-meta test BEGIN -->
+	<widget source="session.Event_Now" render="Pixmap"
+		position="1120,280" size="140,200"
+		zPosition="210"
+		alphatest="blend"
+		scaleFlags="centerScaled"
+		backgroundColor="#000000"
+		transparent="1"
+		condition="config.plugins.e2mdb.epgMetaEnabled.value">
+			<convert type="E2MDBEventInfo">Cover</convert>
+	</widget>
+<!-- e2MDB EventInfo component-meta test END -->
 	</screen>
 </skin>
