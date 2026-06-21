@@ -139,12 +139,6 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.EHDvalue = "1"
 			self.EHDres = 'FHD'
 			self.EHDtxt = 'Full HD'
-#		elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '2':
-#			self.EHDenabled = True
-#			self.EHDfactor = 3
-#			self.EHDvalue = "2"
-#			self.EHDres = 'UHD'
-#			self.EHDtxt = 'Ultra HD'
 		else:
 			self.EHDenabled = False
 			self.EHDfactor = 1
@@ -165,10 +159,6 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.EHDvalue_old = "1"
 			self.EHDres_old = 'FHD'
 			self.EHDtext_old = 'Full HD'
-#		elif screenwidth and screenwidth == 3840 and not config.plugins.MyMetrixLiteOther.EHDenabled.value == '2':
-#			self.EHDvalue_old = "2"
-#			self.EHDres_old = 'UHD'
-#			self.EHDtext_old = 'Ultra HD'
 		else:
 			self.EHDvalue_old = "0"
 			self.EHDres_old = 'HD'
@@ -258,8 +248,6 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		stat = statvfs("/usr/share/enigma2/MetrixHD/")
 		freeflash = stat.f_bavail * stat.f_bsize / 1024 / 1024
 		filesize = 10
-		if self.EHDres == 'UHD':
-			filesize = 25
 		if freeflash < filesize:
 			self.session.open(MessageBox, _("Not enough free flash memory to install the %s icons. ( %d MB is required )") % (self.EHDtxt, filesize), MessageBox.TYPE_ERROR)
 			return False

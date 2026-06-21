@@ -114,11 +114,6 @@ class ActivateSkinSettings:
 			self.EHDfactor = 1.5
 			self.EHDres = 'FHD'
 			self.EHDtxt = 'Full HD'
-#		elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '2' and EHDtested:
-#			self.EHDenabled = True
-#			self.EHDfactor = 3
-#			self.EHDres = 'UHD'
-#			self.EHDtxt = 'Ultra HD'
 		else:
 			self.EHDenabled = False
 			self.EHDfactor = 1
@@ -142,8 +137,6 @@ class ActivateSkinSettings:
 					stat = statvfs("/usr/share/enigma2/MetrixHD/")
 					freeflash = stat.f_bavail * stat.f_bsize / 1024 / 1024
 					filesize = 10
-#					if self.EHDres == 'UHD':
-#						filesize = 25
 					if freeflash < filesize:
 						self.ErrorCode = 3
 					else:
@@ -264,7 +257,7 @@ class ActivateSkinSettings:
 						('ok.png', _('OK')),
 						('text.png', _('TEXT'))
 						]
-			buttonpath = {'HD': '/usr/share/enigma2/MetrixHD/buttons/', 'FHD': '/usr/share/enigma2/MetrixHD/FHD/buttons/', 'UHD': '/usr/share/enigma2/MetrixHD/UHD/buttons/'}
+			buttonpath = {'HD': '/usr/share/enigma2/MetrixHD/buttons/', 'FHD': '/usr/share/enigma2/MetrixHD/FHD/buttons/'}
 
 			################
 			# check free flash for _TARGET and _TMP files
