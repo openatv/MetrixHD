@@ -954,6 +954,9 @@ class ActivateSkinSettings:
 				color3 = f"0x00{config.plugins.MyMetrixLiteColors.infobaraccent2.value.lower()}"
 				skinSearchAndReplace.append(['name="InformationColors" value="0x00ffffff,0x00ffffff,0x00ffffff,0x00cccccc,0x00cccccc,0x00ffffff,0x0000ffff"', f'name="InformationColors" value="{color1},{color1},{color1},{color2},{color2},{color1},{color3}"'])
 
+			color = config.plugins.MyMetrixLiteColors.layerabackground.value
+			skinSearchAndReplace.append(['name="colorgradient_imageviewer" value="#FF000000,#00000000,horizontal,true"', f'name="colorgradient_imageviewer" value="#FF{color},#00{color},horizontal,true"'])
+
 			# Borderset screens
 			w = 5
 			wt = 50
@@ -1592,16 +1595,16 @@ class ActivateSkinSettings:
 		else:
 			if isfile(cgfile):
 				remove(cgfile)
-		# ibts background
-		color = config.plugins.MyMetrixLiteColors.layerabackground.value
-		alpha = config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value
-		cgfile = "/usr/share/enigma2/MetrixHD/ibts/background.png"
-		if isdir("/usr/share/enigma2/MetrixHD/ibts"):
-			self.makeColorField(cgfile, int(1280 * factor), int(32 * factor), color, alpha)
+		# ibts background - solid color, no PNG needed, skin uses backgroundColor="layer-a-background" directly
+		#color = config.plugins.MyMetrixLiteColors.layerabackground.value
+		#alpha = config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value
+		#cgfile = "/usr/share/enigma2/MetrixHD/ibts/background.png"
+		#if isdir("/usr/share/enigma2/MetrixHD/ibts"):
+		#	self.makeColorField(cgfile, int(1280 * factor), int(32 * factor), color, alpha)
 		# file commander image viewer background
-		color = config.plugins.MyMetrixLiteColors.layerabackground.value
-		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_imageviewer.png"
-		self.makeColorGradient(cgfile, int(30 * factor), int(640 * factor), color, 0, int(640 * factor), 'right', 255, 0)
+		#color = config.plugins.MyMetrixLiteColors.layerabackground.value
+		#cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_imageviewer.png"
+		#self.makeColorGradient(cgfile, int(30 * factor), int(640 * factor), color, 0, int(640 * factor), 'right', 255, 0)
 
 	def makeNewColor(self, color, coloroption):
 		if coloroption == '0':
