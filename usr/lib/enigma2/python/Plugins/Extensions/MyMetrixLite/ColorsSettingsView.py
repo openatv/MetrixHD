@@ -56,9 +56,6 @@ TRANSPARENCY_HEX_RE = re.compile(r"[0-9A-Fa-f]{2}")
 
 
 class ColorsSettingsView(ConfigListScreen, Screen):
-	# PNG-based preview paths, kept for reference / possible re-enable, superseded by UpdateColorPreview()
-	# COLOR_IMAGE_PATH = PLUGIN_PATH + "/images/colors/%s.png"
-	# MAIN_IMAGE_PATH = PLUGIN_PATH + "/images/%s.png"
 
 	skin = """
 	<screen name="MyMetrixLiteColorsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
@@ -73,23 +70,13 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 	<eLabel position="430,635" size="5,40" backgroundColor="#00e5dd00" />
 	<widget name="C1" position="890,170" size="256,256" font="MetrixLogos;250" noWrap="1" transparent="1" foregroundColor="layer-b-foreground" valign="center" halign="center" zPosition="1" />
 	<widget name="C2" position="890,170" size="256,256" font="MetrixLogos;250" noWrap="1" transparent="1" foregroundColor="layer-b-foreground" valign="center" halign="center" zPosition="2" />
-	<!--
-	<widget name="Image" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
-	-->
 	<widget name="description" position="800,490" size="336,160" font="Regular; 18" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center" valign="center" transparent="1"/>
 	</screen>
 """
 
-#  "openatvtext":59859,
-#  "palette":59860
-# "menu_information_about" &#xE94C;
-
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.skinName = "ColorsSettingsView"
-		# self.picPath = self.COLOR_IMAGE_PATH % "FFFFFF"
-		# self.PicLoad = ePicLoad()
-		# self["Image"] = Pixmap()
 		self["description"] = Label()
 		self["C1"] = Label(PALETTE_GLYPH)
 		self["C2"] = Label()
@@ -1250,18 +1237,6 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteOther.SkinDesignOLVheight.value = 578
 			config.plugins.MyMetrixLiteOther.SkinDesignOLVposx.value = 254
 			config.plugins.MyMetrixLiteOther.SkinDesignOLVposy.value = 41
-
-	# PNG-based preview, kept for reference / possible re-enable, superseded by UpdateColorPreview()
-	# def GetPicturePath(self):
-	# 	returnValue = self["config"].getCurrent()[1].value
-	# 	picturepath = resolveFilename(SCOPE_CURRENT_SKIN, f"mymetrixlite/colors/{returnValue}.png")
-	# 	if not fileExists(picturepath):
-	# 		picturepath = self.COLOR_IMAGE_PATH % returnValue
-	# 		if not fileExists(picturepath):
-	# 			picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/MyMetrixLiteColor.png")
-	# 			if not fileExists(picturepath):
-	# 				picturepath = self.MAIN_IMAGE_PATH % "MyMetrixLiteColor"
-	# 	return picturepath
 
 	def UpdatePicture(self):
 		self.ShowPicture()

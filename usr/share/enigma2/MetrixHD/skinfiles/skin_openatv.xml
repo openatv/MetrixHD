@@ -4075,7 +4075,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="instructions" position="70,100" size="700,200" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
 		<eLabel position="70,300" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,320" size="700,300" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
-		<ePixmap position="890,175" size="300,256" zPosition="10" pixmap="icons/icetv.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
@@ -4450,9 +4450,7 @@ if len(listitems.list) &gt; 2:
 		<setup key="Playback" image="&#xE93C;" /> <!-- "icons/menu_extended_playback_setup.png" -->
 		<setup keys="BirthdayReminderSettings,EditBirthdaySetting" image="&#xE902;" /> <!-- "icons/bday.png" -->
 		<setup key="CiSelection" image="&#xE920;" /> <!-- "icons/menu_ci_selection.png" -->
-		<setup key="AutoCam" image="&#xE98C;" /> <!-- "icons/menu_softcam_settings.png" -->
-		<setup key="Cardserver" image="&#xE98C;" /> <!-- "icons/menu_softcam_settings.png" -->
-		<setup key="StreamRelay" image="&#xE98C;" /> <!-- "icons/menu_softcam_settings.png" -->
+		<setup keys="AutoCam,Cardserver,StreamRelay" image="&#xE98C;" /> <!-- "icons/menu_softcam_settings.png" -->
 		<setup keys="EPGJumpTime,InstantRecordingEndTime" image="&#xE9B9;" /> <!-- "icons/timer.png" -->
 		<setup key="Softcam" image="&#xE98C;" /> <!-- "icons/menu_softcam_settings.png" -->
 		<setup key="NetworkServicesSetup" image="&#xE9A7;" /> <!-- "icons/net.png" -->
@@ -4470,7 +4468,7 @@ if len(listitems.list) &gt; 2:
 
 	<screens>
 		<screen key="LocationBox" image="&#xE9B6;" /> <!-- "icons/setup.png" -->
-		<screen key="Information" image="&#xE912;" /> <!-- "icons/info.png" -->
+		<screen keys="Information,About,QuickMenuDevices" image="&#xE912;" /> <!-- "icons/info.png" -->
 		<screen key="NetworkInformation" image="&#xE960;" /> <!-- "icons/menu_network_info.png" -->
 		<screen key="ReceiverInformation" image="&#xE977;" /> <!-- "icons/menu_receiver_info.png" -->
 		<screen key="TunerInformation" image="&#xE9A4;" /> <!-- "icons/menu_tuner_info.png" -->
@@ -4481,27 +4479,14 @@ if len(listitems.list) &gt; 2:
 		<screen key="GeolocationInformation" image="&#xE945;" /> <!-- "icons/menu_geolocation_info.png" -->
 		<screen keys="ServiceInformation" image="&#xE983;" /> <!-- "icons/menu_service_info.png" -->
 		<screen key="PictureInformation" image="&#xE94B;" /> <!-- "icons/menu_images_info.png" -->
-		<screen key="AdapterSetup" image="&#xE9A7;" /> <!-- "icons/net.png" -->
-		<screen key="AdapterSetupConfiguration" image="&#xE9A7;" /> <!-- "icons/net.png" -->
-		<screen key="NetworkMacSetup" image="&#xE9A7;" /> <!-- "icons/net.png" -->
 		<screen key="NetworkMountsMenu" image="&#xE964;" /> <!-- "icons/menu_network_netmounts_setup.png" -->
-		<screen key="NameserverSetup" image="&#xE9A7;" /> <!-- "icons/net.png" -->
-		<screen key="NetworkAdapterSelection" image="&#xE9A7;" /> <!-- "icons/net.png" -->
-		<screen key="NetworkAdapterTest" image="&#xE9A7;" /> <!-- "icons/net.png" -->
-		<screen key="NetworkConnections" image="&#xE9A7;" /> <!-- "icons/net.png" -->
+		<screen keys="AdapterSetup,AdapterSetupConfiguration,NetworkMacSetup,NameserverSetup,NetworkAdapterSelection,NetworkConnections,NetworkAdapterTest" image="&#xE9A7;" /> <!-- "icons/net.png" -->
 		<screen keys="WlanSelection,WlanSetup,WlanConfig,WlanScanAp,WlanScanScreen,WlanStatus,WlanScan" image="&#xE9BD;" /> <!-- "icons/wlan.png" -->
-		<screen key="QuickMenuDevices" image="&#xE912;" /> <!-- "icons/info.png" -->
 		<screen key="SoftcamPanel" image="&#xE9B7;" /> <!-- "icons/softcam.png" -->
 		<screen key="VideoEnhancementSetup" image="&#xE99C;" /> <!-- "icons/menu_system_videoenhancement_setup.png" -->
 		<screen key="LocaleSelection" image="&#xE997;" /> <!-- "icons/menu_system_language_setup.png" -->
 		<screen key="InputDeviceSelection" image="&#xE938;" /> <!-- "icons/menu_extended_input_device_setup.png" -->
-		<screen key="IceTVUserTypeScreen" image="&#xE911;" /> <!-- "icons/icetv.png" -->
-		<screen key="IceTVServerSetup" image="&#xE911;" /> <!-- "icons/icetv.png" -->
-		<screen key="IceTVNewUserSetup" image="&#xE911;" /> <!-- "icons/icetv.png" -->
-		<screen key="IceTVRegionSetup" image="&#xE911;" /> <!-- "icons/icetv.png" -->
-		<screen key="IceTVLogin" image="&#xE911;" /> <!-- "icons/icetv.png" -->
-		<screen key="IceTVNeedPassword" image="&#xE911;" /> <!-- "icons/icetv.png" -->
-		<screen key="IceTVMain" image="&#xE911;" /> <!-- "icons/icetv.png" -->
+		<screen keys="IceTVUserTypeScreen,IceTVServerSetup,IceTVNewUserSetup,IceTVRegionSetup,IceTVLogin,IceTVNeedPassword,IceTVMain,IceTVServerSetup" image="&#xE911;" /> <!-- "icons/icetv.png" -->
 		<screen key="uShareSelection" image="&#xE965;" /> <!-- "icons/menu_network_netnfs_setup.png" -->
 
 		<!-- "icons/menu_scan_autobouquetsmakermaker.png" -->
