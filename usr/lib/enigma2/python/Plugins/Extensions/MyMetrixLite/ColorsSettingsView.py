@@ -19,25 +19,46 @@
 #
 #######################################################################
 
-from enigma import ePicLoad, eTimer
+import re
+
+from enigma import eTimer
 from Components.ActionMap import ActionMap
 from Components.config import config, configfile, getConfigListEntry, ConfigSelection
 from Components.ConfigList import ConfigListScreen
 from Components.Label import Label
-from Components.Pixmap import Pixmap
 from Components.Sources.StaticText import StaticText
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
-from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN
+from skin import parseColor
 
 from . import _, PLUGIN_PATH, ColorList, TransparencyList
 
 #######################################################################
 
+# The color/transparency previews are composed from two MetrixLogos font
+# glyphs instead of pre-rendered PNGs:
+#  "openatvtext": 59859 (0xE993)
+#  "palette": 59860 (0xE994)
+#  "menu_information_about": 0xE94C
+#
+# 6-digit hex values (colors): palette painted in the color (C1, behind),
+# openatvtext painted white on top (C2, in front).
+# 2-digit hex values (transparencies): menu_information_about painted white
+# (C1, behind), palette painted black using the value as the transparency
+# byte (C2, in front).
+PALETTE_GLYPH = chr(0xE9D4)
+OPENATVTEXT_GLYPH = chr(0xE9D3)
+INFO_GLYPH = chr(0xE94C)
+COLOR_HEX_RE = re.compile(r"[0-9A-Fa-f]{6}")
+TRANSPARENCY_HEX_RE = re.compile(r"[0-9A-Fa-f]{2}")
+
+#######################################################################
+
 
 class ColorsSettingsView(ConfigListScreen, Screen):
-	COLOR_IMAGE_PATH = PLUGIN_PATH + "/images/colors/%s.png"
-	MAIN_IMAGE_PATH = PLUGIN_PATH + "/images/%s.png"
+	# PNG-based preview paths, kept for reference / possible re-enable, superseded by UpdateColorPreview()
+	# COLOR_IMAGE_PATH = PLUGIN_PATH + "/images/colors/%s.png"
+	# MAIN_IMAGE_PATH = PLUGIN_PATH + "/images/%s.png"
 
 	skin = """
 	<screen name="MyMetrixLiteColorsView" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
@@ -50,18 +71,28 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 	<eLabel position="55,635" size="5,40" backgroundColor="#00e61700" />
 	<eLabel position="242,635" size="5,40" backgroundColor="#0061e500" />
 	<eLabel position="430,635" size="5,40" backgroundColor="#00e5dd00" />
+	<widget name="C1" position="890,170" size="256,256" font="MetrixLogos;250" noWrap="1" transparent="1" foregroundColor="layer-b-foreground" valign="center" halign="center" zPosition="1" />
+	<widget name="C2" position="890,170" size="256,256" font="MetrixLogos;250" noWrap="1" transparent="1" foregroundColor="layer-b-foreground" valign="center" halign="center" zPosition="2" />
+	<!--
 	<widget name="Image" position="840,222" size="256,256" backgroundColor="#00000000" zPosition="1" transparent="1" alphatest="blend" />
+	-->
 	<widget name="description" position="800,490" size="336,160" font="Regular; 18" backgroundColor="#00000000" foregroundColor="#00ffffff" halign="center" valign="center" transparent="1"/>
 	</screen>
 """
 
+#  "openatvtext":59859,
+#  "palette":59860
+# "menu_information_about" &#xE94C;
+
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
-		self.skinName = "MetrixSettingsView"
-		self.picPath = self.COLOR_IMAGE_PATH % "FFFFFF"
-		self.PicLoad = ePicLoad()
-		self["Image"] = Pixmap()
+		self.skinName = "ColorsSettingsView"
+		# self.picPath = self.COLOR_IMAGE_PATH % "FFFFFF"
+		# self.PicLoad = ePicLoad()
+		# self["Image"] = Pixmap()
 		self["description"] = Label()
+		self["C1"] = Label(PALETTE_GLYPH)
+		self["C2"] = Label()
 
 		self.setTitle(_("Color settings"))
 		self["key_red"] = StaticText(_("Cancel"))
@@ -1220,29 +1251,45 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteOther.SkinDesignOLVposx.value = 254
 			config.plugins.MyMetrixLiteOther.SkinDesignOLVposy.value = 41
 
-	def GetPicturePath(self):
-		returnValue = self["config"].getCurrent()[1].value
-		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, f"mymetrixlite/colors/{returnValue}.png")
-		if not fileExists(picturepath):
-			picturepath = self.COLOR_IMAGE_PATH % returnValue
-			if not fileExists(picturepath):
-				picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/MyMetrixLiteColor.png")
-				if not fileExists(picturepath):
-					picturepath = self.MAIN_IMAGE_PATH % "MyMetrixLiteColor"
-		return picturepath
+	# PNG-based preview, kept for reference / possible re-enable, superseded by UpdateColorPreview()
+	# def GetPicturePath(self):
+	# 	returnValue = self["config"].getCurrent()[1].value
+	# 	picturepath = resolveFilename(SCOPE_CURRENT_SKIN, f"mymetrixlite/colors/{returnValue}.png")
+	# 	if not fileExists(picturepath):
+	# 		picturepath = self.COLOR_IMAGE_PATH % returnValue
+	# 		if not fileExists(picturepath):
+	# 			picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/MyMetrixLiteColor.png")
+	# 			if not fileExists(picturepath):
+	# 				picturepath = self.MAIN_IMAGE_PATH % "MyMetrixLiteColor"
+	# 	return picturepath
 
 	def UpdatePicture(self):
-		self.PicLoad.PictureData.get().append(self.DecodePicture)
-		self.onLayoutFinish.append(self.ShowPicture)
+		self.ShowPicture()
 
 	def ShowPicture(self):
-		self.PicLoad.setPara([self["Image"].instance.size().width(), self["Image"].instance.size().height(), 1, 1, 0, 1, "#00000000"])
-		self.PicLoad.startDecode(self.GetPicturePath())
+		self.UpdateColorPreview()
 		self.showHelperText()
 
-	def DecodePicture(self, PicInfo=""):
-		ptr = self.PicLoad.getData()
-		self["Image"].instance.setPixmap(ptr)
+	def UpdateColorPreview(self):
+		cur = self["config"].getCurrent()
+		value = cur and len(cur) > 1 and cur[1].value
+		if isinstance(value, str) and COLOR_HEX_RE.fullmatch(value):
+			self["C1"].instance.setText(PALETTE_GLYPH)
+			self["C1"].instance.setForegroundColor(parseColor("#00" + value))
+			self["C2"].instance.setText(OPENATVTEXT_GLYPH)
+			self["C2"].instance.setForegroundColor(parseColor("#00FFFFFF"))
+		elif isinstance(value, str) and TRANSPARENCY_HEX_RE.fullmatch(value):
+			self["C1"].instance.setText(INFO_GLYPH)
+			self["C1"].instance.setForegroundColor(parseColor("#00FFFFFF"))
+			self["C2"].instance.setText(PALETTE_GLYPH)
+			self["C2"].instance.setForegroundColor(parseColor("#" + value + "000000"))
+		else:
+			self["C1"].instance.setText("")
+			self["C2"].instance.setText("")
+
+	# def DecodePicture(self, PicInfo=""):
+	# 	ptr = self.PicLoad.getData()
+	# 	self["Image"].instance.setPixmap(ptr)
 
 	def keyDown(self):
 		self["config"].instance.moveSelection(self["config"].instance.moveDown)

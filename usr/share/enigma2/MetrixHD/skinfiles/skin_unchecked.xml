@@ -100,7 +100,7 @@
 		<eLabel position="70,530" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget source="help" render="Label" position="70,540" size="700,88" font="SetrixHD;20" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="T_Col_B_A" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="genuineDreambox" position="0,0" size="1280,720" title="Genuine Dreambox" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -112,14 +112,14 @@
 		<ePixmap pixmap="buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<widget name="kRed" position="105,638" size="240,30" zPosition="1" halign="left" valign="center" font="global_button;20" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="kGreen" position="395,638" size="240,30" zPosition="1" halign="left" valign="center" font="global_button;20" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="HarddiskWait" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<panel name="T_Title" />
 		<widget name="wait" position="70,130" size="700,275" transparent="1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_hdd" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="MovieContextMenu" position="880,0" size="400,723" title="Movielist menu" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="0,0" zPosition="-10" size="400,723" backgroundColor="layer-a-background" />
@@ -132,7 +132,7 @@
 		<eLabel text="Recording paths" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,120" size="700,510" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="T_Col_B_A" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="SubservicesQuickzap" position="380,600" size="560,100" title="Subservices" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="session.RecordState" render="Pixmap" pixmap="skin_default/icons/record.png" position="450,0" zPosition="2" size="14,14" alphatest="blend">
@@ -148,7 +148,7 @@
 		<panel name="template1_1layer" />
 		<eLabel text="Subtitle selection" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,120" size="700,450" itemHeight="30" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/sub.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="TimeInput" position="center,280" size="500,145" title="Time Input" backgroundColor="layer-a-background">
 		<widget name="config" position="10,10" size="480,90" itemHeight="30" scrollbarMode="showOnDemand" />
@@ -160,21 +160,6 @@
 		<widget name="cancel" position="0,0" size="0,0" />
 		<widget name="ok" position="0,0" size="0,0" />
 	</screen>
-	<!-- AutoTimeshift -->
-	<screen name="AutoTimeshift" position="0,0" size="1280,720" title="Auto Timeshift Configuration" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="template1_1layer" />
-		<panel name="T_Title_L" />
-		<widget name="config" position="70,130" size="710,480" scrollbarMode="showOnDemand" transparent="1" />
-		<ePixmap pixmap="buttons/key_red.png" position="70,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="buttons/key_green.png" position="270,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="buttons/key_yellow.png" position="470,635" size="30,40" alphatest="blend" />
-		<ePixmap pixmap="buttons/key_blue.png" position="665,635" size="30,40" alphatest="blend" />
-		<widget name="buttonred" position="105,638" size="180,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="buttongreen" position="305,638" size="180,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="buttonyellow" position="505,638" size="180,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="buttonblue" position="700,638" size="180,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<panel name="T_Pix_setup" />
-	</screen>
 	<screen name="WlanSelection" position="0,0" size="1280,720" title="Wireless Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Wireless Network Adapter Selection..." position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="menulist" position="70,120" size="340,438" transparent="1" backgroundColor="layer-a-background" zPosition="10" scrollbarMode="showOnDemand" />
@@ -182,7 +167,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap pixmap="icons/wlan.png" position="890,170" size="256,256" alphatest="blend" transparent="1" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="WlanSetup" position="0,0" size="1280,720" title="Wireless Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Wireless Network Setup Menu..." position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -191,7 +176,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap pixmap="icons/wlan.png" position="890,170" size="256,256" alphatest="blend" transparent="1" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="WlanConfig" position="0,0" size="1280,720" title="Wireless Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Wireless Network Configuration..." position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -205,7 +190,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap pixmap="icons/wlan.png" position="890,170" size="256,256" alphatest="blend" transparent="1" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="WlanScanAp" position="0,0" size="1280,720" title="Wireless Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Wireless Network AP Scan..." position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -219,7 +204,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap pixmap="icons/wlan.png" position="890,170" size="256,256" alphatest="blend" transparent="1" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="Wlanstatus" position="0,0" size="1280,720" title="Wireless Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Wireless Network Status..." position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
@@ -239,7 +224,7 @@
 		<eLabel position="70,510" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget source="info2" render="Label" position="70,520" size="700,100" font="SetrixHD;21" transparent="1" />
 		<panel name="T_Col_B_A" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/dvd.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- DVDBurn -->
 	<screen name="ProjectSettings" position="0,0" size="1280,720" title="Collection settings" flags="wfNoBorder" backgroundColor="transparent">
@@ -248,7 +233,7 @@
 		<widget name="config" position="70,140" size="700,300" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
 		<widget source="info" render="Label" position="70,470" size="700,100" font="SetrixHD;21" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="T_Col_B_A" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/dvd.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="DVDMovieSelection" position="0,0" size="1280,720" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -286,7 +271,7 @@
 		<widget source="space_bar" render="Progress" position="70,590" size="700,26" borderWidth="1" backgroundColor="layer-a-accent1" />
 		<widget source="space_label" render="Label" position="80,592" size="680,22" zPosition="2" font="SetrixHD;18" halign="center" transparent="1" foregroundColor="layer-a-background" />
 		<panel name="T_Col_B_A" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/dvd.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="TitleList" position="0,0" size="1280,720" title="DVD Tool" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -354,7 +339,7 @@
 		<eLabel position="70,295" size="700,2" backgroundColor="layer-a-foreground" />
 		<widget name="config" position="70,315" size="700,300" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="T_Col_B_A" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- Filebrowser -->
 	<screen name="FilebrowserConfigScreen" position="0,0" size="1280,720" title="" flags="wfNoBorder" backgroundColor="transparent">
@@ -365,7 +350,7 @@
 		<ePixmap pixmap="buttons/key_green.png" position="360,635" size="30,40" alphatest="blend" />
 		<widget name="buttonred" position="105,638" size="240,30" zPosition="1" valign="center" font="global_button;20" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="buttongreen" position="395,638" size="240,30" zPosition="1" valign="center" font="global_button;20" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/browser.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="FilebrowserScreen" position="0,0" size="1280,720" title="" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -388,7 +373,7 @@
 		<eLabel text="edit tags..." position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,130" size="700,480" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
 		<panel name="T_Col_B_A" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="MyTubePlayer" position="center,525" size="1280,200" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel position="2,0" zPosition="-1" size="1280,195" backgroundColor="layer-a-background" />
@@ -452,7 +437,7 @@
 		<panel name="T_Col_B_A" />
 		<eLabel text="Virtual KeyBoard" position="680,638" size="270,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap position="1050,635" size="81,40" zPosition="10" pixmap="buttons/menu.png" transparent="1" alphatest="blend" />
-		<panel name="T_Pix_youtube" />
+		<panel name="T_Img_Logo" />
 		<widget name="VKeyIcon" position="0,0" size="0,0" />
 	</screen>
 	<screen name="MyTubeSettingsScreen" position="0,0" size="1280,720" title="MyTubeSettingsScreen" flags="wfNoBorder" backgroundColor="transparent">
@@ -461,7 +446,7 @@
 		<widget name="config" position="70,120" size="700,480" itemHeight="30" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap position="1050,460" size="100,40" zPosition="4" pixmap="~/pluginmanager.png" alphatest="blend" transparent="1" />
 		<panel name="T_Col_B_A" />
-		<panel name="T_Pix_youtube" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="MyTubeSuggestionsListScreen" position="73,200" size="692,290" title="MyTubeSuggestionsListScreen..." zPosition="6" backgroundColor="layer-a-background">
 		<widget source="suggestionslist" render="Listbox" position="10,10" zPosition="7" size="670,270" scrollbarMode="showOnDemand" transparent="1">
@@ -494,7 +479,7 @@
 		</widget>
 		<ePixmap position="1050,460" size="100,40" zPosition="4" pixmap="~/pluginmanager.png" alphatest="blend" transparent="1" />
 		<panel name="T_Col_B_A" />
-		<panel name="T_Pix_youtube" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="MyTubeVideoHelpScreen" position="0,0" size="1280,720" title="MyTubePlayerHelpScreen..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -502,7 +487,7 @@
 		<widget name="detailtext" position="70,120" size="700,500" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap position="1050,460" size="100,40" zPosition="4" pixmap="~/pluginmanager.png" alphatest="blend" transparent="1" />
 		<panel name="T_Col_B_A" />
-		<panel name="T_Pix_youtube" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="MyTubeVideoInfoScreen" position="0,0" size="1280,720" title="MyTubePlayerMainScreen..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -536,7 +521,7 @@
 		<ePixmap position="1050,460" size="100,40" zPosition="4" pixmap="~/pluginmanager.png" alphatest="blend" transparent="1" />
 		<panel name="T_Col_B_A" />
 		<widget name="thumbnail" position="0,0" size="170,130" alphatest="blend" /> # fake entry for dynamic thumbnail resizing, currently there is no other way doing this.
-		<panel name="T_Pix_youtube" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- VLC MediaPlayer -->
 	<screen name="VlcMediaListScreen" position="0,0" size="1280,720" title="" flags="wfNoBorder" backgroundColor="transparent">
@@ -554,7 +539,7 @@
 		<widget name="playlist" position="80,155" size="700,437" zPosition="3" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="T_Col_B_A" />
 		<ePixmap position="890,635" size="30,30" zPosition="10" pixmap="buttons/key_ok.png" transparent="1" alphatest="blend" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/vlc.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="VlcServerListScreen" position="0,0" size="1280,720" title="" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -567,7 +552,7 @@
 		<panel name="T_Col_B_A" />
 		<ePixmap position="830,560" zPosition="2" size="400,66" pixmap="icons/db.png" transparent="1" alphatest="blend" />
 		<ePixmap position="890,635" size="30,30" zPosition="10" pixmap="buttons/key_ok.png" transparent="1" alphatest="blend" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/vlc.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="VlcServerConfigScreen" position="0,0" size="1280,720" title="" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -579,7 +564,7 @@
 		<widget name="key_red" position="104,638" size="180,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="key_green" position="644,638" size="180,30" zPosition="1" valign="center" font="global_button;20" halign="left" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap position="830,560" zPosition="2" size="400,66" pixmap="icons/db.png" transparent="1" alphatest="blend" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/vlc.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- SHOUTcast -->
 	<screen name="SHOUTcastWidget" position="0,0" size="1280,720" title="SHOUTcast" flags="wfNoBorder" backgroundColor="transparent">
@@ -602,7 +587,7 @@
 		<eLabel text="SHOUTcast Setup" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,130" size="700,480" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
 		<panel name="T_Col_B_A" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/shout.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="SHOUTcastStreamripperRecordingPath" position="0,0" size="1280,720" title="Select record path for streamripper" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -613,7 +598,7 @@
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="filelist" position="70,165" size="700,450" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="T_Col_B_A" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/shout.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- WebInterface -->
 	<screen name="WebIfConfigScreen" position="0,0" size="1280,720" title="Main Setup" flags="wfNoBorder" backgroundColor="transparent">
@@ -622,7 +607,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- WeatherPlugin -->
 	<screen name="WeatherPluginEntriesListConfigScreen" position="0,0" size="1280,720" title="WeatherPlugin: List of Entries" flags="wfNoBorder" backgroundColor="transparent">
@@ -633,14 +618,14 @@
 		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
 		<widget name="entrylist" position="70,165" size="710,450" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="T_Col_B_A" />
-		<panel name="T_Pix_weather" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="WeatherPluginEntryConfigScreen" position="0,0" size="1280,720" title="WeatherPlugin: Edit Entry" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<eLabel text="WeatherPlugin: Edit Entry" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="config" position="70,115" size="710,510" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="T_Col_B_A" />
-		<panel name="T_Pix_weather" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="WeatherPlugin" position="0,0" size="1280,720" title="Weather Plugin" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -666,7 +651,7 @@
 		<ePixmap pixmap="buttons/left.png" position="214,633" size="70,30" alphatest="blend" transparent="1" />
 		<ePixmap pixmap="buttons/menu.png" position="314,633" size="70,30" alphatest="blend" transparent="1" />
 		<ePixmap pixmap="buttons/right.png" position="414,633" size="70,30" alphatest="blend" transparent="1" />
-		<panel name="T_Pix_weather" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="BackupSuite" position="0,0" size="1280,720" title="VTI Sub Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -780,14 +765,14 @@
 		<ePixmap position="870,560" zPosition="-9" size="350,44" pixmap="menu/db.png" alphatest="blend" transparent="1" />
 		<eLabel text="NTP-Server Contenant Selection" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="menu" position="70,120" size="700,480" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="SelectCountry" position="0,0" size="1280,720" title="NTP-Server Country Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<ePixmap position="870,560" zPosition="-9" size="350,44" pixmap="menu/db.png" alphatest="blend" transparent="1" />
 		<eLabel text="NTP-Server Country Selection" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="countrymenu" position="70,120" size="700,480" itemHeight="30" scrollbarMode="showOnDemand" transparent="1" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="ManualFancontrol" position="0,0" size="1280,720" title="Fancontrol Settings in Standby mode" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -796,7 +781,7 @@
 		<widget name="config" zPosition="2" position="68,115" size="700,420" scrollbarMode="showOnDemand" transparent="1" />
 		<widget source="current" render="Label" position="70,560" zPosition="1" size="700,30" font="SetrixHD;24" foregroundColor="orange" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="T_Col_B_A" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="UpgradeStatus" position="0,0" size="1280,720" title="FPGA Upgrade" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -806,7 +791,7 @@
 		<widget name="slider" position="70,200" size="700,30" backgroundColor="layer-a-accent1" />
 		<widget name="status" position="70,200" zPosition="1" size="700,32" font="SetrixHD;24" halign="center" foregroundColor="orange" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="info" render="Label" position="70,560" zPosition="1" size="700,32" font="SetrixHD;24" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="FPGAUpgrade" position="0,0" size="1280,720" title="FPGA Upgrade" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -815,7 +800,7 @@
 		<widget source="status" render="Label" position="70,120" zPosition="1" size="700,32" font="SetrixHD;24" halign="left" backgroundColor="layer-a-background" transparent="1" foregroundColor="yellow" />
 		<widget name="file_list" position="70,160" size="700,420" scrollbarMode="showOnDemand" transparent="1" />
 		<panel name="T_Col_B_A" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="ReduceMenuConfig" position="0,0" size="1280,720" title="VTI ReduceMenu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -837,21 +822,21 @@
 				}
 			</convert>
 		</widget>
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="PanelPassword" position="0,0" size="1280,720" title="Change password for VTI Panel" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<widget source="title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="T_Col_B_A" />
 		<widget name="config" zPosition="2" position="70,120" size="710,490" scrollbarMode="showOnDemand" transparent="1" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="InputPanelPassword" position="0,0" size="1280,720" title="Change password for VTI Panel" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<widget source="title" render="Label" position="58,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="T_Col_B_A" />
 		<widget name="config" zPosition="2" position="70,120" size="710,490" scrollbarMode="showOnDemand" transparent="1" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="VuplusAuthenticity" position="0,0" size="1280,720" title="Return the Love Event (only for genuine box)" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -860,7 +845,7 @@
 		<widget name="config" zPosition="2" position="70,120" size="710,280" scrollbarMode="showOnDemand" transparent="1" />
 		<widget name="text1" position="70,420" size="710,70" font="SetrixHD;32" halign="center" valign="center" />
 		<widget name="text2" position="70,510" size="710,110" font="SetrixHD;18" halign="center" valign="center" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="MessageBoxGenuine" position="350,120" size="500,450" title="Message" backgroundColor="layer-a-background">
 		<widget name="text" position="65,8" size="420,28" font="SetrixHD;22" />
@@ -985,7 +970,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)//2, orgpos.y()))
 		<panel name="T_Title_L" />
 		<panel name="T_Col_B_A" />
 		<widget name="config" zPosition="2" position="70,120" size="650,500" scrollbarMode="showOnDemand" transparent="1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/ui.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- UIPositionSetup by Maggy -->
 	<screen name="UIPositionSetup" position="0,0" size="1280,720" title="Position Setup" flags="wfNoBorder" backgroundColor="rds_text_bg">
@@ -1009,14 +994,14 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)//2, orgpos.y()))
 		<widget name="config" position="100,145" size="309,100" scrollbarMode="showOnDemand" />
 		<ePixmap pixmap="menu/rc_wb_desc.png" position="100,250" size="309,296" alphatest="blend" />
 		<widget name="info" position="100,550" size="309,70" font="SetrixHD;18" halign="center" foregroundColor="red" transparent="1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/webb.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="HdmiCecPlugin" position="0,0" size="1280,720" title="VTI HDMI-CEC Configuration" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<panel name="T_Title_L" />
 		<panel name="T_Col_B_A" />
 		<widget name="config" zPosition="2" position="70,120" size="710,500" scrollbarMode="showOnDemand" transparent="1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/hdmicec.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="CrashlogReportConfiguration" position="center,center" size="1280,720" title="CrashlogReport Setting" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -1025,14 +1010,14 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)//2, orgpos.y()))
 		<widget name="config" zPosition="2" position="70,100" itemHeight="30" size="710,420" scrollbarMode="showOnDemand" transparent="1" />
 		<widget source="status" render="Label" position="70,550" size="710,70" zPosition="10" backgroundColor="layer-a-background" font="SetrixHD;20" halign="center" valign="center" transparent="1" />
 		<panel name="T_Col_B_A" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/sweeper.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="FancontrolConfiguration" position="0,0" size="1280,720" title="Standbymode Fancontrol settings" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
 		<panel name="T_Title_L" />
 		<panel name="T_Col_B_A" />
 		<widget name="config" zPosition="2" position="70,120" size="710,500" scrollbarMode="showOnDemand" transparent="1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/fan.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="LEDBrightnessSetup" position="0,0" size="1280,720" title="LED Brightness Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />
@@ -1040,7 +1025,7 @@ self.instance.move(ePoint(orgpos.x() + (orgwidth - newwidth)//2, orgpos.y()))
 		<panel name="T_Col_B_A" />
 		<widget name="config" zPosition="2" position="70,120" size="710,455" scrollbarMode="showOnDemand" transparent="1" />
 		<widget name="current_entry" position="70,585" size="710,40" font="SetrixHD;18" halign="center" valign="center" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/led.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- AZPlay -->
 	<screen name="AZPlayScreen" position="center,center" size="710,470" title="AZPlay" flags="wfNoBorder" backgroundColor="transparent" >

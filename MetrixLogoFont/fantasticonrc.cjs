@@ -2,12 +2,12 @@ const codepoints = require("./codepoints.json");
 
 module.exports = {
   inputDir: "./icons",
-  outputDir: "../usr/share/enigma2/MetrixHD/fonts",
+  outputDir: "./dist/fonts",
   name: "MetrixLogos",
 
   prefix: "mi",
 
-  fontTypes: ["ttf"],
+  fontTypes: ["woff2", "woff", "ttf"],
   assetTypes: [],
 
   codepoints: codepoints,

@@ -21,7 +21,7 @@
 from os.path import exists
 from pickle import dump, load, loads
 from time import localtime, strftime, time
-from enigma import ePicLoad, eTimer
+from enigma import eTimer
 
 from Components.ActionMap import ActionMap
 from Components.config import config, configfile, getConfigListEntry, ConfigSelectionNumber, ConfigText
@@ -32,7 +32,6 @@ from Components.Sources.StaticText import StaticText
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Screens.VirtualKeyBoard import VirtualKeyBoard
-from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN
 
 from . import _, PLUGIN_PATH
 from .ColorsSettingsView import ColorsSettingsView
@@ -71,12 +70,10 @@ class BackupSettingsView(ConfigListScreen, Screen):
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.skinName = "MetrixSettingsView"
-		self.PicLoad = ePicLoad()
 
 		self["HelpWindow"] = Pixmap()
 		self["HelpWindow"].hide()
 
-		self["Image"] = Pixmap()
 		self["description"] = Label()
 
 		self.setTitle(_("Backup & Restore my settings"))
@@ -120,7 +117,6 @@ class BackupSettingsView(ConfigListScreen, Screen):
 		}, -1)
 
 		self.changedEntry(True)
-		self.onLayoutFinish.append(self.UpdatePicture)
 
 	def getMenuItemList(self):
 		list = []
@@ -163,32 +159,13 @@ class BackupSettingsView(ConfigListScreen, Screen):
 				self.file = data
 				self.writeFile()
 
-	def GetPicturePath(self):
-		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, "mymetrixlite/MyMetrixLiteBackup.png")
-		if not fileExists(picturepath):
-			picturepath = self.MAIN_IMAGE_PATH % "MyMetrixLiteBackup"
-		return picturepath
-
-	def UpdatePicture(self):
-		self.PicLoad.PictureData.get().append(self.DecodePicture)
-		self.onLayoutFinish.append(self.ShowPicture)
-
-	def ShowPicture(self):
-		self.PicLoad.setPara([self["Image"].instance.size().width(), self["Image"].instance.size().height(), 1, 1, 0, 1, "#00000000"])
-		self.PicLoad.startDecode(self.GetPicturePath())
-		self.showHelperText()
-
-	def DecodePicture(self, PicInfo=""):
-		ptr = self.PicLoad.getData()
-		self["Image"].instance.setPixmap(ptr)
-
 	def keyDown(self):
 		self["config"].instance.moveSelection(self["config"].instance.moveDown)
-		self.ShowPicture()
+		self.showHelperText()
 
 	def keyUp(self):
 		self["config"].instance.moveSelection(self["config"].instance.moveUp)
-		self.ShowPicture()
+		self.showHelperText()
 
 	def writeFile(self):
 		try:

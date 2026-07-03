@@ -32,72 +32,12 @@
 			<widget name="Image" position="890,170" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 		</screen>
 
-		<screen name="T_Pix_net">
-			<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/net.png" transparent="1" alphatest="blend" />
+		<screen name="T_Img_Logo">
+			<widget name="Image" position="890,170" size="256,256" font="MetrixLogos;250" noWrap="1" transparent="1" foregroundColor="layer-b-foreground" valign="center" halign="center" />
 		</screen>
 
-		<screen name="T_Pix_setup">
-			<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/setup.png" transparent="1" alphatest="blend" />
-		</screen>
-
-		<screen name="T_Pix_info">
-			<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/info.png" transparent="1" alphatest="blend" />
-		</screen>
-
-		<screen name="T_Pix_look">
-			<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/look.png" transparent="1" alphatest="blend" />
-		</screen>
-
-		<screen name="T_Pix_cccam">
-			<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_cccam_info.png" transparent="1" alphatest="blend" />
-		</screen>
-
-		<screen name="T_Pix_console">
-			<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/console.png" transparent="1" alphatest="blend" />
-		</screen>
-
-		<screen name="T_Pix_hdd">
-			<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/hdd.png" transparent="1" alphatest="blend" />
-		</screen>
-
-		<screen name="T_Pix_timer">
-			<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/timer.png" transparent="1" alphatest="blend" />
-		</screen>
-
-		<screen name="T_Pix_search">
-			<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/search.png" transparent="1" alphatest="blend" />
-		</screen>
-
-		<screen name="T_Pix_camd">
-			<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/camd.png" transparent="1" alphatest="blend" />
-		</screen>
-
-		<screen name="T_Pix_swupdate">
-			<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/swupdate.png" transparent="1" alphatest="blend" />
-		</screen>
-
-		<screen name="T_Pix_paket">
-			<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/paket.png" transparent="1" alphatest="blend" />
-		</screen>
-
-		<screen name="T_Pix_pluginmgr">
-			<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
-		</screen>
-
-		<screen name="T_Pix_bluetooth">
-			<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/bluetooth.png" transparent="1" alphatest="blend" />
-		</screen>
-
-		<screen name="T_Pix_movie">
-			<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/movie.png" transparent="1" alphatest="blend" />
-		</screen>
-
-		<screen name="T_Pix_weather">
-			<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/weather.png" transparent="1" alphatest="blend" />
-		</screen>
-
-		<screen name="T_Pix_youtube">
-			<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/youtube.png" transparent="1" alphatest="blend" />
+		<screen name="T_Img_Logo_305">
+			<widget name="Image" position="305,80" size="256,256" font="MetrixLogos;250" noWrap="1" transparent="1" foregroundColor="layer-b-foreground" valign="center" halign="center" />
 		</screen>
 
 		<screen name="T_Desc_810">
@@ -1763,7 +1703,7 @@
 			<eLabel position="264,51" zPosition="-1" size="340,320" backgroundColor="menusymbolbackground" transparent="0" />
 			<widget source="menu" render="Listbox" position="636,60" size="580,540" foregroundColor="menufont" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="menufontselected" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
 				<templates>
-					<template name="Default" fonts="global_menu;29,global_menu;28,global_menu;27" itemWidth="580" itemHeight="54">
+					<template name="Default" fonts="global_menu;29,global_menu;28,global_menu;27,MetrixLogos;40" itemWidth="580" itemHeight="54">
 						<mode name="default" itemHeight="50">
 							<text index="0" position="20,2" size="540,50" font="0" verticalAlignment="center" horizontalAlignment="left" />
 						</mode>
@@ -1775,11 +1715,11 @@
 							<text index="3" position="50,2" size="510,50" font="1" verticalAlignment="center" horizontalAlignment="left"/>
 						</mode>
 						<mode name="image">
-							<pixmap index="1" position="20,4" size="50,50" alpha="blend" scale="centerScaled"/>
+							<text index="Image" position="20,4" size="50,50" font="3" horizontalAlignment="center" verticalAlignment="center" />
 							<text index="3" position="75,2" size="485,50" font="1" verticalAlignment="center" horizontalAlignment="left"/>
 						</mode>
 						<mode name="both">
-							<pixmap index="1" position="20,4" size="50,50" alpha="blend" scale="centerScaled"/>
+							<text index="Image" position="20,4" size="50,50" font="3" horizontalAlignment="center" verticalAlignment="center" />
 							<text index="2" position="75,2" size="30,50" font="2" verticalAlignment="center" horizontalAlignment="left"/>
 							<text index="3" position="100,2" size="465,50" font="2" verticalAlignment="center" horizontalAlignment="left"/>
 						</mode>

@@ -5,7 +5,6 @@
 		<eLabel text="OPEN SOURCE" position="825,110" size="380,60" font="screen_info;50" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
 		<eLabel text="https://github.com/openatv" position="825,470" size="380,30" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
 		<eLabel text="https://github.com/oe-alliance" position="825,520" size="380,30" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
-		<ePixmap position="890,170" size="256,256" zPosition="10" pixmap="icons/menu_information_about.png" transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
 		<panel name="T_Col_B_A" />
 	</screen>
@@ -17,6 +16,7 @@
 		<widget source="lab3" render="Label" position="70,185" size="369,25" font="Regular;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" zPosition="1" />
 		<panel name="OPEN_SOURCE_INFO" />
 		<panel name="_ie-buttons_template1" />
+		<panel name="T_Img_Logo" />
 	</screen>
 
 	<screen name="information_common">
@@ -25,7 +25,7 @@
 		<widget name="information" position="70,100" size="700,480" colPosition="280" conditional="information" divideChar="|" font="Regular;17" leftColAlign="left" rightColAlign="left" split="1" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="T_Col_B_A" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 
 	<screen name="information_common2">
@@ -53,7 +53,7 @@
 		<panel name="template1_2layer" />
 		<panel name="T_Col_B_A" />
 		<panel name="_he-buttons_template2" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 
 	<screen name="SystemInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
@@ -71,6 +71,54 @@
 	<screen name="Information" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="information_common" />
 		<panel name="_he-buttons_template1" />
+	</screen>
+
+	<!-- Network NEW -->
+	<screen name="NetworkConnections" title="Network Connections" position="0,0" size="1280,720">
+		<panel name="T_Title" />
+		<widget source="list" render="Listbox" position="70,100" size="700,510" scrollbarMode="showOnDemand">
+			<template name="Default" fonts="enigma2icons;42,Regular;28,Regular;20,enigma2icons;24,Regular;30" itemHeight="80" itemWidth="980">
+				<mode name="default">
+					<!-- adapter icon (large, left) -->
+					<text index="0" position="5,4" size="58,72" font="0" horizontalAlignment="center" verticalAlignment="center" foregroundColor="=6" foregroundColorSelected="=6" />
+					<!-- enabled/disabled checkbox placeholder -->
+					<text index="1" position="66,26" size="30,30" font="3" horizontalAlignment="center" verticalAlignment="center" foregroundColor="=6" foregroundColorSelected="=6" />
+					<!-- adapter label "eth0 / Intern" -->
+					<text index="2" position="104,15" size="780,50" font="1" horizontalAlignment="left" verticalAlignment="center" foregroundColor="=6" foregroundColorSelected="=6" />
+					<!-- tree connector ├ / └ -->
+					<text index="3" position="5,4" size="58,72" font="0" horizontalAlignment="center" verticalAlignment="center" foregroundColor="=6" foregroundColorSelected="=6" />
+					<!-- connection line 1: profile/LAN + IP -->
+					<text index="4" position="104,8" size="780,34" font="1" horizontalAlignment="left" verticalAlignment="center" foregroundColor="=6" foregroundColorSelected="=6" />
+					<!-- connection line 2: speed / mask / gw -->
+					<text index="5" position="104,44" size="780,28" font="2" horizontalAlignment="left" verticalAlignment="center" />
+					<!-- internet icon top-right (connection rows only) -->
+					<text index="7" position="e-50,4" size="34,34" font="3" horizontalAlignment="center" verticalAlignment="center" />
+				</mode>
+			</template>
+		</widget>
+		<panel name="T_Col_B_A" />
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
+	</screen>
+
+	<screen name="WlanScanScreen" title="WLAN Scan" position="0,0" size="1280,720">
+		<panel name="T_Title" />
+		<widget source="list" render="Listbox" position="70,130" size="700,390" scrollbarMode="showOnDemand">
+			<template name="Default" fonts="Regular;26,Regular;20" itemHeight="50">
+				<mode name="default">
+					<text index="0" position="10,0" size="290,50" font="0" horizontalAlignment="left" verticalAlignment="center" />
+					<text index="1" position="310,0" size="200,50" font="1" horizontalAlignment="center" verticalAlignment="center" />
+					<text index="2" position="490,0" size="100,50" font="1" horizontalAlignment="center" verticalAlignment="center" />
+					<text index="3" position="600,0" size="90,50" font="1" horizontalAlignment="right" verticalAlignment="center" />
+				</mode>
+			</template>
+		</widget>
+		<panel name="T_Desc_810" />
+		<panel name="T_Col_B_A" />
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
 	</screen>
 
 	<!-- Network Adapter -->
@@ -97,7 +145,7 @@
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="toe-buttons_template1" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="AdapterSetupConfiguration" position="0,0" size="1280,720" title="Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -110,7 +158,7 @@
 		<panel name="T_Col_B_A" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="NetworkMacSetup" position="0,0" size="1280,720" title="MAC-address settings" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -119,7 +167,7 @@
 		<panel name="T_Col_B_A" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="NetworkMountsMenu" position="0,0" size="1280,720" title="Mounts Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -128,7 +176,7 @@
 		<panel name="T_Col_B_A" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="NameserverSetup" position="0,0" size="1280,720" title="Nameserver Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -137,7 +185,7 @@
 		<panel name="T_Col_B_A" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="NetworkAdapterSelection" position="0,0" size="1280,720" title="Select Network Adapter" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -158,7 +206,7 @@
 		<panel name="T_Col_B_A" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="NetworkAdapterTest" position="0,0" size="1280,720" title="Network test..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -198,7 +246,7 @@
 		<panel name="T_Col_B_A" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="WlanStatus" position="0,0" size="1280,720" title="Wireless Network State" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -231,7 +279,7 @@
 		<panel name="template1_2layer" />
 		<panel name="T_Col_B_A" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="WlanScan" position="0,0" size="1280,720" title="Choose a Wireless Network" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -255,7 +303,7 @@
 		<panel name="template1_2layer" />
 		<panel name="T_Col_B_A" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="uShareSelection" title="uShare Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
@@ -264,14 +312,14 @@
 		<panel name="T_Col_B_A" />
 		<widget source="key_yellow" render="Label" position="436,638" size="260,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="NetworkLogScreen" title="Network Log" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<panel name="T_Title" />
 		<widget name="infotext" position="70,100" size="700,500" font="SetrixHD;18" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_info" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="ScanIP" title="Scan IP" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
@@ -279,7 +327,7 @@
 		<widget name="config" position="70,100" size="700,500" font="Regular;22" itemHeight="30" zPosition="3" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_net" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- Menu Horizental-->
 	<screen name="Animmain" position="0,0" size="1280,720" title="Mainmenu" backgroundColor="transparent" flags="wfNoBorder">
@@ -319,7 +367,48 @@
 	<!--Main Menu Icons-->
 	<screen name="Menu" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="MENU_template" />
-		<widget name="menuimage" position="305,80" size="256,256" alphatest="blend" />
+		<widget name="menuimage" position="310,80" size="256,256" font="MetrixLogos;250" noWrap="1" transparent="1" foregroundColor="layer-a-foreground" valign="center" halign="center" />
+	</screen>
+	<!--MenuHorizontal-->
+	<screen name="MenuHorizontal" position="0,0" size="1280,720" title="Main menu" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="MENU_template_title" />
+		<panel name="SkinDesign-m" />
+		<widget source="description" render="Label" position="80,480" size="440,70" conditional="description" font="SetrixHD;18" valign="center" halign="center" foregroundColor="layer-a-clock-foreground" backgroundColor="layer-a-background">
+			<convert type="MetrixMenuDescription" />
+		</widget>
+
+		<eLabel position="0,480" zPosition="-1" size="70,70" backgroundColor="menusymbolbackground" transparent="0" />
+		<widget name="menuimage" position="0,480" size="70,70" font="MetrixLogos;50" noWrap="1" transparent="1" foregroundColor="layer-a-foreground" valign="center" halign="center" />
+		<panel name="SKINPART_menu"/>
+		<panel name="MenuButtons"/>
+		<eLabel position="0,574" size="1280,111" backgroundColor="menubackground" zPosition="-2"/>
+		<eLabel position="0,574" size="1280,3" backgroundColor="menusymbolbackground" zPosition="-1"/>
+		<eLabel position="0,684" size="1280,3" backgroundColor="menusymbolbackground" zPosition="-1"/>
+		<widget source="menu" render="Listbox" position="0,574" size="1280,111" listOrientation="horizontal" foregroundColor="menufont" foregroundColorSelected="menufontselected" backgroundColorSelected="layer-a-selection-background" scrollbarMode="showNever" enableWrapAround="1" transparent="1">
+			<template name="Default" fonts="global_menu;22,global_menu;20,MetrixLogos;30" itemHeight="111" itemWidth="213">
+				<mode name="default">
+					<text index="NumberText" position="0,0" size="213,111" font="0" horizontalAlignment="center" padding="8" verticalAlignment="center" wrap="on" />
+				</mode>
+				<mode name="text">
+					<text index="Text" position="0,0" size="213,111" font="0" horizontalAlignment="center" padding="8" verticalAlignment="center" wrap="on" />
+				</mode>
+				<mode name="number">
+					<text index="Number" position="0,5" size="213,22" font="1" horizontalAlignment="center" verticalAlignment="center" />
+					<text index="Text" position="0,27" size="213,82" font="0" horizontalAlignment="center" padding="8" verticalAlignment="center" wrap="on" />
+				</mode>
+				<mode name="image">
+					<text index="Image" position="0,10" size="213,26" font="2" horizontalAlignment="center" verticalAlignment="center" />
+					<text index="Text" position="0,27" size="213,82" font="0" horizontalAlignment="center" padding="8" verticalAlignment="center" wrap="on" />
+				</mode>
+				<mode name="both">
+					<panel layout="horizontal" position="0,10" size="213,26">
+						<text index="Number" position="left" size="106,26" font="1" horizontalAlignment="center" verticalAlignment="center" />
+						<text index="Image" position="right" size="106,26" font="2" horizontalAlignment="center" verticalAlignment="center" />
+					</panel>
+					<text index="Text" position="0,27" size="213,82" font="0" horizontalAlignment="center" padding="8" verticalAlignment="center" wrap="on" />
+				</mode>
+			</template>
+		</widget>
 	</screen>
 	<!--Quick Menu-->
 	<!-- templates -->
@@ -400,14 +489,14 @@
 		<widget name="lab1" zPosition="2" position="126,170" size="600,40" font="Regular;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 
 	<screen name="Info" position="0,0" size="1280,720" title="Info" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="label2" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="label1" position="70,100" size="700,530" font="Console;16" zPosition="1" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" scrollbarMode="showOnDemand"/>
 		<panel name="template1_2layer" />
-		<panel name="T_Pix_console" />
+		<panel name="T_Img_Logo" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<!--SoftcamPanel-->
@@ -422,7 +511,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!--CCcaminfo-->
 	<screen name="CCcamInfoMain" position="0,0" size="1280,720" title="CCcam Info" flags="wfNoBorder" backgroundColor="transparent">
@@ -430,7 +519,7 @@
 		<widget name="menu" position="70,100" size="700,490" enableWrapAround="1" itemHeight="35" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_cccam" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="CCcamInfoRemoteBoxMenu" position="0,0" size="1280,720" title="CCcam Remote Info" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -438,7 +527,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_cccam" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="CCcamInfoSubMenu" position="0,0" size="1280,720" title="CCcamInfo SubMenu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -446,7 +535,7 @@
 		<widget name="info" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_cccam" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="CCcamInfoServerMenu" position="0,0" size="1280,720" title="CCcam Server Info" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -454,7 +543,7 @@
 		<widget name="info" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_cccam" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="CCcamInfoMenuConfig" position="0,0" size="1280,720" title="CCcam Info Config" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -462,7 +551,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_cccam" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="CCcamShareViewMenu" position="0,0" size="1280,720" title="CCcam Share Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -474,7 +563,7 @@
 		<widget name="title" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_cccam" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="CCcamInfoShareInfo" position="0,0" size="1280,720" title="CCcam Share Info" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -482,7 +571,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_cccam" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="CCcamInfoConfigSwitcher" position="0,0" size="1280,720" title="CCcam Config Switcher" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -490,28 +579,28 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_cccam" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="CCcamInfoConfigMenu" position="0,0" size="1280,720" title="CCcam Info Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" enableWrapAround="1" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_cccam" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="CCcamInfoEcmInfoSelection" position="0,0" size="1280,720" title="CCcam ECM Info" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="list" position="70,100" size="700,510" enableWrapAround="1" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_cccam" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="CCcamInfoInfoScreen" position="0,0" size="1280,720" title="CCcam Info" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="text" font="Regular;20" position="70,100" size="700,515" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" zPosition="1" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_cccam" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="mySmallChannelSelection" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<!--widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" /-->
@@ -520,7 +609,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_setup_audio.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!--Parental control setup-->
 	<screen name="ParentalControlSetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
@@ -529,7 +618,7 @@
 		<panel name="template1_2layer" />
 		<panel name="T_Col_B_A" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_look" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="ParentalControlChangePin" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<!--widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" /-->
@@ -538,7 +627,7 @@
 		<panel name="template1_2layer" />
 		<panel name="T_Col_B_A" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_look" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="ParentalControlEditor" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<!--widget source="Title" render="Label" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" /-->
@@ -546,7 +635,7 @@
 		<widget name="servicelist" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_look" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!--Setup Screens-->
 	<screen name="setup_common">
@@ -559,13 +648,9 @@
 		<panel name="T_Col_B_A" />
 		<panel name="moe-buttons_template1" />
 	</screen>
-	<screen name="setup_common_img">
-		<panel name="setup_common"/>
-		<panel name="T_Pix_setup" />
-	</screen>
 	<screen name="Setup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="setup_common"/>
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="SkinSelection" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="setup_common"/>
@@ -573,8 +658,9 @@
 		<widget name="preview" position="890,135" size="256,256" alphatest="blend" conditional="preview" transparent="1" zPosition="3" />
 	</screen>
 	<screen name="SetupInfo" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="setup_common_img"/>
 		<widget name="labelInfo" position="810,385" size="415,220" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<panel name="setup_common"/>
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="AutoResSetupMenu" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Setup" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -582,11 +668,11 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="VideoSetup" position="0,0" size="1280,720" title="Video Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="setup_common"/>
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="VideoEnhancementSetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -597,7 +683,7 @@
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="VideoEnhancementPreview" position="center,550" size="600,170" title="VideoEnhancementPreview" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel name="b" position="0,0" size="600,170" zPosition="0" backgroundColor="layer-b-background" />
@@ -628,7 +714,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_display_LED_Giga.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- Icons PACK_AVAILABLE, PACK_INSTALLED, PACK_IN_USE -->
 	<screen name="LocaleSelection" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
@@ -655,7 +741,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="T_Col_B_A" />
 		<panel name="ime-buttons_template1" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="InputDeviceSelection" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -674,7 +760,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="T_Col_B_A" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="InputDeviceSetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -683,13 +769,13 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="T_Col_B_A" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="HDMICECSetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="setup_common"/>
 		<widget source="current_address" render="Label" position="825,150" size="380,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<widget source="fixed_address" render="Label" position="825,175" size="380,30" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="TempFanControl" position="0,0" size="1280,720" title="Fan Control" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
@@ -763,8 +849,8 @@ self['config'].l.setSeperation(int(300*f))
 		<widget source="green" render="Label" position="253,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<ePixmap pixmap="buttons/key_red.png" position="35,635" size="30,40" alphatest="blend" />
 		<ePixmap pixmap="buttons/key_green.png" position="218,635" size="30,40" alphatest="blend" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/fan.png" transparent="1" alphatest="blend" />
 		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="PiPSetup" position="center,center" size="602,252" title="PiPSetup" flags="wfNoBorder" backgroundColor="layer-b-background">
 		<eLabel position="1,1" size="600,250" backgroundColor="layer-a-background" transparent="0" />
@@ -786,12 +872,12 @@ self['config'].l.setSeperation(int(300*f))
 		<widget name="btt_yellow" position="436,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="btt_blue" position="619,638" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="ioe-buttons_template1" />
-		<ePixmap pixmap="icons/menu_mainmenu_pluginmanager.png" position="890,170" size="256,256" zPosition="2" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="TranscodingSetup" position="0,0" size="1280,720" backgroundColor="transparent">
         <panel name="setup_common"/>
 		<widget name="text" position="70,530" size="700,30" font="Regular;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" valign="center" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="VideoFinetune" position="0,0" size="1280,720" backgroundColor="layer-a-background" flags="wfNoBorder">
 		<widget source="Canvas" render="Canvas" position="0,0" size="1280,720" />
@@ -832,7 +918,7 @@ self['config'].l.setSeperation(int(300*f))
 		</widget>
 		<panel name="template1_2layer" />
 		<panel name="_me-buttons_template1" />
-		<ePixmap name="AudioPixmap" position="890,170" size="256,256" pixmap="icons/audio.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- MountScreens (NetworkBrowser) -->
 	<screen name="AutoMountManager" position="0,0" size="1280,720" title="AutoMountManager" flags="wfNoBorder" backgroundColor="transparent">
@@ -853,7 +939,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_net" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="AutoMountEdit" position="0,0" size="1280,720" title="MountEdit" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -864,7 +950,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_net" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="AutoMountView" position="0,0" size="1280,720" title="MountView" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -891,7 +977,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_net" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="NetworkBrowser" position="0,0" size="1280,720" title="Network Neighbourhood" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -914,7 +1000,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_net" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="UserDialog" position="0,0" size="1280,720" title="UserDialog" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -925,7 +1011,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_net" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="UserManager" position="0,0" size="1280,720" title="UserManager" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -944,7 +1030,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_net" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- DeviceManager -->
 	<screen name="DeviceManager" title="Device Manager" position="0,0" size="1280,720">
@@ -973,7 +1059,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="T_Title" />
 		<widget name="hddlist" position="70,130" size="700,270" itemHeight="30" font="screen_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_hdd" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- Timer Screens -->
 <!-- cf#_#rename --> 
@@ -998,17 +1084,17 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="T_Title" />
 		<panel name="timerlistcommon" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_timers.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="SchedulerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
 		<panel name="T_Desc_810" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_powertimers.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="PowerTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
 		<panel name="T_Desc_810" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_powertimers.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="RecordTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
@@ -1017,7 +1103,7 @@ self['config'].l.setSeperation(int(300*f))
 	<screen name="ConflictTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
 		<panel name="T_Desc_810" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_conflict.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="TimerLog" position="0,0" size="1280,720" title="Timer log" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title_L" />
@@ -1039,13 +1125,13 @@ self['config'].l.setSeperation(int(300*f))
 		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="T_Col_B_A" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_timer" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- OLD TimerEditList to support old plugins -->
 	<screen name="TimerEditList" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
 		<panel name="T_Desc_810" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_timermenu_timers.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- CronTimer -->
 	<screen name="CronTimers" position="0,0" size="1280,720" title="Cron Manager" flags="wfNoBorder" backgroundColor="transparent">
@@ -1070,7 +1156,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_timer" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- AutoTimer -->
 	<screen name="AutoTimerOverview" position="0,0" size="1280,720" title="AutoTimer Overview" flags="wfNoBorder" backgroundColor="transparent">
@@ -1079,7 +1165,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_me-buttons_template1" />
-		<panel name="T_Pix_timer" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="AutoTimerImporter" position="0,0" size="1280,720" title="Import AutoTimer" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -1087,7 +1173,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_timer" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="AutoTimerEditor" position="0,0" size="1280,720" title="Edit AutoTimer" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -1096,7 +1182,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_timer" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="AutoTimerFilterEditor" position="0,0" size="1280,720" title="Edit AutoTimer Filters" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -1105,7 +1191,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_timer" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="AutoTimerServiceEditor" position="0,0" size="1280,720" title="Edit AutoTimer Services" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -1113,7 +1199,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_timer" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="AutoTimerSettings" position="0,0" size="1280,720" title="AutoTimer Settings" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -1123,7 +1209,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_timer" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="XMLHelp_template" position="0,0" size="1280,720" title="Help" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -1138,7 +1224,7 @@ self['config'].l.setSeperation(int(300*f))
 	</screen>
 	<screen name="AutoTimerHelp" position="0,0" size="1280,720" title="AutoTimer Help" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="XMLHelp_template" />
-		<panel name="T_Pix_timer" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="AutoTimerFAQ" position="0,0" size="1280,720" title="AutoTimer FAQ" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="AutoTimerHelp" />
@@ -1161,7 +1247,7 @@ self['config'].l.setSeperation(int(300*f))
 			</convert>
 		</widget>
 		<panel name="T_Col_B_A" />
-		<panel name="T_Pix_timer" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- General Screens -->
 	<screen name="Standby" position="0,0" size="1280,720" title="Standby" flags="wfNoBorder" backgroundColor="black"/>
@@ -1259,9 +1345,9 @@ self['config'].l.setSeperation(int(300*f))
 		<widget name="language" conditional="language" position="0,0" size="0,0" font="screen_info;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" noWrap="1" />
 		<panel name="template1_2layer" />
 		<widget name="locale" conditional="locale" position="810,410" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/keyb.png" transparent="1" alphatest="blend" />
 		<panel name="T_Col_B_A" />
 		<panel name="tie-buttons_template1" />
+		<panel name="T_Img_Logo" />
 	</screen>
 
 	<screen name="Processing" title="Processing" position="center,center" size="600,220" backgroundColor="layer-a-background" zPosition="+99" flags="wfNoBorder">
@@ -1558,11 +1644,11 @@ for x in self.additionalWidgets:
 	</screen>
 	<screen name="ChoiceBox" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="ChoiceBoxBase" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="EventViewContextMenuChoiceBox" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="ChoiceBoxBase" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/service_info.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="RecordTimerQuestion" position="0,0" size="502,92" zPosition="99" flags="wfNoBorder" backgroundColor="layer-b-background">
 		<widget name="text" position="1,1" size="500,90" backgroundColor="layer-a-background" zPosition="-1" transparent="0" />
@@ -1590,7 +1676,7 @@ if len(listitems.list) &gt; 2:
 	<screen name="Console" position="0,0" size="1280,720" title="Command execution..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="text" position="70,100" size="700,510" font="Console;16" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" scrollbarMode="showOnDemand"/>
-		<panel name="T_Pix_console" />
+		<panel name="T_Img_Logo" />
 		<panel name="template1_2layer" />
 		<panel name="T_Col_B_A" />
 		<panel name="_oe-buttons_template1" />
@@ -2211,7 +2297,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_system_channelselection_setup.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="SlimChannelSelection" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="ChannelSelection" />
@@ -2246,7 +2332,7 @@ if len(listitems.list) &gt; 2:
 		<widget source="introduction" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/swm.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="EPGSelection" position="0,0" size="1280,720" title="EPG Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="ul-layer1_2_overlay" />
@@ -2281,22 +2367,22 @@ if len(listitems.list) &gt; 2:
 		<widget name="menu" position="70,100" size="700,500" zPosition="3" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/service_info.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="ServiceInfoSimple" position="0,0" size="1280,720" title="Choose bouquet" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="infolist" position="70,150" size="700,450" zPosition="3" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" selectionDisabled="1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/service_info.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="ExtensionsList" position="0,0" size="1280,720" title="ExtensionsList" flags="wfNoBorder" backgroundColor="transparent" ignoreWidgets="text">
 		<eLabel text="Please choose an extension..." position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,100" size="700,490" font="epg_event;29" zPosition="3" itemHeight="35" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
-		<ePixmap position="890,170" size="256,256" pixmap="icons/menu_mainmenu_pluginmanager.png" transparent="1" alphatest="blend" />
 		<eLabel text="Extensions" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="EventView" position="0,0" size="1280,720" title="Eventview" flags="wfNoBorder" backgroundColor="transparent">
 		<!--eLabel text="Eventview" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /-->
@@ -2448,13 +2534,13 @@ if len(listitems.list) &gt; 2:
 	<!-- Eventview Contextmenu -->
 	<screen name="EventViewContextMenu" position="0,0" size="1280,720" title="Eventview Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="CONTEXTMENU2_textTitle_template" />
-		<ePixmap position="305,80" size="256,256" pixmap="icons/service_info.png" alphatest="blend" />
+		<widget name="Image" position="305,80" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 		<eLabel text="Eventview menu" position="5,555" size="1280,180" font="global_large_menu;90" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 	</screen>
 	<!-- Channellist Contextmenu -->
 	<screen name="ChannelContextMenu" position="0,0" size="1280,720" title="Channel Selection Context Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="CONTEXTMENU2_textTitle_template" />
-		<ePixmap position="305,80" size="256,256" pixmap="icons/service_info.png" alphatest="blend" />
+		<widget name="Image" position="305,80" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 		<eLabel text="Channel Selection Context Menu" position="5,555" size="1280,180" font="global_large_menu;90" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 	</screen>
 	<!-- Subtitle -->
@@ -2482,7 +2568,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="T_Col_B_A" />
 		<panel name="ioe-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_scan_tuner_setup.png" transparent="1" alphatest="blend" />	
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="NimSetup" position="0,0" size="1280,720" title="Reception Settings" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -2491,7 +2577,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_scan_tuner_setup.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="ScanSetup" position="0,0" size="1280,720" title="Service scan" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />	
@@ -2500,7 +2586,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_scan_manual_scan.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="ScanSimple" position="0,0" size="1280,720" title="Service scan" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -2509,7 +2595,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_scan_auto_scan.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="SelectSatsEntryScreen" position="0,0" size="1280,720" title="Select Sats Entry" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -2518,7 +2604,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_scan_tuner_setup.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="PositionerSetup" position="0,0" size="1280,720" title="Positioner setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
@@ -2544,23 +2630,23 @@ if len(listitems.list) &gt; 2:
 		<widget name="fec_value" position="650,510" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<eLabel text="Polarisation:" position="490,545" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="polarisation" position="650,545" size="150,25" font="SetrixHD;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_scan_positioner_setup.png" transparent="1" alphatest="blend" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="ioe-buttons_template1" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="PositionerSetupLog" position="0,0" size="1280,720" title="Positioner Setup Log" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<panel name="T_Title" />
 		<widget name="list" position="70,100" size="700,510" enableWrapAround="1" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_scan_positioner_setup.png" transparent="1" alphatest="blend" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="TunerScreen" position="0,0" size="1280,720" title="Tune" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<panel name="T_Title" />
 		<widget name="config" position="70,100" size="700,510" enableWrapAround="1" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" zPosition="1" transparent="1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_scan_positioner_setup.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<screen name="Satfinder" position="0,0" size="1280,720" title="Satfinder" flags="wfNoBorder" backgroundColor="transparent">
@@ -2601,7 +2687,7 @@ if len(listitems.list) &gt; 2:
 		<eLabel position="70,260" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="120,270" size="600,360" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget name="introduction" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<ePixmap pixmap="icons/menu_scan_satfinder.png" position="890,170" size="256,256" zPosition="4" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
@@ -2632,7 +2718,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_search" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- Common Interface -->
 	<screen name="CiSelection" position="0,0" size="1280,720" title="Common Interface" flags="wfNoBorder" backgroundColor="transparent">
@@ -2642,7 +2728,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="entries" position="70,165" size="700,450" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_ci_selection.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="MMIDialog" position="0,0" size="1280,720" title="Common Interface" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="subtitle" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2653,7 +2739,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="bottom" position="70,597" size="700,32" font="SetrixHD;24" halign="center" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_camd" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="CIselectMainMenu" position="0,0" size="1280,720" title="CI Assignment" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="CIselectMainMenu" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2661,7 +2747,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_setup_ci.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="CIconfigMenu" position="0,0" size="1280,720" title="CI Assignment" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="CIconfigMenu" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2675,7 +2761,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_camd" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="easyCIconfigMenu" position="0,0" size="1280,720" title="CI Assignment" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="easyCIconfigMenu" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2686,7 +2772,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_camd" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="CAidSelect" position="0,0" size="1280,720" title="select CAId's" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="select CAId's" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2695,7 +2781,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_camd" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="myProviderSelection" position="0,0" size="1280,720" title="Select provider to add..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Select provider to add..." position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2704,7 +2790,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_camd" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="myChannelSelection" position="0,0" size="1280,720" title="Select service to add..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Select service to add..." position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2713,7 +2799,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_camd" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- Softwaremanager -->
 	<screen name="SoftwareManagerInfo" position="0,0" size="1280,720" title="SoftwareManager information" flags="wfNoBorder" backgroundColor="transparent">
@@ -2732,7 +2818,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_info" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="PluginBrowser" position="0,0" size="1280,720" title="Plugin browser" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -2744,7 +2830,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="T_Col_B_A" />
 		<eLabel text="Extensions" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<panel name="_me-buttons_template1" />
-		<panel name="T_Pix_pluginmgr" />
+		<panel name="T_Img_Logo" />
 	</screen>
 
 	<screen name="PluginBrowserList" position="0,0" size="1280,720" title="Plugin browser" flags="wfNoBorder" backgroundColor="transparent">
@@ -2766,7 +2852,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="T_Col_B_A" />
 		<eLabel text="Extensions" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<panel name="_me-buttons_template1" />
-		<panel name="T_Pix_pluginmgr" />
+		<panel name="T_Img_Logo" />
 		<widget name="quickselect" position="50,80" size="760,525" backgroundColor="text-background" foregroundColor="background-text" font="global_large_screen;100" halign="center" transparent="1" valign="center" zPosition="5" />
 	</screen>
 
@@ -2822,7 +2908,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="T_Col_B_A" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_pluginmgr" />
+		<panel name="T_Img_Logo" />
 		<widget name="quickselect" position="50,80" size="760,525" backgroundColor="text-background" foregroundColor="background-text" font="global_large_screen;100" halign="center" transparent="1" valign="center" zPosition="5" />
 	</screen>
 
@@ -2835,7 +2921,7 @@ if len(listitems.list) &gt; 2:
 		</widget>
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_pluginmgr" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="SoftwarePanel" position="0,0" size="1280,720" title="SoftwarePanel" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -2863,7 +2949,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="feedstatusRED" position="1043,91" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
 		<widget name="feedstatusYELLOW" position="1043,123" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
 		<widget name="feedstatusGREEN" position="1043,155" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
-		<panel name="T_Pix_swupdate" />
+		<panel name="T_Img_Logo" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="__e-buttons_template1" />
@@ -2896,7 +2982,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="feedstatus_red" position="1043,91" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
 		<widget name="feedstatus_yellow" position="1043,123" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
 		<widget name="feedstatus_green" position="1043,155" size="200,30" zPosition="1" font="Regular;25" halign="left" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
-		<panel name="T_Pix_swupdate" />
+		<panel name="T_Img_Logo" />
 		<panel name="template1_2layer" />
 		<panel name="T_Col_B_A" />
 		<panel name="__e-buttons_template1" />
@@ -2906,7 +2992,7 @@ if len(listitems.list) &gt; 2:
 		<eLabel text="Software Update" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 		<widget name="activity" position="70,120" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
 		<widget name="update" position="70,160" size="700,426" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" scrollbarMode="showOnDemand"/>
-		<panel name="T_Pix_swupdate" />
+		<panel name="T_Img_Logo" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
@@ -2917,7 +3003,7 @@ if len(listitems.list) &gt; 2:
 		<widget source="package" render="Label" position="70,280" size="700,30" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget source="status" render="Label" position="70,330" size="700,30" font="Regular;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="slider" position="70,460" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
-		<panel name="T_Pix_swupdate" />
+		<panel name="T_Img_Logo" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
@@ -2926,7 +3012,7 @@ if len(listitems.list) &gt; 2:
 		<widget source="description" render="Label" position="70,50" size="700,150" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
 		<eLabel position="70,170" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,180" size="700,396" transparent="0" zPosition="1" font="screen_text;20" itemHeight="36" scrollbarMode="showOnDemand"/>
-		<ePixmap position="890,170" size="256,256" zPosition="10" pixmap="icons/swm.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
@@ -2939,7 +3025,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/safe.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="Opkg" position="0,0" size="1280,720" title="Installing Software..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -2951,7 +3037,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="__e-buttons_template1" />
-		<panel name="T_Pix_paket" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="IpkgInstaller" position="0,0" size="1280,720" title="..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="IpkgInstaller" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2960,7 +3046,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_paket" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="IPKGMenu" position="0,0" size="1280,720" title="Select IPKG source....." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="IPKGMenu" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2968,7 +3054,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_paket" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="IPKGSource" position="0,0" size="1280,720" title="IPKG source" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="IPKGSource" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2976,7 +3062,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_1layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<!--panel name="_oe-buttons_template1" /-->
-		<ePixmap position="500,300" size="256,256" zPosition="2" pixmap="icons/paket.png" transparent="1" alphatest="blend" />
+		<widget name="Image" position="500,300" size="256,256" font="MetrixLogos;250" noWrap="1" transparent="1" foregroundColor="layer-b-foreground" valign="center" halign="center" />
 	</screen>
 	<screen name="PacketManager" position="0,0" size="1280,720" title="PacketManager" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="PacketManager" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -2996,7 +3082,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_paket" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="PluginDetails" position="0,0" size="1280,720" title="Plugin details" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Plugin details" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -3008,7 +3094,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_pluginmgr" />
+		<panel name="T_Img_Logo" />
 		<widget name="divpic" position="0,0" size="0,0" />
 	</screen>
 	<screen name="PluginManager" position="0,0" size="1280,720" title="Plugin manager" flags="wfNoBorder" backgroundColor="transparent">
@@ -3035,7 +3121,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_pluginmgr" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="PluginManagerInfo" position="0,0" size="1280,720" title="Plugin manager activity" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Plugin manager activity information" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -3055,7 +3141,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_pluginmgr" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="PluginManagerHelp" position="0,0" size="1280,720" title="Plugin manager help" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Plugin manager help" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -3075,7 +3161,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_pluginmgr" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="RestoreMenu" position="0,0" size="1280,720" title="Restore Backups" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Restore backups" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -3083,7 +3169,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_pluginmgr" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="RestoreMenuImage" position="0,0" size="1280,720" title="Restore Backups" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Restore Backups" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -3091,7 +3177,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_pluginmgr" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="UpdatePluginMenu" position="0,0" size="1280,720" title="Softwaremanager..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
@@ -3117,13 +3203,13 @@ if len(listitems.list) &gt; 2:
 			</convert>
 		</widget>
 		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/swm.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 		<panel name="_me-buttons_template1" />
 	</screen>
 	<screen name="RestorePlugins" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
 		<eLabel text="Restore Plugins" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<panel name="T_Pix_pluginmgr" />
+		<panel name="T_Img_Logo" />
 		<widget source="menu" render="Listbox" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" scrollbarMode="showOnDemand" transparent="1">
 			<convert type="TemplatedMultiContent">
 				{"template": [
@@ -3144,6 +3230,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="OPEN_SOURCE_INFO" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="DeviceBrowser" position="0,0" size="1280,720" title="Please select target medium" flags="wfNoBorder" backgroundColor="transparent">
 		<widget source="message" render="Label" position="825,520" size="380,30" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
@@ -3151,6 +3238,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="OPEN_SOURCE_INFO" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="RestartNetwork" position="center,center" size="680,140" title="Restart Network Adapter" flags="wfNoBorder" backgroundColor="layer-a-background">
 		<ePixmap name="InfoPixmap" pixmap="icons/message/info-53.png" position="8,8" size="53,53" alphatest="blend" />
@@ -3189,7 +3277,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="moe-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/imdb.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>	
 	<!-- E2 Bookmarks -->
 	<screen name="LocationBox" position="0,0" size="1280,720" title="Location Box" flags="wfNoBorder" backgroundColor="transparent">
@@ -3208,7 +3296,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="moe-buttons_template1" />
 		<widget name="quickselect" position="50,80" size="760,525" backgroundColor="text-background" foregroundColor="background-text" font="global_large_screen;100" halign="center" transparent="1" valign="center" zPosition="+1" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- Button Setup -->
 	<screen name="ButtonSetup" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
@@ -3220,7 +3308,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="T_Desc_810" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_osd_menu_user_interface.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="ButtonSetupSelect" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="ButtonSetup" />
@@ -3235,7 +3323,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" /> 
 		<panel name="_oe-buttons_template1" /> 
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_scan_autobouquetsmakermaker.png" transparent="1" alphatest="blend" /> 
+		<panel name="T_Img_Logo" /> 
 	</screen> 
 	<screen name="LogManagerViewLog" position="0,0" size="1308,720" flags="wfNoBorder" backgroundColor="transparent"> 
 		<eLabel text="Log-Manager - View Log" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" /> 
@@ -3256,7 +3344,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="yellow" position="436,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<widget name="blue" position="619,638" size="170,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" transparent="1" />
 		<panel name="_oe-buttons_template1" /> 
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_scan_autobouquetsmakermaker.png" transparent="1" alphatest="blend" /> 
+		<panel name="T_Img_Logo" /> 
 	</screen> 
 	<!--CI+-Helper /-->
 	<screen name="CIHelper" title="CIHelper Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
@@ -3276,7 +3364,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="moe-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_ci_cihelper_setup.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="CIHelperSetup" title="CIHelper Setup" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
@@ -3284,7 +3372,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="config" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/menu_ci_cihelper_setup.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!--UserInterfacePositioner2 /-->
 	<screen name="UserInterfacePositioner2" position="0,0" size="1280,720" backgroundColor="layer-a-background" flags="wfNoBorder" title="OSD Adjustment" >
@@ -3330,7 +3418,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="config" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
 		<widget name="introduction" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
-		<panel name="T_Pix_search" />
+		<panel name="T_Img_Logo" />
 		<ePixmap position="995,420" size="64,64" zPosition="3" pixmap="skin_default/icons/scan-c.png"  transparent="1" alphatest="blend" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
@@ -3341,7 +3429,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="scan_progress" position="70,150" size="700,20" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" borderWidth="2" transparent="1" />
 		<widget name="frontend" position="995,420" size="64,64" zPosition="3" pixmap="skin_default/icons/scan-c.png"  transparent="1" alphatest="blend" />
 		<panel name="template1_2layer" />
-		<panel name="T_Pix_search" />
+		<panel name="T_Img_Logo" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
 	<!--AutoDiseqc /-->
@@ -3367,7 +3455,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="mhe-buttons_template1" />
 		<panel name="template1_2layer" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 
 	<!--TextBox /-->
@@ -3640,7 +3728,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- Wizard Screens -->
 	<!-- DVDPlayer -->
@@ -3650,7 +3738,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="filelist" position="70,100" size="700,480" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/dvd.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="DVDPlayer" position="0,0" size="1280,720" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel name="GRADIENT_BACKGROUND" position="0,640" zPosition="-2" size="1280,80" backgroundColor="infobarbackground" />
@@ -3772,7 +3860,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="moe-buttons_template1" />
-		<panel name="T_Pix_bluetooth" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="btscan" >
 		<panel name="T_Title" />
@@ -3792,7 +3880,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_bluetooth" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="BluetoothDiscoveryScreen" position="0,0" size="1280,720" title="Bluetooth Scan" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="btscan"/>
@@ -3802,7 +3890,7 @@ if len(listitems.list) &gt; 2:
 	</screen>
 	<screen name="BluetoothSetupConfig" position="0,0" size="1280,720" title="Bluetooth Setup Options" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="setup_common"/>
-		<panel name="T_Pix_bluetooth" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- Bluetooth Setup -->
 	<screen name="VuRcuOtaUpdate" position="0,0" size="1280,720" title="VU RCU OTA Update" flags="wfNoBorder" backgroundColor="transparent">
@@ -3819,13 +3907,13 @@ if len(listitems.list) &gt; 2:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_bluetooth" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- RemoteControlCode -->
 	<screen name="RemoteControlCode" position="0,0" size="1280,720" title="Position Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="setup_common"/>
 		<panel name="T_Title" />
-		<ePixmap position="890,170" size="256,256" zPosition="2" pixmap="icons/remotecontrol.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- RemoteControlCode -->
 	<!-- Screensaver -->
@@ -3847,7 +3935,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="rgyb-buttons_template1" />
 		<panel name="ime-buttons_template1" />
 		<panel name="template1_2layer" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="dBackupConfiguration" position="0,0" size="1280,720" title="dBackup Configuration" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -3860,7 +3948,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="rgyb-buttons_template1" />
 		<panel name="_oe-buttons_template1" />
 		<panel name="template1_2layer" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="dBackupChecking" position="0,0" size="1280,720" title="choose NAND Flash Check" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -3873,7 +3961,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="rgyb-buttons_template1" />
 		<panel name="_oe-buttons_template1" />
 		<panel name="template1_2layer" />
-		<panel name="T_Pix_setup" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="dBackupAbout" position="0,0" size="1280,720" title="About dBackup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -3886,7 +3974,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="rg__-buttons_template1" />
 		<panel name="_oe-buttons_template1" />
 		<panel name="template1_2layer" />
-		<panel name="T_Pix_info" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- dBackup -->
 	<!-- Videmode -->
@@ -3903,7 +3991,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="ScrollLabel2" position="70,185" size="700,390" font="Regular;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" zPosition="1" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_info" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- StreamingClientsInfo -->
 	<!-- TaskListScreen -->
@@ -3925,7 +4013,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Pix_info" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- TaskListScreen -->
 	<!-- Multiboot Selector -->
@@ -3934,7 +4022,7 @@ if len(listitems.list) &gt; 2:
 		<widget source="description" render="Label" position="70,50" size="700,150" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
 		<eLabel position="70,170" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,180" size="700,390" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
-		<ePixmap position="890,170" size="256,256" zPosition="10" pixmap="icons/restart.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 		<widget source="options" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
@@ -3947,7 +4035,7 @@ if len(listitems.list) &gt; 2:
 		<widget source="description" render="Label" position="70,50" size="700,150" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
 		<eLabel position="70,170" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,180" size="700,390" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
-		<ePixmap position="890,170" size="256,256" zPosition="10" pixmap="icons/menu_system_usage_setup.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 		<widget source="options" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
@@ -3958,7 +4046,7 @@ if len(listitems.list) &gt; 2:
 	<screen name="MultiBootManager" position="0,0" size="1280,720" title="Multiboot Image Manager" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="slotlist" position="70,100" size="700,396" itemHeight="36" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
-		<ePixmap position="890,145" size="256,256" zPosition="10" pixmap="icons/restart.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 		<panel name="T_Desc_810" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
@@ -3967,7 +4055,7 @@ if len(listitems.list) &gt; 2:
 	<screen name="KexecInit" position="0,0" size="1280,720" title="Kexec MultiBoot Manager" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<!--<widget name="slotlist" position="70,100" size="700,390" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>-->
-		<ePixmap position="890,145" size="256,256" zPosition="10" pixmap="icons/restart.png" transparent="1" alphatest="blend" />
+		<panel name="T_Img_Logo" />
 		<panel name="T_Desc_810" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_2layer" />
@@ -3978,7 +4066,7 @@ if len(listitems.list) &gt; 2:
 	<screen name="SoftcamSetup" position="0,0" size="1280,720" title="Softcam Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="info" position="80,260" size="700,320" font="screen_text;19" zPosition="+2" backgroundColor="layer-a-background" transparent="1"  />
 		<panel name="setup_common"/>
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- SoftcamSetup -->
 	<!-- IceTV -->
@@ -3997,7 +4085,7 @@ if len(listitems.list) &gt; 2:
 		<widget source="instructions" render="Label" position="70,100" size="700,200" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
 		<eLabel position="70,320" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
 		<widget name="menu" position="70,340" size="700,100" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
 	</screen>
@@ -4006,7 +4094,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="instructions" position="70,100" size="700,200" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
 		<eLabel position="70,300" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,320" size="700,200" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 		<panel name="T_Desc_810" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -4018,7 +4106,7 @@ if len(listitems.list) &gt; 2:
 		<eLabel position="70,300" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,320" size="700,300" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
 		<widget name="error" position="70,320" size="700,300" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 		<panel name="T_Desc_810" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -4030,7 +4118,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="message" position="70,460" size="700,170" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
 		<widget name="qrcode" position="270,200" size="256,256" pixmap="/usr/lib/enigma2/python/Plugins/SystemPlugins/IceTV/qr_code.png" zPosition="1" />
 		<widget name="error" position="70,320" size="700,300" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 		<panel name="T_Desc_810" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -4041,7 +4129,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="instructions" position="70,100" size="700,200" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1"/>
 		<eLabel position="70,300" size="700,1" zPosition="1" backgroundColor="layer-a-accent1" />
 		<widget name="config" position="70,320" size="700,150" itemHeight="35" zPosition="1" font="screen_text;20" scrollbarMode="showOnDemand"/>
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 		<panel name="T_Desc_810" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
@@ -4054,7 +4142,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="text" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
-		<panel name="T_Img" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="IceTVLogView" backgroundColor="background" position="0,50" size="1280,670" title="Log">
 		<widget name="text" font="Console;18"  position="0,4" size="1280,664"/>
@@ -4107,329 +4195,511 @@ if len(listitems.list) &gt; 2:
 
 	<!-- Setups -->
 <!-- cf#_#stop -->
-	<setups>
-		<setup key="default" image="icons/setup.png" />
-		<setup key="Recording" image="icons/menu_extended_recording_setup.png" />
-		<setup key="Timeshift" image="icons/menu_extended_timshift_setup.png" />
-		<setup key="Usage" image="icons/menu_system_usage_setup.png" />
-		<setup key="Subtitle" image="icons/menu_extended_subtitle_setup.png" />
-		<setup key="AutoLanguage" image="icons/menu_system_autolanguage_setup.png" />
-		<setup key="UserInterface" image="icons/menu_osd_menu_user_interface.png" />
-		<setup key="RemoteButton" image="icons/menu_system_remote_setup.png" />
-		<setup key="ChannelSelection" image="icons/menu_system_channelselection_setup.png" />
-		<setup key="Display" image="icons/menu_display_display_setup.png" />
-		<setup key="Keyboard" image="icons/menu_extended_keyboard.png" />
-		<setup key="EPGMulti" image="icons/menu_epg_setup_epgmulti.png" />
-		<setup key="EPGEnhanced" image="icons/menu_epg_setup_epgenhanced.png" />
-		<setup key="EPGInfobar" image="icons/menu_epg_setup_epginfobar.png" />
-		<setup key="EPGInfobarGraphical" image="icons/menu_epg_setup_epginfobargraphical.png" />
-		<setup key="EPGGraphical" image="icons/menu_epg_setup_epggraphical.png" />
-		<setup key="EPGVertical" image="icons/menu_epg_setup_epgmulti.png" />
-		<setup key="EPG" image="icons/menu_epg_epg_setup.png" />
-		<setup key="HardDisk" image="icons/hdd.png" />
-		<setup key="Time" image="icons/menu_extended_time_setup.png" />
-		<setup key="Logs" image="icons/menu_extended_logs_setup.png" />
-		<setup key="dvdplayer" image="icons/menu_extended_dvdplayer_setup.png" />
-		<setup key="SpecialFeatures" image="icons/menu_extended_specialfeatures_menu.png" />
-		<setup key="OSD3D" image="icons/menu_osd_menu_osd3dsetup.png" />
-		<setup key="OscamInfo" image="icons/softcam.png" />
-		<setup key="HDMICEC" image="icons/hdmicec.png" />
-		<setup key="Audio" image="icons/audio.png" />
-		<setup key="SleepTimer" image="icons/power_timer.png" />
-		<setup key="VolumeAdjust" image="icons/menu_system_AutomaticVolumeAdjustment.png" />
-		<setup key="Tuner" image="icons/menu_tuner_basic_settings.png" />
-		<setup key="CISettings" image="icons/menu_ci_settings.png" />
-		<setup key="RecordTimer" image="icons/menu_timermenu_timers.png" />
-		<setup key="PowerTimer" image="icons/menu_timermenu_powertimers.png" />
-		<setup key="Scheduler" image="icons/menu_timermenu_powertimers.png" />
-		<setup key="Playback" image="icons/menu_extended_playback_setup.png" />
-		<setup key="BirthdayReminderSettings" image="icons/bday.png" />
-		<setup key="EditBirthdaySetting" image="icons/bday.png" />
-		<setup key="CiSelection" image="icons/menu_ci_selection.png" />
-		<setup key="AutoCam" image="icons/menu_softcam_settings.png" />
-		<setup key="Cardserver" image="icons/menu_softcam_settings.png" />
-		<setup key="StreamRelay" image="icons/menu_softcam_settings.png" />
-		<setup key="EPGJumpTime" image="icons/timer.png" />
-		<setup key="InstantRecordingEndTime" image="icons/timer.png" />
-		<setup key="Softcam" image="icons/menu_softcam_settings.png" />
-		<setup key="NetworkServicesSetup" image="icons/net.png" />
-		<setup key="NetworkInadynSetup" image="icons/menu_network_Inadyn_setup.png" />
-		<setup key="NetworkMiniDLNASetup" image="icons/menu_network_minidlna_setup.png" />
-		<setup key="NetworkuShareSetup" image="icons/menu_network_netushare_setup.png" />
-		<setup key="NetworkSambaSetup" image="icons/menu_network_netsmba_setup.png" />
-		<setup key="Password" image="icons/menu_network_passwd_setup.png" />
-		<setup key="FileCommander" image="icons/filecom.png"/>
-		<setup key="StorageDeviceAction" image="icons/menu_harddisk_harddisk_init.png"/>
-		<setup key="DeviceManagerMountPoints" image="icons/menu_harddisk_harddisk_setup.png"/>
-		<setup key="Picon" image="icons/menu_osd_menu_picon_setup.png"/>
-	</setups>
-
 	<menus>
-		<menu key="default" image="icons/default.png" />
-		<menu key="animation_setup" image="icons/usage_setup.png" />
-		<menu key="audio_menu" image="icons/menu_setup_audio.png" />
-		<menu key="audio_setup" image="icons/menu_setup_audio.png" />
-		<menu key="auto_scan" image="icons/menu_scan_auto_scan.png" />
-		<menu key="autobouquetsmakermaker" image="icons/menu_scan_autobouquetsmakermaker.png" />
-		<menu key="autolanguage_setup" image="icons/menu_system_autolanguage_setup.png" />
-		<menu key="AutomaticVolumeAdjustment" image="icons/menu_system_AutomaticVolumeAdjustment.png" />
-		<menu key="autores_setup" image="icons/menu_system_autores_setup.png" />
-		<menu key="autotimer_setup" image="icons/menu_timermenu_autotimers.png" />
-		<menu key="av_setup" image="icons/menu_system_av_setup.png" />
-		<menu key="blindscan" image="icons/menu_scan_blindscan.png" />
-		<menu key="bluetooth_setup" image="icons/bluetooth.png" />
-		<menu key="build_info_screen" image="icons/menu_information_device.png" />
-		<menu key="buttonsetup_setup" image="icons/menu_osd_menu_buttonsetup.png" />
-		<menu key="cablescan" image="icons/search.png" />
-		<menu key="channelselection_setup" image="icons/menu_system_channelselection_setup.png" />
-		<menu key="Chromium Plugin" image="icons/browser.png" />
-		<menu key="ci_assign" image="icons/menu_setup_ci.png" />
-		<menu key="ci_setup" image="icons/menu_setup_ci.png" />
-		<menu key="crontimer_edit" image="icons/menu_timermenu_crontimers.png" />
-		<menu key="Dazn" image="icons/dazn.png" />
-		<menu key="deep_standby" image="icons/power_off.png" />
-		<menu key="deleteepgcache" image="icons/menu_epgloadsave_menu_deleteepgcache.png" />
-		<menu key="device_screen" image="icons/menu_information_device.png" />
-		<menu key="device_setup" image="icons/menu_network_device_setup.png" />
-		<menu key="Disney Plugin" image="icons/disney.png" />
-		<menu key="display_setup" image="icons/menu_display_display_setup.png" />
-		<menu key="dmc_mainmenu" image="icons/menu_mainmenu_dmc_mainmenu.png" />
-		<menu key="dreamplex" image="icons/plex.png" />
-		<menu key="dual_mode" image="icons/dualmode.png" />
-		<menu key="dvd_player" image="icons/dvd.png" />
-		<menu key="dvdplayer_setup" image="icons/menu_extended_dvdplayer_setup.png" />
-		<menu key="emc" image="icons/emc.png" />
-		<menu key="epg_setup" image="icons/menu_epg_epg_setup.png" />
-		<menu key="epgimporter" image="icons/menu_epgloadsave_menu_loadepgcache.png" />
-		<menu key="epgloadsave_menu" image="icons/menu_epg_epgloadsave_menu.png" />
-		<menu key="epgrefresh" image="icons/menu_epg_refresh.png" />
-		<menu key="factory_reset" image="icons/menu_setup_reset.png" />
-		<menu key="fansetup_config" image="icons/fan.png" />
-		<menu key="fastscan" image="icons/menu_scan_fast_scan.png" />
-		<menu key="FCCSetup" image="icons/fcc.png" />
-		<menu key="filecommand" image="icons/filecom.png" />
-		<menu key="googlemaps" image="icons/google.png" />
-		<menu key="harddisk_check" image="icons/menu_harddisk_harddisk_check.png" />
-		<menu key="harddisk_convert" image="icons/menu_harddisk_harddisk_convert.png" />
-		<menu key="harddisk_init" image="icons/menu_harddisk_harddisk_init.png" />
-		<menu key="harddisk_setup" image="icons/menu_harddisk_harddisk_setup.png" />
-		<menu key="Hardreset" image="icons/restart.png" />
-		<menu key="hdmicec" image="icons/menu_extended_hdmicec.png" />
-		<menu key="hdmirecord_setup" image="icons/menu_extended_hdmirecord_setup.png" />
-		<menu key="Inadyn_setup" image="icons/menu_network_Inadyn_setup.png" />
-		<menu key="Infopanel" image="icons/menu_information_about.png" />
-		<menu key="input_device_setup" image="icons/menu_extended_input_device_setup.png" />
-		<menu key="ipbox_client_Start" image="icons/menu_scan_streamconvert.png" />
-		<menu key="IPTV Bouquet Maker" image="icons/menu_mainmenu_pluginmanager.png" />
-		<menu key="iptv_config" image="icons/setup.png" />
-		<menu key="iptv_main" image="icons/pplayer.png" />
-		<menu key="keyboard" image="icons/menu_extended_keyboard.png" />
-		<menu key="keymap" image="icons/menu_extended_input_device_setup.png" />
-		<menu key="lcd4linux" image="icons/menu_display_lcd_skin_setup.png" />
-		<menu key="lcd_skin_setup" image="icons/menu_display_lcd_skin_setup.png" />
-		<menu key="LED_Giga" image="icons/menu_display_LED_Giga.png" />
-		<menu key="ledManager" image="icons/led.png" />
-		<menu key="loadepgcache" image="icons/menu_epgloadsave_menu_loadepgcache.png" />
-		<menu key="locale_setup" image="icons/menu_system_language_setup.png" />
-		<menu key="logs_setup" image="icons/menu_extended_logs_setup.png" />
-		<menu key="maintenance_mode" image="icons/usage_setup.png" />
-		<menu key="manual_scan" image="icons/menu_scan_manual_scan.png" />
-		<menu key="media_player" image="icons/media.png" />
-		<menu key="merlin_music_player" image="icons/music.png" />
-		<menu key="minidlna_setup" image="icons/menu_network_minidlna_setup.png" />
-		<menu key="mount_manager" image="icons/menu_extended_hardisk_selection.png" />
-		<menu key="moviebrowser" image="icons/service_info.png" />
-		<menu key="multi_quick" image="icons/remotecontrol.png" />
-		<menu key="Netflix Plugin" image="icons/menu_mainmenu_netflix.png" />
-		<menu key="netmounts_setup" image="icons/menu_network_netmounts_setup.png" />
-		<menu key="netushare_setup" image="icons/menu_network_netushare_setup.png" />
-		<menu key="netsamba_setup" image="icons/menu_network_netsmba_setup.png" />
-		<menu key="numzapext_setup" image="icons/menu_numzapext_setup.png" />
-		<menu key="OpenStore" image="icons/menu_mainmenu_openstore.png" />
-		<menu key="openwebif" image="icons/menu_network_webif.png" />
-		<menu key="osdsetup" image="icons/menu_osd_menu_osdsetup.png" />
-		<menu key="parental_setup" image="icons/menu_setup_parental.png" />
-		<menu key="password_setup" image="icons/menu_network_passwd_setup.png" />
-		<menu key="permanent_clock" image="icons/menu_extended_time_setup.png" />
-		<menu key="pip_setup" image="icons/setup.png" />
-		<menu key="picon_setup" image="icons/menu_osd_menu_picon_setup.png" />
-		<menu key="play_cd" image="icons/dvd.png" />
-		<menu key="playback_setup" image="icons/menu_extended_playback_setup.png" />
-		<menu key="plugin_selection" image="icons/menu_mainmenu_pluginmanager.png" />
-		<menu key="pluginhider_setup" image="icons/menu_mainmenu_pluginhider.png" />
-		<menu key="positioner_setup" image="icons/menu_scan_positioner_setup.png" />
-		<menu key="powertimer_edit" image="icons/menu_timermenu_powertimers.png" />
-		<menu key="PrimeVideo" image="icons/prime.png" />
-		<menu key="pvmc_mainmenu" image="icons/pvmc.png" />
-		<menu key="RCU Select" image="icons/remotecontrol.png" />
-		<menu key="recording_setup" image="icons/menu_extended_recording_setup.png" />
-		<menu key="remote_setup" image="icons/menu_system_remote_setup.png" />
-		<menu key="remotecode" image="icons/menu_extended_remotecode.png" />
-		<menu key="remotecontrolcode" image="icons/remotecontrol.png" />
-		<menu key="remotetimer" image="icons/menu_timermenu_timers.png" />
-		<menu key="restart" image="icons/restart.png" />
-		<menu key="restart_enigma" image="icons/reboot.png" />
-		<menu key="rfmod_setup" image="icons/menu_extended_rfmod_setup.png" />
-		<menu key="run_kodi" image="icons/menu_kodi.png" />
-		<menu key="sat_ip_client" image="icons/menu_scan_satip.png" />
-		<menu key="satellite_equipment_setup" image="icons/setup.png" />
-		<menu key="satfinder" image="icons/menu_scan_satfinder.png" />
-		<menu key="saveepgcache" image="icons/menu_epgloadsave_menu_saveepgcache.png" />
-		<menu key="scart_switch" image="icons/menu_mainmenu_scart.png" />
-		<menu key="script_manager" image="icons/menu_setup_software_manager.png" />
-		<menu key="serviceapp_setup" image="icons/pplayer.png" />
-		<menu key="setup_epgenhanced" image="icons/menu_epg_setup_epgenhanced.png" />
-		<menu key="setup_epggraphical" image="icons/menu_epg_setup_epggraphical.png" />
-		<menu key="setup_epginfobar" image="icons/menu_epg_setup_epginfobar.png" />
-		<menu key="setup_epginfobargraphical" image="icons/menu_epg_setup_epginfobargraphical.png" />
-		<menu key="setup_epgmulti" image="icons/menu_epg_setup_epgmulti.png" />
-		<menu key="setup_epgvertical" image="icons/menu_epg_setup_epgmulti.png" />
-		<menu key="setup_osd3d" image="icons/menu_osd_menu_osd3dsetup.png" />
-		<menu key="shutdown" image="icons/power_off.png" />
-		<menu key="skin_setup" image="icons/menu_osd_menu_skin_setup.png" />
-		<menu key="sleep" image="icons/power_timer.png" />
-		<menu key="specialfeatures_menu" image="icons/menu_extended_specialfeatures_menu.png" />
-		<menu key="Stalker Plugin" image="icons/portal.png" />
-		<menu key="standby" image="icons/power.png" />
-		<menu key="start_kodi" image="icons/menu_kodi.png" />
-		<menu key="startimport" image="icons/iptvimport.png" />
-		<menu key="startsetup" image="icons/alexa.png" />
-		<menu key="streamconvert" image="icons/menu_scan_streamconvert.png" />
-		<menu key="subtitle_selection" image="icons/sub.png" />
-		<menu key="subtitle_setup" image="icons/menu_extended_subtitle_setup.png" />
-		<menu key="sundtek_control_enter" image="icons/menu_mainmenu_pluginmanager.png" />
-		<menu key="supportchannel_YTChannel" image="icons/menu_information_supportchannel.png" />
-		<menu key="swap_manager" image="icons/menu_harddisk_ram.png" />
-		<menu key="tempfancontrol" image="icons/fan.png" />
-		<menu key="time_setup" image="icons/menu_extended_time_setup.png" />
-		<menu key="timer_edit" image="icons/menu_timermenu_timers.png" />
-		<menu key="timshift_setup" image="icons/menu_extended_timshift_setup.png" />
-		<menu key="tuner_screen" image="icons/menu_information_device.png" />
-		<menu key="tuner_setup" image="icons/menu_scan_tuner_setup.png" />
-		<menu key="usage_setup" image="icons/menu_system_usage_setup.png" />
-		<menu key="user_interface" image="icons/menu_osd_menu_user_interface.png" />
-		<menu key="vfd_ew" image="icons/menu_system_VFD_INI.png" />
-		<menu key="VFD_INI" image="icons/menu_system_VFD_INI.png" />
-		<menu key="video_clipping" image="icons/service_info.png" />
-		<menu key="video_finetune" image="icons/menu_system_videofinetune_setup.png" />
-		<menu key="video_menu" image="icons/service_info.png" />
-		<menu key="video_setup" image="icons/service_info.png" />
-		<menu key="videoenhancement_setup" image="icons/menu_system_videoenhancement_setup.png" />
-		<menu key="vmc_init_setup" image="icons/menu_setup_vmc_setup.png" />
-		<menu key="vmc_init_startvmc" image="icons/menu_mainmenu_vmc.png" />
-		<menu key="volume_adjust" image="icons/menu_system_AutomaticVolumeAdjustment.png" />
-		<menu key="vps" image="icons/menu_scan_streamconvert.png" />
-		<menu key="Weather_MSN" image="icons/weather.png" />
-		<menu key="webradioFS" image="icons/webradioFS.png" />
-		<menu key="wol_standby" image="icons/power_off.png" />
-		<menu key="XCplugin" image="icons/menu_mainmenu_pluginmanager.png" />
-		<menu key="XStreamity" image="icons/menu_mainmenu_pluginmanager.png" />
-		<menu key="youtubetv" image="icons/youtube.png" />
+		<menu key="default" image="&#xE906;" /> <!-- "icons/default.png" -->
+		<menu key="animation_setup" image="&#xE9BA;" /> <!-- "icons/usage_setup.png" -->
+		<menu keys="audio_menu,audio_setup" image="&#xE984;" /> <!-- "icons/menu_setup_audio.png" -->
+		<menu key="auto_scan" image="&#xE979;" /> <!-- "icons/menu_scan_auto_scan.png" -->
+		<menu key="autobouquetsmakermaker" image="&#xE97A;" /> <!-- "icons/menu_scan_autobouquetsmakermaker.png" -->
+		<menu key="autolanguage_setup" image="&#xE991;" /> <!-- "icons/menu_system_autolanguage_setup.png" -->
+		<menu key="AutomaticVolumeAdjustment" image="&#xE992;" /> <!-- "icons/menu_system_AutomaticVolumeAdjustment.png" -->
+		<menu key="autores_setup" image="&#xE993;" /> <!-- "icons/menu_system_autores_setup.png" -->
+		<menu key="autotimer_setup" image="&#xE99E;" /> <!-- "icons/menu_timermenu_autotimers.png" -->
+		<menu key="av_setup" image="&#xE994;" /> <!-- "icons/menu_system_av_setup.png" -->
+		<menu key="blindscan" image="&#xE97B;" /> <!-- "icons/menu_scan_blindscan.png" -->
+		<menu key="bluetooth_setup" image="&#xE903;" /> <!-- "icons/bluetooth.png" -->
+		<menu key="build_info_screen" image="&#xE94D;" /> <!-- "icons/menu_information_device.png" -->
+		<menu key="buttonsetup_setup" image="&#xE96F;" /> <!-- "icons/menu_osd_menu_buttonsetup.png" -->
+		<menu key="cablescan" image="&#xE9B4;" /> <!-- "icons/search.png" -->
+		<menu key="channelselection_setup" image="&#xE995;" /> <!-- "icons/menu_system_channelselection_setup.png" -->
+		<menu key="Chromium Plugin" image="&#xE904;" /> <!-- "icons/browser.png" -->
+		<menu keys="ci_assign,ci_setup" image="&#xE985;" /> <!-- "icons/menu_setup_ci.png" -->
+		<menu key="crontimer_edit" image="&#xE9A0;" /> <!-- "icons/menu_timermenu_crontimers.png" -->
+		<menu key="Dazn" image="&#xE905;" /> <!-- "icons/dazn.png" -->
+		<menu key="deep_standby" image="&#xE9AA;" /> <!-- "icons/power_off.png" -->
+		<menu key="deleteepgcache" image="&#xE92F;" /> <!-- "icons/menu_epgloadsave_menu_deleteepgcache.png" -->
+		<menu key="device_screen" image="&#xE94D;" /> <!-- "icons/menu_information_device.png" -->
+		<menu key="device_setup" image="&#xE95E;" /> <!-- "icons/menu_network_device_setup.png" -->
+		<menu key="Disney Plugin" image="&#xE907;" /> <!-- "icons/disney.png" -->
+		<menu key="display_setup" image="&#xE923;" /> <!-- "icons/menu_display_display_setup.png" -->
+		<menu key="dmc_mainmenu" image="&#xE952;" /> <!-- "icons/menu_mainmenu_dmc_mainmenu.png" -->
+		<menu key="dreamplex" image="&#xE9A8;" /> <!-- "icons/plex.png" -->
+		<menu key="dual_mode" image="&#xE908;" /> <!-- "icons/dualmode.png" -->
+		<menu key="dvd_player" image="&#xE909;" /> <!-- "icons/dvd.png" -->
+		<menu key="dvdplayer_setup" image="&#xE933;" /> <!-- "icons/menu_extended_dvdplayer_setup.png" -->
+		<menu key="emc" image="&#xE90A;" /> <!-- "icons/emc.png" -->
+		<menu key="epg_setup" image="&#xE927;" /> <!-- "icons/menu_epg_epg_setup.png" -->
+		<menu key="epgimporter" image="&#xE930;" /> <!-- "icons/menu_epgloadsave_menu_loadepgcache.png" -->
+		<menu key="epgloadsave_menu" image="&#xE928;" /> <!-- "icons/menu_epg_epgloadsave_menu.png" -->
+		<menu key="epgrefresh" image="&#xE929;" /> <!-- "icons/menu_epg_refresh.png" -->
+		<menu key="factory_reset" image="&#xE987;" /> <!-- "icons/menu_setup_reset.png" -->
+		<menu key="fansetup_config" image="&#xE90B;" /> <!-- "icons/fan.png" -->
+		<menu key="fastscan" image="&#xE97C;" /> <!-- "icons/menu_scan_fast_scan.png" -->
+		<menu key="FCCSetup" image="&#xE90C;" /> <!-- "icons/fcc.png" -->
+		<menu key="filecommand" image="&#xE90D;" /> <!-- "icons/filecom.png" -->
+		<menu key="googlemaps" image="&#xE90E;" /> <!-- "icons/google.png" -->
+		<menu key="harddisk_check" image="&#xE946;" /> <!-- "icons/menu_harddisk_harddisk_check.png" -->
+		<menu key="harddisk_convert" image="&#xE947;" /> <!-- "icons/menu_harddisk_harddisk_convert.png" -->
+		<menu key="harddisk_init" image="&#xE948;" /> <!-- "icons/menu_harddisk_harddisk_init.png" -->
+		<menu key="harddisk_setup" image="&#xE949;" /> <!-- "icons/menu_harddisk_harddisk_setup.png" -->
+		<menu keys="Hardreset,restart" image="&#xE9B3;" /> <!-- "icons/restart.png" -->
+		<menu key="hdmicec" image="&#xE936;" /> <!-- "icons/menu_extended_hdmicec.png" -->
+		<menu key="hdmirecord_setup" image="&#xE937;" /> <!-- "icons/menu_extended_hdmirecord_setup.png" -->
+		<menu key="Inadyn_setup" image="&#xE95F;" /> <!-- "icons/menu_network_Inadyn_setup.png" -->
+		<menu key="Infopanel" image="&#xE94C;" /> <!-- "icons/menu_information_about.png" -->
+		<menu key="input_device_setup" image="&#xE938;" /> <!-- "icons/menu_extended_input_device_setup.png" -->
+		<menu key="ipbox_client_Start" image="&#xE981;" /> <!-- "icons/menu_scan_streamconvert.png" -->
+		<menu keys="IPTV Bouquet Maker,plugin_selection,sundtek_control_enter,XCplugin,XStreamity" image="&#xE956;" /> <!-- "icons/menu_mainmenu_pluginmanager.png" -->
+		<menu key="iptv_config" image="&#xE9B6;" /> <!-- "icons/setup.png" -->
+		<menu key="iptv_main" image="&#xE9AD;" /> <!-- "icons/pplayer.png" -->
+		<menu key="keyboard" image="&#xE939;" /> <!-- "icons/menu_extended_keyboard.png" -->
+		<menu key="keymap" image="&#xE938;" /> <!-- "icons/menu_extended_input_device_setup.png" -->
+		<menu key="lcd4linux" image="&#xE924;" /> <!-- "icons/menu_display_lcd_skin_setup.png" -->
+		<menu key="lcd_skin_setup" image="&#xE924;" /> <!-- "icons/menu_display_lcd_skin_setup.png" -->
+		<menu key="LED_Giga" image="&#xE925;" /> <!-- "icons/menu_display_LED_Giga.png" -->
+		<menu key="ledManager" image="&#xE914;" /> <!-- "icons/led.png" -->
+		<menu key="loadepgcache" image="&#xE930;" /> <!-- "icons/menu_epgloadsave_menu_loadepgcache.png" -->
+		<menu key="locale_setup" image="&#xE997;" /> <!-- "icons/menu_system_language_setup.png" -->
+		<menu key="logs_setup" image="&#xE93A;" /> <!-- "icons/menu_extended_logs_setup.png" -->
+		<menu key="maintenance_mode" image="&#xE9BA;" /> <!-- "icons/usage_setup.png" -->
+		<menu key="manual_scan" image="&#xE97D;" /> <!-- "icons/menu_scan_manual_scan.png" -->
+		<menu key="media_player" image="&#xE915;" /> <!-- "icons/media.png" -->
+		<menu key="merlin_music_player" image="&#xE9A6;" /> <!-- "icons/music.png" -->
+		<menu key="minidlna_setup" image="&#xE961;" /> <!-- "icons/menu_network_minidlna_setup.png" -->
+		<menu key="mount_manager" image="&#xE935;" /> <!-- "icons/menu_extended_hardisk_selection.png" -->
+		<menu key="moviebrowser" image="&#xE9B5;" /> <!-- "icons/service_info.png" -->
+		<menu key="multi_quick" image="&#xE9B1;" /> <!-- "icons/remotecontrol.png" -->
+		<menu key="Netflix Plugin" image="&#xE953;" /> <!-- "icons/menu_mainmenu_netflix.png" -->
+		<menu key="netmounts_setup" image="&#xE964;" /> <!-- "icons/menu_network_netmounts_setup.png" -->
+		<menu key="netushare_setup" image="&#xE969;" /> <!-- "icons/menu_network_netushare_setup.png" -->
+		<menu key="netsamba_setup" image="&#xE967;" /> <!-- "icons/menu_network_netsmba_setup.png" -->
+		<menu key="numzapext_setup" image="&#xE96D;" /> <!-- "icons/menu_numzapext_setup.png" -->
+		<menu key="OpenStore" image="&#xE954;" /> <!-- "icons/menu_mainmenu_openstore.png" -->
+		<menu key="openwebif" image="&#xE96C;" /> <!-- "icons/menu_network_webif.png" -->
+		<menu key="osdsetup" image="&#xE971;" /> <!-- "icons/menu_osd_menu_osdsetup.png" -->
+		<menu key="parental_setup" image="&#xE986;" /> <!-- "icons/menu_setup_parental.png" -->
+		<menu key="password_setup" image="&#xE96B;" /> <!-- "icons/menu_network_passwd_setup.png" -->
+		<menu key="permanent_clock" image="&#xE942;" /> <!-- "icons/menu_extended_time_setup.png" -->
+		<menu key="pip_setup" image="&#xE9B6;" /> <!-- "icons/setup.png" -->
+		<menu key="picon_setup" image="&#xE972;" /> <!-- "icons/menu_osd_menu_picon_setup.png" -->
+		<menu key="play_cd" image="&#xE909;" /> <!-- "icons/dvd.png" -->
+		<menu key="playback_setup" image="&#xE93C;" /> <!-- "icons/menu_extended_playback_setup.png" -->
+		<menu key="pluginhider_setup" image="&#xE955;" /> <!-- "icons/menu_mainmenu_pluginhider.png" -->
+		<menu key="positioner_setup" image="&#xE97E;" /> <!-- "icons/menu_scan_positioner_setup.png" -->
+		<menu key="powertimer_edit" image="&#xE9A1;" /> <!-- "icons/menu_timermenu_powertimers.png" -->
+		<menu key="PrimeVideo" image="&#xE9AE;" /> <!-- "icons/prime.png" -->
+		<menu key="pvmc_mainmenu" image="&#xE9AF;" /> <!-- "icons/pvmc.png" -->
+		<menu key="RCU Select" image="&#xE9B1;" /> <!-- "icons/remotecontrol.png" -->
+		<menu key="recording_setup" image="&#xE93D;" /> <!-- "icons/menu_extended_recording_setup.png" -->
+		<menu key="remote_setup" image="&#xE999;" /> <!-- "icons/menu_system_remote_setup.png" -->
+		<menu key="remotecode" image="&#xE93E;" /> <!-- "icons/menu_extended_remotecode.png" -->
+		<menu key="remotecontrolcode" image="&#xE9B1;" /> <!-- "icons/remotecontrol.png" -->
+		<menu keys="remotetimer,timer_edit" image="&#xE9A2;" /> <!-- "icons/menu_timermenu_timers.png" -->
+		<menu key="restart_enigma" image="&#xE9B0;" /> <!-- "icons/reboot.png" -->
+		<menu key="rfmod_setup" image="&#xE93F;" /> <!-- "icons/menu_extended_rfmod_setup.png" -->
+		<menu key="run_kodi" image="&#xE951;" /> <!-- "icons/menu_kodi.png" -->
+		<menu key="sat_ip_client" image="&#xE980;" /> <!-- "icons/menu_scan_satip.png" -->
+		<menu key="satellite_equipment_setup" image="&#xE9B6;" /> <!-- "icons/setup.png" -->
+		<menu key="satfinder" image="&#xE97F;" /> <!-- "icons/menu_scan_satfinder.png" -->
+		<menu key="saveepgcache" image="&#xE931;" /> <!-- "icons/menu_epgloadsave_menu_saveepgcache.png" -->
+		<menu key="scart_switch" image="&#xE957;" /> <!-- "icons/menu_mainmenu_scart.png" -->
+		<menu key="script_manager" image="&#xE989;" /> <!-- "icons/menu_setup_software_manager.png" -->
+		<menu key="serviceapp_setup" image="&#xE9AD;" /> <!-- "icons/pplayer.png" -->
+		<menu key="setup_epgenhanced" image="&#xE92A;" /> <!-- "icons/menu_epg_setup_epgenhanced.png" -->
+		<menu key="setup_epggraphical" image="&#xE92B;" /> <!-- "icons/menu_epg_setup_epggraphical.png" -->
+		<menu key="setup_epginfobar" image="&#xE92C;" /> <!-- "icons/menu_epg_setup_epginfobar.png" -->
+		<menu key="setup_epginfobargraphical" image="&#xE92D;" /> <!-- "icons/menu_epg_setup_epginfobargraphical.png" -->
+		<menu key="setup_epgmulti" image="&#xE92E;" /> <!-- "icons/menu_epg_setup_epgmulti.png" -->
+		<menu key="setup_epgvertical" image="&#xE92E;" /> <!-- "icons/menu_epg_setup_epgmulti.png" -->
+		<menu key="setup_osd3d" image="&#xE970;" /> <!-- "icons/menu_osd_menu_osd3dsetup.png" -->
+		<menu key="shutdown" image="&#xE9AA;" /> <!-- "icons/power_off.png" -->
+		<menu key="skin_setup" image="&#xE973;" /> <!-- "icons/menu_osd_menu_skin_setup.png" -->
+		<menu key="sleep" image="&#xE9AB;" /> <!-- "icons/power_timer.png" -->
+		<menu key="specialfeatures_menu" image="&#xE940;" /> <!-- "icons/menu_extended_specialfeatures_menu.png" -->
+		<menu key="Stalker Plugin" image="&#xE9A9;" /> <!-- "icons/portal.png" -->
+		<menu key="standby" image="&#xE9AC;" /> <!-- "icons/power.png" -->
+		<menu key="start_kodi" image="&#xE951;" /> <!-- "icons/menu_kodi.png" -->
+		<menu key="startimport" image="&#xE913;" /> <!-- "icons/iptvimport.png" -->
+		<menu key="startsetup" image="&#xE900;" /> <!-- "icons/alexa.png" -->
+		<menu key="streamconvert" image="&#xE981;" /> <!-- "icons/menu_scan_streamconvert.png" -->
+		<menu key="subtitle_selection" image="&#xE9B8;" /> <!-- "icons/sub.png" -->
+		<menu key="subtitle_setup" image="&#xE941;" /> <!-- "icons/menu_extended_subtitle_setup.png" -->
+		<menu key="supportchannel_YTChannel" image="&#xE94E;" /> <!-- "icons/menu_information_supportchannel.png" -->
+		<menu key="swap_manager" image="&#xE94A;" /> <!-- "icons/menu_harddisk_ram.png" -->
+		<menu key="tempfancontrol" image="&#xE90B;" /> <!-- "icons/fan.png" -->
+		<menu key="time_setup" image="&#xE942;" /> <!-- "icons/menu_extended_time_setup.png" -->
+		<menu key="timshift_setup" image="&#xE943;" /> <!-- "icons/menu_extended_timshift_setup.png" -->
+		<menu key="tuner_screen" image="&#xE94D;" /> <!-- "icons/menu_information_device.png" -->
+		<menu key="tuner_setup" image="&#xE982;" /> <!-- "icons/menu_scan_tuner_setup.png" -->
+		<menu key="usage_setup" image="&#xE99A;" /> <!-- "icons/menu_system_usage_setup.png" -->
+		<menu key="user_interface" image="&#xE974;" /> <!-- "icons/menu_osd_menu_user_interface.png" -->
+		<menu keys="vfd_ew,VFD_INI" image="&#xE99B;" /> <!-- "icons/menu_system_VFD_INI.png" -->
+		<menu keys="video_clipping,video_menu,video_setup" image="&#xE9B5;" /> <!-- "icons/service_info.png" -->
+		<menu key="video_finetune" image="&#xE99D;" /> <!-- "icons/menu_system_videofinetune_setup.png" -->
+		<menu key="videoenhancement_setup" image="&#xE99C;" /> <!-- "icons/menu_system_videoenhancement_setup.png" -->
+		<menu key="vmc_init_setup" image="&#xE98B;" /> <!-- "icons/menu_setup_vmc_setup.png" -->
+		<menu key="vmc_init_startvmc" image="&#xE959;" /> <!-- "icons/menu_mainmenu_vmc.png" -->
+		<menu key="volume_adjust" image="&#xE992;" /> <!-- "icons/menu_system_AutomaticVolumeAdjustment.png" -->
+		<menu key="vps" image="&#xE981;" /> <!-- "icons/menu_scan_streamconvert.png" -->
+		<menu key="Weather_MSN" image="&#xE9BB;" /> <!-- "icons/weather.png" -->
+		<menu key="webradioFS" image="&#xE9BC;" /> <!-- "icons/webradioFS.png" -->
+		<menu key="wol_standby" image="&#xE9AA;" /> <!-- "icons/power_off.png" -->
+		<menu key="youtubetv" image="&#xE9BE;" /> <!-- "icons/youtube.png" -->
 
-		<menu key="software_manager" image="icons/menu_setup_software_manager.png" />
-		<menu key="manage_extensions" image="icons/menu_manage_extensions.png" />
-		<menu key="software_update" image="icons/menu_software_update.png" />
-		<menu key="software_restore" image="icons/menu_software_restore.png" />
-		<menu key="flash_online" image="icons/menu_flash_online.png" />
-		<menu key="backup_image_dflash" image="icons/menu_backup_image.png" />
-		<menu key="backup_image_dbackup" image="icons/menu_backup_image.png" />
-		<menu key="backup_image" image="icons/menu_backup_image.png" />
-		<menu key="multiboot" image="icons/menu_multiboot.png" />
-		<menu key="chkroot_multiboot" image="icons/menu_multiboot.png" />
-		<menu key="kexec_multiboot" image="icons/menu_multiboot.png" />
-		<menu key="backup_system" image="icons/menu_backup_system.png" />
-		<menu key="restore_system" image="icons/menu_restore_system.png" />
-		<menu key="install_local" image="icons/menu_install_local.png" />
-		<menu key="advanced_software" image="icons/menu_advanced_software.png" />
-		<menu key="advanced_restore" image="icons/menu_advanced_restore.png" />
-		<menu key="backup_location" image="icons/menu_backup_location.png" />
-		<menu key="backup_default" image="icons/menu_backup_default.png" />
-		<menu key="backup_additional" image="icons/menu_backup_additional.png" />
-		<menu key="backup_excluded" image="icons/menu_backup_excluded.png" />
-		<menu key="package_manager" image="icons/menu_package_manager.png" />
-		<menu key="upgrade_source" image="icons/menu_upgrade_source.png" />
+		<menu key="software_manager" image="&#xE989;" /> <!-- "icons/menu_setup_software_manager.png" -->
+		<menu key="manage_extensions" image="&#xE95A;" /> <!-- "icons/menu_manage_extensions.png" -->
+		<menu key="software_update" image="&#xE98E;" /> <!-- "icons/menu_software_update.png" -->
+		<menu key="software_restore" image="&#xE98D;" /> <!-- "icons/menu_software_restore.png" -->
+		<menu key="flash_online" image="&#xE944;" /> <!-- "icons/menu_flash_online.png" -->
+		<menu key="backup_image_dflash" image="&#xE91B;" /> <!-- "icons/menu_backup_image.png" -->
+		<menu key="backup_image_dbackup" image="&#xE91B;" /> <!-- "icons/menu_backup_image.png" -->
+		<menu key="backup_image" image="&#xE91B;" /> <!-- "icons/menu_backup_image.png" -->
+		<menu key="multiboot" image="&#xE95D;" /> <!-- "icons/menu_multiboot.png" -->
+		<menu key="chkroot_multiboot" image="&#xE95D;" /> <!-- "icons/menu_multiboot.png" -->
+		<menu key="kexec_multiboot" image="&#xE95D;" /> <!-- "icons/menu_multiboot.png" -->
+		<menu key="backup_system" image="&#xE91D;" /> <!-- "icons/menu_backup_system.png" -->
+		<menu key="restore_system" image="&#xE978;" /> <!-- "icons/menu_restore_system.png" -->
+		<menu key="install_local" image="&#xE950;" /> <!-- "icons/menu_install_local.png" -->
+		<menu key="advanced_software" image="&#xE917;" /> <!-- "icons/menu_advanced_software.png" -->
+		<menu key="advanced_restore" image="&#xE916;" /> <!-- "icons/menu_advanced_restore.png" -->
+		<menu key="backup_location" image="&#xE91C;" /> <!-- "icons/menu_backup_location.png" -->
+		<menu key="backup_default" image="&#xE919;" /> <!-- "icons/menu_backup_default.png" -->
+		<menu key="backup_additional" image="&#xE918;" /> <!-- "icons/menu_backup_additional.png" -->
+		<menu key="backup_excluded" image="&#xE91A;" /> <!-- "icons/menu_backup_excluded.png" -->
+		<menu key="package_manager" image="&#xE975;" /> <!-- "icons/menu_package_manager.png" -->
+		<menu key="upgrade_source" image="&#xE9A5;" /> <!-- "icons/menu_upgrade_source.png" -->
 
-		<menu key="timermenu" image="icons/menu_mainmenu_timer.png" />
-		<menu key="setup" image="icons/setup.png" />
-		<menu key="rec" image="icons/menu_extended_recording_setup.png" />
-		<menu key="display" image="icons/menu_extended_display_selection.png" />
-		<menu key="osd_menu" image="icons/menu_extended_osd_setup.png" />
-		<menu key="scan" image="icons/menu_setup_tuner.png" />
-		<menu key="cam" image="icons/menu_setup_ci.png" />
-		<menu key="extended" image="icons/menu_system_extended_selection.png" />
-		<menu key="harddisk" image="icons/menu_extended_hardisk_selection.png" />
-		<menu key="network" image="icons/menu_system_network_menu.png" />
-		<menu key="shutdown" image="icons/reset.png" />
-		<menu key="epg" image="icons/menu_epg_epg_setup.png" />
-		<menu key="system" image="icons/menu_setup_setup.png" />
+		<menu key="timermenu" image="&#xE958;" /> <!-- "icons/menu_mainmenu_timer.png" -->
+		<menu key="setup" image="&#xE9B6;" /> <!-- "icons/setup.png" -->
+		<menu key="rec" image="&#xE93D;" /> <!-- "icons/menu_extended_recording_setup.png" -->
+		<menu key="display" image="&#xE932;" /> <!-- "icons/menu_extended_display_selection.png" -->
+		<menu key="osd_menu" image="&#xE93B;" /> <!-- "icons/menu_extended_osd_setup.png" -->
+		<menu key="scan" image="&#xE98A;" /> <!-- "icons/menu_setup_tuner.png" -->
+		<menu key="cam" image="&#xE985;" /> <!-- "icons/menu_setup_ci.png" -->
+		<menu key="extended" image="&#xE996;" /> <!-- "icons/menu_system_extended_selection.png" -->
+		<menu key="harddisk" image="&#xE935;" /> <!-- "icons/menu_extended_hardisk_selection.png" -->
+		<menu key="network" image="&#xE998;" /> <!-- "icons/menu_system_network_menu.png" -->
+		<menu key="shutdown" image="&#xE9B2;" /> <!-- "icons/reset.png" -->
+		<menu key="epg" image="&#xE927;" /> <!-- "icons/menu_epg_epg_setup.png" -->
+		<menu key="system" image="&#xE988;" /> <!-- "icons/menu_setup_setup.png" -->
 
-		<menu key="information" image="icons/info.png" />
-		<menu key="distribution_info_screen" image="icons/menu_information_about.png" />
-		<menu key="receiver_info_screen" image="icons/menu_receiver_info.png" />
-		<menu key="images_info_screen" image="icons/menu_images_info.png" />
-		<menu key="tuner_info_screen" image="icons/menu_tuner_info.png" />
-		<menu key="network_info_screen" image="icons/menu_network_info.png" />
-		<menu key="storage_info_screen" image="icons/menu_storage_info.png" />
-		<menu key="memory_info_screen" image="icons/menu_memory_info.png" />
-		<menu key="multiboot_info_screen" image="icons/menu_multiboot_info.png" />
-		<menu key="streaming_info_screen" image="icons/menu_streaming_clients_info.png" />
-		<menu key="geolocation_info_screen" image="icons/menu_geolocation_info.png" />
-		<menu key="service_info_screen" image="icons/menu_service_info.png" />
+		<menu key="information" image="&#xE912;" /> <!-- "icons/menu_information.png" -->
+		<menu key="distribution_info_screen" image="&#xE94C;" /> <!-- "icons/menu_information_about.png" -->
+		<menu key="receiver_info_screen" image="&#xE977;" /> <!-- "icons/menu_receiver_info.png" -->
+		<menu key="images_info_screen" image="&#xE94B;" /> <!-- "icons/menu_images_info.png" -->
+		<menu key="tuner_info_screen" image="&#xE9A4;" /> <!-- "icons/menu_tuner_info.png" -->
+		<menu key="network_info_screen" image="&#xE960;" /> <!-- "icons/menu_network_info.png" -->
+		<menu key="storage_info_screen" image="&#xE98F;" /> <!-- "icons/menu_storage_info.png" -->
+		<menu key="memory_info_screen" image="&#xE95B;" /> <!-- "icons/menu_memory_info.png" -->
+		<menu key="multiboot_info_screen" image="&#xE95C;" /> <!-- "icons/menu_multiboot_info.png" -->
+		<menu key="streaming_info_screen" image="&#xE990;" /> <!-- "icons/menu_streaming_clients_info.png" -->
+		<menu key="geolocation_info_screen" image="&#xE945;" /> <!-- "icons/menu_geolocation_info.png" -->
+		<menu key="service_info_screen" image="&#xE983;" /> <!-- "icons/menu_service_info.png" -->
 
-		<menu key="softcam_settings" image="icons/menu_softcam_settings.png" />
-		<menu key="cardserver_settings" image="icons/menu_softcam_settings.png" />
-		<menu key="autocam_settings" image="icons/menu_softcam_settings.png" />
-		<menu key="oscam_info" image="icons/menu_oscam_info.png" />
-		<menu key="cccam_info" image="icons/menu_cccam_info.png" />
+		<menu key="softcam_settings" image="&#xE98C;" /> <!-- "icons/menu_softcam_settings.png" -->
+		<menu key="cardserver_settings" image="&#xE98C;" /> <!-- "icons/menu_softcam_settings.png" -->
+		<menu key="autocam_settings" image="&#xE98C;" /> <!-- "icons/menu_softcam_settings.png" -->
+		<menu key="oscam_info" image="&#xE96E;" /> <!-- "icons/menu_oscam_info.png" -->
+		<menu key="cccam_info" image="&#xE91E;" /> <!-- "icons/menu_cccam_info.png" -->
 
-		<menu key="ci_settings" image="icons/menu_ci_settings.png" />
-		<menu key="ci_selection" image="icons/menu_ci_selection.png" />
-		<menu key="tuner_basic_settings" image="icons/menu_tuner_basic_settings.png" />
-		<menu key="networkservices_setup" image="icons/net.png" />
+		<menu key="ci_settings" image="&#xE921;" /> <!-- "icons/menu_ci_settings.png" -->
+		<menu key="ci_selection" image="&#xE920;" /> <!-- "icons/menu_ci_selection.png" -->
+		<menu key="tuner_basic_settings" image="&#xE9A3;" /> <!-- "icons/menu_tuner_basic_settings.png" -->
+		<menu key="networkservices_setup" image="&#xE9A7;" /> <!-- "icons/net.png" -->
 
-		<menu key="netmounts_manager" image="icons/menu_network_netmounts_setup.png" />
-		<menu key="netmounts_browser" image="icons/menu_network_netmounts_setup.png" />
-		<menu key="device_manager" image="icons/menu_device_manager.png" />
+		<menu key="netmounts_manager" image="&#xE964;" /> <!-- "icons/menu_network_netmounts_setup.png" -->
+		<menu key="netmounts_browser" image="&#xE964;" /> <!-- "icons/menu_network_netmounts_setup.png" -->
+		<menu key="device_manager" image="&#xE922;" /> <!-- "icons/menu_device_manager.png" -->
 
 	</menus>
 
-	<screens>
-		<screen key="LocationBox" image="icons/setup.png" />
-		<screen key="DistributionInformation" image="icons/menu_information_about.png" />
-		<screen key="Information" image="icons/menu_information.png" />
-		<screen key="NetworkInformation" image="icons/menu_network_info.png" />
-		<screen key="ReceiverInformation" image="icons/menu_receiver_info.png" />
-		<screen key="TunerInformation" image="icons/menu_tuner_info.png" />
-		<screen key="StorageInformation" image="icons/menu_storage_info.png" />
-		<screen key="MemoryInformation" image="icons/menu_memory_info.png" />
-		<screen key="MultiBootInformation" image="icons/menu_multiboot_info.png" />
-		<screen key="StreamingInformation" image="icons/menu_streaming_clients_info.png" />
-		<screen key="GeolocationInformation" image="icons/menu_geolocation_info.png" />
-		<screen key="ServiceInformation" image="icons/menu_service_info.png" />
-		<screen key="PictureInformation" image="icons/menu_images_info.png" />
-		<screen key="AdapterSetup" image="icons/net.png" />
-		<screen key="AdapterSetupConfiguration" image="icons/net.png" />
-		<screen key="NetworkMacSetup" image="icons/net.png" />
-		<screen key="NetworkMountsMenu" image="icons/menu_network_netmounts_setup.png" />
-		<screen key="NameserverSetup" image="icons/net.png" />
-		<screen key="NetworkAdapterSelection" image="icons/net.png" />
-		<screen key="NetworkAdapterTest" image="icons/net.png" />
-		<screen key="WlanStatus" image="icons/wlan.png" />
-		<screen key="WlanScan" image="icons/wlan.png" />
-		<screen key="QuickMenuDevices" image="icons/info.png" />
-		<screen key="SoftcamPanel" image="icons/softcam.png" />
-		<screen key="VideoSetup" image="icons/service_info.png" />
-		<screen key="VideoEnhancementSetup" image="icons/menu_system_videoenhancement_setup.png" />
-		<screen key="LocaleSelection" image="icons/menu_system_language_setup.png" />
-		<screen key="InputDeviceSelection" image="icons/menu_extended_input_device_setup.png" />
-		<screen key="IceTVUserTypeScreen" image="icons/icetv.png" />
-		<screen key="IceTVServerSetup" image="icons/icetv.png" />
-		<screen key="IceTVNewUserSetup" image="icons/icetv.png" />
-		<screen key="IceTVRegionSetup" image="icons/icetv.png" />
-		<screen key="IceTVLogin" image="icons/icetv.png" />
-		<screen key="IceTVNeedPassword" image="icons/icetv.png" />
-		<screen key="IceTVMain" image="icons/icetv.png" />
-		<screen key="uShareSelection" image="icons/menu_network_netnfs_setup.png" />
-	</screens>
+	<setups>
+		<setup key="default" image="&#xE9B6;" /> <!-- "icons/setup.png" -->
+		<setup key="Recording" image="&#xE93D;" /> <!-- "icons/menu_extended_recording_setup.png" -->
+		<setup key="Timeshift" image="&#xE943;" /> <!-- "icons/menu_extended_timshift_setup.png" -->
+		<setup key="Usage" image="&#xE99A;" /> <!-- "icons/menu_system_usage_setup.png" -->
+		<setup key="Subtitle" image="&#xE941;" /> <!-- "icons/menu_extended_subtitle_setup.png" -->
+		<setup key="AutoLanguage" image="&#xE991;" /> <!-- "icons/menu_system_autolanguage_setup.png" -->
+		<setup key="UserInterface" image="&#xE974;" /> <!-- "icons/menu_osd_menu_user_interface.png" -->
+		<setup key="RemoteButton" image="&#xE999;" /> <!-- "icons/menu_system_remote_setup.png" -->
+		<setup key="ChannelSelection" image="&#xE995;" /> <!-- "icons/menu_system_channelselection_setup.png" -->
+		<setup key="Display" image="&#xE923;" /> <!-- "icons/menu_display_display_setup.png" -->
+		<setup key="Keyboard" image="&#xE939;" /> <!-- "icons/menu_extended_keyboard.png" -->
+		<setup key="EPGMulti" image="&#xE92E;" /> <!-- "icons/menu_epg_setup_epgmulti.png" -->
+		<setup key="EPGEnhanced" image="&#xE92A;" /> <!-- "icons/menu_epg_setup_epgenhanced.png" -->
+		<setup key="EPGInfobar" image="&#xE92C;" /> <!-- "icons/menu_epg_setup_epginfobar.png" -->
+		<setup key="EPGInfobarGraphical" image="&#xE92D;" /> <!-- "icons/menu_epg_setup_epginfobargraphical.png" -->
+		<setup key="EPGGraphical" image="&#xE92B;" /> <!-- "icons/menu_epg_setup_epggraphical.png" -->
+		<setup key="EPGVertical" image="&#xE92E;" /> <!-- "icons/menu_epg_setup_epgmulti.png" -->
+		<setup key="EPG" image="&#xE927;" /> <!-- "icons/menu_epg_epg_setup.png" -->
+		<setup key="HardDisk" image="&#xE90F;" /> <!-- "icons/hdd.png" -->
+		<setup key="Time" image="&#xE942;" /> <!-- "icons/menu_extended_time_setup.png" -->
+		<setup key="Logs" image="&#xE93A;" /> <!-- "icons/menu_extended_logs_setup.png" -->
+		<setup key="dvdplayer" image="&#xE933;" /> <!-- "icons/menu_extended_dvdplayer_setup.png" -->
+		<setup key="SpecialFeatures" image="&#xE940;" /> <!-- "icons/menu_extended_specialfeatures_menu.png" -->
+		<setup key="OSD3D" image="&#xE970;" /> <!-- "icons/menu_osd_menu_osd3dsetup.png" -->
+		<setup key="OscamInfo" image="&#xE9B7;" /> <!-- "icons/softcam.png" -->
+		<setup key="HDMICEC" image="&#xE910;" /> <!-- "icons/hdmicec.png" -->
+		<setup key="Audio" image="&#xE901;" /> <!-- "icons/audio.png" -->
+		<setup key="SleepTimer" image="&#xE9AB;" /> <!-- "icons/power_timer.png" -->
+		<setup key="VolumeAdjust" image="&#xE992;" /> <!-- "icons/menu_system_AutomaticVolumeAdjustment.png" -->
+		<setup key="Tuner" image="&#xE9A3;" /> <!-- "icons/menu_tuner_basic_settings.png" -->
+		<setup key="CISettings" image="&#xE921;" /> <!-- "icons/menu_ci_settings.png" -->
+		<setup key="RecordTimer" image="&#xE9A2;" /> <!-- "icons/menu_timermenu_timers.png" -->
+		<setup keys="PowerTimer,Scheduler" image="&#xE9A1;" /> <!-- "icons/menu_timermenu_powertimers.png" -->
+		<setup key="Playback" image="&#xE93C;" /> <!-- "icons/menu_extended_playback_setup.png" -->
+		<setup keys="BirthdayReminderSettings,EditBirthdaySetting" image="&#xE902;" /> <!-- "icons/bday.png" -->
+		<setup key="CiSelection" image="&#xE920;" /> <!-- "icons/menu_ci_selection.png" -->
+		<setup key="AutoCam" image="&#xE98C;" /> <!-- "icons/menu_softcam_settings.png" -->
+		<setup key="Cardserver" image="&#xE98C;" /> <!-- "icons/menu_softcam_settings.png" -->
+		<setup key="StreamRelay" image="&#xE98C;" /> <!-- "icons/menu_softcam_settings.png" -->
+		<setup keys="EPGJumpTime,InstantRecordingEndTime" image="&#xE9B9;" /> <!-- "icons/timer.png" -->
+		<setup key="Softcam" image="&#xE98C;" /> <!-- "icons/menu_softcam_settings.png" -->
+		<setup key="NetworkServicesSetup" image="&#xE9A7;" /> <!-- "icons/net.png" -->
+		<setup key="NetworkInadynSetup" image="&#xE95F;" /> <!-- "icons/menu_network_Inadyn_setup.png" -->
+		<setup key="NetworkMiniDLNASetup" image="&#xE961;" /> <!-- "icons/menu_network_minidlna_setup.png" -->
+		<setup key="NetworkuShareSetup" image="&#xE969;" /> <!-- "icons/menu_network_netushare_setup.png" -->
+		<setup key="NetworkSambaSetup" image="&#xE967;" /> <!-- "icons/menu_network_netsmba_setup.png" -->
+		<setup key="Password" image="&#xE96B;" /> <!-- "icons/menu_network_passwd_setup.png" -->
+		<setup key="FileCommander" image="&#xE90D;"/> <!-- "icons/filecom.png" -->
+		<setup key="StorageDeviceAction" image="&#xE948;"/> <!-- "icons/menu_harddisk_harddisk_init.png" -->
+		<setup key="DeviceManagerMountPoints" image="&#xE949;"/> <!-- "icons/menu_harddisk_harddisk_setup.png" -->
+		<setup key="Picon" image="&#xE972;"/> <!-- "icons/menu_osd_menu_picon_setup.png" -->
+		<setup key="WeatherSettings" image="&#xE9D2;" /> <!-- "MyMetrixLiteWeather.png.png" -->
+	</setups>
 
+	<screens>
+		<screen key="LocationBox" image="&#xE9B6;" /> <!-- "icons/setup.png" -->
+		<screen key="Information" image="&#xE912;" /> <!-- "icons/info.png" -->
+		<screen key="NetworkInformation" image="&#xE960;" /> <!-- "icons/menu_network_info.png" -->
+		<screen key="ReceiverInformation" image="&#xE977;" /> <!-- "icons/menu_receiver_info.png" -->
+		<screen key="TunerInformation" image="&#xE9A4;" /> <!-- "icons/menu_tuner_info.png" -->
+		<screen key="StorageInformation" image="&#xE98F;" /> <!-- "icons/menu_storage_info.png" -->
+		<screen key="MemoryInformation" image="&#xE95B;" /> <!-- "icons/menu_memory_info.png" -->
+		<screen key="MultiBootInformation" image="&#xE95C;" /> <!-- "icons/menu_multiboot_info.png" -->
+		<screen key="StreamingInformation" image="&#xE990;" /> <!-- "icons/menu_streaming_clients_info.png" -->
+		<screen key="GeolocationInformation" image="&#xE945;" /> <!-- "icons/menu_geolocation_info.png" -->
+		<screen keys="ServiceInformation" image="&#xE983;" /> <!-- "icons/menu_service_info.png" -->
+		<screen key="PictureInformation" image="&#xE94B;" /> <!-- "icons/menu_images_info.png" -->
+		<screen key="AdapterSetup" image="&#xE9A7;" /> <!-- "icons/net.png" -->
+		<screen key="AdapterSetupConfiguration" image="&#xE9A7;" /> <!-- "icons/net.png" -->
+		<screen key="NetworkMacSetup" image="&#xE9A7;" /> <!-- "icons/net.png" -->
+		<screen key="NetworkMountsMenu" image="&#xE964;" /> <!-- "icons/menu_network_netmounts_setup.png" -->
+		<screen key="NameserverSetup" image="&#xE9A7;" /> <!-- "icons/net.png" -->
+		<screen key="NetworkAdapterSelection" image="&#xE9A7;" /> <!-- "icons/net.png" -->
+		<screen key="NetworkAdapterTest" image="&#xE9A7;" /> <!-- "icons/net.png" -->
+		<screen key="NetworkConnections" image="&#xE9A7;" /> <!-- "icons/net.png" -->
+		<screen keys="WlanSelection,WlanSetup,WlanConfig,WlanScanAp,WlanScanScreen,WlanStatus,WlanScan" image="&#xE9BD;" /> <!-- "icons/wlan.png" -->
+		<screen key="QuickMenuDevices" image="&#xE912;" /> <!-- "icons/info.png" -->
+		<screen key="SoftcamPanel" image="&#xE9B7;" /> <!-- "icons/softcam.png" -->
+		<screen key="VideoEnhancementSetup" image="&#xE99C;" /> <!-- "icons/menu_system_videoenhancement_setup.png" -->
+		<screen key="LocaleSelection" image="&#xE997;" /> <!-- "icons/menu_system_language_setup.png" -->
+		<screen key="InputDeviceSelection" image="&#xE938;" /> <!-- "icons/menu_extended_input_device_setup.png" -->
+		<screen key="IceTVUserTypeScreen" image="&#xE911;" /> <!-- "icons/icetv.png" -->
+		<screen key="IceTVServerSetup" image="&#xE911;" /> <!-- "icons/icetv.png" -->
+		<screen key="IceTVNewUserSetup" image="&#xE911;" /> <!-- "icons/icetv.png" -->
+		<screen key="IceTVRegionSetup" image="&#xE911;" /> <!-- "icons/icetv.png" -->
+		<screen key="IceTVLogin" image="&#xE911;" /> <!-- "icons/icetv.png" -->
+		<screen key="IceTVNeedPassword" image="&#xE911;" /> <!-- "icons/icetv.png" -->
+		<screen key="IceTVMain" image="&#xE911;" /> <!-- "icons/icetv.png" -->
+		<screen key="uShareSelection" image="&#xE965;" /> <!-- "icons/menu_network_netnfs_setup.png" -->
+
+		<!-- "icons/menu_scan_autobouquetsmakermaker.png" -->
+		<screen keys="AutoBouquetsMaker_Menu,AutoBouquetsMaker_Setup,AutoBouquetsMaker_MenuSummary,AutoBouquetsMaker_Ordering,AutoBouquetsMaker_KeepBouquets,AutoBouquetsMaker_HideSections,AutoBouquetsMaker_ProvidersSetup,AutoBouquetsMaker_About,LogManager,LogManagerFb,Programmlisten_Updater,PU_Restore,PU_History" image="&#xE97A;" />
+		
+		<screen key="FastScanScreen" image="&#xE97C;" /> <!-- "icons/menu_scan_fast_scan.png" -->
+
+		<!-- "icons/search.png" -->
+		<screen keys="CableScanScreen,ServiceScan,CableScanStatus,DirectoryBrowser,DirectoryBrowserVZ,PiconManagerFolderScreen,FastScanStatus,SatBlindscanState2,BlindscanState" image="&#xE9B4;" />
+
+		<!-- "icons/setup.png" -->
+		<screen keys="AutoTimeshift,SetupInfo,AutoResSetupMenu,TranscodingSetup,ChoiceBox,TagEditor,CleanupWizardConfiguration,dBackup,dBackupConfiguration,dBackupChecking,MediaPlayerSettings,Swap,VPS_Setup,VirtualZapConfig,EnhancedPowerSave,MiniPowerSave,EPSSetHours,EPSSetDays,ServerEditor,OMBManagerList,OMBManagerInstall,OMBManagerPreferences,OMBManagerAbout,webradioFSsetDisplay,wbrfs_set_we,pm_conf,FilebrowserConfigScreenVTi,KodiSetupScreen,BitrateViewerSetup,Series2FolderConfig,ConfigBaseWidgetScreen,EnhancedMovieCenterMenu,MovieInfoSetup,imdbSetup,MovieRetitle,MovieEpgSetup,genuineDreambox,RecordPathsSettings,TitleProperties,MovieTagEditor,WebIfConfigScreen,NTPManager,SelectCountry,ManualFancontrol,UpgradeStatus,FPGAUpgrade,ReduceMenuConfig,PanelPassword,InputPanelPassword,VuplusAuthenticity" image="&#xE9B6;" />
+
+		 <!-- "icons/info.png" -->
+		<screen keys="NetworkLogScreen,SoftwareManagerInfo,dBackupAbout,StreamingClientsInfo,TaskListScreen,VPS_Screen_Info" image="&#xE912;" />
+
+		<!-- "icons/net.png" -->
+		<screen keys="ScanIP,AutoMountManager,AutoMountEdit,AutoMountView,NetworkBrowser,UserDialog,UserManager" image="&#xE9A7;" />
+
+		<!-- "icons/look.png" -->
+		<screen keys="ParentalControlSetup,ParentalControlChangePin,ParentalControlEditor" image="&#xE9BF;" />
+
+		<!-- "icons/menu_cccam_info.png" -->
+		<screen keys="CCcamInfoMain,CCcamInfoRemoteBoxMenu,CCcamInfoSubMenu,CCcamInfoServerMenu,CCcamInfoMenuConfig,CCcamShareViewMenu,CCcamInfoShareInfo,CCcamInfoConfigSwitcher,CCcamInfoConfigMenu,CCcamInfoEcmInfoSelection,CCcamInfoInfoScreen" image="&#xE91E;" />
+
+		<!-- "icons/console.png" -->
+		<screen keys="Info,Console,ScriptRunner,ToplevelPPanel,PPanel,File,Tarball,Execute" image="&#xE9C0;" />
+
+		<!-- "icons/hdd.png" -->
+		<screen keys="HarddiskSelection,SimpleUmount,DreamExplorerII,CPmaniger,SoftLinkScreen,HarddiskWait" image="&#xE90F;" />
+
+		<!-- "icons/timer.png" -->
+		<screen keys="TimeDateInput,CronTimers,AutoTimerOverview,AutoTimerImporter,AutoTimerEditor,AutoTimerFilterEditor,AutoTimerServiceEditor,AutoTimerSettings,AutoTimerHelp,AutoTimerPreview,RemoteTimerScreen,RemoteTimerSetup,PartnerboxEntriesListConfigScreen" image="&#xE9B9;" />
+
+		<!-- "icons/camd.png" -->
+		<screen keys="MMIDialog,CIconfigMenu,easyCIconfigMenu,CAidSelect,myProviderSelection,myChannelSelection" image="&#xE9C1;" />
+
+		<!-- "icons/swupdate.png" -->
+		<screen keys="SoftwarePanel,SoftwareUpdate,RunSoftwareUpdate,UpdatePlugin" image="&#xE9C2;" />
+
+ 		<!-- "icons/menu_mainmenu_pluginmanager.png" -->
+ 		<screen keys="SundtekControlCenter,PluginBrowser,PluginBrowserList,PluginAction,PluginDownloadBrowser,PluginDetails,PluginManager,PluginManagerInfo,PluginManagerHelp,RestoreMenu,RestoreMenuImage,RestorePlugins,Bootlogo,SortableMenu" image="&#xE956;" />
+
+		<!-- "icons/bluetooth.png" -->
+		<screen keys="BluetoothSetupScreen,btscan,BluetoothSetupConfig,VuRcuOtaUpdate,BluetoothDevicesManager" image="&#xE903;" />
+
+		 <!-- "icons/weather.png" -->
+		<screen keys="WeatherPluginEntriesListConfigScreen,WeatherPluginEntryConfigScreen,WeatherPlugin" image="&#xE9BB;" />
+		
+		<!-- "icons/youtube.png" -->
+		<screen keys="MyTubePlayerMainScreen,MyTubeSettingsScreen,MyTubeTasksScreen,MyTubeVideoHelpScreen,MyTubeVideoInfoScreen,YoutubeTVSettings,YoutubeTVWindow,YouTubeSearch,YouTubeMain,YouTubeInfo" image="&#xE9BE;" />
+
+		<!-- "icons/paket.png" -->
+		<screen keys="IPKGSource,Opkg,IpkgInstaller,IPKGMenu,PacketManager" image="&#xE9C3;" />
+
+		<!-- "icons/movie.png" -->
+		<screen keys="CutListContextMenu,MovieMenu,DownloadMovieInfo,MovieInfoPreview,MovieInfoTMDb,EMCPlaylist,EMCPlaylistSetup" image="&#xE9C4;" />
+		
+		<!-- "icons/audio.png" -->
+		<screen key="AudioSelection" image="&#xE901;" />
+
+		<!-- "icons/menu_information_about.png" -->
+		<screen keys="DistributionInformation,AboutOE,FlashOnline,DeviceBrowser" image="&#xE94C;" />
+
+ 		<!-- "icons/menu_setup_audio.png" -->
+ 		<screen keys="mySmallChannelSelection" image="&#xE984;" />
+
+		<!-- "icons/menu_display_LED_Giga.png" -->
+		<screen key="LED_GigaSetup" image="&#xE925;" />
+
+		<!-- "icons/fan.png" -->
+		<screen key="TempFanControl,FanSetupScreen,FanControl2SpezialSetup,FanControl2Plugin,FanControl2Test,FancontrolConfiguration" image="&#xE90B;" />
+
+ 		<!-- "icons/menu_timermenu_timers.png" -->
+ 		<screen keys="TimerSelection,TimerEditList" image="&#xE9A2;" />
+
+ 		<!-- "icons/menu_timermenu_powertimers.png" -->
+ 		<screen key="SchedulerOverview,PowerTimerOverview,ElektroProfile" image="&#xE9A1;" />
+
+		<!-- "icons/shout.png" -->
+		<screen keys="Elektro,ElektroIP,ElektroNASrun,SHOUTcastSetup,SHOUTcastStreamripperRecordingPath" image="&#xE9C5;" />
+
+		<!-- "icons/menu_timermenu_conflict.png" -->
+		<screen key="ConflictTimerOverview" image="&#xE99F;" />
+
+		<!-- "icons/keyb.png" -->
+		<screen key="VirtualKeyBoard" image="&#xE9C6;" />
+
+ 		<!-- "icons/service_info.png" -->
+ 		<screen keys="VideoSetup,ServiceInformation,EventViewContextMenuChoiceBox,BouquetSelector,ServiceInfoSimple,EventViewContextMenu,ChannelContextMenu,VideoClippingCoordinates" image="&#xE9B5;" />
+
+ 		<!-- "icons/menu_system_channelselection_setup.png" -->
+ 		<screen key="SimpleChannelSelection" image="&#xE995;" />
+
+		<screen key="Subtitles" image="&#xE9B8;" /> <!-- "icons/sub.png" -->
+
+		<screen keys="FileBrowser,CDInfo,ProjectSettings,DVDToolbox" image="&#xE909;" /> <!-- "icons/dvd.png" -->
+
+		<screen keys="NimSelection,NimSetup,SelectSatsEntryScreen,DiseqcTesterNimSelection" image="&#xE982;" /> <!-- "icons/menu_scan_tuner_setup.png" -->
+
+		<screen keys="SATIPClient,SATIPTuner" image="&#xE980;" /> <!-- "icons/menu_scan_satip.png" -->
+
+		<screen key="ScanSetup" image="&#xE97D;" /> <!-- "icons/menu_scan_manual_scan.png" -->
+
+		<screen key="ScanSimple" image="&#xE979;" /> <!-- "icons/menu_scan_auto_scan.png" -->
+
+		<screen keys="PositionerSetup,PositionerSetupLog,TunerScreen" image="&#xE97E;" /> <!-- "icons/menu_scan_positioner_setup.png" -->
+
+		<screen key="NetflixEd" image="&#xE953;" /> <!-- "icons/menu_mainmenu_netflix.png" -->
+
+		<screen keys="FilebrowserConfigScreen,ChromiumEd,BrowserBookmarkWindow,BookmarkEditWindow,BrowserPreferenceWindow" image="&#xE904;" /> <!-- "icons/browser.png" -->
+
+		<screen key="PermanentClockMenu" image="&#xE942;" /> <!-- "icons/menu_extended_time_setup.png" -->
+
+		<screen key="LEDBrightnessSetup" image="&#xE914;" /> <!-- "icons/led.png" -->
+
+		<screen key="HdmiTest,HdmiCecPlugin,HdmiTestInfoScreen,HdmiTestOptions" image="&#xE910;" /> <!-- "icons/hdmicec.png" -->
+
+		<screen key="LCDdisplayMenu" image="&#xE924;" /> <!-- "icons/menu_display_lcd_skin_setup.png" -->
+
+		<screen key="AlexaSkillConfigScreen" image="&#xE900;" /> <!-- "icons/alexa.png" -->
+
+		<screen key="BirthdayReminder" image="&#xE902;" /> <!-- "icons/bday.png" -->
+
+		<screen key="CreateQuadPipChannelEntry,QuadPiPChannelSelection" image="&#xE976;" /> <!-- "icons/menu_quadpip.png" -->
+
+		<screen key="IPTVImporter" image="&#xE913;" /> <!-- "icons/iptvimport.png" -->
+
+		<screen key="StalkerEdit" image="&#xE9A9;" /> <!-- "icons/portal.png" -->
+
+		<screen key="Pic_Exif" image="&#xE9AD;" /> <!-- "icons/pplayer.png" -->
+
+		<screen key="PermanentVfdClockMenu" image="&#xE923;" /> <!-- "icons/menu_display_display_setup.png" -->
+
+		<screen keys="ForecaPreview,CityPanel,SatPanel,SatPanelb,PicSetup" image="&#xE96C;" /> <!-- "icons/menu_network_webif.png" -->
+
+		<screen keys="AutomaticVolumeAdjustmentConfigScreen,AutomaticVolumeAdjustmentEntriesListConfigScreen,AutomaticVolumeAdjustmentEntryConfigScreen" image="&#xE992;" /> <!-- "icons/menu_system_AutomaticVolumeAdjustment.png" -->
+
+		<screen keys="StreamingChannelFromServerScreen,GBIpboxMenu" image="&#xE981;" /> <!-- "icons/menu_scan_streamconvert.png" -->
+
+		<screen key="VFD_INISetup" image="&#xE99B;" /> <!-- "icons/menu_system_VFD_INI.png" -->
+
+		<screen keys="EPGRefreshServiceEditor,EPGRefreshConfiguration,EPGRefreshConfigurationFunctionContextMenu,EPGRefreshConfigurationHelpContextMenu" image="&#xE929;" /> <!-- "icons/menu_epg_refresh.png" -->
+
+		<screen keys="EPGImportConfig,EPGImportSources,EPGImportProfile,EPGImportLog,filtersServicesSetup,filtersServicesSelection" image="&#xE930;" /> <!-- "icons/menu_epgloadsave_menu_loadepgcache.png" -->
+
+		<screen keys="AnimationSetupConfig,AnimationSetupScreen,MSNWeatherPluginEntriesListConfigScreen" image="&#xE9BA;" /> <!-- "icons/usage_setup.png" -->
+
+		<screen key="supportchannel_YTChannel" image="&#xE94E;" /> <!-- "icons/menu_information_supportchannel.png" -->
+
+		<screen key="CiSelection" image="&#xE920;" /> <!-- "icons/menu_ci_selection.png" -->
+
+		<screen key="CIselectMainMenu" image="&#xE985;" /> <!-- "icons/menu_setup_ci.png" -->
+
+		<screen key="ButtonSetup,ButtonSetupSelect" image="&#xE974;" /> <!-- "icons/menu_osd_menu_user_interface.png" -->
+
+		<screen key="PluginHiderSetup" image="&#xE955;" /> <!-- "icons/menu_mainmenu_pluginhider.png" -->
+
+		<screen keys="CIHelper,CIHelperSetup" image="&#xE91F;" /> <!-- "icons/menu_ci_cihelper_setup.png" -->
+
+		<screen key="PiconsUpdaterView" image="&#xE9CF;" /> <!-- "icons/skin_selector.png" -->
+
+		<screen keys="MSNWeatherPluginEntryConfigScreen,MSNWeatherPluginSearch" image="&#xE9C8;" /> <!-- "icons/languages.png" -->
+
+		<screen keys="BackupSelection,Config,FullBackupConfig,FlashImageConfig,DaysProfile" image="&#xE9C9;" /> <!-- "icons/safe.png" -->
+
+		<screen key="CrashlogReportConfiguration" image="&#xE9CA;" /> <!-- "icons/sweeper.png" -->
+
+		<screen keys="SoftwareManagerSetup,UpdatePluginMenu,ImageBackup" image="&#xE9CB;" /> <!-- "icons/swm.png" -->
+
+		<screen key="UI3DSetupScreen" image="&#xE9CC;" /> <!-- "icons/ui.png" -->
+
+		<screen keys="VlcMediaListScreen,VlcServerListScreen,VlcServerConfigScreen" image="&#xE9CD;" /> <!-- "icons/vlc.png" -->
+
+		<screen key="ShootYourScreenConfig" image="&#xE9C7;" /> <!-- "icons/camera.png" -->
+
+		<screen keys="ChromiumOSSettings,ChromiumOSWindow,ChromiumOSHelpWindow,BrowserLauncher" image="&#xE9CE;" /> <!-- "icons/webb.png" -->
+
+		<screen keys="FritzDisplayCalls,FritzDisplayPhonebook,FritzMenu,FritzCallSetup,AddScreen,FritzAbout" image="&#xE9D0;" /> <!-- "icons/fritz.png" -->
+
+		<screen keys="RemoteControlCode,RCUSelect,SpecialJump_SpecialJumpConfiguration" image="&#xE9B1;" /> <!-- "icons/remotecontrol.png" -->
+
+		<screen key="IMDB" image="&#xE9D1;" /> <!-- "icons/imdb.png" -->
+
+		<screen key="FileCommanderContextMenu" image="&#xE90D;"/> <!-- "icons/filecom.png" -->
+
+		<screen keys="SecParameterSetup,DiseqcTester" image="&#xE97F;" /> <!-- "icons/menu_scan_satfinder.png" -->
+
+		<screen keys="SecParameterSetup,DiseqcTester,Satfinder" image="&#xE97F;" /> <!-- "icons/menu_scan_satfinder.png" -->
+
+		<screen keys="MultiBootSelector,MultiBootManager,KexecInit" image="&#xE9B3;" /> <!-- "icons/restart.png" -->
+
+		<screen key="ExtensionsList" image="&#xE956;" /> <!-- "icons/menu_mainmenu_pluginmanager.png" -->
+
+		<screen key="MultiBootWizard" image="&#xE99A;" /> <!-- "icons/menu_system_usage_setup.png" -->
+
+		<screen key="BackupSettingsView" image="&#xE9D9;" /> <!-- "MyMetrixLiteBackup.png" -->
+
+	</screens>
+	
 </skin>
