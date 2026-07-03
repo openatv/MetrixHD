@@ -20,19 +20,17 @@
 #######################################################################
 from __future__ import division
 from PIL import Image
-from os import remove, statvfs
+from os import remove
 from os.path import exists
-from six import ensure_str
 from enigma import gMainDC, ePicLoad, getDesktop
 
 from Components.ActionMap import ActionMap
 from Components.config import config, configfile, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
-from Components.Console import Console
 from Components.Label import Label
 from Components.Pixmap import Pixmap
 from Components.Sources.StaticText import StaticText
-from Components.SystemInfo import BoxInfo, getBoxDisplayName
+from Components.SystemInfo import BoxInfo
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN
@@ -127,12 +125,6 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.firstrun = True
 
 	def getEHDsettings(self):
-#		if config.plugins.MyMetrixLiteOther.EHDenabled.value == '0':
-#			self.EHDenabled = False
-#			self.EHDfactor = 1
-#			self.EHDvalue = "0"
-#			self.EHDres = 'HD'
-#			self.EHDtxt = 'Standard HD'
 		if config.plugins.MyMetrixLiteOther.EHDenabled.value == '1':
 			self.EHDenabled = True
 			self.EHDfactor = 1.5
@@ -194,21 +186,9 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			if "blue" in self["actions"].actions:
 				del self["actions"].actions['blue']
 				self["key_blue"].setText("")
-			if self.EHDenabled:
-				self.InstallCheck()
-			else:
-				self.UninstallCheck()
 
 	def test(self):
-		plustext = ""
-		# check hbbtv plugin - is sometimes or with some boxes not compatible with EHD-skin!
-		if exists("/usr/lib/enigma2/python/Plugins/Extensions/HbbTV/plugin.pyo"):
-			plustext = _("You have the'HbbTV Plugin' installed.\n")
-		if plustext:
-			text = plustext + _("\nMaybe is a compatibility issue with %s resolution.\nAttention: The osd-error occurs first after gui or system restart!\n\nDo you want really change from %s to %s - skin?") % (self.EHDtxt, self.EHDtext_old, self.EHDtxt)
-			self.session.openWithCallback(self.resolutionQuestion, MessageBox, text, default=False, timeout=10)
-		else:
-			self.resolutionQuestion(True)
+		self.resolutionQuestion(True)
 
 	def resolutionQuestion(self, result):
 		if not result:
@@ -244,96 +224,10 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.checkEHDtested()
 			self["config"].setList(self.getMenuItemList())
 
-	def freeFlashCheck(self):
-		stat = statvfs("/usr/share/enigma2/MetrixHD/")
-		freeflash = stat.f_bavail * stat.f_bsize / 1024 / 1024
-		filesize = 10
-		if freeflash < filesize:
-			self.session.open(MessageBox, _("Not enough free flash memory to install the %s icons. ( %d MB is required )") % (self.EHDtxt, filesize), MessageBox.TYPE_ERROR)
-			return False
-		return True
-
 	def resetEHD(self):
 		config.plugins.MyMetrixLiteOther.EHDenabled.setValue(self.EHDvalue_old)
 		self.checkEHDtested()
 		self["config"].setList(self.getMenuItemList())
-
-	def InstallCheck(self):
-		self.Console = Console()
-		self.service_name = f'enigma2-plugin-skins-metrix-atv-{self.EHDres.lower()}-icons'
-		if self.freeFlashCheck():
-			self.Console.ePopen('/usr/bin/opkg list-installed ' + self.service_name, self.checkNetworkState)
-		else:
-			self.resetEHD()
-
-	def checkNetworkState(self, str, retval, extra_args):
-		str = ensure_str(str)
-		if 'Collected errors' in str:
-			self.session.open(MessageBox, _("A background update check is in progress, please wait a few minutes and try again."), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
-			self.resetEHD()
-		elif not str:
-			self.feedscheck = self.session.open(MessageBox, _('Please wait whilst feeds state is checked.'), MessageBox.TYPE_INFO, enable_input=False, windowTitle=_("Checking Feeds"))
-			cmd1 = "opkg update"
-			self.CheckConsole = Console()
-			self.CheckConsole.ePopen(cmd1, self.checkNetworkStateFinished)
-
-	def checkNetworkStateFinished(self, result, retval, extra_args=None):
-		result = ensure_str(result)
-		if 'bad address' in result:
-			self.session.openWithCallback(self.InstallPackageFailed, MessageBox, _("Your %s %s is not connected to the internet, please check your network settings and try again.") % getBoxDisplayName(), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
-		elif ('wget returned 1' or 'wget returned 255' or '404 Not Found') in result:
-			self.session.openWithCallback(self.InstallPackageFailed, MessageBox, _("Sorry feeds are down for maintenance, please try again later."), type=MessageBox.TYPE_INFO, timeout=10, close_on_any_key=True)
-		else:
-			self.session.openWithCallback(self.InstallPackage, MessageBox, _('Ready to install %s ?') % self.service_name, MessageBox.TYPE_YESNO)
-
-	def InstallPackage(self, val):
-		if val:
-			self.doInstall(self.installComplete, self.service_name)
-		else:
-			self.feedscheck.close()
-			self.resetEHD()
-
-	def InstallPackageFailed(self, val):
-		self.feedscheck.close()
-		self.resetEHD()
-
-	def doInstall(self, callback, pkgname):
-		self.message = self.session.open(MessageBox, _("please wait..."), MessageBox.TYPE_INFO, enable_input=False, windowTitle=_("Installing ..."))
-		self.Console.ePopen('/usr/bin/opkg install ' + pkgname, callback)
-
-	def installComplete(self, result, retval=None, extra_args=None):
-		result = ensure_str(result)
-		if 'Unknown package' in result:
-			self.session.open(MessageBox, _("Install Package not found!"), MessageBox.TYPE_ERROR, timeout=10)
-			self.resetEHD()
-		elif "Collected errors" in result:
-			self.session.open(MessageBox, _("Installation error!\n\n%s") % result, MessageBox.TYPE_ERROR, timeout=10)
-			self.resetEHD()
-		self.feedscheck.close()
-		self.message.close()
-
-	def UninstallCheck(self):
-		return  # uninstall package disabled
-		self.Console.ePopen('/usr/bin/opkg list_installed ' + self.service_name, self.RemovedataAvail)
-
-	def RemovedataAvail(self, str, retval, extra_args):
-		if str:
-			self.session.openWithCallback(self.RemovePackage, MessageBox, _('Ready to remove %s ?') % self.service_name, MessageBox.TYPE_YESNO, default=False)
-
-	def RemovePackage(self, val):
-		if val:
-			config.plugins.MyMetrixLiteOther.Custom = False
-			config.skin.primary_skin.setValue("MetrixHD/skin.xml")
-			config.skin.save()
-			configfile.save()
-			self.doRemove(self.removeComplete, self.service_name)
-
-	def doRemove(self, callback, pkgname):
-		self.message = self.session.open(MessageBox, _("please wait..."), MessageBox.TYPE_INFO, enable_input=False, windowTitle=_("Removing ..."))
-		self.Console.ePopen('/usr/bin/opkg remove ' + pkgname + ' --force-remove --autoremove', callback)
-
-	def removeComplete(self, result=None, retval=None, extra_args=None):
-		self.message.close()
 
 	def getPreset(self):
 		if config.plugins.MyMetrixLiteOther.SkinDesignExamples.value == "preset_0":
