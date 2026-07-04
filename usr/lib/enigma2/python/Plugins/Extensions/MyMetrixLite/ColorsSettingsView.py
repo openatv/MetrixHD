@@ -217,6 +217,8 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab * 2 + _("Font color"), config.plugins.MyMetrixLiteColors.layerbclockforeground, _("helptext")))
 		list.append(getConfigListEntry(tab + _("Buttons"), ))
 		list.append(getConfigListEntry(tab * 2 + _("Font color"), config.plugins.MyMetrixLiteColors.buttonforeground, _("helptext")))
+		list.append(getConfigListEntry(tab + _("Logo"), ))
+		list.append(getConfigListEntry(tab * 2 + _("Font color"), config.plugins.MyMetrixLiteColors.LogoColor, _("helptext")))
 		section = _("Layer A (main layer)")
 		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Background"), ))
@@ -437,6 +439,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 		config.plugins.MyMetrixLiteColors.layeraclockforeground.value = self.colorAfont.value
 		config.plugins.MyMetrixLiteColors.layerbclockforeground.value = self.colorBfont.value
 		config.plugins.MyMetrixLiteColors.buttonforeground.value = self.colorAfont.value
+		config.plugins.MyMetrixLiteColors.LogoColor.value = self.colorBfont.value
 
 		config.plugins.MyMetrixLiteColors.layerabackground.value = self.colorA.value
 		config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value = self.colorAtransparency.value
@@ -514,6 +517,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteColors.layeraclockforeground.value = "FFFFFF"
 			config.plugins.MyMetrixLiteColors.layerbclockforeground.value = "FFFFFF"
 			config.plugins.MyMetrixLiteColors.buttonforeground.value = "FFFFFF"
+			config.plugins.MyMetrixLiteColors.LogoColor.value = "FFFFFF"
 			config.plugins.MyMetrixLiteColors.weatherborderlines.value = "FFFFFF"
 			config.plugins.MyMetrixLiteColors.weatherborderlinestransparency.value = "00"
 
@@ -624,6 +628,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteColors.layeraclockforeground.value = "1C1C1C"
 			config.plugins.MyMetrixLiteColors.layerbclockforeground.value = "D8D8D8"
 			config.plugins.MyMetrixLiteColors.buttonforeground.value = "424242"
+			config.plugins.MyMetrixLiteColors.LogoColor.value = "F2F2F2"
 			config.plugins.MyMetrixLiteColors.weatherborderlines.value = "1C1C1C"
 			config.plugins.MyMetrixLiteColors.weatherborderlinestransparency.value = "00"
 
@@ -734,6 +739,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteColors.layeraclockforeground.value = "FFFFFF"
 			config.plugins.MyMetrixLiteColors.layerbclockforeground.value = "BDBDBD"
 			config.plugins.MyMetrixLiteColors.buttonforeground.value = "F0A30A"
+			config.plugins.MyMetrixLiteColors.LogoColor.value = "FFFFFF"
 			config.plugins.MyMetrixLiteColors.weatherborderlines.value = "FFFFFF"
 			config.plugins.MyMetrixLiteColors.weatherborderlinestransparency.value = "00"
 
@@ -843,6 +849,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteColors.layeraclockforeground.value = "FFFFFF"
 			config.plugins.MyMetrixLiteColors.layerbclockforeground.value = "BDBDBD"
 			config.plugins.MyMetrixLiteColors.buttonforeground.value = "BDBDBD"
+			config.plugins.MyMetrixLiteColors.LogoColor.value = "FFFFFF"
 			config.plugins.MyMetrixLiteColors.weatherborderlines.value = "FFFFFF"
 			config.plugins.MyMetrixLiteColors.weatherborderlinestransparency.value = "00"
 
@@ -952,6 +959,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteColors.layeraclockforeground.value = "FFFFFF"
 			config.plugins.MyMetrixLiteColors.layerbclockforeground.value = "000000"
 			config.plugins.MyMetrixLiteColors.buttonforeground.value = "BF9217"
+			config.plugins.MyMetrixLiteColors.LogoColor.value = "000000"
 			config.plugins.MyMetrixLiteColors.weatherborderlines.value = "FFFFFF"
 			config.plugins.MyMetrixLiteColors.weatherborderlinestransparency.value = "00"
 
@@ -1061,6 +1069,7 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteColors.layeraclockforeground.value = "FFFFFF"
 			config.plugins.MyMetrixLiteColors.layerbclockforeground.value = "F2F2F2"
 			config.plugins.MyMetrixLiteColors.buttonforeground.value = "70AD11"
+			config.plugins.MyMetrixLiteColors.LogoColor.value = "FFFFFF"
 			config.plugins.MyMetrixLiteColors.weatherborderlines.value = "FFFFFF"
 			config.plugins.MyMetrixLiteColors.weatherborderlinestransparency.value = "00"
 

@@ -884,6 +884,7 @@ class ActivateSkinSettings:
 				("layer-a-button-foreground", "#00FFFFFF", "buttonforeground"),
 				("layer-a-clock-foreground", "#00FFFFFF", "layeraclockforeground"),
 				("layer-b-clock-foreground", "#00FFFFFF", "layerbclockforeground"),
+				("logo-color", "#00FFFFFF", "LogoColor"),
 				("weather-borderlines", "#00FFFFFF", "weatherborderlines", "weatherborderlinestransparency"),
 
 				("menufont", "#00FFFFFF", "menufont"),
