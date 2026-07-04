@@ -1595,12 +1595,13 @@ class ActivateSkinSettings:
 		else:
 			if isfile(cgfile):
 				remove(cgfile)
+		# TODO:
 		# ibts background - solid color, no PNG needed, skin uses backgroundColor="layer-a-background" directly
-		#color = config.plugins.MyMetrixLiteColors.layerabackground.value
-		#alpha = config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value
-		#cgfile = "/usr/share/enigma2/MetrixHD/ibts/background.png"
-		#if isdir("/usr/share/enigma2/MetrixHD/ibts"):
-		#	self.makeColorField(cgfile, int(1280 * factor), int(32 * factor), color, alpha)
+		color = config.plugins.MyMetrixLiteColors.layerabackground.value
+		alpha = config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value
+		cgfile = "/usr/share/enigma2/MetrixHD/ibts/background.png"
+		if isdir("/usr/share/enigma2/MetrixHD/ibts"):
+			self.makeColorField(cgfile, int(1280 * factor), int(32 * factor), color, alpha)
 		# file commander image viewer background
 		#color = config.plugins.MyMetrixLiteColors.layerabackground.value
 		#cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_imageviewer.png"
