@@ -73,7 +73,7 @@ class ActivateSkinSettings:
 		self.silent = silent
 		if self.silent:
 			self.E2settings = open("/etc/enigma2/settings", "r").read()
-			if config.skin.primary_skin.value != "MetrixHD/skin.MySkin.xml" and 'config.skin.primary_skin=MetrixHD/skin.MySkin.xml' not in self.E2settings:
+			if "MetrixHD" not in config.skin.primary_skin.value or "config.plugins.MyMetrixLiteOther.Custom" not in self.E2settings or "config.skin.primary_skin" not in self.E2settings:
 				print('MetrixHD is not the primary skin or runs with default settings. No restore action needed!')
 				return 0
 			from Components.PluginComponent import plugins  # need for fast restore in skin.py
@@ -159,24 +159,10 @@ class ActivateSkinSettings:
 		print("MyMetrixLite apply Changes")
 
 		ROOTPATH = "/usr/share/enigma2/MetrixHD/skinfiles/"
-		SKIN_SOURCE = "/usr/share/enigma2/MetrixHD/skin.xml"
-# NEW		SKIN_SOURCE = ROOTPATH + "skin_base.xml"
+		SKIN_SOURCE = ROOTPATH + "skin_base.xml"
 
 		try:
-			# make backup of skin.xml
-			bname = "_original_file_.xml"
-			f = open(SKIN_SOURCE, 'r')
-			firstline = f.readline()
-			f.close()
-			if '<!-- original file -->' in firstline:
-				copy(SKIN_SOURCE, SKIN_SOURCE + bname)
-			else:
-				copy(SKIN_SOURCE + bname, SKIN_SOURCE)
-
-# NEW			SKIN_TARGET = ROOTPATH + "skin_base.MySkin.xml"
-# NEW			SKIN_TARGET_TMP = SKIN_TARGET + ".tmp"
-
-			SKIN_TARGET = "/usr/share/enigma2/MetrixHD/skin.MySkin.xml"
+			SKIN_TARGET = ROOTPATH + "skin_base.MySkin.xml"
 			SKIN_TARGET_TMP = SKIN_TARGET + ".tmp"
 
 			SKIN_TEMPLATES_SOURCE = ROOTPATH + "skin_templates.xml"
@@ -856,10 +842,7 @@ class ActivateSkinSettings:
 			################
 
 			skinSearchAndReplace = []
-			# TODO JB  .. maybe no longer needed !!!
-			orgskinSearchAndReplace = []  # needed for some attributes (e.g. borderset setting was lost after using plugin media portal - because restored settings from skin.xml and not from skin.MySkin.xml)
 			skinSearchAndReplace.append(['<!-- original file -->', ''])
-			orgskinSearchAndReplace.append(['<!-- original file -->', '<!-- !!!copied and changed file!!! -->'])
 
 			# Colors
 			colors = [
@@ -970,22 +953,18 @@ class ActivateSkinSettings:
 			if exists(f"/usr/share/enigma2/MetrixHD/border/{width_top}/{color}.png"):
 				newline = f"<pixmap pos=\"bpTop\" filename=\"MetrixHD/border/{width_top}/{color}.png\" />"
 				skinSearchAndReplace.append(['<pixmap pos="bpTop" filename="MetrixHD/border/50px/0F0F0F.png" />', newline])
-				orgskinSearchAndReplace.append(['<pixmap pos="bpTop" filename="MetrixHD/border/50px/0F0F0F.png" />', newline])
 			color = config.plugins.MyMetrixLiteColors.windowborder_bottom.value
 			if exists(f"/usr/share/enigma2/MetrixHD/border/{width}/{color}.png"):
 				newline = f"<pixmap pos=\"bpBottom\" filename=\"MetrixHD/border/{width}/{color}.png\" />"
 				skinSearchAndReplace.append(['<pixmap pos="bpBottom" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
-				orgskinSearchAndReplace.append(['<pixmap pos="bpBottom" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
 			color = config.plugins.MyMetrixLiteColors.windowborder_left.value
 			if exists(f"/usr/share/enigma2/MetrixHD/border/{width}/{color}.png"):
 				newline = f"<pixmap pos=\"bpLeft\" filename=\"MetrixHD/border/{width}/{color}.png\" />"
 				skinSearchAndReplace.append(['<pixmap pos="bpLeft" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
-				orgskinSearchAndReplace.append(['<pixmap pos="bpLeft" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
 			color = config.plugins.MyMetrixLiteColors.windowborder_right.value
 			if exists(f"/usr/share/enigma2/MetrixHD/border/{width}/{color}.png"):
 				newline = f"<pixmap pos=\"bpRight\" filename=\"MetrixHD/border/{width}/{color}.png\" />"
 				skinSearchAndReplace.append(['<pixmap pos="bpRight" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
-				orgskinSearchAndReplace.append(['<pixmap pos="bpRight" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
 
 			# Border listbox
 			width = config.plugins.MyMetrixLiteColors.listboxborder_topwidth.value
@@ -994,28 +973,24 @@ class ActivateSkinSettings:
 				if exists(f"/usr/share/enigma2/MetrixHD/border/{width}/{color}.png"):
 					newline = f"<pixmap pos=\"bpTop\" filename=\"MetrixHD/border/{width}/{color}.png\" />"
 					skinSearchAndReplace.append(['<!--lb pixmap pos="bpTop" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
-					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpTop" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 			width = config.plugins.MyMetrixLiteColors.listboxborder_bottomwidth.value
 			if width != "no":
 				color = config.plugins.MyMetrixLiteColors.listboxborder_bottom.value
 				if exists(f"/usr/share/enigma2/MetrixHD/border/{width}/{color}.png"):
 					newline = f"<pixmap pos=\"bpBottom\" filename=\"MetrixHD/border/{width}/{color}.png\" />"
 					skinSearchAndReplace.append(['<!--lb pixmap pos="bpBottom" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
-					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpBottom" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 			width = config.plugins.MyMetrixLiteColors.listboxborder_leftwidth.value
 			if width != "no":
 				color = config.plugins.MyMetrixLiteColors.listboxborder_left.value
 				if exists(f"/usr/share/enigma2/MetrixHD/border/{width}/{color}.png"):
 					newline = f"<pixmap pos=\"bpLeft\" filename=\"MetrixHD/border/{width}/{color}.png\" />"
 					skinSearchAndReplace.append(['<!--lb pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
-					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 			width = config.plugins.MyMetrixLiteColors.listboxborder_rightwidth.value
 			if width != "no":
 				color = config.plugins.MyMetrixLiteColors.listboxborder_right.value
 				if exists(f"/usr/share/enigma2/MetrixHD/border/{width}/{color}.png"):
 					newline = f"<pixmap pos=\"bpRight\" filename=\"MetrixHD/border/{width}/{color}.png\" />"
 					skinSearchAndReplace.append(['<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
-					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 
 			# fonts system
 			type = config.plugins.MyMetrixLiteFonts.Lcd_type.value
@@ -1215,7 +1190,9 @@ class ActivateSkinSettings:
 			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
-			# skinfiles
+			# Pfad-Ersetzungen: skin_base.xml enthält Include-Referenzen auf die originalen
+			# skinfiles/*.xml — diese werden hier auf die *.mySkin.xml-Varianten umgebogen,
+			# damit skin_base.MySkin.xml auf die modifizierten Dateien zeigt.
 			skinSearchAndReplace.append([SKIN_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET])
 			skinSearchAndReplace.append([SKIN_INFOBAR_LITE_SOURCE, SKIN_INFOBAR_LITE_TARGET])
 			skinSearchAndReplace.append([SKIN_SECOND_INFOBAR_SOURCE, SKIN_SECOND_INFOBAR_TARGET])
@@ -1229,18 +1206,30 @@ class ActivateSkinSettings:
 			skinSearchAndReplace.append([SKIN_TEMPLATES_SOURCE, SKIN_TEMPLATES_TARGET])
 			skinSearchAndReplace.append([SKIN_DESIGN_SOURCE, SKIN_DESIGN_TARGET])
 
+			# rootContent: skin.xml und skin.MySkin.xml werden zu dünnen Include-Stubs.
+			# Enigma2 verarbeitet den <include>-Tag in loadSingleSkinData (skin.py) und lädt
+			# dabei SKIN_TARGET (absoluter Pfad) als vollständige Skin-Datei nach.
+			# WICHTIG: SKIN_TARGET (skin_base.MySkin.xml) muss existieren wenn enigma2 startet —
+			# es wird erst weiter unten durch optionEHD erzeugt!
+			rootContent = f"<skin>\n<include filename=\"{SKIN_TARGET}\" />\n</skin>\n"
+
 			# make skin file
 			skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
-			orgskin_lines = appendSkinFile(SKIN_SOURCE + bname, orgskinSearchAndReplace)
 
+			# skin_base.MySkin.xml.tmp: Zwischendatei mit Search&Replace-Ergebnis,
+			# wird später durch optionEHD in skin_base.MySkin.xml (SKIN_TARGET) überführt.
 			with open(SKIN_TARGET_TMP, "w") as fd:
 				for xx in skin_lines:
 					fd.writelines(xx)
 
-			# write changed skin.xml
-			with open(SKIN_SOURCE, "w") as fd:
-				for xx in orgskin_lines:
-					fd.writelines(xx)
+			ROOT_SKIN_SOURCE = "/usr/share/enigma2/MetrixHD/skin.xml"
+			ROOT_SKIN_TARGET = "/usr/share/enigma2/MetrixHD/skin.MySkin.xml"  # This is only for compat
+
+			with open(ROOT_SKIN_SOURCE, "w") as fd:
+				fd.write(rootContent)
+			# dummy file for compat
+			with open(ROOT_SKIN_TARGET, "w") as fd:
+				fd.write(rootContent)
 
 			################
 			# Icons, Graphics
@@ -1383,8 +1372,6 @@ class ActivateSkinSettings:
 			if not self.silent:
 				self.ErrorCode = 'error', _("Error creating Skin!") + f'\n< {error} >'
 			# restore skinfiles
-			if exists(SKIN_SOURCE + bname):
-				move(SKIN_SOURCE + bname, SKIN_SOURCE)
 			for file in skinfiles:
 				if exists(file[1]):
 					remove(file[1])
@@ -1399,11 +1386,21 @@ class ActivateSkinSettings:
 			# restore icons
 			self.updateIcons()
 			# restore default hd skin
+			# PROBLEM: skin.xml wurde oben bereits als Include-Stub auf skin_base.MySkin.xml
+			# überschrieben. skin_base.MySkin.xml wurde aber durch die Exception noch nicht
+			# (vollständig) erzeugt und wird oben in der skinfiles-Schleife gerade gelöscht.
+			# skin.xml zeigt also auf eine nicht existente Datei → enigma2 startet mit Fehler.
+			# FIX: skin.xml hier auf skin_base.xml (Original, unmodifiziert) umleiten, z.B.:
+			# fallbackContent = "<skin>\n<include filename=\"%s\" />\n</skin>" % SKIN_SOURCE
+			# with open(ROOT_SKIN_SOURCE, "w") as fd: fd.write(fallbackContent)
 			config.skin.primary_skin.setValue("MetrixHD/skin.xml")
 			config.plugins.MyMetrixLiteOther.Custom.value = False
 		else:
 			config.plugins.MyMetrixLiteOther.Custom.value = True
-			config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")  # TODO JB
+			# TODO JB: Soll primary_skin "skin.MySkin.xml" oder "skin.xml" sein?
+			# Beide Dateien haben identischen Inhalt (Include-Stub auf skin_base.MySkin.xml).
+			# Der Check in WriteSkin() oben prüft ebenfalls auf skin.MySkin.xml — muss konsistent bleiben.
+			config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")
 		config.skin.primary_skin.save()
 		configfile.save()
 		print(f"MyMetrixLite apply Changes - duration time: {round_half_up(time() - apply_starttime, 1)}s")
@@ -1782,8 +1779,8 @@ class ActivateSkinSettings:
 			# list margin channellist
 			line = line.replace('listMarginRight="5"', f'listMarginRight="{sb_width + int(5 * self.EHDfactor) + 5 if config.plugins.MyMetrixLiteOther.showChannelListScrollbar.value else int(5 * self.EHDfactor)}"')
 			line = line.replace('listMarginLeft="5"', f'listMarginLeft="{int(5 * self.EHDfactor)}"')
-			#-----------------------
-#options for all skin files end
+			# -----------------------
+# options for all skin files end
 			if self.EHDenabled:
 				try:
 # rename flag
