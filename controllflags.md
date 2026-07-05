@@ -10,7 +10,7 @@
 # rename next screen and stop converting                                      #
 # example1: if name ends with 'xxx#_FHDscreen', renamed to 'xxx'              #
 # example2: if name ends with 'xxx', renamed to 'xxx#_HDscreen'               #
-# example3: if name ends with 'xxx#_UHDscreen', renamed to 'xxx'              #
+# example3: if name ends with 'xxx#_WQHDscreen', renamed to 'xxx'              #
 # example4: if name ends with 'xxx', renamed to 'xxx#_HDscreen'               #
 #<!-- cf#_#picon -->                                                          #
 # next line is a picon position                                               #
