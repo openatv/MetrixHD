@@ -92,6 +92,7 @@ class ActivateSkinSettings:
 		initWeatherConfig()
 		initFontsConfig()
 
+	# no longer used
 	def RefreshIcons(self, restore=False):
 		# called from SystemPlugins/SoftwareManager/plugin.py after software update and from Screens/SkinSelector.py after changing skin
 		self.initConfigs()
