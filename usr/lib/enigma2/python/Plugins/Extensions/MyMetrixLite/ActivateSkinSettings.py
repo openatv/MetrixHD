@@ -114,6 +114,11 @@ class ActivateSkinSettings:
 			self.EHDfactor = 1.5
 			self.EHDres = 'FHD'
 			self.EHDtxt = 'Full HD'
+		elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '2' and EHDtested:
+			self.EHDenabled = True
+			self.EHDfactor = 2.0
+			self.EHDres = 'WQHD'
+			self.EHDtxt = 'WQHD'
 		else:
 			self.EHDenabled = False
 			self.EHDfactor = 1
@@ -127,7 +132,7 @@ class ActivateSkinSettings:
 		# first check is ehd tested, ehd-settings and available ehd-icons
 		self.getEHDSettings(onlyCheck)
 
-		if self.EHDenabled:
+		if self.EHDenabled and self.EHDres == 'FHD':
 			self.service_name = f'enigma2-plugin-skins-metrix-atv-{self.EHDres.lower()}-icons'
 			return_value = getoutput("/usr/bin/opkg list-installed " + self.service_name)
 			if self.service_name not in return_value:
@@ -243,7 +248,7 @@ class ActivateSkinSettings:
 						('ok.png', _('OK')),
 						('text.png', _('TEXT'))
 						]
-			buttonpath = {'HD': '/usr/share/enigma2/MetrixHD/buttons/', 'FHD': '/usr/share/enigma2/MetrixHD/FHD/buttons/'}
+			buttonpath = {'HD': '/usr/share/enigma2/MetrixHD/buttons/', 'FHD': '/usr/share/enigma2/MetrixHD/FHD/buttons/', 'WQHD': '/usr/share/enigma2/MetrixHD/WQHD/buttons/'}
 
 			################
 			# check free flash for _TARGET and _TMP files

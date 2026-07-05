@@ -1,0 +1,98 @@
+#!/bin/sh
+echo "Checking for obsolete MyMetrixLiteColors"
+if [ -d ${libdir}/enigma2/python/Plugins/Extensions/MyMetrixLiteColors ]; then
+    rm -rf ${libdir}/enigma2/python/Plugins/Extensions/MyMetrixLiteColors 2>/dev/null
+    echo "MyMetrixLiteColors was found and removed"
+else
+    echo "MyMetrixLiteColors was not found"
+fi
+echo "Proceeding..."
+
+# --- RefreshIcons: rebuild Enhanced-HD icon symlinks after install/upgrade (was ActivateSkinSettings.RefreshIcons) ---
+echo "Refreshing icons..."
+
+target="HD"
+settings="/etc/enigma2/settings"
+if [ -f "$settings" ]; then
+    ehdtested=$(sed -n 's/^config\.plugins\.MyMetrixLiteOther\.EHDtested=//p' "$settings")
+    if [ "${ehdtested##*_|_}" = "1" ]; then
+        target="FHD"
+    elif [ "${ehdtested##*_|_}" = "2" ]; then
+        target="WQHD"
+    fi
+fi
+
+# backward compatibility - normalize leftover files from older package versions
+for dpath in \
+    "/usr/share/enigma2/MetrixHD" \
+    "/usr/share/enigma2/MetrixHD/skin_default/buttons" \
+    "/usr/share/enigma2/MetrixHD/skin_default/icons" \
+    "/usr/share/enigma2/MetrixHD/icons" \
+    "/usr/share/enigma2/MetrixHD/buttons" \
+    "/usr/share/enigma2/MetrixHD/extensions" \
+    "/usr/lib/enigma2/python/Plugins/SystemPlugins/SoftwareManager" \
+    "/usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/images" \
+    "/usr/lib/enigma2/python/Plugins/SystemPlugins/NetworkBrowser/icons" \
+    "/usr/share/enigma2/MetrixHD/ibts" \
+    "/usr/share/enigma2/MetrixHD/emc"
+do
+    [ -d "$dpath" ] || continue
+    for file in "$dpath"/*; do
+        [ -f "$file" ] || continue
+        base=$(basename "$file")
+        case "$base" in
+            *.png.hd)
+                mv "$file" "${file%.hd}"
+                ;;
+            *.png.del)
+                rm -f "$file"
+                ;;
+            skin_00*)
+                [ "$dpath" = "/usr/share/enigma2/MetrixHD" ] && rm -f "$file"
+                ;;
+        esac
+    done
+done
+
+imgpath="/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/images"
+if [ -d "$imgpath" ] && [ -d "${imgpath}_hd" ]; then
+    rm -rf "$imgpath"
+    mv "${imgpath}_hd" "$imgpath"
+fi
+
+dpath="/usr/share/enigma2/MetrixHD"
+spath="/usr/share/enigma2/MetrixHD/$target"
+
+if [ -d "$dpath" ]; then
+    # remove existing resolution symlinks
+    for x in "$dpath"/* "$dpath"/.[!.]*; do
+        [ -e "$x" ] || continue
+        [ -L "$x" ] && rm -f "$x"
+    done
+
+    # restore hidden HD backups if the plain file is missing
+    for x in "$dpath"/.*_hd; do
+        [ -e "$x" ] || continue
+        base=$(basename "$x")
+        dest="$dpath/${base#.}"
+        dest="${dest%_hd}"
+        [ -e "$dest" ] || mv "$x" "$dest"
+    done
+
+    # symlink the configured target resolution icons
+    if [ "$target" != "HD" ] && [ -d "$spath" ]; then
+        for x in "$spath"/*; do
+            [ -e "$x" ] || continue
+            name=$(basename "$x")
+            [ "$name" = "Plugins" ] && continue
+            dest="$dpath/$name"
+            hd="$dpath/.${name}_hd"
+            if [ -e "$dest" ] && [ ! -e "$hd" ]; then
+                mv "$dest" "$hd"
+            fi
+            ln -sfn "$x" "$dest"
+        done
+    fi
+fi
+echo "...done"
+exit 0

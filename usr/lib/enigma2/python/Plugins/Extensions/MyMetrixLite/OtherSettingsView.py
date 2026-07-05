@@ -131,6 +131,12 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.EHDvalue = "1"
 			self.EHDres = 'FHD'
 			self.EHDtxt = 'Full HD'
+		elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '2':
+			self.EHDenabled = True
+			self.EHDfactor = 2.0
+			self.EHDvalue = "2"
+			self.EHDres = 'WQHD'
+			self.EHDtxt = 'WQHD'
 		else:
 			self.EHDenabled = False
 			self.EHDfactor = 1
@@ -151,6 +157,10 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self.EHDvalue_old = "1"
 			self.EHDres_old = 'FHD'
 			self.EHDtext_old = 'Full HD'
+		elif screenwidth and screenwidth == 2560 and config.plugins.MyMetrixLiteOther.EHDenabled.value != '2':
+			self.EHDvalue_old = "2"
+			self.EHDres_old = 'WQHD'
+			self.EHDtext_old = 'WQHD'
 		else:
 			self.EHDvalue_old = "0"
 			self.EHDres_old = 'HD'

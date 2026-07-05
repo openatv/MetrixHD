@@ -491,14 +491,14 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.EHDtested = ConfigText(default=f"{BoxType}_|_0")
 
 	skinmodes = [("0", _("Standard HD (1280x720)"))]
-	mode1080p = mode2160p = risk = False
+	mode1080p = mode1440p = risk = False
 	try:
 		if exists("/proc/stb/video/videomode_choices"):
 			vmodes = open("/proc/stb/video/videomode_choices").read()
 			if "1080p" in vmodes:
 				mode1080p = True
-#			if "2160p" in vmodes:
-#				mode2160p = True
+			if "1440p" in vmodes:
+				mode1440p = True
 		else:
 			risk = True
 	except Exception:
@@ -512,21 +512,15 @@ def initOtherConfig():
 			skinmodes.append(("1", _("Full HD (1920x1080)")))
 		elif mode1080p or risk:
 			skinmodes.append(("1", _("Full HD (1920x1080) %s") % risktxt))
-#		if BoxType in tested[0] and "2" in tested[1]:
-#			skinmodes.append(("2", _("Ultra HD (3840x2160)")))
-#		elif mode2160p or risk:
-#			skinmodes.append(("2", _("Ultra HD (3840x2160) %s") % risktxt))
+		if BoxType in tested[0] and "2" in tested[1]:
+			skinmodes.append(("2", _("WQHD (2560x1440)")))
+		elif mode1440p or risk:
+			skinmodes.append(("2", _("WQHD (2560x1440) %s") % risktxt))
 	else:
 		if mode1080p or risk:
 			skinmodes.append(("1", _("Full HD (1920x1080) %s") % risktxt))
-		#if mode2160p or risk:
-		#	skinmodes.append(("2", _("Ultra HD (3840x2160) %s") % risktxt))
-
-	###no box supports at time uhd skins ...###
-	dummy = _("Ultra HD (3840x2160)")
-	dummy = _("Ultra HD (3840x2160) %s")
-
-	###########################################
+		if mode1440p or risk:
+			skinmodes.append(("2", _("WQHD (2560x1440) %s") % risktxt))
 	config.plugins.MyMetrixLiteOther.EHDenabled = ConfigSelection(default="0", choices=skinmodes)
 	config.plugins.MyMetrixLiteOther.EHDrounddown = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.EHDfontoffset = ConfigSelectionNumber(-10, 5, 1, default=0)

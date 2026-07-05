@@ -1,0 +1,29 @@
+#!/bin/sh
+echo "remove symlinks ..."
+if grep -q "config.skin.primary_skin=MetrixHD/skin.MySkin.xml" /etc/enigma2/settings; then
+    touch /etc/.restore_skins
+fi
+for f in /usr/share/enigma2/MetrixHD/*
+do
+if [ -L $f ]; then
+    unlink $f
+fi
+done
+echo "... done"
+echo "remove mySkin ..."
+rm -f /usr/share/enigma2/MetrixHD/skinfiles/*.mySkin.xml
+rm -f /usr/share/enigma2/MetrixHD/skin.MySkin.xml
+echo "... done"
+echo "restore skin ..."
+if [ -r /usr/share/enigma2/MetrixHD/skin.xml_original_file_.xml ]; then
+    mv /usr/share/enigma2/MetrixHD/skin.xml_original_file_.xml /usr/share/enigma2/MetrixHD/skin.xml
+fi
+for f in /usr/share/enigma2/MetrixHD/.*_hd;
+do
+if [ -r $f ]; then
+    mv "$f" "$(echo ${f%} | sed 's/\.//' | sed 's/_hd//')"
+fi
+done
+echo "... done"
+echo "Proceeding to installation..."
+exit 0

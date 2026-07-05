@@ -48,6 +48,10 @@ class MainMenuList(MenuList):
 			self.l.setFont(0, gFont("Regular", int(font0 * 3)))
 			self.l.setFont(1, gFont("Regular", int(font1 * 3)))
 			self.l.setItemHeight(int(itemHeight * 3))
+		elif screenwidth and screenwidth == 2560:
+			self.l.setFont(0, gFont("Regular", int(font0 * 2)))
+			self.l.setFont(1, gFont("Regular", int(font1 * 2)))
+			self.l.setItemHeight(int(itemHeight * 2))
 		elif screenwidth and screenwidth == 1920:
 			self.l.setFont(0, gFont("Regular", int(font0 * 1.5)))
 			self.l.setFont(1, gFont("Regular", int(font1 * 1.5)))
@@ -65,6 +69,8 @@ def MenuEntryItem(itemDescription, key, helptext):
 	screenwidth = getDesktop(0).size().width()
 	if screenwidth and screenwidth == 3840:
 		res.append(MultiContentEntryText(pos=(30, 15), size=(1320, 135), font=0, text=itemDescription, ))
+	elif screenwidth and screenwidth == 2560:
+		res.append(MultiContentEntryText(pos=(20, 10), size=(880, 90), font=0, text=itemDescription, ))
 	elif screenwidth and screenwidth == 1920:
 		res.append(MultiContentEntryText(pos=(15, 8), size=(660, 68), font=0, text=itemDescription, ))
 	else:

@@ -128,6 +128,10 @@
 	<screen name="FritzOfferAction_FacePixmap#_FHDscreen" >
 		<widget name="FacePixmap" position="1351,279" size="400,400" alphatest="blend" />
 	</screen>
+<!-- cf#_#rename -->
+	<screen name="FritzOfferAction_FacePixmap#_WQHDscreen" >
+		<widget name="FacePixmap" position="1801,372" size="533,533" alphatest="blend" />
+	</screen>
 <!-- cf#_#start -->
 	 <screen name="FritzOfferAction" position="0,0" size="1280,720" title="Do what?" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_2layer" />
@@ -146,6 +150,11 @@
 	<screen name="MessageBoxPixmap_Info#_FHDscreen" >
 		<widget name="InfoPixmap" position="15,120" size="400,400" alphatest="blend" />
 		<widget name="text" position="380,130" size="780,350" font="screen_text;33" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
+	</screen>
+<!-- cf#_#rename -->
+	<screen name="MessageBoxPixmap_Info#_WQHDscreen" >
+		<widget name="InfoPixmap" position="20,160" size="533,533" alphatest="blend" />
+		<widget name="text" position="507,173" size="1040,467" font="screen_text;44" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
 	</screen>
 <!-- cf#_#start -->
 	<screen name="MessageBoxPixmap" position="240,160" size="800,350" zPosition="10" title="Message" flags="wfNoBorder" backgroundColor="layer-a-background" >
@@ -1343,6 +1352,12 @@
 		<eLabel position="1252,202" size="400,240" backgroundColor="layer-a-background" />
 		<widget name="picon" position="1252,202" size="400,240" zPosition="4" transparent="0" borderWidth="0" borderColor="layer-a-background" alphatest="blend" />
 	</screen>
+<!-- cf#_#rename -->
+	<screen name="picon_manager#_WQHDscreen">
+		<eLabel position="1667,267" size="539,325" backgroundColor="layer-a-accent1" />
+		<eLabel position="1669,269" size="533,320" backgroundColor="layer-a-background" />
+		<widget name="picon" position="1669,269" size="533,320" zPosition="4" transparent="0" borderWidth="0" borderColor="layer-a-background" alphatest="blend" />
+	</screen>
 <!-- cf#_#start -->
 	<screen name="PiconManagerScreen" title="PiconManager" position="0,0" size="1280,720" backgroundColor="transparent" flags="wfNoBorder">
 		<panel name="T_Title_L" />
@@ -1403,6 +1418,12 @@
 		<widget name="Background" pixmap="ibts/background.png" position="0,0" size="1920,48" zPosition="-1" transparent="1" alphatest="off"/> 
 		<widget name="Type" pixmaps="ibts/record.png,ibts/stream.png,ibts/finished.png,ibts/info.png,ibts/live.png,ibts/unknown.png" position="0,0" size="48,48" zPosition="1" transparent="1" alphatest="blend"/>  
 		<widget name="Progress" pixmap="ibts/progress.png" position="0,0" size="120,12" zPosition="1" borderWidth="1" borderColor="layer-a-background" backgroundColor="layer-a-background" transparent="1"/>
+	</screen>
+<!-- cf#_#rename -->
+	<screen name="ibts_icons#_WQHDscreen" >
+		<widget name="Background" pixmap="ibts/background.png" position="0,0" size="2560,64" zPosition="-1" transparent="1" alphatest="off"/> 
+		<widget name="Type" pixmaps="ibts/record.png,ibts/stream.png,ibts/finished.png,ibts/info.png,ibts/live.png,ibts/unknown.png" position="0,0" size="64,64" zPosition="1" transparent="1" alphatest="blend"/>  
+		<widget name="Progress" pixmap="ibts/progress.png" position="0,0" size="160,16" zPosition="1" borderWidth="1" borderColor="layer-a-background" backgroundColor="layer-a-background" transparent="1"/>
 	</screen>
 <!-- cf#_#start -->
 	<screen name="TunerState" title="Tuner State" flags="wfNoBorder" position="0,50" size="1000,32" zPosition="5" padding="20" spacing="15" backgroundColor="transparent">
@@ -2099,6 +2120,29 @@
 		enableWrapAround="1" scrollbarMode="showOnDemand" />
 	</screen>
 <!-- cf#_#rename -->
+	<screen name="ForecaPreview_list#_WQHDscreen" >
+		<widget name="MainList" position="140,307" size="1400,800" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" 
+		font0="screen_text;44"
+		font1="screen_info;44"
+		font2="screen_info;36"
+		font3="screen_text;44"
+		itemHeight="200"
+		setTime="13,68,120,48"
+		setPict="160,53,140,140"
+		setPictScale="1"
+		setTemp="291,33,160,53"
+		setTempUnits="291,107,160,53"
+		setWindPict="467,48,56,56"
+		setWindPictScale="1"
+		setWind="533,33,191,53"
+		setWindUnits="533,107,191,53"
+		text1Pos="733,4,667,56"
+		text2Pos="733,60,667,56"
+		text3Pos="733,100,667,56"
+		text4Pos="733,140,667,56"
+		enableWrapAround="1" scrollbarMode="showOnDemand" />
+	</screen>
+<!-- cf#_#rename -->
 	<screen name="ForecaPreview_list#_UHDscreen" >
 		<widget name="MainList" position="210,330" size="2100,1500" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" 
 		font0="screen_text;66"
@@ -2131,6 +2175,12 @@
 	<screen name="SatPanel_list#_FHDscreen" >
 		<widget name="Mlist" position="105,150" size="1050,720" zPosition="3" font="screen_text;33" itemHeight="120" setPictScale="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" 
 		textPos="345,38,705,45" 
+		enableWrapAround="1" scrollbarMode="showOnDemand" />
+	</screen>
+<!-- cf#_#rename -->
+	<screen name="SatPanel_list#_WQHDscreen" >
+		<widget name="Mlist" position="140,200" size="1400,960" zPosition="3" font="screen_text;44" itemHeight="160" setPictScale="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" 
+		textPos="460,51,940,60" 
 		enableWrapAround="1" scrollbarMode="showOnDemand" />
 	</screen>
 <!-- cf#_#rename -->
@@ -2810,6 +2860,54 @@
 		<widget name="quickselect" position="100,120" size="1720,840" backgroundColor="text-background" foregroundColor="background-text" font="global_large_screen;100" halign="center" transparent="1" valign="center" zPosition="+1" />
 		<widget name="status" position="100,880" size="1740,50" font="screen_text;30" backgroundColor="#00fff000" borderColor="#00000000" borderWidth="2" foregroundColor="#00ffffff" halign="center" valign="center" zPosition="+1" />
 	</screen>
+<!-- cf#_#rename -->
+	<screen name="FileCommander#_WQHDscreen" position="0,0" size="2560,1440" flags="wfNoBorder" backgroundColor="transparent" >
+		<widget source="Title" render="Label" position="116,72" size="1600,100" valign="bottom" font="global_title;68" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="headleft" render="Listbox" position="140,180" size="1131,160" foregroundColor="layer-a-accent1" selectionDisabled="1" backgroundColor="layer-a-background" transparent="1" >
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					MultiContentEntryText(pos= (27, 0), size=(1131, 100), font = 1, flags = RT_HALIGN_LEFT | RT_WRAP, text = 26), # Index 26 is the current directory + the current file.
+					MultiContentEntryText(pos = (27, 100), size = (200, 60), font = 0, flags = RT_HALIGN_LEFT, text = 16), # index 16 is the sort
+					MultiContentEntryText(pos = (280, 100), size = (160, 60), font = 0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is a symbolic mode
+					MultiContentEntryText(pos = (440, 100), size = (200, 60), font = 0, flags = RT_HALIGN_RIGHT, text = 11), # index 11 is the scaled size
+					MultiContentEntryText(pos = (640, 100), size = (480, 60), font = 0, flags = RT_HALIGN_RIGHT, text = 13), # index 13 is the modification time
+					],
+					"fonts": [gFont("screen_text", 36),gFont("screen_text", 39)],
+					"itemHeight": 160,
+					"selectionEnabled": False
+				}
+			</convert>
+		</widget>
+		<widget source="headright" render="Listbox" position="1291,180" size="1131,160" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" selectionDisabled="1" transparent="1" >
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					MultiContentEntryText(pos= (27, 0), size=(1131, 100), font = 1, flags = RT_HALIGN_LEFT | RT_WRAP, text = 26), # Index 26 is the current directory + the current file.
+					MultiContentEntryText(pos = (27, 100), size = (200, 60), font = 0, flags = RT_HALIGN_LEFT, text = 16), # index 16 is the sort
+					MultiContentEntryText(pos = (280, 100), size = (160, 60), font = 0, flags = RT_HALIGN_LEFT, text = 1), # index 1 is a symbolic mode
+					MultiContentEntryText(pos = (440, 100), size = (200, 60), font = 0, flags = RT_HALIGN_RIGHT, text = 11), # index 11 is the scaled size
+					MultiContentEntryText(pos = (640, 100), size = (480, 60), font = 0, flags = RT_HALIGN_RIGHT, text = 13), # index 13 is the modification time
+					],
+					"fonts": [gFont("screen_text", 36),gFont("screen_text", 39)],
+					"itemHeight": 160,
+					"selectionEnabled": False
+				}
+			</convert>
+		</widget>
+		<widget name="sortleft" position="151,284" size="0,0" font="screen_text;36" halign="left" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1"/>
+		<widget name="sortright" position="1300,284" size="0,0" font="screen_text;36" halign="left" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1"/>
+		<eLabel position="140,280" size="2280,3" backgroundColor="layer-a-accent2" />
+		<eLabel position="140,331" size="2280,3" backgroundColor="layer-a-accent2" />
+		<eLabel position="1280,280" size="3,960" backgroundColor="layer-a-accent2" />
+		<widget name="listleft" position="140,340" size="1131,900" itemHeight="60" font="screen_text;40" scrollbarSliderBorderWidth="0" scrollbarWidth="5" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="listright" position="1291,340" size="1131,900" itemHeight="60" font="screen_text;40" scrollbarSliderBorderWidth="0" scrollbarWidth="5" scrollbarSliderForegroundColor="scrollbarSlidercolor" scrollbarSliderBorderColor="scrollbarSliderbordercolor" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_1layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<ePixmap position="1900,1271" size="163,80" zPosition="1" pixmap="buttons/ok.png" transparent="1" alphatest="blend" />
+		<ePixmap position="2091,1271" size="163,80" zPosition="1" pixmap="buttons/menu.png" transparent="1" alphatest="blend" />
+		<ePixmap position="2280,1271" size="163,80" zPosition="1" pixmap="buttons/key_exit.png" transparent="1" alphatest="blend" />
+		<widget name="quickselect" position="133,160" size="2293,1120" backgroundColor="text-background" foregroundColor="background-text" font="global_large_screen;133" halign="center" transparent="1" valign="center" zPosition="+1" />
+		<widget name="status" position="133,1173" size="2320,67" font="screen_text;40" backgroundColor="#00fff000" borderColor="#00000000" borderWidth="3" foregroundColor="#00ffffff" halign="center" valign="center" zPosition="+1" />
+	</screen>
 <!-- cf#_#start -->
 	<screen name="FileCommanderTextEditor" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title_L" />
@@ -3216,6 +3314,24 @@ except:
 					</mode>
 					<mode name="135" itemHeight="180" itemWidth="180">
 						<pixmap index="0" position="22,22" size="135,135" alpha="blend" scale="centerScaled" />
+					</mode>
+				</template>
+			</templates>
+		</widget>
+	</screen>
+<!-- cf#_#rename -->
+	<screen name="PlayerSelectorGrid#_WQHDscreen" position="0,0" size="2560,1440"  title="E2iPlayer" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="grid" render="Listbox" position="140,200" size="2280,1049" conditional="grid" listOrientation="grid" scrollbarMode="showOnDemand" itemSpacing="40,40" itemAlignment="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground">
+			<templates>
+				<template name="Default" fonts="epg_text;20">
+					<mode name="default" itemHeight="193" itemWidth="193">
+						<pixmap index="0" position="29,29" size="133,133" alpha="blend"  scale="centerScaled" />
+					</mode>
+					<mode name="120" itemHeight="220" itemWidth="220">
+						<pixmap index="0" position="29,29" size="160,160" alpha="blend" scale="centerScaled" />
+					</mode>
+					<mode name="135" itemHeight="240" itemWidth="240">
+						<pixmap index="0" position="29,29" size="180,180" alpha="blend" scale="centerScaled" />
 					</mode>
 				</template>
 			</templates>
