@@ -77,20 +77,20 @@
 	<screen name="NetworkConnections" title="Network Connections" position="0,0" size="1280,720">
 		<panel name="T_Title" />
 		<widget source="list" render="Listbox" position="70,100" size="700,510" scrollbarMode="showOnDemand">
-			<template name="Default" fonts="enigma2icons;42,Regular;28,Regular;20,enigma2icons;24,Regular;30" itemHeight="80" itemWidth="980">
+			<template name="Default" fonts="enigma2icons;42,Regular;28,Regular;20,enigma2icons;24,Regular;30,enigma2icons;80" itemHeight="80" itemWidth="700" colorStateLink="#0000CC00" colorStateEnabled="#00FFFFFF" colorStateDisabled="#00808080">
 				<mode name="default">
 					<!-- adapter icon (large, left) -->
-					<text index="0" position="5,4" size="58,72" font="0" horizontalAlignment="center" verticalAlignment="center" foregroundColor="=6" foregroundColorSelected="=6" />
+					<text index="0" position="6,4" size="58,72" font="0" horizontalAlignment="center" verticalAlignment="center" foregroundColor="=6" foregroundColorSelected="=6" />
 					<!-- enabled/disabled checkbox placeholder -->
 					<text index="1" position="66,26" size="30,30" font="3" horizontalAlignment="center" verticalAlignment="center" foregroundColor="=6" foregroundColorSelected="=6" />
 					<!-- adapter label "eth0 / Intern" -->
-					<text index="2" position="104,15" size="780,50" font="1" horizontalAlignment="left" verticalAlignment="center" foregroundColor="=6" foregroundColorSelected="=6" />
+					<text index="2" position="104,15" size="680,50" font="1" horizontalAlignment="left" verticalAlignment="center" foregroundColor="=6" foregroundColorSelected="=6" />
 					<!-- tree connector ├ / └ -->
-					<text index="3" position="5,4" size="58,72" font="0" horizontalAlignment="center" verticalAlignment="center" foregroundColor="=6" foregroundColorSelected="=6" />
+					<text index="3" position="0,0" size="80,80" font="5" horizontalAlignment="left" verticalAlignment="top" foregroundColor="=6" foregroundColorSelected="=6" />
 					<!-- connection line 1: profile/LAN + IP -->
-					<text index="4" position="104,8" size="780,34" font="1" horizontalAlignment="left" verticalAlignment="center" foregroundColor="=6" foregroundColorSelected="=6" />
+					<text index="4" position="104,8" size="700,34" font="1" horizontalAlignment="left" verticalAlignment="center" foregroundColor="=6" foregroundColorSelected="=6" />
 					<!-- connection line 2: speed / mask / gw -->
-					<text index="5" position="104,44" size="780,28" font="2" horizontalAlignment="left" verticalAlignment="center" />
+					<text index="5" position="104,44" size="700,28" font="2" horizontalAlignment="left" verticalAlignment="center" />
 					<!-- internet icon top-right (connection rows only) -->
 					<text index="7" position="e-50,4" size="34,34" font="3" horizontalAlignment="center" verticalAlignment="center" />
 				</mode>
@@ -101,16 +101,20 @@
 		<panel name="_oe-buttons_template1" />
 		<panel name="T_Img_Logo" />
 	</screen>
-
-	<screen name="WlanScanScreen" title="WLAN Scan" position="0,0" size="1280,720">
+	<screen name="WiFiScanScreen" title="WiFi Scan" position="0,0" size="1280,720">
 		<panel name="T_Title" />
 		<widget source="list" render="Listbox" position="70,130" size="700,390" scrollbarMode="showOnDemand">
-			<template name="Default" fonts="Regular;26,Regular;20" itemHeight="50">
+			<template name="Default" fonts="Regular;22,Regular;20,enigma2icons;20" itemHeight="35">
 				<mode name="default">
-					<text index="0" position="10,0" size="290,50" font="0" horizontalAlignment="left" verticalAlignment="center" />
-					<text index="1" position="310,0" size="200,50" font="1" horizontalAlignment="center" verticalAlignment="center" />
-					<text index="2" position="490,0" size="100,50" font="1" horizontalAlignment="center" verticalAlignment="center" />
-					<text index="3" position="600,0" size="90,50" font="1" horizontalAlignment="right" verticalAlignment="center" />
+					<panel position="0,0" size="e,e" layout="horizontal">
+						<text index="Name" position="left" size="360,35" flags="scroll" font="0" horizontalAlignment="left" padding="5,0" verticalAlignment="center" />
+						<text index="Glyph" position="left" size="30,35" font="2" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
+						<text index="Percentage" position="left" size="70,35" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
+						<text index="dBm" position="left" size="100,35" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
+						<text index="Encryption" position="left" size="110,35" font="1" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
+						<text index="Channel" position="left" size="90,35" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
+						<text index="Frequency" position="right" size="120,35" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
+					</panel>
 				</mode>
 			</template>
 		</widget>
@@ -120,46 +124,24 @@
 		<panel name="_oe-buttons_template1" />
 		<panel name="T_Img_Logo" />
 	</screen>
-
-	<!-- Network Adapter -->
-	<screen name="AdapterSetup" position="0,0" size="1280,720" title="Network Setup" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="NetworkTest" title="Network Test" position="center,center" size="900,510" resolution="1280,720">
 		<panel name="T_Title" />
-		<widget source="Adapter" render="Label" position="70,115" size="495,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget name="config" position="70,165" size="700,240" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="introduction2" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<widget source="introduction" render="Label" position="200,415" size="430,32" font="SetrixHD;24" halign="center" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel position="200,455" size="430,2" backgroundColor="layer-a-accent1" />
-		<widget source="IPtext" render="Label" position="200,465" size="210,24" font="SetrixHD;20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Netmasktext" render="Label" position="200,495" size="210,24" font="SetrixHD;20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Gatewaytext" render="Label" position="200,525" size="210,24" font="SetrixHD;20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="DNS1text" render="Label" position="200,555" size="210,24" font="SetrixHD;20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="DNS2text" render="Label" position="200,585" size="210,24" font="SetrixHD;20" halign="right" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="IP" render="Label" position="420,465" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Mask" render="Label" position="420,495" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Gateway" render="Label" position="420,525" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="DNS1" render="Label" position="420,555" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="DNS2" render="Label" position="420,585" size="210,24" font="SetrixHD;20" halign="left" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="VKeyIcon" text="Text" position="430,638" size="70,24" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" backgroundColor="layer-a-background" transparent="1" />
-		<panel name="T_HelpWindow" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="template1_2layer" />
-		<panel name="toe-buttons_template1" />
-		<panel name="T_Img_Logo" />
-	</screen>
-	<screen name="AdapterSetupConfiguration" position="0,0" size="1280,720" title="Network Configuration..." flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="T_Title" />
-		<widget source="IF" render="Label" position="70,115" size="495,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Statustext" render="Label" position="576,115" size="160,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="statuspic" position="740,117" size="30,30" pixmaps="buttons/key_green.png,buttons/grey.png" transparent="1" alphatest="blend" />
-		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget name="menulist" position="70,165" size="700,270" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="description" render="Label" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
+		<widget source="list" render="Listbox" position="70,100" size="700,450" scrollbarMode="showNever">
+			<template name="Default" fonts="Regular;24,Regular;22,Regular;18" itemHeight="60" itemWidth="900">
+				<mode name="default">
+					<text index="0" position="10,10" size="40,40" font="0" horizontalAlignment="center" verticalAlignment="center" foregroundColor="=4" foregroundColorSelected="=4" />
+					<text index="1" position="60,10" size="280,40" font="0" horizontalAlignment="left" verticalAlignment="center" />
+					<text index="2" position="350,10" size="210,40" font="1" horizontalAlignment="left" verticalAlignment="center" foregroundColor="=4" foregroundColorSelected="=4" />
+					<text index="3" position="570,10" size="320,40" font="2" horizontalAlignment="left" verticalAlignment="center" />
+				</mode>
+			</template>
+		</widget>
 		<panel name="T_Col_B_A" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
 		<panel name="T_Img_Logo" />
 	</screen>
+	<!-- Network NEW -->
 	<screen name="NetworkMacSetup" position="0,0" size="1280,720" title="MAC-address settings" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="config" position="70,130" size="700,390" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -184,124 +166,6 @@
 		<widget name="introduction" position="70,600" size="700,25" font="SetrixHD;22" halign="center" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="T_Col_B_A" />
 		<panel name="template1_2layer" />
-		<panel name="_oe-buttons_template1" />
-		<panel name="T_Img_Logo" />
-	</screen>
-	<screen name="NetworkAdapterSelection" position="0,0" size="1280,720" title="Select Network Adapter" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="T_Title" />
-		<widget source="list" render="Listbox" position="70,100" size="700,450" enableWrapAround="1" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1">
-			<convert type="TemplatedMultiContent">
-				{"template": [
-					MultiContentEntryPixmapAlphaBlend(pos = (10, 10), size = (54, 54), png = 3, flags = BT_SCALE), # index 3 is the interface pixmap
-					MultiContentEntryPixmapAlphaBlend(pos = (71, 46), size = (15, 16), png = 4, flags = BT_SCALE), # index 4 is the default pixmap
-					MultiContentEntryText(pos = (100, 2), size = (600, 40), font=0, flags = RT_HALIGN_LEFT|RT_VALIGN_TOP, text = 1), # index 1 is the interfacename
-					MultiContentEntryText(pos = (100, 42), size = (600, 25), font=1, flags = RT_HALIGN_LEFT|RT_VALIGN_BOTTOM, text = 2), # index 2 is the description
-				],
-				"fonts": [gFont("SetrixHD",28),gFont("SetrixHD",20)],
-				"itemHeight": 75
-				}
-			</convert>
-		</widget>
-		<widget name="introduction" position="70,600" size="700,25" font="SetrixHD;22" halign="center" backgroundColor="layer-a-background" transparent="1" />
-		<panel name="T_Col_B_A" />
-		<panel name="template1_2layer" />
-		<panel name="_oe-buttons_template1" />
-		<panel name="T_Img_Logo" />
-	</screen>
-	<screen name="NetworkAdapterTest" position="0,0" size="1280,720" title="Network test..." flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="T_Title" />
-		<widget name="Adaptertext" position="70,120" size="400,30" zPosition="1" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="Adapter" position="70,150" size="400,30" zPosition="1" font="SetrixHD;22" foregroundColors="#8c8c93,#f23d21,#1cff1c" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="AdapterInfo_OK" position="535,133" size="30,30" pixmap="buttons/key_green.png" zPosition="2" alphatest="blend" />
-		<widget name="AdapterInfo_Text" position="570,131" size="200,34" zPosition="2" font="SetrixHD;22" halign="center" valign="center" foregroundColors="#8c8c93,grey,#ffffff" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="AdapterInfo" position="570,130" size="200,35" pixmaps="menu/lan-seloff.png,menu/lan-sel.png" zPosition="1" alphatest="blend" />
-		<eLabel position="70,185" size="700,2" backgroundColor="layer-a-accent2" />
-		<widget name="Networktext" position="70,200" size="400,30" zPosition="1" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="Network" position="70,230" size="400,30" zPosition="1" font="SetrixHD;22" foregroundColors="#8c8c93,#f23d21,#1cff1c" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="NetworkInfo_Check" position="535,213" size="30,30" pixmaps="buttons/key_green.png,buttons/key_red.png" zPosition="2" alphatest="blend" />
-		<widget name="NetworkInfo_Text" position="570,211" size="200,34" zPosition="2" font="SetrixHD;22" halign="center" valign="center" foregroundColors="#8c8c93,grey,#ffffff" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="NetworkInfo" position="570,210" size="200,35" pixmaps="menu/lan-seloff.png,menu/lan-sel.png" zPosition="1" alphatest="blend" />
-		<eLabel position="70,265" size="700,2" backgroundColor="layer-a-accent2" />
-		<widget name="Dhcptext" position="70,280" size="400,30" zPosition="1" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="Dhcp" position="70,310" size="400,30" zPosition="1" font="SetrixHD;22" foregroundColors="#8c8c93,#f23d21,#1cff1c" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="DhcpInfo_Check" position="535,293" size="30,30" pixmaps="buttons/key_green.png,buttons/key_red.png" zPosition="2" alphatest="blend" />
-		<widget name="DhcpInfo_Text" position="570,291" size="200,35" zPosition="2" font="SetrixHD;22" halign="center" valign="center" foregroundColors="#8c8c93,grey,#ffffff" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="DhcpInfo" position="570,290" size="200,35" pixmaps="menu/lan-seloff.png,menu/lan-sel.png" zPosition="1" alphatest="blend" />
-		<eLabel position="70,345" size="700,2" backgroundColor="layer-a-accent2" />
-		<widget name="IPtext" position="70,360" size="400,30" zPosition="1" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="IP" position="70,390" size="400,30" zPosition="1" font="SetrixHD;22" foregroundColors="#8c8c93,#f23d21,#1cff1c" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="IPInfo_Check" position="535,373" size="30,30" pixmaps="buttons/key_green.png,buttons/key_red.png" zPosition="2" alphatest="blend" />
-		<widget name="IPInfo_Text" position="570,371" size="200,34" zPosition="2" font="SetrixHD;22" halign="center" valign="center" foregroundColors="#8c8c93,grey,#ffffff" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="IPInfo" position="570,370" size="200,35" pixmaps="menu/lan-seloff.png,menu/lan-sel.png" zPosition="1" alphatest="blend" />
-		<eLabel position="70,425" size="700,2" backgroundColor="layer-a-accent2" />
-		<widget name="DNStext" position="70,440" size="400,30" zPosition="1" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="DNS" position="70,470" size="400,30" zPosition="1" font="SetrixHD;22" foregroundColors="#8c8c93,#f23d21,#1cff1c" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="DNSInfo_Check" position="535,453" size="30,30" pixmaps="buttons/key_green.png,buttons/key_red.png" zPosition="2" alphatest="blend" />
-		<widget name="DNSInfo_Text" position="570,451" size="200,34" zPosition="2" font="SetrixHD;22" halign="center" valign="center" foregroundColors="#8c8c93,grey,#ffffff" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="DNSInfo" position="570,450" size="200,35" pixmaps="menu/lan-seloff.png,menu/lan-sel.png" zPosition="1" alphatest="blend" />
-		<eLabel position="70,505" size="700,2" backgroundColor="layer-a-accent2" />
-		<widget name="EditSettings_Text" position="260,531" size="300,34" zPosition="2" font="SetrixHD;22" halign="center" valign="center" foregroundColors="grey,grey,#ffffff" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="EditSettingsButton" position="260,530" size="300,35" pixmaps="menu/lan-seloff.png,menu/lan-sel300.png" zPosition="1" alphatest="blend" />
-		<widget name="InfoText" position="70,120" size="700,387" zPosition="25" font="SetrixHD;22" valign="center" halign="center" />
-		<panel name="T_Col_B_A" />
-		<panel name="template1_2layer" />
-		<panel name="_oe-buttons_template1" />
-		<panel name="T_Img_Logo" />
-	</screen>
-	<screen name="WlanStatus" position="0,0" size="1280,720" title="Wireless Network State" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="T_Title" />
-		<widget source="IF" render="Label" position="70,115" size="495,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="Statustext" render="Label" position="576,115" size="160,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="statuspic" position="740,117" size="30,30" pixmaps="buttons/key_green.png,buttons/grey.png" transparent="1" alphatest="blend" />
-		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget source="LabelBSSID" render="Label" position="160,180" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="LabelESSID" render="Label" position="160,220" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="LabelQuality" render="Label" position="160,260" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="LabelChannel" render="Label" position="160,300" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="LabelFrequency" render="Label" position="160,340" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="LabelFrequencyNorm" render="Label" position="160,380" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="LabelSignal" render="Label" position="160,420" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="LabelBitrate" render="Label" position="160,460" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="LabelEnc" render="Label" position="160,500" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="LabelEncType" render="Label" position="160,540" size="250,35" valign="center" font="SetrixHD;22" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
-
-		<widget source="BSSID" render="Label" position="470,180" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="ESSID" render="Label" position="470,220" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="quality" render="Label" position="470,260" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="channel" render="Label" position="470,300" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="frequency" render="Label" position="470,340" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="frequency_norm" render="Label" position="470,380" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="signal" render="Label" position="470,420" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="bitrate" render="Label" position="470,460" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="enc" render="Label" position="470,500" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-		<widget source="encryption_type" render="Label" position="470,540" size="280,35" valign="center" font="SetrixHD;22" backgroundColor="layer-a-background" transparent="1" />
-
-		<panel name="template1_2layer" />
-		<panel name="T_Col_B_A" />
-		<panel name="_oe-buttons_template1" />
-		<panel name="T_Img_Logo" />
-	</screen>
-	<screen name="WlanScan" position="0,0" size="1280,720" title="Choose a Wireless Network" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="T_Title" />
-		<widget source="info" render="Label" position="70,100" size="700,32" font="SetrixHD;24" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel position="70,155" size="700,2" backgroundColor="layer-a-accent1" />
-		<widget source="list" render="Listbox" position="70,165" size="700,455" scrollbarMode="showOnDemand" transparent="1">
-			<convert type="TemplatedMultiContent">
-				{"template": [
-						MultiContentEntryText(pos = (10, 2), size = (650, 40), font=0, flags = RT_HALIGN_LEFT, text = 0), # index 0 is the essid
-						MultiContentEntryText(pos = (10, 42), size = (210, 30), font=1, flags = RT_HALIGN_LEFT, text = 5), # index 5 is the interface
-						MultiContentEntryText(pos = (300, 8), size = (220, 30), font=1, flags = RT_HALIGN_LEFT, text = 6), # index 6 is the frequency_norm
-						MultiContentEntryText(pos = (230, 42), size = (210, 30), font=1, flags = RT_HALIGN_LEFT, text = 4), # index 0 is the encryption
-						MultiContentEntryText(pos = (420, 8), size = (250, 30), font=1, flags = RT_HALIGN_LEFT, text = 2), # index 0 is the signal
-						MultiContentEntryText(pos = (420, 42), size = (250, 30), font=1, flags = RT_HALIGN_LEFT, text = 3), # index 0 is the maxrate
-					],
-				"fonts": [gFont("SetrixHD",26),gFont("SetrixHD",18)],
-				"itemHeight": 75
-				}
-			</convert>
-		</widget>
-		<panel name="template1_2layer" />
-		<panel name="T_Col_B_A" />
 		<panel name="_oe-buttons_template1" />
 		<panel name="T_Img_Logo" />
 	</screen>
@@ -4529,8 +4393,8 @@ if len(listitems.list) &gt; 2:
 		<screen key="InformationPicture" image="&#xE94B;" /> <!-- "icons/menu_images_info.png" -->
 		<screen key="InformationBenchmark" image="&#xE990;" /> <!-- "icons/menu_streaming_clients_info.png" -->
 		<screen key="NetworkMountsMenu" image="&#xE964;" /> <!-- "icons/menu_network_netmounts_setup.png" -->
-		<screen keys="AdapterSetup,AdapterSetupConfiguration,NetworkMacSetup,NameserverSetup,NetworkAdapterSelection,NetworkConnections,NetworkAdapterTest" image="&#xE9A7;" /> <!-- "icons/net.png" -->
-		<screen keys="WlanSelection,WlanSetup,WlanConfig,WlanScanAp,WlanScanScreen,WlanStatus,WlanScan" image="&#xE9BD;" /> <!-- "icons/wlan.png" -->
+		<screen keys="NetworkMacSetup,NameserverSetup,NetworkConnections,NetworkTest" image="&#xE9A7;" /> <!-- "icons/net.png" -->
+		<screen keys="WlanSelection,WlanSetup,WlanConfig,WlanScanAp,WiFiScanScreen" image="&#xE9BD;" /> <!-- "icons/wlan.png" -->
 		<screen key="SoftcamPanel" image="&#xE9B7;" /> <!-- "icons/softcam.png" -->
 		<screen key="VideoEnhancementSetup" image="&#xE99C;" /> <!-- "icons/menu_system_videoenhancement_setup.png" -->
 		<screen key="LocaleSelection" image="&#xE997;" /> <!-- "icons/menu_system_language_setup.png" -->
