@@ -22,11 +22,10 @@ from __future__ import division
 
 from datetime import datetime
 from math import floor, sqrt
-from os import remove, statvfs, listdir, system, mkdir, unlink, symlink, rename
-from os.path import basename, exists, getsize, isdir, isfile, islink, join as pathjoin, realpath
+from os import remove, statvfs, listdir, mkdir, unlink, symlink, rename
+from os.path import exists, getsize, isdir, isfile, islink, join as pathjoin, realpath
 from re import sub, match, findall
 from shutil import move, copy, rmtree
-from subprocess import getoutput
 from time import time
 
 from PIL import Image, ImageFont, ImageDraw
@@ -130,32 +129,7 @@ class ActivateSkinSettings:
 					self.ErrorCode = 'checkEHDsettings', _("Your enhanced hd settings are inconsistent. Please check this.")
 
 	def CheckSettings(self, onlyCheck=False):
-		# first check is ehd tested, ehd-settings and available ehd-icons
 		self.getEHDSettings(onlyCheck)
-
-		if self.EHDenabled and self.EHDres == 'FHD':
-			self.service_name = f'enigma2-plugin-skins-metrix-atv-{self.EHDres.lower()}-icons'
-			return_value = getoutput("/usr/bin/opkg list-installed " + self.service_name)
-			if self.service_name not in return_value:
-				if onlyCheck or not self.silent:
-					self.ErrorCode = 'checkEHDsettings', _("Your enhanced hd settings are inconsistent. Please check this.")
-				elif self.silent:
-					stat = statvfs("/usr/share/enigma2/MetrixHD/")
-					freeflash = stat.f_bavail * stat.f_bsize / 1024 / 1024
-					filesize = 10
-					if freeflash < filesize:
-						self.ErrorCode = 3
-					else:
-						system('/usr/bin/opkg update')
-						ret = str(system('/usr/bin/opkg install ' + self.service_name))
-						if 'Unknown package' in ret or "Collected errors" in ret:
-							self.ErrorCode = 4
-					if self.ErrorCode:
-						self.EHDenabled = False
-						self.EHDfactor = 1
-						self.EHDres = 'HD'
-						self.EHDtxt = 'Standard HD'
-
 		if onlyCheck or self.ErrorCode:
 			return self.ErrorCode
 		self.applyChanges()
@@ -1838,8 +1812,7 @@ class ActivateSkinSettings:
 								self.skinline_error = True
 								break
 					if run_mod and not line_disabled and not self.skinline_error:
-						line = self.linerchanger_new(line, next_picon_zoom, "skin.MySkin.xml" in sourceFile)
-# NEW					line = self.linerchanger_new(line, next_picon_zoom, "skin_base.MySkin.xml" in sourceFile)
+						line = self.linerchanger_new(line, next_picon_zoom, "skin_base.MySkin.xml" in sourceFile)
 # line disabled off
 					if line_disabled and 'cf#_#' not in line and (match('#+', line.lstrip()) or match('.*-->.*', line.rstrip())):
 						# print 'line disabled off', i, line

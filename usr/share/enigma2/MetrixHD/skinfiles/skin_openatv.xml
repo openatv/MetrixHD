@@ -37,7 +37,7 @@
 		<panel name="mhe-buttons_template2" />
 	</screen>
 
-	<screen name="DistributionInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="InformationDistribution" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="OPEN SOURCE" position="825,110" size="380,60" font="screen_info;50" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
 		<eLabel text="https://github.com/openatv" position="825,470" size="380,30" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
 		<eLabel text="https://github.com/oe-alliance" position="825,520" size="380,30" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" halign="center" transparent="0" zPosition="1" />
@@ -45,7 +45,7 @@
 		<panel name="_he-buttons_template1" />
 	</screen>
 
-	<screen name="PictureInformation" position="0,0" size="1280,720" title="Receiver Images" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="InformationPicture" position="0,0" size="1280,720" title="Receiver Images" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title_L" />
 		<panel name="T_Desc_810" />
 		<widget name="name" position="810,385" size="415,220" font="screen_info;20" conditional="description" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
@@ -56,15 +56,15 @@
 		<panel name="T_Img_Logo" />
 	</screen>
 
-	<screen name="SystemInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="InformationSystem" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="information_common2" />
 	</screen>
 
-	<screen name="CommitInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="InformationCommit" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="information_common2" />
 	</screen>
 
-	<screen name="DebugInformation" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="InformationDebug" position="0,0" size="1280,720" title="About" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="information_common2" />
 	</screen>
 
@@ -1489,10 +1489,11 @@ for x in self.additionalWidgets:
 		x.instance.resize(eSize(*wsize))
 		</applet>
 	</screen>
+
 	<screen name="MessageBox" position="240,160" size="800,400" zPosition="10" title="Message" flags="wfNoBorder" backgroundColor="layer-a-background">
 		<panel name="MessageBox-template-4" />
-	</screen>
-	<screen name="MessageBoxModal" position="240,160" size="800,400" zPosition="+99" title="Message" flags="wfNoBorder" backgroundColor="layer-a-background">
+	</screen>""
+	<screen name="MessageBoxModal" position="fill" zPosition="+99" title="Message" flags="wfNoBorder,wfModalFull" backgroundColor="#80FFFFFF">
 		<eRectangle position="0,0" size="e,e" borderColor="layer-a-underline" backgroundColor="layer-a-background" borderWidth="1" zPosition="-10" />
 		<panel name="MessageBox-template-4" />
 	</screen>
@@ -4319,6 +4320,7 @@ if len(listitems.list) &gt; 2:
 		<menu key="netmounts_setup" image="&#xE964;" /> <!-- "icons/menu_network_netmounts_setup.png" -->
 		<menu key="netushare_setup" image="&#xE969;" /> <!-- "icons/menu_network_netushare_setup.png" -->
 		<menu key="netsamba_setup" image="&#xE967;" /> <!-- "icons/menu_network_netsmba_setup.png" -->
+		<menu key="netnfs_setup" image="&#xE965;" /> <!-- "icons/menu_network_netnfs_setup.png" -->
 		<menu key="numzapext_setup" image="&#xE96D;" /> <!-- "icons/menu_numzapext_setup.png" -->
 		<menu key="OpenStore" image="&#xE954;" /> <!-- "icons/menu_mainmenu_openstore.png" -->
 		<menu key="openwebif" image="&#xE96C;" /> <!-- "icons/menu_network_webif.png" -->
@@ -4503,6 +4505,7 @@ if len(listitems.list) &gt; 2:
 		<setup key="NetworkMiniDLNASetup" image="&#xE961;" /> <!-- "icons/menu_network_minidlna_setup.png" -->
 		<setup key="NetworkuShareSetup" image="&#xE969;" /> <!-- "icons/menu_network_netushare_setup.png" -->
 		<setup key="NetworkSambaSetup" image="&#xE967;" /> <!-- "icons/menu_network_netsmba_setup.png" -->
+		<setup key="NetworkNFSSetup" image="&#xE965;" /> <!-- "icons/menu_network_netnfs_setup.png" -->
 		<setup key="Password" image="&#xE96B;" /> <!-- "icons/menu_network_passwd_setup.png" -->
 		<setup key="FileCommander" image="&#xE90D;"/> <!-- "icons/filecom.png" -->
 		<setup key="StorageDeviceAction" image="&#xE948;"/> <!-- "icons/menu_harddisk_harddisk_init.png" -->
@@ -4514,16 +4517,17 @@ if len(listitems.list) &gt; 2:
 	<screens>
 		<screen key="LocationBox" image="&#xE9B6;" /> <!-- "icons/setup.png" -->
 		<screen keys="Information,About,QuickMenuDevices" image="&#xE912;" /> <!-- "icons/info.png" -->
-		<screen key="NetworkInformation" image="&#xE960;" /> <!-- "icons/menu_network_info.png" -->
-		<screen key="ReceiverInformation" image="&#xE977;" /> <!-- "icons/menu_receiver_info.png" -->
-		<screen key="TunerInformation" image="&#xE9A4;" /> <!-- "icons/menu_tuner_info.png" -->
-		<screen key="StorageInformation" image="&#xE98F;" /> <!-- "icons/menu_storage_info.png" -->
-		<screen key="MemoryInformation" image="&#xE95B;" /> <!-- "icons/menu_memory_info.png" -->
-		<screen key="MultiBootInformation" image="&#xE95C;" /> <!-- "icons/menu_multiboot_info.png" -->
-		<screen key="StreamingInformation" image="&#xE990;" /> <!-- "icons/menu_streaming_clients_info.png" -->
-		<screen key="GeolocationInformation" image="&#xE945;" /> <!-- "icons/menu_geolocation_info.png" -->
-		<screen keys="ServiceInformation" image="&#xE983;" /> <!-- "icons/menu_service_info.png" -->
-		<screen key="PictureInformation" image="&#xE94B;" /> <!-- "icons/menu_images_info.png" -->
+		<screen key="InformationNetwork" image="&#xE960;" /> <!-- "icons/menu_network_info.png" -->
+		<screen key="InformationReceiver" image="&#xE977;" /> <!-- "icons/menu_receiver_info.png" -->
+		<screen key="InformationTuner" image="&#xE9A4;" /> <!-- "icons/menu_tuner_info.png" -->
+		<screen key="InformationStorage" image="&#xE98F;" /> <!-- "icons/menu_storage_info.png" -->
+		<screen key="InformationMemory" image="&#xE95B;" /> <!-- "icons/menu_memory_info.png" -->
+		<screen key="InformationMultiBoot" image="&#xE95C;" /> <!-- "icons/menu_multiboot_info.png" -->
+		<screen key="InformationStreaming" image="&#xE990;" /> <!-- "icons/menu_streaming_clients_info.png" -->
+		<screen key="InformationGeolocation" image="&#xE945;" /> <!-- "icons/menu_geolocation_info.png" -->
+		<screen key="InformationService" image="&#xE983;" /> <!-- "icons/menu_service_info.png" -->
+		<screen key="InformationPicture" image="&#xE94B;" /> <!-- "icons/menu_images_info.png" -->
+		<screen key="InformationBenchmark" image="&#xE990;" /> <!-- "icons/menu_streaming_clients_info.png" -->
 		<screen key="NetworkMountsMenu" image="&#xE964;" /> <!-- "icons/menu_network_netmounts_setup.png" -->
 		<screen keys="AdapterSetup,AdapterSetupConfiguration,NetworkMacSetup,NameserverSetup,NetworkAdapterSelection,NetworkConnections,NetworkAdapterTest" image="&#xE9A7;" /> <!-- "icons/net.png" -->
 		<screen keys="WlanSelection,WlanSetup,WlanConfig,WlanScanAp,WlanScanScreen,WlanStatus,WlanScan" image="&#xE9BD;" /> <!-- "icons/wlan.png" -->

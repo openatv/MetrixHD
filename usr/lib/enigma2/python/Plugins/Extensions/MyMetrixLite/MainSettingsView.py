@@ -204,7 +204,10 @@ class MainSettingsView(Screen):
 		elif ret[0] == 'ErrorCode_2':
 			self.session.open(MessageBox, ret[1], MessageBox.TYPE_ERROR)
 		elif ret[0] == 'reboot':
-			self.reboot(ret[1])
+			from skin import reloadSkins
+			reloadSkins()
+			self.close(True)
+			#self.reboot(ret[1])
 		elif ret[0] == 'error':
 			self.session.open(MessageBox, ret[1], MessageBox.TYPE_ERROR)
 		elif isinstance(ret, tuple) and ret[0] == 'checkEHDsettings':
