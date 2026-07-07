@@ -377,7 +377,10 @@ class InfoBarMetrixWeatherHandler():
 
 
 def main(session, **kwargs):
-	session.open(MainSettingsView)
+	if "onClose" in kwargs:
+		session.openWithCallback(kwargs["onClose"], MainSettingsView)
+	else:
+		session.open(MainSettingsView)
 
 
 def sessionmain(reason, session, **kwargs):
@@ -403,7 +406,7 @@ def Plugins(**kwargs):
 		pluginList.append(PluginDescriptor(name="MyMetrixLite", where=[PluginDescriptor.WHERE_INFOBARLOADED], fnc=info, needsRestart=False))
 		pluginList.append(PluginDescriptor(name="MyMetrixLite", where=[PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionmain, needsRestart=False))
 		pluginList.append(PluginDescriptor(where=[PluginDescriptor.WHERE_AUTOSTART], fnc=autostart))
-		pluginList.append(PluginDescriptor(name="MyMetrixLite", description=_("openATV configuration tool for MetrixHD"), icon="plugin.png", where=[PluginDescriptor.WHERE_PLUGINMENU], fnc=main))
+		pluginList.append(PluginDescriptor(name="MyMetrixLite", description=_("openATV configuration tool for MetrixHD"), icon="plugin.png", where=[PluginDescriptor.WHERE_PLUGINMENU], fnc=main, closeMode=PluginDescriptor.DO_CLOSE_RECURSIVE))
 	return pluginList
 
 
