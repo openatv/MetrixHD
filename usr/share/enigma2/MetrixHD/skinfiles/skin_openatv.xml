@@ -98,22 +98,24 @@
 		</widget>
 		<panel name="T_Col_B_A" />
 		<panel name="template1_2layer" />
-		<panel name="_oe-buttons_template1" />
+		<panel name="ioe-buttons_template1" />
 		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="NetworkWiFiScanScreen" title="WiFi Scan" position="0,0" size="1280,720">
 		<panel name="T_Title" />
-		<widget source="list" render="Listbox" position="70,130" size="700,390" scrollbarMode="showOnDemand">
-			<template name="Default" fonts="Regular;22,Regular;20,enigma2icons;20" itemHeight="35">
+		<widget source="list" render="Listbox" position="70,130" size="700,390" scrollbarMode="showOnDemandShift">
+			<template name="Default" fonts="Regular;22,Regular;20,enigma2icons;20" itemHeight="60">
 				<mode name="default">
-					<panel position="0,0" size="e,e" layout="horizontal">
-						<text index="Name" position="left" size="360,35" flags="scroll" font="0" horizontalAlignment="left" padding="5,0" verticalAlignment="center" />
-						<text index="Glyph" position="left" size="30,35" font="2" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
-						<text index="Percentage" position="left" size="70,35" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
-						<text index="dBm" position="left" size="100,35" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
-						<text index="Encryption" position="left" size="110,35" font="1" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
-						<text index="Channel" position="left" size="90,35" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
-						<text index="Frequency" position="right" size="120,35" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
+					<panel position="0,0" size="e,30" layout="horizontal">
+						<text index="Name" position="left" size="460,30" font="0" horizontalAlignment="left" padding="5,0" verticalAlignment="center" />
+						<text index="Channel" position="right" size="110,30" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
+					</panel>
+					<panel position="20,30" size="e-20,30" layout="horizontal">
+						<text index="Glyph" position="left" size="30,e" font="2" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
+						<text index="Percentage" position="left" size="70,e" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
+						<text index="dBm" position="left" size="100,e" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
+						<text index="Encryption" position="left" size="110,e" font="1" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
+						<text index="Frequency" position="right" size="150,e" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
 					</panel>
 				</mode>
 			</template>
@@ -155,15 +157,6 @@
 		<panel name="T_Title" />
 		<widget name="menulist" position="70,130" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
 		<widget name="introduction" position="810,415" size="415,190" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
-		<panel name="T_Col_B_A" />
-		<panel name="template1_2layer" />
-		<panel name="_oe-buttons_template1" />
-		<panel name="T_Img_Logo" />
-	</screen>
-	<screen name="NameserverSetup" position="0,0" size="1280,720" title="Nameserver Setup" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="T_Title" />
-		<widget name="config" position="70,100" size="700,450" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="introduction" position="70,600" size="700,25" font="SetrixHD;22" halign="center" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="T_Col_B_A" />
 		<panel name="template1_2layer" />
 		<panel name="_oe-buttons_template1" />
@@ -4318,7 +4311,7 @@ if len(listitems.list) &gt; 2:
 		<menu key="ci_settings" image="&#xE921;" /> <!-- "icons/menu_ci_settings.png" -->
 		<menu key="ci_selection" image="&#xE920;" /> <!-- "icons/menu_ci_selection.png" -->
 		<menu key="tuner_basic_settings" image="&#xE9A3;" /> <!-- "icons/menu_tuner_basic_settings.png" -->
-		<menu key="networkservices_setup" image="&#xE9A7;" /> <!-- "icons/net.png" -->
+		<menu keys="networkservices_setup,dns_setup" image="&#xE9A7;" /> <!-- "icons/net.png" -->
 
 		<menu key="netmounts_manager" image="&#xE964;" /> <!-- "icons/menu_network_netmounts_setup.png" -->
 		<menu key="netmounts_browser" image="&#xE964;" /> <!-- "icons/menu_network_netmounts_setup.png" -->
@@ -4378,6 +4371,7 @@ if len(listitems.list) &gt; 2:
 		<setup key="DeviceManagerMountPoints" image="&#xE949;"/> <!-- "icons/menu_harddisk_harddisk_setup.png" -->
 		<setup key="Picon" image="&#xE972;"/> <!-- "icons/menu_osd_menu_picon_setup.png" -->
 		<setup key="WeatherSettings" image="&#xE9D2;" /> <!-- "MyMetrixLiteWeather.png.png" -->
+		<setup key="DNS" image="&#xE9A7;" /> <!-- "icons/net.png" -->
 	</setups>
 
 	<screens>
@@ -4395,7 +4389,7 @@ if len(listitems.list) &gt; 2:
 		<screen key="InformationPicture" image="&#xE94B;" /> <!-- "icons/menu_images_info.png" -->
 		<screen key="InformationBenchmark" image="&#xE9DB;" /> <!-- "icons/BenchmarkInformations.png" -->
 		<screen key="NetworkMountsMenu" image="&#xE964;" /> <!-- "icons/menu_network_netmounts_setup.png" -->
-		<screen keys="NetworkMacSetup,NameserverSetup,NetworkTest" image="&#xE9A7;" /> <!-- "icons/net.png" -->
+		<screen keys="NetworkMacSetup,NetworkTest" image="&#xE9A7;" /> <!-- "icons/net.png" -->
 		<screen keys="WlanSelection,WlanSetup,WlanConfig,WlanScanAp,NetworkWiFiScanScreen" image="&#xE9BD;" /> <!-- "icons/wlan.png" -->
 		<screen key="SoftcamPanel" image="&#xE9B7;" /> <!-- "icons/softcam.png" -->
 		<screen key="VideoEnhancementSetup" image="&#xE99C;" /> <!-- "icons/menu_system_videoenhancement_setup.png" -->
