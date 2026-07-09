@@ -22,7 +22,7 @@ from __future__ import division
 from PIL import Image
 from os import remove
 from os.path import exists
-from enigma import gMainDC, ePicLoad, getDesktop
+from enigma import ePicLoad, getDesktop
 
 from Components.ActionMap import ActionMap
 from Components.config import config, configfile, getConfigListEntry
@@ -79,7 +79,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		self["key_green"].setText(_("Save"))
 
 		self["key_blue"] = StaticText("")
-		self["key_blue"].setText(_("Test Resolution"))
+		self["key_blue"].setText("")
 
 		self["key_yellow"] = StaticText("")
 		self["key_yellow"].setText(_("Defaults"))
@@ -99,7 +99,6 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			"red": self.keyCancel,
 			"green": self.save,
 			"yellow": self.defaults,
-			"blue": self.test,
 			"cancel": self.keyCancel
 		}, -1)
 
@@ -107,7 +106,6 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		if self.session:
 			self.firstrun = False
 			self.checkEHDsettings()
-			self.onShown.append(self.checkEHD_is_tested)
 
 		ConfigListScreen.__init__(
 			self,
@@ -118,11 +116,6 @@ class OtherSettingsView(ConfigListScreen, Screen):
 
 		self.onLayoutFinish.append(self.UpdatePicture)
 		self.onClose.append(self.__onClose)
-
-	def checkEHD_is_tested(self):
-		if not self.firstrun:
-			self.checkEHDtested()
-			self.firstrun = True
 
 	def getEHDsettings(self):
 		if config.plugins.MyMetrixLiteOther.EHDenabled.value == '1':
@@ -170,9 +163,6 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		cur = self["config"].getCurrent()
 		cur = cur and len(cur) > 3 and cur[3]
 
-		if cur == 'ENABLED_EHD':
-			self.checkEHDtested()
-
 		if cur == "PRESET":
 			self.getPreset()
 
@@ -180,64 +170,6 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			self["config"].setList(self.getMenuItemList())
 
 		self.ShowPicture(True)
-
-	def checkEHDtested(self):
-		self.getEHDsettings()
-		tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
-		if self.EHDenabled and (len(tested) != 2 or BoxType not in tested[0] or config.plugins.MyMetrixLiteOther.EHDenabled.value not in tested[1]):
-			if "green" in self["actions"].actions:
-				del self["actions"].actions['green']
-				self["key_green"].setText("")
-			self["actions"].actions.update({"blue": self.test})
-			self["key_blue"].setText(_("Test Resolution"))
-		else:
-			self["actions"].actions.update({"green": self.save})
-			self["key_green"].setText(_("Save"))
-			if "blue" in self["actions"].actions:
-				del self["actions"].actions['blue']
-				self["key_blue"].setText("")
-
-	def test(self):
-		self.resolutionQuestion(True)
-
-	def resolutionQuestion(self, result):
-		if not result:
-			self.resetEHD()
-			return
-		import NavigationInstance
-		import time
-		rec = NavigationInstance.instance.RecordTimer.isRecording() or abs(NavigationInstance.instance.RecordTimer.getNextRecordingTime() - time.time()) <= 300
-		plustext = ""
-		if rec:
-			plustext = _("!!! Recording(s) are in progress or coming up in few minutes !!!") + '\n'
-		self.session.openWithCallback(self.resolutionTest, MessageBox, plustext + _("!!! If your receiver not compatible is a crash possible !!!\n\nChoose 'yes', then starts the resolution test.\nThe old resolution will automatically restored after 10 seconds."), default=False)
-
-	def resolutionTest(self, result):
-		if not result:
-			self.resetEHD()
-			return
-		gMainDC.getInstance().setResolution(int(1280 * self.EHDfactor), int(720 * self.EHDfactor))
-		self.session.openWithCallback(self.resolutionCheck, MessageBox, _("If you can see this then is your receiver compatible.\nDo you want change from %s to %s - skin resolution?") % (self.EHDtext_old, self.EHDtxt), default=False, timeout=10)
-
-	def resolutionCheck(self, result):
-		gMainDC.getInstance().setResolution(self.x, self.y)
-		if not result:
-			self.resetEHD()
-		else:
-			if BoxType in config.plugins.MyMetrixLiteOther.EHDtested.value and len(config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')) == 2:
-				config.plugins.MyMetrixLiteOther.EHDtested.value += config.plugins.MyMetrixLiteOther.EHDenabled.value
-			else:
-				config.plugins.MyMetrixLiteOther.EHDtested.value = BoxType + '_|_' + config.plugins.MyMetrixLiteOther.EHDenabled.value
-			config.plugins.MyMetrixLiteOther.save()
-			configfile.save()
-			ActivateSkinSettings().initConfigs()
-			self.checkEHDtested()
-			self["config"].setList(self.getMenuItemList())
-
-	def resetEHD(self):
-		config.plugins.MyMetrixLiteOther.EHDenabled.setValue(self.EHDvalue_old)
-		self.checkEHDtested()
-		self["config"].setList(self.getMenuItemList())
 
 	def getPreset(self):
 		if config.plugins.MyMetrixLiteOther.SkinDesignExamples.value == "preset_0":

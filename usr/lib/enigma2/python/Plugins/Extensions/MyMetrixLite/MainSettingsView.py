@@ -110,8 +110,6 @@ class MainSettingsView(Screen):
 		self["applyBtn"] = StaticText("")
 		self["applyBtn"].setText(_("Apply changes"))
 
-#		ActivateSkinSettings().initConfigs()
-
 		self["actions"] = ActionMap(
 			[
 				"OkCancelActions",
@@ -143,10 +141,6 @@ class MainSettingsView(Screen):
 
 		self.onChangedEntry = []
 		self.onLayoutFinish.append(self.ShowPicture)
-
-		self.checkEHDsettingsTimer = eTimer()
-		self.checkEHDsettingsTimer.callback.append(self.checkEHDsettings)
-		self.checkEHDsettingsTimer.start(1000, True)
 
 	#def __del__(self):
 	#	self["menuList"].onSelectionChanged.remove(self.selectionChanged)
@@ -206,32 +200,10 @@ class MainSettingsView(Screen):
 		elif ret[0] == 'reboot':
 			from skin import reloadSkins
 			reloadSkins()
+			self.session.reloadDialogs()
 			self.close(True)
-			#self.reboot(ret[1])
 		elif ret[0] == 'error':
 			self.session.open(MessageBox, ret[1], MessageBox.TYPE_ERROR)
-		elif isinstance(ret, tuple) and ret[0] == 'checkEHDsettings':
-			self.session.openWithCallback(self.checkEHDsettingsCallback, MessageBox, ret[1], MessageBox.TYPE_INFO, timeout=10)
-
-	def checkEHDsettings(self):
-		ret = ActivateSkinSettings().CheckSettings(True)
-		if isinstance(ret, tuple) and ret[0] == 'checkEHDsettings':
-			self.session.openWithCallback(self.checkEHDsettingsCallback, MessageBox, ret[1], MessageBox.TYPE_INFO, timeout=10)
-
-	def checkEHDsettingsCallback(self, ret=None):
-		self.session.open(OtherSettingsView)
-
-	def reboot(self, message=None):
-		if message is None:
-			message = _("Do you really want to reboot now?")
-
-		self.session.openWithCallback(self.restartGUI, MessageBox, message, MessageBox.TYPE_YESNO, windowTitle=_("Restart GUI"))
-
-	def restartGUI(self, answer):
-		if answer is True:
-			self.session.open(TryQuitMainloop, 3)
-		else:
-			self.close()
 
 	def exit(self):
 		self["menuList"].onSelectionChanged.remove(self.selectionChanged)

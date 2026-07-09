@@ -488,39 +488,15 @@ def initOtherConfig():
 	# OtherSettings
 	# EHD-Option -> Enhanced HD
 	BoxType = BoxInfo.getItem("machinebuild")
-	config.plugins.MyMetrixLiteOther.EHDtested = ConfigText(default=f"{BoxType}_|_0")
 
 	skinmodes = [("0", _("Standard HD (1280x720)"))]
-	mode1080p = mode1440p = risk = False
-	try:
-		if exists("/proc/stb/video/videomode_choices"):
-			vmodes = open("/proc/stb/video/videomode_choices").read()
-			if "1080p" in vmodes:
-				mode1080p = True
-			if "1440p" in vmodes:
-				mode1440p = True
-		else:
-			risk = True
-	except Exception:
-		print("[MyMetrixLite] - can't read video modes")
-		risk = True
-
-	tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split("_|_")
-	risktxt = _(" - box support unknown")
-	if len(tested) == 2:
-		if BoxType in tested[0] and "1" in tested[1]:
-			skinmodes.append(("1", _("Full HD (1920x1080)")))
-		elif mode1080p or risk:
-			skinmodes.append(("1", _("Full HD (1920x1080) %s") % risktxt))
-		if BoxType in tested[0] and "2" in tested[1]:
-			skinmodes.append(("2", _("WQHD (2560x1440)")))
-		elif mode1440p or risk:
-			skinmodes.append(("2", _("WQHD (2560x1440) %s") % risktxt))
-	else:
-		if mode1080p or risk:
-			skinmodes.append(("1", _("Full HD (1920x1080) %s") % risktxt))
-		if mode1440p or risk:
-			skinmodes.append(("2", _("WQHD (2560x1440) %s") % risktxt))
+	if BoxInfo.getItem("fhdskin"):
+		tested = "1"
+		skinmodes.append(("1", _("Full HD (1920x1080)")))
+	if BoxInfo.getItem("wqhdskin"):
+		tested = "2"
+		skinmodes.append(("2", _("WQHD (2560x1440)")))
+	config.plugins.MyMetrixLiteOther.EHDtested = ConfigText(default=f"{BoxType}_|_{tested}")
 	config.plugins.MyMetrixLiteOther.EHDenabled = ConfigSelection(default="0", choices=skinmodes)
 	config.plugins.MyMetrixLiteOther.EHDrounddown = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.EHDfontoffset = ConfigSelectionNumber(-10, 5, 1, default=0)

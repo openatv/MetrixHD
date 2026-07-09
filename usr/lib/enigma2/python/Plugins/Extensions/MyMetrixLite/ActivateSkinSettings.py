@@ -91,24 +91,10 @@ class ActivateSkinSettings:
 		initWeatherConfig()
 		initFontsConfig()
 
-	# no longer used
-	def RefreshIcons(self, restore=False):
-		# called from SystemPlugins/SoftwareManager/plugin.py after software update and from Screens/SkinSelector.py after changing skin
-		self.initConfigs()
-		self.getEHDSettings()
-		screenwidth = getDesktop(0).size().width()
-		if screenwidth and screenwidth != 1280 or restore:
-			if restore:
-				self.EHDres = 'HD'
-				print(f"[MetrixHD] restoring original {self.EHDres} icons after changing skin...")
-			else:
-				print(f"[MetrixHD] refreshing {self.EHDres} icons after software update...")
-			self.updateIcons(self.EHDres)
-			print("[MetrixHD] ...done.")
-
 	def getEHDSettings(self, onlyCheck=False):
-		tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
-		EHDtested = len(tested) == 2 and BoxInfo.getItem("machinebuild") in tested[0] and config.plugins.MyMetrixLiteOther.EHDenabled.value in tested[1]
+		EHDtested = True
+		# tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
+		# EHDtested = len(tested) == 2 and BoxInfo.getItem("machinebuild") in tested[0] and config.plugins.MyMetrixLiteOther.EHDenabled.value in tested[1]
 		if config.plugins.MyMetrixLiteOther.EHDenabled.value == '1' and EHDtested:
 			self.EHDenabled = True
 			self.EHDfactor = 1.5
@@ -124,9 +110,7 @@ class ActivateSkinSettings:
 			self.EHDfactor = 1
 			self.EHDres = 'HD'
 			self.EHDtxt = 'Standard HD'
-			if config.plugins.MyMetrixLiteOther.EHDenabled.value != '0':
-				if onlyCheck or not self.silent:
-					self.ErrorCode = 'checkEHDsettings', _("Your enhanced hd settings are inconsistent. Please check this.")
+			config.plugins.MyMetrixLiteOther.EHDenabled.value = '0'
 
 	def CheckSettings(self, onlyCheck=False):
 		self.getEHDSettings(onlyCheck)
