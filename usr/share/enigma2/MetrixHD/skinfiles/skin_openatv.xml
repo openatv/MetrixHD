@@ -74,50 +74,72 @@
 	</screen>
 
 	<!-- Network NEW -->
-	<screen name="NetworkConnections" title="Network Connections" position="0,0" size="1280,720">
-		<panel name="T_Title" />
-		<widget source="list" render="Listbox" position="70,100" size="700,510" scrollbarMode="showOnDemand">
-			<template name="Default" fonts="enigma2icons;42,Regular;28,Regular;20,enigma2icons;24,Regular;30,enigma2icons;80" itemHeight="80" itemWidth="700" colorStateLink="#0000CC00" colorStateEnabled="#00FFFFFF" colorStateDisabled="#00808080">
-				<mode name="default">
-					<!-- adapter icon (large, left) -->
-					<text index="0" position="6,4" size="58,72" font="0" horizontalAlignment="center" verticalAlignment="center" foregroundColor="=6" foregroundColorSelected="=6" />
-					<!-- enabled/disabled checkbox placeholder -->
-					<text index="1" position="66,26" size="30,30" font="3" horizontalAlignment="center" verticalAlignment="center" foregroundColor="=6" foregroundColorSelected="=6" />
-					<!-- adapter label "eth0 / Intern" -->
-					<text index="2" position="104,15" size="680,50" font="1" horizontalAlignment="left" verticalAlignment="center" foregroundColor="=6" foregroundColorSelected="=6" />
-					<!-- tree connector ├ / └ -->
-					<text index="3" position="0,0" size="80,80" font="5" horizontalAlignment="left" verticalAlignment="top" foregroundColor="=6" foregroundColorSelected="=6" />
-					<!-- connection line 1: profile/LAN + IP -->
-					<text index="4" position="104,8" size="700,34" font="1" horizontalAlignment="left" verticalAlignment="center" foregroundColor="=6" foregroundColorSelected="=6" />
-					<!-- connection line 2: speed / mask / gw -->
-					<text index="5" position="104,44" size="700,28" font="2" horizontalAlignment="left" verticalAlignment="center" />
-					<!-- internet icon top-right (connection rows only) -->
-					<text index="7" position="e-50,4" size="34,34" font="3" horizontalAlignment="center" verticalAlignment="center" />
-				</mode>
+	<screen name="NetworkOverview" title="Network Overview" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title_L" />
+		<widget source="adapterList" render="Listbox" position="70,80" size="1140,300" scrollbarMode="showOnDemand">
+			<template name="Default" fonts="enigma2icons;34,Regular;24,Regular;18,enigma2icons;20" itemHeight="60" colors="#0000CC00,#00CC0000,#00808080">
+				<rowtemplate>
+					<text index="AdapterName" position="14,0" size="470,60" font="2" horizontalAlignment="left" verticalAlignment="center" foregroundColor="grey" />
+					<text index="MAC" position="490,0" size="190,60" font="2" horizontalAlignment="left" verticalAlignment="center" foregroundColor="grey" />
+					<text index="IPAddress" position="690,0" size="140,60" font="2" horizontalAlignment="left" verticalAlignment="center" foregroundColor="grey" />
+					<text index="Gateway" position="840,0" size="140,60" font="2" horizontalAlignment="left" verticalAlignment="center" foregroundColor="grey" />
+					<text index="Speed" position="990,0" size="200,60" font="2" horizontalAlignment="left" verticalAlignment="center" foregroundColor="grey" />
+				</rowtemplate>
+				<rowtemplate>
+					<text index="AdapterGlyph" position="14,7" size="46,46" font="0" horizontalAlignment="center" verticalAlignment="center" />
+					<text index="AdapterName" position="74,6" size="230,26" font="1" horizontalAlignment="left" verticalAlignment="center" />
+					<text index="AdapterType" position="74,32" size="230,22" font="2" horizontalAlignment="left" verticalAlignment="center" />
+					<text index="InternetGlyph" position="280,20" size="20,20" font="3" horizontalAlignment="center" verticalAlignment="center" />
+					<text index="StatusText" position="320,0" size="160,60" font="2" horizontalAlignment="left" verticalAlignment="center" foregroundColor="+StatusColor" foregroundColorSelected="+StatusColor" />
+					<text index="MAC" position="490,0" size="190,60" font="2" horizontalAlignment="left" verticalAlignment="center" />
+					<text index="IPAddress" position="690,0" size="140,60" font="2" horizontalAlignment="left" verticalAlignment="center" />
+					<text index="Gateway" position="840,0" size="140,60" font="2" horizontalAlignment="left" verticalAlignment="center" />
+					<text index="Speed" position="990,0" size="200,60" font="2" horizontalAlignment="left" verticalAlignment="center" />
+				</rowtemplate>
+			</template>
+		</widget>
+		<widget source="networksLabel" render="Label" position="70,400" size="700,30" font="Regular;20" foregroundColor="grey" transparent="1" halign="left" valign="center">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="networksList" render="Listbox" position="70,430" size="1140,250" scrollbarMode="showOnDemand">
+			<template name="Default" fonts="Regular;22,Regular;18" itemHeight="40" colors="#0000CC00,#00CC0000,#00808080">
+				<rowtemplate>
+					<text index="SSID" position="20,0" size="280,40" font="0" horizontalAlignment="left" verticalAlignment="center" foregroundColor="grey" />
+					<text index="BSSID" position="310,0" size="220,40" font="1" horizontalAlignment="left" verticalAlignment="center" foregroundColor="grey" />
+					<text index="Frequency" position="540,0" size="120,40" font="1" horizontalAlignment="left" verticalAlignment="center" foregroundColor="grey" />
+					<text index="Channel" position="670,0" size="140,40" font="1" horizontalAlignment="left" verticalAlignment="center" foregroundColor="grey" />
+					<text index="Encryption" position="820,0" size="190,40" font="1" horizontalAlignment="left" verticalAlignment="center" foregroundColor="grey" />
+					<text index="StatusText" position="1020,0" size="180,40" font="1" horizontalAlignment="left" verticalAlignment="center" foregroundColor="grey" />
+				</rowtemplate>
+				<rowtemplate>
+					<text index="SSID" position="20,0" size="280,40" font="0" horizontalAlignment="left" verticalAlignment="center" />
+					<text index="BSSID" position="310,0" size="220,40" font="1" horizontalAlignment="left" verticalAlignment="center" />
+					<text index="Frequency" position="540,0" size="120,40" font="1" horizontalAlignment="left" verticalAlignment="center" />
+					<text index="Channel" position="670,0" size="140,40" font="1" horizontalAlignment="left" verticalAlignment="center" />
+					<text index="Encryption" position="820,0" size="190,40" font="1" horizontalAlignment="left" verticalAlignment="center" />
+					<text index="StatusText" position="1020,0" size="180,40" font="1" horizontalAlignment="left" verticalAlignment="center" foregroundColor="+StatusColor" foregroundColorSelected="+StatusColor" />
+				</rowtemplate>
 			</template>
 		</widget>
 		<panel name="T_Col_B_A" />
-		<panel name="template1_2layer" />
-		<panel name="ioe-buttons_template1" />
-		<panel name="T_Img_Logo" />
+		<panel name="template1_1layer" />
+		<panel name="ime-buttons_template1" />
 	</screen>
-	<screen name="NetworkWiFiScanScreen" title="WiFi Scan" position="0,0" size="1280,720">
+	<screen name="NetworkWiFiScanScreen" title="WiFi Scan" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget source="list" render="Listbox" position="70,100" size="700,480" scrollbarMode="showOnDemandShift">
 			<template name="Default" fonts="Regular;22,Regular;20,enigma2icons;20" itemHeight="60">
-				<mode name="default">
-					<panel position="0,0" size="e,30" layout="horizontal">
-						<text index="Name" position="left" size="460,30" font="0" horizontalAlignment="left" padding="5,0" verticalAlignment="center" />
-						<text index="Channel" position="right" size="110,30" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
-					</panel>
-					<panel position="20,30" size="e-20,30" layout="horizontal">
-						<text index="Glyph" position="left" size="30,e" font="2" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
-						<text index="Percentage" position="left" size="70,e" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
-						<text index="dBm" position="left" size="100,e" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
-						<text index="Encryption" position="left" size="110,e" font="1" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
-						<text index="Frequency" position="right" size="150,e" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
-					</panel>
-				</mode>
+				<panel position="0,0" size="e,30" layout="horizontal">
+					<text index="Name" position="left" size="460,30" font="0" horizontalAlignment="left" padding="5,0" verticalAlignment="center" />
+					<text index="Channel" position="right" size="110,30" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
+				</panel>
+				<panel position="20,30" size="e-20,30" layout="horizontal">
+					<text index="Glyph" position="left" size="30,e" font="2" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
+					<text index="Percentage" position="left" size="70,e" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
+					<text index="dBm" position="left" size="100,e" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
+					<text index="Encryption" position="left" size="110,e" font="1" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
+					<text index="Frequency" position="right" size="150,e" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
+				</panel>
 			</template>
 		</widget>
 		<panel name="T_Desc_810" />
@@ -126,16 +148,14 @@
 		<panel name="_oe-buttons_template1" />
 		<panel name="T_Img_Logo" />
 	</screen>
-	<screen name="NetworkTest" title="Network Test" position="0,0" size="1280,720">
+	<screen name="NetworkTest" title="Network Test" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget source="list" render="Listbox" position="70,100" size="700,480" scrollbarMode="showNever">
 			<template name="Default" fonts="enigma2icons;24,Regular;24,Regular;22,Regular;18" itemHeight="60">
-				<mode name="default">
-					<text index="Glyph" position="10,10" size="40,40" font="0" horizontalAlignment="center" verticalAlignment="center" foregroundColor="+Color" foregroundColorSelected="+Color" />
-					<text index="Label" position="60,10" size="280,40" font="1" horizontalAlignment="left" verticalAlignment="center" />
-					<text index="Result" position="350,10" size="210,40" font="2" horizontalAlignment="left" verticalAlignment="center" foregroundColor="+Color" foregroundColorSelected="+Color" />
-					<text index="Detail" position="570,10" size="320,40" font="3" horizontalAlignment="left" verticalAlignment="center" />
-				</mode>
+				<text index="Glyph" position="10,10" size="40,40" font="0" horizontalAlignment="center" verticalAlignment="center" foregroundColor="+Color" foregroundColorSelected="+Color" />
+				<text index="Label" position="60,10" size="280,40" font="1" horizontalAlignment="left" verticalAlignment="center" />
+				<text index="Result" position="350,10" size="210,40" font="2" horizontalAlignment="left" verticalAlignment="center" foregroundColor="+Color" foregroundColorSelected="+Color" />
+				<text index="Detail" position="570,10" size="320,40" font="3" horizontalAlignment="left" verticalAlignment="center" />
 			</template>
 		</widget>
 		<panel name="T_Col_B_A" />
@@ -303,25 +323,17 @@
 		<widget source="key_green" render="Label" position="483,3" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="key_yellow" render="Label" position="666,3" size="170,30" zPosition="1" valign="center" font="global_button;20" halign="left" noWrap="1" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="mainlist" render="Listbox" position="235,114" size="390,500" itemHeight="50" font="screen_text;20" scrollbarMode="showNever" transparent="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground">
-			<templates>
-				<template name="Default" fonts="Regular;19,Regular;16" itemWidth="390" itemHeight="50">
-					<mode name="default">
-						<text index="0" position="60,2" size="e-60,28" font="0" />
-						<text index="1" position="60,25" size="e-60,22" font="1" />
-						<pixmap index="2" position="10,5" size="40,40" alpha="blend" scale="centerScaled"/>
-					</mode>
-				</template>
-			</templates>
+			<template name="Default" fonts="Regular;19,Regular;16" itemWidth="390" itemHeight="50">
+				<text index="0" position="60,2" size="e-60,28" font="0" />
+				<text index="1" position="60,25" size="e-60,22" font="1" />
+				<pixmap index="2" position="10,5" size="40,40" alpha="blend" scale="centerScaled"/>
+			</template>
 		</widget>
 		<widget source="sublist" render="Listbox" position="655,131" size="390,450" itemHeight="50" font="screen_text;20" scrollbarMode="showNever" transparent="1" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" backgroundColorSelected="layer-b-selection-background" foregroundColorSelected="layer-b-selection-foreground">
-			<templates>
-				<template name="Default" fonts="Regular;19,Regular;16" itemWidth="390" itemHeight="50">
-					<mode name="default">
-						<text index="0" position="10,2" size="e-10,28" font="0" />
-						<text index="1" position="10,25" size="e-10,22" font="1" />
-					</mode>
-				</template>
-			</templates>
+			<template name="Default" fonts="Regular;19,Regular;16" itemWidth="390" itemHeight="50">
+				<text index="0" position="10,2" size="e-10,28" font="0" />
+				<text index="1" position="10,25" size="e-10,22" font="1" />
+			</template>
 		</widget>
 		<widget name="description" position="42,42" size="1206,55" zPosition="1" font="screen_info;20" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="Title" render="Label" position="5,555" size="1280,180" font="global_large_menu;90" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
@@ -4398,7 +4410,6 @@ if len(listitems.list) &gt; 2:
 		<screen key="InputDeviceSelection" image="&#xE938;" /> <!-- "icons/menu_extended_input_device_setup.png" -->
 		<screen keys="IceTVUserTypeScreen,IceTVServerSetup,IceTVNewUserSetup,IceTVRegionSetup,IceTVLogin,IceTVNeedPassword,IceTVMain,IceTVServerSetup" image="&#xE911;" /> <!-- "icons/icetv.png" -->
 		<screen key="uShareSelection" image="&#xE965;" /> <!-- "icons/menu_network_netnfs_setup.png" -->
-		<screen key="NetworkConnections" image="&#xE9DA;" /> <!-- "icons/Network_Connections.png" -->
 
 
 		<!-- "icons/menu_scan_autobouquetsmakermaker.png" -->
