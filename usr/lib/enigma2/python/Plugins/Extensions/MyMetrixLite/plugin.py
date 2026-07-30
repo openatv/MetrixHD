@@ -400,8 +400,33 @@ def info(reason, session, **kwargs):
 			infobarmetrixweatherhandler.hookInfoBar(reason, kwargs["instance"])
 
 
+def skinChanged(session, **kwargs):
+	if "MetrixHD" in config.skin.primary_skin.value:
+		if InfoBarMetrixWeather.instance is None:
+			print("[MetrixHD] skinChanged calling sessioninit")
+			try:
+				infobarmetrixweatherhandler.sessioninit(session)
+			except Exception:
+				pass
+			try:
+				from Screens.InfoBar import InfoBar
+				if InfoBar.instance:
+					infobarmetrixweatherhandler.hookInfoBar(1, InfoBar.instance)
+			except Exception:
+				pass
+	else:
+		for cls in (InfoBarMetrixWeather, InfoBarMetrixWeatherNoData):
+			if cls.instance:
+				try:
+					session.deleteDialog(cls.instance)
+				except Exception:
+					pass
+
+
 def Plugins(**kwargs):
-	pluginList = []
+	pluginList = [
+		PluginDescriptor(where=[PluginDescriptor.WHERE_SKINCHANGE], fnc=skinChanged, needsRestart=False),
+	]
 	if "MetrixHD" in config.skin.primary_skin.value:
 		pluginList.append(PluginDescriptor(name="MyMetrixLite", where=[PluginDescriptor.WHERE_INFOBARLOADED], fnc=info, needsRestart=False))
 		pluginList.append(PluginDescriptor(name="MyMetrixLite", where=[PluginDescriptor.WHERE_SESSIONSTART], fnc=sessionmain, needsRestart=False))

@@ -1,13 +1,4 @@
 #!/bin/sh
-echo "Checking for obsolete MyMetrixLiteColors"
-if [ -d ${libdir}/enigma2/python/Plugins/Extensions/MyMetrixLiteColors ]; then
-    rm -rf ${libdir}/enigma2/python/Plugins/Extensions/MyMetrixLiteColors 2>/dev/null
-    echo "MyMetrixLiteColors was found and removed"
-else
-    echo "MyMetrixLiteColors was not found"
-fi
-echo "Proceeding..."
-
 # --- RefreshIcons: rebuild Enhanced-HD icon symlinks after install/upgrade (was ActivateSkinSettings.RefreshIcons) ---
 echo "Refreshing icons..."
 
