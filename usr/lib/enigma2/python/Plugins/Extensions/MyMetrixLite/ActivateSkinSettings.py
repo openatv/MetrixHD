@@ -1557,17 +1557,6 @@ class ActivateSkinSettings:
 		else:
 			if isfile(cgfile):
 				remove(cgfile)
-		# TODO:
-		# ibts background - solid color, no PNG needed, skin uses backgroundColor="layer-a-background" directly
-		color = config.plugins.MyMetrixLiteColors.layerabackground.value
-		alpha = config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value
-		cgfile = "/usr/share/enigma2/MetrixHD/ibts/background.png"
-		if isdir("/usr/share/enigma2/MetrixHD/ibts"):
-			self.makeColorField(cgfile, int(1280 * factor), int(32 * factor), color, alpha)
-		# file commander image viewer background
-		#color = config.plugins.MyMetrixLiteColors.layerabackground.value
-		#cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_imageviewer.png"
-		#self.makeColorGradient(cgfile, int(30 * factor), int(640 * factor), color, 0, int(640 * factor), 'right', 255, 0)
 
 	def makeNewColor(self, color, coloroption):
 		if coloroption == '0':
@@ -1638,7 +1627,6 @@ class ActivateSkinSettings:
 					"/usr/lib/enigma2/python/Plugins/SystemPlugins/SoftwareManager/",
 					"/usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/images/",
 					"/usr/lib/enigma2/python/Plugins/SystemPlugins/NetworkBrowser/icons/",
-					"/usr/share/enigma2/MetrixHD/ibts/",
 					"/usr/share/enigma2/MetrixHD/emc/"]
 		for dpath in dpathlist:
 			if isdir(dpath):
