@@ -720,7 +720,7 @@ class ActivateSkinSettings:
 			DESIGNSkinSearchAndReplace.append(['<panel name="INFOBAREXTENDEDINFOCRYPTPANEL-1" />', '<panel name="INFOBAREXTENDEDINFOCRYPTPANEL-' + config.plugins.MyMetrixLiteOther.ExtendedinfoCaidStyle.value + '" />'])
 
 			# color gradient for ib,sib,mb,ibepg and quickemenu
-			if config.plugins.MyMetrixLiteColors.cologradient.value != '0':
+			if False:  # config.plugins.MyMetrixLiteColors.cologradient.value != '0':
 				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_bottom_ib.png" position="0,560" size="1280,160" zPosition="-1" /-->'
 				new = '<ePixmap alphatest="blend" pixmap="colorgradient_bottom_ib.png" position="0,560" size="1280,160" zPosition="-1" />'
 				DESIGNSkinSearchAndReplace.append([old, new])
@@ -904,6 +904,40 @@ class ActivateSkinSettings:
 
 			color = config.plugins.MyMetrixLiteColors.layerabackground.value
 			skinSearchAndReplace.append(['name="colorgradient_imageviewer" value="#FF000000,#00000000,horizontal,true"', f'name="colorgradient_imageviewer" value="#FF{color},#00{color},horizontal,true"'])
+
+			# infobarbackground_gradient
+			color = config.plugins.MyMetrixLiteColors.infobarbackground.value
+			colorTrans = config.plugins.MyMetrixLiteColors.infobarbackgroundtransparency.value
+
+			if config.plugins.MyMetrixLiteColors.gradient.value:
+				color = f"#CC{color},#{colorTrans}{color},horizontal,true"
+			else:
+				color = f"#{colorTrans}{color}"
+
+			skinSearchAndReplace.append(['name="infobarbackground_gradient" value="#1A0F0F0F"', f'name="infobarbackground_gradient" value="{color}"'])
+
+			# layer-a-background_gradient
+
+			color = config.plugins.MyMetrixLiteColors.layerabackground.value
+			colorTrans = config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value
+
+			if config.plugins.MyMetrixLiteColors.gradient.value:
+				color = f"#CC{color},#{colorTrans}{color},horizontal,true"
+			else:
+				color = f"#{colorTrans}{color}"
+
+			skinSearchAndReplace.append(['name="layer-a-background_gradient" value="#1A0F0F0F"', f'name="layer-a-background_gradient" value="{color}"'])
+
+			# epg-background_gradient
+			color = config.plugins.MyMetrixLiteColors.epgbackground.value
+			colorTrans = config.plugins.MyMetrixLiteColors.epgbackgroundtransparency.value
+
+			if config.plugins.MyMetrixLiteColors.gradient.value:
+				color = f"#CC{color},#{colorTrans}{color},horizontal,true"
+			else:
+				color = f"#{colorTrans}{color}"
+
+			skinSearchAndReplace.append(['name="epg-background_gradient" value="#1A0F0F0F"', f'name="epg-background_gradient" value="{color}"'])
 
 			# Borderset screens
 			w = 5
@@ -1202,7 +1236,7 @@ class ActivateSkinSettings:
 
 			# update *.png files
 			self.updateIcons(self.EHDres)
-			self.makeGraphics(self.EHDfactor)
+			# self.makeGraphics(self.EHDfactor)
 
 			################
 			# Skinparts
@@ -1281,7 +1315,7 @@ class ActivateSkinSettings:
 						self.optionEHD(file[0], file[1])
 				self.skinline_error = skinline_error
 				self.updateIcons()
-				self.makeGraphics(1)
+				# self.makeGraphics(1)
 
 			# remove *_TMP files
 			for file in skinfiles:
@@ -1727,8 +1761,8 @@ class ActivateSkinSettings:
 					line = line.replace('screen name="MovieSelection_PIG"', 'screen name="MovieSelection"')
 				elif 'screen name="MovieSelection"' in line:
 					line = line.replace('screen name="MovieSelection"', 'screen name="MovieSelection_noPIG"')
-			if not config.plugins.MyMetrixLiteColors.cologradient_show_background.value and 'name="GRADIENT_BACKGROUND"' in line:
-				continue
+			# if not config.plugins.MyMetrixLiteColors.cologradient_show_background.value and 'name="GRADIENT_BACKGROUND"' in line:
+			#	continue
 			# list margin channellist
 			line = line.replace('listMarginRight="5"', f'listMarginRight="{sb_width + int(5 * self.EHDfactor) + 5 if config.plugins.MyMetrixLiteOther.showChannelListScrollbar.value else int(5 * self.EHDfactor)}"')
 			line = line.replace('listMarginLeft="5"', f'listMarginLeft="{int(5 * self.EHDfactor)}"')

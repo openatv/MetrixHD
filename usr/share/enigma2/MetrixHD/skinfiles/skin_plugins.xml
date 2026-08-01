@@ -2443,7 +2443,7 @@
 
 	<screen name="RemotePlayer" flags="wfNoBorder" position="0,0" size="1280,720" title="RemotePlayer" backgroundColor="transparent">
 
-		<panel name="COLORGRADIENT_bottom_IB" />
+		<eLabel name="GRADIENT_BACKGROUND" backgroundColor="infobarbackground_gradient" position="0,560" size="1280,160" zPosition="-10"/>
 
 		<panel name="CLOCKWIDGET" />
 
@@ -2460,7 +2460,6 @@
 			<convert type="ServiceName">Reference</convert>
 		</widget>
 
-			<eLabel name="GRADIENT_BACKGROUND" backgroundColor="infobarbackground" position="0,560" size="1280,160" zPosition="-10"/>
 			<widget backgroundColor="infobarbackground" foregroundColor="infobarfont1" font="global_small;19" halign="right" position="1091,564" render="Label" size="75,30" source="Event_Now" transparent="1">
 				<convert type="EventTime">StartTime</convert>
 				<convert type="ClockToText">Default</convert>
@@ -2871,9 +2870,6 @@
 		<eLabel position="0,0" zPosition="0" size="1280,720" backgroundColor="#00000000" />
 		<widget name="image" position="0,0" size="1280,720" zPosition="1" alphatest="on" />
 		<eLabel position="0,0" size="1280,30" zPosition="1" backgroundColor="colorgradient_imageviewer" transparent="1" />
-		<!--
-		<ePixmap position="0,0" size="1280,30" zPosition="1" pixmap="colorgradient_imageviewer.png" transparent="1" alphatest="blend" />
-		-->
 		<widget name="status" position="9,7" size="20,20" zPosition="2" pixmap="icons/record.png" alphatest="blend" />
 		<widget name="icon" position="29,5" size="20,20" zPosition="2" pixmap="icons/ico_mp_play.png" alphatest="blend" />
 		<widget source="message" render="Label" position="54,0" size="1200,30" font="screen_text;20" halign="left" foregroundColor="#0038FF48" backgroundColor="layer-a-background" zPosition="2" noWrap="1" transparent="1" />

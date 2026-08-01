@@ -361,6 +361,9 @@ def initColorsConfig():
 	config.plugins.MyMetrixLiteColors.scrollbarSliderbordercolor = ConfigSelection(default="27408B", choices=ColorList)
 	config.plugins.MyMetrixLiteColors.scrollbarSliderbordertransparency = ConfigSelection(default="00", choices=TransparencyList)
 
+	config.plugins.MyMetrixLiteColors.gradient = ConfigYesNo(defaulf=False)
+
+	# OLD
 	config.plugins.MyMetrixLiteColors.cologradient = ConfigSelection(default="0", choices=[("0", _("disabled"))] + ColorList)
 	config.plugins.MyMetrixLiteColors.cologradient_show_background = ConfigYesNo(default=True)
 	choicelist = []
