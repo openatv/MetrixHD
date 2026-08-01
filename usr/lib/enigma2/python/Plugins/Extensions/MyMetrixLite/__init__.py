@@ -363,17 +363,6 @@ def initColorsConfig():
 
 	config.plugins.MyMetrixLiteColors.gradient = ConfigYesNo(default=False)
 
-	# OLD
-	config.plugins.MyMetrixLiteColors.cologradient = ConfigSelection(default="0", choices=[("0", _("disabled"))] + ColorList)
-	config.plugins.MyMetrixLiteColors.cologradient_show_background = ConfigYesNo(default=True)
-	choicelist = []
-	for x in list(range(0, 105, 5)):
-		choicelist.append(("%d" % x, "%d%s" % (x, "%")))
-	config.plugins.MyMetrixLiteColors.cologradient_size = ConfigSelection(default="25", choices=choicelist)
-	config.plugins.MyMetrixLiteColors.cologradient_position = ConfigSelection(default="25", choices=choicelist)
-	config.plugins.MyMetrixLiteColors.cologradient_transparencyA = ConfigSelection(default="1A", choices=TransparencyList)
-	config.plugins.MyMetrixLiteColors.cologradient_transparencyB = ConfigSelection(default="FF", choices=TransparencyList)
-
 #############################################################
 
 
