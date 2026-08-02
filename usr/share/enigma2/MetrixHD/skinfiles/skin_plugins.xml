@@ -1290,7 +1290,7 @@
 		<panel name="WebradioFSSetup_template" />
 		<panel name="WebradioFSIcon_template" />
 	</screen>
-	<screen name="webradioFSsetDisplay" position="0,0" size="1280,720" title="webradioFS" backgroundColor="transparent" >
+	<screen name="webradioFSsetDisplay" position="0,0" size="1280,720" title="webradioFS" backgroundColor="transparent" flags="wfNoBorder">
 		<panel name="T_Title_L" />
 		<eLabel text="Display Settings" position="100,100" size="700,35" font="screen_text;22" halign="center" valign="center" foregroundColor="#00f47d19" zPosition="3" backgroundColor="layer-a-background" transparent="1"/> 
 		<widget name="config" position="70,145" size="700,390" zPosition="3" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1"/>
@@ -1310,7 +1310,7 @@
 	<screen name="wbrfs_col_13" position="0,0" zPosition="10" size="1280,720" flags="wfNoBorder" backgroundColor="#00000000" title="" >
 		<panel name="wbrScreenSaver_template" />
 	</screen>
-	<screen name="wbrfs_set_we" position="0,0" size="1280,720" title="Info" zPosition="99" backgroundColor="transparent">
+	<screen name="wbrfs_set_we" position="0,0" size="1280,720" title="Info" zPosition="99" backgroundColor="transparent" flags="wfNoBorder">
 		<panel name="T_Title_L" />
 		<widget name="warn" position="70,100" zPosition="1" size="700,240" valign="center" halign="center" font="Regular;22" transparent="1" foregroundColor="white" shadowColor="black" shadowOffset="-1,-1" />
 		<widget name="config" position="70,400" size="700,120" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" />
@@ -1597,7 +1597,7 @@
 	</screen>
 	<!--Bitrate Viewer -->
 	<!--Satip Client -->
-	<screen name="SATIPClient" position="center,center" size="1280,720" backgroundColor="transparent">
+	<screen name="SATIPClient" position="center,center" size="1280,720" flags="wfNoBorder" backgroundColor="transparent" >
 		<panel name="T_Title" />
 		<widget source="vtunerList" render="Listbox" position="70,110" size="710,476" zPosition="3" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
 			<convert type="TemplatedMultiContent">
@@ -1621,7 +1621,7 @@
 		<panel name="__e-buttons_template1" />
 		<panel name="T_Img_Logo" />
 	</screen>
-	<screen name="SATIPTuner" position="center,center" size="1280,720" backgroundColor="transparent">
+	<screen name="SATIPTuner" position="center,center" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="config" zPosition="2" position="70,100" size="700,100" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
 		<widget source="choices" render="Label"  position="810,415" size="415,190" font="SetrixHD;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
@@ -1644,7 +1644,7 @@
 	</screen>
 	<!-- RCU Select -->
 	<!--Animation Setup -->
-	<screen name="AnimationSetupConfig" position="center,center" size="1280,720" title="Animation Setup" backgroundColor="transparent">
+	<screen name="AnimationSetupConfig" position="center,center" size="1280,720" title="Animation Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="config" zPosition="2" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
 		<panel name="template1_2layer" />
@@ -1652,7 +1652,7 @@
 		<panel name="_oe-buttons_template1" />
 		<panel name="T_Img_Logo" />
 	</screen>
-	<screen name="AnimationSetupScreen" position="center,center" size="1280,720" title="Animation Setup" backgroundColor="transparent">
+	<screen name="AnimationSetupScreen" position="center,center" size="1280,720" title="Animation Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="list" zPosition="2" position="70,100" size="700,510" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" transparent="1" />
 		<widget source="introduction" render="Label" position="825,425" size="380,175" font="screen_info;20" foregroundColor="layer-b-foreground" halign="center" backgroundColor="layer-b-background" valign="center" transparent="1"/>
