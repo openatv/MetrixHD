@@ -73,7 +73,7 @@
 		<panel name="_he-buttons_template1" />
 	</screen>
 
-	<!-- Network NEW -->
+	<!-- Network NEW START -->
 	<screen name="NetworkOverview" title="Network Overview" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title_L" />
 		<widget source="adapterList" render="Listbox" position="70,80" size="1140,300" scrollbarMode="showOnDemand">
@@ -163,7 +163,49 @@
 		<panel name="_he-buttons_template1" />
 		<panel name="T_Img_Logo" />
 	</screen>
-	<!-- Network NEW -->
+	<screen name="NetworkMountsOverview" title="Network Mounts Overview" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title_L" />
+		<widget source="mountList" render="Listbox" position="70,80" size="1140,500" scrollbarMode="showOnDemand">
+			<templates>
+				<template name="Default" fonts="Regular;22,Regular;18" itemHeight="50">
+					<mode name="default">
+						<text index="ShareName" position="0,0" size="500,28" font="0" padding="5,0" verticalAlignment="center" />
+						<text index="Description" position="20,28" size="480,20" font="1" padding="5,0" foregroundColor="gray" />
+						<text index="Mounted" position="500,0" size="200,50" font="0" padding="5,0" verticalAlignment="center" />
+						<text index="Active" position="700,0" size="200,50" font="0" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
+					</mode>
+				</template>
+			</templates>
+		</widget>
+		<panel name="T_Col_B_A" />
+		<panel name="template1_1layer" />
+		<panel name="ime-buttons_template1" />
+	</screen>
+	<screen name="NetworkShares" title="Network Shares" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget source="list" render="Listbox" position="70,100" size="700,480" scrollbarMode="showNever">
+			<template name="Default" fonts="enigma2icons;28,Regular;22,Regular;18" itemHeight="50">
+				<rowtemplate>
+					<text index="Glyph" position="10,0" size="40,50" font="0" horizontalAlignment="center" verticalAlignment="center" />
+					<text index="IPAddress" position="60,0" size="220,50" font="1" horizontalAlignment="left" verticalAlignment="center" />
+					<text index="Name" position="290,0" size="570,50" font="1" horizontalAlignment="left" verticalAlignment="center" />
+				</rowtemplate>
+				<rowtemplate>
+					<text index="Type" position="60,0" size="80,50" font="2" horizontalAlignment="left" verticalAlignment="center" foregroundColor="grey" />
+					<text index="Glyph" position="150,0" size="40,50" font="0" horizontalAlignment="center" verticalAlignment="center" foregroundColor="+GlyphColor" />
+					<text index="Name" position="200,2" size="350,28" font="1" horizontalAlignment="left" verticalAlignment="center" />
+					<text index="Description" position="200,30" size="350,18" font="2" horizontalAlignment="left" verticalAlignment="center" foregroundColor="grey" />
+					<text index="LocalPath" position="560,0" size="400,50" font="2" horizontalAlignment="left" verticalAlignment="center" foregroundColor="grey" />
+				</rowtemplate>
+			</template>
+		</widget>
+		<panel name="T_Desc_810" />
+		<panel name="T_Col_B_A" />
+		<panel name="template1_2layer" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
+	</screen>
+	<!-- Network NEW END -->
 	<screen name="NetworkMacSetup" position="0,0" size="1280,720" title="MAC-address settings" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 		<widget name="config" position="70,130" size="700,390" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
@@ -4334,7 +4376,7 @@ if len(listitems.list) &gt; 2:
 	<screens>
 		<screen key="LocationBox" image="&#xE9B6;" /> <!-- "icons/setup.png" -->
 		<screen keys="Information,About,QuickMenuDevices" image="&#xE912;" /> <!-- "icons/info.png" -->
-		<screen key="InformationNetwork" image="&#xE960;" /> <!-- "icons/menu_network_info.png" -->
+		<screen keys="InformationNetwork,NetworkInformation" image="&#xE960;" /> <!-- "icons/menu_network_info.png" -->
 		<screen key="InformationReceiver" image="&#xE977;" /> <!-- "icons/menu_receiver_info.png" -->
 		<screen key="InformationTuner" image="&#xE9A4;" /> <!-- "icons/menu_tuner_info.png" -->
 		<screen key="InformationStorage" image="&#xE98F;" /> <!-- "icons/menu_storage_info.png" -->
@@ -4345,7 +4387,7 @@ if len(listitems.list) &gt; 2:
 		<screen key="InformationService" image="&#xE983;" /> <!-- "icons/menu_service_info.png" -->
 		<screen key="InformationPicture" image="&#xE94B;" /> <!-- "icons/menu_images_info.png" -->
 		<screen key="InformationBenchmark" image="&#xE9DB;" /> <!-- "icons/BenchmarkInformations.png" -->
-		<screen key="NetworkMountsMenu" image="&#xE964;" /> <!-- "icons/menu_network_netmounts_setup.png" -->
+		<screen keys="NetworkMountsMenu,NetworkShares" image="&#xE964;" /> <!-- "icons/menu_network_netmounts_setup.png" -->
 		<screen keys="NetworkMacSetup,NetworkTest" image="&#xE9A7;" /> <!-- "icons/net.png" -->
 		<screen keys="WlanSelection,WlanSetup,WlanConfig,WlanScanAp,NetworkWiFiScanScreen" image="&#xE9BD;" /> <!-- "icons/wlan.png" -->
 		<screen key="SoftcamPanel" image="&#xE9B7;" /> <!-- "icons/softcam.png" -->
