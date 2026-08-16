@@ -17,4 +17,15 @@
 		<panel name="ime-buttons_template1" />
 		<widget name="list" position="70,100" size="1150,530" scrollbarMode="showNever" colorServiceRecorded="layer-a-channelselection-foreground-colorServiceRecorded" colorServicePseudoRecorded="layer-a-channelselection-foreground-colorServicePseudoRecorded" colorServiceStreamed="layer-a-channelselection-foreground-colorServiceStreamed" foregroundColorServiceNotAvail="#00555555" transparent="0" backgroundColor="layer-a-background" foregroundColor="layer-a-channelselection-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-channelselection-foregroundColorSelected" />
 	</screen>
+	<screen name="ChannelSelectionFull2" label="Full Screen2" base="ChannelSelection" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="#FF000000">
+		<eLabel text="Channel Selection" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<widget source="Title" render="Label" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" halign="left" transparent="1" />
+
+		<eLabel name="layer1" position="40,25" zPosition="-10" size="1200,650" backgroundColor="layer-a-background" />
+		<panel name="CLOCKWIDGET_1layer-1" />
+
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<!--<panel name="ime-buttons_template1" />-->
+		<widget name="list" position="70,100" size="1150,530" scrollbarMode="showNever" colorServiceRecorded="#00E02020" colorServicePseudoRecorded="#002060E0" colorServiceStreamed="#00E08020" foregroundColorServiceNotAvail="#00555555" transparent="0" backgroundColor="#00F2F2F2" foregroundColor="#00101010" backgroundColorSelected="#00DADADA" foregroundColorSelected="#00101010" />
+	</screen>
 </skin>

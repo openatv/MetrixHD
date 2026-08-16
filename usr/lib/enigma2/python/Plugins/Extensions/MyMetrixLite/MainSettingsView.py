@@ -17,19 +17,16 @@
 #
 #
 #######################################################################
-from os.path import isfile
-from enigma import eListboxPythonMultiContent, ePicLoad, eTimer, gFont, getDesktop
+from enigma import eListboxPythonMultiContent, eTimer, gFont, getDesktop
 
 from Components.ActionMap import ActionMap
 from Components.Label import Label
 from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText
-from Components.Pixmap import Pixmap
 from Components.Sources.StaticText import StaticText
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
 from Screens.Standby import TryQuitMainloop
-from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN
 
 from . import _, PLUGIN_PATH
 from .ColorsSettingsView import ColorsSettingsView
@@ -51,6 +48,10 @@ class MainMenuList(MenuList):
 			self.l.setFont(0, gFont("Regular", int(font0 * 3)))
 			self.l.setFont(1, gFont("Regular", int(font1 * 3)))
 			self.l.setItemHeight(int(itemHeight * 3))
+		elif screenwidth and screenwidth == 2560:
+			self.l.setFont(0, gFont("Regular", int(font0 * 2)))
+			self.l.setFont(1, gFont("Regular", int(font1 * 2)))
+			self.l.setItemHeight(int(itemHeight * 2))
 		elif screenwidth and screenwidth == 1920:
 			self.l.setFont(0, gFont("Regular", int(font0 * 1.5)))
 			self.l.setFont(1, gFont("Regular", int(font1 * 1.5)))
@@ -68,6 +69,8 @@ def MenuEntryItem(itemDescription, key, helptext):
 	screenwidth = getDesktop(0).size().width()
 	if screenwidth and screenwidth == 3840:
 		res.append(MultiContentEntryText(pos=(30, 15), size=(1320, 135), font=0, text=itemDescription, ))
+	elif screenwidth and screenwidth == 2560:
+		res.append(MultiContentEntryText(pos=(20, 10), size=(880, 90), font=0, text=itemDescription, ))
 	elif screenwidth and screenwidth == 1920:
 		res.append(MultiContentEntryText(pos=(15, 8), size=(660, 68), font=0, text=itemDescription, ))
 	else:
@@ -96,8 +99,7 @@ class MainSettingsView(Screen):
 	def __init__(self, session, args=None):
 		Screen.__init__(self, session)
 		self.session = session
-		self.PicLoad = ePicLoad()
-		self["Image"] = Pixmap()
+		self["Image"] = Label()
 		self["description"] = Label()
 
 		self.setTitle(_("MyMetrixLite"))
@@ -107,8 +109,6 @@ class MainSettingsView(Screen):
 
 		self["applyBtn"] = StaticText("")
 		self["applyBtn"].setText(_("Apply changes"))
-
-#		ActivateSkinSettings().initConfigs()
 
 		self["actions"] = ActionMap(
 			[
@@ -129,9 +129,6 @@ class MainSettingsView(Screen):
 		menulist.append(MenuEntryItem(_("Color settings"), "COLOR", _("helptext")))
 		menulist.append(MenuEntryItem(_("Weather settings"), "WEATHER", _("Powered by\n-----------------\nmsn weather (https://www.msn.com)\nand\nOpenWeatherMap (https://openweathermap.org)\nand\nOpen-Meteo (https://open-meteo.com/en)")))
 		menulist.append(MenuEntryItem(_("Other settings"), "OTHER", _("helptext")))
-		if isfile("/usr/lib/enigma2/python/Plugins/Extensions/MyMetrixLite/DesignSettings.py"):
-			from .DesignSettingsView import DesignSettingsView
-			menulist.append(MenuEntryItem(_("Design settings"), "DESIGN", _("helptext")))
 		menulist.append(MenuEntryItem(_("Skinpart settings"), "SKINPART", _("helptext")))
 		menulist.append("")
 		menulist.append(MenuEntryItem(_("Backup & Restore my settings"), "BACKUP", _("helptext")))
@@ -143,57 +140,37 @@ class MainSettingsView(Screen):
 			self["menuList"].onSelectionChanged.append(self.selectionChanged)
 
 		self.onChangedEntry = []
-		self.onLayoutFinish.append(self.UpdatePicture)
-
-		self.checkEHDsettingsTimer = eTimer()
-		self.checkEHDsettingsTimer.callback.append(self.checkEHDsettings)
-		self.checkEHDsettingsTimer.start(1000, True)
+		self.onLayoutFinish.append(self.ShowPicture)
 
 	#def __del__(self):
 	#	self["menuList"].onSelectionChanged.remove(self.selectionChanged)
-
-	def UpdatePicture(self):
-		self.PicLoad.PictureData.get().append(self.DecodePicture)
-		self.onLayoutFinish.append(self.ShowPicture)
 
 	def ShowPicture(self):
 		if self["Image"] is None or self["Image"].instance is None:
 			return
 
 		cur = self["menuList"].getCurrent()
-		imageUrl = self.GetPicturePath("MyMetrixLiteOther")
+
+		imageUrl = chr(59863)
 
 		if cur:
 			selectedKey = cur[0][1]
 
 			if selectedKey == "COLOR":
-				imageUrl = self.GetPicturePath("MyMetrixLiteColor")
+				imageUrl = chr(59861)
 			elif selectedKey == "WEATHER":
-				imageUrl = self.GetPicturePath("MyMetrixLiteWeather")
+				imageUrl = chr(59858)
 			elif selectedKey == "OTHER":
-				imageUrl = self.GetPicturePath("MyMetrixLiteOther")
+				imageUrl = chr(59863)
 			elif selectedKey == "FONT":
-				imageUrl = self.GetPicturePath("MyMetrixLiteFont")
+				imageUrl = chr(59862)
 			elif selectedKey == "BACKUP":
-				imageUrl = self.GetPicturePath("MyMetrixLiteBackup")
+				imageUrl = chr(59865)
 			elif selectedKey == "SKINPART":
-				imageUrl = self.GetPicturePath("MyMetrixLiteSkinpart")
-			elif selectedKey == "DESIGN":
-				imageUrl = self.GetPicturePath("MyMetrixLiteSkinpart")
+				imageUrl = chr(59864)
 
-		self.PicLoad.setPara([self["Image"].instance.size().width(), self["Image"].instance.size().height(), 1, 1, 0, 1, "#00000000"])
-		self.PicLoad.startDecode(imageUrl)
+			self["Image"].setText(imageUrl)
 		self.showHelperText()
-
-	def GetPicturePath(self, pic):
-		picturepath = resolveFilename(SCOPE_CURRENT_SKIN, f"mymetrixlite/{pic}.png")
-		if not fileExists(picturepath):
-			picturepath = self.MAIN_IMAGE_PATH % pic
-		return picturepath
-
-	def DecodePicture(self, PicInfo=""):
-		ptr = self.PicLoad.getData()
-		self["Image"].instance.setPixmap(ptr)
 
 	def ok(self):
 		cur = self["menuList"].getCurrent()
@@ -213,8 +190,6 @@ class MainSettingsView(Screen):
 				self.session.open(BackupSettingsView)
 			elif selectedKey == "SKINPART":
 				self.session.open(SkinpartSettingsView)
-			elif selectedKey == "DESIGN":
-				self.session.open(DesignSettingsView)
 
 	def applyChanges(self):
 		ret = ActivateSkinSettings().WriteSkin()
@@ -223,31 +198,12 @@ class MainSettingsView(Screen):
 		elif ret[0] == 'ErrorCode_2':
 			self.session.open(MessageBox, ret[1], MessageBox.TYPE_ERROR)
 		elif ret[0] == 'reboot':
-			self.reboot(ret[1])
+			from skin import reloadSkins
+			reloadSkins()
+			self.session.reloadDialogs()
+			self.close(True)
 		elif ret[0] == 'error':
 			self.session.open(MessageBox, ret[1], MessageBox.TYPE_ERROR)
-		elif isinstance(ret, tuple) and ret[0] == 'checkEHDsettings':
-			self.session.openWithCallback(self.checkEHDsettingsCallback, MessageBox, ret[1], MessageBox.TYPE_INFO, timeout=10)
-
-	def checkEHDsettings(self):
-		ret = ActivateSkinSettings().CheckSettings(True)
-		if isinstance(ret, tuple) and ret[0] == 'checkEHDsettings':
-			self.session.openWithCallback(self.checkEHDsettingsCallback, MessageBox, ret[1], MessageBox.TYPE_INFO, timeout=10)
-
-	def checkEHDsettingsCallback(self, ret=None):
-		self.session.open(OtherSettingsView)
-
-	def reboot(self, message=None):
-		if message is None:
-			message = _("Do you really want to reboot now?")
-
-		self.session.openWithCallback(self.restartGUI, MessageBox, message, MessageBox.TYPE_YESNO, windowTitle=_("Restart GUI"))
-
-	def restartGUI(self, answer):
-		if answer is True:
-			self.session.open(TryQuitMainloop, 3)
-		else:
-			self.close()
 
 	def exit(self):
 		self["menuList"].onSelectionChanged.remove(self.selectionChanged)

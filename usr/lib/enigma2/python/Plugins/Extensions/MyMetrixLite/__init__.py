@@ -337,6 +337,7 @@ def initColorsConfig():
 	config.plugins.MyMetrixLiteColors.epgtimelinebackgroundtransparency = ConfigSelection(default="1A", choices=TransparencyList)
 
 	config.plugins.MyMetrixLiteColors.buttonforeground = ConfigSelection(default="FFFFFF", choices=ColorList)
+	config.plugins.MyMetrixLiteColors.LogoColor = ConfigSelection(default="FFFFFF", choices=ColorList)
 	config.plugins.MyMetrixLiteColors.layeraclockforeground = ConfigSelection(default="FFFFFF", choices=ColorList)
 	config.plugins.MyMetrixLiteColors.layerbclockforeground = ConfigSelection(default="FFFFFF", choices=ColorList)
 	config.plugins.MyMetrixLiteColors.weatherborderlines = ConfigSelection(default="FFFFFF", choices=ColorList)
@@ -360,15 +361,7 @@ def initColorsConfig():
 	config.plugins.MyMetrixLiteColors.scrollbarSliderbordercolor = ConfigSelection(default="27408B", choices=ColorList)
 	config.plugins.MyMetrixLiteColors.scrollbarSliderbordertransparency = ConfigSelection(default="00", choices=TransparencyList)
 
-	config.plugins.MyMetrixLiteColors.cologradient = ConfigSelection(default="0", choices=[("0", _("disabled"))] + ColorList)
-	config.plugins.MyMetrixLiteColors.cologradient_show_background = ConfigYesNo(default=True)
-	choicelist = []
-	for x in list(range(0, 105, 5)):
-		choicelist.append(("%d" % x, "%d%s" % (x, "%")))
-	config.plugins.MyMetrixLiteColors.cologradient_size = ConfigSelection(default="25", choices=choicelist)
-	config.plugins.MyMetrixLiteColors.cologradient_position = ConfigSelection(default="25", choices=choicelist)
-	config.plugins.MyMetrixLiteColors.cologradient_transparencyA = ConfigSelection(default="1A", choices=TransparencyList)
-	config.plugins.MyMetrixLiteColors.cologradient_transparencyB = ConfigSelection(default="FF", choices=TransparencyList)
+	config.plugins.MyMetrixLiteColors.gradient = ConfigYesNo(default=False)
 
 #############################################################
 
@@ -487,45 +480,15 @@ def initOtherConfig():
 	# OtherSettings
 	# EHD-Option -> Enhanced HD
 	BoxType = BoxInfo.getItem("machinebuild")
-	config.plugins.MyMetrixLiteOther.EHDtested = ConfigText(default=f"{BoxType}_|_0")
 
 	skinmodes = [("0", _("Standard HD (1280x720)"))]
-	mode1080p = mode2160p = risk = False
-	try:
-		if exists("/proc/stb/video/videomode_choices"):
-			vmodes = open("/proc/stb/video/videomode_choices").read()
-			if "1080p" in vmodes:
-				mode1080p = True
-#			if "2160p" in vmodes:
-#				mode2160p = True
-		else:
-			risk = True
-	except Exception:
-		print("[MyMetrixLite] - can't read video modes")
-		risk = True
-
-	tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split("_|_")
-	risktxt = _(" - box support unknown")
-	if len(tested) == 2:
-		if BoxType in tested[0] and "1" in tested[1]:
-			skinmodes.append(("1", _("Full HD (1920x1080)")))
-		elif mode1080p or risk:
-			skinmodes.append(("1", _("Full HD (1920x1080) %s") % risktxt))
-#		if BoxType in tested[0] and "2" in tested[1]:
-#			skinmodes.append(("2", _("Ultra HD (3840x2160)")))
-#		elif mode2160p or risk:
-#			skinmodes.append(("2", _("Ultra HD (3840x2160) %s") % risktxt))
-	else:
-		if mode1080p or risk:
-			skinmodes.append(("1", _("Full HD (1920x1080) %s") % risktxt))
-		#if mode2160p or risk:
-		#	skinmodes.append(("2", _("Ultra HD (3840x2160) %s") % risktxt))
-
-	###no box supports at time uhd skins ...###
-	dummy = _("Ultra HD (3840x2160)")
-	dummy = _("Ultra HD (3840x2160) %s")
-
-	###########################################
+	if BoxInfo.getItem("fhdskin"):
+		tested = "1"
+		skinmodes.append(("1", _("Full HD (1920x1080)")))
+	if BoxInfo.getItem("wqhdskin"):
+		tested = "2"
+		skinmodes.append(("2", _("WQHD (2560x1440)")))
+	config.plugins.MyMetrixLiteOther.EHDtested = ConfigText(default=f"{BoxType}_|_{tested}")
 	config.plugins.MyMetrixLiteOther.EHDenabled = ConfigSelection(default="0", choices=skinmodes)
 	config.plugins.MyMetrixLiteOther.EHDrounddown = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.EHDfontoffset = ConfigSelectionNumber(-10, 5, 1, default=0)

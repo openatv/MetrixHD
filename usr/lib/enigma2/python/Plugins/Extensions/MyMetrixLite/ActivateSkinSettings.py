@@ -22,11 +22,10 @@ from __future__ import division
 
 from datetime import datetime
 from math import floor, sqrt
-from os import remove, statvfs, listdir, system, mkdir, unlink, symlink, rename
-from os.path import basename, exists, getsize, isdir, isfile, islink, join as pathjoin, realpath
+from os import remove, statvfs, listdir, mkdir, unlink, symlink, rename
+from os.path import exists, getsize, isdir, isfile, islink, join as pathjoin, realpath
 from re import sub, match, findall
 from shutil import move, copy, rmtree
-from subprocess import getoutput
 from time import time
 
 from PIL import Image, ImageFont, ImageDraw
@@ -73,9 +72,14 @@ class ActivateSkinSettings:
 		self.silent = silent
 		if self.silent:
 			self.E2settings = open("/etc/enigma2/settings", "r").read()
-			if config.skin.primary_skin.value != "MetrixHD/skin.MySkin.xml" and 'config.skin.primary_skin=MetrixHD/skin.MySkin.xml' not in self.E2settings:
+			if "config.skin.primary_skin" in self.E2settings and "MetrixHD" not in config.skin.primary_skin.value:
 				print('MetrixHD is not the primary skin or runs with default settings. No restore action needed!')
 				return 0
+
+			# TODO JB
+#			if config.skin.primary_skin.value != "MetrixHD/skin.MySkin.xml" and 'config.skin.primary_skin=MetrixHD/skin.MySkin.xml' not in self.E2settings:
+#				print('MetrixHD is not the primary skin or runs with default settings. No restore action needed!')
+#				return 0
 			from Components.PluginComponent import plugins  # need for fast restore in skin.py
 		self.initConfigs()
 		self.CheckSettings()
@@ -84,6 +88,7 @@ class ActivateSkinSettings:
 				self.ErrorCode = 7
 			else:
 				self.ErrorCode = 'unknown', _('Error, unknown Result!')
+		print("WriteSkin:", self.ErrorCode)
 		return self.ErrorCode
 
 	def initConfigs(self):
@@ -92,64 +97,29 @@ class ActivateSkinSettings:
 		initWeatherConfig()
 		initFontsConfig()
 
-	def RefreshIcons(self, restore=False):
-		# called from SystemPlugins/SoftwareManager/plugin.py after software update and from Screens/SkinSelector.py after changing skin
-		self.initConfigs()
-		self.getEHDSettings()
-		screenwidth = getDesktop(0).size().width()
-		if screenwidth and screenwidth != 1280 or restore:
-			if restore:
-				self.EHDres = 'HD'
-				print(f"[MetrixHD] restoring original {self.EHDres} icons after changing skin...")
-			else:
-				print(f"[MetrixHD] refreshing {self.EHDres} icons after software update...")
-			self.updateIcons(self.EHDres)
-			print("[MetrixHD] ...done.")
-
 	def getEHDSettings(self, onlyCheck=False):
-		tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
-		EHDtested = len(tested) == 2 and BoxInfo.getItem("machinebuild") in tested[0] and config.plugins.MyMetrixLiteOther.EHDenabled.value in tested[1]
+		EHDtested = True
+		# tested = config.plugins.MyMetrixLiteOther.EHDtested.value.split('_|_')
+		# EHDtested = len(tested) == 2 and BoxInfo.getItem("machinebuild") in tested[0] and config.plugins.MyMetrixLiteOther.EHDenabled.value in tested[1]
 		if config.plugins.MyMetrixLiteOther.EHDenabled.value == '1' and EHDtested:
 			self.EHDenabled = True
 			self.EHDfactor = 1.5
 			self.EHDres = 'FHD'
 			self.EHDtxt = 'Full HD'
+		elif config.plugins.MyMetrixLiteOther.EHDenabled.value == '2' and EHDtested:
+			self.EHDenabled = True
+			self.EHDfactor = 2.0
+			self.EHDres = 'WQHD'
+			self.EHDtxt = 'WQHD'
 		else:
 			self.EHDenabled = False
 			self.EHDfactor = 1
 			self.EHDres = 'HD'
 			self.EHDtxt = 'Standard HD'
-			if config.plugins.MyMetrixLiteOther.EHDenabled.value != '0':
-				if onlyCheck or not self.silent:
-					self.ErrorCode = 'checkEHDsettings', _("Your enhanced hd settings are inconsistent. Please check this.")
+			config.plugins.MyMetrixLiteOther.EHDenabled.value = '0'
 
 	def CheckSettings(self, onlyCheck=False):
-		# first check is ehd tested, ehd-settings and available ehd-icons
 		self.getEHDSettings(onlyCheck)
-
-		if self.EHDenabled:
-			self.service_name = f'enigma2-plugin-skins-metrix-atv-{self.EHDres.lower()}-icons'
-			return_value = getoutput("/usr/bin/opkg list-installed " + self.service_name)
-			if self.service_name not in return_value:
-				if onlyCheck or not self.silent:
-					self.ErrorCode = 'checkEHDsettings', _("Your enhanced hd settings are inconsistent. Please check this.")
-				elif self.silent:
-					stat = statvfs("/usr/share/enigma2/MetrixHD/")
-					freeflash = stat.f_bavail * stat.f_bsize / 1024 / 1024
-					filesize = 10
-					if freeflash < filesize:
-						self.ErrorCode = 3
-					else:
-						system('/usr/bin/opkg update')
-						ret = str(system('/usr/bin/opkg install ' + self.service_name))
-						if 'Unknown package' in ret or "Collected errors" in ret:
-							self.ErrorCode = 4
-					if self.ErrorCode:
-						self.EHDenabled = False
-						self.EHDfactor = 1
-						self.EHDres = 'HD'
-						self.EHDtxt = 'Standard HD'
-
 		if onlyCheck or self.ErrorCode:
 			return self.ErrorCode
 		self.applyChanges()
@@ -159,24 +129,10 @@ class ActivateSkinSettings:
 		print("MyMetrixLite apply Changes")
 
 		ROOTPATH = "/usr/share/enigma2/MetrixHD/skinfiles/"
-		SKIN_SOURCE = "/usr/share/enigma2/MetrixHD/skin.xml"
-# NEW		SKIN_SOURCE = ROOTPATH + "skin_base.xml"
+		SKIN_SOURCE = ROOTPATH + "skin_base.xml"
 
 		try:
-			# make backup of skin.xml
-			bname = "_original_file_.xml"
-			f = open(SKIN_SOURCE, 'r')
-			firstline = f.readline()
-			f.close()
-			if '<!-- original file -->' in firstline:
-				copy(SKIN_SOURCE, SKIN_SOURCE + bname)
-			else:
-				copy(SKIN_SOURCE + bname, SKIN_SOURCE)
-
-# NEW			SKIN_TARGET = ROOTPATH + "skin_base.MySkin.xml"
-# NEW			SKIN_TARGET_TMP = SKIN_TARGET + ".tmp"
-
-			SKIN_TARGET = "/usr/share/enigma2/MetrixHD/skin.MySkin.xml"
+			SKIN_TARGET = ROOTPATH + "skin_base.MySkin.xml"
 			SKIN_TARGET_TMP = SKIN_TARGET + ".tmp"
 
 			SKIN_TEMPLATES_SOURCE = ROOTPATH + "skin_templates.xml"
@@ -257,7 +213,7 @@ class ActivateSkinSettings:
 						('ok.png', _('OK')),
 						('text.png', _('TEXT'))
 						]
-			buttonpath = {'HD': '/usr/share/enigma2/MetrixHD/buttons/', 'FHD': '/usr/share/enigma2/MetrixHD/FHD/buttons/'}
+			buttonpath = {'HD': '/usr/share/enigma2/MetrixHD/buttons/', 'FHD': '/usr/share/enigma2/MetrixHD/FHD/buttons/', 'WQHD': '/usr/share/enigma2/MetrixHD/WQHD/buttons/'}
 
 			################
 			# check free flash for _TARGET and _TMP files
@@ -417,6 +373,7 @@ class ActivateSkinSettings:
 				delay = str(config.plugins.MyMetrixLiteOther.runningTextStartdelay.value)
 				speed = str(config.plugins.MyMetrixLiteOther.runningTextSpeed.value)
 				moviePlayerSkinSearchAndReplace.append(['movetype=none,startdelay=600,steptime=60', f'movetype=running,startdelay={delay},steptime={speed}'])
+				# moviePlayerSkinSearchAndReplace.append(['direction=none,startDelay=600,stepDelay=60', f'direction=top,startdelay={delay},steptime={speed}'])
 
 			if config.plugins.MyMetrixLiteOther.movielistStyle.value == 'right':
 				moviePlayerSkinSearchAndReplace.append(['<panel name="MovieSelection_left"/>', '<panel name="MovieSelection_right"/>'])
@@ -621,6 +578,7 @@ class ActivateSkinSettings:
 				delay = str(config.plugins.MyMetrixLiteOther.runningTextStartdelay.value)
 				speed = str(config.plugins.MyMetrixLiteOther.runningTextSpeed.value)
 				EMCSkinSearchAndReplace.append(['movetype=none,startdelay=600,steptime=60', f'movetype=running,startdelay={delay},steptime={speed}'])
+				# EMCSkinSearchAndReplace.append(['direction=none,startDelay=600,stepDelay=60', f'direction=top,startdelay={delay},steptime={speed}'])
 
 			skin_lines = appendSkinFile(SKIN_EMC_SOURCE, EMCSkinSearchAndReplace)
 
@@ -769,27 +727,6 @@ class ActivateSkinSettings:
 			DESIGNSkinSearchAndReplace.append(['<panel name="INFOBAREXTENDEDINFO-1" />', '<panel name="INFOBAREXTENDEDINFO-' + config.plugins.MyMetrixLiteOther.ExtendedinfoStyle.value + '" />'])
 			DESIGNSkinSearchAndReplace.append(['<panel name="INFOBAREXTENDEDINFOCRYPTPANEL-1" />', '<panel name="INFOBAREXTENDEDINFOCRYPTPANEL-' + config.plugins.MyMetrixLiteOther.ExtendedinfoCaidStyle.value + '" />'])
 
-			# color gradient for ib,sib,mb,ibepg and quickemenu
-			if config.plugins.MyMetrixLiteColors.cologradient.value != '0':
-				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_bottom_ib.png" position="0,560" size="1280,160" zPosition="-1" /-->'
-				new = '<ePixmap alphatest="blend" pixmap="colorgradient_bottom_ib.png" position="0,560" size="1280,160" zPosition="-1" />'
-				DESIGNSkinSearchAndReplace.append([old, new])
-				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_bottom_epg.png" position="0,10" size="1280,220" zPosition="-1" /-->'
-				new = '<ePixmap alphatest="blend" pixmap="colorgradient_bottom_epg.png" position="0,10" size="1280,220" zPosition="-1" />'
-				DESIGNSkinSearchAndReplace.append([old, new])
-				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_top_ib.png" position="0,0" size="1280,30" zPosition="-1" /-->'
-				new = '<ePixmap alphatest="blend" pixmap="colorgradient_top_ib.png" position="0,0" size="1280,30" zPosition="-1" />'
-				DESIGNSkinSearchAndReplace.append([old, new])
-				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_top_qm.png" position="0,0" size="1280,94" zPosition="-1" /-->'
-				new = '<ePixmap alphatest="blend" pixmap="colorgradient_top_qm.png" position="0,0" size="1280,94" zPosition="-1" />'
-				DESIGNSkinSearchAndReplace.append([old, new])
-				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_bottom_mb.png" position="0,570" size="1280,150" zPosition="-1" /-->'
-				new = '<ePixmap alphatest="blend" pixmap="colorgradient_bottom_mb.png" position="0,570" size="1280,150" zPosition="-1" />'
-				DESIGNSkinSearchAndReplace.append([old, new])
-				old = '<!--ePixmap alphatest="blend" pixmap="colorgradient_bottom_pb.png" position="0,640" size="1280,80" zPosition="-1" /-->'
-				new = '<ePixmap alphatest="blend" pixmap="colorgradient_bottom_pb.png" position="0,640" size="1280,80" zPosition="-1" />'
-				DESIGNSkinSearchAndReplace.append([old, new])
-
 			# picon
 			if config.plugins.MyMetrixLiteOther.SkinDesignInfobarPicon.value == "1":
 				posx = 33 + config.plugins.MyMetrixLiteOther.SkinDesignInfobarXPiconPosX.value
@@ -835,8 +772,10 @@ class ActivateSkinSettings:
 			speed = config.plugins.MyMetrixLiteOther.runningTextSpeed.value
 			if config.plugins.MyMetrixLiteOther.showChannelListRunningtext.value:
 				DESIGNSkinSearchAndReplace.append(['movetype=none,startdelay=600,steptime=60', f'movetype=running,startdelay={delay},steptime={speed}'])  # event description
+				# DESIGNSkinSearchAndReplace.append(['direction=none,startDelay=600,stepDelay=60', f'direction=top,startdelay={delay},steptime={speed}'])
 			if config.plugins.MyMetrixLiteOther.showInfoBarRunningtext.value:
 				DESIGNSkinSearchAndReplace.append(['movetype=none,startdelay=900,steptime=1,step=3', f'movetype=running,startdelay={int(delay * 1.5)},steptime={speed},step=2'])  # infobar
+				# DESIGNSkinSearchAndReplace.append(['direction=none,startDelay=600,stepDelay=60', f'direction=top,startdelay={delay},steptime={speed}'])
 
 			# show menu buttons
 			if not config.plugins.MyMetrixLiteOther.SkinDesignMenuButtons.value:
@@ -856,10 +795,7 @@ class ActivateSkinSettings:
 			################
 
 			skinSearchAndReplace = []
-			# TODO JB  .. maybe no longer needed !!!
-			orgskinSearchAndReplace = []  # needed for some attributes (e.g. borderset setting was lost after using plugin media portal - because restored settings from skin.xml and not from skin.MySkin.xml)
 			skinSearchAndReplace.append(['<!-- original file -->', ''])
-			orgskinSearchAndReplace.append(['<!-- original file -->', '<!-- !!!copied and changed file!!! -->'])
 
 			# Colors
 			colors = [
@@ -901,6 +837,7 @@ class ActivateSkinSettings:
 				("layer-a-button-foreground", "#00FFFFFF", "buttonforeground"),
 				("layer-a-clock-foreground", "#00FFFFFF", "layeraclockforeground"),
 				("layer-b-clock-foreground", "#00FFFFFF", "layerbclockforeground"),
+				("logo-color", "#00FFFFFF", "LogoColor"),
 				("weather-borderlines", "#00FFFFFF", "weatherborderlines", "weatherborderlinestransparency"),
 
 				("menufont", "#00FFFFFF", "menufont"),
@@ -954,6 +891,43 @@ class ActivateSkinSettings:
 				color3 = f"0x00{config.plugins.MyMetrixLiteColors.infobaraccent2.value.lower()}"
 				skinSearchAndReplace.append(['name="InformationColors" value="0x00ffffff,0x00ffffff,0x00ffffff,0x00cccccc,0x00cccccc,0x00ffffff,0x0000ffff"', f'name="InformationColors" value="{color1},{color1},{color1},{color2},{color2},{color1},{color3}"'])
 
+			color = config.plugins.MyMetrixLiteColors.layerabackground.value
+			skinSearchAndReplace.append(['name="colorgradient_imageviewer" value="#FF000000,#00000000,horizontal,true"', f'name="colorgradient_imageviewer" value="#FF{color},#00{color},horizontal,true"'])
+
+			# infobarbackground_gradient
+			color = config.plugins.MyMetrixLiteColors.infobarbackground.value
+			colorTrans = config.plugins.MyMetrixLiteColors.infobarbackgroundtransparency.value
+
+			if config.plugins.MyMetrixLiteColors.gradient.value:
+				color = f"#CC{color},#{colorTrans}{color},vertical,true"
+			else:
+				color = f"#{colorTrans}{color}"
+
+			skinSearchAndReplace.append(['name="infobarbackground_gradient" value="#1A0F0F0F"', f'name="infobarbackground_gradient" value="{color}"'])
+
+			# layer-a-background_gradient
+
+			color = config.plugins.MyMetrixLiteColors.layerabackground.value
+			colorTrans = config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value
+
+			if config.plugins.MyMetrixLiteColors.gradient.value:
+				color = f"#CC{color},#{colorTrans}{color},vertical,true"
+			else:
+				color = f"#{colorTrans}{color}"
+
+			skinSearchAndReplace.append(['name="layer-a-background_gradient" value="#1A0F0F0F"', f'name="layer-a-background_gradient" value="{color}"'])
+
+			# epg-background_gradient
+			color = config.plugins.MyMetrixLiteColors.epgbackground.value
+			colorTrans = config.plugins.MyMetrixLiteColors.epgbackgroundtransparency.value
+
+			if config.plugins.MyMetrixLiteColors.gradient.value:
+				color = f"#CC{color},#{colorTrans}{color},vertical,true"
+			else:
+				color = f"#{colorTrans}{color}"
+
+			skinSearchAndReplace.append(['name="epg-background_gradient" value="#1A0F0F0F"', f'name="epg-background_gradient" value="{color}"'])
+
 			# Borderset screens
 			w = 5
 			wt = 50
@@ -967,22 +941,18 @@ class ActivateSkinSettings:
 			if exists(f"/usr/share/enigma2/MetrixHD/border/{width_top}/{color}.png"):
 				newline = f"<pixmap pos=\"bpTop\" filename=\"MetrixHD/border/{width_top}/{color}.png\" />"
 				skinSearchAndReplace.append(['<pixmap pos="bpTop" filename="MetrixHD/border/50px/0F0F0F.png" />', newline])
-				orgskinSearchAndReplace.append(['<pixmap pos="bpTop" filename="MetrixHD/border/50px/0F0F0F.png" />', newline])
 			color = config.plugins.MyMetrixLiteColors.windowborder_bottom.value
 			if exists(f"/usr/share/enigma2/MetrixHD/border/{width}/{color}.png"):
 				newline = f"<pixmap pos=\"bpBottom\" filename=\"MetrixHD/border/{width}/{color}.png\" />"
 				skinSearchAndReplace.append(['<pixmap pos="bpBottom" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
-				orgskinSearchAndReplace.append(['<pixmap pos="bpBottom" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
 			color = config.plugins.MyMetrixLiteColors.windowborder_left.value
 			if exists(f"/usr/share/enigma2/MetrixHD/border/{width}/{color}.png"):
 				newline = f"<pixmap pos=\"bpLeft\" filename=\"MetrixHD/border/{width}/{color}.png\" />"
 				skinSearchAndReplace.append(['<pixmap pos="bpLeft" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
-				orgskinSearchAndReplace.append(['<pixmap pos="bpLeft" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
 			color = config.plugins.MyMetrixLiteColors.windowborder_right.value
 			if exists(f"/usr/share/enigma2/MetrixHD/border/{width}/{color}.png"):
 				newline = f"<pixmap pos=\"bpRight\" filename=\"MetrixHD/border/{width}/{color}.png\" />"
 				skinSearchAndReplace.append(['<pixmap pos="bpRight" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
-				orgskinSearchAndReplace.append(['<pixmap pos="bpRight" filename="MetrixHD/border/5px/0F0F0F.png" />', newline])
 
 			# Border listbox
 			width = config.plugins.MyMetrixLiteColors.listboxborder_topwidth.value
@@ -991,28 +961,24 @@ class ActivateSkinSettings:
 				if exists(f"/usr/share/enigma2/MetrixHD/border/{width}/{color}.png"):
 					newline = f"<pixmap pos=\"bpTop\" filename=\"MetrixHD/border/{width}/{color}.png\" />"
 					skinSearchAndReplace.append(['<!--lb pixmap pos="bpTop" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
-					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpTop" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 			width = config.plugins.MyMetrixLiteColors.listboxborder_bottomwidth.value
 			if width != "no":
 				color = config.plugins.MyMetrixLiteColors.listboxborder_bottom.value
 				if exists(f"/usr/share/enigma2/MetrixHD/border/{width}/{color}.png"):
 					newline = f"<pixmap pos=\"bpBottom\" filename=\"MetrixHD/border/{width}/{color}.png\" />"
 					skinSearchAndReplace.append(['<!--lb pixmap pos="bpBottom" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
-					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpBottom" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 			width = config.plugins.MyMetrixLiteColors.listboxborder_leftwidth.value
 			if width != "no":
 				color = config.plugins.MyMetrixLiteColors.listboxborder_left.value
 				if exists(f"/usr/share/enigma2/MetrixHD/border/{width}/{color}.png"):
 					newline = f"<pixmap pos=\"bpLeft\" filename=\"MetrixHD/border/{width}/{color}.png\" />"
 					skinSearchAndReplace.append(['<!--lb pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
-					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpLeft" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 			width = config.plugins.MyMetrixLiteColors.listboxborder_rightwidth.value
 			if width != "no":
 				color = config.plugins.MyMetrixLiteColors.listboxborder_right.value
 				if exists(f"/usr/share/enigma2/MetrixHD/border/{width}/{color}.png"):
 					newline = f"<pixmap pos=\"bpRight\" filename=\"MetrixHD/border/{width}/{color}.png\" />"
 					skinSearchAndReplace.append(['<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
-					orgskinSearchAndReplace.append(['<!--lb pixmap pos="bpRight" filename="MetrixHD/border/1px/FFFFFF.png" /-->', newline])
 
 			# fonts system
 			type = config.plugins.MyMetrixLiteFonts.Lcd_type.value
@@ -1212,7 +1178,9 @@ class ActivateSkinSettings:
 			if exists(type):
 				skinSearchAndReplace.append([old, new])
 
-			# skinfiles
+			# Pfad-Ersetzungen: skin_base.xml enthält Include-Referenzen auf die originalen
+			# skinfiles/*.xml — diese werden hier auf die *.mySkin.xml-Varianten umgebogen,
+			# damit skin_base.MySkin.xml auf die modifizierten Dateien zeigt.
 			skinSearchAndReplace.append([SKIN_INFOBAR_SOURCE, SKIN_INFOBAR_TARGET])
 			skinSearchAndReplace.append([SKIN_INFOBAR_LITE_SOURCE, SKIN_INFOBAR_LITE_TARGET])
 			skinSearchAndReplace.append([SKIN_SECOND_INFOBAR_SOURCE, SKIN_SECOND_INFOBAR_TARGET])
@@ -1226,18 +1194,30 @@ class ActivateSkinSettings:
 			skinSearchAndReplace.append([SKIN_TEMPLATES_SOURCE, SKIN_TEMPLATES_TARGET])
 			skinSearchAndReplace.append([SKIN_DESIGN_SOURCE, SKIN_DESIGN_TARGET])
 
+			# rootContent: skin.xml und skin.MySkin.xml werden zu dünnen Include-Stubs.
+			# Enigma2 verarbeitet den <include>-Tag in loadSingleSkinData (skin.py) und lädt
+			# dabei SKIN_TARGET (absoluter Pfad) als vollständige Skin-Datei nach.
+			# WICHTIG: SKIN_TARGET (skin_base.MySkin.xml) muss existieren wenn enigma2 startet —
+			# es wird erst weiter unten durch optionEHD erzeugt!
+			rootContent = f"<skin>\n<include filename=\"{SKIN_TARGET}\" />\n</skin>\n"
+
 			# make skin file
 			skin_lines = appendSkinFile(SKIN_SOURCE, skinSearchAndReplace)
-			orgskin_lines = appendSkinFile(SKIN_SOURCE + bname, orgskinSearchAndReplace)
 
+			# skin_base.MySkin.xml.tmp: Zwischendatei mit Search&Replace-Ergebnis,
+			# wird später durch optionEHD in skin_base.MySkin.xml (SKIN_TARGET) überführt.
 			with open(SKIN_TARGET_TMP, "w") as fd:
 				for xx in skin_lines:
 					fd.writelines(xx)
 
-			# write changed skin.xml
-			with open(SKIN_SOURCE, "w") as fd:
-				for xx in orgskin_lines:
-					fd.writelines(xx)
+			ROOT_SKIN_SOURCE = "/usr/share/enigma2/MetrixHD/skin.xml"
+			ROOT_SKIN_TARGET = "/usr/share/enigma2/MetrixHD/skin.MySkin.xml"  # This is only for compat
+
+			with open(ROOT_SKIN_SOURCE, "w") as fd:
+				fd.write(rootContent)
+			# dummy file for compat
+			with open(ROOT_SKIN_TARGET, "w") as fd:
+				fd.write(rootContent)
 
 			################
 			# Icons, Graphics
@@ -1245,7 +1225,6 @@ class ActivateSkinSettings:
 
 			# update *.png files
 			self.updateIcons(self.EHDres)
-			self.makeGraphics(self.EHDfactor)
 
 			################
 			# Skinparts
@@ -1324,7 +1303,6 @@ class ActivateSkinSettings:
 						self.optionEHD(file[0], file[1])
 				self.skinline_error = skinline_error
 				self.updateIcons()
-				self.makeGraphics(1)
 
 			# remove *_TMP files
 			for file in skinfiles:
@@ -1380,8 +1358,6 @@ class ActivateSkinSettings:
 			if not self.silent:
 				self.ErrorCode = 'error', _("Error creating Skin!") + f'\n< {error} >'
 			# restore skinfiles
-			if exists(SKIN_SOURCE + bname):
-				move(SKIN_SOURCE + bname, SKIN_SOURCE)
 			for file in skinfiles:
 				if exists(file[1]):
 					remove(file[1])
@@ -1396,11 +1372,21 @@ class ActivateSkinSettings:
 			# restore icons
 			self.updateIcons()
 			# restore default hd skin
+			# PROBLEM: skin.xml wurde oben bereits als Include-Stub auf skin_base.MySkin.xml
+			# überschrieben. skin_base.MySkin.xml wurde aber durch die Exception noch nicht
+			# (vollständig) erzeugt und wird oben in der skinfiles-Schleife gerade gelöscht.
+			# skin.xml zeigt also auf eine nicht existente Datei → enigma2 startet mit Fehler.
+			# FIX: skin.xml hier auf skin_base.xml (Original, unmodifiziert) umleiten, z.B.:
+			# fallbackContent = "<skin>\n<include filename=\"%s\" />\n</skin>" % SKIN_SOURCE
+			# with open(ROOT_SKIN_SOURCE, "w") as fd: fd.write(fallbackContent)
 			config.skin.primary_skin.setValue("MetrixHD/skin.xml")
 			config.plugins.MyMetrixLiteOther.Custom.value = False
 		else:
 			config.plugins.MyMetrixLiteOther.Custom.value = True
-			config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")  # TODO JB
+			# TODO JB: Soll primary_skin "skin.MySkin.xml" oder "skin.xml" sein?
+			# Beide Dateien haben identischen Inhalt (Include-Stub auf skin_base.MySkin.xml).
+			# Der Check in WriteSkin() oben prüft ebenfalls auf skin.MySkin.xml — muss konsistent bleiben.
+			config.skin.primary_skin.setValue("MetrixHD/skin.MySkin.xml")
 		config.skin.primary_skin.save()
 		configfile.save()
 		print(f"MyMetrixLite apply Changes - duration time: {round_half_up(time() - apply_starttime, 1)}s")
@@ -1524,143 +1510,6 @@ class ActivateSkinSettings:
 		except Exception:
 			return 0
 
-	def makeGraphics(self, factor):
-		# epg
-		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.epgbackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
-		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_bottom_epg.png"
-		size = 220
-		gpos = size - size * ((100 - int(config.plugins.MyMetrixLiteColors.cologradient_position.value)) * 0.01)
-		gsize = (size - gpos) * (int(config.plugins.MyMetrixLiteColors.cologradient_size.value) * 0.01)
-		if color:
-			self.makeColorGradient(cgfile, int(1280 * factor), int(size * factor), color, int(gpos * factor), int(gsize * factor), 'up')
-		else:
-			if isfile(cgfile):
-				remove(cgfile)
-		# ib
-		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.infobarbackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
-		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_bottom_ib.png"
-		size = 160
-		gpos = size - size * ((100 - int(config.plugins.MyMetrixLiteColors.cologradient_position.value)) * 0.01)
-		gsize = (size - gpos) * (int(config.plugins.MyMetrixLiteColors.cologradient_size.value) * 0.01)
-		if color:
-			self.makeColorGradient(cgfile, int(1280 * factor), int(size * factor), color, int(gpos * factor), int(gsize * factor), 'up')
-		else:
-			if isfile(cgfile):
-				remove(cgfile)
-		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_top_ib.png"
-		size = 30
-		gpos = size - size * ((100 - int(config.plugins.MyMetrixLiteColors.cologradient_position.value)) * 0.01)
-		gsize = (size - gpos) * (int(config.plugins.MyMetrixLiteColors.cologradient_size.value) * 0.01)
-		if color:
-			self.makeColorGradient(cgfile, int(1280 * factor), int(size * factor), color, int(gpos * factor), int(gsize * factor), 'down')
-		else:
-			if isfile(cgfile):
-				remove(cgfile)
-		# mb
-		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.infobarbackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
-		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_bottom_mb.png"
-		if int(config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.value) > 2:
-			size = 80
-		else:
-			size = 150
-		gpos = size - size * ((100 - int(config.plugins.MyMetrixLiteColors.cologradient_position.value)) * 0.01)
-		gsize = (size - gpos) * (int(config.plugins.MyMetrixLiteColors.cologradient_size.value) * 0.01)
-		if color:
-			self.makeColorGradient(cgfile, int(1280 * factor), int(150 * factor), color, int(gpos * factor), int(gsize * factor), 'up')
-		else:
-			if isfile(cgfile):
-				remove(cgfile)
-		# db
-		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.infobarbackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
-		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_bottom_pb.png"
-		size = 80
-		gpos = size - size * ((100 - int(config.plugins.MyMetrixLiteColors.cologradient_position.value)) * 0.01)
-		gsize = (size - gpos) * (int(config.plugins.MyMetrixLiteColors.cologradient_size.value) * 0.01)
-		if color:
-			self.makeColorGradient(cgfile, int(1280 * factor), int(size * factor), color, int(gpos * factor), int(gsize * factor), 'up')
-		else:
-			if isfile(cgfile):
-				remove(cgfile)
-		# layer a
-		color = self.makeNewColor(config.plugins.MyMetrixLiteColors.layerabackground.value, config.plugins.MyMetrixLiteColors.cologradient.value)
-		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_top_qm.png"
-		size = 95
-		gpos = size - size * ((100 - int(config.plugins.MyMetrixLiteColors.cologradient_position.value)) * 0.01)
-		gsize = (size - gpos) * (int(config.plugins.MyMetrixLiteColors.cologradient_size.value) * 0.01)
-		if color:
-			self.makeColorGradient(cgfile, int(1280 * factor), int(size * factor), color, int(gpos * factor), int(gsize * factor), 'down')
-		else:
-			if isfile(cgfile):
-				remove(cgfile)
-		# ibts background
-		color = config.plugins.MyMetrixLiteColors.layerabackground.value
-		alpha = config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value
-		cgfile = "/usr/share/enigma2/MetrixHD/ibts/background.png"
-		if isdir("/usr/share/enigma2/MetrixHD/ibts"):
-			self.makeColorField(cgfile, int(1280 * factor), int(32 * factor), color, alpha)
-		# file commander image viewer background
-		color = config.plugins.MyMetrixLiteColors.layerabackground.value
-		cgfile = "/usr/share/enigma2/MetrixHD/colorgradient_imageviewer.png"
-		self.makeColorGradient(cgfile, int(30 * factor), int(640 * factor), color, 0, int(640 * factor), 'right', 255, 0)
-
-	def makeNewColor(self, color, coloroption):
-		if coloroption == '0':
-			return None
-		elif coloroption == '1':
-			return color
-		elif len(coloroption) < 6:  # modify current color
-			coloroption = int(coloroption)
-			r = int(color[-6:][:2], 16)
-			r -= r * 0.01 * int(coloroption)
-			g = int(color[-4:][:2], 16)
-			g -= g * 0.01 * int(coloroption)
-			b = int(color[-2:][:2], 16)
-			b -= b * 0.01 * int(coloroption)
-			if r < 0:
-				r = 0
-			if g < 0:
-				g = 0
-			if b < 0:
-				b = 0
-			return f"{int(r):02x}{int(g):02x}{int(b):02x}"
-		elif len(coloroption) == 6:
-			return coloroption
-		else:
-			return color
-
-	def makeColorGradient(self, name, sizex, sizey, color, begin, height, direction, alphaA=None, alphaB=None):
-		# print name
-		if alphaA is None:
-			alphaA = 255 - int(config.plugins.MyMetrixLiteColors.cologradient_transparencyA.value, 16)
-		if alphaB is None:
-			alphaB = 255 - int(config.plugins.MyMetrixLiteColors.cologradient_transparencyB.value, 16)
-		rgba = (int(color[-6:][:2], 16), int(color[-4:][:2], 16), int(color[-2:][:2], 16), 0)
-		imga = Image.new("RGBA", (sizex, sizey), rgba)
-		rgba = (int(color[-6:][:2], 16), int(color[-4:][:2], 16), int(color[-2:][:2], 16), alphaA)
-		imgb = Image.new("RGBA", (sizex, begin), rgba)
-		imgc = Image.new("RGBA", (sizex, height), rgba)
-		gradient = Image.new('L', (1, alphaA - alphaB + 1))
-		for y in range(0, alphaA - alphaB + 1):
-			gradient.putpixel((0, y), alphaB + y)
-		gradient = gradient.resize(imgc.size)
-		imgc.putalpha(gradient)
-		imga.paste(imgb, (0, imga.size[1] - begin))
-		imga.paste(imgc, (0, imga.size[1] - begin - height))
-		if direction == 'up':
-			pass
-		elif direction == 'left':
-			imga = imga.transpose(Image.ROTATE_90)
-		elif direction == 'down':
-			imga = imga.transpose(Image.ROTATE_180)
-		elif direction == 'right':
-			imga = imga.transpose(Image.ROTATE_270)
-		imga.save(name)
-
-	def makeColorField(self, name, sizex, sizey, color, alpha):
-		rgba = (int(color[-6:][:2], 16), int(color[-4:][:2], 16), int(color[-2:][:2], 16), 255 - int(alpha, 16))
-		imga = Image.new("RGBA", (sizex, sizey), rgba)
-		imga.save(name)
-
 	def updateIcons(self, target="HD"):
 		# backward compatibility - remove old icon files ---------------------------
 		dpathlist = ["/usr/share/enigma2/MetrixHD/",
@@ -1672,7 +1521,6 @@ class ActivateSkinSettings:
 					"/usr/lib/enigma2/python/Plugins/SystemPlugins/SoftwareManager/",
 					"/usr/lib/enigma2/python/Plugins/SystemPlugins/AutoBouquetsMaker/images/",
 					"/usr/lib/enigma2/python/Plugins/SystemPlugins/NetworkBrowser/icons/",
-					"/usr/share/enigma2/MetrixHD/ibts/",
 					"/usr/share/enigma2/MetrixHD/emc/"]
 		for dpath in dpathlist:
 			if isdir(dpath):
@@ -1773,13 +1621,11 @@ class ActivateSkinSettings:
 					line = line.replace('screen name="MovieSelection_PIG"', 'screen name="MovieSelection"')
 				elif 'screen name="MovieSelection"' in line:
 					line = line.replace('screen name="MovieSelection"', 'screen name="MovieSelection_noPIG"')
-			if not config.plugins.MyMetrixLiteColors.cologradient_show_background.value and 'name="GRADIENT_BACKGROUND"' in line:
-				continue
 			# list margin channellist
 			line = line.replace('listMarginRight="5"', f'listMarginRight="{sb_width + int(5 * self.EHDfactor) + 5 if config.plugins.MyMetrixLiteOther.showChannelListScrollbar.value else int(5 * self.EHDfactor)}"')
 			line = line.replace('listMarginLeft="5"', f'listMarginLeft="{int(5 * self.EHDfactor)}"')
-			#-----------------------
-#options for all skin files end
+			# -----------------------
+# options for all skin files end
 			if self.EHDenabled:
 				try:
 # rename flag
@@ -1830,8 +1676,7 @@ class ActivateSkinSettings:
 								self.skinline_error = True
 								break
 					if run_mod and not line_disabled and not self.skinline_error:
-						line = self.linerchanger_new(line, next_picon_zoom, "skin.MySkin.xml" in sourceFile)
-# NEW					line = self.linerchanger_new(line, next_picon_zoom, "skin_base.MySkin.xml" in sourceFile)
+						line = self.linerchanger_new(line, next_picon_zoom, "skin_base.MySkin.xml" in sourceFile)
 # line disabled off
 					if line_disabled and 'cf#_#' not in line and (match('#+', line.lstrip()) or match('.*-->.*', line.rstrip())):
 						# print 'line disabled off', i, line
