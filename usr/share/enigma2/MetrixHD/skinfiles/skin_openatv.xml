@@ -3551,11 +3551,6 @@ if len(listitems.list) &gt; 2:
 		<panel name="_he-buttons_template1" />
 		<panel name="template1_2layer" />
 	</screen>
-	<screen name="NetworkWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent" ignoreWidgets="wizard">
-		<eLabel text="NetworkWizard" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<panel name="wizard_template_2" />
-		<panel name="wizard_rc_templateNew" />
-	</screen>
 	<screen name="AutoTimerWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="AutoTimerWizard" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<panel name="wizard_template" />
@@ -3576,8 +3571,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="wizard_template" />
 		<panel name="wizard_rc_template" />
 	</screen>
-	<screen name="ImageWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent" ignoreWidgets="wizard">
-		<!--eLabel text="ImageWizard" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /-->
+	<screen name="WizardImage" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent" ignoreWidgets="wizard">
 		<panel name="T_Title" />
 		<panel name="wizard_template_2" />
 		<panel name="wizard_rc_templateNew" />
@@ -3603,19 +3597,16 @@ if len(listitems.list) &gt; 2:
 				}
 			</convert>
 		</widget>
-<!-- 		<panel name="wizard_template" /> -->
 		<panel name="template1_2layer" />
 		<panel name="wizard_rc_templateNew" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 	</screen>
-	<screen name="StartWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent" ignoreWidgets="wizard">
-		<!--eLabel text="StartWizard" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /-->
+	<screen name="WizardStart" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent" ignoreWidgets="wizard">
 		<panel name="T_Title" />
 		<panel name="wizard_template_2" />
 		<panel name="wizard_rc_templateNew" />
 	</screen>
-	<screen name="VideoWizard" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent" ignoreWidgets="wizard">
-		<!--eLabel text="VideoWizard" position="58,36" size="525,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" /-->
+	<screen name="WizardVideo" position="0,0" size="1280,720" title="Welcome..." flags="wfNoBorder" backgroundColor="transparent" ignoreWidgets="wizard">
 		<panel name="T_Title" />
 		<panel name="wizard_template_2" />
 		<panel name="wizard_rc_templateNew" />
@@ -4458,7 +4449,7 @@ if len(listitems.list) &gt; 2:
 		<screen key="AudioSelection" image="&#xE901;" />
 
 		<!-- "icons/menu_information_about.png" -->
-		<screen keys="DistributionInformation,AboutOE,FlashOnline,DeviceBrowser" image="&#xE94C;" />
+		<screen keys="InformationDistribution,AboutOE,FlashOnline,DeviceBrowser" image="&#xE94C;" />
 
  		<!-- "icons/menu_setup_audio.png" -->
  		<screen keys="mySmallChannelSelection" image="&#xE984;" />
