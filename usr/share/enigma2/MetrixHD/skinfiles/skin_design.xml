@@ -454,6 +454,12 @@
 		<widget backgroundColor="infobarbackground" render="MetrixHDRunningText" options="movetype=none,startdelay=900,steptime=1,step=3,direction=left,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" font="infobar_event; 35" foregroundColor="infobarfont2" halign="left" noWrap="1" position="286,617" size="805,56" source="session.Event_Next" transparent="1" valign="top">
 			<convert type="EventName">Name</convert>
 		</widget>
+		<widget backgroundColor="infobarbackground" render="MetrixHDRunningText" options="movetype=none,startdelay=900,steptime=1,step=3,direction=left,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" foregroundColor="infobarfont1" font="infobar_event;32" halign="left" noWrap="1" position="286,558" size="805,56" source="RdsDecoder" transparent="1" valign="center" zPosition="5">
+			<convert type="RdsInfo">RadioText</convert>
+		</widget>
+		<widget backgroundColor="infobarbackground" render="MetrixHDRunningText" options="movetype=none,startdelay=900,steptime=1,step=3,direction=left,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" foregroundColor="infobarfont2" font="infobar_event;24" halign="left" noWrap="1" position="286,620" size="805,42" source="RdsDecoder" transparent="1" valign="top" zPosition="5">
+			<convert type="RdsInfo">RtpText</convert>
+		</widget>
 	</screen>
 <!-- Infobar, Scondinfobar, Moviebar/Emc Running Text -->
 <!-- Show Menu Buttons -->

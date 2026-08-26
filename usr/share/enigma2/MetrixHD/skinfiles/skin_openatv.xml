@@ -1691,6 +1691,10 @@ if len(listitems.list) &gt; 2:
 		<widget alphatest="blend" position="1,1" size="166,100" render="MetrixHDXPicon" source="session.CurrentService" transparent="1" zPosition="1">
 			<convert type="ServiceName">Reference</convert>
 		</widget>
+		<widget alphatest="blend" pixmap="icons/ico_dab-plus.png" position="1010,4" render="Pixmap" size="25,25" source="session.CurrentService" transparent="1" zPosition="2">
+			<convert type="ServiceInfo">IsDAB</convert>
+			<convert type="ConditionalShowHide" />
+		</widget>
 		<eLabel backgroundColor="layer-a-accent1" position="200,61" size="941,1" zPosition="1"/>
 		<widget render="Progress" position="200,59" size="941,5" source="session.Event_Now" foregroundColor="layer-a-progress" transparent="1" zPosition="2">
 			<convert type="EventTime">Progress</convert>
@@ -1707,6 +1711,9 @@ if len(listitems.list) &gt; 2:
 		</widget>
 		<widget source="RdsDecoder" render="Label" position="200,60" size="941,40" font="LCD;35" halign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="1">
 			<convert type="RdsInfo">RadioText</convert>
+		</widget>
+		<widget source="RdsDecoder" render="Label" position="700,0" size="300,25" font="Regular;18" halign="right" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="2">
+			<convert type="RdsInfo">RtpText</convert>
 		</widget>
 		<widget source="RdsDecoder" render="Pixmap" alphatest="blend" pixmap="skin_default/icons/rass_logo.png" position="1091,5" size="50,21" backgroundColor="layer-b-background" zPosition="1">
 			<convert type="RdsInfo">RasInteractiveAvailable</convert>

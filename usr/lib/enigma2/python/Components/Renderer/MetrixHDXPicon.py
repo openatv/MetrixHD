@@ -2,14 +2,15 @@
 ## Picon renderer by Gruffy .. some speedups by Ghost
 ## XPicon mod by iMaxxx
 ##
-from os.path import exists
-from enigma import ePixmap
+from os.path import exists, getmtime, getsize
+from enigma import ePixmap, eServiceReference, iServiceInformation
 
 from PIL import Image, ImageFile, ImageEnhance
 
 from Components.config import config
 from Components.Renderer.Picon import getPiconName
 from Components.Renderer.Renderer import Renderer
+import NavigationInstance
 from Tools.Directories import SCOPE_SKIN_IMAGE, SCOPE_CURRENT_SKIN, resolveFilename
 from Plugins.Extensions.MyMetrixLite.__init__ import initOtherConfig
 
@@ -36,13 +37,26 @@ class MetrixHDXPicon(Renderer):
 
 	GUI_WIDGET = ePixmap
 
+	def getDABImage(self, serviceRef):
+		ref = eServiceReference(serviceRef or "")
+		if ref.type != eServiceReference.idServiceDAB or NavigationInstance.instance is None:
+			return ""
+		playingRef = NavigationInstance.instance.getCurrentlyPlayingServiceReference()
+		if not playingRef or playingRef.toString().split(":", 10)[:10] != ref.toString().split(":", 10)[:10]:
+			return ""
+		service = NavigationInstance.instance.getCurrentService()
+		info = service and service.info()
+		image = info and info.getInfoString(iServiceInformation.sTagImage) or ""
+		return image if image and exists(image) else ""
+
 	def changed(self, what):
 		if self.instance:
 			pngname = ""
 			if what[0] != self.CHANGED_CLEAR:
 				self.instance.show()
 				sname = self.source.text
-				if sname.count(":") > 9:
+				pngname = self.getDABImage(sname)
+				if not pngname and sname.count(":") > 9:
 					snameN = "_".join(sname.split(":")[0:10])
 					pngname = self.nameCache.get(snameN, "")
 				if not pngname or not exists(pngname):
@@ -55,7 +69,8 @@ class MetrixHDXPicon(Renderer):
 						tmp = resolveFilename(SCOPE_CURRENT_SKIN, "picon_default.png")
 						pngname = tmp if exists(tmp) else resolveFilename(SCOPE_SKIN_IMAGE, "skin_default/picon_default.png")
 						self.nameCache["default"] = pngname
-				if self.pngname != pngname:
+				pngkey = (pngname, getmtime(pngname), getsize(pngname)) if pngname and exists(pngname) else pngname
+				if self.pngname != pngkey:
 					if config.plugins.MyMetrixLiteOther.piconresize_experimental.value:
 						try:
 							ImageFile.LOAD_TRUNCATED_IMAGES = True
@@ -80,7 +95,7 @@ class MetrixHDXPicon(Renderer):
 					else:
 						self.instance.setPixmapFromFile(pngname)
 					self.instance.setScale(1)
-					self.pngname = pngname
+					self.pngname = (pngname, getmtime(pngname), getsize(pngname)) if pngname and exists(pngname) else pngname
 			else:
 				self.pngname = ""
 				self.instance.hide()

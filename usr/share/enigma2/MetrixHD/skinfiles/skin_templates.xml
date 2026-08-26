@@ -1412,6 +1412,10 @@
 		</screen>
 		<screen name="INFOBARSERVICEINFO">
 			<!--/* SERVICE INFO -->
+			<widget alphatest="blend" pixmap="icons/ico_dab-plus.png" position="245,574" render="Pixmap" size="25,25" source="session.CurrentService" transparent="1" zPosition="5">
+				<convert type="ServiceInfo">IsDAB</convert>
+				<convert type="ConditionalShowHide"/>
+			</widget>
 			<ePixmap alphatest="blend" pixmap="icons/subtitle_off.png" position="862,669" size="31,23"/>
 			<widget alphatest="blend" pixmap="icons/subtitle_on.png" position="862,669" render="Pixmap" size="31,23" source="session.CurrentService" zPosition="1">
 				<convert type="ServiceInfo">SubservicesAvailable</convert>
