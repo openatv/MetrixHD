@@ -33,6 +33,8 @@ class MetrixHDRefString(Converter, object):
 	@cached
 	def getText(self):
 		if (self.type == self.EVENT):
+			if self.source.service is None:
+				return ""
 			antw = str(self.source.service.toString())
 			if antw[:6] == "1:7:0:":
 				teilantw = antw.split("ORDER BY name:")
