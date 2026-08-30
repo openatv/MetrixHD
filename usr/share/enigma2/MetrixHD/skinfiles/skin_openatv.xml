@@ -2407,14 +2407,14 @@ if len(listitems.list) &gt; 2:
 	<!-- Eventview Contextmenu -->
 	<screen name="EventViewContextMenu" position="0,0" size="1280,720" title="Eventview Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="CONTEXTMENU2_textTitle_template" />
-		<widget name="Image" position="305,80" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
+		<panel name="T_Img_Logo_305" />
 		<eLabel text="Eventview menu" position="5,555" size="1280,180" font="global_large_menu;90" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 	</screen>
 	<!-- Channellist Contextmenu -->
 	<screen name="ChannelContextMenu" position="0,0" size="1280,720" title="Channel Selection Context Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="CONTEXTMENU2_textTitle_template" />
-		<widget name="Image" position="305,80" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 		<eLabel text="Channel Selection Context Menu" position="5,555" size="1280,180" font="global_large_menu;90" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<panel name="T_Img_Logo_305" />
 	</screen>
 	<!-- Subtitle -->
 	<screen name="SubtitleDisplay" position="fill" zPosition="-1" flags="wfNoBorder" backgroundColor="transparent" ignoreWidgets="subtitles"/>
@@ -2918,6 +2918,14 @@ if len(listitems.list) &gt; 2:
 		<eLabel text="IpkgInstaller" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,130" size="700,450" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="introduction" render="Label" position="70,595" size="700,32" font="SetrixHD;24" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
+	</screen>
+	<screen name="IPKGInstaller" position="0,0" size="1280,720" title="..." flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="IpkgInstaller" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list" position="70,130" size="700,450" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
@@ -4447,7 +4455,7 @@ if len(listitems.list) &gt; 2:
 		<screen keys="MyTubePlayerMainScreen,MyTubeSettingsScreen,MyTubeTasksScreen,MyTubeVideoHelpScreen,MyTubeVideoInfoScreen,YoutubeTVSettings,YoutubeTVWindow,YouTubeSearch,YouTubeMain,YouTubeInfo" image="&#xE9BE;" />
 
 		<!-- "icons/paket.png" -->
-		<screen keys="IPKGSource,Opkg,IpkgInstaller,IPKGMenu,PacketManager" image="&#xE9C3;" />
+		<screen keys="IPKGInstaller,IPKGSource,Opkg,IpkgInstaller,IPKGMenu,PacketManager" image="&#xE9C3;" />
 
 		<!-- "icons/movie.png" -->
 		<screen keys="CutListContextMenu,MovieMenu,DownloadMovieInfo,MovieInfoPreview,MovieInfoTMDb,EMCPlaylist,EMCPlaylistSetup" image="&#xE9C4;" />
