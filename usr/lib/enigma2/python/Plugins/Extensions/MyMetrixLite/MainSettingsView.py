@@ -17,7 +17,7 @@
 #
 #
 #######################################################################
-from enigma import eListboxPythonMultiContent, eTimer, gFont, getDesktop
+from enigma import eListboxPythonMultiContent, gFont, getDesktop
 
 from Components.ActionMap import ActionMap
 from Components.Label import Label
@@ -25,8 +25,8 @@ from Components.MenuList import MenuList
 from Components.MultiContent import MultiContentEntryText
 from Components.Sources.StaticText import StaticText
 from Screens.MessageBox import MessageBox
+from Screens.Processing import Processing
 from Screens.Screen import Screen
-from Screens.Standby import TryQuitMainloop
 
 from . import _, PLUGIN_PATH
 from .ColorsSettingsView import ColorsSettingsView
@@ -192,17 +192,27 @@ class MainSettingsView(Screen):
 				self.session.open(SkinpartSettingsView)
 
 	def applyChanges(self):
+		self["applyBtn"].setText("")
+		Processing.instance.setDescription(_("Apply changes"))
+		Processing.instance.showProgress(endless=True)
 		ret = ActivateSkinSettings().WriteSkin()
+		Processing.instance.hideProgress()
 		if not isinstance(ret, tuple):
+			self["applyBtn"].setText(_("Apply changes"))
 			self.session.open(MessageBox, _('Unknown error occurred!'), MessageBox.TYPE_ERROR)
 		elif ret[0] == 'ErrorCode_2':
+			self["applyBtn"].setText(_("Apply changes"))
 			self.session.open(MessageBox, ret[1], MessageBox.TYPE_ERROR)
 		elif ret[0] == 'reboot':
 			from skin import reloadSkins
+			from Screens.ChannelSelection import ChannelSelection, ChannelSelectionSetup
 			reloadSkins()
-			self.session.reloadDialogs()
+			exclude = {id(dialog) for dialog in self.session.allDialogs if isinstance(dialog, ChannelSelection)}
+			self.session.reloadDialogs(exclude=exclude)
+			ChannelSelectionSetup.updateSettings(self.session, force=True)
 			self.close(True)
 		elif ret[0] == 'error':
+			self["applyBtn"].setText(_("Apply changes"))
 			self.session.open(MessageBox, ret[1], MessageBox.TYPE_ERROR)
 
 	def exit(self):
