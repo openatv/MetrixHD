@@ -187,7 +187,7 @@ class InfoBarMetrixWeather(Screen):
 			geocode = config.plugins.MetrixWeather.owm_geocode.value.split(",")
 			# DEPRECATED, will be removed in April 2023
 			if geocode == ['0.0', '0.0']:
-				geodatalist = self.WI.getCitylist(config.plugins.MetrixWeather.weathercity.value.split(",")[0], config.osd.language.value.replace('_', '-').lower())
+				geodatalist = self.WI.get_citylist(config.plugins.MetrixWeather.weathercity.value.split(",")[0], config.osd.language.value.replace('_', '-').lower())
 				if geodatalist is not None and len(geodatalist[0]) == 3:
 					geocode = [geodatalist[0][1], geodatalist[0][2]]
 					config.plugins.MetrixWeather.weathercity.value = geodatalist[0][0]
