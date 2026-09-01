@@ -70,7 +70,7 @@ class WeatherSettingsView(Setup):
 				self["footnote"].setText(_("Error in Weatherinfo"))
 				self.session.open(MessageBox, text=WI.error, type=MessageBox.TYPE_ERROR)
 			else:
-				geodatalist = WI.getCitylist(weathercity, config.osd.language.value.replace('_', '-').lower())
+				geodatalist = WI.get_citylist(weathercity, config.osd.language.value.replace('_', '-').lower())
 				if WI.error or geodatalist is None or len(geodatalist) == 0:
 					print(f"[WeatherSettingsView] Error in module 'searchCity': {WI.error}")
 					self["footnote"].setText(_("Error getting City ID"))
