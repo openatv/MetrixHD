@@ -2914,18 +2914,11 @@ if len(listitems.list) &gt; 2:
 		<panel name="__e-buttons_template1" />
 		<panel name="T_Img_Logo" />
 	</screen>
+	<!-- OLD IPKG -->
 	<screen name="IpkgInstaller" position="0,0" size="1280,720" title="..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="IpkgInstaller" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,130" size="700,450" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<widget source="introduction" render="Label" position="70,595" size="700,32" font="SetrixHD;24" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<panel name="template1_2layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<panel name="_oe-buttons_template1" />
-		<panel name="T_Img_Logo" />
-	</screen>
-	<screen name="IPKGInstaller" position="0,0" size="1280,720" title="..." flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="IpkgInstaller" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list" position="70,130" size="700,450" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template1" />
@@ -2946,6 +2939,23 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<!--panel name="_oe-buttons_template1" /-->
 		<widget name="Image" position="500,300" size="256,256" font="MetrixLogos;250" noWrap="1" transparent="1" foregroundColor="layer-b-foreground" valign="center" halign="center" />
+	</screen>
+	<!-- OLD IPKG -->
+	<screen name="PackageFeedEditor" position="0,0" size="1280,720" title="OPKG Source" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="PackageFeedEditor" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="text" position="70,180" size="1140,30" zPosition="3" halign="center" font="SetrixHD;22" foregroundColor="layer-a-foreground" backgroundColor="layer-b-background" />
+		<panel name="template1_1layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<!--panel name="_oe-buttons_template1" /-->
+		<widget name="Image" position="500,300" size="256,256" font="MetrixLogos;250" noWrap="1" transparent="1" foregroundColor="layer-b-foreground" valign="center" halign="center" />
+	</screen>
+	<screen name="PackageFeedSelection" position="0,0" size="1280,720" title="Select OPKG source..." flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="PackageFeedSelection" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="feeds" position="70,130" size="700,480" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="PacketManager" position="0,0" size="1280,720" title="PacketManager" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="PacketManager" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -4455,7 +4465,7 @@ if len(listitems.list) &gt; 2:
 		<screen keys="MyTubePlayerMainScreen,MyTubeSettingsScreen,MyTubeTasksScreen,MyTubeVideoHelpScreen,MyTubeVideoInfoScreen,YoutubeTVSettings,YoutubeTVWindow,YouTubeSearch,YouTubeMain,YouTubeInfo" image="&#xE9BE;" />
 
 		<!-- "icons/paket.png" -->
-		<screen keys="IPKGInstaller,IPKGSource,Opkg,IpkgInstaller,IPKGMenu,PacketManager" image="&#xE9C3;" />
+		<screen keys="PackageFeedEditor,PackageFeedSelection,IPKGSource,Opkg,IpkgInstaller,IPKGMenu,PacketManager" image="&#xE9C3;" />
 
 		<!-- "icons/movie.png" -->
 		<screen keys="CutListContextMenu,MovieMenu,DownloadMovieInfo,MovieInfoPreview,MovieInfoTMDb,EMCPlaylist,EMCPlaylistSetup" image="&#xE9C4;" />

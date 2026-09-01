@@ -152,7 +152,9 @@ class ColorsSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab * 2 + _("Transparency"), config.plugins.MyMetrixLiteColors.scrollbarSliderbordertransparency, _("helptext")))
 		section = _("Color Gradient")
 		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
-		list.append(getConfigListEntry(tab + _("Enabled"), config.plugins.MyMetrixLiteColors.gradient, _("helptext")))
+		list.append(getConfigListEntry(tab + _("Enabled"), config.plugins.MyMetrixLiteColors.gradient, _("helptext"), "ENABLED"))
+		if config.plugins.MyMetrixLiteColors.gradient.value:
+			list.append(getConfigListEntry(tab * 2 + _("Transparency"), config.plugins.MyMetrixLiteColors.gradient_transparencyA, _("helptext")))
 		section = _("Text Windowtitle")
 		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Foreground"), ))
