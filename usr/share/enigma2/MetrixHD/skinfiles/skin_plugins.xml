@@ -3341,23 +3341,25 @@
 		<widget name="titel" transparent="1" zPosition="2" halign="center" position="530,56" size="480,35" font="screen_text;20" foregroundColor="foreground" backgroundColor="background" />
 	</screen>
 
-    <screen name="IPTVDMNotificationScreen" position="600,20" zPosition="10" size="650,40" title="IPTVPlayer downloader" backgroundColor="transparent" flags="wfNoBorder">
-        <eLabel name="layer1" position="0,0" zPosition="-10" size="650,40" backgroundColor="layer-a-background" />
-        <widget name="message_label" font="screen_text;24" position="0,0" zPosition="2" valign="center" halign="center" size="650,40" backgroundColor="layer-a-background" foregroundColor="green" transparent="1" />
-    </screen>
+	<screen name="IPTVDMNotificationScreen" position="600,20" zPosition="10" size="700,84" title="IPTVPlayer downloader" backgroundColor="transparent" flags="wfNoBorder">
+		<eLabel name="layer1" position="0,0" zPosition="-10" size="e,e" backgroundColor="layer-a-background" />
+		<widget name="message_label" font="screen_text;22" position="10,6" zPosition="2" valign="center" halign="center" size="e-20,42" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="status_label" font="screen_text;18" position="10,48" zPosition="2" valign="center" halign="center" size="e-20,28" backgroundColor="layer-a-background" foregroundColor="green" transparent="1" />
+	</screen>
 
-	<screen name="IPTVArticleView" position="center,center" size="1200,580" title="Info..." flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel name="layer1" position="0,0" zPosition="-10" size="1200,580" backgroundColor="layer-a-background" />
-		<widget name="title" position="340,20" foregroundColor="#66ccff" size="840,40" noWrap="1" halign="left" valign="center" font="global_title;28" backgroundColor="layer-a-background" transparent="1" />
-        <widget name="cover" position="20,94" size="296,470" zPosition="3" alphatest="blend" />
-        <widget name="spinner" zPosition="2" position="252,34" size="16,16" transparent="1" alphatest="blend" />
-        <widget name="spinner_1" zPosition="1" position="252,34" size="16,16" transparent="1" alphatest="blend" />
-        <widget name="spinner_2" zPosition="1" position="268,34" size="16,16" transparent="1" alphatest="blend" />
-        <widget name="spinner_3" zPosition="1" position="284,34" size="16,16" transparent="1" alphatest="blend" />
-        <widget name="spinner_4" zPosition="1" position="300,34" size="16,16" transparent="1" alphatest="blend" />
-        <widget name="text" position="340,100" size="840,470" font="screen_text;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" splitPosition="200" transparent="1" />
-        <widget name="playerlogo" zPosition="4" position="110,20" size="120,40" alphatest="blend" transparent="1" backgroundColor="black" />
-    </screen>
+	<screen name="IPTVArticleView" position="0,0" size="1280,720" title="Info..." flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel name="layer1" position="0,0" zPosition="-10" size="1280,720" backgroundColor="layer-a-background" />
+		<widget source="Title" render="Label" position="340,20" foregroundColor="#66ccff" size="920,40" noWrap="1" halign="left" valign="center" font="global_title;28" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="cover" position="20,94" size="296,470" zPosition="3" alphatest="blend" />
+		<widget name="spinner" zPosition="2" position="252,34" size="16,16" transparent="1" alphatest="blend" />
+		<widget name="spinner_1" zPosition="1" position="252,34" size="16,16" transparent="1" alphatest="blend" />
+		<widget name="spinner_2" zPosition="1" position="268,34" size="16,16" transparent="1" alphatest="blend" />
+		<widget name="spinner_3" zPosition="1" position="284,34" size="16,16" transparent="1" alphatest="blend" />
+		<widget name="spinner_4" zPosition="1" position="300,34" size="16,16" transparent="1" alphatest="blend" />
+		<widget name="text" position="340,100" size="920,480" font="screen_text;22" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" splitPosition="400" transparent="1" />
+		<widget name="playerlogo" zPosition="4" position="110,20" size="120,40" alphatest="blend" transparent="1" backgroundColor="black" />
+		<panel name="T_B_EXIT" />
+	</screen>
 
 	<screen name="IPTVSubDownloaderScreen" position="0,0" size="1280,720" title="IPTV Sub Title Downloader" flags="wfNoBorder" backgroundColor="transparent">
 		<widget name="headertext" position="60,100" zPosition="10" size="1160,50" halign="left" valign="center" font="screen_text; 20" backgroundColor="layer-a-background" foregroundColor="#66ccff" transparent="1" />
@@ -3365,10 +3367,10 @@
 		<widget name="list" position="60,150" zPosition="2" size="1160,280" itemHeight="32" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1" />
 		<widget name="console" position="60,436" zPosition="1" size="1160,192" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" halign="left" valign="center" />
 		<widget name="spinner" zPosition="2" position="612,300" size="16,16" transparent="1" alphatest="blend" />
-        <widget name="spinner_1" zPosition="1" position="612,300" size="16,16" transparent="1" alphatest="blend" />
-        <widget name="spinner_2" zPosition="1" position="628,300" size="16,16" transparent="1" alphatest="blend" />
-        <widget name="spinner_3" zPosition="1" position="644,300" size="16,16" transparent="1" alphatest="blend" />
-        <widget name="spinner_4" zPosition="1" position="660,300" size="16,16" transparent="1" alphatest="blend" />
+		<widget name="spinner_1" zPosition="1" position="612,300" size="16,16" transparent="1" alphatest="blend" />
+		<widget name="spinner_2" zPosition="1" position="628,300" size="16,16" transparent="1" alphatest="blend" />
+		<widget name="spinner_3" zPosition="1" position="644,300" size="16,16" transparent="1" alphatest="blend" />
+		<widget name="spinner_4" zPosition="1" position="660,300" size="16,16" transparent="1" alphatest="blend" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_1layer" />
 		<panel name="T_Title" />
@@ -3386,29 +3388,38 @@
 
 	<screen name="IPTVChoiceBoxScreen" position="center,center" title="" size="300,300" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel name="layer1" position="0,0" zPosition="-10" size="e,e" backgroundColor="layer-a-background" />
-		<widget name="title" position="10,20" foregroundColor="#66CCFF" size="e-20,40" noWrap="1" halign="left" valign="center" font="global_title;28" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="list"  position="10,60"  zPosition="2" size="e-20,e-70" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground"  enableWrapAround="1" transparent="1" />
-		<applet type="onLayoutFinish">
+		<widget source="Title" render="Label" position="20,14" size="e-40,44" foregroundColor="#66CCFF" noWrap="1" halign="left" valign="center" font="global_title;28" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list" position="10,66" zPosition="2" size="e-20,e-76" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1" />
+		<applet type="onLayoutFinish"><![CDATA[
 from enigma import eSize, ePoint, getDesktop, eLabel
-deskwidth = getDesktop(0).size().width()
-deskheight = getDesktop(0).size().height()
 try:
-	factor = 1.5 if deskwidth == 1920 else 1.0
-	width = int(self.params.get('width', 300) * factor)
-	height = int(self.params.get('height', 300) * factor)
-	listsize = (width - int(20 * factor),height - int(70 * factor))
-	self["list"].instance.resize(eSize(*listsize))
-	titlesize = (width - int(20 * factor),int(40 * factor))
-	self["title"].instance.resize(eSize(*titlesize))
-	layersize = (width,height)
-	self.instance.resize(eSize(*layersize))
-	self.instance.move(ePoint(int((deskwidth - width)/2),int((deskheight - height)/2)))
-	for x in self.additionalWidgets:
-		if isinstance(x.instance, eLabel):
-			x.instance.resize(eSize(*layersize))
-except:
+	deskwidth = getDesktop(0).size().width()
+	deskheight = getDesktop(0).size().height()
+	factor = deskwidth / 1280.0
+	params = getattr(self, "params", None) or {}
+	width = int(params.get('width', 300) * factor)
+	height = int(params.get('height', 300) * factor)
+	try:
+		self["list"].instance.resize(eSize(width - int(20 * factor), height - int(76 * factor)))
+	except Exception:
+		pass
+	self.instance.resize(eSize(width, height))
+	self.instance.move(ePoint(int((deskwidth - width) / 2), int((deskheight - height) / 2)))
+	for x in getattr(self, "additionalWidgets", []):
+		try:
+			if isinstance(x.instance, eLabel):
+				x.instance.resize(eSize(width, height))
+		except Exception:
+			pass
+	for r in getattr(self, "renderer", []):
+		try:
+			if r.instance.position().y() < int(60 * factor):
+				r.instance.resize(eSize(width - int(40 * factor), int(44 * factor)))
+		except Exception:
+			pass
+except Exception:
 	pass
-		</applet>
+]]></applet>
 	</screen>
 
 <!-- cf#_#rename --> 
@@ -3456,7 +3467,154 @@ except:
 		<panel name="moe-buttons_template2" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 	</screen>
-	<!-- E2iPlayer  -->
+	
+
+	<!-- Favoriten-Verwaltung -->
+	<screen name="IPTVFavouritesMainWidget" position="0,0" size="1280,720" title="Favorites manager" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_1layer" />
+		<panel name="T_Title" />
+		<widget name="playerlogo" position="60,110" size="200,90" zPosition="4" alphatest="blend" transparent="1" />
+		<widget name="title" position="300,92" size="920,32" font="screen_text;22" halign="left" valign="center" foregroundColor="#66ccff" backgroundColor="layer-a-background" zPosition="1" transparent="1" />
+		<widget name="list" position="300,136" size="920,474" itemHeight="36" font="screen_text;20" scrollbarMode="showOnDemand" scrollbarSliderBorderWidth="1" scrollbarForegroundColor="layer-a-selection-background" scrollbarBorderColor="layer-a-accent2" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template2" />
+	</screen>
+
+	<!-- Suchverlauf bearbeiten -->
+	<screen name="SearchHistoryEditor" position="0,0" size="1280,720" title="Search History" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_1layer" />
+		<panel name="T_Title" />
+		<widget name="status" position="70,92" size="1140,32" font="screen_text;22" halign="left" valign="center" foregroundColor="#66ccff" backgroundColor="layer-a-background" zPosition="1" transparent="1" />
+		<widget name="list" position="70,136" size="1140,474" itemHeight="36" font="screen_text;20" scrollbarMode="showOnDemand" scrollbarSliderBorderWidth="1" scrollbarForegroundColor="layer-a-selection-background" scrollbarBorderColor="layer-a-accent2" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="moe-buttons_template2" />
+	</screen>
+
+	<!-- YouTube-Benutzerlinks bearbeiten -->
+	<screen name="YouTubeUserLinksEditorScreen" position="0,0" size="1280,720" title="YouTube User Links Editor" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_1layer" />
+		<panel name="T_Title" />
+		<widget name="playerlogo" position="60,110" size="200,90" zPosition="4" alphatest="blend" transparent="1" />
+		<widget name="status" position="300,92" size="920,32" font="screen_text;22" halign="left" valign="center" foregroundColor="#66ccff" backgroundColor="layer-a-background" zPosition="1" transparent="1" />
+		<widget name="hint" position="300,600" size="920,26" font="screen_text;18" halign="left" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="list" position="300,136" size="920,454" itemHeight="36" font="screen_text;20" scrollbarMode="showOnDemand" scrollbarSliderBorderWidth="1" scrollbarForegroundColor="layer-a-selection-background" scrollbarBorderColor="layer-a-accent2" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="ScreenTemplateButtonRed_template1" />
+		<panel name="ScreenTemplateButtonYellow_template1" />
+		<panel name="_oe-buttons_template2" />
+	</screen>
+
+	<!-- Suchergebnis-Grid -->
+	<screen name="SearchResultGridScreen" position="0,0" size="1280,720" title="E2iPlayer" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_1layer" />
+		<panel name="T_Title" />
+		<widget source="grid" render="Listbox" position="70,100" size="1140,500" conditional="grid" listOrientation="grid" scrollbarMode="showOnDemand" itemSpacing="20,20" itemAlignment="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground">
+			<templates>
+				<template name="Default" fonts="epg_text;20">
+					<mode name="default" itemHeight="145" itemWidth="145">
+						<pixmap index="0" position="22,22" size="100,100" alpha="blend" scale="centerScaled" />
+					</mode>
+					<mode name="120" itemHeight="165" itemWidth="165">
+						<pixmap index="0" position="22,22" size="120,120" alpha="blend" scale="centerScaled" />
+					</mode>
+					<mode name="135" itemHeight="180" itemWidth="180">
+						<pixmap index="0" position="22,22" size="135,135" alpha="blend" scale="centerScaled" />
+					</mode>
+				</template>
+			</templates>
+		</widget>
+		<widget name="statustext" position="70,606" size="1140,26" font="screen_text;18" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="ScreenTemplateButtonBlue_template1" />
+		<panel name="_oe-buttons_template2" />
+	</screen>
+
+	<!-- Host-/Gruppenauswahl: "List view" / "Simple list" -->
+	<screen name="PlayerSelectorListScreen" position="0,0" size="1280,720" title="E2iPlayer" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_1layer" />
+		<panel name="T_Title_L" />
+		<widget name="categorytext" position="70,92" size="1140,30" font="screen_text;20" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="grid" position="70,132" size="1140,458" conditional="grid" scrollbarMode="showAlways" scrollbarSliderBorderWidth="1" scrollbarForegroundColor="layer-a-selection-background" scrollbarBorderColor="layer-a-accent2" enableWrapAround="1" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" />
+		<widget name="statustext" position="70,600" size="1140,28" font="screen_text;18" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="moe-buttons_template2" />
+	</screen>
+
+	<!-- PIN-Eingabe (kleiner Dialog) -->
+	<screen name="IPTVPinWidget" position="center,center" size="450,340" title="E2iPlayer" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel name="layer1" position="0,0" zPosition="-10" size="e,e" backgroundColor="layer-a-background" />
+		<widget source="Title" render="Label" position="20,12" size="e-40,40" font="global_title;24" foregroundColor="#66ccff" noWrap="1" halign="left" valign="center" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="cover_0" zPosition="4" position="82,86" size="60,60" transparent="1" alphatest="blend" />
+		<widget name="cover_1" zPosition="4" position="157,86" size="60,60" transparent="1" alphatest="blend" />
+		<widget name="cover_2" zPosition="4" position="232,86" size="60,60" transparent="1" alphatest="blend" />
+		<widget name="cover_3" zPosition="4" position="307,86" size="60,60" transparent="1" alphatest="blend" />
+		<ePixmap position="175,166" zPosition="4" size="100,100" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/IPTVPlayer/icons/HD/pin/lock.png" transparent="1" alphatest="blend" />
+	</screen>
+
+	<!-- Bildbetrachter (Vollbild) -->
+	<screen name="IPTVPicturePlayerWidget" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel name="layer1" position="0,0" zPosition="-20" size="1280,720" backgroundColor="#ff000000" />
+		<panel name="T_Title" />
+		<widget name="picture" position="10,86" size="1260,548" zPosition="6" transparent="1" alphatest="blend" />
+		<widget name="icon" position="600,300" size="80,80" zPosition="4" transparent="1" alphatest="blend" />
+		<widget name="status" position="340,392" size="600,30" zPosition="5" halign="center" valign="center" font="screen_text;21" foregroundColor="layer-a-foreground" backgroundColor="black" transparent="1" />
+		<widget name="console" position="0,430" size="1280,30" zPosition="5" halign="center" valign="center" font="screen_text;21" foregroundColor="layer-a-foreground" backgroundColor="black" transparent="1" />
+		<panel name="_oe-buttons_template2" />
+	</screen>
+
+	<!-- Einfache Eingabe (IPTVInputBoxWidget, Fensterrahmen von MetrixHD) -->
+	<screen name="IPTVInputBoxWidget" position="center,center" size="620,240" title="Input">
+		<eLabel position="0,0" size="e,e" zPosition="-10" backgroundColor="layer-a-background" />
+		<widget name="text" position="20,18" size="e-40,38" font="screen_text;22" valign="center" halign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="input" position="20,74" size="e-40,50" font="screen_text;30" valign="center" halign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="cover" position="center,132" size="220,90" zPosition="4" transparent="1" alphatest="on" />
+	</screen>
+
+	<screen name="IPTVMultipleInputBox" position="center,center" size="760,470" title="Input" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="0,0" size="e,e" zPosition="-10" backgroundColor="layer-a-background" />
+		<panel name="T_Title" />
+		<widget name="text_0" conditional="text_0" position="40,94" size="680,28" font="screen_text;20" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="cover_0" conditional="cover_0" position="270,90" size="220,36" zPosition="8" transparent="1" alphatest="blend" />
+		<widget name="border_0" conditional="border_0" position="55,124" size="668,50" zPosition="1" transparent="0" backgroundColor="#331F93B9" />
+		<widget name="input_0" conditional="input_0" position="86,130" size="628,38" font="screen_text;22" zPosition="2" foregroundColor="layer-a-foreground" backgroundColor="layer-a-selection-background" transparent="1" />
+		<widget name="marker_0" conditional="marker_0" position="60,140" size="16,16" zPosition="1" transparent="1" alphatest="blend" />
+		<widget name="text_1" conditional="text_1" position="40,184" size="680,28" font="screen_text;20" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="cover_1" conditional="cover_1" position="270,180" size="220,36" zPosition="8" transparent="1" alphatest="blend" />
+		<widget name="border_1" conditional="border_1" position="55,214" size="668,50" zPosition="1" transparent="0" backgroundColor="#331F93B9" />
+		<widget name="input_1" conditional="input_1" position="86,220" size="628,38" font="screen_text;22" zPosition="2" foregroundColor="layer-a-foreground" backgroundColor="layer-a-selection-background" transparent="1" />
+		<widget name="marker_1" conditional="marker_1" position="60,230" size="16,16" zPosition="1" transparent="1" alphatest="blend" />
+		<widget name="text_2" conditional="text_2" position="40,274" size="680,28" font="screen_text;20" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="border_2" conditional="border_2" position="55,304" size="668,50" zPosition="1" transparent="0" backgroundColor="#331F93B9" />
+		<widget name="input_2" conditional="input_2" position="86,310" size="628,38" font="screen_text;22" zPosition="2" foregroundColor="layer-a-foreground" backgroundColor="layer-a-selection-background" transparent="1" />
+		<widget name="marker_2" conditional="marker_2" position="60,320" size="16,16" zPosition="1" transparent="1" alphatest="blend" />
+		<widget name="text_3" conditional="text_3" position="40,364" size="680,28" font="screen_text;20" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="border_3" conditional="border_3" position="55,394" size="668,50" zPosition="1" transparent="0" backgroundColor="#331F93B9" />
+		<widget name="input_3" conditional="input_3" position="86,400" size="628,38" font="screen_text;22" zPosition="2" foregroundColor="layer-a-foreground" backgroundColor="layer-a-selection-background" transparent="1" />
+		<widget name="marker_3" conditional="marker_3" position="60,410" size="16,16" zPosition="1" transparent="1" alphatest="blend" />
+		<widget name="marker" conditional="marker" position="60,140" size="16,16" zPosition="3" transparent="1" alphatest="blend" />
+		<widget name="accept_button" conditional="accept_button" position="40,310" size="680,44" font="screen_text;22" valign="center" halign="center" foregroundColor="#00FFFFFF" backgroundColor="#3A3A3A" zPosition="2" />
+		<widget name="statustext" conditional="statustext" position="40,362" size="680,24" font="screen_text;18" halign="center" valign="center" foregroundColor="#66ccff" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="key_red" render="Pixmap" pixmap="buttons/key_red.png" position="40,418" size="30,40" alphatest="blend" objectTypes="key_red,StaticText" conditional="key_red" transparent="1">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="key_red" render="Label" position="78,421" size="240,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" objectTypes="key_red,StaticText" conditional="key_red" transparent="1" />
+		<widget source="key_green" render="Pixmap" pixmap="buttons/key_green.png" position="400,418" size="30,40" alphatest="blend" objectTypes="key_green,StaticText" conditional="key_green" transparent="1">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="key_green" render="Label" position="438,421" size="240,30" noWrap="1" zPosition="1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" objectTypes="key_green,StaticText" conditional="key_green" transparent="1" />
+	</screen>
+
+	<!-- Buffering-Overlay (E2iPlayerBufferingWidget, Vollbild ueber Video) -->
+	<screen name="E2iPlayerBufferingWidget" position="0,0" size="1280,720" title="E2iPlayer buffering..." flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="0,0" size="1280,720" zPosition="-10" backgroundColor="layer-a-background" />
+		<panel name="T_Title" />
+		<widget name="icon" position="576,232" size="128,128" zPosition="4" transparent="1" alphatest="blend" />
+		<widget name="percentage" position="576,264" size="128,64" zPosition="5" halign="center" valign="center" font="screen_text;22" foregroundColor="layer-a-foreground" backgroundColor="black" transparent="1" />
+		<widget name="console" position="0,376" size="1280,80" zPosition="5" halign="center" valign="center" font="screen_text;21" foregroundColor="layer-a-foreground" backgroundColor="black" transparent="1" />
+		<widget name="addinfo" position="10,540" size="1260,80" zPosition="5" halign="center" valign="center" font="screen_text;20" foregroundColor="layer-a-accent1" backgroundColor="black" transparent="1" />
+		<widget name="ok_button" position="35,636" size="40,26" zPosition="8" transparent="1" alphatest="blend" />
+		<widget name="rec_button" position="120,636" size="40,26" zPosition="8" transparent="1" alphatest="blend" />
+		<widget name="exit_button" position="205,636" size="40,26" zPosition="8" transparent="1" alphatest="blend" />
+	</screen>
+<!-- E2iPlayer  -->
 
 <!-- PLUGINS */-->
 </skin>
