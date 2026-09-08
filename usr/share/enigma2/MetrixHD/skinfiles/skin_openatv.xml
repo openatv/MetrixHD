@@ -1005,11 +1005,6 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="T_Desc_810" />
 		<panel name="T_Img_Logo" />
 	</screen>
-	<screen name="PowerTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="TimerOverviewBase" />
-		<panel name="T_Desc_810" />
-		<panel name="T_Img_Logo" />
-	</screen>
 	<screen name="RecordTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
 		<widget name="description" position="810,70" size="416,524" zPosition="3" font="epg_info;18" conditional="description" foregroundColor="layer-b-foreground" halign="left" backgroundColor="layer-b-background" valign="top" transparent="1"/>
@@ -4391,7 +4386,7 @@ if len(listitems.list) &gt; 2:
 
 	<screens>
 		<screen key="LocationBox" image="&#xE9B6;" /> <!-- "icons/setup.png" -->
-		<screen keys="Information,About,QuickMenuDevices" image="&#xE912;" /> <!-- "icons/info.png" -->
+		<screen keys="Information,About,QuickMenuDevices,InformationBuild,InformationTranslation" image="&#xE912;" /> <!-- "icons/info.png" -->
 		<screen keys="InformationNetwork,NetworkInformation" image="&#xE960;" /> <!-- "icons/menu_network_info.png" -->
 		<screen key="InformationReceiver" image="&#xE977;" /> <!-- "icons/menu_receiver_info.png" -->
 		<screen key="InformationTuner" image="&#xE9A4;" /> <!-- "icons/menu_tuner_info.png" -->
@@ -4489,7 +4484,7 @@ if len(listitems.list) &gt; 2:
  		<screen keys="TimerSelection,TimerEditList" image="&#xE9A2;" />
 
  		<!-- "icons/menu_timermenu_powertimers.png" -->
- 		<screen key="SchedulerOverview,PowerTimerOverview,ElektroProfile" image="&#xE9A1;" />
+ 		<screen key="SchedulerOverview,ElektroProfile" image="&#xE9A1;" />
 
 		<!-- "icons/shout.png" -->
 		<screen keys="Elektro,ElektroIP,ElektroNASrun,SHOUTcastSetup,SHOUTcastStreamripperRecordingPath" image="&#xE9C5;" />
