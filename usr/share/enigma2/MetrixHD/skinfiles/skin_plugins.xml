@@ -3517,6 +3517,64 @@ except Exception:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="ime-buttons_template1" />
 	</screen>
+
+	<screen name="E2MDBPatternListSelection" position="0,0" size="1280,720" title="e2MDB - Ignore patterns" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget source="summary" render="Label" position="70,92" size="700,26" font="screen_info;18" halign="left" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="pattern_list" position="70,124" size="700,478" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
+	</screen>
+
+	<screen name="E2MDBPatternSourceSelection" position="0,0" size="1280,720" title="e2MDB - Select ignore patterns" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget source="summary" render="Label" position="70,92" size="700,26" font="screen_info;18" halign="left" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="source_list" position="70,124" size="700,478" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
+	</screen>
+
+	<screen name="E2MDBPrefillServiceSelection" position="0,0" size="1280,720" title="e2MDB - Manual prefill services" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget source="level" render="Label" position="70,90" size="700,26" font="screen_info;18" halign="left" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="summary" render="Label" position="70,118" size="700,24" font="screen_info;18" halign="left" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="service_list" position="70,148" size="700,454" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
+	</screen>
+
+	<screen name="E2MDBPrefillStatusScreen" position="0,0" size="1280,720" title="e2MDB - Live/EPG Prefill status" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget source="info" render="Label" position="70,100" size="700,502" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
+	</screen>
+
+	<screen name="E2MDBWorkerQueueStatusScreen" position="0,0" size="1280,720" title="e2MDB - Live/EPG Worker queue" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget source="info" render="Label" position="70,100" size="700,502" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="T_Img_Logo" />
+	</screen>
+
+	<screen name="E2MDBCleanupStatusScreen" position="0,0" size="1280,720" title="e2MDB - DB status and maintenance" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget source="info" render="Label" position="70,100" size="700,502" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="template1_2layer" />
+		<panel name="T_Img_Logo" />
+	</screen>
 <!-- E2MDB  -->
 
 <!-- PLUGINS */-->
