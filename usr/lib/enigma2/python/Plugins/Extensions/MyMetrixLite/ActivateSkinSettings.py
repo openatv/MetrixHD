@@ -899,7 +899,8 @@ class ActivateSkinSettings:
 			colorTrans = config.plugins.MyMetrixLiteColors.infobarbackgroundtransparency.value
 
 			if config.plugins.MyMetrixLiteColors.gradient.value:
-				color = f"#CC{color},#{colorTrans}{color},vertical,true"
+				transA = config.plugins.MyMetrixLiteColors.gradient_transparencyA.value
+				color = f"#{transA}{color},#{colorTrans}{color},vertical,true"
 			else:
 				color = f"#{colorTrans}{color}"
 
@@ -911,7 +912,8 @@ class ActivateSkinSettings:
 			colorTrans = config.plugins.MyMetrixLiteColors.layerabackgroundtransparency.value
 
 			if config.plugins.MyMetrixLiteColors.gradient.value:
-				color = f"#CC{color},#{colorTrans}{color},vertical,true"
+				transA = config.plugins.MyMetrixLiteColors.gradient_transparencyA.value
+				color = f"#{transA}{color},#{colorTrans}{color},vertical,true"
 			else:
 				color = f"#{colorTrans}{color}"
 
@@ -922,7 +924,8 @@ class ActivateSkinSettings:
 			colorTrans = config.plugins.MyMetrixLiteColors.epgbackgroundtransparency.value
 
 			if config.plugins.MyMetrixLiteColors.gradient.value:
-				color = f"#CC{color},#{colorTrans}{color},vertical,true"
+				transA = config.plugins.MyMetrixLiteColors.gradient_transparencyA.value
+				color = f"#{transA}{color},#{colorTrans}{color},vertical,true"
 			else:
 				color = f"#{colorTrans}{color}"
 

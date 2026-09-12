@@ -1746,6 +1746,17 @@
 		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- PicturePlayer -->
+	<!-- Telerising -->
+	<screen name="TelerisingSetup" position="0,0" size="1280,720" title="Telerising" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<panel name="T_Title" />
+		<widget name="menu" position="70,110" size="700,480" itemHeight="40" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="T_Img_Logo" />
+		<widget name="status" position="815,435" size="405,165" font="screen_info;20" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" halign="center" valign="center" transparent="1" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="ioe-buttons_template1" />
+	</screen>
+	<!-- Telerising -->
 	<!-- XMLTV Import -->
 	<screen name="EPGImportConfig" position="0,0" size="1280,720" title="EPG Import Configuration" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -3443,6 +3454,20 @@ except Exception:
 <!-- E2iPlayer  -->
 
 <!-- E2MDB  -->
+	<screen name="E2MDBMain" position="0,0" size="1280,720" title="e2MDB - Scanner" flags="wfNoBorder" backgroundColor="layer-a-background">
+		<panel name="T_Title" />
+		<widget name="path_list" position="70,100" size="720,512" itemHeight="32" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="0" />
+		<eLabel text="&#xE9DC;" position="897,100" size="240,208" font="MetrixLogos;200" halign="center" valign="center" foregroundColor="logo-color" backgroundColor="layer-b-background" transparent="1" />
+		<widget source="progheader" render="Label" position="825,324" size="385,60" font="screen_info;22" valign="top" foregroundColor="layer-b-accent1" backgroundColor="layer-b-background" transparent="0" />
+		<eLabel position="825,400" size="385,1" backgroundColor="layer-b-accent1" />
+		<widget name="progbar" position="825,396" size="385,8" foregroundColor="layer-b-progress" backgroundColor="layer-b-background" borderWidth="0" transparent="0" />
+		<widget source="progsubline" render="Label" position="825,416" size="385,64" font="screen_info;20" valign="top" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="0" />
+		<widget source="progstatus" render="Label" position="825,488" size="385,92" font="screen_info;20" valign="top" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="0" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_me-buttons_template1" />
+	</screen>
+
 	<screen name="E2MDBEventView" position="0,0" size="1280,720" title="Eventview" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Event View" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 
@@ -3505,6 +3530,64 @@ except Exception:
 		<panel name="template1_2layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="ime-buttons_template1" />
+	</screen>
+
+	<screen name="E2MDBPatternListSelection" position="0,0" size="1280,720" title="e2MDB - Ignore patterns" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget source="summary" render="Label" position="70,92" size="700,26" font="screen_info;18" halign="left" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="pattern_list" position="70,124" size="700,478" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
+	</screen>
+
+	<screen name="E2MDBPatternSourceSelection" position="0,0" size="1280,720" title="e2MDB - Select ignore patterns" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget source="summary" render="Label" position="70,92" size="700,26" font="screen_info;18" halign="left" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="source_list" position="70,124" size="700,478" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
+	</screen>
+
+	<screen name="E2MDBPrefillServiceSelection" position="0,0" size="1280,720" title="e2MDB - Manual prefill services" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget source="level" render="Label" position="70,90" size="700,26" font="screen_info;18" halign="left" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="summary" render="Label" position="70,118" size="700,24" font="screen_info;18" halign="left" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="service_list" position="70,148" size="700,454" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
+	</screen>
+
+	<screen name="E2MDBPrefillStatusScreen" position="0,0" size="1280,720" title="e2MDB - Live/EPG Prefill status" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget source="info" render="Label" position="70,100" size="700,502" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
+	</screen>
+
+	<screen name="E2MDBWorkerQueueStatusScreen" position="0,0" size="1280,720" title="e2MDB - Live/EPG Worker queue" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget source="info" render="Label" position="70,100" size="700,502" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="T_Img_Logo" />
+	</screen>
+
+	<screen name="E2MDBCleanupStatusScreen" position="0,0" size="1280,720" title="e2MDB - DB status and maintenance" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget source="info" render="Label" position="70,100" size="700,502" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="template1_2layer" />
+		<panel name="T_Img_Logo" />
 	</screen>
 <!-- E2MDB  -->
 

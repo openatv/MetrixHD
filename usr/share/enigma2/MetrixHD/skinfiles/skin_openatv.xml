@@ -129,15 +129,15 @@
 		<panel name="T_Title" />
 		<widget source="list" render="Listbox" position="70,100" size="700,480" scrollbarMode="showOnDemandShift">
 			<template name="Default" fonts="Regular;22,Regular;20,enigma2icons;20" itemHeight="60">
-				<panel position="0,0" size="e,30" layout="horizontal">
+				<panel position="0,0" size="e-15,30" layout="horizontal">
 					<text index="Name" position="left" size="460,30" font="0" horizontalAlignment="left" padding="5,0" verticalAlignment="center" />
 					<text index="Channel" position="right" size="110,30" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
 				</panel>
-				<panel position="20,30" size="e-20,30" layout="horizontal">
+				<panel position="20,30" size="e-35,30" layout="horizontal">
 					<text index="Glyph" position="left" size="30,e" font="2" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
 					<text index="Percentage" position="left" size="70,e" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
 					<text index="dBm" position="left" size="100,e" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
-					<text index="Encryption" position="left" size="110,e" font="1" horizontalAlignment="center" padding="5,0" verticalAlignment="center" />
+					<text index="Encryption" position="left" size="240,e" font="1" horizontalAlignment="left" padding="15,0" verticalAlignment="center" />
 					<text index="Frequency" position="right" size="150,e" font="1" horizontalAlignment="right" padding="5,0" verticalAlignment="center" />
 				</panel>
 			</template>
@@ -1001,11 +1001,6 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="SchedulerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="TimerOverviewBase" />
-		<panel name="T_Desc_810" />
-		<panel name="T_Img_Logo" />
-	</screen>
-	<screen name="PowerTimerOverview" position="0,0" size="1280,720" title="Timer Editor" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="TimerOverviewBase" />
 		<panel name="T_Desc_810" />
 		<panel name="T_Img_Logo" />
@@ -2407,14 +2402,14 @@ if len(listitems.list) &gt; 2:
 	<!-- Eventview Contextmenu -->
 	<screen name="EventViewContextMenu" position="0,0" size="1280,720" title="Eventview Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="CONTEXTMENU2_textTitle_template" />
-		<widget name="Image" position="305,80" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
+		<panel name="T_Img_Logo_305" />
 		<eLabel text="Eventview menu" position="5,555" size="1280,180" font="global_large_menu;90" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
 	</screen>
 	<!-- Channellist Contextmenu -->
 	<screen name="ChannelContextMenu" position="0,0" size="1280,720" title="Channel Selection Context Menu" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="CONTEXTMENU2_textTitle_template" />
-		<widget name="Image" position="305,80" size="256,256" alphatest="blend" conditional="Image" transparent="1" zPosition="2" />
 		<eLabel text="Channel Selection Context Menu" position="5,555" size="1280,180" font="global_large_menu;90" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
+		<panel name="T_Img_Logo_305" />
 	</screen>
 	<!-- Subtitle -->
 	<screen name="SubtitleDisplay" position="fill" zPosition="-1" flags="wfNoBorder" backgroundColor="transparent" ignoreWidgets="subtitles"/>
@@ -2914,6 +2909,7 @@ if len(listitems.list) &gt; 2:
 		<panel name="__e-buttons_template1" />
 		<panel name="T_Img_Logo" />
 	</screen>
+	<!-- OLD IPKG -->
 	<screen name="IpkgInstaller" position="0,0" size="1280,720" title="..." flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="IpkgInstaller" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="70,130" size="700,450" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
@@ -2938,6 +2934,23 @@ if len(listitems.list) &gt; 2:
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<!--panel name="_oe-buttons_template1" /-->
 		<widget name="Image" position="500,300" size="256,256" font="MetrixLogos;250" noWrap="1" transparent="1" foregroundColor="layer-b-foreground" valign="center" halign="center" />
+	</screen>
+	<!-- OLD IPKG -->
+	<screen name="PackageFeedEditor" position="0,0" size="1280,720" title="OPKG Source" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="PackageFeedEditor" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="text" position="70,180" size="1140,30" zPosition="3" halign="center" font="SetrixHD;22" foregroundColor="layer-a-foreground" backgroundColor="layer-b-background" />
+		<panel name="template1_1layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<!--panel name="_oe-buttons_template1" /-->
+		<widget name="Image" position="500,300" size="256,256" font="MetrixLogos;250" noWrap="1" transparent="1" foregroundColor="layer-b-foreground" valign="center" halign="center" />
+	</screen>
+	<screen name="PackageFeedSelection" position="0,0" size="1280,720" title="Select OPKG source..." flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel text="PackageFeedSelection" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="feeds" position="70,130" size="700,480" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
 	</screen>
 	<screen name="PacketManager" position="0,0" size="1280,720" title="PacketManager" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="PacketManager" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
@@ -4314,6 +4327,8 @@ if len(listitems.list) &gt; 2:
 		<menu key="netmounts_browser" image="&#xE964;" /> <!-- "icons/menu_network_netmounts_setup.png" -->
 		<menu key="device_manager" image="&#xE922;" /> <!-- "icons/menu_device_manager.png" -->
 
+		<menu key="e2mdb" image="&#xE9DC;" /> <!-- "icons/e2mdb.png" -->
+
 	</menus>
 
 	<setups>
@@ -4373,7 +4388,7 @@ if len(listitems.list) &gt; 2:
 
 	<screens>
 		<screen key="LocationBox" image="&#xE9B6;" /> <!-- "icons/setup.png" -->
-		<screen keys="Information,About,QuickMenuDevices" image="&#xE912;" /> <!-- "icons/info.png" -->
+		<screen keys="Information,About,QuickMenuDevices,InformationBuild,InformationTranslation" image="&#xE912;" /> <!-- "icons/info.png" -->
 		<screen keys="InformationNetwork,NetworkInformation" image="&#xE960;" /> <!-- "icons/menu_network_info.png" -->
 		<screen key="InformationReceiver" image="&#xE977;" /> <!-- "icons/menu_receiver_info.png" -->
 		<screen key="InformationTuner" image="&#xE9A4;" /> <!-- "icons/menu_tuner_info.png" -->
@@ -4447,7 +4462,7 @@ if len(listitems.list) &gt; 2:
 		<screen keys="MyTubePlayerMainScreen,MyTubeSettingsScreen,MyTubeTasksScreen,MyTubeVideoHelpScreen,MyTubeVideoInfoScreen,YoutubeTVSettings,YoutubeTVWindow,YouTubeSearch,YouTubeMain,YouTubeInfo" image="&#xE9BE;" />
 
 		<!-- "icons/paket.png" -->
-		<screen keys="IPKGSource,Opkg,IpkgInstaller,IPKGMenu,PacketManager" image="&#xE9C3;" />
+		<screen keys="PackageFeedEditor,PackageFeedSelection,IPKGSource,Opkg,IpkgInstaller,IPKGMenu,PacketManager" image="&#xE9C3;" />
 
 		<!-- "icons/movie.png" -->
 		<screen keys="CutListContextMenu,MovieMenu,DownloadMovieInfo,MovieInfoPreview,MovieInfoTMDb,EMCPlaylist,EMCPlaylistSetup" image="&#xE9C4;" />
@@ -4471,7 +4486,7 @@ if len(listitems.list) &gt; 2:
  		<screen keys="TimerSelection,TimerEditList" image="&#xE9A2;" />
 
  		<!-- "icons/menu_timermenu_powertimers.png" -->
- 		<screen key="SchedulerOverview,PowerTimerOverview,ElektroProfile" image="&#xE9A1;" />
+ 		<screen key="SchedulerOverview,ElektroProfile" image="&#xE9A1;" />
 
 		<!-- "icons/shout.png" -->
 		<screen keys="Elektro,ElektroIP,ElektroNASrun,SHOUTcastSetup,SHOUTcastStreamripperRecordingPath" image="&#xE9C5;" />
@@ -4520,7 +4535,7 @@ if len(listitems.list) &gt; 2:
 
 		<screen key="CreateQuadPipChannelEntry,QuadPiPChannelSelection" image="&#xE976;" /> <!-- "icons/menu_quadpip.png" -->
 
-		<screen key="IPTVImporter" image="&#xE913;" /> <!-- "icons/iptvimport.png" -->
+		<screen keys="IPTVImporter,TelerisingSetup" image="&#xE913;" /> <!-- "icons/iptvimport.png" -->
 
 		<screen key="StalkerEdit" image="&#xE9A9;" /> <!-- "icons/portal.png" -->
 
@@ -4589,6 +4604,8 @@ if len(listitems.list) &gt; 2:
 		<screen key="MultiBootWizard" image="&#xE99A;" /> <!-- "icons/menu_system_usage_setup.png" -->
 
 		<screen key="BackupSettingsView" image="&#xE9D9;" /> <!-- "MyMetrixLiteBackup.png" -->
+
+		<screen keys="E2MDBPatternListSelection,E2MDBPatternSourceSelection,E2MDBPrefillServiceSelection,E2MDBPrefillStatusScreen,E2MDBWorkerQueueStatusScreen,E2MDBCleanupStatusScreen" image="&#xE9DC;" />
 
 	</screens>
 	
