@@ -25,6 +25,14 @@ class parseXML(ContentHandler, LexicalHandler):
 					self.lastComment = None
 			except KeyError:
 				pass
+		if tag == "template":  # <template name="..."> holds a display name, unlike other tags' internal "name" identifiers.
+			try:
+				value = attribs["name"]
+				if value.strip() != "" and not self.isHex.match(value):
+					attributes.add((value, self.lastComment))
+					self.lastComment = None
+			except KeyError:
+				pass
 
 
 parser = make_parser()
