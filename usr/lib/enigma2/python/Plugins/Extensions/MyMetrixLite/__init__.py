@@ -483,6 +483,7 @@ def initOtherConfig():
 	BoxType = BoxInfo.getItem("machinebuild")
 
 	skinmodes = [("0", _("Standard HD (1280x720)"))]
+	tested = "0"
 	if BoxInfo.getItem("fhdskin"):
 		tested = "1"
 		skinmodes.append(("1", _("Full HD (1920x1080)")))
