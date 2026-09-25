@@ -77,7 +77,7 @@
 	<screen name="NetworkOverview" title="Network Overview" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title_L" />
 		<widget source="adapterList" render="Listbox" position="70,80" size="1140,300" scrollbarMode="showOnDemand">
-			<template name="Default" fonts="enigma2icons;34,Regular;24,Regular;18,enigma2icons;20" itemHeight="60" colors="#0000CC00,#00CC0000,#00808080">
+			<template name="Default" fonts="enigma2icons;34,Regular;24,Regular;18,enigma2icons;20,Regular;16" itemHeight="60" colors="#0000CC00,#00CC0000,#00808080">
 				<rowtemplate>
 					<text index="AdapterName" position="14,0" size="470,60" font="2" horizontalAlignment="left" verticalAlignment="center" foregroundColor="grey" />
 					<text index="MAC" position="490,0" size="190,60" font="2" horizontalAlignment="left" verticalAlignment="center" foregroundColor="grey" />
@@ -90,7 +90,8 @@
 					<text index="AdapterName" position="74,6" size="230,26" font="1" horizontalAlignment="left" verticalAlignment="center" />
 					<text index="AdapterType" position="74,32" size="230,22" font="2" horizontalAlignment="left" verticalAlignment="center" />
 					<text index="InternetGlyph" position="280,20" size="20,20" font="3" horizontalAlignment="center" verticalAlignment="center" />
-					<text index="StatusText" position="320,0" size="160,60" font="2" horizontalAlignment="left" verticalAlignment="center" foregroundColor="+StatusColor" foregroundColorSelected="+StatusColor" />
+					<text index="StatusText" position="320,6" size="160,26" font="2" horizontalAlignment="left" verticalAlignment="center" foregroundColor="+StatusColor" foregroundColorSelected="+StatusColor" />
+					<text index="ConnectionText" position="320,32" size="160,22" font="4" horizontalAlignment="left" verticalAlignment="center" foregroundColor="grey" />
 					<text index="MAC" position="490,0" size="190,60" font="2" horizontalAlignment="left" verticalAlignment="center" />
 					<text index="IPAddress" position="690,0" size="140,60" font="2" horizontalAlignment="left" verticalAlignment="center" />
 					<text index="Gateway" position="840,0" size="140,60" font="2" horizontalAlignment="left" verticalAlignment="center" />
@@ -153,7 +154,7 @@
 		<widget source="key_red" render="Pixmap" pixmap="buttons/key_red.png" position="10,e-52" size="30,40" alphatest="blend" objectTypes="key_red,StaticText" transparent="1">
 			<convert type="ConditionalShowHide" />
 		</widget>
-		<widget source="key_red" render="Label" position="20,e-50" size="170,30" noWrap="1" zPosition="+1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" objectTypes="key_red,StaticText" transparent="1" />
+		<widget source="key_red" render="Label" position="45,e-50" size="170,30" noWrap="1" zPosition="+1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" objectTypes="key_red,StaticText" transparent="1" />
 	</screen>
 	<screen name="NetworkTest" title="Network Test" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
@@ -172,7 +173,7 @@
 	</screen>
 	<screen name="NetworkMountsOverview" title="Network Mounts Overview" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title_L" />
-		<widget source="mountList" render="Listbox" position="70,80" size="1140,500" scrollbarMode="showOnDemand">
+		<widget source="mountList" render="Listbox" position="70,90" size="1140,500" scrollbarMode="showOnDemand">
 			<templates>
 				<template name="Default" fonts="Regular;22,Regular;18" itemHeight="50">
 					<mode name="default">
