@@ -65,9 +65,9 @@ $localgsed --in-place MyMetrixLite-py.pot --expression=s/CHARSET/UTF-8/
 printf "Creating temporary file enigma2-xml.pot\n"
 which python
 if [ $? -eq 0 ]; then
-	find $findoptions ../usr/lib/ -name "*.xml" -exec python xml2po.py {} \+ > MyMetrixLite-xml.pot
+	python xml2po.py $(find $findoptions ../usr/lib/ -name "*.xml") ../usr/share/enigma2/MetrixHD/skinTemplates.xml ../usr/share/enigma2/MetrixHD/skinfiles/skin_channelselection.xml > MyMetrixLite-xml.pot
 else
-	find $findoptions ../usr/lib/ -name "*.xml" -exec python3 xml2po.py {} \+ > MyMetrixLite-xml.pot
+	python3 xml2po.py $(find $findoptions ../usr/lib/ -name "*.xml") ../usr/share/enigma2/MetrixHD/skinTemplates.xml ../usr/share/enigma2/MetrixHD/skinfiles/skin_channelselection.xml > MyMetrixLite-xml.pot
 fi
 printf "Merging pot files to create: enigma2.pot\n"
 cat MyMetrixLite-py.pot MyMetrixLite-xml.pot | msguniq -s --no-wrap --no-location -o MyMetrixLite.pot -

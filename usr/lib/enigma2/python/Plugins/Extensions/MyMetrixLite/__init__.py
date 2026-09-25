@@ -653,6 +653,13 @@ def initOtherConfig():
 #######################################################################
 
 
+def translateSkinString(text):
+	return _(text)
+
+
+#######################################################################
+
+
 def getTunerPositionList():
 	tunerPositionList = [
 		("286,666", "286,693", "1", "0,0"),

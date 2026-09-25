@@ -17,9 +17,17 @@ class parseXML(ContentHandler, LexicalHandler):
 			self.lastComment = comment
 
 	def startElement(self, tag, attribs):
-		for attribute in ["text", "title", "value", "caption", "description", "red", "green", "yellow", "blue"]:  # Attributes that need to be translated.
+		for attribute in ["text", "title", "value", "caption", "description", "label", "red", "green", "yellow", "blue"]:  # Attributes that need to be translated.
 			try:
 				value = attribs[attribute]
+				if value.strip() != "" and not self.isHex.match(value):
+					attributes.add((value, self.lastComment))
+					self.lastComment = None
+			except KeyError:
+				pass
+		if tag == "template":  # <template name="..."> holds a display name, unlike other tags' internal "name" identifiers.
+			try:
+				value = attribs["name"]
 				if value.strip() != "" and not self.isHex.match(value):
 					attributes.add((value, self.lastComment))
 					self.lastComment = None
