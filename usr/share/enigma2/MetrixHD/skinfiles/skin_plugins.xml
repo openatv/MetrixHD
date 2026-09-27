@@ -3617,30 +3617,10 @@ except Exception:
 		<widget source="Title" render="Label" position="12,6" size="220,30" font="global_title;24" foregroundColor="layer-a-foreground" backgroundColor="#16000000" transparent="1" />
 		<widget name="header" position="240,8" size="375,26" font="screen_text;20" foregroundColor="yellow" backgroundColor="#16000000" transparent="1" />
 		<widget name="connected" position="620,8" size="330,26" font="screen_text;20" horizontalAlignment="right" foregroundColor="layer-a-foreground" backgroundColor="#16000000" transparent="1" />
-		<widget name="moreAbove" position="960,8" size="314,26" font="screen_info;16" horizontalAlignment="center" foregroundColor="grey" backgroundColor="#16000000" transparent="1" />
 		<widget name="largeFocus" position="8,40" size="942,642" backgroundColor="layer-a-selection-background" zPosition="1" />
 		<eLabel position="10,42" size="938,638" backgroundColor="layer-a-accent2" zPosition="0" />
 		<widget name="terminal" position="12,44" size="934,634" font="Console;16" noWrap="1" padding="8" backgroundColor="black" zPosition="3" />
-		<widget name="selection0" position="960,40" size="314,154" backgroundColor="layer-a-selection-background" zPosition="0" />
-		<widget name="active0" position="962,42" size="310,150" backgroundColor="layer-a-foreground" zPosition="2" />
-		<widget name="frame0" position="963,43" size="308,148" backgroundColor="layer-a-accent2" zPosition="1" />
-		<widget name="tileHeader0" position="965,45" size="303,20" font="Regular;16" foregroundColor="yellow" backgroundColor="black" zPosition="3" />
-		<widget name="tile0" position="965,65" size="303,124" font="Console;8" noWrap="1" padding="3" backgroundColor="black" zPosition="3" />
-		<widget name="selection1" position="960,200" size="314,154" backgroundColor="layer-a-selection-background" zPosition="0" />
-		<widget name="active1" position="962,202" size="310,150" backgroundColor="layer-a-foreground" zPosition="2" />
-		<widget name="frame1" position="963,203" size="308,148" backgroundColor="layer-a-accent2" zPosition="1" />
-		<widget name="tileHeader1" position="965,205" size="303,20" font="Regular;16" foregroundColor="yellow" backgroundColor="black" zPosition="3" />
-		<widget name="tile1" position="965,225" size="303,124" font="Console;8" noWrap="1" padding="3" backgroundColor="black" zPosition="3" />
-		<widget name="selection2" position="960,360" size="314,154" backgroundColor="layer-a-selection-background" zPosition="0" />
-		<widget name="active2" position="962,362" size="310,150" backgroundColor="layer-a-foreground" zPosition="2" />
-		<widget name="frame2" position="963,363" size="308,148" backgroundColor="layer-a-accent2" zPosition="1" />
-		<widget name="tileHeader2" position="965,365" size="303,20" font="Regular;16" foregroundColor="yellow" backgroundColor="black" zPosition="3" />
-		<widget name="tile2" position="965,385" size="303,124" font="Console;8" noWrap="1" padding="3" backgroundColor="black" zPosition="3" />
-		<widget name="selection3" position="960,520" size="314,154" backgroundColor="layer-a-selection-background" zPosition="0" />
-		<widget name="active3" position="962,522" size="310,150" backgroundColor="layer-a-foreground" zPosition="2" />
-		<widget name="frame3" position="963,523" size="308,148" backgroundColor="layer-a-accent2" zPosition="1" />
-		<widget name="tileHeader3" position="965,525" size="303,20" font="Regular;16" foregroundColor="yellow" backgroundColor="black" zPosition="3" />
-		<widget name="tile3" position="965,545" size="303,124" font="Console;8" noWrap="1" padding="3" backgroundColor="black" zPosition="3" />
+		<widget name="tiles" position="960,40" size="314,640" itemHeight="160" fieldMargins="3" headerFont="Regular;16" headerColor="yellow" frameColor="layer-a-accent2" activeColor="layer-a-foreground" tileColor="black" foregroundColor="layer-a-foreground" backgroundColor="#16000000" backgroundColorSelected="layer-a-selection-background" scrollbarMode="showOnDemand" scrollbarScroll="byLine" transparent="1" />
 		<widget source="key_red" render="Pixmap" pixmap="buttons/key_red.png" position="10,690" size="16,26" scale="1" alphatest="blend" objectTypes="key_red,StaticText" transparent="1">
 			<convert type="ConditionalShowHide" />
 		</widget>
@@ -3657,7 +3637,6 @@ except Exception:
 			<convert type="ConditionalShowHide" />
 		</widget>
 		<widget source="key_blue" render="Label" position="754,690" size="200,26" noWrap="1" zPosition="+1" valign="center" font="global_button;18" halign="left" foregroundColor="grey" backgroundColor="#16000000" objectTypes="key_blue,StaticText" transparent="1" />
-		<widget name="moreBelow" position="960,690" size="200,26" font="screen_info;16" horizontalAlignment="center" foregroundColor="grey" backgroundColor="#16000000" transparent="1" />
 		<ePixmap position="1215,690" size="52,26" pixmap="buttons/key_help.png" scale="1" alphatest="blend" transparent="1" />
 	</screen>
 	<!-- RemoteSupport -->
