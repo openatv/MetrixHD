@@ -1544,6 +1544,15 @@ for x in self.additionalWidgets:
 		<eLabel position="1,1" size="69,69" zPosition="1" backgroundColor="layer-a-background" />
 		<ePixmap position="3,3" size="64,64" zPosition="2" pixmap="icons/mute.png" transparent="1" alphatest="blend" />
 	</screen>
+	<screen name="RemoteSupportIndicator" position="40,609" size="71,71" title="Remote Support" zPosition="11" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="0,0" size="71,71" zPosition="0" backgroundColor="layer-b-background" transparent="0" />
+		<eLabel position="1,1" size="69,69" zPosition="1" backgroundColor="layer-a-background" />
+		<widget name="icon" position="3,3" size="64,64" zPosition="2" iconFont="MetrixLogos;48" iconGlyphs="0xE9C0,0xE9C0" iconColors="#00808080,#0028be46" horizontalAlignment="center" verticalAlignment="center" backgroundColor="layer-a-background" transparent="1" /> <!-- idle, terminal active -->
+		<widget name="terminals" position="38,35" size="14,13" zPosition="3" font="Regular;12" horizontalAlignment="center" verticalAlignment="center" foregroundColor="#00808080" backgroundColor="layer-a-background" transparent="1" /> <!-- open terminals, idle -->
+		<widget name="terminalsActive" position="38,35" size="14,13" zPosition="3" font="Regular;12" horizontalAlignment="center" verticalAlignment="center" foregroundColor="#0028be46" backgroundColor="layer-a-background" transparent="1" /> <!-- open terminals, terminal active -->
+		<widget name="users" position="18,35" size="14,13" zPosition="3" font="Regular;12" horizontalAlignment="center" verticalAlignment="center" foregroundColor="#00808080" backgroundColor="layer-a-background" transparent="1" /> <!-- connected users, idle -->
+		<widget name="usersActive" position="18,35" size="14,13" zPosition="3" font="Regular;12" horizontalAlignment="center" verticalAlignment="center" foregroundColor="#0028be46" backgroundColor="layer-a-background" transparent="1" /> <!-- connected users, terminal active -->
+	</screen>
 	<screen name="PictureInPictureZapping" flags="wfNoBorder" position="40,40" size="335,71" title="PiPZap" zPosition="100">
 		<eLabel position="1,1" size="333,69" backgroundColor="layer-a-background" zPosition="-1" transparent="0" />
 		<eLabel position="0,0" size="335,71" backgroundColor="layer-b-background" zPosition="-2" transparent="0" />
@@ -4444,7 +4453,7 @@ if len(listitems.list) &gt; 2:
 		<screen keys="CCcamInfoMain,CCcamInfoRemoteBoxMenu,CCcamInfoSubMenu,CCcamInfoServerMenu,CCcamInfoMenuConfig,CCcamShareViewMenu,CCcamInfoShareInfo,CCcamInfoConfigSwitcher,CCcamInfoConfigMenu,CCcamInfoEcmInfoSelection,CCcamInfoInfoScreen" image="&#xE91E;" />
 
 		<!-- "icons/console.png" -->
-		<screen keys="Info,Console,ScriptRunner,ToplevelPPanel,PPanel,File,Tarball,Execute" image="&#xE9C0;" />
+		<screen keys="Info,Console,ScriptRunner,ToplevelPPanel,PPanel,File,Tarball,Execute,RemoteSupportLog,RemoteSupportLogs" image="&#xE9C0;" />
 
 		<!-- "icons/hdd.png" -->
 		<screen keys="HarddiskSelection,SimpleUmount,DreamExplorerII,CPmaniger,SoftLinkScreen,HarddiskWait" image="&#xE90F;" />

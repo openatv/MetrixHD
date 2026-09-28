@@ -3591,5 +3591,54 @@ except Exception:
 	</screen>
 <!-- E2MDB  -->
 
+	<!-- RemoteSupport -->
+	<screen name="RemoteSupportManager" title="Remote Support" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<panel name="T_Title" />
+		<widget name="status" position="70,100" size="700,35" font="screen_text;26" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="description" position="70,145" size="700,255" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="counts" position="70,410" size="700,50" font="screen_text;20" foregroundColor="yellow" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="url" position="70,470" size="700,55" font="screen_text;20" foregroundColor="yellow" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="linkwarning" position="70,530" size="700,75" font="screen_text;18" foregroundColor="red" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="qrcode" position="828,95" size="380,380" />
+		<widget name="qrhint" position="815,485" size="405,55" font="screen_info;20" horizontalAlignment="center" verticalAlignment="top" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_he-buttons_template1" />
+	</screen>
+	<screen name="RemoteSupportLogs" title="Session Logs" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="template1_2layer" />
+		<panel name="T_Title" />
+		<widget name="list" position="70,100" size="700,480" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColorSelected="layer-a-selection-background" transparent="1" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_he-buttons_template1" />
+		<panel name="T_Img_Logo" />
+	</screen>
+	<screen name="RemoteSupportViewer" title="Support Session" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="#16000000">
+		<widget source="Title" render="Label" position="12,6" size="220,30" font="global_title;24" foregroundColor="layer-a-foreground" backgroundColor="#16000000" transparent="1" />
+		<widget name="header" position="240,8" size="375,26" font="screen_text;20" foregroundColor="yellow" backgroundColor="#16000000" transparent="1" />
+		<widget name="connected" position="620,8" size="330,26" font="screen_text;20" horizontalAlignment="right" foregroundColor="layer-a-foreground" backgroundColor="#16000000" transparent="1" />
+		<widget name="largeFocus" position="8,40" size="942,642" backgroundColor="layer-a-selection-background" zPosition="1" />
+		<eLabel position="10,42" size="938,638" backgroundColor="layer-a-accent2" zPosition="0" />
+		<widget name="terminal" position="12,44" size="934,634" font="Console;16" noWrap="1" padding="8" backgroundColor="black" zPosition="3" />
+		<widget name="tiles" position="960,40" size="314,640" itemHeight="160" fieldMargins="3" headerFont="Regular;16" headerColor="yellow" frameColor="layer-a-accent2" activeColor="layer-a-foreground" tileColor="black" foregroundColor="layer-a-foreground" backgroundColor="#16000000" backgroundColorSelected="layer-a-selection-background" scrollbarMode="showOnDemand" scrollbarScroll="byLine" scrollbarOffset="10" transparent="1" />
+		<widget source="key_red" render="Pixmap" pixmap="buttons/key_red.png" position="10,690" size="16,26" scale="1" alphatest="blend" objectTypes="key_red,StaticText" transparent="1">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="key_red" render="Label" position="34,690" size="200,26" noWrap="1" zPosition="+1" valign="center" font="global_button;18" halign="left" foregroundColor="grey" backgroundColor="#16000000" objectTypes="key_red,StaticText" transparent="1" />
+		<widget source="key_green" render="Pixmap" pixmap="buttons/key_green.png" position="250,690" size="16,26" scale="1" alphatest="blend" objectTypes="key_green,StaticText" transparent="1">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="key_green" render="Label" position="274,690" size="200,26" noWrap="1" zPosition="+1" valign="center" font="global_button;18" halign="left" foregroundColor="grey" backgroundColor="#16000000" objectTypes="key_green,StaticText" transparent="1" />
+		<widget source="key_yellow" render="Pixmap" pixmap="buttons/key_yellow.png" position="490,690" size="16,26" scale="1" alphatest="blend" objectTypes="key_yellow,StaticText" transparent="1">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="key_yellow" render="Label" position="514,690" size="200,26" noWrap="1" zPosition="+1" valign="center" font="global_button;18" halign="left" foregroundColor="grey" backgroundColor="#16000000" objectTypes="key_yellow,StaticText" transparent="1" />
+		<widget source="key_blue" render="Pixmap" pixmap="buttons/key_blue.png" position="730,690" size="16,26" scale="1" alphatest="blend" objectTypes="key_blue,StaticText" transparent="1">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="key_blue" render="Label" position="754,690" size="200,26" noWrap="1" zPosition="+1" valign="center" font="global_button;18" halign="left" foregroundColor="grey" backgroundColor="#16000000" objectTypes="key_blue,StaticText" transparent="1" />
+		<ePixmap position="1215,690" size="52,26" pixmap="buttons/key_help.png" scale="1" alphatest="blend" transparent="1" />
+	</screen>
+	<!-- RemoteSupport -->
 <!-- PLUGINS */-->
 </skin>
