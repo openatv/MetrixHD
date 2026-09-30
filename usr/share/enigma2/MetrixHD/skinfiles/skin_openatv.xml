@@ -1029,7 +1029,7 @@ self['config'].l.setSeperation(int(300*f))
 		<panel name="T_Col_B_A" />
 		<panel name="_oe-buttons_template2" />
 	</screen>
-	<screen name="PluginActionLog" position="0,0" size="1280,720" title="Plugin Action Log" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="PackageActionLog" position="0,0" size="1280,720" title="Plugin Action Log" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title_L" />
 		<widget name="log" position="70,100" size="1140,525" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" transparent="1" conditional="log" />
 		<panel name="template1_1layer" />
@@ -2767,7 +2767,7 @@ if len(listitems.list) &gt; 2:
 		<widget name="quickselect" position="50,80" size="760,525" backgroundColor="text-background" foregroundColor="background-text" font="global_large_screen;100" halign="center" transparent="1" valign="center" zPosition="5" />
 	</screen>
 
-	<screen name="PluginAction" position="0,0" size="1280,720" title="Downloadable plugins" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="PackageAction" position="0,0" size="1280,720" title="Downloadable plugins" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title" />
 
 		<widget source="plugins" render="Listbox" position="70,100" size="700,500" zPosition="4" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
@@ -4468,7 +4468,7 @@ if len(listitems.list) &gt; 2:
 		<screen keys="SoftwarePanel,SoftwareUpdate,RunSoftwareUpdate,UpdatePlugin" image="&#xE9C2;" />
 
  		<!-- "icons/menu_mainmenu_pluginmanager.png" -->
- 		<screen keys="SundtekControlCenter,PluginBrowser,PluginBrowserList,PluginAction,PluginDownloadBrowser,PluginDetails,PluginManager,PluginManagerInfo,PluginManagerHelp,RestoreMenu,RestoreMenuImage,RestorePlugins,Bootlogo,SortableMenu" image="&#xE956;" />
+ 		<screen keys="SundtekControlCenter,PluginBrowser,PluginBrowserList,PackageAction,PluginDownloadBrowser,PluginDetails,PluginManager,PluginManagerInfo,PluginManagerHelp,RestoreMenu,RestoreMenuImage,RestorePlugins,Bootlogo,SortableMenu" image="&#xE956;" />
 
 		<!-- "icons/bluetooth.png" -->
 		<screen keys="BluetoothSetupScreen,btscan,BluetoothSetupConfig,VuRcuOtaUpdate,BluetoothDevicesManager" image="&#xE903;" />
