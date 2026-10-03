@@ -23,6 +23,7 @@ from os.path import getmtime, isfile, join
 from time import time
 from datetime import datetime, timezone
 from enigma import eTimer
+from twisted.internet.reactor import callFromThread
 
 from Components.config import config, ConfigSubsection, ConfigYesNo, ConfigSelection, ConfigSelectionNumber, ConfigText, ConfigNumber, NoSave
 from Components.Label import Label
@@ -99,7 +100,12 @@ class InfoBarMetrixWeatherNoData(Screen):
 	def __init__(self, session):
 		Screen.__init__(self, session)
 		self["Temp"] = Label("N/A")
+		self.onClose.append(self.clearInstance)
 		InfoBarMetrixWeatherNoData.instance = self
+
+	def clearInstance(self):
+		if InfoBarMetrixWeatherNoData.instance is self:
+			InfoBarMetrixWeatherNoData.instance = None
 
 
 class InfoBarMetrixWeather(Screen):
@@ -129,7 +135,9 @@ class InfoBarMetrixWeather(Screen):
 		self["MinTemp"] = Label()
 		self["MaxTemp"] = Label()
 
-		if config.plugins.MetrixWeather.detail.value:
+		# Keep updates consistent with the widgets created for this dialog while settings are edited.
+		self.detail = config.plugins.MetrixWeather.detail.value
+		if self.detail:
 			if config.plugins.MetrixWeather.cityVisible.value:
 				self["LocationIcon"] = Label(",")
 			else:
@@ -156,10 +164,12 @@ class InfoBarMetrixWeather(Screen):
 		self.refreshTimer = eTimer()
 		self.refreshTimer.callback.append(self.refreshWeatherData)
 		self.onLayoutFinish.append(self.getCacheData)
-		self.onClose.append(self.__onClose)
+		self.onClose.append(self.stopWeather)
 		InfoBarMetrixWeather.instance = self
 
-	def __onClose(self):
+	def stopWeather(self):
+		if InfoBarMetrixWeather.instance is self:
+			InfoBarMetrixWeather.instance = None
 		self.WI.stop()
 		self.refreshTimer.stop()
 
@@ -209,12 +219,16 @@ class InfoBarMetrixWeather(Screen):
 			else:
 				print(f"[{MODULE_NAME}] lookup for City {self.weathercity}, try #{self.trialcounter}...")
 			if geodata or woid:
-				self.WI.start(geodata=geodata, cityID=woid, units=unit, scheme=language, reduced=True, callback=self.refreshWeatherDataCallback)
+				self.WI.start(geodata=geodata, cityID=woid, units=unit, scheme=language, reduced=True,
+					callback=lambda data, error: callFromThread(self.refreshWeatherDataCallback, data, error))
 			else:
 				print(f"[{MODULE_NAME}] error in MetrixWeather config")
 				self.setWeatherDataValid(2)
 
 	def refreshWeatherDataCallback(self, data, error):
+		# A response queued before a skin/settings change must not update a deleted dialog.
+		if InfoBarMetrixWeather.instance is not self:
+			return
 		if error or data is None:
 			self.trialcounter += 1
 			if self.trialcounter < 2:
@@ -282,7 +296,7 @@ class InfoBarMetrixWeather(Screen):
 		self["MinTemp"].setText(f"{data['forecast'][0]['minTemp']} {tempsign}")
 		self["MaxTemp"].setText(f"{data['forecast'][0]['maxTemp']} {tempsign}")
 		# data for panel "infoBarWeatherDetails"
-		if config.plugins.MetrixWeather.detail.value:
+		if self.detail:
 			logos = {"MSN": 0, "openweather": 1, "OpenMeteo": 2}
 			self["logo"].setPixmapNum(logos.get(config.plugins.MetrixWeather.weatherservice.value, 0))
 			self["logo"].show()
@@ -339,10 +353,8 @@ class InfoBarMetrixWeather(Screen):
 
 class InfoBarMetrixWeatherHandler():
 	def sessioninit(self, session):
-		if config.plugins.MetrixWeather.enabled.value:
-			session.instantiateDialog(InfoBarMetrixWeatherNoData)
-			session.instantiateDialog(InfoBarMetrixWeather)
 		self.session = session
+		self.reconfigure(clearCache=False)
 
 	def processDisplay(self, state):
 		if config.plugins.MetrixWeather.enabled.value and config.plugins.MetrixWeather.currentWeatherDataValid.value != 3:
@@ -366,14 +378,20 @@ class InfoBarMetrixWeatherHandler():
 		else:
 			instanceInfoBar.disconnectShowHideNotifier(self.processDisplay)
 
-	def reconfigure(self):
-		try:
-			InfoBarMetrixWeather.instance.close()
-			if isfile(CACHEFILE):
+	def reconfigure(self, clearCache=True):
+		# These are persistent overlays, not the session's current dialog. close() does not destroy them.
+		for cls in (InfoBarMetrixWeather, InfoBarMetrixWeatherNoData):
+			if cls.instance is not None:
+				self.session.deleteDialog(cls.instance)
+		if clearCache and isfile(CACHEFILE):
+			try:
 				remove(CACHEFILE)
+			except OSError as error:
+				print(f"[{MODULE_NAME}] Unable to remove weather cache: {error}")
+		config.plugins.MetrixWeather.currentWeatherDataValid.value = 3
+		if config.plugins.MetrixWeather.enabled.value:
+			self.session.instantiateDialog(InfoBarMetrixWeatherNoData)
 			self.session.instantiateDialog(InfoBarMetrixWeather)
-		except Exception:
-			pass
 
 
 def main(session, **kwargs):
@@ -395,9 +413,8 @@ def autostart(reason, **kwargs):
 
 def info(reason, session, **kwargs):
 	typeInfoBar = kwargs["typeInfoBar"]
-	if config.plugins.MetrixWeather.enabled.value:
-		if typeInfoBar == "InfoBar" or (config.plugins.MetrixWeather.MoviePlayer.value and typeInfoBar in ("MoviePlayer", "EMCMediaCenter")):
-			infobarmetrixweatherhandler.hookInfoBar(reason, kwargs["instance"])
+	if typeInfoBar == "InfoBar" or (config.plugins.MetrixWeather.MoviePlayer.value and typeInfoBar in ("MoviePlayer", "EMCMediaCenter")):
+		infobarmetrixweatherhandler.hookInfoBar(reason, kwargs["instance"])
 
 
 def skinChanged(session, **kwargs):

@@ -206,8 +206,10 @@ class MainSettingsView(Screen):
 		elif ret[0] == 'reboot':
 			from skin import reloadSkins
 			from Screens.ChannelSelection import ChannelSelection, ChannelSelectionSetup
+			from .plugin import InfoBarMetrixWeather, InfoBarMetrixWeatherNoData, infobarmetrixweatherhandler
 			reloadSkins()
-			exclude = {id(dialog) for dialog in self.session.allDialogs if isinstance(dialog, ChannelSelection)}
+			infobarmetrixweatherhandler.reconfigure(clearCache=False)
+			exclude = {id(dialog) for dialog in self.session.allDialogs if isinstance(dialog, (ChannelSelection, InfoBarMetrixWeather, InfoBarMetrixWeatherNoData))}
 			self.session.reloadDialogs(exclude=exclude)
 			ChannelSelectionSetup.updateSettings(self.session, force=True)
 			self.close(True)
