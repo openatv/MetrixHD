@@ -4088,10 +4088,12 @@ if len(listitems.list) &gt; 2:
 	</screen>
 	<!-- IceTV -->
 	<!-- FlashImage -->
-	<screen name="FlashImage" position="center,center" size="720,200" flags="wfNoBorder" backgroundColor="#54242424">
-		<widget name="header" position="5,10" size="e-10,50" font="Regular;40" backgroundColor="#54242424"/>
-		<widget name="info" position="5,60" size="e-10,180" font="Regular;24" backgroundColor="#54242424" verticalAlignment="top"/>
-		<widget name="progress" position="5,e-39" size="e-10,24" backgroundColor="#54242424"/>
+	<screen name="FlashImage" position="center,center" size="720,240" backgroundColor="layer-a-background" flags="wfNoBorder">
+		<eRectangle position="0,0" size="e,e" borderColor="layer-a-underline" backgroundColor="layer-a-background" borderWidth="1" zPosition="-10" />
+		<widget name="header" position="10,8" size="700,50" font="global_title;34" noWrap="1" valign="bottom" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="ul-messagebox" />
+		<widget name="progress" position="10,80" size="700,25" transparent="1" />
+		<widget name="info" position="10,120" size="700,110" font="screen_text;20" halign="center" valign="top" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
 	</screen>
 	<!-- FlashImage -->
 	<!-- HideVBILine -->
