@@ -3152,12 +3152,19 @@ if len(listitems.list) &gt; 2:
 		<panel name="ul-restoreinfo" />
 		<widget name="label" position="5,80" size="670,50" font="screen_text;22" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" />
 	</screen>
-	<screen name="UserManual" position="center,center" size="600,560" title="User Manual" flags="wfNoBorder" backgroundColor="layer-a-background">
+	<screen name="UserManual" position="center,center" size="520,540" title="User Manual" flags="wfNoBorder" backgroundColor="layer-a-background">
 		<ePixmap name="InfoPixmap" pixmap="icons/message/info-53.png" position="8,8" size="53,53" alphatest="blend" />
-		<widget source="Title" render="Label" position="67,8" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1"/>
+		<widget source="Title" render="Label" position="67,8" foregroundColor="layer-a-title-foreground" size="445,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1"/>
 		<panel name="ul-messagebox" />
-		<widget name="qrcode" position="125,85" size="350,350" />
-		<widget name="text" position="10,445" size="580,105" font="screen_text;22" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="qrcode" position="100,80" size="320,320" />
+		<widget name="text" position="10,405" size="500,70" font="screen_text;22" valign="center" halign="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="key_red" render="Pixmap" pixmap="buttons/key_red.png" position="10,e-52" size="30,40" alphatest="blend" objectTypes="key_red,StaticText" transparent="1">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<widget source="key_red" render="Label" position="45,e-50" size="170,30" noWrap="1" zPosition="+1" valign="center" font="global_button;20" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-button-foreground" objectTypes="key_red,StaticText" transparent="1" />
+		<widget source="key_help" render="Pixmap" pixmap="buttons/key_help.png" position="e-91,e-52" size="81,40" alphatest="blend" objectTypes="key_help,StaticText" transparent="1">
+			<convert type="ConditionalShowHide" />
+		</widget>
 	</screen>
 	<screen name="installedPlugins" position="center,center" size="680,140" title="Install Plugins" flags="wfNoBorder" backgroundColor="layer-a-background">
 		<ePixmap name="InfoPixmap" pixmap="icons/message/info-53.png" position="8,8" size="53,53" alphatest="blend" />
