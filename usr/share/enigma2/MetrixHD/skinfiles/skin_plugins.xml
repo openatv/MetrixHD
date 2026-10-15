@@ -1683,6 +1683,93 @@
 		<panel name="T_Img_Logo" />
 	</screen>
 	<!-- BTDevicesManager -->
+	<!-- Dream Bluetooth -->
+	<screen name="InputDeviceManagement" position="0,0" size="1280,720" title="Input devices" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget source="list" render="Listbox" position="70,100" size="700,510" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{
+					"template": [
+						MultiContentEntryText(pos = (10, 4), size = (670, 30), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0),
+						MultiContentEntryText(pos = (10, 38), size = (330, 24), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2),
+						MultiContentEntryText(pos = (345, 38), size = (335, 24), font = 1, flags = RT_HALIGN_RIGHT | RT_VALIGN_CENTER, text = 4),
+						MultiContentEntryText(pos = (10, 70), size = (520, 24), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 1),
+						MultiContentEntryText(pos = (540, 70), size = (140, 24), font = 1, flags = RT_HALIGN_RIGHT | RT_VALIGN_CENTER, text = 3)
+					],
+					"fonts": [gFont("screen_text", 22), gFont("screen_text", 18)],
+					"itemHeight": 102
+				}
+			</convert>
+		</widget>
+		<widget name="Image" position="917,120" size="200,200" font="MetrixLogos;195" foregroundColor="logo-color" backgroundColor="layer-b-background" halign="center" valign="center" transparent="1" />
+		<widget source="description" render="Label" position="810,320" size="415,280" font="screen_info;18" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" halign="center" valign="center" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
+	<screen name="InputDeviceSettings" position="0,0" size="1280,720" title="Input device settings" flags="wfNoBorder" backgroundColor="transparent">
+		<widget source="Title" render="Label" position="58,36" size="525,50" font="global_title;26" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" valign="bottom" noWrap="1" transparent="1" />
+		<widget name="config" position="70,100" size="700,510" itemHeight="30" font="screen_text;20" scrollbarMode="showOnDemand" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget source="description" render="Label" position="810,425" size="415,175" font="screen_info;20" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" halign="center" valign="center" transparent="1" />
+		<panel name="T_HelpWindow" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="_oe-buttons_template1" />
+		<panel name="T_Img_Logo" />
+	</screen>
+	<screen name="InputDeviceIRProg" position="0,0" size="1280,720" title="IR Setup" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget source="list" render="Listbox" position="70,100" size="700,510" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{
+					"template": [
+						MultiContentEntryPixmapAlphaBlend(pos = (10, 18), size = (48, 48), png = 1, flags = BT_SCALE | BT_KEEP_ASPECT_RATIO),
+						MultiContentEntryText(pos = (78, 10), size = (602, 30), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3),
+						MultiContentEntryText(pos = (78, 45), size = (602, 24), font = 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2)
+					],
+					"fonts": [gFont("screen_text", 22), gFont("screen_text", 18)],
+					"itemHeight": 85
+				}
+			</convert>
+		</widget>
+		<widget source="status" render="Label" position="810,425" size="415,175" font="screen_info;20" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" halign="center" valign="center" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="ioe-buttons_template1" />
+		<panel name="T_Img_Logo" />
+	</screen>
+	<screen name="InputDeviceKeyInfo" position="0,0" size="1280,720" title="IR Keys" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget name="list" position="70,100" size="700,510" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="rc" position="940,100" size="260,510" alphatest="blend" />
+		<!-- Rc uses fixed offsets for the native arrow pixmaps. -->
+<!-- cf#_#stop -->
+		<widget name="arrowdown" position="0,0" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="2" alphatest="blend" />
+		<widget name="arrowdown2" position="0,0" size="37,70" pixmap="skin_default/arrowdown.png" zPosition="2" alphatest="blend" />
+		<widget name="arrowup" position="0,0" size="37,70" pixmap="skin_default/arrowup.png" zPosition="2" alphatest="blend" />
+		<widget name="arrowup2" position="0,0" size="37,70" pixmap="skin_default/arrowup.png" zPosition="2" alphatest="blend" />
+<!-- cf#_#start -->
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateButtonRed_template1" />
+		<panel name="__e-buttons_template1" />
+	</screen>
+	<screen name="DfuFlashGuard" position="0,0" size="1280,720" title="DFU Firmware Upgrade" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title" />
+		<widget name="text" position="70,120" size="700,330" font="screen_text;24" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1" />
+		<widget name="bytes" position="70,500" size="700,35" font="screen_text;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="center" valign="center" transparent="1" />
+		<widget source="progress" render="Progress" position="70,555" size="700,25" borderWidth="1" borderColor="layer-a-accent1" foregroundColor="layer-a-progress" backgroundColor="layer-a-background" />
+		<widget name="log" position="70,610" size="700,30" font="screen_info;20" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" halign="right" valign="center" transparent="1" />
+		<panel name="template1_2layer" />
+		<panel name="ioe-buttons_template1" />
+		<panel name="T_Img_Logo" />
+	</screen>
+	<screen name="DfuLog" position="0,0" size="1280,720" title="DFU Log" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="T_Title_L" />
+		<widget name="log" position="70,100" size="1140,500" font="screen_text;18" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="template1_1layer" />
+		<panel name="_oe-buttons_template1" />
+	</screen>
+	<!-- Dream Bluetooth -->
 	<!-- Kodi -->
 	<screen name="KodiSetupScreen" position="0,0" size="1280,720" title="Setup" flags="wfNoBorder" backgroundColor="transparent">
 		<eLabel text="Kodi Settings" position="58,36" foregroundColor="layer-a-title-foreground" size="525,50" noWrap="1" valign="bottom" font="global_title;34" backgroundColor="layer-a-background" transparent="1" />
