@@ -3727,5 +3727,138 @@ except Exception:
 		<ePixmap position="1215,690" size="52,26" pixmap="buttons/key_help.png" scale="1" alphatest="blend" transparent="1" />
 	</screen>
 	<!-- RemoteSupport -->
+	<!--* OpenATV Reader -->
+	<screen name="openATVMain" position="0,0" size="1280,720" title="OpenATV Reader" flags="wfNoBorder" backgroundColor="transparent">
+		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OpenATVreader/icons/openATV_fHD.png" position="58,36" size="300,50" scale="1" alphatest="blend" />
+		<eLabel text="OpenATV Reader" position="385,36" size="400,50" font="global_title;34" noWrap="1" valign="bottom" halign="left" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="headline" render="Label" position="58,88" size="1150,30" font="Regular;22" wrap="ellipsis" valign="center" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="waiting" position="58,88" size="1150,30" font="Regular;22" valign="center" halign="left" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<widget source="version" render="Label" position="345,60" size="95,24" font="Regular;16" halign="left" valign="center" foregroundColor="layer-a-accent2" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="pagecount" render="Label" position="790,60" size="135,24" font="Regular;16" halign="right" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="menu" render="Listbox" position="70,125" size="1140,492" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"templates":
+					{"default": (82,[
+						MultiContentEntryPixmapAlphaTest(pos=(0,0), size=(1140,1), png=6),
+						MultiContentEntryText(pos=(6,2), size=(816,30), font=0, color="layer-a-foreground", color_sel="layer-a-selection-foreground", flags=RT_HALIGN_LEFT|RT_ELLIPSIS, text=0),
+						MultiContentEntryText(pos=(6,30), size=(816,26), font=1, color="layer-a-accent1", color_sel="layer-a-selection-foreground", flags=RT_HALIGN_LEFT|RT_ELLIPSIS, text=1),
+						MultiContentEntryText(pos=(6,54), size=(816,26), font=1, color="layer-a-accent1", color_sel="layer-a-selection-foreground", flags=RT_HALIGN_LEFT|RT_ELLIPSIS, text=2),
+						MultiContentEntryText(pos=(830,2), size=(274,26), font=2, color="layer-a-accent1", color_sel="layer-a-selection-foreground", flags=RT_HALIGN_RIGHT, text=3),
+						MultiContentEntryText(pos=(830,27), size=(274,30), font=0, color="layer-a-foreground", color_sel="layer-a-selection-foreground", flags=RT_HALIGN_RIGHT, text=4),
+						MultiContentEntryText(pos=(830,54), size=(274,26), font=2, color="layer-a-accent2", color_sel="layer-a-selection-foreground", flags=RT_HALIGN_RIGHT, text=5)
+						]),
+					"thread": (98,[
+						MultiContentEntryPixmapAlphaTest(pos=(0,0), size=(1140,1), png=4),
+						MultiContentEntryPixmapAlphaBlend(pos=(6,5), size=(70,70), flags=BT_HALIGN_LEFT|BT_VALIGN_CENTER|BT_SCALE|BT_KEEP_ASPECT_RATIO, png=5),
+						MultiContentEntryPixmapAlphaBlend(pos=(9,77), size=(64,16), png=6),
+						MultiContentEntryText(pos=(100,5), size=(722,78), font=1, color="layer-a-foreground", color_sel="layer-a-selection-foreground", flags=RT_HALIGN_LEFT|RT_WRAP, text=0),
+						MultiContentEntryText(pos=(830,5), size=(274,26), font=2, color="layer-a-accent1", color_sel="layer-a-selection-foreground", flags=RT_HALIGN_RIGHT, text=1),
+						MultiContentEntryText(pos=(830,30), size=(274,30), font=0, color="layer-a-foreground", color_sel="layer-a-selection-foreground", flags=RT_HALIGN_RIGHT, text=2),
+						MultiContentEntryText(pos=(830,60), size=(274,26), font=2, color="layer-a-accent2", color_sel="layer-a-selection-foreground", flags=RT_HALIGN_RIGHT, text=3)
+						])
+					},
+				"fonts": [gFont("Regular",22), gFont("Regular",20), gFont("Regular",18)]
+				}
+			</convert>
+		</widget>
+		<widget name="button_page" position="795,645" size="43,20" alphatest="blend" zPosition="1" />
+		<widget source="key_page" render="Label" position="843,638" size="160,30" noWrap="1" valign="center" halign="left" font="global_button;18" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="button_keypad" position="1005,642" size="35,25" alphatest="blend" zPosition="1" />
+		<widget source="key_keypad" render="Label" position="1045,638" size="170,30" noWrap="1" valign="center" halign="left" font="global_button;18" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="template1_1layer" />
+	</screen>
+	<screen name="openATVPost" position="0,0" size="1280,720" title="OpenATV Reader" flags="wfNoBorder" backgroundColor="transparent">
+		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OpenATVreader/icons/openATV_fHD.png" position="58,36" size="300,50" scale="1" alphatest="blend" />
+		<eLabel text="OpenATV Reader" position="385,36" size="400,50" font="global_title;34" noWrap="1" valign="bottom" halign="left" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="headline" render="Label" position="58,88" size="1150,30" font="Regular;22" wrap="ellipsis" valign="center" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="waiting" position="58,88" size="1150,30" font="Regular;22" valign="center" halign="left" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<widget source="version" render="Label" position="345,60" size="95,24" font="Regular;16" halign="left" valign="center" foregroundColor="layer-a-accent2" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="postid" render="Label" position="790,60" size="135,24" font="Regular;16" halign="right" valign="center" foregroundColor="layer-a-accent2" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="avatar" position="70,126" size="69,69" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="online" position="72,198" size="64,16" alphatest="blend" transparent="1" zPosition="1" />
+		<widget source="username" render="Label" position="160,124" size="280,28" font="Regular;22" halign="left" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="userrank" position="160,154" size="140,24" alphatest="blend" transparent="1" zPosition="1" />
+		<widget source="usertitle" render="Label" position="160,180" size="280,26" font="Regular;18" halign="left" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="postcnt" render="Label" position="450,126" size="300,26" font="Regular;18" halign="left" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="thxgiven" render="Label" position="450,152" size="300,26" font="Regular;18" halign="left" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="thxreceived" render="Label" position="450,178" size="300,26" font="Regular;18" halign="left" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="residence" render="Label" position="760,126" size="450,26" font="Regular;18" halign="right" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="registered" render="Label" position="760,152" size="450,26" font="Regular;18" halign="right" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="datum" render="Label" position="760,178" size="450,26" font="Regular;18" halign="right" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel position="70,222" size="1140,1" backgroundColor="layer-a-accent2" />
+		<!-- content area: textarea defines position, size and font of the text, text0-text11 need the same font -->
+		<widget name="textarea" position="75,232" size="1110,388" font="Regular;22" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" alphatest="blend" transparent="1" zPosition="0" />
+		<widget name="scrollbar" position="1201,232" size="2,388" backgroundColor="layer-a-accent2" zPosition="1" />
+		<widget name="scrollthumb" position="1198,232" size="8,40" backgroundColor="layer-a-accent1" zPosition="2" />
+		<widget name="picframe" position="75,232" size="10,10" backgroundColor="layer-b-background" zPosition="0" />
+		<widget name="codebg0" position="75,232" size="10,10" backgroundColor="#00202A36" zPosition="0" />
+		<widget name="codebg1" position="75,232" size="10,10" backgroundColor="#00202A36" zPosition="0" />
+		<widget name="codebg2" position="75,232" size="10,10" backgroundColor="#00202A36" zPosition="0" />
+		<widget name="codebg3" position="75,232" size="10,10" backgroundColor="#00202A36" zPosition="0" />
+		<widget name="text0" position="75,232" size="1110,27" font="Regular;22" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="text1" position="75,232" size="1110,27" font="Regular;22" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="text2" position="75,232" size="1110,27" font="Regular;22" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="text3" position="75,232" size="1110,27" font="Regular;22" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="text4" position="75,232" size="1110,27" font="Regular;22" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="text5" position="75,232" size="1110,27" font="Regular;22" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="text6" position="75,232" size="1110,27" font="Regular;22" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="text7" position="75,232" size="1110,27" font="Regular;22" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="text8" position="75,232" size="1110,27" font="Regular;22" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="text9" position="75,232" size="1110,27" font="Regular;22" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="text10" position="75,232" size="1110,27" font="Regular;22" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="text11" position="75,232" size="1110,27" font="Regular;22" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="pic0" position="75,232" size="10,10" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="pic1" position="75,232" size="10,10" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="pic2" position="75,232" size="10,10" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="pic3" position="75,232" size="10,10" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="pic4" position="75,232" size="10,10" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="pic5" position="75,232" size="10,10" alphatest="blend" transparent="1" zPosition="1" />
+		<widget name="vidlabel0" position="75,232" size="160,32" font="Regular;18" halign="center" valign="center" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" zPosition="2" />
+		<widget name="vidlabel1" position="75,232" size="160,32" font="Regular;18" halign="center" valign="center" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" zPosition="2" />
+		<widget name="vidlabel2" position="75,232" size="160,32" font="Regular;18" halign="center" valign="center" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" zPosition="2" />
+		<widget name="vidlabel3" position="75,232" size="160,32" font="Regular;18" halign="center" valign="center" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" zPosition="2" />
+		<widget name="vidlabel4" position="75,232" size="160,32" font="Regular;18" halign="center" valign="center" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" zPosition="2" />
+		<widget name="vidlabel5" position="75,232" size="160,32" font="Regular;18" halign="center" valign="center" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" zPosition="2" />
+		<widget name="button_green" pixmap="buttons/key_green.png" position="218,635" size="30,40" alphatest="blend" transparent="1" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="template1_1layer" />
+	</screen>
+	<screen name="openATVImage" position="0,0" size="1280,720" title="OpenATV Reader" flags="wfNoBorder" backgroundColor="transparent">
+		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OpenATVreader/icons/openATV_fHD.png" position="58,36" size="300,50" scale="1" alphatest="blend" />
+		<eLabel text="OpenATV Reader" position="385,36" size="400,50" font="global_title;34" noWrap="1" valign="bottom" halign="left" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="headline" render="Label" position="58,88" size="1150,30" font="Regular;22" wrap="ellipsis" valign="center" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="waiting" position="58,88" size="1150,30" font="Regular;22" valign="center" halign="left" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<widget source="version" render="Label" position="345,60" size="95,24" font="Regular;16" halign="left" valign="center" foregroundColor="layer-a-accent2" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="picture" position="70,125" size="1140,500" alphatest="blend" transparent="1" zPosition="1" />
+		<widget source="picinfo" render="Label" position="70,330" size="1140,90" font="Regular;22" halign="center" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<widget source="key_page" render="Label" position="810,638" size="400,30" noWrap="1" valign="center" halign="right" font="global_button;20" foregroundColor="layer-a-button-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<panel name="template1_1layer" />
+	</screen>
+	<screen name="openATVFav" position="0,0" size="1280,720" title="OpenATV Reader" flags="wfNoBorder" backgroundColor="transparent">
+		<ePixmap pixmap="/usr/lib/enigma2/python/Plugins/Extensions/OpenATVreader/icons/openATV_fHD.png" position="58,36" size="300,50" scale="1" alphatest="blend" />
+		<eLabel text="OpenATV Reader" position="385,36" size="400,50" font="global_title;34" noWrap="1" valign="bottom" halign="left" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="headline" render="Label" position="58,88" size="1150,30" font="Regular;22" wrap="ellipsis" valign="center" halign="left" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="version" render="Label" position="345,60" size="95,24" font="Regular;16" halign="left" valign="center" foregroundColor="layer-a-accent2" backgroundColor="layer-a-background" transparent="1" />
+		<widget source="favMenu" render="Listbox" position="70,125" size="1140,476" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1">
+			<convert type="TemplatedMultiContent">
+				{"template": [
+					MultiContentEntryText(pos=(10,0), size=(1120,34), font=0, color="layer-a-foreground", color_sel="layer-a-selection-foreground", flags=RT_HALIGN_LEFT|RT_VALIGN_CENTER|RT_ELLIPSIS, text=0)
+					],
+				"fonts": [gFont("Regular",22)],
+				"itemHeight": 34
+				}
+			</convert>
+		</widget>
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="template1_1layer" />
+	</screen>
+	<screen name="getNumber" position="center,center" size="260,80" title="OpenATV Reader" flags="wfNoBorder" backgroundColor="transparent">
+		<eLabel position="5,5" size="150,70" backgroundColor="layer-a-background" zPosition="-10" />
+		<eLabel position="155,10" size="100,60" backgroundColor="layer-b-background" zPosition="-10" />
+		<widget source="number" render="Label" position="5,20" size="150,40" font="screen_info;40" halign="center" valign="bottom" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
+		<eLabel text="Seite" position="155,26" size="100,40" font="screen_info;26" halign="center" valign="bottom" foregroundColor="layer-b-foreground" backgroundColor="layer-b-background" transparent="1" />
+	</screen>
+	<!-- OpenATV Reader -->
 <!-- PLUGINS */-->
 </skin>
