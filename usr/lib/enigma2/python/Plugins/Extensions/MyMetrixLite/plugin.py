@@ -17,26 +17,26 @@
 #
 #
 #######################################################################
-from pickle import dump, load
+from datetime import datetime
 from os import remove
 from os.path import getmtime, isfile, join
+from pickle import dump, load
 from time import time
-from datetime import datetime, timezone
-from enigma import eTimer
 from twisted.internet.reactor import callFromThread
 
-from Components.config import config, ConfigSubsection, ConfigYesNo, ConfigSelection, ConfigSelectionNumber, ConfigText, ConfigNumber, NoSave
+from enigma import eTimer
+
+from Components.config import ConfigNumber, ConfigSelection, ConfigSelectionNumber, ConfigSubsection, ConfigText, ConfigYesNo, NoSave, config
 from Components.Label import Label
 from Components.Pixmap import MultiPixmap
-from Components.Sources.StaticText import StaticText
 from Components.SystemInfo import BoxInfo
+from Components.Sources.StaticText import StaticText
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Tools.Directories import SCOPE_CONFIG, SCOPE_SKINS, resolveFilename
 from Tools.Weatherinfo import Weatherinfo
 
 from . import _
-from .MainSettingsView import MainSettingsView
 from .ActivateSkinSettings import applySkinSettings
 
 #############################################################
@@ -395,6 +395,7 @@ class InfoBarMetrixWeatherHandler():
 
 
 def main(session, **kwargs):
+	from .MainSettingsView import MainSettingsView  # Load the settings screens only when opened.
 	if "onClose" in kwargs:
 		session.openWithCallback(kwargs["onClose"], MainSettingsView)
 	else:
@@ -453,3 +454,10 @@ def Plugins(**kwargs):
 
 
 infobarmetrixweatherhandler = InfoBarMetrixWeatherHandler()
+
+
+def __getattr__(name):
+	if name == "MainSettingsView":
+		from .MainSettingsView import MainSettingsView  # Preserve the public screen import without loading it at startup.
+		return MainSettingsView
+	raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
