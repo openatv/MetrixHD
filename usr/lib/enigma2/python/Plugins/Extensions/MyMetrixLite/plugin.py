@@ -18,9 +18,10 @@
 #
 #######################################################################
 from datetime import datetime
-from os import remove
-from os.path import getmtime, isfile, join
+from os import remove, replace
+from os.path import dirname, getmtime, isfile, join
 from pickle import dump, load
+from tempfile import NamedTemporaryFile
 from time import time
 from twisted.internet.reactor import callFromThread
 
@@ -174,15 +175,21 @@ class InfoBarMetrixWeather(Screen):
 		self.refreshTimer.stop()
 
 	def getCacheData(self):
-		#self.setWeatherDataValid(1)  # 0= green (data available), 1= yellow (still working), 2= red (no data available, wait on next refresh)
-		cacheminutes = int(config.plugins.MetrixWeather.cachedata.value)
-		if cacheminutes and isfile(CACHEFILE):
-			timedelta = (time() - getmtime(CACHEFILE)) / 60
-			if cacheminutes > timedelta:
-				with open(CACHEFILE, "rb") as fd:
-					cache_data = load(fd)
-				self.writeData(cache_data)
-				return
+		cacheMinutes = int(config.plugins.MetrixWeather.cachedata.value)
+		if cacheMinutes and isfile(CACHEFILE):
+			try:
+				cacheAge = (time() - getmtime(CACHEFILE)) / 60
+				if cacheMinutes > cacheAge:
+					with open(CACHEFILE, "rb") as cacheFile:
+						cacheData = load(cacheFile)
+					self.writeData(cacheData)
+					return
+			except Exception as error:  # A damaged or incompatible weather cache must not interrupt GUI startup.
+				print(f"[{MODULE_NAME}] Unable to use weather cache '{CACHEFILE}': {error}")
+				try:
+					remove(CACHEFILE)
+				except OSError as error:
+					print(f"[{MODULE_NAME}] Unable to remove weather cache '{CACHEFILE}': {error}")
 
 		self.refreshTimer.start(3000, True)
 
@@ -245,10 +252,22 @@ class InfoBarMetrixWeather(Screen):
 				self.refreshTimer.start(300000, True)
 			return
 		self.writeData(data)
-		# TODO write cache only on close
 		if config.plugins.MetrixWeather.cachedata.value != "0":
-			with open(CACHEFILE, "wb") as fd:
-				dump(data, fd, protocol=5)
+			cachePath = None
+			try:
+				# Replace the cache only after the new file has been written and closed successfully.
+				with NamedTemporaryFile(dir=dirname(CACHEFILE), prefix="MetrixWeather.", suffix=".tmp", delete=False) as cacheFile:
+					cachePath = cacheFile.name
+					dump(data, cacheFile, protocol=5)
+				replace(cachePath, CACHEFILE)
+			except Exception as error:
+				print(f"[{MODULE_NAME}] Unable to save weather cache '{CACHEFILE}': {error}")
+			finally:
+				if cachePath and isfile(cachePath):
+					try:
+						remove(cachePath)
+					except OSError as error:
+						print(f"[{MODULE_NAME}] Unable to remove temporary weather cache '{cachePath}': {error}")
 
 	def writeData(self, data):
 		self.wetterdata = data
