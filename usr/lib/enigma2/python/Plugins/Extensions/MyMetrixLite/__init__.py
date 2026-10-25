@@ -21,12 +21,11 @@
 
 from gettext import bindtextdomain, dgettext, gettext
 from os.path import exists
-# from shutil import move
 
-from Components.SystemInfo import BoxInfo
-from Components.config import config, ConfigSubsection, ConfigSelection, ConfigSelectionNumber, ConfigYesNo, ConfigText, ConfigInteger
+from Components.config import ConfigInteger, ConfigSelection, ConfigSelectionNumber, ConfigSubsection, ConfigText, ConfigYesNo, config
 from Components.Language import language
-from Tools.Directories import resolveFilename, SCOPE_PLUGINS
+from Components.SystemInfo import BoxInfo
+from Tools.Directories import SCOPE_PLUGINS, resolveFilename
 #############################################################
 
 PLUGIN_PATH = resolveFilename(SCOPE_PLUGINS, "Extensions/MyMetrixLite")
@@ -561,6 +560,10 @@ def initOtherConfig():
 	config.plugins.MyMetrixLiteOther.showPVRState = ConfigSelection(default="1", choices=[("1", _("Standard")), ("2", _("Top of the screen")), ("3", _("Top of the screen with current time"))])
 	config.plugins.MyMetrixLiteOther.showMovieListScrollbar = ConfigYesNo(default=False)
 	config.plugins.MyMetrixLiteOther.showMovieListRunningtext = ConfigYesNo(default=False)
+	# AML appearance; list layout, sorting and playback remain Enigma2 settings.
+	config.plugins.MyMetrixLiteOther.amlDetailStyle = ConfigSelection(default="cinema", choices=[("cinema", _("Full-screen backdrop")), ("split", _("Poster and information"))])
+	config.plugins.MyMetrixLiteOther.amlBackdropShade = ConfigSelection(default="66", choices=[("99", _("Light")), ("66", _("Medium")), ("33", _("Strong"))])
+	config.plugins.MyMetrixLiteOther.amlPlayerArtwork = ConfigYesNo(default=True)
 	# EMC
 	config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover = ConfigSelection(default="no", choices=[("no", _("No")), ("small", _("Small")), ("large", _("Large"))])
 	config.plugins.MyMetrixLiteOther.showEMCMediaCenterCoverInfobar = ConfigYesNo(default=True)

@@ -19,9 +19,10 @@
 #
 #######################################################################
 from __future__ import division
-from PIL import Image
 from os import remove
 from os.path import exists
+from PIL import Image
+
 from enigma import ePicLoad, getDesktop
 
 from Components.ActionMap import ActionMap
@@ -29,13 +30,13 @@ from Components.config import config, configfile, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
 from Components.Label import Label
 from Components.Pixmap import Pixmap
-from Components.Sources.StaticText import StaticText
 from Components.SystemInfo import BoxInfo
+from Components.Sources.StaticText import StaticText
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
-from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN
+from Tools.Directories import SCOPE_CURRENT_SKIN, fileExists, isPluginInstalled, resolveFilename
 
-from . import _, PLUGIN_PATH
+from . import PLUGIN_PATH, _
 from .ActivateSkinSettings import ActivateSkinSettings
 
 BoxType = BoxInfo.getItem("machinebuild")
@@ -406,22 +407,30 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(tab + _("Show in Channel selection?"), config.usage.use_pig, _("Setting is the same as\n'") + _("Channel list show MiniTV*") + _("'\nin the\n'") + _("Channel selection settings") + "'.", "ENABLED"))
 		# list.append(getConfigListEntry(tab + _("Show in graphical EPG?"), config.epgselection.graph_pig, _("Setting is the same as\n'") + _("Picture in graphics") + _("'\nin the\n'") + _("GraphicalEPG settings") + "'."))
 		list.append(getConfigListEntry(tab + _("Show in Movie Center?"), config.plugins.MyMetrixLiteOther.movielist_pig, _("helptext"), "ENABLED"))
-		list.append(getConfigListEntry(tab + _("Show in EMC?"), config.plugins.MyMetrixLiteOther.emc_pig, _("helptext"), "ENABLED"))
-		section = _("EMC")
+		emcInstalled = isPluginInstalled("EnhancedMovieCenter", pluginType="Extensions")
+		if emcInstalled:
+			list.append(getConfigListEntry(tab + _("Show in EMC?"), config.plugins.MyMetrixLiteOther.emc_pig, _("helptext"), "ENABLED"))
+			section = _("EMC")
+			list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
+			list.append(getConfigListEntry(tab + _("Show Cover in Media Center"), config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover, _("helptext"), "ENABLED"))
+			if config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover.getValue() == "small" and config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
+				list.append(getConfigListEntry(tab + _("Show Cover in Infobar"), config.plugins.MyMetrixLiteOther.showEMCMediaCenterCoverInfobar, _("helptext")))
+			if not config.plugins.MyMetrixLiteOther.emc_pig.value:
+				list.append(getConfigListEntry(tab + _("Show Cover in Movie Selection"), config.plugins.MyMetrixLiteOther.showEMCSelectionCover, _("helptext"), "ENABLED"))
+			if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "large" or config.plugins.MyMetrixLiteOther.emc_pig.value:
+				list.append(getConfigListEntry(tab + _("Show Movie Description"), config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription, _("helptext")))
+			list.append(getConfigListEntry(tab + _("Show Picon in Movie Selection?"), config.plugins.MyMetrixLiteOther.showEMCSelectionPicon, _("helptext")))
+			list.append(getConfigListEntry(tab + _("Change Number of Rows in Movie Selection"), config.plugins.MyMetrixLiteOther.showEMCSelectionRows, _("helptext")))
+			list.append(getConfigListEntry(tab + _("Change field size 'Date' in Movie Selection"), config.plugins.MyMetrixLiteOther.setEMCdatesize, _("Change field size or hide")))
+			list.append(getConfigListEntry(tab + _("Change field size 'Count/Size' in Movie Selection"), config.plugins.MyMetrixLiteOther.setEMCdirinfosize, _("Change field size or hide")))
+			list.append(getConfigListEntry(tab + _("Change field size 'Progressbar' in Movie Selection"), config.plugins.MyMetrixLiteOther.setEMCbarsize, _("Change field size or hide")))
+		section = _("Advance Movie List (AML)")
 		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
-		list.append(getConfigListEntry(tab + _("Show Cover in Media Center"), config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover, _("helptext"), "ENABLED"))
-		if config.plugins.MyMetrixLiteOther.showEMCMediaCenterCover.getValue() == "small" and config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "2":
-			list.append(getConfigListEntry(tab + _("Show Cover in Infobar"), config.plugins.MyMetrixLiteOther.showEMCMediaCenterCoverInfobar, _("helptext")))
-		if not config.plugins.MyMetrixLiteOther.emc_pig.value:
-			list.append(getConfigListEntry(tab + _("Show Cover in Movie Selection"), config.plugins.MyMetrixLiteOther.showEMCSelectionCover, _("helptext"), "ENABLED"))
-		if config.plugins.MyMetrixLiteOther.showEMCSelectionCover.getValue() == "large" or config.plugins.MyMetrixLiteOther.emc_pig.value:
-			list.append(getConfigListEntry(tab + _("Show Movie Description"), config.plugins.MyMetrixLiteOther.showEMCSelectionCoverLargeDescription, _("helptext")))
-		list.append(getConfigListEntry(tab + _("Show Picon in Movie Selection?"), config.plugins.MyMetrixLiteOther.showEMCSelectionPicon, _("helptext")))
-		list.append(getConfigListEntry(tab + _("Change Number of Rows in Movie Selection"), config.plugins.MyMetrixLiteOther.showEMCSelectionRows, _("helptext")))
-		list.append(getConfigListEntry(tab + _("Change field size 'Date' in Movie Selection"), config.plugins.MyMetrixLiteOther.setEMCdatesize, _("Change field size or hide")))
-		list.append(getConfigListEntry(tab + _("Change field size 'Count/Size' in Movie Selection"), config.plugins.MyMetrixLiteOther.setEMCdirinfosize, _("Change field size or hide")))
-		list.append(getConfigListEntry(tab + _("Change field size 'Progressbar' in Movie Selection"), config.plugins.MyMetrixLiteOther.setEMCbarsize, _("Change field size or hide")))
-		section = _("EMC/MovieList")
+		list.append(getConfigListEntry(tab + _("Movie information style"), config.plugins.MyMetrixLiteOther.amlDetailStyle, _("Choose the Metrix layout for the INFO screen. List styles and sorting are configured in Movie Selection settings."), "ENABLED"))
+		if config.plugins.MyMetrixLiteOther.amlDetailStyle.value == "cinema":
+			list.append(getConfigListEntry(tab + _("Backdrop shading"), config.plugins.MyMetrixLiteOther.amlBackdropShade, _("Darken the full-screen artwork to keep movie information readable.")))
+		list.append(getConfigListEntry(tab + _("Movie artwork in player"), config.plugins.MyMetrixLiteOther.amlPlayerArtwork, _("Show available movie artwork in the Metrix movie infobar.")))
+		section = _("EMC/MovieList") if emcInstalled else _("Movie list")
 		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		if not config.plugins.MyMetrixLiteOther.movielist_pig.value:
 			list.append(getConfigListEntry(tab + _("Movie List style"), config.plugins.MyMetrixLiteOther.movielistStyle, _("Info: Setting applies not for EMC.")))
@@ -429,7 +438,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 		help_runningtext = _("Show running text for description of the event.")
 		list.append(getConfigListEntry(tab + _("Show scrollbar?"), config.plugins.MyMetrixLiteOther.showMovieListScrollbar, help_scrollbar))
 		list.append(getConfigListEntry(tab + _("Show running text?"), config.plugins.MyMetrixLiteOther.showMovieListRunningtext, help_runningtext, "ENABLED"))
-		section = _("EMC/MoviePlayer")
+		section = _("EMC/MoviePlayer") if emcInstalled else _("Movie player")
 		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
 		list.append(getConfigListEntry(tab + _("Hide PVR State"), config.usage.movieplayer_pvrstate, _("Setting is the same as\n'") + _("Show PVR status in MoviePlayer infobar") + _("'\nin the\n'") + _("OSD settings") + "'.", "ENABLED"))
 		if not config.usage.movieplayer_pvrstate.value:
