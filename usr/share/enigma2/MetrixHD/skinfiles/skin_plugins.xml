@@ -3202,22 +3202,25 @@
 	
 
 	<screen name="E2iPlayerWidgetScreen" position="0,0" size="1280,720" title="E2iPlayer" backgroundColor="transparent" flags="wfNoBorder">
-		<ePixmap position="855,632" size="81,40" zPosition="10" pixmap="buttons/info.png" transparent="1" alphatest="blend" />
-		<ePixmap position="950,632" size="81,40" zPosition="10" pixmap="buttons/ok.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1045,632" size="81,40" zPosition="10" pixmap="buttons/key_leftright.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1140,632" size="81,40" zPosition="10" pixmap="buttons/key_updown.png" transparent="1" alphatest="blend" />
-		<widget name="headertext" position="440,100" zPosition="10" size="780,50" halign="left" valign="center" font="screen_text; 20" backgroundColor="layer-a-background" foregroundColor="#66ccff" transparent="1" />
-		<widget name="statustext" position="center,center" zPosition="1" size="680,90" halign="center" valign="center" font="screen_text;30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget name="list" position="300,150" zPosition="2" size="920,280" itemHeight="28" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1" />
+		<widget source="key_menu" render="Pixmap" pixmap="buttons/menu.png" position="796,632" size="81,40" zPosition="10" transparent="1" alphatest="blend" conditional="key_menu">
+			<convert type="ConditionalShowHide" />
+		</widget>
+		<ePixmap position="881,632" size="81,40" zPosition="10" pixmap="buttons/info.png" transparent="1" alphatest="blend" />
+		<ePixmap position="966,632" size="81,40" zPosition="10" pixmap="buttons/ok.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1051,632" size="81,40" zPosition="10" pixmap="buttons/key_leftright.png" transparent="1" alphatest="blend" />
+		<ePixmap position="1136,632" size="81,40" zPosition="10" pixmap="buttons/key_updown.png" transparent="1" alphatest="blend" />
+		<widget name="headertext" position="520,100" zPosition="10" size="700,50" halign="left" valign="center" font="screen_text; 20" backgroundColor="layer-a-background" foregroundColor="#66ccff" transparent="1" />
+		<widget name="statustext" position="460,245" zPosition="1" size="680,90" halign="center" valign="center" font="screen_text;30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="list" position="380,150" zPosition="2" size="840,280" itemHeight="28" font="screen_text;20" scrollbarMode="showOnDemand" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" enableWrapAround="1" transparent="1" />
 		<widget name="sequencer" position="fill" zPosition="6" font="Regular;160" halign="center" valign="center" transparent="1" backgroundColor="layer-a-background" />
-		<widget name="console" position="60,436" zPosition="1" size="1160,192" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" halign="left" valign="center" />
-		<widget name="cover" position="60,100" size="208,330" zPosition="3" alphatest="blend" />
-		<widget name="playerlogo" zPosition="4" position="302,105" size="120,40" alphatest="blend" transparent="1" backgroundColor="layer-a-background" />
-		<widget name="spinner" zPosition="2" position="612,300" size="16,16" transparent="1" alphatest="blend" />
-		<widget name="spinner_1" zPosition="1" position="612,300" size="16,16" transparent="1" alphatest="blend" />
-		<widget name="spinner_2" zPosition="1" position="628,300" size="16,16" transparent="1" alphatest="blend" />
-		<widget name="spinner_3" zPosition="1" position="644,300" size="16,16" transparent="1" alphatest="blend" />
-		<widget name="spinner_4" zPosition="1" position="660,300" size="16,16" transparent="1" alphatest="blend" />
+		<widget name="console" position="380,436" zPosition="1" size="840,192" font="screen_info;20" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" halign="left" valign="center" />
+		<widget name="cover" position="60,100" size="300,450" zPosition="3" alphatest="blend" />
+		<widget name="playerlogo" zPosition="4" position="382,105" size="120,40" alphatest="blend" transparent="1" backgroundColor="layer-a-background" />
+		<widget name="spinner" zPosition="2" position="768,282" size="16,16" transparent="1" alphatest="blend" />
+		<widget name="spinner_1" zPosition="1" position="768,282" size="16,16" transparent="1" alphatest="blend" />
+		<widget name="spinner_2" zPosition="1" position="784,282" size="16,16" transparent="1" alphatest="blend" />
+		<widget name="spinner_3" zPosition="1" position="800,282" size="16,16" transparent="1" alphatest="blend" />
+		<widget name="spinner_4" zPosition="1" position="816,282" size="16,16" transparent="1" alphatest="blend" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="template1_1layer" />
 		<panel name="T_Title" />
@@ -3330,17 +3333,23 @@ except Exception:
 
 <!-- cf#_#rename --> 
 	<screen name="PlayerSelectorGrid" position="0,0" size="1280,720"  title="E2iPlayer" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="grid" render="Listbox" position="70,100" size="1140,525" conditional="grid" listOrientation="grid" scrollbarMode="showOnDemand" itemSpacing="20,20" itemAlignment="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground">
+		<widget source="grid" render="Listbox" position="70,124" size="1140,476" conditional="grid" listOrientation="grid" scrollbarMode="showOnDemand" itemSpacing="20,20" itemAlignment="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground">
 			<templates>
-				<template name="Default" fonts="epg_text;20">
+				<template name="Default" fonts="epg_text;19,epg_text;22,epg_text;25">
 					<mode name="default" itemHeight="145" itemWidth="145">
 						<pixmap index="0" position="22,22" size="100,100" alpha="blend"  scale="centerScaled" />
+						<text index="4" position="24,72" size="98,50" font="0" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#000000" foregroundColorSelected="#000000" />
+						<text index="4" position="22,70" size="100,50" font="0" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#ffffff" foregroundColorSelected="#ffffff" />
 					</mode>
 					<mode name="120" itemHeight="165" itemWidth="165">
 						<pixmap index="0" position="22,22" size="120,120" alpha="blend" scale="centerScaled" />
+						<text index="4" position="24,84" size="118,58" font="1" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#000000" foregroundColorSelected="#000000" />
+						<text index="4" position="22,82" size="120,58" font="1" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#ffffff" foregroundColorSelected="#ffffff" />
 					</mode>
 					<mode name="135" itemHeight="180" itemWidth="180">
 						<pixmap index="0" position="22,22" size="135,135" alpha="blend" scale="centerScaled" />
+						<text index="4" position="24,93" size="133,64" font="2" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#000000" foregroundColorSelected="#000000" />
+						<text index="4" position="22,91" size="135,64" font="2" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#ffffff" foregroundColorSelected="#ffffff" />
 					</mode>
 				</template>
 			</templates>
@@ -3348,17 +3357,23 @@ except Exception:
 	</screen>
 <!-- cf#_#rename --> 
 	<screen name="PlayerSelectorGrid#_FHDscreen" position="0,0" size="1920,1080"  title="E2iPlayer" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="grid" render="Listbox" position="105,150" size="1710,787" conditional="grid" listOrientation="grid" scrollbarMode="showOnDemand" itemSpacing="30,30" itemAlignment="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground">
+		<widget source="grid" render="Listbox" position="105,186" size="1710,714" conditional="grid" listOrientation="grid" scrollbarMode="showOnDemand" itemSpacing="30,30" itemAlignment="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground">
 			<templates>
-				<template name="Default" fonts="epg_text;20">
+				<template name="Default" fonts="epg_text;19,epg_text;22,epg_text;25">
 					<mode name="default" itemHeight="145" itemWidth="145">
 						<pixmap index="0" position="22,22" size="100,100" alpha="blend"  scale="centerScaled" />
+						<text index="4" position="24,72" size="98,50" font="0" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#000000" foregroundColorSelected="#000000" />
+						<text index="4" position="22,70" size="100,50" font="0" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#ffffff" foregroundColorSelected="#ffffff" />
 					</mode>
 					<mode name="120" itemHeight="165" itemWidth="165">
 						<pixmap index="0" position="22,22" size="120,120" alpha="blend" scale="centerScaled" />
+						<text index="4" position="24,84" size="118,58" font="1" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#000000" foregroundColorSelected="#000000" />
+						<text index="4" position="22,82" size="120,58" font="1" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#ffffff" foregroundColorSelected="#ffffff" />
 					</mode>
 					<mode name="135" itemHeight="180" itemWidth="180">
 						<pixmap index="0" position="22,22" size="135,135" alpha="blend" scale="centerScaled" />
+						<text index="4" position="24,93" size="133,64" font="2" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#000000" foregroundColorSelected="#000000" />
+						<text index="4" position="22,91" size="135,64" font="2" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#ffffff" foregroundColorSelected="#ffffff" />
 					</mode>
 				</template>
 			</templates>
@@ -3366,17 +3381,23 @@ except Exception:
 	</screen>
 <!-- cf#_#rename -->
 	<screen name="PlayerSelectorGrid#_WQHDscreen" position="0,0" size="2560,1440" title="E2iPlayer" flags="wfNoBorder" backgroundColor="transparent">
-		<widget source="grid" render="Listbox" position="140,200" size="2280,1049" conditional="grid" listOrientation="grid" scrollbarMode="showOnDemand" itemSpacing="40,40" itemAlignment="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground">
+		<widget source="grid" render="Listbox" position="140,248" size="2280,952" conditional="grid" listOrientation="grid" scrollbarMode="showOnDemand" itemSpacing="40,40" itemAlignment="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground">
 			<templates>
-				<template name="Default" fonts="epg_text;20">
+				<template name="Default" fonts="epg_text;19,epg_text;22,epg_text;25">
 					<mode name="default" itemHeight="145" itemWidth="145">
 						<pixmap index="0" position="22,22" size="100,100" alpha="blend" scale="centerScaled" />
+						<text index="4" position="24,72" size="98,50" font="0" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#000000" foregroundColorSelected="#000000" />
+						<text index="4" position="22,70" size="100,50" font="0" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#ffffff" foregroundColorSelected="#ffffff" />
 					</mode>
 					<mode name="120" itemHeight="165" itemWidth="165">
 						<pixmap index="0" position="22,22" size="120,120" alpha="blend" scale="centerScaled" />
+						<text index="4" position="24,84" size="118,58" font="1" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#000000" foregroundColorSelected="#000000" />
+						<text index="4" position="22,82" size="120,58" font="1" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#ffffff" foregroundColorSelected="#ffffff" />
 					</mode>
 					<mode name="135" itemHeight="180" itemWidth="180">
 						<pixmap index="0" position="22,22" size="135,135" alpha="blend" scale="centerScaled" />
+						<text index="4" position="24,93" size="133,64" font="2" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#000000" foregroundColorSelected="#000000" />
+						<text index="4" position="22,91" size="135,64" font="2" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#ffffff" foregroundColorSelected="#ffffff" />
 					</mode>
 				</template>
 			</templates>
@@ -3386,6 +3407,8 @@ except Exception:
 	<screen name="PlayerSelectorScreen" position="0,0" size="1280,720"  title="E2iPlayer" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="T_Title_L" />
 		<widget name="statustext" position="458,36" size="450,50" font="epg_text;22" valign="center" halign="center" foregroundColor="layer-a-foreground" zPosition="0" />
+		<widget name="categorytext" position="70,92" size="1140,30" font="screen_text;20" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" conditional="categorytext" />
+		<widget name="hostinfo" position="70,602" size="1140,26" font="screen_text;17" halign="center" valign="center" noWrap="1" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" conditional="hostinfo" />
 		<panel name="PlayerSelectorGrid" />
 		<panel name="template1_1layer" />
 		<panel name="moe-buttons_template2" />
@@ -3420,10 +3443,8 @@ except Exception:
 		<panel name="T_Title" />
 		<widget name="playerlogo" position="60,110" size="200,90" zPosition="4" alphatest="blend" transparent="1" />
 		<widget name="status" position="300,92" size="920,32" font="screen_text;22" halign="left" valign="center" foregroundColor="#66ccff" backgroundColor="layer-a-background" zPosition="1" transparent="1" />
-		<widget name="hint" position="300,600" size="920,26" font="screen_text;18" halign="left" valign="center" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" />
 		<widget name="list" position="300,136" size="920,454" itemHeight="36" font="screen_text;20" scrollbarMode="showOnDemand" scrollbarSliderBorderWidth="1" scrollbarForegroundColor="layer-a-selection-background" scrollbarBorderColor="layer-a-accent2" enableWrapAround="1" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<panel name="ScreenTemplateButtonRed_template1" />
-		<panel name="ScreenTemplateButtonYellow_template1" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="_oe-buttons_template2" />
 	</screen>
 
@@ -3433,15 +3454,21 @@ except Exception:
 		<panel name="T_Title" />
 		<widget source="grid" render="Listbox" position="70,100" size="1140,500" conditional="grid" listOrientation="grid" scrollbarMode="showOnDemand" itemSpacing="20,20" itemAlignment="center" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground">
 			<templates>
-				<template name="Default" fonts="epg_text;20">
+				<template name="Default" fonts="epg_text;19,epg_text;22,epg_text;25">
 					<mode name="default" itemHeight="145" itemWidth="145">
 						<pixmap index="0" position="22,22" size="100,100" alpha="blend" scale="centerScaled" />
+						<text index="4" position="24,72" size="98,50" font="0" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#000000" foregroundColorSelected="#000000" />
+						<text index="4" position="22,70" size="100,50" font="0" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#ffffff" foregroundColorSelected="#ffffff" />
 					</mode>
 					<mode name="120" itemHeight="165" itemWidth="165">
 						<pixmap index="0" position="22,22" size="120,120" alpha="blend" scale="centerScaled" />
+						<text index="4" position="24,84" size="118,58" font="1" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#000000" foregroundColorSelected="#000000" />
+						<text index="4" position="22,82" size="120,58" font="1" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#ffffff" foregroundColorSelected="#ffffff" />
 					</mode>
 					<mode name="135" itemHeight="180" itemWidth="180">
 						<pixmap index="0" position="22,22" size="135,135" alpha="blend" scale="centerScaled" />
+						<text index="4" position="24,93" size="133,64" font="2" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#000000" foregroundColorSelected="#000000" />
+						<text index="4" position="22,91" size="135,64" font="2" horizontalAlignment="center" verticalAlignment="bottom" wrap="wrap" foregroundColor="#ffffff" foregroundColorSelected="#ffffff" />
 					</mode>
 				</template>
 			</templates>
@@ -3456,8 +3483,9 @@ except Exception:
 		<panel name="template1_1layer" />
 		<panel name="T_Title_L" />
 		<widget name="categorytext" position="70,92" size="1140,30" font="screen_text;20" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="grid" position="70,132" size="1140,458" conditional="grid" scrollbarMode="showAlways" scrollbarSliderBorderWidth="1" scrollbarForegroundColor="layer-a-selection-background" scrollbarBorderColor="layer-a-accent2" enableWrapAround="1" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" />
-		<widget name="statustext" position="70,600" size="1140,28" font="screen_text;18" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="grid" position="150,132" size="980,440" conditional="grid" scrollbarMode="showAlways" scrollbarSliderBorderWidth="1" scrollbarForegroundColor="layer-a-selection-background" scrollbarBorderColor="layer-a-accent2" enableWrapAround="1" transparent="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" />
+		<widget name="statustext" position="70,576" size="1140,26" font="screen_text;18" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
+		<widget name="hostinfo" position="70,604" size="1140,24" font="screen_text;16" halign="center" valign="center" noWrap="1" foregroundColor="layer-a-accent1" backgroundColor="layer-a-background" transparent="1" conditional="hostinfo" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<panel name="moe-buttons_template2" />
 	</screen>
@@ -3482,14 +3510,6 @@ except Exception:
 		<widget name="status" position="340,392" size="600,30" zPosition="5" halign="center" valign="center" font="screen_text;21" foregroundColor="layer-a-foreground" backgroundColor="black" transparent="1" />
 		<widget name="console" position="0,430" size="1280,30" zPosition="5" halign="center" valign="center" font="screen_text;21" foregroundColor="layer-a-foreground" backgroundColor="black" transparent="1" />
 		<panel name="_oe-buttons_template2" />
-	</screen>
-
-	<!-- Einfache Eingabe (IPTVInputBoxWidget, Fensterrahmen von MetrixHD) -->
-	<screen name="IPTVInputBoxWidget" position="center,center" size="620,240" title="Input">
-		<eLabel position="0,0" size="e,e" zPosition="-10" backgroundColor="layer-a-background" />
-		<widget name="text" position="20,18" size="e-40,38" font="screen_text;22" valign="center" halign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="input" position="20,74" size="e-40,50" font="screen_text;30" valign="center" halign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="cover" position="center,132" size="220,90" zPosition="4" transparent="1" alphatest="on" />
 	</screen>
 
 	<screen name="IPTVMultipleInputBox" position="center,center" size="760,470" title="Input" flags="wfNoBorder" backgroundColor="transparent">
