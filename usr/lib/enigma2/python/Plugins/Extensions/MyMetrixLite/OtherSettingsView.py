@@ -19,9 +19,10 @@
 #
 #######################################################################
 from __future__ import division
-from PIL import Image
 from os import remove
 from os.path import exists
+from PIL import Image
+
 from enigma import ePicLoad, getDesktop
 
 from Components.ActionMap import ActionMap
@@ -29,13 +30,14 @@ from Components.config import config, configfile, getConfigListEntry
 from Components.ConfigList import ConfigListScreen
 from Components.Label import Label
 from Components.Pixmap import Pixmap
-from Components.Sources.StaticText import StaticText
 from Components.SystemInfo import BoxInfo
+from Components.Converter.MetrixHDSTBinfo import MetrixHDSTBinfo
+from Components.Sources.StaticText import StaticText
 from Screens.MessageBox import MessageBox
 from Screens.Screen import Screen
-from Tools.Directories import fileExists, resolveFilename, SCOPE_CURRENT_SKIN
+from Tools.Directories import SCOPE_CURRENT_SKIN, fileExists, resolveFilename
 
-from . import _, PLUGIN_PATH
+from . import PLUGIN_PATH, _
 from .ActivateSkinSettings import ActivateSkinSettings
 
 BoxType = BoxInfo.getItem("machinebuild")
@@ -273,34 +275,7 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			config.plugins.MyMetrixLiteOther.SkinDesignOLVposy.value = 41
 
 	def getCPUSensor(self):
-		value = ""
-		if exists('/proc/stb/fp/temp_sensor_avs'):
-			with open('/proc/stb/fp/temp_sensor_avs') as f:
-				value = f.read()
-		elif exists('/proc/stb/power/avs'):
-			with open('/proc/stb/power/avs') as f:
-				value = f.read()
-		elif exists('/sys/devices/virtual/thermal/thermal_zone0/temp'):
-			try:
-				with open('/sys/devices/virtual/thermal/thermal_zone0/temp') as f:
-					value = f.read()
-					value = value[:-4]
-			except Exception:
-				value = ""
-		elif exists('/proc/hisi/msp/pm_cpu'):
-			try:
-				for line in open('/proc/hisi/msp/pm_cpu').readlines():
-					line = [x.strip() for x in line.strip().split(":")]
-					if line[0] in ("Tsensor"):
-						value = line[1].split("=")
-						value = line[1].split(" ")
-						value = value[2]
-			except Exception:
-				value = ""
-		if value and int(value.replace('\n', '')) > 0:
-			return True
-		else:
-			return False
+		return MetrixHDSTBinfo.getCPUTemperature() is not None
 
 	def getSYSSensor(self):
 		temp = ""
@@ -337,16 +312,17 @@ class OtherSettingsView(ConfigListScreen, Screen):
 			list.append(getConfigListEntry(tab + _("Set picon sharpness"), config.plugins.MyMetrixLiteOther.piconsharpness_experimental, _("Change the picon sharpness with the scaling.\nInfo: < 1 = blurred and > 1 = sharpened\n(no restart required)")))
 		section = _("STB-Info")
 		list.append(getConfigListEntry(section + tab + sep * (char - len(section) - len(tab)), ))
+		stbInfoHelp = _("Enable 'Show STB-Info' under InfoBar or EMC/MoviePlayer, then apply changes and restart.")
 		list.append(getConfigListEntry(tab + _("Distance between the STB-Infos"), config.plugins.MyMetrixLiteOther.STBDistance, _("helptext")))
-		list.append(getConfigListEntry(tab + _("Show free RAM"), config.plugins.MyMetrixLiteOther.showRAMfree, _("helptext")))
-		list.append(getConfigListEntry(tab + _("Show CPU-Load"), config.plugins.MyMetrixLiteOther.showCPULoad, _("helptext")))
+		list.append(getConfigListEntry(tab + _("Show free RAM"), config.plugins.MyMetrixLiteOther.showRAMfree, stbInfoHelp))
+		list.append(getConfigListEntry(tab + _("Show CPU-Load"), config.plugins.MyMetrixLiteOther.showCPULoad, stbInfoHelp))
 		if self.getCPUSensor():
-			list.append(getConfigListEntry(tab + _("Show CPU-Temp"), config.plugins.MyMetrixLiteOther.showCPUTemp, _("helptext")))
+			list.append(getConfigListEntry(tab + _("Show CPU-Temp"), config.plugins.MyMetrixLiteOther.showCPUTemp, stbInfoHelp))
 		elif config.plugins.MyMetrixLiteOther.showCPUTemp.getValue() is not False:
 			config.plugins.MyMetrixLiteOther.showCPUTemp.setValue(False)
 			config.plugins.MyMetrixLiteOther.save()
 		if self.getSYSSensor():
-			list.append(getConfigListEntry(tab + _("Show SYS-Temp"), config.plugins.MyMetrixLiteOther.showSYSTemp, _("helptext")))
+			list.append(getConfigListEntry(tab + _("Show SYS-Temp"), config.plugins.MyMetrixLiteOther.showSYSTemp, stbInfoHelp))
 		elif config.plugins.MyMetrixLiteOther.showSYSTemp.getValue() is not False:
 			config.plugins.MyMetrixLiteOther.showSYSTemp.setValue(False)
 			config.plugins.MyMetrixLiteOther.save()

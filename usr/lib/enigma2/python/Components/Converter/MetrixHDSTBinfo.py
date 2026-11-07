@@ -1,10 +1,11 @@
 from __future__ import division
 from os import popen
 from os.path import exists
-from Components.Converter.Converter import Converter
+
+from Screens import Standby
 from Components.config import config
 from Components.Element import cached
-import Screens.Standby
+from Components.Converter.Converter import Converter
 from Plugins.Extensions.MyMetrixLite.__init__ import _, initOtherConfig
 
 
@@ -21,7 +22,7 @@ class MetrixHDSTBinfo(Converter, object):
 
 	@cached
 	def getText(self):
-		if Screens.Standby.inStandby:
+		if Standby.inStandby:
 			return ""
 		elif self.type == "CPUload":
 			return self.getCPUload()
@@ -69,40 +70,35 @@ class MetrixHDSTBinfo(Converter, object):
 			info = _("CPU-Load: %s") % info
 		return info
 
+	@staticmethod
+	def getCPUTemperature():
+		temperature = None
+		for sensorPath, divisor in (
+			("/proc/stb/fp/temp_sensor_avs", 1),
+			("/proc/stb/power/avs", 1),
+			("/proc/hisi/msp/pm_cpu", 1),
+			("/sys/devices/virtual/thermal/thermal_zone0/temp", 1000),
+			("/sys/class/thermal/thermal_zone0/temp", 1000)
+		):
+			try:
+				with open(sensorPath) as sensorFile:
+					sensorValue = sensorFile.read()
+				if sensorPath == "/proc/hisi/msp/pm_cpu":
+					for line in sensorValue.splitlines():
+						if "temperature = " in line:
+							sensorValue = line.split("temperature = ", 1)[1].split()[0]
+							break
+				value = int(sensorValue.strip()) // divisor
+				if value > 0:
+					temperature = value
+					break
+			except (OSError, ValueError, IndexError):
+				continue
+		return temperature
+
 	def getCPUtemp(self):
-		info = ""
-		temp = ""
-		if exists('/proc/stb/fp/temp_sensor_avs'):
-			f = open('/proc/stb/fp/temp_sensor_avs', 'r')
-			temp = f.readline()
-			f.close()
-		elif exists('/proc/stb/power/avs'):
-			f = open('/proc/stb/power/avs', 'r')
-			temp = f.readline()
-			f.close()
-		elif exists('/proc/hisi/msp/pm_cpu'):
-			try:
-				for line in open('/proc/hisi/msp/pm_cpu').readlines():
-					line = [x.strip() for x in line.strip().split(":")]
-					if line[0] in ("Tsensor"):
-						temp = line[1].split("=")
-						temp = line[1].split(" ")
-						temp = temp[2]
-			except:
-				temp = ""
-		elif exists('/sys/devices/virtual/thermal/thermal_zone0/temp'):
-			try:
-				f = open('/sys/devices/virtual/thermal/thermal_zone0/temp', 'r')
-				temp = f.read()
-				temp = temp[:-4]
-				f.close()
-			except:
-				temp = ""
-		if temp and int(temp.replace('\n', '')) > 0:
-			#info ="CPU-Temp: " + temp.replace('\n', '')  + str('\xc2\xb0') + "C"
-			info = temp.replace('\n', '').replace(' ', '') + TEMPSIGN
-			info = _("CPU-Temp: %s") % info
-		return info
+		temperature = self.getCPUTemperature()
+		return _("CPU-Temp: %s") % f"{temperature}{TEMPSIGN}" if temperature is not None else ""
 
 	def getSYStemp(self):
 		info = ""
