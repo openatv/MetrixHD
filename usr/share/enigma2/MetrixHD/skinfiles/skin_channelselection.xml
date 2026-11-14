@@ -10,6 +10,38 @@
 	<screen name="ChannelSelectionPIG" label="List and live TV" base="ChannelSelection" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="ChannelSelection_PIG" />
 	</screen>
+	<screen name="ChannelSelectionRadioDABList" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="layer-a-background" transparent="0">
+		<panel name="T_Title" />
+		<panel name="RTSB_ChannelList_StandardList_LEFT" />
+		<panel name="template1_2layer" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+		<panel name="ime-buttons_template1" />
+		<widget source="session.CurrentService" render="Label" position="820,78" size="395,36" font="epg_event;26" foregroundColor="layer-b-foreground" transparent="1" halign="center" valign="center" noWrap="1" fontScale="size;18">
+			<convert type="ServiceName">NameOnly</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="820,117" size="395,27" font="epg_info;19" foregroundColor="layer-b-accent1" transparent="1" halign="center" valign="center" noWrap="1" fontScale="size;15">
+			<convert type="ServiceInfo">DABEnsemble</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Picon" position="895,215" size="245,147" alphatest="blend" transparent="1" zPosition="1">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+		<widget name="DabImage" position="842,155" size="352,264" scaleFlags="centerScaled" alphatest="off" zPosition="2" />
+		<widget source="session.CurrentService" render="Label" position="820,430" size="395,54" font="epg_info;20" foregroundColor="layer-b-foreground" transparent="1" valign="top" scrollText="direction=top, startDelay=3000, endDelay=3000, stepDelay=80, stepSize=1, repeat=-1, mode=cached">
+			<convert type="ServiceInfo">DABDynamicLabel</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="820,487" size="395,24" font="epg_event;18" foregroundColor="layer-b-foreground" transparent="1" noWrap="1" fontScale="size;15">
+			<convert type="ServiceInfo">DABTitle</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="820,512" size="395,24" font="epg_info;18" foregroundColor="layer-b-foreground" transparent="1" noWrap="1" fontScale="size;15">
+			<convert type="ServiceInfo">DABArtist</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="820,543" size="395,25" font="epg_info;18" foregroundColor="layer-b-accent1" transparent="1" noWrap="1" fontScale="size;15">
+			<convert type="ServiceInfo">DABPTY</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="815,569" size="405,25" font="epg_info;16" foregroundColor="layer-b-foreground" transparent="1" noWrap="1" fontScale="size;13">
+			<convert type="ServiceInfo">DABTechnical</convert>
+		</widget>
+	</screen>
 	<screen name="ChannelSelectionFull" label="Full screen" base="ChannelSelection" position="0,0" size="1280,720" title="Channel Selection" flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="CHANNELSELECTION-Title-1"/>
 		<panel name="template1_1layer" />

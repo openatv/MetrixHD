@@ -1681,22 +1681,49 @@ if len(listitems.list) &gt; 2:
 	</screen>
 
 	<!--Radio Channel Selection -->
-	<screen name="ChannelSelectionRadio" position="0,0" size="1280,720" title="Radio Channel Selection" zPosition="-10" flags="wfNoBorder" backgroundColor="transparent">
+	<screen name="ChannelSelectionRadioLayout">
 		<eLabel text="Radio Channel Selection" position="58,36" size="900,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
 		<widget source="Title" render="Label" position="70,90" size="1110,30" font="screen_text;22" backgroundColor="layer-a-background" transparent="1" />
 		<eLabel position="70,122" size="1140,1" backgroundColor="layer-a-accent2" />
-		<widget source="ServiceEvent" render="Label" position="810,125" size="395,65" font="epg_event;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" halign="center" valign="center">
-			<convert type="EventName">Name</convert>
-		</widget>
-		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="815,460" size="385,50" font="epg_info;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" noWrap="1" transparent="0" />
 		<eLabel position="780,122" size="1,393" backgroundColor="layer-a-accent2" />
 		<eLabel position="70,515" size="1140,1" backgroundColor="layer-a-accent2" />
-		<panel name="RTSB_ChannelSelectionRadio_list_plus_description"/>
 		<panel name="template1_1layer" />
 		<panel name="ScreenTemplateAllColorButtons_template1" />
 		<ePixmap position="950,635" size="81,40" zPosition="10" pixmap="buttons/info.png" transparent="1" alphatest="blend" />
 		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/menu.png" transparent="1" alphatest="blend" />
 		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/key_exit.png" transparent="1" alphatest="blend" />
+	</screen>
+	<screen name="ChannelSelectionRadio" position="0,0" size="1280,720" title="Radio Channel Selection" zPosition="-10" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="ChannelSelectionRadioLayout" />
+		<widget source="ServiceEvent" render="Label" position="810,125" size="395,65" font="epg_event;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" halign="center" valign="center">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget source="ServiceEvent" render="MetrixHDSingleEpgList" position="815,460" size="385,50" font="epg_info;19" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" noWrap="1" transparent="0" />
+		<panel name="RTSB_ChannelSelectionRadio_list_plus_description" />
+	</screen>
+	<screen name="ChannelSelectionRadioDABWithEPG" position="0,0" size="1280,720" title="Radio Channel Selection" zPosition="-10" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="ChannelSelectionRadioLayout" />
+		<panel name="RTSB_ChannelSelectionRadio_list" />
+		<widget source="session.CurrentService" render="Label" position="815,132" size="385,27" font="epg_event;21" foregroundColor="layer-a-foreground" transparent="1" halign="center" valign="center" noWrap="1" fontScale="size;16">
+			<convert type="ServiceName">NameOnly</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Picon" position="898,207" size="220,132" alphatest="blend" transparent="1" zPosition="1">
+			<convert type="ServiceName">Reference</convert>
+		</widget>
+		<widget name="DabImage" position="868,168" size="280,210" scaleFlags="centerScaled" alphatest="off" zPosition="2" />
+		<widget source="ServiceEvent" render="Label" position="815,385" size="385,47" font="epg_event;20" foregroundColor="layer-a-foreground" transparent="1" valign="top">
+			<convert type="EventName">Name</convert>
+		</widget>
+		<widget source="ServiceEvent" render="MetrixHDRunningText" options="movetype=running,startdelay=2500,startpoint=0,steptime=80,step=1,direction=top,wrap=1,always=0,repeat=2,oneshot=2500" position="815,433" size="385,45" font="epg_info;17" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" halign="left" valign="top">
+			<convert type="EventName">FullDescription</convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="815,483" size="57,26" font="epg_info;17" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" noWrap="1">
+			<convert type="EventTime">NextStartTime</convert>
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<widget source="ServiceEvent" render="Label" position="876,483" size="324,26" font="epg_info;17" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="0" noWrap="1" fontScale="size;14">
+			<convert type="EventName">NextName</convert>
+		</widget>
 	</screen>
 	<screen name="RadioInfoBar" position="69,524" size="1142,102" title="Radio" zPosition="-9" flags="wfNoBorder" backgroundColor="layer-a-background">
 		<eLabel position="1,1" zPosition="0" size="1140,100" backgroundColor="layer-a-background" transparent="0" />
