@@ -121,11 +121,10 @@
 		<panel name="_oe-buttons_template1" />
 		<panel name="T_Img_Logo" />
 	</screen>
-	<screen name="MovieContextMenu" position="880,0" size="400,723" title="Movielist menu" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel position="0,0" zPosition="-10" size="400,723" backgroundColor="layer-a-background" />
-		<eLabel text="Select a movie" position="12,36" size="800,50" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="Movielist menu" position="31,115" size="700,28" font="SetrixHD;23" backgroundColor="layer-a-background" transparent="1" />
-		<widget name="menu" position="14,196" size="350,450" zPosition="3" itemHeight="30" scrollbarMode="showOnDemand" enableWrapAround="1" transparent="1" />
+	<screen name="MovieContextMenu" position="0,0" size="1280,720" title="Movielist menu" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="AMLFrame" />
+		<widget name="config" position="60,110" size="1160,490" font="screen_text;24" itemHeight="36" scrollbarMode="showOnDemand" enableWrapAround="1" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" foregroundColorSelected="layer-a-selection-foreground" backgroundColorSelected="layer-a-selection-background" transparent="1" />
+		<widget source="status" render="Label" position="820,638" size="400,30" font="screen_text;18" halign="right" foregroundColor="layer-a-foreground" transparent="1" />
 	</screen>
 	<screen name="RecordPathsSettings" position="0,0" size="1280,720" title="Recording paths..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="template1_1layer" />

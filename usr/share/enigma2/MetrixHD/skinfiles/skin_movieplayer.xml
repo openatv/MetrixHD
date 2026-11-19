@@ -176,43 +176,18 @@
 
 		<ePixmap name="menu_button" position="1125,630" size="81,40" pixmap="buttons/menu.png" />
 	</screen>
-	<screen name="MovieSelectionSlim" position="0,0" size="1280,720" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MovieSelection_left"/>
+	<screen name="MovieSelectionSlim" simpleScreen="MovieSelectionAdvancedSimple" position="0,0" size="1280,720" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="MovieSelectionAdvanced" />
 	</screen>
-	<screen name="MovieSelection_PIG" position="0,0" size="1280,720" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
-		<eLabel text="Movie Selection" position="58,36" size="525,50" noWrap="1" valign="bottom" font="global_title;34" foregroundColor="layer-a-title-foreground" backgroundColor="layer-a-background" transparent="1" />
-		<eLabel text="Movie Selection" position="5,535" size="1280,200" font="global_large_screen;100" noWrap="0" backgroundColor="text-background" transparent="1" foregroundColor="background-text" valign="bottom" zPosition="-50" />
-		<widget name="list" position="70,130" size="600,500" scrollbarMode="showNever" font="epg_text;20" itemHeight="30" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
-		<widget name="chosenletter" position="70,130" size="600,500" font="epg_text;100" foregroundColor="layer-b-accent1" halign="center" transparent="1" valign="center" zPosition="+1" />
-		<widget name="waitingtext" position="100,300" size="540,100" zPosition="1" font="epg_text;24" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" halign="center" valign="center" transparent="0"/>
-		<widget name="freeDiskSpace" position="70,95" size="680,30" font="epg_text;22" valign="center" halign="left" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" transparent="1" />
-		<widget source="session.VideoPicture" render="Pig" position="680,95" size="530,299" zPosition="3" backgroundColor="unff000000" />
-		<widget source="session.CurrentService" render="Label" position="680,92" size="530,30" zPosition="4" font="epg_text;18"  halign="center" valign="top" noWrap="1" backgroundColor="transparent" foregroundColor="epg-event-foreground" borderColor="black" borderWidth="1" transparent="1">
-			<convert type="ServiceName">Name</convert>
-		</widget>
-		<eLabel position="680,400" size="530,228" zPosition="1" backgroundColor="layer-b-background" />
-		<widget source="Service" render="Label" position="685,400" size="520,24" font="epg_text;19" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="1">
-			<convert type="MovieInfo">RecordServiceName</convert>
-		</widget>
-		<widget source="Service" render="Label" position="1125,400" size="80,24" font="epg_text;19" halign="right" zPosition="2"  backgroundColor="layer-b-background" foregroundColor="layer-b-accent1" transparent="0">
-			<convert type="ServiceTime">Duration</convert>
-			<convert type="ClockToText">InMinutes</convert>
-		</widget>
-		<widget source="Service" render="MetrixHDRunningText" options="movetype=none,startdelay=600,steptime=60,direction=top,startpoint=0,wrap=1,always=0,repeat=2,oneshot=1" position="685,426" size="520,198" font="epg_info;19" zPosition="2" backgroundColor="layer-b-background" foregroundColor="layer-b-foreground" transparent="1" valign="top">
-			<convert type="MovieInfo">FullDescription</convert>
-		</widget>
-		<panel name="template1_1layer" />
-		<panel name="ScreenTemplateAllColorButtons_template1" />
-		<ePixmap position="950,635" size="81,40" zPosition="10" pixmap="buttons/info.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1045,635" size="81,40" zPosition="10" pixmap="buttons/menu.png" transparent="1" alphatest="blend" />
-		<ePixmap position="1140,635" size="81,40" zPosition="10" pixmap="buttons/key_exit.png" transparent="1" alphatest="blend" />
+	<screen name="MovieSelection_PIG" simpleScreen="MovieSelectionClassicLeftPreviewSimple" position="0,0" size="1280,720" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="MovieSelectionClassicLeftPreview" />
 	</screen>
 	<screen name="MovieListTags" position="0,0" size="1280,720" title="Please select tag to filter..." flags="wfNoBorder" backgroundColor="transparent">
 		<panel name="ChoiceBox"/>
 	</screen>
 	<!-- MovieSelection -->
-	<screen name="MovieSelection" position="0,0" size="1280,720" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
-		<panel name="MovieSelection_left"/>
+	<screen name="MovieSelection" simpleScreen="MovieSelectionAdvancedSimple" position="0,0" size="1280,720" title="Select a movie" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="MovieSelectionAdvanced" />
 	</screen>
 	<!-- MoviePlayer -->
 	<screen name="MoviePlayer" position="0,0" size="1280,720" title="InfoBar" flags="wfNoBorder" backgroundColor="transparent">
@@ -223,17 +198,549 @@
 		<!--panel name="STBINFOMOVIEPLAYER" /-->
 		<!--panel name="STBINFO" /-->
 		<panel name="SKINPART_movieplayer"/>
-<!-- e2MDB EventInfo component-meta test BEGIN -->
-	<widget source="session.Event_Now" render="Pixmap"
-		position="1120,280" size="140,200"
-		zPosition="210"
-		alphatest="blend"
-		scaleFlags="centerScaled"
-		backgroundColor="#000000"
-		transparent="1"
-		condition="config.plugins.e2mdb.epgMetaEnabled.value">
-			<convert type="E2MDBEventInfo">Cover</convert>
-	</widget>
-<!-- e2MDB EventInfo component-meta test END -->
+		<panel name="AMLNativePlayerArtwork" />
 	</screen>
+	<!-- AML screens BEGIN -->
+	<screen name="AMLFrame">
+		<eLabel position="0,0" size="1280,720" backgroundColor="layer-a-background" zPosition="-10" />
+		<widget source="Title" render="Label" position="60,34" size="1000,46" font="global_title;34" foregroundColor="layer-a-title-foreground" transparent="1" noWrap="1" />
+		<widget source="global.CurrentTime" render="Label" position="1100,40" size="120,32" font="epg_info;24" foregroundColor="layer-a-foreground" transparent="1" halign="right">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<eLabel position="60,90" size="1160,1" backgroundColor="layer-a-title-foreground" />
+		<panel name="ScreenTemplateAllColorButtons_template1" />
+	</screen>
+	<screen name="AMLAdvanced">
+		<panel name="AMLFrame" />
+		<widget name="list" position="60,110" size="750,490" scrollbarMode="showOnDemand" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="chosenletter" position="60,110" size="750,490" font="epg_text;100" halign="center" valign="center" foregroundColor="layer-a-title-foreground" transparent="1" zPosition="3" />
+		<widget name="waitingtext" position="60,110" size="750,490" font="epg_text;24" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<widget source="MovieBackdrop" render="Pixmap" position="840,110" size="380,214" scaleFlags="centerScaled" alphatest="blend" transparent="1" />
+		<widget source="MoviePoster" render="Pixmap" position="850,120" size="106,159" scaleFlags="centerScaled" alphatest="blend" transparent="1" />
+		<widget source="MovieTitle" render="Label" position="840,338" size="380,62" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieDetails" render="Label" position="840,412" size="380,44" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieDescription" render="Label" position="840,472" size="380,128" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" scrollText="direction=top, startDelay=3000, endDelay=4000, stepDelay=100, stepSize=1, repeat=-1, mode=cached" />
+		<eLabel position="60,616" size="1160,1" backgroundColor="layer-a-title-foreground" />
+	</screen>
+	<screen name="MovieSelectionAdvanced" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent" simpleScreen="MovieSelectionAdvancedSimple" base="MovieSelection" label="Metrix: artwork and information" libraryScreen="MovieLibrarySelection">
+		<panel name="AMLAdvanced" />
+		<widget name="freeDiskSpace" position="820,638" size="400,30" font="epg_text;18" halign="right" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="MovieLibrarySelection" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent" simpleScreen="MovieSelectionAdvancedSimple">
+		<panel name="AMLAdvanced" />
+		<widget source="status" render="Label" position="820,638" size="400,30" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="AMLAdvancedSimple">
+		<panel name="AMLFrame" />
+		<widget name="list" position="60,110" size="750,490" scrollbarMode="showOnDemand" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="chosenletter" position="60,110" size="750,490" font="epg_text;100" halign="center" valign="center" foregroundColor="layer-a-title-foreground" transparent="1" zPosition="3" />
+		<widget name="waitingtext" position="60,110" size="750,490" font="epg_text;24" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<widget source="MovieTitle" render="Label" position="840,110" size="380,62" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieDetails" render="Label" position="840,184" size="380,44" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieDescription" render="Label" position="840,244" size="380,356" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" scrollText="direction=top, startDelay=3000, endDelay=4000, stepDelay=100, stepSize=1, repeat=-1, mode=cached" />
+		<eLabel position="60,616" size="1160,1" backgroundColor="layer-a-title-foreground" />
+	</screen>
+	<screen name="MovieSelectionAdvancedSimple" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="AMLAdvancedSimple" />
+		<widget name="freeDiskSpace" position="820,638" size="400,30" font="epg_text;18" halign="right" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="MovieLibrarySelectionSimple" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="AMLAdvancedSimple" />
+		<widget source="status" render="Label" position="820,638" size="400,30" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="AMLWide">
+		<panel name="AMLFrame" />
+		<widget name="list" position="60,110" size="1160,490" scrollbarMode="showOnDemand" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="chosenletter" position="60,110" size="1160,490" font="epg_text;100" halign="center" valign="center" foregroundColor="layer-a-title-foreground" transparent="1" zPosition="3" />
+		<widget name="waitingtext" position="60,110" size="1160,490" font="epg_text;24" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<eLabel position="60,616" size="1160,1" backgroundColor="layer-a-title-foreground" />
+	</screen>
+	<screen name="MovieSelectionWide" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent" simpleScreen="MovieSelectionWideSimple" base="MovieSelection" label="Metrix: wide movie list" libraryScreen="MovieLibraryWide">
+		<panel name="AMLWide" />
+		<widget name="freeDiskSpace" position="820,638" size="400,30" font="epg_text;18" halign="right" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="MovieLibraryWide" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent" simpleScreen="MovieSelectionWideSimple">
+		<panel name="AMLWide" />
+		<widget source="status" render="Label" position="820,638" size="400,30" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="AMLWideSimple">
+		<panel name="AMLFrame" />
+		<widget name="list" position="60,110" size="1160,490" scrollbarMode="showOnDemand" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="chosenletter" position="60,110" size="1160,490" font="epg_text;100" halign="center" valign="center" foregroundColor="layer-a-title-foreground" transparent="1" zPosition="3" />
+		<widget name="waitingtext" position="60,110" size="1160,490" font="epg_text;24" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<eLabel position="60,616" size="1160,1" backgroundColor="layer-a-title-foreground" />
+	</screen>
+	<screen name="MovieSelectionWideSimple" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="AMLWideSimple" />
+		<widget name="freeDiskSpace" position="820,638" size="400,30" font="epg_text;18" halign="right" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="MovieLibraryWideSimple" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="AMLWideSimple" />
+		<widget source="status" render="Label" position="820,638" size="400,30" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="AMLClassicLeft">
+		<panel name="AMLFrame" />
+		<widget name="list" position="450,110" size="770,490" scrollbarMode="showOnDemand" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="chosenletter" position="450,110" size="770,490" font="epg_text;100" halign="center" valign="center" foregroundColor="layer-a-title-foreground" transparent="1" zPosition="3" />
+		<widget name="waitingtext" position="450,110" size="770,490" font="epg_text;24" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<widget source="MoviePoster" render="Pixmap" position="60,110" size="130,195" scaleFlags="centerScaled" alphatest="blend" transparent="1" />
+		<widget source="MovieTitle" render="Label" position="60,322" size="360,62" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieDetails" render="Label" position="60,396" size="360,44" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieDescription" render="Label" position="60,456" size="360,144" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" scrollText="direction=top, startDelay=3000, endDelay=4000, stepDelay=100, stepSize=1, repeat=-1, mode=cached" />
+		<eLabel position="60,616" size="1160,1" backgroundColor="layer-a-title-foreground" />
+	</screen>
+	<screen name="MovieSelectionClassicLeft" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent" simpleScreen="MovieSelectionClassicLeftSimple" base="MovieSelection" label="Metrix: classic details on the left (EMC)" libraryScreen="MovieLibraryClassicLeft">
+		<panel name="AMLClassicLeft" />
+		<widget name="freeDiskSpace" position="820,638" size="400,30" font="epg_text;18" halign="right" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="MovieLibraryClassicLeft" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent" simpleScreen="MovieSelectionClassicLeftSimple">
+		<panel name="AMLClassicLeft" />
+		<widget source="status" render="Label" position="820,638" size="400,30" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="AMLClassicLeftSimple">
+		<panel name="AMLFrame" />
+		<widget name="list" position="450,110" size="770,490" scrollbarMode="showOnDemand" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="chosenletter" position="450,110" size="770,490" font="epg_text;100" halign="center" valign="center" foregroundColor="layer-a-title-foreground" transparent="1" zPosition="3" />
+		<widget name="waitingtext" position="450,110" size="770,490" font="epg_text;24" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<widget source="MovieTitle" render="Label" position="60,110" size="360,62" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieDetails" render="Label" position="60,184" size="360,44" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieDescription" render="Label" position="60,244" size="360,356" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" scrollText="direction=top, startDelay=3000, endDelay=4000, stepDelay=100, stepSize=1, repeat=-1, mode=cached" />
+		<eLabel position="60,616" size="1160,1" backgroundColor="layer-a-title-foreground" />
+	</screen>
+	<screen name="MovieSelectionClassicLeftSimple" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="AMLClassicLeftSimple" />
+		<widget name="freeDiskSpace" position="820,638" size="400,30" font="epg_text;18" halign="right" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="MovieLibraryClassicLeftSimple" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="AMLClassicLeftSimple" />
+		<widget source="status" render="Label" position="820,638" size="400,30" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="AMLClassicBottom">
+		<panel name="AMLFrame" />
+		<widget name="list" position="60,110" size="1160,310" scrollbarMode="showOnDemand" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="chosenletter" position="60,110" size="1160,310" font="epg_text;100" halign="center" valign="center" foregroundColor="layer-a-title-foreground" transparent="1" zPosition="3" />
+		<widget name="waitingtext" position="60,110" size="1160,310" font="epg_text;24" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<widget source="MoviePoster" render="Pixmap" position="60,438" size="108,162" scaleFlags="centerScaled" alphatest="blend" transparent="1" />
+		<widget source="MovieTitle" render="Label" position="190,438" size="1030,34" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieDetails" render="Label" position="190,482" size="1030,24" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieDescription" render="Label" position="190,522" size="1030,78" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" scrollText="direction=top, startDelay=3000, endDelay=4000, stepDelay=100, stepSize=1, repeat=-1, mode=cached" />
+		<eLabel position="60,616" size="1160,1" backgroundColor="layer-a-title-foreground" />
+	</screen>
+	<screen name="MovieSelectionClassicBottom" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent" simpleScreen="MovieSelectionClassicBottomSimple" base="MovieSelection" label="Metrix: classic details below the list (EMC)" libraryScreen="MovieLibraryClassicBottom">
+		<panel name="AMLClassicBottom" />
+		<widget name="freeDiskSpace" position="820,638" size="400,30" font="epg_text;18" halign="right" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="MovieLibraryClassicBottom" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent" simpleScreen="MovieSelectionClassicBottomSimple">
+		<panel name="AMLClassicBottom" />
+		<widget source="status" render="Label" position="820,638" size="400,30" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="AMLClassicBottomSimple">
+		<panel name="AMLFrame" />
+		<widget name="list" position="60,110" size="1160,310" scrollbarMode="showOnDemand" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="chosenletter" position="60,110" size="1160,310" font="epg_text;100" halign="center" valign="center" foregroundColor="layer-a-title-foreground" transparent="1" zPosition="3" />
+		<widget name="waitingtext" position="60,110" size="1160,310" font="epg_text;24" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<widget source="MovieTitle" render="Label" position="60,438" size="1160,34" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieDetails" render="Label" position="60,482" size="1160,24" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieDescription" render="Label" position="60,522" size="1160,78" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" scrollText="direction=top, startDelay=3000, endDelay=4000, stepDelay=100, stepSize=1, repeat=-1, mode=cached" />
+		<eLabel position="60,616" size="1160,1" backgroundColor="layer-a-title-foreground" />
+	</screen>
+	<screen name="MovieSelectionClassicBottomSimple" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="AMLClassicBottomSimple" />
+		<widget name="freeDiskSpace" position="820,638" size="400,30" font="epg_text;18" halign="right" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="MovieLibraryClassicBottomSimple" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="AMLClassicBottomSimple" />
+		<widget source="status" render="Label" position="820,638" size="400,30" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="AMLClassicLeftPreview">
+		<panel name="AMLFrame" />
+		<widget name="list" position="450,110" size="770,490" scrollbarMode="showOnDemand" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="chosenletter" position="450,110" size="770,490" font="epg_text;100" halign="center" valign="center" foregroundColor="layer-a-title-foreground" transparent="1" zPosition="3" />
+		<widget name="waitingtext" position="450,110" size="770,490" font="epg_text;24" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<widget source="session.VideoPicture" render="Pig" position="60,110" size="360,203" zPosition="1" />
+		<widget source="MoviePoster" render="Pixmap" position="60,328" size="100,150" scaleFlags="centerScaled" alphatest="blend" transparent="1" />
+		<widget source="MovieTitle" render="Label" position="174,328" size="246,60" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieDetails" render="Label" position="174,400" size="246,68" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieDescription" render="Label" position="60,488" size="360,112" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" scrollText="direction=top, startDelay=3000, endDelay=4000, stepDelay=100, stepSize=1, repeat=-1, mode=cached" />
+		<eLabel position="60,616" size="1160,1" backgroundColor="layer-a-title-foreground" />
+	</screen>
+	<screen name="MovieSelectionClassicLeftPreview" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent" simpleScreen="MovieSelectionClassicLeftPreviewSimple" base="MovieSelection" label="Metrix: classic left preview (EMC)" libraryScreen="MovieLibraryClassicLeftPreview">
+		<panel name="AMLClassicLeftPreview" />
+		<widget name="freeDiskSpace" position="820,638" size="400,30" font="epg_text;18" halign="right" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="MovieLibraryClassicLeftPreview" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent" simpleScreen="MovieSelectionClassicLeftPreviewSimple">
+		<panel name="AMLClassicLeftPreview" />
+		<widget source="status" render="Label" position="820,638" size="400,30" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="AMLClassicLeftPreviewSimple">
+		<panel name="AMLFrame" />
+		<widget name="list" position="450,110" size="770,490" scrollbarMode="showOnDemand" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="chosenletter" position="450,110" size="770,490" font="epg_text;100" halign="center" valign="center" foregroundColor="layer-a-title-foreground" transparent="1" zPosition="3" />
+		<widget name="waitingtext" position="450,110" size="770,490" font="epg_text;24" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<widget source="session.VideoPicture" render="Pig" position="60,110" size="360,203" zPosition="1" />
+		<widget source="MovieTitle" render="Label" position="60,328" size="360,60" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieDetails" render="Label" position="60,400" size="360,68" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieDescription" render="Label" position="60,488" size="360,112" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" scrollText="direction=top, startDelay=3000, endDelay=4000, stepDelay=100, stepSize=1, repeat=-1, mode=cached" />
+		<eLabel position="60,616" size="1160,1" backgroundColor="layer-a-title-foreground" />
+	</screen>
+	<screen name="MovieSelectionClassicLeftPreviewSimple" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="AMLClassicLeftPreviewSimple" />
+		<widget name="freeDiskSpace" position="820,638" size="400,30" font="epg_text;18" halign="right" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="MovieLibraryClassicLeftPreviewSimple" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="AMLClassicLeftPreviewSimple" />
+		<widget source="status" render="Label" position="820,638" size="400,30" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="AMLClassicBottomPreview">
+		<panel name="AMLFrame" />
+		<widget name="list" position="60,110" size="1160,286" scrollbarMode="showOnDemand" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="chosenletter" position="60,110" size="1160,286" font="epg_text;100" halign="center" valign="center" foregroundColor="layer-a-title-foreground" transparent="1" zPosition="3" />
+		<widget name="waitingtext" position="60,110" size="1160,286" font="epg_text;24" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<widget source="session.VideoPicture" render="Pig" position="60,426" size="310,174" zPosition="1" />
+		<widget source="MoviePoster" render="Pixmap" position="390,438" size="108,162" scaleFlags="centerScaled" alphatest="blend" transparent="1" />
+		<widget source="MovieTitle" render="Label" position="520,438" size="700,34" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieDetails" render="Label" position="520,482" size="700,24" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieDescription" render="Label" position="520,522" size="700,78" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" scrollText="direction=top, startDelay=3000, endDelay=4000, stepDelay=100, stepSize=1, repeat=-1, mode=cached" />
+		<eLabel position="60,616" size="1160,1" backgroundColor="layer-a-title-foreground" />
+	</screen>
+	<screen name="MovieSelectionClassicBottomPreview" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent" simpleScreen="MovieSelectionClassicBottomPreviewSimple" base="MovieSelection" label="Metrix: classic bottom preview (EMC)" libraryScreen="MovieLibraryClassicBottomPreview">
+		<panel name="AMLClassicBottomPreview" />
+		<widget name="freeDiskSpace" position="820,638" size="400,30" font="epg_text;18" halign="right" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="MovieLibraryClassicBottomPreview" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent" simpleScreen="MovieSelectionClassicBottomPreviewSimple">
+		<panel name="AMLClassicBottomPreview" />
+		<widget source="status" render="Label" position="820,638" size="400,30" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="AMLClassicBottomPreviewSimple">
+		<panel name="AMLFrame" />
+		<widget name="list" position="60,110" size="1160,286" scrollbarMode="showOnDemand" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="chosenletter" position="60,110" size="1160,286" font="epg_text;100" halign="center" valign="center" foregroundColor="layer-a-title-foreground" transparent="1" zPosition="3" />
+		<widget name="waitingtext" position="60,110" size="1160,286" font="epg_text;24" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<widget source="session.VideoPicture" render="Pig" position="60,426" size="310,174" zPosition="1" />
+		<widget source="MovieTitle" render="Label" position="390,438" size="830,34" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieDetails" render="Label" position="390,482" size="830,24" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieDescription" render="Label" position="390,522" size="830,78" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" scrollText="direction=top, startDelay=3000, endDelay=4000, stepDelay=100, stepSize=1, repeat=-1, mode=cached" />
+		<eLabel position="60,616" size="1160,1" backgroundColor="layer-a-title-foreground" />
+	</screen>
+	<screen name="MovieSelectionClassicBottomPreviewSimple" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="AMLClassicBottomPreviewSimple" />
+		<widget name="freeDiskSpace" position="820,638" size="400,30" font="epg_text;18" halign="right" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="MovieLibraryClassicBottomPreviewSimple" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="AMLClassicBottomPreviewSimple" />
+		<widget source="status" render="Label" position="820,638" size="400,30" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="AMLOverview">
+		<panel name="AMLFrame" />
+		<widget name="list" position="340,110" size="880,310" scrollbarMode="showOnDemand" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="chosenletter" position="340,110" size="880,310" font="epg_text;100" halign="center" valign="center" foregroundColor="layer-a-title-foreground" transparent="1" zPosition="3" />
+		<widget name="waitingtext" position="340,110" size="880,310" font="epg_text;24" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<widget source="MoviePoster" render="Pixmap" position="60,110" size="245,310" scaleFlags="centerScaled" alphatest="blend" transparent="1" />
+		<widget source="MovieTitle" render="Label" position="60,438" size="1160,34" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieDetails" render="Label" position="60,482" size="1160,24" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieDescription" render="Label" position="60,522" size="1160,78" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" scrollText="direction=top, startDelay=3000, endDelay=4000, stepDelay=100, stepSize=1, repeat=-1, mode=cached" />
+		<eLabel position="60,616" size="1160,1" backgroundColor="layer-a-title-foreground" />
+	</screen>
+	<screen name="MovieSelectionOverview" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent" simpleScreen="MovieSelectionOverviewSimple" base="MovieSelection" label="Metrix: cover overview (AMS)" libraryScreen="MovieLibraryOverview">
+		<panel name="AMLOverview" />
+		<widget name="freeDiskSpace" position="820,638" size="400,30" font="epg_text;18" halign="right" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="MovieLibraryOverview" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent" simpleScreen="MovieSelectionOverviewSimple">
+		<panel name="AMLOverview" />
+		<widget source="status" render="Label" position="820,638" size="400,30" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="AMLOverviewSimple">
+		<panel name="AMLFrame" />
+		<widget name="list" position="60,110" size="1160,310" scrollbarMode="showOnDemand" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="chosenletter" position="60,110" size="1160,310" font="epg_text;100" halign="center" valign="center" foregroundColor="layer-a-title-foreground" transparent="1" zPosition="3" />
+		<widget name="waitingtext" position="60,110" size="1160,310" font="epg_text;24" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<widget source="MovieTitle" render="Label" position="60,438" size="1160,34" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieDetails" render="Label" position="60,482" size="1160,24" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieDescription" render="Label" position="60,522" size="1160,78" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" scrollText="direction=top, startDelay=3000, endDelay=4000, stepDelay=100, stepSize=1, repeat=-1, mode=cached" />
+		<eLabel position="60,616" size="1160,1" backgroundColor="layer-a-title-foreground" />
+	</screen>
+	<screen name="MovieSelectionOverviewSimple" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="AMLOverviewSimple" />
+		<widget name="freeDiskSpace" position="820,638" size="400,30" font="epg_text;18" halign="right" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="MovieLibraryOverviewSimple" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="AMLOverviewSimple" />
+		<widget source="status" render="Label" position="820,638" size="400,30" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="AMLOverviewPreview">
+		<panel name="AMLFrame" />
+		<widget name="list" position="340,110" size="880,310" scrollbarMode="showOnDemand" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="chosenletter" position="340,110" size="880,310" font="epg_text;100" halign="center" valign="center" foregroundColor="layer-a-title-foreground" transparent="1" zPosition="3" />
+		<widget name="waitingtext" position="340,110" size="880,310" font="epg_text;24" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<widget source="session.VideoPicture" render="Pig" position="60,110" size="245,138" zPosition="1" />
+		<widget source="MoviePoster" render="Pixmap" position="60,264" size="90,135" scaleFlags="centerScaled" alphatest="blend" transparent="1" />
+		<widget source="MovieTitle" render="Label" position="164,270" size="140,130" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieTitle" render="Label" position="60,438" size="1160,34" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieDetails" render="Label" position="60,482" size="1160,24" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieDescription" render="Label" position="60,522" size="1160,78" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" scrollText="direction=top, startDelay=3000, endDelay=4000, stepDelay=100, stepSize=1, repeat=-1, mode=cached" />
+		<eLabel position="60,616" size="1160,1" backgroundColor="layer-a-title-foreground" />
+	</screen>
+	<screen name="MovieSelectionOverviewPreview" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent" simpleScreen="MovieSelectionOverviewPreviewSimple" base="MovieSelection" label="Metrix: overview with mini TV (AMS)" libraryScreen="MovieLibraryOverviewPreview">
+		<panel name="AMLOverviewPreview" />
+		<widget name="freeDiskSpace" position="820,638" size="400,30" font="epg_text;18" halign="right" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="MovieLibraryOverviewPreview" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent" simpleScreen="MovieSelectionOverviewPreviewSimple">
+		<panel name="AMLOverviewPreview" />
+		<widget source="status" render="Label" position="820,638" size="400,30" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="AMLOverviewPreviewSimple">
+		<panel name="AMLFrame" />
+		<widget name="list" position="340,110" size="880,310" scrollbarMode="showOnDemand" font="epg_text;20" backgroundColor="layer-a-background" foregroundColor="layer-a-foreground" backgroundColorSelected="layer-a-selection-background" foregroundColorSelected="layer-a-selection-foreground" transparent="1" />
+		<widget name="chosenletter" position="340,110" size="880,310" font="epg_text;100" halign="center" valign="center" foregroundColor="layer-a-title-foreground" transparent="1" zPosition="3" />
+		<widget name="waitingtext" position="340,110" size="880,310" font="epg_text;24" halign="center" valign="center" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" zPosition="2" />
+		<widget source="session.VideoPicture" render="Pig" position="60,110" size="245,138" zPosition="1" />
+		<widget source="MovieTitle" render="Label" position="60,270" size="245,130" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieTitle" render="Label" position="60,438" size="1160,34" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieDetails" render="Label" position="60,482" size="1160,24" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieDescription" render="Label" position="60,522" size="1160,78" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" scrollText="direction=top, startDelay=3000, endDelay=4000, stepDelay=100, stepSize=1, repeat=-1, mode=cached" />
+		<eLabel position="60,616" size="1160,1" backgroundColor="layer-a-title-foreground" />
+	</screen>
+	<screen name="MovieSelectionOverviewPreviewSimple" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="AMLOverviewPreviewSimple" />
+		<widget name="freeDiskSpace" position="820,638" size="400,30" font="epg_text;18" halign="right" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="MovieLibraryOverviewPreviewSimple" position="0,0" size="1280,720" title="Advance Movie List" flags="wfNoBorder" backgroundColor="transparent">
+		<panel name="AMLOverviewPreviewSimple" />
+		<widget source="status" render="Label" position="820,638" size="400,30" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+		<widget source="MovieSelectionStatus" render="Label" position="60,680" size="1160,26" font="epg_info;18" foregroundColor="layer-a-foreground" transparent="1" halign="right" />
+	</screen>
+	<screen name="AMLDetailsCinema">
+		<panel name="AMLFrame" />
+		<widget source="MovieBackdrop" render="Pixmap" position="0,0" size="1280,720" scaleFlags="centerScaled" alphatest="blend" transparent="1" zPosition="-9" />
+		<eLabel name="AMLBackdropShade" backgroundColor="#66000000,#66000000,horizontal,on" position="0,0" size="1280,720" zPosition="-8" />
+		<widget source="MoviePoster" render="Pixmap" position="60,134" size="230,345" scaleFlags="centerScaled" alphatest="blend" transparent="1" />
+		<widget source="MovieTitle" render="Label" position="330,116" size="890,70" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieDetails" render="Label" position="330,202" size="890,52" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="pageTitle" render="Label" position="330,274" size="890,30" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="details" position="330,316" size="890,284" font="epg_info;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" scrollbarMode="showOnDemand" />
+	</screen>
+	<screen name="AMLDetailsSplit">
+		<panel name="AMLFrame" />
+		<widget source="MoviePoster" render="Pixmap" position="60,134" size="230,345" scaleFlags="centerScaled" alphatest="blend" transparent="1" />
+		<widget source="MovieTitle" render="Label" position="330,116" size="890,70" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieDetails" render="Label" position="330,202" size="890,52" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="pageTitle" render="Label" position="330,274" size="890,30" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="details" position="330,316" size="890,284" font="epg_info;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" scrollbarMode="showOnDemand" />
+	</screen>
+	<screen name="MovieDetailsSimple" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent" title="Advance Movie List">
+		<panel name="AMLFrame" />
+		<widget source="MovieTitle" render="Label" position="60,116" size="1160,70" font="epg_event;26" foregroundColor="layer-a-title-foreground" transparent="1" />
+		<widget source="MovieDetails" render="Label" position="60,202" size="1160,52" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget source="pageTitle" render="Label" position="60,274" size="1160,30" font="epg_info;20" foregroundColor="layer-a-foreground" transparent="1" />
+		<widget name="details" position="60,316" size="1160,284" font="epg_info;22" foregroundColor="layer-a-foreground" backgroundColor="layer-a-background" transparent="1" scrollbarMode="showOnDemand" />
+	</screen>
+	<screen name="MovieDetails" simpleScreen="MovieDetailsSimple" position="0,0" size="1280,720" flags="wfNoBorder" backgroundColor="transparent" title="Advance Movie List">
+		<panel name="AMLDetailsCinema" />
+	</screen>
+	<screen name="MoviePlayerClassic" position="40,440" size="1200,260" flags="wfNoBorder" backgroundColor="#ff000000" transparent="1" base="MoviePlayer" label="Metrix: Classic movie information bar (EMC)" simpleScreen="MoviePlayerClassicSimple">
+		<eLabel position="0,80" size="1200,180" backgroundColor="infobarbackground" zPosition="-1" />
+		<widget source="MovieTitle" render="Label" position="196,92" size="824,34" font="infobar_text;26" noWrap="1" transparent="1" foregroundColor="infobarfont1" />
+		<widget source="global.CurrentTime" render="Label" position="1040,94" size="140,30" font="infobar_text;24" halign="right" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<eLabel position="196,136" size="984,1" backgroundColor="#606060" />
+		<widget source="MovieDetails" render="Label" position="196,145" size="504,24" font="infobar_text;18" foregroundColor="infobaraccent1" noWrap="1" transparent="1" />
+		<eLabel text="Playback Time:" position="720,145" size="136,24" font="infobar_text;16" foregroundColor="infobaraccent1" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="856,145" size="92,24" font="infobar_text;18" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">Length,ShowHours</convert>
+		</widget>
+		<eLabel text="End time" position="960,145" size="130,24" font="infobar_text;18" foregroundColor="infobaraccent1" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="1090,145" size="90,24" font="infobar_text;18" halign="right" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">EndTime,ShowNoSeconds</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="196,183" size="120,28" font="infobar_text;22" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">Position,ShowHours</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Progress" position="336,194" size="704,6" borderWidth="0" backgroundColor="infobaraccent1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="1060,183" size="120,28" font="infobar_text;22" halign="right" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">Remaining,Negate,ShowHours</convert>
+		</widget>
+		<widget name="statusicon" position="196,226" size="20,20" alphatest="blend" pixmaps="skin_default/icons/play.png,skin_default/icons/pause.png,skin_default/icons/stop.png,skin_default/icons/forward.png,skin_default/icons/backward.png,skin_default/icons/slow.png,skin_default/icons/blank.png" />
+		<widget name="speed" position="226,223" size="76,28" font="infobar_text;20" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="312,223" size="238,28" font="infobar_text;18" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="TrackInfo">Audio</convert>
+		</widget>
+		<ePixmap pixmap="skin_default/icons/ico_sub_off.png" position="566,226" size="28,20" alphatest="blend" />
+		<widget source="session.CurrentService" render="Label" position="606,223" size="210,28" font="infobar_text;18" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="TrackInfo">Subtitle</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="830,223" size="100,28" font="infobar_text;18" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="PliExtraInfo">VideoCodec</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="940,223" size="240,28" font="infobar_text;18" halign="right" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="PliExtraInfo">ResolutionString</convert>
+		</widget>
+		<panel name="AMLPlayerArtwork" />
+	</screen>
+	<screen name="MoviePlayerAdvanced" position="40,400" size="1200,300" flags="wfNoBorder" backgroundColor="#ff000000" transparent="1" base="MoviePlayer" label="Metrix: Movie information bar" simpleScreen="MoviePlayerAdvancedSimple">
+		<eLabel position="0,80" size="1200,220" backgroundColor="infobarbackground" zPosition="-1" />
+		<widget source="MovieTitle" render="Label" position="196,92" size="824,34" font="infobar_text;26" noWrap="1" transparent="1" foregroundColor="infobarfont1" />
+		<widget source="global.CurrentTime" render="Label" position="1040,94" size="140,30" font="infobar_text;24" halign="right" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<eLabel position="196,136" size="984,1" backgroundColor="#606060" />
+		<widget source="MovieDetails" render="Label" position="196,145" size="504,24" font="infobar_text;18" foregroundColor="infobaraccent1" noWrap="1" transparent="1" />
+		<eLabel text="Playback Time:" position="720,145" size="136,24" font="infobar_text;16" foregroundColor="infobaraccent1" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="856,145" size="92,24" font="infobar_text;18" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">Length,ShowHours</convert>
+		</widget>
+		<eLabel text="End time" position="960,145" size="130,24" font="infobar_text;18" foregroundColor="infobaraccent1" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="1090,145" size="90,24" font="infobar_text;18" halign="right" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">EndTime,ShowNoSeconds</convert>
+		</widget>
+		<widget source="MovieDescription" render="Label" position="196,174" size="984,34" font="infobar_text;20" scrollText="direction=top, startDelay=3000, endDelay=4000, stepDelay=100, stepSize=1, repeat=-1, mode=cached" transparent="1" foregroundColor="infobarfont1" />
+		<widget source="session.CurrentService" render="Label" position="196,223" size="120,28" font="infobar_text;22" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">Position,ShowHours</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Progress" position="336,234" size="704,6" borderWidth="0" backgroundColor="infobaraccent1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="1060,223" size="120,28" font="infobar_text;22" halign="right" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">Remaining,Negate,ShowHours</convert>
+		</widget>
+		<widget name="statusicon" position="196,266" size="20,20" alphatest="blend" pixmaps="skin_default/icons/play.png,skin_default/icons/pause.png,skin_default/icons/stop.png,skin_default/icons/forward.png,skin_default/icons/backward.png,skin_default/icons/slow.png,skin_default/icons/blank.png" />
+		<widget name="speed" position="226,263" size="76,28" font="infobar_text;20" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="312,263" size="238,28" font="infobar_text;18" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="TrackInfo">Audio</convert>
+		</widget>
+		<ePixmap pixmap="skin_default/icons/ico_sub_off.png" position="566,266" size="28,20" alphatest="blend" />
+		<widget source="session.CurrentService" render="Label" position="606,263" size="210,28" font="infobar_text;18" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="TrackInfo">Subtitle</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="830,263" size="100,28" font="infobar_text;18" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="PliExtraInfo">VideoCodec</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="940,263" size="240,28" font="infobar_text;18" halign="right" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="PliExtraInfo">ResolutionString</convert>
+		</widget>
+		<panel name="AMLPlayerArtwork" />
+	</screen>
+	<screen name="MoviePlayerClassicSimple" position="40,520" size="1200,180" flags="wfNoBorder" backgroundColor="#ff000000" transparent="1">
+		<eLabel position="0,0" size="1200,180" backgroundColor="infobarbackground" zPosition="-1" />
+		<widget source="MovieTitle" render="Label" position="20,12" size="1000,34" font="infobar_text;26" noWrap="1" transparent="1" foregroundColor="infobarfont1" />
+		<widget source="global.CurrentTime" render="Label" position="1040,14" size="140,30" font="infobar_text;24" halign="right" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<eLabel position="20,56" size="1160,1" backgroundColor="#606060" />
+		<widget source="MovieDetails" render="Label" position="20,65" size="680,24" font="infobar_text;18" foregroundColor="infobaraccent1" noWrap="1" transparent="1" />
+		<eLabel text="Playback Time:" position="720,65" size="136,24" font="infobar_text;16" foregroundColor="infobaraccent1" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="856,65" size="92,24" font="infobar_text;18" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">Length,ShowHours</convert>
+		</widget>
+		<eLabel text="End time" position="960,65" size="130,24" font="infobar_text;18" foregroundColor="infobaraccent1" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="1090,65" size="90,24" font="infobar_text;18" halign="right" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">EndTime,ShowNoSeconds</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="20,103" size="120,28" font="infobar_text;22" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">Position,ShowHours</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Progress" position="160,114" size="880,6" borderWidth="0" backgroundColor="infobaraccent1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="1060,103" size="120,28" font="infobar_text;22" halign="right" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">Remaining,Negate,ShowHours</convert>
+		</widget>
+		<widget name="statusicon" position="20,146" size="20,20" alphatest="blend" pixmaps="skin_default/icons/play.png,skin_default/icons/pause.png,skin_default/icons/stop.png,skin_default/icons/forward.png,skin_default/icons/backward.png,skin_default/icons/slow.png,skin_default/icons/blank.png" />
+		<widget name="speed" position="50,143" size="76,28" font="infobar_text;20" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="136,143" size="414,28" font="infobar_text;18" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="TrackInfo">Audio</convert>
+		</widget>
+		<ePixmap pixmap="skin_default/icons/ico_sub_off.png" position="566,146" size="28,20" alphatest="blend" />
+		<widget source="session.CurrentService" render="Label" position="606,143" size="210,28" font="infobar_text;18" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="TrackInfo">Subtitle</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="830,143" size="100,28" font="infobar_text;18" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="PliExtraInfo">VideoCodec</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="940,143" size="240,28" font="infobar_text;18" halign="right" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="PliExtraInfo">ResolutionString</convert>
+		</widget>
+	</screen>
+	<screen name="MoviePlayerAdvancedSimple" position="40,480" size="1200,220" flags="wfNoBorder" backgroundColor="#ff000000" transparent="1">
+		<eLabel position="0,0" size="1200,220" backgroundColor="infobarbackground" zPosition="-1" />
+		<widget source="MovieTitle" render="Label" position="20,12" size="1000,34" font="infobar_text;26" noWrap="1" transparent="1" foregroundColor="infobarfont1" />
+		<widget source="global.CurrentTime" render="Label" position="1040,14" size="140,30" font="infobar_text;24" halign="right" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ClockToText">Default</convert>
+		</widget>
+		<eLabel position="20,56" size="1160,1" backgroundColor="#606060" />
+		<widget source="MovieDetails" render="Label" position="20,65" size="680,24" font="infobar_text;18" foregroundColor="infobaraccent1" noWrap="1" transparent="1" />
+		<eLabel text="Playback Time:" position="720,65" size="136,24" font="infobar_text;16" foregroundColor="infobaraccent1" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="856,65" size="92,24" font="infobar_text;18" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">Length,ShowHours</convert>
+		</widget>
+		<eLabel text="End time" position="960,65" size="130,24" font="infobar_text;18" foregroundColor="infobaraccent1" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="1090,65" size="90,24" font="infobar_text;18" halign="right" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">EndTime,ShowNoSeconds</convert>
+		</widget>
+		<widget source="MovieDescription" render="Label" position="20,94" size="1160,34" font="infobar_text;20" scrollText="direction=top, startDelay=3000, endDelay=4000, stepDelay=100, stepSize=1, repeat=-1, mode=cached" transparent="1" foregroundColor="infobarfont1" />
+		<widget source="session.CurrentService" render="Label" position="20,143" size="120,28" font="infobar_text;22" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">Position,ShowHours</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Progress" position="160,154" size="880,6" borderWidth="0" backgroundColor="infobaraccent1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">Position</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="1060,143" size="120,28" font="infobar_text;22" halign="right" transparent="1" foregroundColor="infobarfont1">
+			<convert type="ServicePosition">Remaining,Negate,ShowHours</convert>
+		</widget>
+		<widget name="statusicon" position="20,186" size="20,20" alphatest="blend" pixmaps="skin_default/icons/play.png,skin_default/icons/pause.png,skin_default/icons/stop.png,skin_default/icons/forward.png,skin_default/icons/backward.png,skin_default/icons/slow.png,skin_default/icons/blank.png" />
+		<widget name="speed" position="50,183" size="76,28" font="infobar_text;20" transparent="1" />
+		<widget source="session.CurrentService" render="Label" position="136,183" size="414,28" font="infobar_text;18" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="TrackInfo">Audio</convert>
+		</widget>
+		<ePixmap pixmap="skin_default/icons/ico_sub_off.png" position="566,186" size="28,20" alphatest="blend" />
+		<widget source="session.CurrentService" render="Label" position="606,183" size="210,28" font="infobar_text;18" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="TrackInfo">Subtitle</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="830,183" size="100,28" font="infobar_text;18" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="PliExtraInfo">VideoCodec</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="940,183" size="240,28" font="infobar_text;18" halign="right" noWrap="1" transparent="1" foregroundColor="infobarfont1">
+			<convert type="PliExtraInfo">ResolutionString</convert>
+		</widget>
+	</screen>
+	<screen name="AMLPlayerArtwork">
+		<widget source="MoviePoster" render="Pixmap" position="20,0" size="156,234" scaleFlags="centerScaled" alphatest="blend" transparent="1" />
+	</screen>
+	<screen name="AMLNativePlayerArtwork">
+		<widget source="MoviePoster" render="Pixmap" position="44,578" size="96,136" scaleFlags="centerScaled" alphatest="blend" transparent="1" />
+	</screen>
+	<!-- AML screens END -->
 </skin>

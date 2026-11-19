@@ -22,22 +22,17 @@ from __future__ import division
 
 from datetime import datetime
 from math import floor, sqrt
-from os import remove, statvfs, listdir, mkdir, unlink, symlink, rename
-from os.path import exists, getsize, isdir, isfile, islink, join as pathjoin, realpath
-from re import sub, match, findall
-from shutil import move, copy, rmtree
+from os import listdir, mkdir, remove, rename, statvfs, symlink, unlink
+from os.path import exists, getsize, isdir, isfile, islink, join, realpath
+from re import findall, match, sub
+from shutil import copy, move, rmtree
 from time import time
-
-from PIL import Image, ImageFont, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 
 from Components.config import config, configfile
 from Components.NimManager import nimmanager
 
-from enigma import getDesktop
-from Components.SystemInfo import BoxInfo
-from skin import colors, reloadWindowStyles, parseColor, parameters
-
-from . import _, initColorsConfig, initWeatherConfig, initOtherConfig, initFontsConfig, appendSkinFile
+from . import _, appendSkinFile, initColorsConfig, initFontsConfig, initOtherConfig, initWeatherConfig
 
 
 #############################################################
@@ -333,6 +328,13 @@ class ActivateSkinSettings:
 			################
 
 			moviePlayerSkinSearchAndReplace = []
+			amlShade = config.plugins.MyMetrixLiteOther.amlBackdropShade.value
+			moviePlayerSkinSearchAndReplace.append(['name="AMLBackdropShade" backgroundColor="#66000000,#66000000,horizontal,on"', f'name="AMLBackdropShade" backgroundColor="#{amlShade}000000,#{amlShade}000000,horizontal,on"'])
+			if config.plugins.MyMetrixLiteOther.amlDetailStyle.value == "split":
+				moviePlayerSkinSearchAndReplace.append(['<panel name="AMLDetailsCinema" />', '<panel name="AMLDetailsSplit" />'])
+			if not config.plugins.MyMetrixLiteOther.amlPlayerArtwork.value:
+				moviePlayerSkinSearchAndReplace.append(['<panel name="AMLPlayerArtwork" />', ''])
+				moviePlayerSkinSearchAndReplace.append(['<panel name="AMLNativePlayerArtwork" />', ''])
 
 			if config.plugins.MyMetrixLiteOther.showSTBinfoMoviePlayer.getValue() is True:
 				if config.plugins.MyMetrixLiteOther.InfoBarMoviePlayerDesign.getValue() == "1":
@@ -377,6 +379,7 @@ class ActivateSkinSettings:
 
 			if config.plugins.MyMetrixLiteOther.movielistStyle.value == 'right':
 				moviePlayerSkinSearchAndReplace.append(['<panel name="MovieSelection_left"/>', '<panel name="MovieSelection_right"/>'])
+				moviePlayerSkinSearchAndReplace.append(['<panel name="MovieSelectionAdvanced" />', '<panel name="MovieSelectionClassicLeft" />'])
 
 			skin_lines = appendSkinFile(SKIN_MOVIEPLAYER_SOURCE, moviePlayerSkinSearchAndReplace)
 
@@ -1248,7 +1251,7 @@ class ActivateSkinSettings:
 				enabled = False
 				partname = partpath = ''
 				for file in listdir(skinpartdir + skinpart):
-					filepath = pathjoin(skinpartdir + skinpart, file)
+					filepath = join(skinpartdir + skinpart, file)
 					if not isfile(filepath):
 						continue
 					if file == skinpart + '.xml':
@@ -1549,12 +1552,12 @@ class ActivateSkinSettings:
 		if not isdir(dpath):
 			return
 		for x in listdir(dpath):
-			dest = pathjoin(dpath, x)
+			dest = join(dpath, x)
 			if islink(dest):
 				unlink(dest)
 		for x in listdir(dpath):
-			src = pathjoin(dpath, x)
-			dest = pathjoin(dpath, x[1:-3])
+			src = join(dpath, x)
+			dest = join(dpath, x[1:-3])
 			if x.startswith('.') and x.endswith('_hd') and not exists(dest):
 				rename(src, dest)
 
@@ -1564,9 +1567,9 @@ class ActivateSkinSettings:
 		for x in listdir(spath):
 			if x == "Plugins":  # folder is current placeholder for unused icons
 				continue
-			src = pathjoin(spath, x)
-			dest = pathjoin(dpath, x)
-			hd = pathjoin(dpath, '.' + x + '_hd')
+			src = join(spath, x)
+			dest = join(dpath, x)
+			hd = join(dpath, '.' + x + '_hd')
 			#if target == 'FHD' and x == 'emc' and int(config.plugins.MyMetrixLiteOther.showEMCSelectionRows.value) > 3:  # TODO What's this ?
 			#	continue
 			if exists(dest) and not exists(hd):

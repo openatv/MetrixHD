@@ -243,4 +243,86 @@
 			<text index="TitleP" position="48,222" size="136,16" font="3" foregroundColor="layer-a-channelselection-primetime" foregroundColorSelected="layer-a-channelselection-primetime-selected" verticalAlignment="center" wrap="ellipsis" serviceNotAvailColor="layer-a-channelselection-primetime" serviceNotAvailColorSelected="layer-a-channelselection-primetime-selected" fallbackColor="layer-a-channelselection-primetime" fallbackColorSelected="layer-a-channelselection-primetime-selected"/>
 		</mode>
 	</template>
+	<!-- AML templates BEGIN -->
+	<template resolution="1280,720" component="movieList" name="compact" fonts="epg_info;20,epg_info;16" itemHeight="36" label="Metrix: compact list">
+		<text index="Title" position="8,0" size="e*0.55-16,36" font="0" verticalAlignment="center" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="Status" position="e*0.55,0" size="e*0.2-8,36" font="1" verticalAlignment="center" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="Date" position="e*0.75,0" size="e*0.25-8,36" font="1" horizontalAlignment="right" verticalAlignment="center" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+	</template>
+	<template resolution="1280,720" component="movieList" name="detailed" fonts="epg_info;22,epg_info;16" itemHeight="88" label="Metrix: information list">
+		<text index="Title" position="8,2" size="e*0.68-16,28" font="0" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="ServiceName" position="e*0.68,6" size="e*0.32-8,24" font="1" horizontalAlignment="right" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="Description" position="8,32" size="e-16,24" font="1" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="Status" position="8,60" size="e*0.25-16,22" font="1" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="FileInfo" position="e*0.25,60" size="e*0.4-8,22" font="1" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="Date" position="e*0.65,60" size="e*0.35-8,22" font="1" horizontalAlignment="right" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<progress index="Progress" position="8,85" size="e-16,3" foregroundColor="infobarprogress" foregroundColorSelected="layer-a-selection-foreground" />
+	</template>
+	<template resolution="1280,720" component="movieList" name="tiles" fonts="epg_info;20,epg_info;15" orientation="grid" itemWidth="210" itemHeight="150" label="Metrix: tiles">
+		<rectangle position="4,4" size="e-8,e-8" borderWidth="1" borderColor="layer-a-foreground" borderColorSelected="layer-a-selection-foreground" cornerRadius="8" />
+		<text index="FileInfo" position="12,10" size="e-24,22" font="1" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="Title" position="12,36" size="e-24,54" font="0" wrap="on" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="Status" position="12,94" size="e-24,22" font="1" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="Date" position="12,118" size="e-24,22" font="1" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<progress index="Progress" position="12,143" size="e-24,3" foregroundColor="infobarprogress" foregroundColorSelected="layer-a-selection-foreground" />
+	</template>
+	<template resolution="1280,720" component="movieList" name="tilesLarge" fonts="epg_info;24,epg_info;16" orientation="grid" itemWidth="280" itemHeight="180" label="Metrix: large tiles">
+		<rectangle position="4,4" size="e-8,e-8" borderWidth="1" borderColor="layer-a-foreground" borderColorSelected="layer-a-selection-foreground" cornerRadius="8" />
+		<text index="FileInfo" position="14,12" size="e-28,24" font="1" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="Title" position="14,42" size="e-28,54" font="0" wrap="on" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="Description" position="14,100" size="e-28,30" font="1" wrap="on" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="Status" position="14,132" size="e-28,20" font="1" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="Date" position="14,154" size="e-28,20" font="1" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<progress index="Progress" position="14,175" size="e-28,3" foregroundColor="infobarprogress" foregroundColorSelected="layer-a-selection-foreground" />
+	</template>
+	<template resolution="1280,720" component="movieList" name="posters" fonts="epg_info;20,epg_info;15" orientation="grid" itemWidth="180" itemHeight="244" label="Metrix: poster grid">
+		<mode name="default">
+			<rectangle position="4,4" size="e-8,e-8" borderWidth="1" borderColor="layer-a-foreground" borderColorSelected="layer-a-selection-foreground" cornerRadius="6" />
+			<pixmap index="Poster" position="10,10" size="e-20,150" scale="centerScaled" alpha="blend" />
+			<text index="Title" position="10,162" size="e-20,54" font="0" wrap="on" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+			<text index="Status" position="10,218" size="e-20,20" font="1" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+			<progress index="Progress" position="10,239" size="e-20,3" foregroundColor="infobarprogress" foregroundColorSelected="layer-a-selection-foreground" />
+		</mode>
+		<mode name="episodes" itemWidth="280" itemHeight="240">
+			<rectangle position="4,4" size="e-8,e-8" borderWidth="1" borderColor="layer-a-foreground" borderColorSelected="layer-a-selection-foreground" cornerRadius="6" />
+			<pixmap index="Preview" position="10,10" size="e-20,146" scale="centerScaled" alpha="blend" />
+			<text index="Title" position="10,162" size="e-20,48" font="0" wrap="on" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+			<text index="Status" position="10,212" size="e-20,22" font="1" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+			<progress index="Progress" position="10,235" size="e-20,3" foregroundColor="infobarprogress" foregroundColorSelected="layer-a-selection-foreground" />
+		</mode>
+	</template>
+	<template resolution="1280,720" component="movieList" name="posterList" fonts="epg_info;22,epg_info;16" itemHeight="150" label="Metrix: poster list">
+		<mode name="default">
+			<text index="Kind" position="6,56" size="92,48" font="1" horizontalAlignment="center" wrap="on" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+			<pixmap index="Poster" position="6,4" size="92,138" scale="centerScaled" alpha="blend" />
+			<text index="Title" position="110,4" size="e-120,28" font="0" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+			<text index="Description" position="110,38" size="e-120,65" font="1" wrap="on" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+			<text index="Status" position="110,114" size="e*0.5-120,25" font="1" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+			<text index="Date" position="e*0.5,114" size="e*0.5-10,25" font="1" horizontalAlignment="right" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+			<progress index="Progress" position="110,145" size="e-120,3" foregroundColor="infobarprogress" foregroundColorSelected="layer-a-selection-foreground" />
+		</mode>
+		<mode name="episodes" itemHeight="150">
+			<pixmap index="Preview" position="6,8" size="208,117" scale="centerScaled" alpha="blend" />
+			<text index="Title" position="230,4" size="e-240,28" font="0" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+			<text index="Description" position="230,38" size="e-240,65" font="1" wrap="on" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+			<text index="Status" position="6,128" size="208,22" font="1" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+			<text index="Date" position="230,114" size="e-240,25" font="1" horizontalAlignment="right" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+			<progress index="Progress" position="230,145" size="e-240,3" foregroundColor="infobarprogress" foregroundColorSelected="layer-a-selection-foreground" />
+		</mode>
+	</template>
+	<template resolution="1280,720" component="movieList" name="classic" fonts="epg_info;20,epg_info;16" itemHeight="34" label="Metrix: classic movie list (EMC)">
+		<text index="Title" position="8,0" size="e*0.57-16,34" font="0" verticalAlignment="center" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<progress index="Progress" position="e*0.57,13" size="e*0.1,8" borderWidth="1" foregroundColor="infobarprogress" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="Status" position="e*0.68,0" size="e*0.13-4,34" font="1" verticalAlignment="center" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="Date" position="e*0.81,0" size="e*0.19-8,34" font="1" horizontalAlignment="right" verticalAlignment="center" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+	</template>
+	<template resolution="1280,720" component="movieList" name="classicExtended" fonts="epg_info;20,epg_info;16" itemHeight="58" label="Metrix: classic list with description (EMC)">
+		<text index="Title" position="8,0" size="e*0.57-16,30" font="0" verticalAlignment="center" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<progress index="Progress" position="e*0.57,12" size="e*0.1,8" borderWidth="1" foregroundColor="infobarprogress" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="Status" position="e*0.68,0" size="e*0.13-4,30" font="1" verticalAlignment="center" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="Date" position="e*0.81,0" size="e*0.19-8,30" font="1" horizontalAlignment="right" verticalAlignment="center" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="Description" position="8,30" size="e*0.72-16,25" font="1" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+		<text index="FileInfo" position="e*0.72,30" size="e*0.28-8,25" font="1" horizontalAlignment="right" wrap="ellipsis" foregroundColor="layer-a-foreground" foregroundColorSelected="layer-a-selection-foreground" />
+	</template>
+	<!-- AML templates END -->
 </templates>
